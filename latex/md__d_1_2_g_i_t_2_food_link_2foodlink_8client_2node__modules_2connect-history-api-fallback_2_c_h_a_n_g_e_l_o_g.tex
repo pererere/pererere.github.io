@@ -1,0 +1,39 @@
+\chapter{Changelog}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g}\index{Changelog@{Changelog}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4410}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4410}%
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4411}{}\doxysection{\texorpdfstring{v1.\+6.\+0}{v1.\+6.\+0}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4411}
+
+\begin{DoxyItemize}
+\item Recommend absolute paths for rewrite targets. Contributed by @helfi92.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4412}{}\doxysection{\texorpdfstring{v1.\+5.\+0}{v1.\+5.\+0}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4412}
+
+\begin{DoxyItemize}
+\item Expose the HTTP request object in rewrite rules. Contributed by @\+Vlad\+Shcherbin.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4413}{}\doxysection{\texorpdfstring{v1.\+4.\+0}{v1.\+4.\+0}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4413}
+
+\begin{DoxyItemize}
+\item The {\ttfamily .} (DOT) rule should only check the last path element. Contributed by @ntkme.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4414}{}\doxysection{\texorpdfstring{v1.\+3.\+0}{v1.\+3.\+0}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4414}
+
+\begin{DoxyItemize}
+\item Allow disabling of the {\ttfamily .} (DOT) rule via the {\ttfamily disable\+Dot\+Rule} option.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4415}{}\doxysection{\texorpdfstring{v1.\+2.\+0}{v1.\+2.\+0}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4415}
+
+\begin{DoxyItemize}
+\item Support definition of custom HTML {\ttfamily Accept} header values. Contributed by @cgmartin.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4416}{}\doxysection{\texorpdfstring{v1.\+1.\+0}{v1.\+1.\+0}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4416}
+
+\begin{DoxyItemize}
+\item Rewrite rules are now applied before the request URL is checked for dots.
+\item Rewrite rules can be defined as functions to have greater control over the {\ttfamily dot rule}.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4417}{}\doxysection{\texorpdfstring{v1.\+0.\+0}{v1.\+0.\+0}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2connect-history-api-fallback_2_c_h_a_n_g_e_l_o_g_autotoc_md4417}
+This version introduces a fair amount of breaking changes. Specifically, instances of the history\+Api\+Fallback need to be created via the exported function. Previously, this was not necessary.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Breaking\+:}} Support multiple instances of the history\+Api\+Fallback middleware with different configurations.
+\item {\bfseries{Breaking\+:}} Loggers are configured per history\+Api\+Fallback middleware instance (see {\ttfamily README.\+md}).
+\item The fallback index HTML file can be configured. Default is {\ttfamily /index.html}.
+\item Additional rewrite rules can be defined via regular expressions. 
+\end{DoxyItemize}

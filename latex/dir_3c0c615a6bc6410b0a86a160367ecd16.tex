@@ -1,0 +1,68 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/npm-\/package-\/arg Directory Reference}
+\hypertarget{dir_3c0c615a6bc6410b0a86a160367ecd16}{}\label{dir_3c0c615a6bc6410b0a86a160367ecd16}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/package-\/arg Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/package-\/arg Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://travis-ci.org/npm/npm-package-arg}{\texttt{ }}
+
+Parses package name and specifier passed to commands like {\ttfamily npm install} or {\ttfamily npm cache add}, or as found in {\ttfamily package.\+json} dependency sections.\hypertarget{README.md_autotoc_md15167}{}\doxysubsection{\texorpdfstring{EXAMPLES}{EXAMPLES}}\label{README.md_autotoc_md15167}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ assert\ =\ require("{}assert"{})}
+\DoxyCodeLine{var\ npa\ =\ require("{}npm-\/package-\/arg"{})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Pass\ in\ the\ descriptor,\ and\ it'll\ return\ an\ object}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ var\ parsed\ =\ npa("{}@bar/foo@1.2"{})}
+\DoxyCodeLine{\}\ catch\ (ex)\ \{}
+\DoxyCodeLine{\ \ …}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md15168}{}\doxysubsection{\texorpdfstring{USING}{USING}}\label{README.md_autotoc_md15168}
+`var npa = require(\textquotesingle{}npm-\/package-\/arg')\`{}\hypertarget{README.md_autotoc_md15169}{}\doxysubsubsection{\texorpdfstring{var result = npa({\itshape arg}\mbox{[}, {\itshape where}\mbox{]})}{var result = npa({\itshape arg}\mbox{[}, {\itshape where}\mbox{]})}}\label{README.md_autotoc_md15169}
+
+\begin{DoxyItemize}
+\item {\itshape arg} -\/ a string that you might pass to {\ttfamily npm install}, like\+: {\ttfamily foo@1.\+2}, {\ttfamily @bar/foo@1.\+2}, {\ttfamily foo@user/foo}, {\ttfamily \href{http://x.com/foo.tgz}{\texttt{ http\+://x.\+com/foo.\+tgz}}}, {\ttfamily git+https\+://github.com/user/foo}, {\ttfamily bitbucket\+:user/foo}, {\ttfamily foo.\+tar.\+gz}, {\ttfamily ../foo/bar/} or {\ttfamily bar}. If the {\itshape arg} you provide doesn\textquotesingle{}t have a specifier part, eg {\ttfamily foo} then the specifier will default to {\ttfamily latest}.
+\item {\itshape where} -\/ Optionally the path to resolve file paths relative to. Defaults to {\ttfamily process.\+cwd()}
+\end{DoxyItemize}
+
+{\bfseries{Throws}} if the package name is invalid, a dist-\/tag is invalid or a URL\textquotesingle{}s protocol is not supported.\hypertarget{README.md_autotoc_md15170}{}\doxysubsubsection{\texorpdfstring{var result = npa.\+resolve({\itshape name}, {\itshape spec}\mbox{[}, {\itshape where}\mbox{]})}{var result = npa.\+resolve({\itshape name}, {\itshape spec}\mbox{[}, {\itshape where}\mbox{]})}}\label{README.md_autotoc_md15170}
+
+\begin{DoxyItemize}
+\item {\itshape name} -\/ The name of the module you want to install. For example\+: {\ttfamily foo} or {\ttfamily @bar/foo}.
+\item {\itshape spec} -\/ The specifier indicating where and how you can get this module. Something like\+: {\ttfamily 1.\+2}, {\ttfamily \texorpdfstring{$^\wedge$}{\string^}1.7.\+17}, {\ttfamily \href{http://x.com/foo.tgz}{\texttt{ http\+://x.\+com/foo.\+tgz}}}, {\ttfamily git+https\+://github.com/user/foo}, {\ttfamily bitbucket\+:user/foo}, {\ttfamily \href{file:foo.tar.gz}{\texttt{ file\+:foo.\+tar.\+gz}}} or {\ttfamily \href{file:../foo/bar/}{\texttt{ file\+:../foo/bar/}}}. If not included then the default is {\ttfamily latest}.
+\item {\itshape where} -\/ Optionally the path to resolve file paths relative to. Defaults to {\ttfamily process.\+cwd()}
+\end{DoxyItemize}
+
+{\bfseries{Throws}} if the package name is invalid, a dist-\/tag is invalid or a URL\textquotesingle{}s protocol is not supported.\hypertarget{README.md_autotoc_md15171}{}\doxysubsubsection{\texorpdfstring{var purl = npa.\+to\+Purl({\itshape arg}, {\itshape reg})}{var purl = npa.\+to\+Purl({\itshape arg}, {\itshape reg})}}\label{README.md_autotoc_md15171}
+Returns the \href{https://github.com/package-url/purl-spec}{\texttt{ purl (package URL)}} form of the given package name/spec.
+
+
+\begin{DoxyItemize}
+\item {\itshape arg} -\/ A package/version string. For example\+: {\ttfamily foo@1.\+0.\+0} or {\ttfamily @bar/foo@2.\+0.\+0-\/alpha.\+1}.
+\item {\itshape reg} -\/ Optionally the URL to the package registry. If not specified, assumes the default {\ttfamily \href{https://registry.npmjs.org}{\texttt{ https\+://registry.\+npmjs.\+org}}}.
+\end{DoxyItemize}
+
+{\bfseries{Throws}} if the package name is invalid, or the supplied arg can\textquotesingle{}t be resolved to a purl.\hypertarget{README.md_autotoc_md15172}{}\doxysubsection{\texorpdfstring{RESULT OBJECT}{RESULT OBJECT}}\label{README.md_autotoc_md15172}
+The objects that are returned by npm-\/package-\/arg contain the following keys\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily type} -\/ One of the following strings\+:
+\begin{DoxyItemize}
+\item {\ttfamily git} -\/ A git repo
+\item {\ttfamily tag} -\/ A tagged version, like {\ttfamily "{}foo@latest"{}}
+\item {\ttfamily version} -\/ A specific version number, like {\ttfamily "{}foo@1.\+2.\+3"{}}
+\item {\ttfamily range} -\/ A version range, like {\ttfamily "{}foo@2.\+x"{}}
+\item {\ttfamily file} -\/ A local {\ttfamily .tar.\+gz}, {\ttfamily .tar} or {\ttfamily .tgz} file.
+\item {\ttfamily directory} -\/ A local directory.
+\item {\ttfamily remote} -\/ An http url (presumably to a tgz)
+\item {\ttfamily alias} -\/ A specifier with an alias, like {\ttfamily myalias@npm\+:foo@1.\+2.\+3}
+\end{DoxyItemize}
+\item {\ttfamily registry} -\/ If true this specifier refers to a resource hosted on a registry. This is true for {\ttfamily tag}, {\ttfamily version} and {\ttfamily range} types.
+\item {\ttfamily name} -\/ If known, the {\ttfamily name} field expected in the resulting pkg.
+\item {\ttfamily scope} -\/ If a name is something like {\ttfamily @org/module} then the {\ttfamily scope} field will be set to {\ttfamily @org}. If it doesn\textquotesingle{}t have a scoped name, then scope is {\ttfamily null}.
+\item {\ttfamily escaped\+Name} -\/ A version of {\ttfamily name} escaped to match the npm scoped packages specification. Mostly used when making requests against a registry. When {\ttfamily name} is {\ttfamily null}, {\ttfamily escaped\+Name} will also be {\ttfamily null}.
+\item {\ttfamily raw\+Spec} -\/ The specifier part that was parsed out in calls to {\ttfamily npa(arg)}, or the value of {\ttfamily spec} in calls to {\ttfamily npa.\+resolve(name, spec). \texorpdfstring{$\ast$}{*}}save\+Spec{\ttfamily -\/ The normalized specifier, for saving to package.\+json files. }null{\ttfamily for registry dependencies. \texorpdfstring{$\ast$}{*}}fetch\+Spec{\ttfamily -\/ The version of the specifier to be used to fetch this resource.}null{\ttfamily for shortcuts to hosted git dependencies as there isn\textquotesingle{}t just one URL to try with them. \texorpdfstring{$\ast$}{*}}git\+Range{\ttfamily -\/ If set, this is a semver specifier to match against git tags with \texorpdfstring{$\ast$}{*}}git\+Committish{\ttfamily -\/ If set, this is the specific committish to use with a git dependency. \texorpdfstring{$\ast$}{*}}hosted{\ttfamily -\/ If}from === \textquotesingle{}hosted\textquotesingle{}{\ttfamily then this will be a}hosted-\/git-\/info{\ttfamily  object. This property is not included when serializing the object as JSON. \texorpdfstring{$\ast$}{*}}raw{\ttfamily -\/ The original un-\/modified string that was provided. If called as }npa.\+resolve(name, spec){\ttfamily then this will be}name + \textquotesingle{}@\textquotesingle{} + spec{\ttfamily . \texorpdfstring{$\ast$}{*}}sub\+Spec{\ttfamily -\/ If}type === \textquotesingle{}alias\textquotesingle{}\`{}, this is a Result Object for parsing the target specifier for the alias. 
+\end{DoxyItemize}

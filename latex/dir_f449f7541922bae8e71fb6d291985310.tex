@@ -1,0 +1,39 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/wrappy Directory Reference}
+\hypertarget{dir_f449f7541922bae8e71fb6d291985310}{}\label{dir_f449f7541922bae8e71fb6d291985310}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/wrappy Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/wrappy Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Callback wrapping utility\hypertarget{README.md_autotoc_md22574}{}\doxysubsection{\texorpdfstring{USAGE}{USAGE}}\label{README.md_autotoc_md22574}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ wrappy\ =\ require("{}wrappy"{})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ var\ wrapper\ =\ wrappy(wrapperFunction)}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ make\ sure\ a\ cb\ is\ called\ only\ once}
+\DoxyCodeLine{//\ See\ also:\ http://npm.im/once\ for\ this\ specific\ use\ case}
+\DoxyCodeLine{var\ once\ =\ wrappy(function\ (cb)\ \{}
+\DoxyCodeLine{\ \ var\ called\ =\ false}
+\DoxyCodeLine{\ \ return\ function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ if\ (called)\ return}
+\DoxyCodeLine{\ \ \ \ called\ =\ true}
+\DoxyCodeLine{\ \ \ \ return\ cb.apply(this,\ arguments)}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{function\ printBoo\ ()\ \{}
+\DoxyCodeLine{\ \ console.log('boo')}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{//\ has\ some\ rando\ property}
+\DoxyCodeLine{printBoo.iAmBooPrinter\ =\ true}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ onlyPrintOnce\ =\ once(printBoo)}
+\DoxyCodeLine{}
+\DoxyCodeLine{onlyPrintOnce()\ //\ prints\ 'boo'}
+\DoxyCodeLine{onlyPrintOnce()\ //\ does\ nothing}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ random\ property\ is\ retained!}
+\DoxyCodeLine{assert.equal(onlyPrintOnce.iAmBooPrinter,\ true)}
+
+\end{DoxyCode}
+ 

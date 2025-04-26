@@ -1,0 +1,263 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/webpack/node\+\_\+modules/schema-\/utils Directory Reference}
+\hypertarget{dir_95f3a5688884be3308a395f07fe57842}{}\label{dir_95f3a5688884be3308a395f07fe57842}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/webpack/node\_modules/schema-\/utils Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/webpack/node\_modules/schema-\/utils Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+ \href{http://json-schema.org}{\texttt{  }} \href{https://github.com/webpack/webpack}{\texttt{  }} 
+
+\href{https://npmjs.com/package/schema-utils}{\texttt{ }} \href{https://nodejs.org}{\texttt{ }} \href{https://david-dm.org/webpack/schema-utils}{\texttt{ }} \href{https://github.com/webpack/schema-utils/actions}{\texttt{ }} \href{https://codecov.io/gh/webpack/schema-utils}{\texttt{ }} \href{https://gitter.im/webpack/webpack}{\texttt{ }} \href{https://packagephobia.com/result?p=schema-utils}{\texttt{ }}\hypertarget{README.md_autotoc_md22341}{}\doxysubsection{\texorpdfstring{schema-\/utils}{schema-\/utils}}\label{README.md_autotoc_md22341}
+Package for validate options in loaders and plugins.\hypertarget{README.md_autotoc_md22342}{}\doxysubsubsection{\texorpdfstring{Getting Started}{Getting Started}}\label{README.md_autotoc_md22342}
+To begin, you\textquotesingle{}ll need to install {\ttfamily schema-\/utils}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ schema-\/utils}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22343}{}\doxysubsubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md22343}
+{\bfseries{schema.\+json}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}type"{}:\ "{}object"{},}
+\DoxyCodeLine{\ \ "{}properties"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}option"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}type"{}:\ "{}boolean"{}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ "{}additionalProperties"{}:\ false}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ schema\ from\ "{}./path/to/schema.json"{};}
+\DoxyCodeLine{import\ \{\ validate\ \}\ from\ "{}schema-\/utils"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ options\ =\ \{\ option:\ true\ \};}
+\DoxyCodeLine{const\ configuration\ =\ \{\ name:\ "{}Loader\ Name/Plugin\ Name/Name"{}\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{validate(schema,\ options,\ configuration);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22344}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily schema}}{{\ttfamily schema}}}\label{README.md_autotoc_md22344}
+Type\+: {\ttfamily String}
+
+JSON schema.
+
+Simple example of schema\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}type"{}:\ "{}object"{},}
+\DoxyCodeLine{\ \ "{}properties"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}name"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}description"{}:\ "{}This\ is\ description\ of\ option."{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}type"{}:\ "{}string"{}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ "{}additionalProperties"{}:\ false}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22345}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily options}}{{\ttfamily options}}}\label{README.md_autotoc_md22345}
+Type\+: {\ttfamily Object}
+
+Object with options.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ schema\ from\ "{}./path/to/schema.json"{};}
+\DoxyCodeLine{import\ \{\ validate\ \}\ from\ "{}schema-\/utils"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ options\ =\ \{\ foo:\ "{}bar"{}\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{validate(schema,\ \{\ name:\ 123\ \},\ \{\ name:\ "{}MyPlugin"{}\ \});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22346}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily configuration}}{{\ttfamily configuration}}}\label{README.md_autotoc_md22346}
+Allow to configure validator.
+
+There is an alternative method to configure the {\ttfamily name} and{\ttfamily base\+Data\+Path} options via the {\ttfamily title} property in the schema. For example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}title"{}:\ "{}My\ Loader\ options"{},}
+\DoxyCodeLine{\ \ "{}type"{}:\ "{}object"{},}
+\DoxyCodeLine{\ \ "{}properties"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}name"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}description"{}:\ "{}This\ is\ description\ of\ option."{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}type"{}:\ "{}string"{}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ "{}additionalProperties"{}:\ false}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The last word used for the {\ttfamily base\+Data\+Path} option, other words used for the {\ttfamily name} option. Based on the example above the {\ttfamily name} option equals {\ttfamily My Loader}, the {\ttfamily base\+Data\+Path} option equals {\ttfamily options}.\hypertarget{README.md_autotoc_md22347}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily name}}{{\ttfamily name}}}\label{README.md_autotoc_md22347}
+Type\+: {\ttfamily Object} Default\+: {\ttfamily "{}\+Object"{}}
+
+Allow to setup name in validation errors.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ schema\ from\ "{}./path/to/schema.json"{};}
+\DoxyCodeLine{import\ \{\ validate\ \}\ from\ "{}schema-\/utils"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ options\ =\ \{\ foo:\ "{}bar"{}\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{validate(schema,\ options,\ \{\ name:\ "{}MyPlugin"{}\ \});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Invalid\ configuration\ object.\ MyPlugin\ has\ been\ initialised\ using\ a\ configuration\ object\ that\ does\ not\ match\ the\ API\ schema.}
+\DoxyCodeLine{\ -\/\ configuration.optionName\ should\ be\ a\ integer.}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22348}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily base\+Data\+Path}}{{\ttfamily base\+Data\+Path}}}\label{README.md_autotoc_md22348}
+Type\+: {\ttfamily String} Default\+: {\ttfamily "{}configuration"{}}
+
+Allow to setup base data path in validation errors.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ schema\ from\ "{}./path/to/schema.json"{};}
+\DoxyCodeLine{import\ \{\ validate\ \}\ from\ "{}schema-\/utils"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ options\ =\ \{\ foo:\ "{}bar"{}\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{validate(schema,\ options,\ \{\ name:\ "{}MyPlugin"{},\ baseDataPath:\ "{}options"{}\ \});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Invalid\ options\ object.\ MyPlugin\ has\ been\ initialised\ using\ an\ options\ object\ that\ does\ not\ match\ the\ API\ schema.}
+\DoxyCodeLine{\ -\/\ options.optionName\ should\ be\ a\ integer.}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22349}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily post\+Formatter}}{{\ttfamily post\+Formatter}}}\label{README.md_autotoc_md22349}
+Type\+: {\ttfamily Function} Default\+: {\ttfamily undefined}
+
+Allow to reformat errors.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ schema\ from\ "{}./path/to/schema.json"{};}
+\DoxyCodeLine{import\ \{\ validate\ \}\ from\ "{}schema-\/utils"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ options\ =\ \{\ foo:\ "{}bar"{}\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{validate(schema,\ options,\ \{}
+\DoxyCodeLine{\ \ name:\ "{}MyPlugin"{},}
+\DoxyCodeLine{\ \ postFormatter:\ (formattedError,\ error)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ if\ (error.keyword\ ===\ "{}type"{})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ return\ \`{}\$\{formattedError\}\(\backslash\)nAdditional\ Information.`;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ return\ formattedError;}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Invalid\ options\ object.\ MyPlugin\ has\ been\ initialized\ using\ an\ options\ object\ that\ does\ not\ match\ the\ API\ schema.}
+\DoxyCodeLine{\ -\/\ options.optionName\ should\ be\ a\ integer.}
+\DoxyCodeLine{\ \ \ Additional\ Information.}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22350}{}\doxysubsubsection{\texorpdfstring{Examples}{Examples}}\label{README.md_autotoc_md22350}
+{\bfseries{schema.\+json}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}type"{}:\ "{}object"{},}
+\DoxyCodeLine{\ \ "{}properties"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}name"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}type"{}:\ "{}string"{}}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ "{}test"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}anyOf"{}:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ "{}type"{}:\ "{}array"{}\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ "{}type"{}:\ "{}string"{}\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ "{}instanceof"{}:\ "{}RegExp"{}\ \}}
+\DoxyCodeLine{\ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ "{}transform"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}instanceof"{}:\ "{}Function"{}}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ "{}sourceMap"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}type"{}:\ "{}boolean"{}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ "{}additionalProperties"{}:\ false}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22351}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily Loader}}{{\ttfamily Loader}}}\label{README.md_autotoc_md22351}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ getOptions\ \}\ from\ "{}loader-\/utils"{};}
+\DoxyCodeLine{import\ \{\ validate\ \}\ from\ "{}schema-\/utils"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{import\ schema\ from\ "{}path/to/schema.json"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{function\ loader(src,\ map)\ \{}
+\DoxyCodeLine{\ \ const\ options\ =\ getOptions(this);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ validate(schema,\ options,\ \{}
+\DoxyCodeLine{\ \ \ \ name:\ "{}Loader\ Name"{},}
+\DoxyCodeLine{\ \ \ \ baseDataPath:\ "{}options"{},}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ Code...}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ default\ loader;}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22352}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily Plugin}}{{\ttfamily Plugin}}}\label{README.md_autotoc_md22352}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ validate\ \}\ from\ "{}schema-\/utils"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{import\ schema\ from\ "{}path/to/schema.json"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ Plugin\ \{}
+\DoxyCodeLine{\ \ constructor(options)\ \{}
+\DoxyCodeLine{\ \ \ \ validate(schema,\ options,\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ name:\ "{}Plugin\ Name"{},}
+\DoxyCodeLine{\ \ \ \ \ \ baseDataPath:\ "{}options"{},}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ this.options\ =\ options;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ apply(compiler)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Code...}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ default\ Plugin;}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22353}{}\doxysubsubsection{\texorpdfstring{Contributing}{Contributing}}\label{README.md_autotoc_md22353}
+Please take a moment to read our contributing guidelines if you haven\textquotesingle{}t yet done so.
+
+CONTRIBUTING\hypertarget{README.md_autotoc_md22354}{}\doxysubsubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md22354}
+\href{./LICENSE}{\texttt{ MIT}} 

@@ -1,0 +1,37 @@
+\chapter{empty\+Dir(dir, \mbox{[}callback\mbox{]})}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir}\index{emptyDir(dir, \mbox{[}callback\mbox{]})@{emptyDir(dir, [callback])}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir_autotoc_md8254}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir_autotoc_md8254}%
+
+
+Ensures that a directory is empty. Deletes directory contents if the directory is not empty. If the directory does not exist, it is created. The directory itself is not deleted.
+
+{\bfseries{Alias\+:}} {\ttfamily emptydir()}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily dir} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily callback} {\ttfamily \texorpdfstring{$<$}{<}Function\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir_autotoc_md8255}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir_autotoc_md8255}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ assume\ this\ directory\ has\ a\ lot\ of\ files\ and\ folders}
+\DoxyCodeLine{fs.emptyDir('/tmp/some/dir',\ err\ =>\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ return\ console.error(err)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.log('success!')}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ With\ promises}
+\DoxyCodeLine{fs.emptyDir('/tmp/some/dir')}
+\DoxyCodeLine{.then(()\ =>\ \{}
+\DoxyCodeLine{\ \ console.log('success!')}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{.catch(err\ =>\ \{}
+\DoxyCodeLine{\ \ console.error(err)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,53 @@
+\doxysection{gyp.\+simple\+\_\+copy Namespace Reference}
+\hypertarget{namespacegyp_1_1simple__copy}{}\label{namespacegyp_1_1simple__copy}\index{gyp.simple\_copy@{gyp.simple\_copy}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classgyp_1_1simple__copy_1_1_error}{Error}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacegyp_1_1simple__copy_a3a653abcf47a8146bca8e79c1e024ac8}{deepcopy}} (x)
+\item 
+\Hypertarget{namespacegyp_1_1simple__copy_af4d240fcd7969a064036f9f203443ce7}\label{namespacegyp_1_1simple__copy_af4d240fcd7969a064036f9f203443ce7} 
+{\bfseries \+\_\+deepcopy\+\_\+atomic} (x)
+\item 
+\Hypertarget{namespacegyp_1_1simple__copy_a76e12cb6f445ee6fe0f31cfc5eb00d22}\label{namespacegyp_1_1simple__copy_a76e12cb6f445ee6fe0f31cfc5eb00d22} 
+{\bfseries \+\_\+deepcopy\+\_\+list} (x)
+\item 
+\Hypertarget{namespacegyp_1_1simple__copy_ada76909036ac9054ef76cca547fd5326}\label{namespacegyp_1_1simple__copy_ada76909036ac9054ef76cca547fd5326} 
+{\bfseries \+\_\+deepcopy\+\_\+dict} (x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespacegyp_1_1simple__copy_ac72c293360872a79bb65d9959a149bd9}\label{namespacegyp_1_1simple__copy_ac72c293360872a79bb65d9959a149bd9} 
+list {\bfseries \+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}"{}Error"{}, "{}deepcopy"{}\mbox{]}
+\item 
+\Hypertarget{namespacegyp_1_1simple__copy_ad68b883a807ed6233323baf22a5d83c8}\label{namespacegyp_1_1simple__copy_ad68b883a807ed6233323baf22a5d83c8} 
+dict {\bfseries \+\_\+deepcopy\+\_\+dispatch} = \{\}
+\item 
+\Hypertarget{namespacegyp_1_1simple__copy_ac1b3dc096fef5f29f50efb8d14d297e1}\label{namespacegyp_1_1simple__copy_ac1b3dc096fef5f29f50efb8d14d297e1} 
+{\bfseries types} = bool, float, int, str, type, type(None)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A clone of the default copy.deepcopy that doesn't handle cyclic
+structures or complex types except for dicts and lists. This is
+because gyp copies so large structure that small copy overhead ends up
+taking seconds in a project the size of Chromium.\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacegyp_1_1simple__copy_a3a653abcf47a8146bca8e79c1e024ac8}\index{gyp.simple\_copy@{gyp.simple\_copy}!deepcopy@{deepcopy}}
+\index{deepcopy@{deepcopy}!gyp.simple\_copy@{gyp.simple\_copy}}
+\doxysubsubsection{\texorpdfstring{deepcopy()}{deepcopy()}}
+{\footnotesize\ttfamily \label{namespacegyp_1_1simple__copy_a3a653abcf47a8146bca8e79c1e024ac8} 
+gyp.\+simple\+\_\+copy.\+deepcopy (\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Deep copy operation on gyp objects such as strings, ints, dicts
+and lists. More than twice as fast as copy.deepcopy but much less
+generic.\end{DoxyVerb}
+ 

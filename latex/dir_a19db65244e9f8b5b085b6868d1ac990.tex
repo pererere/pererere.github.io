@@ -1,0 +1,258 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@fastify/busboy Directory Reference}
+\hypertarget{dir_a19db65244e9f8b5b085b6868d1ac990}{}\label{dir_a19db65244e9f8b5b085b6868d1ac990}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@fastify/busboy Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@fastify/busboy Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+
+
+\href{https://github.com/fastify/busboy/actions}{\texttt{ }} \href{https://coveralls.io/r/fastify/busboy?branch=master}{\texttt{ }} \href{https://standardjs.com/}{\texttt{ }} \href{https://github.com/nodejs/security-wg/blob/HEAD/processes/responsible_disclosure_template.md}{\texttt{ }}
+
+
+
+
+
+\href{https://www.npmjs.com/package/@fastify/busboy}{\texttt{ }} \href{https://www.npmjs.com/package/@fastify/busboy}{\texttt{ }}
+
+\hypertarget{README.md_autotoc_md877}{}\doxysubsection{\texorpdfstring{Description}{Description}}\label{README.md_autotoc_md877}
+A Node.\+js module for parsing incoming HTML form data.
+
+This is an officially supported fork by \href{https://github.com/fastify/}{\texttt{ fastify}} organization of the amazing library \href{https://github.com/mscdex/busboy}{\texttt{ originally created}} by Brian White, aimed at addressing long-\/standing issues with it.
+
+Benchmark (Mean time for 500 Kb payload, 2000 cycles, 1000 cycle warmup)\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Library   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Version   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mean time in nanoseconds (less is better)    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Library   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Version   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mean time in nanoseconds (less is better)    }\\\cline{1-3}
+\endhead
+busboy   &0.\+3.\+1   &{\ttfamily 340114}    \\\cline{1-3}
+@fastify/busboy   &1.\+0.\+0   &{\ttfamily 270984}   \\\cline{1-3}
+\end{longtabu}
+
+
+\href{https://github.com/fastify/busboy/blob/master/CHANGELOG.md}{\texttt{ Changelog}} since busboy 0.\+31.\hypertarget{README.md_autotoc_md878}{}\doxysubsection{\texorpdfstring{Requirements}{Requirements}}\label{README.md_autotoc_md878}
+
+\begin{DoxyItemize}
+\item \href{http://nodejs.org/}{\texttt{ Node.\+js}} 10+
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md879}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md879}
+\begin{DoxyVerb}npm i @fastify/busboy
+\end{DoxyVerb}
+\hypertarget{README.md_autotoc_md880}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{README.md_autotoc_md880}
+
+\begin{DoxyItemize}
+\item Parsing (multipart) with default options\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ http\ =\ require('node:http');}
+\DoxyCodeLine{const\ \{\ inspect\ \}\ =\ require('node:util');}
+\DoxyCodeLine{const\ Busboy\ =\ require('busboy');}
+\DoxyCodeLine{}
+\DoxyCodeLine{http.createServer((req,\ res)\ =>\ \{}
+\DoxyCodeLine{\ \ if\ (req.method\ ===\ 'POST')\ \{}
+\DoxyCodeLine{\ \ \ \ const\ busboy\ =\ new\ Busboy(\{\ headers:\ req.headers\ \});}
+\DoxyCodeLine{\ \ \ \ busboy.on('file',\ (fieldname,\ file,\ filename,\ encoding,\ mimetype)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ console.log(`File\ [\$\{fieldname\}]:\ filename:\ \$\{filename\},\ encoding:\ \$\{encoding\},\ mimetype:\ \$\{mimetype\}`);}
+\DoxyCodeLine{\ \ \ \ \ \ file.on('data',\ data\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.log(`File\ [\$\{fieldname\}]\ got\ \$\{data.length\}\ bytes`);}
+\DoxyCodeLine{\ \ \ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ \ \ file.on('end',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.log(`File\ [\$\{fieldname\}]\ Finished`);}
+\DoxyCodeLine{\ \ \ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ busboy.on('field',\ (fieldname,\ val,\ fieldnameTruncated,\ valTruncated,\ encoding,\ mimetype)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ console.log(`Field\ [\$\{fieldname\}]:\ value:\ \$\{inspect(val)\}`);}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ busboy.on('finish',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ console.log('Done\ parsing\ form!');}
+\DoxyCodeLine{\ \ \ \ \ \ res.writeHead(303,\ \{\ Connection:\ 'close',\ Location:\ '/'\ \});}
+\DoxyCodeLine{\ \ \ \ \ \ res.end();}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ req.pipe(busboy);}
+\DoxyCodeLine{\ \ \}\ else\ if\ (req.method\ ===\ 'GET')\ \{}
+\DoxyCodeLine{\ \ \ \ res.writeHead(200,\ \{\ Connection:\ 'close'\ \});}
+\DoxyCodeLine{\ \ \ \ res.end(`<html><head></head><body>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <form\ method="{}POST"{}\ enctype="{}multipart/form-\/data"{}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <input\ type="{}text"{}\ name="{}textfield"{}><br>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <input\ type="{}file"{}\ name="{}filefield"{}><br>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <input\ type="{}submit"{}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ </form>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ </body></html>`);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}).listen(8000,\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ console.log('Listening\ for\ requests');}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Example\ output,\ using\ http://nodejs.org/images/ryan-\/speaker.jpg\ as\ the\ file:}
+\DoxyCodeLine{//}
+\DoxyCodeLine{//\ Listening\ for\ requests}
+\DoxyCodeLine{//\ File\ [filefield]:\ filename:\ ryan-\/speaker.jpg,\ encoding:\ binary}
+\DoxyCodeLine{//\ File\ [filefield]\ got\ 11971\ bytes}
+\DoxyCodeLine{//\ Field\ [textfield]:\ value:\ 'testing!\ :-\/)'}
+\DoxyCodeLine{//\ File\ [filefield]\ Finished}
+\DoxyCodeLine{//\ Done\ parsing\ form!}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Save all incoming files to disk\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ http\ =\ require('node:http');}
+\DoxyCodeLine{const\ path\ =\ require('node:path');}
+\DoxyCodeLine{const\ os\ =\ require('node:os');}
+\DoxyCodeLine{const\ fs\ =\ require('node:fs');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ Busboy\ =\ require('busboy');}
+\DoxyCodeLine{}
+\DoxyCodeLine{http.createServer(function(req,\ res)\ \{}
+\DoxyCodeLine{\ \ if\ (req.method\ ===\ 'POST')\ \{}
+\DoxyCodeLine{\ \ \ \ const\ busboy\ =\ new\ Busboy(\{\ headers:\ req.headers\ \});}
+\DoxyCodeLine{\ \ \ \ busboy.on('file',\ function(fieldname,\ file,\ filename,\ encoding,\ mimetype)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ var\ saveTo\ =\ path.join(os.tmpdir(),\ path.basename(fieldname));}
+\DoxyCodeLine{\ \ \ \ \ \ file.pipe(fs.createWriteStream(saveTo));}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ busboy.on('finish',\ function()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ res.writeHead(200,\ \{\ 'Connection':\ 'close'\ \});}
+\DoxyCodeLine{\ \ \ \ \ \ res.end("{}That's\ all\ folks!"{});}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ return\ req.pipe(busboy);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ res.writeHead(404);}
+\DoxyCodeLine{\ \ res.end();}
+\DoxyCodeLine{\}).listen(8000,\ function()\ \{}
+\DoxyCodeLine{\ \ console.log('Listening\ for\ requests');}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Parsing (urlencoded) with default options\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ http\ =\ require('node:http');}
+\DoxyCodeLine{const\ \{\ inspect\ \}\ =\ require('node:util');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ Busboy\ =\ require('busboy');}
+\DoxyCodeLine{}
+\DoxyCodeLine{http.createServer(function(req,\ res)\ \{}
+\DoxyCodeLine{\ \ if\ (req.method\ ===\ 'POST')\ \{}
+\DoxyCodeLine{\ \ \ \ const\ busboy\ =\ new\ Busboy(\{\ headers:\ req.headers\ \});}
+\DoxyCodeLine{\ \ \ \ busboy.on('file',\ function(fieldname,\ file,\ filename,\ encoding,\ mimetype)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ console.log('File\ ['\ +\ fieldname\ +\ ']:\ filename:\ '\ +\ filename);}
+\DoxyCodeLine{\ \ \ \ \ \ file.on('data',\ function(data)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.log('File\ ['\ +\ fieldname\ +\ ']\ got\ '\ +\ data.length\ +\ '\ bytes');}
+\DoxyCodeLine{\ \ \ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ \ \ file.on('end',\ function()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.log('File\ ['\ +\ fieldname\ +\ ']\ Finished');}
+\DoxyCodeLine{\ \ \ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ busboy.on('field',\ function(fieldname,\ val,\ fieldnameTruncated,\ valTruncated)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ console.log('Field\ ['\ +\ fieldname\ +\ ']:\ value:\ '\ +\ inspect(val));}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ busboy.on('finish',\ function()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ console.log('Done\ parsing\ form!');}
+\DoxyCodeLine{\ \ \ \ \ \ res.writeHead(303,\ \{\ Connection:\ 'close',\ Location:\ '/'\ \});}
+\DoxyCodeLine{\ \ \ \ \ \ res.end();}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ req.pipe(busboy);}
+\DoxyCodeLine{\ \ \}\ else\ if\ (req.method\ ===\ 'GET')\ \{}
+\DoxyCodeLine{\ \ \ \ res.writeHead(200,\ \{\ Connection:\ 'close'\ \});}
+\DoxyCodeLine{\ \ \ \ res.end('<html><head></head><body>\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <form\ method="{}POST"{}>\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <input\ type="{}text"{}\ name="{}textfield"{}><br\ />\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <select\ name="{}selectfield"{}>\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <option\ value="{}1"{}>1</option>\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <option\ value="{}10"{}>10</option>\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <option\ value="{}100"{}>100</option>\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <option\ value="{}9001"{}>9001</option>\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ </select><br\ />\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <input\ type="{}checkbox"{}\ name="{}checkfield"{}>Node.js\ rules!<br\ />\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <input\ type="{}submit"{}>\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ </form>\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ </body></html>');}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}).listen(8000,\ function()\ \{}
+\DoxyCodeLine{\ \ console.log('Listening\ for\ requests');}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Example\ output:}
+\DoxyCodeLine{//}
+\DoxyCodeLine{//\ Listening\ for\ requests}
+\DoxyCodeLine{//\ Field\ [textfield]:\ value:\ 'testing!\ :-\/)'}
+\DoxyCodeLine{//\ Field\ [selectfield]:\ value:\ '9001'}
+\DoxyCodeLine{//\ Field\ [checkfield]:\ value:\ 'on'}
+\DoxyCodeLine{//\ Done\ parsing\ form!}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md881}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md881}
+{\itshape Busboy} is a {\itshape Writable} stream\hypertarget{README.md_autotoc_md882}{}\doxysubsubsection{\texorpdfstring{Busboy (special) events}{Busboy (special) events}}\label{README.md_autotoc_md882}
+
+\begin{DoxyItemize}
+\item {\bfseries{file}}(\texorpdfstring{$<$}{<} {\itshape string} \texorpdfstring{$>$}{>}fieldname, \texorpdfstring{$<$}{<} {\itshape Readable\+Stream} \texorpdfstring{$>$}{>}stream, \texorpdfstring{$<$}{<} {\itshape string} \texorpdfstring{$>$}{>}filename, \texorpdfstring{$<$}{<} {\itshape string} \texorpdfstring{$>$}{>}transfer\+Encoding, \texorpdfstring{$<$}{<} {\itshape string} \texorpdfstring{$>$}{>}mime\+Type) -\/ Emitted for each new file form field found. {\ttfamily transfer\+Encoding} contains the \textquotesingle{}Content-\/\+Transfer-\/\+Encoding\textquotesingle{} value for the file stream. {\ttfamily mime\+Type} contains the \textquotesingle{}Content-\/\+Type\textquotesingle{} value for the file stream.
+\begin{DoxyItemize}
+\item Note\+: if you listen for this event, you should always handle the {\ttfamily stream} no matter if you care about the file contents or not (e.\+g. you can simply just do {\ttfamily stream.\+resume();} if you want to discard the contents), otherwise the \textquotesingle{}finish\textquotesingle{} event will never fire on the Busboy instance. However, if you don\textquotesingle{}t care about {\bfseries{any}} incoming files, you can simply not listen for the \textquotesingle{}file\textquotesingle{} event at all and any/all files will be automatically and safely discarded (these discarded files do still count towards {\ttfamily files} and {\ttfamily parts} limits).
+\item If a configured file size limit was reached, {\ttfamily stream} will both have a boolean property {\ttfamily truncated} (best checked at the end of the stream) and emit a \textquotesingle{}limit\textquotesingle{} event to notify you when this happens.
+\item The property {\ttfamily bytes\+Read} informs about the number of bytes that have been read so far.
+\end{DoxyItemize}
+\item {\bfseries{field}}(\texorpdfstring{$<$}{<} {\itshape string} \texorpdfstring{$>$}{>}fieldname, \texorpdfstring{$<$}{<} {\itshape string} \texorpdfstring{$>$}{>}value, \texorpdfstring{$<$}{<} {\itshape boolean} \texorpdfstring{$>$}{>}fieldname\+Truncated, \texorpdfstring{$<$}{<} {\itshape boolean} \texorpdfstring{$>$}{>}value\+Truncated, \texorpdfstring{$<$}{<} {\itshape string} \texorpdfstring{$>$}{>}transfer\+Encoding, \texorpdfstring{$<$}{<} {\itshape string} \texorpdfstring{$>$}{>}mime\+Type) -\/ Emitted for each new non-\/file field found.
+\item {\bfseries{parts\+Limit}}() -\/ Emitted when specified {\ttfamily parts} limit has been reached. No more \textquotesingle{}file\textquotesingle{} or \textquotesingle{}field\textquotesingle{} events will be emitted.
+\item {\bfseries{files\+Limit}}() -\/ Emitted when specified {\ttfamily files} limit has been reached. No more \textquotesingle{}file\textquotesingle{} events will be emitted.
+\item {\bfseries{fields\+Limit}}() -\/ Emitted when specified {\ttfamily fields} limit has been reached. No more \textquotesingle{}field\textquotesingle{} events will be emitted.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md883}{}\doxysubsubsection{\texorpdfstring{Busboy methods}{Busboy methods}}\label{README.md_autotoc_md883}
+
+\begin{DoxyItemize}
+\item {\bfseries{(constructor)}}(\texorpdfstring{$<$}{<} {\itshape object} \texorpdfstring{$>$}{>}config) -\/ Creates and returns a new Busboy instance.
+\begin{DoxyItemize}
+\item The constructor takes the following valid {\ttfamily config} settings\+:
+\begin{DoxyItemize}
+\item {\bfseries{headers}} -\/ {\itshape object} -\/ These are the HTTP headers of the incoming request, which are used by individual parsers.
+\item {\bfseries{auto\+Destroy}} -\/ {\itshape boolean} -\/ Whether this stream should automatically call .destroy() on itself after ending. (Default\+: false).
+\item {\bfseries{high\+Water\+Mark}} -\/ {\itshape integer} -\/ high\+Water\+Mark to use for this Busboy instance (Default\+: Writable\+Stream default).
+\item {\bfseries{file\+Hwm}} -\/ {\itshape integer} -\/ high\+Water\+Mark to use for file streams (Default\+: Readable\+Stream default).
+\item {\bfseries{def\+Charset}} -\/ {\itshape string} -\/ Default character set to use when one isn\textquotesingle{}t defined (Default\+: \textquotesingle{}utf8\textquotesingle{}).
+\item {\bfseries{preserve\+Path}} -\/ {\itshape boolean} -\/ If paths in the multipart \textquotesingle{}filename\textquotesingle{} field shall be preserved. (Default\+: false).
+\item {\bfseries{is\+Part\+AFile}} -\/ {\bfseries{function}} -\/ Use this function to override the default file detection functionality. It has following parameters\+:
+\begin{DoxyItemize}
+\item field\+Name -\/ {\bfseries{string}} The name of the field.
+\item content\+Type -\/ {\bfseries{string}} The content-\/type of the part, e.\+g. {\ttfamily text/plain}, {\ttfamily image/jpeg}, {\ttfamily application/octet-\/stream}
+\item file\+Name -\/ {\bfseries{string}} The name of a file supplied by the part.
+\end{DoxyItemize}
+
+(Default\+: `(field\+Name, content\+Type, file\+Name) =\texorpdfstring{$>$}{>} (content\+Type === \textquotesingle{}application/octet-\/stream' \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} file\+Name !== undefined)\`{})
+\item {\bfseries{limits}} -\/ {\itshape object} -\/ Various limits on incoming data. Valid properties are\+:
+\begin{DoxyItemize}
+\item {\bfseries{field\+Name\+Size}} -\/ {\itshape integer} -\/ Max field name size (in bytes) (Default\+: 100 bytes).
+\item {\bfseries{field\+Size}} -\/ {\itshape integer} -\/ Max field value size (in bytes) (Default\+: 1 MiB, which is 1024 x 1024 bytes).
+\item {\bfseries{fields}} -\/ {\itshape integer} -\/ Max number of non-\/file fields (Default\+: Infinity).
+\item {\bfseries{file\+Size}} -\/ {\itshape integer} -\/ For multipart forms, the max file size (in bytes) (Default\+: Infinity).
+\item {\bfseries{files}} -\/ {\itshape integer} -\/ For multipart forms, the max number of file fields (Default\+: Infinity).
+\item {\bfseries{parts}} -\/ {\itshape integer} -\/ For multipart forms, the max number of parts (fields + files) (Default\+: Infinity).
+\item {\bfseries{header\+Pairs}} -\/ {\itshape integer} -\/ For multipart forms, the max number of header key=\texorpdfstring{$>$}{>}value pairs to parse {\bfseries{Default\+:}} 2000
+\item {\bfseries{header\+Size}} -\/ {\itshape integer} -\/ For multipart forms, the max size of a multipart header {\bfseries{Default\+:}} 81920.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item The constructor can throw errors\+:
+\begin{DoxyItemize}
+\item {\bfseries{Busboy expected an options-\/\+Object.}} -\/ Busboy expected an Object as first parameters.
+\item {\bfseries{Busboy expected an options-\/\+Object with headers-\/attribute.}} -\/ The first parameter is lacking of a headers-\/attribute.
+\item {\bfseries{Limit \$limit is not a valid number}} -\/ Busboy expected the desired limit to be of type number. Busboy throws this Error to prevent a potential security issue by falling silently back to the Busboy-\/defaults. Potential source for this Error can be the direct use of environment variables without transforming them to the type number.
+\item {\bfseries{Unsupported Content-\/\+Type.}} -\/ The {\ttfamily Content-\/\+Type} isn\textquotesingle{}t one Busboy can parse.
+\item {\bfseries{Missing Content-\/\+Type-\/header.}} -\/ The provided headers don\textquotesingle{}t include {\ttfamily Content-\/\+Type} at all. 
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}

@@ -1,0 +1,31 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/lines-\/and-\/columns Directory Reference}
+\hypertarget{dir_67c6844df07cc00893d03d99ea7b83ef}{}\label{dir_67c6844df07cc00893d03d99ea7b83ef}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/lines-\/and-\/columns Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/lines-\/and-\/columns Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Maps lines and columns to character offsets and back. This is useful for parsers and other text processors that deal in character ranges but process text with meaningful lines and columns.\hypertarget{README.md_autotoc_md13077}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md13077}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ [-\/-\/save]\ lines-\/and-\/columns}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md13078}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md13078}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ LinesAndColumns\ \}\ from\ 'lines-\/and-\/columns'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ lines\ =\ new\ LinesAndColumns(}
+\DoxyCodeLine{\ \ \`{}table\ \{}
+\DoxyCodeLine{\ \ border:\ 0}
+\DoxyCodeLine{\}`}
+\DoxyCodeLine{)}
+\DoxyCodeLine{}
+\DoxyCodeLine{lines.locationForIndex(9)}
+\DoxyCodeLine{//\ \{\ line:\ 1,\ column:\ 1\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{lines.indexForLocation(\{\ line:\ 1,\ column:\ 2\ \})}
+\DoxyCodeLine{//\ 10}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md13079}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md13079}
+MIT 

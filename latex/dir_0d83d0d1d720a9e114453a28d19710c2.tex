@@ -1,0 +1,105 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bonjour-\/service Directory Reference}
+\hypertarget{dir_0d83d0d1d720a9e114453a28d19710c2}{}\label{dir_0d83d0d1d720a9e114453a28d19710c2}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bonjour-\/service Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bonjour-\/service Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+     \href{https://deepscan.io/dashboard\#view=project&tid=13435&pid=16430&bid=352351}{\texttt{ }}
+
+A Bonjour/\+Zeroconf protocol implementation in Type\+Script. Publish services on the local network or discover existing services using multicast DNS.
+
+This is a rewrite of the project Bonjour (\href{https://github.com/watson/bonjour}{\texttt{ https\+://github.\+com/watson/bonjour}}) into modern Type\+Script.\hypertarget{README.md_autotoc_md3253}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md3253}
+Add to your project dependencies using Yarn or NPM.\hypertarget{README.md_autotoc_md3254}{}\doxysubsubsubsection{\texorpdfstring{Install with Yarn}{Install with Yarn}}\label{README.md_autotoc_md3254}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn\ add\ bonjour-\/service}
+
+\end{DoxyCode}
+ \hypertarget{README.md_autotoc_md3255}{}\doxysubsubsubsection{\texorpdfstring{Install with NPM}{Install with NPM}}\label{README.md_autotoc_md3255}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ bonjour-\/service}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md3256}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md3256}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ Bonjour\ from\ 'bonjour-\/service'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ instance\ =\ new\ Bonjour()}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ advertise\ an\ HTTP\ server\ on\ port\ 3000}
+\DoxyCodeLine{instance.publish(\{\ name:\ 'My\ Web\ Server',\ type:\ 'http',\ port:\ 3000\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ browse\ for\ all\ http\ services}
+\DoxyCodeLine{instance.find(\{\ type:\ 'http'\ \},\ function\ (service)\ \{}
+\DoxyCodeLine{\ \ console.log('Found\ an\ HTTP\ server:',\ service)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md3257}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md3257}
+\hypertarget{README.md_autotoc_md3258}{}\doxysubsubsection{\texorpdfstring{Initializing}{Initializing}}\label{README.md_autotoc_md3258}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ instance\ =\ new\ Bonjour(\{\ options\ \},\ errorCallback)}
+
+\end{DoxyCode}
+
+
+The {\ttfamily options} are optional and will be used when initializing the underlying multicast-\/dns server. For details see \href{https://github.com/mafintosh/multicast-dns\#mdns--multicastdnsoptions}{\texttt{ the multicast-\/dns documentation}}.
+
+{\ttfamily error\+Callback} is an optional callback used to gracefully handle errors that would otherwise crash the process. While not being strictly required, providing this is highly recommended\hypertarget{README.md_autotoc_md3259}{}\doxysubsubsection{\texorpdfstring{Publishing}{Publishing}}\label{README.md_autotoc_md3259}
+\hypertarget{README.md_autotoc_md3260}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily var service = bonjour.\+publish(options)}}{{\ttfamily var service = bonjour.\+publish(options)}}}\label{README.md_autotoc_md3260}
+Publishes a new service.
+
+Options are\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily name} (string)
+\item {\ttfamily host} (string, optional) -\/ defaults to local hostname
+\item {\ttfamily port} (number)
+\item {\ttfamily type} (string)
+\item {\ttfamily subtypes} (array of strings, optional)
+\item {\ttfamily protocol} (string, optional) -\/ {\ttfamily udp} or {\ttfamily tcp} (default)
+\item {\ttfamily txt} (object, optional) -\/ a key/value object to broadcast as the TXT record
+\end{DoxyItemize}
+
+IANA maintains a \href{http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml}{\texttt{ list of official service types and port numbers}}.\hypertarget{README.md_autotoc_md3261}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily bonjour.\+unpublish\+All(\mbox{[}callback\mbox{]})}}{{\ttfamily bonjour.\+unpublish\+All(\mbox{[}callback\mbox{]})}}}\label{README.md_autotoc_md3261}
+Unpublish all services. The optional {\ttfamily callback} will be called when the services have been unpublished.\hypertarget{README.md_autotoc_md3262}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily bonjour.\+destroy()}}{{\ttfamily bonjour.\+destroy()}}}\label{README.md_autotoc_md3262}
+Destroy the mdns instance. Closes the udp socket.\hypertarget{README.md_autotoc_md3263}{}\doxysubsubsection{\texorpdfstring{Browser}{Browser}}\label{README.md_autotoc_md3263}
+\hypertarget{README.md_autotoc_md3264}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily var browser = bonjour.\+find(options\mbox{[}, onup\mbox{]})}}{{\ttfamily var browser = bonjour.\+find(options\mbox{[}, onup\mbox{]})}}}\label{README.md_autotoc_md3264}
+Listen for services advertised on the network. An optional callback can be provided as the 2nd argument and will be added as an event listener for the {\ttfamily up} event.
+
+Options (all optional)\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily type} (string)
+\item {\ttfamily subtypes} (array of strings)
+\item {\ttfamily protocol} (string) -\/ defaults to {\ttfamily tcp}
+\item {\ttfamily txt} (object) -\/ passed into \href{https://github.com/watson/dns-txt}{\texttt{ dns-\/txt module}} contructor. Set to {\ttfamily \{ binary\+: true \}} if you want to keep the TXT records in binary
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md3265}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily var browser = bonjour.\+find\+One(options\mbox{[}, callback\mbox{]})}}{{\ttfamily var browser = bonjour.\+find\+One(options\mbox{[}, callback\mbox{]})}}}\label{README.md_autotoc_md3265}
+Listen for and call the {\ttfamily callback} with the first instance of a service matching the {\ttfamily options}. If no {\ttfamily callback} is given, it\textquotesingle{}s expected that you listen for the {\ttfamily up} event. The returned {\ttfamily browser} will automatically stop it self after the first matching service.
+
+Options are the same as given in the {\ttfamily browser.\+find} function.\hypertarget{README.md_autotoc_md3266}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily Event\+: up}}{{\ttfamily Event\+: up}}}\label{README.md_autotoc_md3266}
+Emitted every time a new service is found that matches the browser.\hypertarget{README.md_autotoc_md3267}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily Event\+: down}}{{\ttfamily Event\+: down}}}\label{README.md_autotoc_md3267}
+Emitted every time an existing service emmits a goodbye message.\hypertarget{README.md_autotoc_md3268}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily browser.\+services()}}{{\ttfamily browser.\+services()}}}\label{README.md_autotoc_md3268}
+An array of services known by the browser to be online.\hypertarget{README.md_autotoc_md3269}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily browser.\+start()}}{{\ttfamily browser.\+start()}}}\label{README.md_autotoc_md3269}
+Start looking for matching services.\hypertarget{README.md_autotoc_md3270}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily browser.\+stop()}}{{\ttfamily browser.\+stop()}}}\label{README.md_autotoc_md3270}
+Stop looking for matching services.\hypertarget{README.md_autotoc_md3271}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily browser.\+update()}}{{\ttfamily browser.\+update()}}}\label{README.md_autotoc_md3271}
+Broadcast the query again.\hypertarget{README.md_autotoc_md3272}{}\doxysubsubsection{\texorpdfstring{Service}{Service}}\label{README.md_autotoc_md3272}
+\hypertarget{README.md_autotoc_md3273}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily Event\+: up}}{{\ttfamily Event\+: up}}}\label{README.md_autotoc_md3273}
+Emitted when the service is up.\hypertarget{README.md_autotoc_md3274}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily Event\+: error}}{{\ttfamily Event\+: error}}}\label{README.md_autotoc_md3274}
+Emitted if an error occurrs while publishing the service.\hypertarget{README.md_autotoc_md3275}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily service.\+stop(\mbox{[}callback\mbox{]})}}{{\ttfamily service.\+stop(\mbox{[}callback\mbox{]})}}}\label{README.md_autotoc_md3275}
+Unpublish the service. The optional {\ttfamily callback} will be called when the service have been unpublished.\hypertarget{README.md_autotoc_md3276}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily service.\+start()}}{{\ttfamily service.\+start()}}}\label{README.md_autotoc_md3276}
+Publish the service.\hypertarget{README.md_autotoc_md3277}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily service.\+name}}{{\ttfamily service.\+name}}}\label{README.md_autotoc_md3277}
+The name of the service, e.\+g. {\ttfamily Apple TV}.\hypertarget{README.md_autotoc_md3278}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily service.\+type}}{{\ttfamily service.\+type}}}\label{README.md_autotoc_md3278}
+The type of the service, e.\+g. {\ttfamily http}.\hypertarget{README.md_autotoc_md3279}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily service.\+subtypes}}{{\ttfamily service.\+subtypes}}}\label{README.md_autotoc_md3279}
+An array of subtypes. Note that this property might be {\ttfamily null}.\hypertarget{README.md_autotoc_md3280}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily service.\+protocol}}{{\ttfamily service.\+protocol}}}\label{README.md_autotoc_md3280}
+The protocol used by the service, e.\+g. {\ttfamily tcp}.\hypertarget{README.md_autotoc_md3281}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily service.\+host}}{{\ttfamily service.\+host}}}\label{README.md_autotoc_md3281}
+The hostname or ip address where the service resides.\hypertarget{README.md_autotoc_md3282}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily service.\+port}}{{\ttfamily service.\+port}}}\label{README.md_autotoc_md3282}
+The port on which the service listens, e.\+g. {\ttfamily 5000}.\hypertarget{README.md_autotoc_md3283}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily service.\+fqdn}}{{\ttfamily service.\+fqdn}}}\label{README.md_autotoc_md3283}
+The fully qualified domain name of the service. E.\+g. if given the name {\ttfamily Foo Bar}, the type {\ttfamily http} and the protocol {\ttfamily tcp}, the {\ttfamily service.\+fqdn} property will be {\ttfamily Foo Bar.\+\_\+http.\+\_\+tcp.\+local}.\hypertarget{README.md_autotoc_md3284}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily service.\+txt}}{{\ttfamily service.\+txt}}}\label{README.md_autotoc_md3284}
+The TXT record advertised by the service (a key/value object). Note that this property might be {\ttfamily null}.\hypertarget{README.md_autotoc_md3285}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily service.\+published}}{{\ttfamily service.\+published}}}\label{README.md_autotoc_md3285}
+A boolean indicating if the service is currently published.\hypertarget{README.md_autotoc_md3286}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md3286}
+MIT 

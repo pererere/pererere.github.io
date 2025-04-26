@@ -1,0 +1,127 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/negotiator Directory Reference}
+\hypertarget{dir_37d253d7f3d0f85be65bd050e2b77c29}{}\label{dir_37d253d7f3d0f85be65bd050e2b77c29}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/negotiator Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/negotiator Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://npmjs.org/package/negotiator}{\texttt{ }} \href{https://npmjs.org/package/negotiator}{\texttt{ }} \href{https://nodejs.org/en/download/}{\texttt{ }} \href{https://github.com/jshttp/negotiator/actions/workflows/ci.yml}{\texttt{ }} \href{https://coveralls.io/r/jshttp/negotiator?branch=master}{\texttt{ }}
+
+An HTTP content negotiator for Node.\+js\hypertarget{README.md_autotoc_md14703}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md14703}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ negotiator}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14704}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md14704}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ Negotiator\ =\ require('negotiator')}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14705}{}\doxysubsubsection{\texorpdfstring{Accept Negotiation}{Accept Negotiation}}\label{README.md_autotoc_md14705}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{availableMediaTypes\ =\ ['text/html',\ 'text/plain',\ 'application/json']}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ The\ negotiator\ constructor\ receives\ a\ request\ object}
+\DoxyCodeLine{negotiator\ =\ new\ Negotiator(request)}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Let's\ say\ Accept\ header\ is\ 'text/html,\ application/*;q=0.2,\ image/jpeg;q=0.8'}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator.mediaTypes()}
+\DoxyCodeLine{//\ -\/>\ ['text/html',\ 'image/jpeg',\ 'application/*']}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator.mediaTypes(availableMediaTypes)}
+\DoxyCodeLine{//\ -\/>\ ['text/html',\ 'application/json']}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator.mediaType(availableMediaTypes)}
+\DoxyCodeLine{//\ -\/>\ 'text/html'}
+
+\end{DoxyCode}
+
+
+You can check a working example at {\ttfamily examples/accept.\+js}.\hypertarget{README.md_autotoc_md14706}{}\doxysubsubsubsection{\texorpdfstring{Methods}{Methods}}\label{README.md_autotoc_md14706}
+\hypertarget{README.md_autotoc_md14707}{}\doxysubsubsubsubsection{\texorpdfstring{media\+Type()}{media\+Type()}}\label{README.md_autotoc_md14707}
+Returns the most preferred media type from the client.\hypertarget{README.md_autotoc_md14708}{}\doxysubsubsubsubsection{\texorpdfstring{media\+Type(available\+Media\+Type)}{media\+Type(available\+Media\+Type)}}\label{README.md_autotoc_md14708}
+Returns the most preferred media type from a list of available media types.\hypertarget{README.md_autotoc_md14709}{}\doxysubsubsubsubsection{\texorpdfstring{media\+Types()}{media\+Types()}}\label{README.md_autotoc_md14709}
+Returns an array of preferred media types ordered by the client preference.\hypertarget{README.md_autotoc_md14710}{}\doxysubsubsubsubsection{\texorpdfstring{media\+Types(available\+Media\+Types)}{media\+Types(available\+Media\+Types)}}\label{README.md_autotoc_md14710}
+Returns an array of preferred media types ordered by priority from a list of available media types.\hypertarget{README.md_autotoc_md14711}{}\doxysubsubsection{\texorpdfstring{Accept-\/\+Language Negotiation}{Accept-\/\+Language Negotiation}}\label{README.md_autotoc_md14711}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{negotiator\ =\ new\ Negotiator(request)}
+\DoxyCodeLine{}
+\DoxyCodeLine{availableLanguages\ =\ ['en',\ 'es',\ 'fr']}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Let's\ say\ Accept-\/Language\ header\ is\ 'en;q=0.8,\ es,\ pt'}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator.languages()}
+\DoxyCodeLine{//\ -\/>\ ['es',\ 'pt',\ 'en']}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator.languages(availableLanguages)}
+\DoxyCodeLine{//\ -\/>\ ['es',\ 'en']}
+\DoxyCodeLine{}
+\DoxyCodeLine{language\ =\ negotiator.language(availableLanguages)}
+\DoxyCodeLine{//\ -\/>\ 'es'}
+
+\end{DoxyCode}
+
+
+You can check a working example at {\ttfamily examples/language.\+js}.\hypertarget{README.md_autotoc_md14712}{}\doxysubsubsubsection{\texorpdfstring{Methods}{Methods}}\label{README.md_autotoc_md14712}
+\hypertarget{README.md_autotoc_md14713}{}\doxysubsubsubsubsection{\texorpdfstring{language()}{language()}}\label{README.md_autotoc_md14713}
+Returns the most preferred language from the client.\hypertarget{README.md_autotoc_md14714}{}\doxysubsubsubsubsection{\texorpdfstring{language(available\+Languages)}{language(available\+Languages)}}\label{README.md_autotoc_md14714}
+Returns the most preferred language from a list of available languages.\hypertarget{README.md_autotoc_md14715}{}\doxysubsubsubsubsection{\texorpdfstring{languages()}{languages()}}\label{README.md_autotoc_md14715}
+Returns an array of preferred languages ordered by the client preference.\hypertarget{README.md_autotoc_md14716}{}\doxysubsubsubsubsection{\texorpdfstring{languages(available\+Languages)}{languages(available\+Languages)}}\label{README.md_autotoc_md14716}
+Returns an array of preferred languages ordered by priority from a list of available languages.\hypertarget{README.md_autotoc_md14717}{}\doxysubsubsection{\texorpdfstring{Accept-\/\+Charset Negotiation}{Accept-\/\+Charset Negotiation}}\label{README.md_autotoc_md14717}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{availableCharsets\ =\ ['utf-\/8',\ 'iso-\/8859-\/1',\ 'iso-\/8859-\/5']}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator\ =\ new\ Negotiator(request)}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Let's\ say\ Accept-\/Charset\ header\ is\ 'utf-\/8,\ iso-\/8859-\/1;q=0.8,\ utf-\/7;q=0.2'}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator.charsets()}
+\DoxyCodeLine{//\ -\/>\ ['utf-\/8',\ 'iso-\/8859-\/1',\ 'utf-\/7']}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator.charsets(availableCharsets)}
+\DoxyCodeLine{//\ -\/>\ ['utf-\/8',\ 'iso-\/8859-\/1']}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator.charset(availableCharsets)}
+\DoxyCodeLine{//\ -\/>\ 'utf-\/8'}
+
+\end{DoxyCode}
+
+
+You can check a working example at {\ttfamily examples/charset.\+js}.\hypertarget{README.md_autotoc_md14718}{}\doxysubsubsubsection{\texorpdfstring{Methods}{Methods}}\label{README.md_autotoc_md14718}
+\hypertarget{README.md_autotoc_md14719}{}\doxysubsubsubsubsection{\texorpdfstring{charset()}{charset()}}\label{README.md_autotoc_md14719}
+Returns the most preferred charset from the client.\hypertarget{README.md_autotoc_md14720}{}\doxysubsubsubsubsection{\texorpdfstring{charset(available\+Charsets)}{charset(available\+Charsets)}}\label{README.md_autotoc_md14720}
+Returns the most preferred charset from a list of available charsets.\hypertarget{README.md_autotoc_md14721}{}\doxysubsubsubsubsection{\texorpdfstring{charsets()}{charsets()}}\label{README.md_autotoc_md14721}
+Returns an array of preferred charsets ordered by the client preference.\hypertarget{README.md_autotoc_md14722}{}\doxysubsubsubsubsection{\texorpdfstring{charsets(available\+Charsets)}{charsets(available\+Charsets)}}\label{README.md_autotoc_md14722}
+Returns an array of preferred charsets ordered by priority from a list of available charsets.\hypertarget{README.md_autotoc_md14723}{}\doxysubsubsection{\texorpdfstring{Accept-\/\+Encoding Negotiation}{Accept-\/\+Encoding Negotiation}}\label{README.md_autotoc_md14723}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{availableEncodings\ =\ ['identity',\ 'gzip']}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator\ =\ new\ Negotiator(request)}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Let's\ say\ Accept-\/Encoding\ header\ is\ 'gzip,\ compress;q=0.2,\ identity;q=0.5'}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator.encodings()}
+\DoxyCodeLine{//\ -\/>\ ['gzip',\ 'identity',\ 'compress']}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator.encodings(availableEncodings)}
+\DoxyCodeLine{//\ -\/>\ ['gzip',\ 'identity']}
+\DoxyCodeLine{}
+\DoxyCodeLine{negotiator.encoding(availableEncodings)}
+\DoxyCodeLine{//\ -\/>\ 'gzip'}
+
+\end{DoxyCode}
+
+
+You can check a working example at {\ttfamily examples/encoding.\+js}.\hypertarget{README.md_autotoc_md14724}{}\doxysubsubsubsection{\texorpdfstring{Methods}{Methods}}\label{README.md_autotoc_md14724}
+\hypertarget{README.md_autotoc_md14725}{}\doxysubsubsubsubsection{\texorpdfstring{encoding()}{encoding()}}\label{README.md_autotoc_md14725}
+Returns the most preferred encoding from the client.\hypertarget{README.md_autotoc_md14726}{}\doxysubsubsubsubsection{\texorpdfstring{encoding(available\+Encodings)}{encoding(available\+Encodings)}}\label{README.md_autotoc_md14726}
+Returns the most preferred encoding from a list of available encodings.\hypertarget{README.md_autotoc_md14727}{}\doxysubsubsubsubsection{\texorpdfstring{encodings()}{encodings()}}\label{README.md_autotoc_md14727}
+Returns an array of preferred encodings ordered by the client preference.\hypertarget{README.md_autotoc_md14728}{}\doxysubsubsubsubsection{\texorpdfstring{encodings(available\+Encodings)}{encodings(available\+Encodings)}}\label{README.md_autotoc_md14728}
+Returns an array of preferred encodings ordered by priority from a list of available encodings.\hypertarget{README.md_autotoc_md14729}{}\doxysubsection{\texorpdfstring{See Also}{See Also}}\label{README.md_autotoc_md14729}
+The \href{https://npmjs.org/package/accepts\#readme}{\texttt{ accepts}} module builds on this module and provides an alternative interface, mime type validation, and more.\hypertarget{README.md_autotoc_md14730}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md14730}
+\mbox{[}MIT\mbox{]}(LICENSE) 

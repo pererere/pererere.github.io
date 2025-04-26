@@ -1,0 +1,163 @@
+\chapter{Upgrade Guide}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e}\index{Upgrade Guide@{Upgrade Guide}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2747}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2747}%
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2748}{}\doxysubsection{\texorpdfstring{0.\+15.\+x -\/\texorpdfstring{$>$}{>} 0.\+16.\+0}{0.\+15.\+x -\/\texorpdfstring{$>$}{>} 0.\+16.\+0}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2748}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2749}{}\doxysubsubsection{\texorpdfstring{{\ttfamily Promise} Type Declarations}{{\ttfamily Promise} Type Declarations}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2749}
+The {\ttfamily Promise} type declarations have been removed from the axios typings in favor of the built-\/in type declarations. If you use axios in a Type\+Script project that targets {\ttfamily ES5}, please make sure to include the {\ttfamily es2015.\+promise} lib. Please see \href{https://blog.mariusschulz.com/2016/11/25/typescript-2-0-built-in-type-declarations}{\texttt{ this post}} for details.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2750}{}\doxysubsection{\texorpdfstring{0.\+13.\+x -\/\texorpdfstring{$>$}{>} 0.\+14.\+0}{0.\+13.\+x -\/\texorpdfstring{$>$}{>} 0.\+14.\+0}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2750}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2751}{}\doxysubsubsection{\texorpdfstring{Type\+Script Definitions}{Type\+Script Definitions}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2751}
+The axios Type\+Script definitions have been updated to match the axios API and use the ES2015 module syntax.
+
+Please use the following {\ttfamily import} statement to import axios in Type\+Script\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ axios\ from\ 'axios';}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.get('/foo')}
+\DoxyCodeLine{\ \ .then(response\ =>\ console.log(response))}
+\DoxyCodeLine{\ \ .catch(error\ =>\ console.log(error));}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2752}{}\doxysubsubsection{\texorpdfstring{{\ttfamily agent} Config Option}{{\ttfamily agent} Config Option}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2752}
+The {\ttfamily agent} config option has been replaced with two new options\+: {\ttfamily http\+Agent} and {\ttfamily https\+Agent}. Please use them instead.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ //\ Define\ a\ custom\ agent\ for\ HTTP}
+\DoxyCodeLine{\ \ httpAgent:\ new\ http.Agent(\{\ keepAlive:\ true\ \}),}
+\DoxyCodeLine{\ \ //\ Define\ a\ custom\ agent\ for\ HTTPS}
+\DoxyCodeLine{\ \ httpsAgent:\ new\ https.Agent(\{\ keepAlive:\ true\ \})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2753}{}\doxysubsubsection{\texorpdfstring{{\ttfamily progress} Config Option}{{\ttfamily progress} Config Option}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2753}
+The {\ttfamily progress} config option has been replaced with the {\ttfamily on\+Upload\+Progress} and {\ttfamily on\+Download\+Progress} options.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ //\ Define\ a\ handler\ for\ upload\ progress\ events}
+\DoxyCodeLine{\ \ onUploadProgress:\ function\ (progressEvent)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ ...}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ Define\ a\ handler\ for\ download\ progress\ events}
+\DoxyCodeLine{\ \ onDownloadProgress:\ function\ (progressEvent)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ ...}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2754}{}\doxysubsection{\texorpdfstring{0.\+12.\+x -\/\texorpdfstring{$>$}{>} 0.\+13.\+0}{0.\+12.\+x -\/\texorpdfstring{$>$}{>} 0.\+13.\+0}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2754}
+The {\ttfamily 0.\+13.\+0} release contains several changes to custom adapters and error handling.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2755}{}\doxysubsubsection{\texorpdfstring{Error Handling}{Error Handling}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2755}
+Previous to this release an error could either be a server response with bad status code or an actual {\ttfamily Error}. With this release Promise will always reject with an {\ttfamily Error}. In the case that a response was received, the {\ttfamily Error} will also include the response.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{axios.get('/user/12345')}
+\DoxyCodeLine{\ \ .catch((error)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(error.message);}
+\DoxyCodeLine{\ \ \ \ console.log(error.code);\ //\ Not\ always\ specified}
+\DoxyCodeLine{\ \ \ \ console.log(error.config);\ //\ The\ config\ that\ was\ used\ to\ make\ the\ request}
+\DoxyCodeLine{\ \ \ \ console.log(error.response);\ //\ Only\ available\ if\ response\ was\ received\ from\ the\ server}
+\DoxyCodeLine{\ \ \});}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2756}{}\doxysubsubsection{\texorpdfstring{Request Adapters}{Request Adapters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2756}
+This release changes a few things about how request adapters work. Please take note if you are using your own custom adapter.
+
+
+\begin{DoxyEnumerate}
+\item Response transformer is now called outside of adapter.
+\item Request adapter returns a {\ttfamily Promise}.
+\end{DoxyEnumerate}
+
+This means that you no longer need to invoke {\ttfamily transform\+Data} on response data. You will also no longer receive {\ttfamily resolve} and {\ttfamily reject} as arguments in your adapter.
+
+Previous code\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{function\ myAdapter(resolve,\ reject,\ config)\ \{}
+\DoxyCodeLine{\ \ var\ response\ =\ \{}
+\DoxyCodeLine{\ \ \ \ data:\ transformData(}
+\DoxyCodeLine{\ \ \ \ \ \ responseData,}
+\DoxyCodeLine{\ \ \ \ \ \ responseHeaders,}
+\DoxyCodeLine{\ \ \ \ \ \ config.transformResponse}
+\DoxyCodeLine{\ \ \ \ ),}
+\DoxyCodeLine{\ \ \ \ status:\ request.status,}
+\DoxyCodeLine{\ \ \ \ statusText:\ request.statusText,}
+\DoxyCodeLine{\ \ \ \ headers:\ responseHeaders}
+\DoxyCodeLine{\ \ \};}
+\DoxyCodeLine{\ \ settle(resolve,\ reject,\ response);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+New code\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{function\ myAdapter(config)\ \{}
+\DoxyCodeLine{\ \ return\ new\ Promise(function\ (resolve,\ reject)\ \{}
+\DoxyCodeLine{\ \ \ \ var\ response\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ data:\ responseData,}
+\DoxyCodeLine{\ \ \ \ \ \ status:\ request.status,}
+\DoxyCodeLine{\ \ \ \ \ \ statusText:\ request.statusText,}
+\DoxyCodeLine{\ \ \ \ \ \ headers:\ responseHeaders}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ settle(resolve,\ reject,\ response);}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+See the related commits for more details\+:
+\begin{DoxyItemize}
+\item \href{https://github.com/axios/axios/commit/10eb23865101f9347570552c04e9d6211376e25e}{\texttt{ Response transformers}}
+\item \href{https://github.com/axios/axios/commit/157efd5615890301824e3121cc6c9d2f9b21f94a}{\texttt{ Request adapter Promise}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2757}{}\doxysubsection{\texorpdfstring{0.\+5.\+x -\/\texorpdfstring{$>$}{>} 0.\+6.\+0}{0.\+5.\+x -\/\texorpdfstring{$>$}{>} 0.\+6.\+0}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2757}
+The {\ttfamily 0.\+6.\+0} release contains mostly bug fixes, but there are a couple things to be aware of when upgrading.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2758}{}\doxysubsubsection{\texorpdfstring{ES6 Promise Polyfill}{ES6 Promise Polyfill}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2758}
+Up until the {\ttfamily 0.\+6.\+0} release ES6 {\ttfamily Promise} was being polyfilled using \href{https://github.com/jakearchibald/es6-promise}{\texttt{ es6-\/promise}}. With this release, the polyfill has been removed, and you will need to supply it yourself if your environment needs it.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{require('es6-\/promise').polyfill();}
+\DoxyCodeLine{var\ axios\ =\ require('axios');}
+
+\end{DoxyCode}
+
+
+This will polyfill the global environment, and only needs to be done once.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2759}{}\doxysubsubsection{\texorpdfstring{{\ttfamily axios.\+success}/{\ttfamily axios.\+error}}{{\ttfamily axios.\+success}/{\ttfamily axios.\+error}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2759}
+The {\ttfamily success}, and {\ttfamily error} aliases were deprecated in \href{https://github.com/axios/axios/blob/master/CHANGELOG.md\#040-oct-03-2014}{\texttt{ 0.\+4.\+0}}. As of this release they have been removed entirely. Instead please use {\ttfamily axios.\+then}, and {\ttfamily axios.\+catch} respectively.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{axios.get('some/url')}
+\DoxyCodeLine{\ \ .then(function\ (res)\ \{}
+\DoxyCodeLine{\ \ \ \ /*\ ...\ */}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ .catch(function\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ /*\ ...\ */}
+\DoxyCodeLine{\ \ \});}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2760}{}\doxysubsubsection{\texorpdfstring{UMD}{UMD}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_u_p_g_r_a_d_e___g_u_i_d_e_autotoc_md2760}
+Previous versions of axios shipped with an AMD, Common\+JS, and Global build. This has all been rolled into a single UMD build.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ AMD}
+\DoxyCodeLine{require(['bower\_components/axios/dist/axios'],\ function\ (axios)\ \{}
+\DoxyCodeLine{\ \ /*\ ...\ */}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ CommonJS}
+\DoxyCodeLine{var\ axios\ =\ require('axios/dist/axios');}
+
+\end{DoxyCode}
+ 

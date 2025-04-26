@@ -1,0 +1,28 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/stack-\/utils/node\+\_\+modules/escape-\/string-\/regexp Directory Reference}
+\hypertarget{dir_38cbcac792b28bc66fe43a799bd998f6}{}\label{dir_38cbcac792b28bc66fe43a799bd998f6}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/stack-\/utils/node\_modules/escape-\/string-\/regexp Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/stack-\/utils/node\_modules/escape-\/string-\/regexp Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Escape Reg\+Exp special characters \end{quote}
+\hypertarget{readme.md_autotoc_md19875}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md19875}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ escape-\/string-\/regexp}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md19876}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md19876}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ escapeStringRegexp\ =\ require('escape-\/string-\/regexp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ escapedString\ =\ escapeStringRegexp('How\ much\ \$\ for\ a\ 🦄?');}
+\DoxyCodeLine{//=>\ 'How\ much\ \(\backslash\)\(\backslash\)\$\ for\ a\ 🦄\(\backslash\)\(\backslash\)?'}
+\DoxyCodeLine{}
+\DoxyCodeLine{new\ RegExp(escapedString);}
+
+\end{DoxyCode}
+
+
+You can also use this to escape a string that is inserted into the middle of a regex, for example, into a character class.\hypertarget{readme.md_autotoc_md19877}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md19877}
+MIT © \href{https://sindresorhus.com}{\texttt{ Sindre Sorhus}} 

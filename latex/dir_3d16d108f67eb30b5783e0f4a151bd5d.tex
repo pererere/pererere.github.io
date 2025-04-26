@@ -1,0 +1,58 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/pkg-\/dir Directory Reference}
+\hypertarget{dir_3d16d108f67eb30b5783e0f4a151bd5d}{}\label{dir_3d16d108f67eb30b5783e0f4a151bd5d}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/pkg-\/dir Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/pkg-\/dir Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Find the root directory of a Node.\+js project or npm package \end{quote}
+\hypertarget{readme.md_autotoc_md16383}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md16383}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ pkg-\/dir}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md16384}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md16384}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/}
+\DoxyCodeLine{└──\ Users}
+\DoxyCodeLine{\ \ \ \ └──\ sindresorhus}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ └──\ foo}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ├──\ package.json}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ └──\ bar}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ├──\ baz}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ └──\ example.js}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ example.js}
+\DoxyCodeLine{import\ \{packageDirectory\}\ from\ 'pkg-\/dir';}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(await\ packageDirectory());}
+\DoxyCodeLine{//=>\ '/Users/sindresorhus/foo'}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md16385}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md16385}
+\hypertarget{readme.md_autotoc_md16386}{}\doxysubsubsection{\texorpdfstring{package\+Directory(option?)}{package\+Directory(option?)}}\label{readme.md_autotoc_md16386}
+Returns a {\ttfamily Promise} for either the project root path or {\ttfamily undefined} if it could not be found.\hypertarget{readme.md_autotoc_md16387}{}\doxysubsubsection{\texorpdfstring{package\+Directory\+Sync(options?)}{package\+Directory\+Sync(options?)}}\label{readme.md_autotoc_md16387}
+Returns the project root path or {\ttfamily undefined} if it could not be found.\hypertarget{readme.md_autotoc_md16388}{}\doxysubsubsubsection{\texorpdfstring{options}{options}}\label{readme.md_autotoc_md16388}
+Type\+: {\ttfamily object}\hypertarget{readme.md_autotoc_md16389}{}\doxysubsubsubsubsection{\texorpdfstring{cwd}{cwd}}\label{readme.md_autotoc_md16389}
+Type\+: {\ttfamily string}\textbackslash{} Default\+: {\ttfamily process.\+cwd()}
+
+The directory to start searching from.\hypertarget{readme.md_autotoc_md16390}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{readme.md_autotoc_md16390}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/pkg-dir-cli}{\texttt{ pkg-\/dir-\/cli}} -\/ CLI for this module
+\item \href{https://github.com/sindresorhus/pkg-up}{\texttt{ pkg-\/up}} -\/ Find the closest package.\+json file
+\item \href{https://github.com/sindresorhus/find-up}{\texttt{ find-\/up}} -\/ Find a file by walking up parent directories
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+ {\bfseries{ \href{https://tidelift.com/subscription/pkg/npm-pkg-dir?utm_source=npm-pkg-dir&utm_medium=referral&utm_campaign=readme}{\texttt{ Get professional support for this package with a Tidelift subscription}} }} ~\newline
+ \textsubscript{ Tidelift helps make open source sustainable for maintainers while giving companies~\newline
+assurances about security, maintenance, and licensing for their dependencies. }  

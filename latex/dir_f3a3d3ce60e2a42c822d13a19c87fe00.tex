@@ -1,0 +1,119 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/limiter Directory Reference}
+\hypertarget{dir_f3a3d3ce60e2a42c822d13a19c87fe00}{}\label{dir_f3a3d3ce60e2a42c822d13a19c87fe00}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/limiter Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/limiter Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://travis-ci.org/jhurliman/node-rate-limiter}{\texttt{ }} \href{https://www.npmjs.com/package/limiter}{\texttt{ }}
+
+Provides a generic rate limiter for node.\+js. Useful for API clients, web crawling, or other tasks that need to be throttled. Two classes are exposed, Rate\+Limiter and Token\+Bucket. Token\+Bucket provides a lower level interface to rate limiting with a configurable burst rate and drip rate. Rate\+Limiter sits on top of the token bucket and adds a restriction on the maximum number of tokens that can be removed each interval to comply with common API restrictions like "{}150 requests per hour maximum"{}.\hypertarget{README.md_autotoc_md13072}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md13072}
+Use NPM to install\+: \begin{DoxyVerb}npm install limiter
+\end{DoxyVerb}
+\hypertarget{README.md_autotoc_md13073}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md13073}
+A simple example allowing 150 requests per hour\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ RateLimiter\ =\ require('limiter').RateLimiter;}
+\DoxyCodeLine{//\ Allow\ 150\ requests\ per\ hour\ (the\ Twitter\ search\ limit).\ Also\ understands}
+\DoxyCodeLine{//\ 'second',\ 'minute',\ 'day',\ or\ a\ number\ of\ milliseconds}
+\DoxyCodeLine{var\ limiter\ =\ new\ RateLimiter(150,\ 'hour');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Throttle\ requests}
+\DoxyCodeLine{limiter.removeTokens(1,\ function(err,\ remainingRequests)\ \{}
+\DoxyCodeLine{\ \ //\ err\ will\ only\ be\ set\ if\ we\ request\ more\ than\ the\ maximum\ number\ of}
+\DoxyCodeLine{\ \ //\ requests\ we\ set\ in\ the\ constructor}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ //\ remainingRequests\ tells\ us\ how\ many\ additional\ requests\ could\ be\ sent}
+\DoxyCodeLine{\ \ //\ right\ this\ moment}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ callMyRequestSendingFunction(...);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+Another example allowing one message to be sent every 250ms\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ RateLimiter\ =\ require('limiter').RateLimiter;}
+\DoxyCodeLine{var\ limiter\ =\ new\ RateLimiter(1,\ 250);}
+\DoxyCodeLine{}
+\DoxyCodeLine{limiter.removeTokens(1,\ function()\ \{}
+\DoxyCodeLine{\ \ callMyMessageSendingFunction(...);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+The default behaviour is to wait for the duration of the rate limiting that’s currently in effect before the callback is fired, but if you pass in {\ttfamily true} as the third parameter, the callback will be fired immediately with remaining\+Requests set to -\/1\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ RateLimiter\ =\ require('limiter').RateLimiter;}
+\DoxyCodeLine{var\ limiter\ =\ new\ RateLimiter(150,\ 'hour',\ true);\ \ //\ fire\ CB\ immediately}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Immediately\ send\ 429\ header\ to\ client\ when\ rate\ limiting\ is\ in\ effect}
+\DoxyCodeLine{limiter.removeTokens(1,\ function(err,\ remainingRequests)\ \{}
+\DoxyCodeLine{\ \ if\ (remainingRequests\ <\ 1)\ \{}
+\DoxyCodeLine{\ \ \ \ response.writeHead(429,\ \{'Content-\/Type':\ 'text/plain;charset=UTF-\/8'\});}
+\DoxyCodeLine{\ \ \ \ response.end('429\ Too\ Many\ Requests\ -\/\ your\ IP\ is\ being\ rate\ limited');}
+\DoxyCodeLine{\ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ callMyMessageSendingFunction(...);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+A synchronous method, try\+Remove\+Tokens(), is available in both Rate\+Limiter and Token\+Bucket. This will return immediately with a boolean value indicating if the token removal was successful. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ RateLimiter\ =\ require('limiter').RateLimiter;}
+\DoxyCodeLine{var\ limiter\ =\ new\ RateLimiter(10,\ 'second');}
+\DoxyCodeLine{}
+\DoxyCodeLine{if\ (limiter.tryRemoveTokens(5))}
+\DoxyCodeLine{\ \ console.log('Tokens\ removed');}
+\DoxyCodeLine{else}
+\DoxyCodeLine{\ \ console.log('No\ tokens\ removed');}
+
+\end{DoxyCode}
+
+
+To get the number of remaining tokens {\bfseries{outside}} the {\ttfamily remove\+Tokens}-\/callback simply use the {\ttfamily get\+Tokens\+Remaining}-\/method. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ RateLimiter\ =\ require('limiter').RateLimiter;}
+\DoxyCodeLine{var\ limiter\ =\ new\ RateLimiter(1,\ 250);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ returns\ 1\ since\ we\ did\ not\ remove\ a\ token\ and\ our\ number\ of\ tokens\ per\ interval\ is\ 1}
+\DoxyCodeLine{limiter.getTokensRemaining();}
+
+\end{DoxyCode}
+
+
+Using the token bucket directly to throttle at the byte level\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ BURST\_RATE\ =\ 1024\ *\ 1024\ *\ 150;\ //\ 150KB/sec\ burst\ rate}
+\DoxyCodeLine{var\ FILL\_RATE\ =\ 1024\ *\ 1024\ *\ 50;\ //\ 50KB/sec\ sustained\ rate}
+\DoxyCodeLine{var\ TokenBucket\ =\ require('limiter').TokenBucket;}
+\DoxyCodeLine{//\ We\ could\ also\ pass\ a\ parent\ token\ bucket\ in\ as\ the\ last\ parameter\ to}
+\DoxyCodeLine{//\ create\ a\ hierarchical\ token\ bucket}
+\DoxyCodeLine{var\ bucket\ =\ new\ TokenBucket(BURST\_RATE,\ FILL\_RATE,\ 'second',\ null);}
+\DoxyCodeLine{}
+\DoxyCodeLine{bucket.removeTokens(myData.byteLength,\ function()\ \{}
+\DoxyCodeLine{\ \ sendMyData(myData);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md13074}{}\doxysubsection{\texorpdfstring{Additional Notes}{Additional Notes}}\label{README.md_autotoc_md13074}
+Both the token bucket and rate limiter should be used with a message queue or some way of preventing multiple simultaneous calls to remove\+Tokens(). Otherwise, earlier messages may get held up for long periods of time if more recent messages are continually draining the token bucket. This can lead to out of order messages or the appearance of "{}lost"{} messages under heavy load.\hypertarget{README.md_autotoc_md13075}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md13075}
+(The MIT License)
+
+Copyright (c) 2013 John Hurliman. \texorpdfstring{$<$}{<}\href{mailto:jhurliman@jhurliman.org}{\texttt{ jhurliman@jhurliman.\+org}}\texorpdfstring{$>$}{>}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \textquotesingle{}Software\textquotesingle{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \textquotesingle{}AS IS\textquotesingle{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 

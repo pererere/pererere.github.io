@@ -1,0 +1,41 @@
+\chapter{output\+File(file, data, \mbox{[}options, callback\mbox{]})}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_file}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_file}\index{outputFile(file, data, \mbox{[}options, callback\mbox{]})@{outputFile(file, data, [options, callback])}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_file_autotoc_md8278}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_file_autotoc_md8278}%
+
+
+Almost the same as {\ttfamily write\+File} (i.\+e. it \href{http://pages.citebite.com/v2o5n8l2f5reb}{\texttt{ overwrites}}), except that if the parent directory does not exist, it\textquotesingle{}s created. {\ttfamily file} must be a file path (a buffer or a file descriptor is not allowed). {\ttfamily options} are what you\textquotesingle{}d pass to \href{https://nodejs.org/api/fs.html\#fs_fs_writefile_file_data_options_callback}{\texttt{ {\ttfamily fs.\+write\+File()}}}.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily file} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily data} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>} \texorpdfstring{$\vert$}{|} \texorpdfstring{$<$}{<}Buffer\texorpdfstring{$>$}{>} \texorpdfstring{$\vert$}{|} \texorpdfstring{$<$}{<}Uint8\+Array\texorpdfstring{$>$}{>}}
+\item {\ttfamily options} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>} \texorpdfstring{$\vert$}{|} \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily callback} {\ttfamily \texorpdfstring{$<$}{<}Function\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_file_autotoc_md8279}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_file_autotoc_md8279}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ file\ =\ '/tmp/this/path/does/not/exist/file.txt'}
+\DoxyCodeLine{fs.outputFile(file,\ 'hello!',\ err\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(err)\ //\ =>\ null}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ fs.readFile(file,\ 'utf8',\ (err,\ data)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ if\ (err)\ return\ console.error(err)}
+\DoxyCodeLine{\ \ \ \ console.log(data)\ //\ =>\ hello!}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ With\ Promises:}
+\DoxyCodeLine{fs.outputFile(file,\ 'hello!')}
+\DoxyCodeLine{.then(()\ =>\ fs.readFile(file,\ 'utf8'))}
+\DoxyCodeLine{.then(data\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(data)\ //\ =>\ hello!}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{.catch(err\ =>\ \{}
+\DoxyCodeLine{\ \ console.error(err)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,281 @@
+\doxysection{Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller Class Reference}
+\hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller}{}\label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+
+
+Controller responsible for managing user account operations such as registration, login, and profile management.  
+
+
+Inheritance diagram for Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a769f7debc1f9267d129a71350526cba0}{User\+Accounts\+Controller}} (User\+Manager$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_application_user}{Application\+User}} $>$ user\+Manager, IConfiguration configuration, \mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}} context)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller}{User\+Accounts\+Controller} class. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_aeed356c4550c30fd1ceb91a412a47331}{Register}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_registration_model}{User\+Registration\+Model}} model)
+\begin{DoxyCompactList}\small\item\em Registers a new user in the system. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a870279659b18d3bd6f9a8331aa71dffb}{Login}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_login_model}{User\+Login\+Model}} model)
+\begin{DoxyCompactList}\small\item\em Authenticates a user and returns a JWT token upon successful login. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_ab2d8b58fd32b6a6e8077517d3ec9751b}{Get\+User\+Info}} (\mbox{[}From\+Query\mbox{]} string? username, \mbox{[}From\+Query\mbox{]} string? id)
+\begin{DoxyCompactList}\small\item\em Retrieves information about a user based on their username or ID. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a9d772b8b05b603581ded370c58a4db75}{Get\+Current\+User}} (\mbox{[}From\+Query\mbox{]} bool include\+Details=false)
+\begin{DoxyCompactList}\small\item\em Retrieves the authenticated user\textquotesingle{}s information, either just the ID or full non-\/sensitive details. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a7364a1ec836cb54fc4922671d51a9569}{Update\+Current\+User}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_update_model}{User\+Update\+Model}} model)
+\begin{DoxyCompactList}\small\item\em Updates the authenticated user\textquotesingle{}s information based on provided data. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a468fcb18cf49f7f46603caefe8e1aa9e}{Get\+All\+Users}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves a list of all users with their IDs and usernames. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_ab023903587a51f3fd3739342aa224732}{Get\+User\+Recipes}} (\mbox{[}From\+Query\mbox{]} string id)
+\begin{DoxyCompactList}\small\item\em Retrieves all recipes associated with a user by their ID. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_af677b152368c0208c988dae1d05996ef}{Get\+User\+Recipe\+Books}} (\mbox{[}From\+Query\mbox{]} string id)
+\begin{DoxyCompactList}\small\item\em Retrieves all recipe books associated with a user by their ID. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a442c08c7d983d4f6b28273214b0f0af2}{Activate\+Account}} (\mbox{[}From\+Query\mbox{]} string token)
+\begin{DoxyCompactList}\small\item\em Activates a user account using a provided activation token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ bool $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_ad37c1c4cdd40f282608c7d13aa4d1eaf}{Is\+Password\+Valid}} (\mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_application_user}{Application\+User}} user, string password)
+\begin{DoxyCompactList}\small\item\em Verifies if the provided password is correct for the given user. \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_application_user}{Application\+User}} $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a2ce16dcca96248a78981d9326a8f67c4}{Get\+Current\+User}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the currently authenticated user using claims. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_abaadfad7e81ea9620eeb003b6b8a7a53}\label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_abaadfad7e81ea9620eeb003b6b8a7a53} 
+readonly \mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}} {\bfseries \+\_\+context}
+\item 
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_aaeed6dea3adaefdd72619e6adfce6f92}\label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_aaeed6dea3adaefdd72619e6adfce6f92} 
+readonly User\+Manager$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_application_user}{Application\+User}} $>$ {\bfseries \+\_\+user\+Manager}
+\item 
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_af2bf6c1de7009292992dfc410cca89f2}\label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_af2bf6c1de7009292992dfc410cca89f2} 
+readonly IConfiguration {\bfseries \+\_\+configuration}
+\item 
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a75e76abb0388cec3b5343a94074e55bc}\label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a75e76abb0388cec3b5343a94074e55bc} 
+readonly IResend {\bfseries \+\_\+resend}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller responsible for managing user account operations such as registration, login, and profile management. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a769f7debc1f9267d129a71350526cba0}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!UserAccountsController@{UserAccountsController}}
+\index{UserAccountsController@{UserAccountsController}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{UserAccountsController()}{UserAccountsController()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a769f7debc1f9267d129a71350526cba0} 
+Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+User\+Accounts\+Controller (\begin{DoxyParamCaption}\item[{User\+Manager$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_application_user}{Application\+User}} $>$}]{user\+Manager}{, }\item[{IConfiguration}]{configuration}{, }\item[{\mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller}{User\+Accounts\+Controller} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Manager} & The user manager for handling Identity operations.\\
+\hline
+{\em configuration} & The configuration for accessing app settings (e.\+g., JWT settings).\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a442c08c7d983d4f6b28273214b0f0af2}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!ActivateAccount@{ActivateAccount}}
+\index{ActivateAccount@{ActivateAccount}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{ActivateAccount()}{ActivateAccount()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a442c08c7d983d4f6b28273214b0f0af2} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+Activate\+Account (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Query\mbox{]} string}]{token}{}\end{DoxyParamCaption})}
+
+
+
+Activates a user account using a provided activation token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & The activation token sent to the user\textquotesingle{}s email.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result indicating success or an error message.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$Account activated successfully, returns a confirmation message.$<$/response$>$ $<$response code="{}400"{}$>$Invalid or expired token provided.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a468fcb18cf49f7f46603caefe8e1aa9e}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!GetAllUsers@{GetAllUsers}}
+\index{GetAllUsers@{GetAllUsers}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{GetAllUsers()}{GetAllUsers()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a468fcb18cf49f7f46603caefe8e1aa9e} 
+IAction\+Result Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+Get\+All\+Users (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a list of all users with their IDs and usernames. 
+
+\begin{DoxyReturn}{Returns}
+An IAction\+Result containing a list of user objects with ID and username.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$List of users retrieved successfully.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a2ce16dcca96248a78981d9326a8f67c4}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!GetCurrentUser@{GetCurrentUser}}
+\index{GetCurrentUser@{GetCurrentUser}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{GetCurrentUser()}{GetCurrentUser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a2ce16dcca96248a78981d9326a8f67c4} 
+async Task$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_application_user}{Application\+User}} $>$ Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+Get\+Current\+User (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Retrieves the currently authenticated user using claims. 
+
+\begin{DoxyReturn}{Returns}
+A Task$<$\+TResult$>$ representing the current user as an \doxylink{class_food_link_1_1_server_1_1_models_1_1_application_user}{Application\+User} or null if not authenticated.
+\end{DoxyReturn}
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a9d772b8b05b603581ded370c58a4db75}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!GetCurrentUser@{GetCurrentUser}}
+\index{GetCurrentUser@{GetCurrentUser}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{GetCurrentUser()}{GetCurrentUser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a9d772b8b05b603581ded370c58a4db75} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+Get\+Current\+User (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Query\mbox{]} bool}]{include\+Details}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Retrieves the authenticated user\textquotesingle{}s information, either just the ID or full non-\/sensitive details. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em include\+Details} & If true, returns full user details; if false (default), returns only the ID.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result containing user ID or detailed profile information.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$User information retrieved successfully.$<$/response$>$ $<$response code="{}401"{}$>$User is not authenticated.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_ab2d8b58fd32b6a6e8077517d3ec9751b}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!GetUserInfo@{GetUserInfo}}
+\index{GetUserInfo@{GetUserInfo}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{GetUserInfo()}{GetUserInfo()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_ab2d8b58fd32b6a6e8077517d3ec9751b} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+Get\+User\+Info (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Query\mbox{]} string?}]{username}{, }\item[{\mbox{[}\+From\+Query\mbox{]} string?}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves information about a user based on their username or ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The username of the user (optional).\\
+\hline
+{\em id} & The ID of the user (optional).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result containing user details or an error message.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$User information retrieved successfully.$<$/response$>$ $<$response code="{}400"{}$>$Neither username nor ID provided.$<$/response$>$ $<$response code="{}404"{}$>$User not found.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_af677b152368c0208c988dae1d05996ef}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!GetUserRecipeBooks@{GetUserRecipeBooks}}
+\index{GetUserRecipeBooks@{GetUserRecipeBooks}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{GetUserRecipeBooks()}{GetUserRecipeBooks()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_af677b152368c0208c988dae1d05996ef} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+Get\+User\+Recipe\+Books (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Query\mbox{]} string}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves all recipe books associated with a user by their ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the user whose recipe books are to be retrieved.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result containing the list of recipe books or an error message.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe} books retrieved successfully, returns the list of recipe books.$<$/response$>$ $<$response code="{}400"{}$>$User ID is required but not provided.$<$/response$>$ $<$response code="{}404"{}$>$User not found.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_ab023903587a51f3fd3739342aa224732}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!GetUserRecipes@{GetUserRecipes}}
+\index{GetUserRecipes@{GetUserRecipes}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{GetUserRecipes()}{GetUserRecipes()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_ab023903587a51f3fd3739342aa224732} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+Get\+User\+Recipes (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Query\mbox{]} string}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves all recipes associated with a user by their ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the user whose recipes are to be retrieved.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result containing the list of recipes or an error message.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$Recipes retrieved successfully, returns the list of recipes.$<$/response$>$ $<$response code="{}400"{}$>$User ID is required but not provided.$<$/response$>$ $<$response code="{}404"{}$>$User not found.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_ad37c1c4cdd40f282608c7d13aa4d1eaf}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!IsPasswordValid@{IsPasswordValid}}
+\index{IsPasswordValid@{IsPasswordValid}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{IsPasswordValid()}{IsPasswordValid()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_ad37c1c4cdd40f282608c7d13aa4d1eaf} 
+async Task$<$ bool $>$ Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+Is\+Password\+Valid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_application_user}{Application\+User}}}]{user}{, }\item[{string}]{password}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Verifies if the provided password is correct for the given user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & The user whose password is to be verified.\\
+\hline
+{\em password} & The password to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Task$<$\+TResult$>$ representing a boolean result\+: true if the password is valid, false otherwise.
+\end{DoxyReturn}
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a870279659b18d3bd6f9a8331aa71dffb}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!Login@{Login}}
+\index{Login@{Login}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a870279659b18d3bd6f9a8331aa71dffb} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+Login (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_login_model}{User\+Login\+Model}}}]{model}{}\end{DoxyParamCaption})}
+
+
+
+Authenticates a user and returns a JWT token upon successful login. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The user login credentials.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result containing a JWT token and expiration date on success.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$Login successful, returns token and expiration.$<$/response$>$ $<$response code="{}400"{}$>$Invalid email or password.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_aeed356c4550c30fd1ceb91a412a47331}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!Register@{Register}}
+\index{Register@{Register}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_aeed356c4550c30fd1ceb91a412a47331} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+Register (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_registration_model}{User\+Registration\+Model}}}]{model}{}\end{DoxyParamCaption})}
+
+
+
+Registers a new user in the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The data of the user to be registered.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result indicating success or a validation error.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$User registered successfully.$<$/response$>$ $<$response code="{}400"{}$>$User already exists or validation errors occurred.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a7364a1ec836cb54fc4922671d51a9569}\index{FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}!UpdateCurrentUser@{UpdateCurrentUser}}
+\index{UpdateCurrentUser@{UpdateCurrentUser}!FoodLink.Server.Controllers.UserAccountsController@{FoodLink.Server.Controllers.UserAccountsController}}
+\doxysubsubsection{\texorpdfstring{UpdateCurrentUser()}{UpdateCurrentUser()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_user_accounts_controller_a7364a1ec836cb54fc4922671d51a9569} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+User\+Accounts\+Controller.\+Update\+Current\+User (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_user_update_model}{User\+Update\+Model}}}]{model}{}\end{DoxyParamCaption})}
+
+
+
+Updates the authenticated user\textquotesingle{}s information based on provided data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The updated user information.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result indicating success or an error.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$User information updated successfully.$<$/response$>$ $<$response code="{}400"{}$>$Validation errors (e.\+g., incorrect password, email in use).$<$/response$>$ $<$response code="{}401"{}$>$User is not authenticated.$<$/response$>$ $<$response code="{}404"{}$>$Authenticated user not found.$<$/response$>$ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/\+Food\+Link.\+Server/\+Controllers/User\+Accounts\+Controller.\+cs\end{DoxyCompactItemize}

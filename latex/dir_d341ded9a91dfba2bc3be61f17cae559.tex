@@ -1,0 +1,41 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/destroy Directory Reference}
+\hypertarget{dir_d341ded9a91dfba2bc3be61f17cae559}{}\label{dir_d341ded9a91dfba2bc3be61f17cae559}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/destroy Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/destroy Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://npmjs.org/package/destroy}{\texttt{ }} \href{https://github.com/stream-utils/destroy/actions/workflows/ci.yml}{\texttt{ }} \href{https://coveralls.io/r/stream-utils/destroy?branch=master}{\texttt{ }}  \href{https://npmjs.org/package/destroy}{\texttt{ }}
+
+Destroy a stream.
+
+This module is meant to ensure a stream gets destroyed, handling different APIs and Node.\+js bugs.\hypertarget{README.md_autotoc_md5586}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md5586}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ destroy\ =\ require('destroy')}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5587}{}\doxysubsubsection{\texorpdfstring{destroy(stream \mbox{[}, suppress\mbox{]})}{destroy(stream \mbox{[}, suppress\mbox{]})}}\label{README.md_autotoc_md5587}
+Destroy the given stream, and optionally suppress any future {\ttfamily error} events.
+
+In most cases, this is identical to a simple {\ttfamily stream.\+destroy()} call. The rules are as follows for a given stream\+:
+
+
+\begin{DoxyEnumerate}
+\item If the {\ttfamily stream} is an instance of {\ttfamily Read\+Stream}, then call {\ttfamily stream.\+destroy()} and add a listener to the {\ttfamily open} event to call {\ttfamily stream.\+close()} if it is fired. This is for a Node.\+js bug that will leak a file descriptor if {\ttfamily .destroy()} is called before {\ttfamily open}.
+\item If the {\ttfamily stream} is an instance of a zlib stream, then call {\ttfamily stream.\+destroy()} and close the underlying zlib handle if open, otherwise call {\ttfamily stream.\+close()}. This is for consistency across Node.\+js versions and a Node.\+js bug that will leak a native zlib handle.
+\item If the {\ttfamily stream} is not an instance of {\ttfamily Stream}, then nothing happens.
+\item If the {\ttfamily stream} has a {\ttfamily .destroy()} method, then call it.
+\end{DoxyEnumerate}
+
+The function returns the {\ttfamily stream} passed in as the argument.\hypertarget{README.md_autotoc_md5588}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{README.md_autotoc_md5588}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ destroy\ =\ require('destroy')}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ fs\ =\ require('fs')}
+\DoxyCodeLine{var\ stream\ =\ fs.createReadStream('package.json')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ ...\ and\ later}
+\DoxyCodeLine{destroy(stream)}
+
+\end{DoxyCode}
+ 

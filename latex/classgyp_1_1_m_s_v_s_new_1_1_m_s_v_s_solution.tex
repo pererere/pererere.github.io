@@ -1,0 +1,71 @@
+\doxysection{gyp.\+MSVSNew.\+MSVSSolution Class Reference}
+\hypertarget{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution}{}\label{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution}\index{gyp.MSVSNew.MSVSSolution@{gyp.MSVSNew.MSVSSolution}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_afda0726f596596711b8f84ecc78a21d0}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, path, version, entries=None, variants=None, website\+Properties=True)
+\item 
+\mbox{\hyperlink{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_a774c96dd31b4720ac1c360c4b8970487}{Write}} (self, writer=gyp.\+common.\+Write\+On\+Diff)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_a0f45b1593fb186dbc61d1473a7c1ccb0}\label{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_a0f45b1593fb186dbc61d1473a7c1ccb0} 
+{\bfseries path} = path
+\item 
+\Hypertarget{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_aa2087a4bba97d418f8d02b4560a62138}\label{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_aa2087a4bba97d418f8d02b4560a62138} 
+{\bfseries website\+Properties} = website\+Properties
+\item 
+\Hypertarget{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_a751fd1c50b21dea8b442e062d1f77435}\label{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_a751fd1c50b21dea8b442e062d1f77435} 
+{\bfseries version} = version
+\item 
+\Hypertarget{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_a3683e9c4f24d9808e0e899c38faa2d84}\label{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_a3683e9c4f24d9808e0e899c38faa2d84} 
+{\bfseries entries} = list(entries or \mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_a223d38ebc2b62dbfee468fe713448f89}\label{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_a223d38ebc2b62dbfee468fe713448f89} 
+list {\bfseries variants} = variants\mbox{[}\+:\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Visual Studio solution.\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_afda0726f596596711b8f84ecc78a21d0}\index{gyp.MSVSNew.MSVSSolution@{gyp.MSVSNew.MSVSSolution}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!gyp.MSVSNew.MSVSSolution@{gyp.MSVSNew.MSVSSolution}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_afda0726f596596711b8f84ecc78a21d0} 
+gyp.\+MSVSNew.\+MSVSSolution.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{path}{, }\item[{}]{version}{, }\item[{}]{entries}{ = {\ttfamily None}, }\item[{}]{variants}{ = {\ttfamily None}, }\item[{}]{website\+Properties}{ = {\ttfamily True}}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initializes the solution.
+
+Args:
+path: Path to solution file.
+version: Format version to emit.
+entries: List of entries in solution.  May contain Folder or Project
+  objects.  May be None, if the folder is empty.
+variants: List of build variant strings.  If none, a default list will
+  be used.
+websiteProperties: Flag to decide if the website properties section
+  is generated.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_a774c96dd31b4720ac1c360c4b8970487}\index{gyp.MSVSNew.MSVSSolution@{gyp.MSVSNew.MSVSSolution}!Write@{Write}}
+\index{Write@{Write}!gyp.MSVSNew.MSVSSolution@{gyp.MSVSNew.MSVSSolution}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily \label{classgyp_1_1_m_s_v_s_new_1_1_m_s_v_s_solution_a774c96dd31b4720ac1c360c4b8970487} 
+gyp.\+MSVSNew.\+MSVSSolution.\+Write (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{writer}{ = {\ttfamily gyp.common.WriteOnDiff}}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Writes the solution file to disk.
+
+Raises:
+IndexError: An entry appears multiple times.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/foodlink.\+client/node\+\_\+modules/node-\/gyp/gyp/pylib/gyp/MSVSNew.\+py\end{DoxyCompactItemize}

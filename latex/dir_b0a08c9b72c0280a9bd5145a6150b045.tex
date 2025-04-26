@@ -1,0 +1,32 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/shebang-\/regex Directory Reference}
+\hypertarget{dir_b0a08c9b72c0280a9bd5145a6150b045}{}\label{dir_b0a08c9b72c0280a9bd5145a6150b045}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/shebang-\/regex Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/shebang-\/regex Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Regular expression for matching a \href{https://en.wikipedia.org/wiki/Shebang_(Unix)}{\texttt{ shebang}} line \end{quote}
+\hypertarget{readme.md_autotoc_md19100}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md19100}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ shebang-\/regex}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md19101}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md19101}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ shebangRegex\ =\ require('shebang-\/regex');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ string\ =\ '\#!/usr/bin/env\ node\(\backslash\)nconsole.log("{}unicorns"{});';}
+\DoxyCodeLine{}
+\DoxyCodeLine{shebangRegex.test(string);}
+\DoxyCodeLine{//=>\ true}
+\DoxyCodeLine{}
+\DoxyCodeLine{shebangRegex.exec(string)[0];}
+\DoxyCodeLine{//=>\ '\#!/usr/bin/env\ node'}
+\DoxyCodeLine{}
+\DoxyCodeLine{shebangRegex.exec(string)[1];}
+\DoxyCodeLine{//=>\ '/usr/bin/env\ node'}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md19102}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md19102}
+MIT © \href{https://sindresorhus.com}{\texttt{ Sindre Sorhus}} 

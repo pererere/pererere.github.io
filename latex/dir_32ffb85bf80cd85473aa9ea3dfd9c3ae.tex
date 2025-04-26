@@ -1,0 +1,56 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/aggregate-\/error Directory Reference}
+\hypertarget{dir_32ffb85bf80cd85473aa9ea3dfd9c3ae}{}\label{dir_32ffb85bf80cd85473aa9ea3dfd9c3ae}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/aggregate-\/error Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/aggregate-\/error Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Create an error from multiple errors \end{quote}
+\hypertarget{readme.md_autotoc_md2337}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md2337}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ aggregate-\/error}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md2338}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md2338}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ AggregateError\ =\ require('aggregate-\/error');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ error\ =\ new\ AggregateError([new\ Error('foo'),\ 'bar',\ \{message:\ 'baz'\}]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{throw\ error;}
+\DoxyCodeLine{/*}
+\DoxyCodeLine{AggregateError:}
+\DoxyCodeLine{\ \ \ \ Error:\ foo}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ at\ Object.<anonymous>\ (/Users/sindresorhus/dev/aggregate-\/error/example.js:3:33)}
+\DoxyCodeLine{\ \ \ \ Error:\ bar}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ at\ Object.<anonymous>\ (/Users/sindresorhus/dev/aggregate-\/error/example.js:3:13)}
+\DoxyCodeLine{\ \ \ \ Error:\ baz}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ at\ Object.<anonymous>\ (/Users/sindresorhus/dev/aggregate-\/error/example.js:3:13)}
+\DoxyCodeLine{\ \ \ \ at\ AggregateError\ (/Users/sindresorhus/dev/aggregate-\/error/index.js:19:3)}
+\DoxyCodeLine{\ \ \ \ at\ Object.<anonymous>\ (/Users/sindresorhus/dev/aggregate-\/error/example.js:3:13)}
+\DoxyCodeLine{\ \ \ \ at\ Module.\_compile\ (module.js:556:32)}
+\DoxyCodeLine{\ \ \ \ at\ Object.Module.\_extensions..js\ (module.js:565:10)}
+\DoxyCodeLine{\ \ \ \ at\ Module.load\ (module.js:473:32)}
+\DoxyCodeLine{\ \ \ \ at\ tryModuleLoad\ (module.js:432:12)}
+\DoxyCodeLine{\ \ \ \ at\ Function.Module.\_load\ (module.js:424:3)}
+\DoxyCodeLine{\ \ \ \ at\ Module.runMain\ (module.js:590:10)}
+\DoxyCodeLine{\ \ \ \ at\ run\ (bootstrap\_node.js:394:7)}
+\DoxyCodeLine{\ \ \ \ at\ startup\ (bootstrap\_node.js:149:9)}
+\DoxyCodeLine{*/}
+\DoxyCodeLine{}
+\DoxyCodeLine{for\ (const\ individualError\ of\ error)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(individualError);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{//=>\ [Error:\ foo]}
+\DoxyCodeLine{//=>\ [Error:\ bar]}
+\DoxyCodeLine{//=>\ [Error:\ baz]}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md2339}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md2339}
+\hypertarget{readme.md_autotoc_md2340}{}\doxysubsubsection{\texorpdfstring{Aggregate\+Error(errors)}{Aggregate\+Error(errors)}}\label{readme.md_autotoc_md2340}
+Returns an {\ttfamily Error} that is also an \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators\#Iterables}{\texttt{ {\ttfamily Iterable}}} for the individual errors.\hypertarget{readme.md_autotoc_md2341}{}\doxysubsubsubsection{\texorpdfstring{errors}{errors}}\label{readme.md_autotoc_md2341}
+Type\+: {\ttfamily Array\texorpdfstring{$<$}{<}Error\texorpdfstring{$\vert$}{|}\+Object\texorpdfstring{$\vert$}{|}string\texorpdfstring{$>$}{>}}
+
+If a string, a new {\ttfamily Error} is created with the string as the error message.~\newline
+ If a non-\/\+Error object, a new {\ttfamily Error} is created with all properties from the object copied over. 

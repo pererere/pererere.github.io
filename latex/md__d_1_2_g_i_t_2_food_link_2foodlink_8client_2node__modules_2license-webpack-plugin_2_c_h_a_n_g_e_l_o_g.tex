@@ -1,0 +1,408 @@
+\chapter{Changelog}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g}\index{Changelog@{Changelog}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12918}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12918}%
+
+
+All notable changes to this project will be documented in this file.
+
+The format is based on \href{https://keepachangelog.com/en/1.0.0/}{\texttt{ Keep a Changelog}}, and this project adheres to \href{https://semver.org/spec/v2.0.0.html}{\texttt{ Semantic Versioning}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12919}{}\doxysection{\texorpdfstring{\mbox{[}4.\+0.\+2\mbox{]} -\/ 2022-\/02-\/10}{\mbox{[}4.\+0.\+2\mbox{]} -\/ 2022-\/02-\/10}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12919}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12920}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12920}
+
+\begin{DoxyItemize}
+\item Fix regression when using dynamic imports
+\item Fix regression of {\ttfamily excluded\+Package\+Test} option not being respected
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12921}{}\doxysection{\texorpdfstring{\mbox{[}4.\+0.\+1\mbox{]} -\/ 2022-\/01-\/27}{\mbox{[}4.\+0.\+1\mbox{]} -\/ 2022-\/01-\/27}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12921}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12922}{}\doxysubsection{\texorpdfstring{Changed}{Changed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12922}
+
+\begin{DoxyItemize}
+\item Performance improvement\+: use resolve data already present in most modules
+\item Performance improvement\+: use throw\+If\+No\+Entry option on filesystem operations to improve performance
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12923}{}\doxysection{\texorpdfstring{\mbox{[}4.\+0.\+0\mbox{]} -\/ 2021-\/11-\/11}{\mbox{[}4.\+0.\+0\mbox{]} -\/ 2021-\/11-\/11}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12923}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12924}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12924}
+
+\begin{DoxyItemize}
+\item Fix {\ttfamily Type\+Error\+: item.\+node is not a function} errors by including {\ttfamily webpack-\/sources@\texorpdfstring{$^\wedge$}{\string^}3.0.\+0} as direct dependency.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12925}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12925}
+
+\begin{DoxyItemize}
+\item Remove support for webpack versions less than 5. Only webpack 5 is supported as of this version.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12926}{}\doxysection{\texorpdfstring{\mbox{[}3.\+0.\+0\mbox{]} -\/ 2021-\/10-\/02}{\mbox{[}3.\+0.\+0\mbox{]} -\/ 2021-\/10-\/02}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12926}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12927}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12927}
+
+\begin{DoxyItemize}
+\item Fix {\ttfamily Type\+Error\+: item.\+node is not a function} errors from webpack 5.\+47.\+0 and later
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12928}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+21\mbox{]} -\/ 2021-\/08-\/20}{\mbox{[}2.\+3.\+21\mbox{]} -\/ 2021-\/08-\/20}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12928}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12929}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12929}
+
+\begin{DoxyItemize}
+\item Fix delegated modules giving errors about nonexistent {\ttfamily /package.json} file
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12930}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+20\mbox{]} -\/ 2021-\/07-\/12}{\mbox{[}2.\+3.\+20\mbox{]} -\/ 2021-\/07-\/12}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12930}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12931}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12931}
+
+\begin{DoxyItemize}
+\item Fixed an issue where dependent and cached modules\textquotesingle{} licenses were not being added
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12932}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+19\mbox{]} -\/ 2021-\/05-\/31}{\mbox{[}2.\+3.\+19\mbox{]} -\/ 2021-\/05-\/31}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12932}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12933}{}\doxysubsection{\texorpdfstring{Changed}{Changed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12933}
+
+\begin{DoxyItemize}
+\item Optimized calls to compilation.\+get\+Stats() by filtering out unnecessary stats information
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12934}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12934}
+
+\begin{DoxyItemize}
+\item Fixed banners not working on webpack v5. Check the \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_d_o_c_u_m_e_n_t_a_t_i_o_n}{documentation}{0} for important configuration changes required for banners to work on webpack v5.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12935}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+18\mbox{]} -\/ 2021-\/05-\/07}{\mbox{[}2.\+3.\+18\mbox{]} -\/ 2021-\/05-\/07}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12935}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12936}{}\doxysubsection{\texorpdfstring{Changed}{Changed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12936}
+
+\begin{DoxyItemize}
+\item Register webpack as optional peer dependency
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12937}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+17\mbox{]} -\/ 2021-\/04-\/10}{\mbox{[}2.\+3.\+17\mbox{]} -\/ 2021-\/04-\/10}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12937}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12938}{}\doxysubsection{\texorpdfstring{Changed}{Changed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12938}
+
+\begin{DoxyItemize}
+\item Performance improvements in large repos
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12939}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+16\mbox{]} -\/ 2021-\/03-\/26}{\mbox{[}2.\+3.\+16\mbox{]} -\/ 2021-\/03-\/26}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12939}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12940}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12940}
+
+\begin{DoxyItemize}
+\item Fix data URI modules giving errors about nonexistent {\ttfamily /package.json} file
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12941}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+15\mbox{]} -\/ 2021-\/03-\/03}{\mbox{[}2.\+3.\+15\mbox{]} -\/ 2021-\/03-\/03}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12941}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12942}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12942}
+
+\begin{DoxyItemize}
+\item Fix remote modules giving errors about nonexistent {\ttfamily /package.json} file
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12943}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+14\mbox{]} -\/ 2021-\/02-\/19}{\mbox{[}2.\+3.\+14\mbox{]} -\/ 2021-\/02-\/19}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12943}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12944}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12944}
+
+\begin{DoxyItemize}
+\item Fix ignored modules giving errors about nonexistent {\ttfamily /package.json} file
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12945}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+13\mbox{]} -\/ 2021-\/02-\/12}{\mbox{[}2.\+3.\+13\mbox{]} -\/ 2021-\/02-\/12}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12945}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12946}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12946}
+
+\begin{DoxyItemize}
+\item Fix container entry modules giving errors about nonexistent {\ttfamily /package.json} file
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12947}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+12\mbox{]} -\/ 2021-\/02-\/11}{\mbox{[}2.\+3.\+12\mbox{]} -\/ 2021-\/02-\/11}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12947}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12948}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12948}
+
+\begin{DoxyItemize}
+\item Fix files processed by loaders not getting processed correctly
+\item Fix errors about {\ttfamily /package.json} when using webpack module federation
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12949}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+11\mbox{]} -\/ 2021-\/01-\/11}{\mbox{[}2.\+3.\+11\mbox{]} -\/ 2021-\/01-\/11}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12949}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12950}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12950}
+
+\begin{DoxyItemize}
+\item Fix performance regression by caching webpack stats object
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12951}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+10\mbox{]} -\/ 2021-\/01-\/07}{\mbox{[}2.\+3.\+10\mbox{]} -\/ 2021-\/01-\/07}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12951}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12952}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12952}
+
+\begin{DoxyItemize}
+\item Remove external dependencies (which can\textquotesingle{}t be resolved during build time) from processing
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12953}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+9\mbox{]} -\/ 2020-\/12-\/25}{\mbox{[}2.\+3.\+9\mbox{]} -\/ 2020-\/12-\/25}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12953}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12954}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12954}
+
+\begin{DoxyItemize}
+\item Fix webpack license output being missing when using webpack v5
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12955}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+8\mbox{]} -\/ 2020-\/12-\/24}{\mbox{[}2.\+3.\+8\mbox{]} -\/ 2020-\/12-\/24}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12955}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12956}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12956}
+
+\begin{DoxyItemize}
+\item Fix missing ES modules from output when using webpack v5
+\item Fix explicit setting of {\ttfamily per\+Chunk\+Output\+: true} not being honored by the plugin
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12957}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+7\mbox{]} -\/ 2020-\/12-\/24}{\mbox{[}2.\+3.\+7\mbox{]} -\/ 2020-\/12-\/24}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12957}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12958}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12958}
+
+\begin{DoxyItemize}
+\item Fix error when {\ttfamily per\+Chunk\+Output} is set to {\ttfamily false} and webpack 4 is used\+: `Type\+Error\+: Cannot read property \textquotesingle{}tap' of undefined\`{}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12959}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+6\mbox{]} -\/ 2020-\/12-\/24}{\mbox{[}2.\+3.\+6\mbox{]} -\/ 2020-\/12-\/24}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12959}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12960}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12960}
+
+\begin{DoxyItemize}
+\item Fix warning when {\ttfamily per\+Chunk\+Output} is set to {\ttfamily false}\+: {\ttfamily WARNING in Conflict\+: Multiple assets emit different content to the same filename \texorpdfstring{$<$}{<}filename\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12961}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+5\mbox{]} -\/ 2020-\/12-\/24}{\mbox{[}2.\+3.\+5\mbox{]} -\/ 2020-\/12-\/24}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12961}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12962}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12962}
+
+\begin{DoxyItemize}
+\item Fix warning when {\ttfamily per\+Chunk\+Output} is set to {\ttfamily false}\+: {\ttfamily Deprecation\+Warning\+: Compilation.\+assets will be frozen in future, all modifications are deprecated}. This reintroduces the warning {\ttfamily per\+Chunk\+Output} is set to {\ttfamily false}\+: {\ttfamily WARNING in Conflict\+: Multiple assets emit different content to the same filename \texorpdfstring{$<$}{<}filename\texorpdfstring{$>$}{>}}.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12963}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+4\mbox{]} -\/ 2020-\/12-\/23}{\mbox{[}2.\+3.\+4\mbox{]} -\/ 2020-\/12-\/23}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12963}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12964}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12964}
+
+\begin{DoxyItemize}
+\item Fix warning when {\ttfamily per\+Chunk\+Output} is set to {\ttfamily false}\+: {\ttfamily WARNING in Conflict\+: Multiple assets emit different content to the same filename \texorpdfstring{$<$}{<}filename\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12965}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+3\mbox{]} -\/ 2020-\/12-\/23}{\mbox{[}2.\+3.\+3\mbox{]} -\/ 2020-\/12-\/23}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12965}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12966}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12966}
+
+\begin{DoxyItemize}
+\item Fix deprecation messages in webpack 5\+: {\ttfamily \mbox{[}DEP\+\_\+\+WEBPACK\+\_\+\+CHUNK\+\_\+\+MODULES\+\_\+\+ITERABLE\mbox{]} Deprecation\+Warning\+: Chunk.\+modules\+Iterable\+: Use new Chunk\+Graph API} and {\ttfamily \mbox{[}DEP\+\_\+\+WEBPACK\+\_\+\+CHUNK\+\_\+\+ENTRY\+\_\+\+MODULE\mbox{]} Deprecation\+Warning\+: Chunk.\+entry\+Module\+: Use new Chunk\+Graph API}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12967}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+2\mbox{]} -\/ 2020-\/12-\/07}{\mbox{[}2.\+3.\+2\mbox{]} -\/ 2020-\/12-\/07}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12967}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12968}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12968}
+
+\begin{DoxyItemize}
+\item Fix directory permission of dist folder by publishing from Linux instead of Windows
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12969}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+1\mbox{]} -\/ 2020-\/10-\/24}{\mbox{[}2.\+3.\+1\mbox{]} -\/ 2020-\/10-\/24}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12969}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12970}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12970}
+
+\begin{DoxyItemize}
+\item Fix deprecation message in webpack 5\+: {\ttfamily \mbox{[}DEP\+\_\+\+WEBPACK\+\_\+\+COMPILATION\+\_\+\+OPTIMIZE\+\_\+\+CHUNK\+\_\+\+ASSETS\mbox{]} Deprecation\+Warning\+: optimize\+Chunk\+Assets is deprecated}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12971}{}\doxysection{\texorpdfstring{\mbox{[}2.\+3.\+0\mbox{]} -\/ 2020-\/07-\/12}{\mbox{[}2.\+3.\+0\mbox{]} -\/ 2020-\/07-\/12}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12971}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12972}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12972}
+
+\begin{DoxyItemize}
+\item Allow variables like {\ttfamily \mbox{[}hash\mbox{]}} in {\ttfamily output\+Filename} when {\ttfamily per\+Chunk\+Output} is set to {\ttfamily false}.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12973}{}\doxysection{\texorpdfstring{\mbox{[}2.\+2.\+0\mbox{]} -\/ 2020-\/05-\/03}{\mbox{[}2.\+2.\+0\mbox{]} -\/ 2020-\/05-\/03}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12973}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12974}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12974}
+
+\begin{DoxyItemize}
+\item Added option {\ttfamily skip\+Child\+Compilers} to skip applying the plugin to child compilers.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12975}{}\doxysection{\texorpdfstring{\mbox{[}2.\+1.\+4\mbox{]} -\/ 2020-\/03-\/13}{\mbox{[}2.\+1.\+4\mbox{]} -\/ 2020-\/03-\/13}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12975}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12976}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12976}
+
+\begin{DoxyItemize}
+\item Allow for multiple included/excluded chunks
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12977}{}\doxysection{\texorpdfstring{\mbox{[}2.\+1.\+3\mbox{]} -\/ 2019-\/10-\/13}{\mbox{[}2.\+1.\+3\mbox{]} -\/ 2019-\/10-\/13}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12977}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12978}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12978}
+
+\begin{DoxyItemize}
+\item Ignore package.\+json files that don\textquotesingle{}t have a {\ttfamily name} field when searching for a package\textquotesingle{}s {\ttfamily package.\+json} file.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12979}{}\doxysection{\texorpdfstring{\mbox{[}2.\+1.\+2\mbox{]} -\/ 2019-\/08-\/11}{\mbox{[}2.\+1.\+2\mbox{]} -\/ 2019-\/08-\/11}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12979}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12980}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12980}
+
+\begin{DoxyItemize}
+\item Fix {\ttfamily license\+Template\+Dir} option not being able to find template files.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12981}{}\doxysection{\texorpdfstring{\mbox{[}2.\+1.\+1\mbox{]} -\/ 2019-\/02-\/23}{\mbox{[}2.\+1.\+1\mbox{]} -\/ 2019-\/02-\/23}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12981}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12982}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12982}
+
+\begin{DoxyItemize}
+\item Handle missing license template file when {\ttfamily license\+Template\+Dir} is used
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12983}{}\doxysection{\texorpdfstring{\mbox{[}2.\+1.\+0\mbox{]} -\/ 2019-\/01-\/12}{\mbox{[}2.\+1.\+0\mbox{]} -\/ 2019-\/01-\/12}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12983}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12984}{}\doxysubsection{\texorpdfstring{Changed}{Changed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12984}
+
+\begin{DoxyItemize}
+\item License report is now sorted by module name.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12985}{}\doxysection{\texorpdfstring{\mbox{[}2.\+0.\+4\mbox{]} -\/ 2018-\/11-\/30}{\mbox{[}2.\+0.\+4\mbox{]} -\/ 2018-\/11-\/30}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12985}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12986}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12986}
+
+\begin{DoxyItemize}
+\item Switch {\ttfamily @types/webpack-\/sources} to a regular dependency instead of a dev\+Dependency.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12987}{}\doxysection{\texorpdfstring{\mbox{[}2.\+0.\+3\mbox{]} -\/ 2018-\/11-\/04}{\mbox{[}2.\+0.\+3\mbox{]} -\/ 2018-\/11-\/04}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12987}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12988}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12988}
+
+\begin{DoxyItemize}
+\item Handle auto exclusion of {\ttfamily license}, if the guessed name is a folder instead of file.
+\item Ignore directories found in {\ttfamily SEE LICENSE IN}-\/style licenses.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12989}{}\doxysection{\texorpdfstring{\mbox{[}2.\+0.\+2\mbox{]} -\/ 2018-\/10-\/09}{\mbox{[}2.\+0.\+2\mbox{]} -\/ 2018-\/10-\/09}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12989}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12990}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12990}
+
+\begin{DoxyItemize}
+\item Handle object-\/style {\ttfamily license} field in {\ttfamily package.\+json}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12991}{}\doxysection{\texorpdfstring{\mbox{[}2.\+0.\+1\mbox{]} -\/ 2018-\/09-\/23}{\mbox{[}2.\+0.\+1\mbox{]} -\/ 2018-\/09-\/23}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12991}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12992}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12992}
+
+\begin{DoxyItemize}
+\item Handle invalid filename in {\ttfamily SEE LICENSE IN}-\/style licenses in {\ttfamily package.\+json} files.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12993}{}\doxysection{\texorpdfstring{\mbox{[}2.\+0.\+0\mbox{]} -\/ 2018-\/09-\/23}{\mbox{[}2.\+0.\+0\mbox{]} -\/ 2018-\/09-\/23}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12993}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12994}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12994}
+
+\begin{DoxyItemize}
+\item {\ttfamily license\+Inclusion\+Test} option
+\item {\ttfamily unacceptable\+License\+Test} option
+\item {\ttfamily handle\+Unacceptable\+License} option
+\item {\ttfamily handle\+Missing\+License\+Text} option
+\item {\ttfamily license\+Text\+Overrides} option
+\item {\ttfamily render\+Licenses} option
+\item {\ttfamily render\+Banner} option
+\item {\ttfamily chunk\+Include\+Exclude\+Test} option
+\item {\ttfamily additional\+Chunk\+Modules} option
+\item {\ttfamily additional\+Modules} option
+\item {\ttfamily preferred\+License\+Types} option
+\item {\ttfamily handle\+License\+Ambiguity} option
+\item {\ttfamily handle\+Missing\+License\+Type} option
+\item {\ttfamily excluded\+Package\+Test} option
+\item {\ttfamily silent} option
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12995}{}\doxysubsection{\texorpdfstring{Changed}{Changed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12995}
+
+\begin{DoxyItemize}
+\item No explicit configuration is necessary anymore. All license types will be included.
+\item There is no dependency on {\ttfamily ejs} anymore. Instead, render functions are used.
+\item Packages are identified by traversing dictories upward until a {\ttfamily package.\+json} file is found. This should make package identificaton more reliable.
+\item Use webpack\textquotesingle{}s {\ttfamily input\+File\+System} instead of {\ttfamily fs} module.
+\item In order to avoid issues with source maps, the plugin hook is done at a different phase of the webpack build.
+\item The {\ttfamily modules\+Directories} option requires full paths and is now used to restrict which directories a module may be detected from.
+\item License filename detection is now done by regular expression which means more license files should be picked up now.
+\item When license text cannot be found, the plugin will no longer write the license type as the license text. Instead it will omit printing the license text. (The license type will still be written though.)
+\item The {\ttfamily webpack-\/sources} dependency has moved from a peer dependency to a direct dependency.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12996}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12996}
+
+\begin{DoxyItemize}
+\item {\ttfamily suppress\+Errors} option
+\item {\ttfamily pattern} option
+\item {\ttfamily output\+Template} option
+\item {\ttfamily include\+Packages\+Without\+License} option
+\item {\ttfamily unacceptable\+Pattern} option
+\item {\ttfamily abort\+On\+Unacceptable\+License} option
+\item {\ttfamily banner\+Template} option
+\item {\ttfamily included\+Chunks} option
+\item {\ttfamily excluded\+Chunks} option
+\item {\ttfamily additional\+Packages} option
+\item {\ttfamily build\+Root} option
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12997}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12997}
+
+\begin{DoxyItemize}
+\item No more interference with source maps
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12998}{}\doxysection{\texorpdfstring{\mbox{[}1.\+5.\+0\mbox{]} -\/ 2018-\/09-\/20}{\mbox{[}1.\+5.\+0\mbox{]} -\/ 2018-\/09-\/20}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12998}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12999}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md12999}
+
+\begin{DoxyItemize}
+\item Support for absolute paths in {\ttfamily modules\+Directories} option
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13000}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13000}
+
+\begin{DoxyItemize}
+\item Support symlinked {\ttfamily node\+\_\+modules} folder
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13001}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.3.1...v1.4.0}{\texttt{ 1.\+4.\+0}} -\/ 2018-\/08-\/05}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.3.1...v1.4.0}{\texttt{ 1.\+4.\+0}} -\/ 2018-\/08-\/05}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13001}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13002}{}\doxysubsection{\texorpdfstring{Changed}{Changed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13002}
+
+\begin{DoxyItemize}
+\item Support license filenames with British spelling\+: "{}licence"{}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13003}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.3.0...v1.3.1}{\texttt{ 1.\+3.\+1}} -\/ 2018-\/03-\/22}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.3.0...v1.3.1}{\texttt{ 1.\+3.\+1}} -\/ 2018-\/03-\/22}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13003}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13004}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13004}
+
+\begin{DoxyItemize}
+\item Add documentation for license info in banner template
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13005}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.2.3...v1.3.0}{\texttt{ 1.\+3.\+0}} -\/ 2018-\/03-\/10}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.2.3...v1.3.0}{\texttt{ 1.\+3.\+0}} -\/ 2018-\/03-\/10}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13005}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13006}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13006}
+
+\begin{DoxyItemize}
+\item Support adding license info to banner template
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13007}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.2.2...v1.2.3}{\texttt{ 1.\+2.\+3}} -\/ 2018-\/03-\/04}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.2.2...v1.2.3}{\texttt{ 1.\+2.\+3}} -\/ 2018-\/03-\/04}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13007}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13008}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13008}
+
+\begin{DoxyItemize}
+\item Resolved deprecation warning from webpack
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13009}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.2.1...v1.2.2}{\texttt{ 1.\+2.\+2}} -\/ 2018-\/03-\/04}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.2.1...v1.2.2}{\texttt{ 1.\+2.\+2}} -\/ 2018-\/03-\/04}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13009}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13010}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13010}
+
+\begin{DoxyItemize}
+\item Empty license output on webpack versions prior to v4
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13011}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.2.0...v1.2.1}{\texttt{ 1.\+2.\+1}} -\/ 2018-\/03-\/04}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.2.0...v1.2.1}{\texttt{ 1.\+2.\+1}} -\/ 2018-\/03-\/04}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13011}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13012}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13012}
+
+\begin{DoxyItemize}
+\item Use async webpack compiler hook
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13013}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.1.2...v1.2.0}{\texttt{ 1.\+2.\+0}} -\/ 2018-\/03-\/04}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.1.2...v1.2.0}{\texttt{ 1.\+2.\+0}} -\/ 2018-\/03-\/04}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13013}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13014}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13014}
+
+\begin{DoxyItemize}
+\item Support multiple modules directories
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13015}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.1.1...v1.1.2}{\texttt{ 1.\+1.\+2}} -\/ 2018-\/02-\/24}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.1.1...v1.1.2}{\texttt{ 1.\+1.\+2}} -\/ 2018-\/02-\/24}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13015}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13016}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13016}
+
+\begin{DoxyItemize}
+\item Search file dependencies of webpack build
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13017}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.1.0...v1.1.1}{\texttt{ 1.\+1.\+1}} -\/ 2017-\/10-\/20}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.1.0...v1.1.1}{\texttt{ 1.\+1.\+1}} -\/ 2017-\/10-\/20}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13017}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13018}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13018}
+
+\begin{DoxyItemize}
+\item Fixed {\ttfamily peer\+Dependencies} declaration in {\ttfamily package.\+json}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13019}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.0.2...v1.1.0}{\texttt{ 1.\+1.\+0}} -\/ 2017-\/10-\/04}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.0.2...v1.1.0}{\texttt{ 1.\+1.\+0}} -\/ 2017-\/10-\/04}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13019}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13020}{}\doxysubsection{\texorpdfstring{Changed}{Changed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13020}
+
+\begin{DoxyItemize}
+\item Normalize line endings in license files
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13021}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.0.1...v1.0.2}{\texttt{ 1.\+0.\+2}} -\/ 2017-\/09-\/30}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.0.1...v1.0.2}{\texttt{ 1.\+0.\+2}} -\/ 2017-\/09-\/30}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13021}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13022}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13022}
+
+\begin{DoxyItemize}
+\item Scan files referenced by {\ttfamily root\+Module} in the build.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13023}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.0.0...v1.0.1}{\texttt{ 1.\+0.\+1}} -\/ 2017-\/09-\/14}{\href{https://github.com/xz64/license-webpack-plugin/compare/v1.0.0...v1.0.1}{\texttt{ 1.\+0.\+1}} -\/ 2017-\/09-\/14}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13023}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13024}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13024}
+
+\begin{DoxyItemize}
+\item Exception when stray file is in {\ttfamily node\+\_\+modules} folder
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13025}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.6.0...v1.0.0}{\texttt{ 1.\+0.\+0}} -\/ 2017-\/08-\/12}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.6.0...v1.0.0}{\texttt{ 1.\+0.\+0}} -\/ 2017-\/08-\/12}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13025}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13026}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13026}
+
+\begin{DoxyItemize}
+\item Option to output files on a per-\/chunk basis
+\item Option to add banner to chunks
+\item Option to render license information via ejs template
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13027}{}\doxysubsection{\texorpdfstring{Changed}{Changed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13027}
+
+\begin{DoxyItemize}
+\item Use explicit export of {\ttfamily License\+Webpack\+Plugin} instead of default export
+\item Rename {\ttfamily include\+Undefined} option to {\ttfamily include\+Packages\+Without\+License}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13028}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13028}
+
+\begin{DoxyItemize}
+\item Option to add verison number to output
+\item Option to output license text
+\item Option to output package url
+\item Filename option
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13029}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.5.1...v0.6.0}{\texttt{ 0.\+6.\+0}} -\/ 2017-\/08-\/04}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.5.1...v0.6.0}{\texttt{ 0.\+6.\+0}} -\/ 2017-\/08-\/04}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13029}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13030}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13030}
+
+\begin{DoxyItemize}
+\item Option to show/hide version number of packages
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13031}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.5.0...v0.5.1}{\texttt{ 0.\+5.\+1}} -\/ 2017-\/07-\/05}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.5.0...v0.5.1}{\texttt{ 0.\+5.\+1}} -\/ 2017-\/07-\/05}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13031}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13032}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13032}
+
+\begin{DoxyItemize}
+\item Handle webpack contexts which are inside {\ttfamily node\+\_\+modules}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13033}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.4.3...v0.5.0}{\texttt{ 0.\+5.\+0}} -\/ 2017-\/04-\/08}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.4.3...v0.5.0}{\texttt{ 0.\+5.\+0}} -\/ 2017-\/04-\/08}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13033}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13034}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13034}
+
+\begin{DoxyItemize}
+\item Option to detect and abort build when unacceptable licenses are found
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13035}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.4.2...v0.4.3}{\texttt{ 0.\+4.\+3}} -\/ 2017-\/03-\/12}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.4.2...v0.4.3}{\texttt{ 0.\+4.\+3}} -\/ 2017-\/03-\/12}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13035}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13036}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13036}
+
+\begin{DoxyItemize}
+\item Handle multiple @ signs in file paths
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13037}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.4.1...v0.4.2}{\texttt{ 0.\+4.\+2}} -\/ 2017-\/01-\/19}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.4.1...v0.4.2}{\texttt{ 0.\+4.\+2}} -\/ 2017-\/01-\/19}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13037}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13038}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13038}
+
+\begin{DoxyItemize}
+\item Create output directory if it does not exist
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13039}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.4.0...v0.4.1}{\texttt{ 0.\+4.\+1}} -\/ 2016-\/12-\/18}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.4.0...v0.4.1}{\texttt{ 0.\+4.\+1}} -\/ 2016-\/12-\/18}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13039}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13040}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13040}
+
+\begin{DoxyItemize}
+\item Print error message properly when {\ttfamily pattern} option is not supplied
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13041}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.3.0...v0.4.0}{\texttt{ 0.\+4.\+0}} -\/ 2016-\/11-\/23}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.3.0...v0.4.0}{\texttt{ 0.\+4.\+0}} -\/ 2016-\/11-\/23}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13041}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13042}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13042}
+
+\begin{DoxyItemize}
+\item Option to override license types
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13043}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13043}
+
+\begin{DoxyItemize}
+\item Support old {\ttfamily package.\+json} license structure
+\item Tests work on Windows
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13044}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.2.1...v0.3.0}{\texttt{ 0.\+3.\+0}} -\/ 2016-\/10-\/22}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.2.1...v0.3.0}{\texttt{ 0.\+3.\+0}} -\/ 2016-\/10-\/22}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13044}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13045}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13045}
+
+\begin{DoxyItemize}
+\item Option to suppress error messages
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13046}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.2.0...v0.2.1}{\texttt{ 0.\+2.\+1}} -\/ 2016-\/10-\/22}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.2.0...v0.2.1}{\texttt{ 0.\+2.\+1}} -\/ 2016-\/10-\/22}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13046}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13047}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13047}
+
+\begin{DoxyItemize}
+\item Ignore files outside of {\ttfamily node\+\_\+modules}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13048}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.1.4...v0.2.0}{\texttt{ 0.\+2.\+0}} -\/ 2016-\/09-\/24}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.1.4...v0.2.0}{\texttt{ 0.\+2.\+0}} -\/ 2016-\/09-\/24}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13048}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13049}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13049}
+
+\begin{DoxyItemize}
+\item Option to output url of a package
+\item Option to include packages which don\textquotesingle{}t hava license
+\item Option to output license text of a package
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13050}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.1.3...v0.1.4}{\texttt{ 0.\+1.\+4}} -\/ 2016-\/07-\/04}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.1.3...v0.1.4}{\texttt{ 0.\+1.\+4}} -\/ 2016-\/07-\/04}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13050}
+Refactoring release, no changes to functionality / API\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13051}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.1.2...v0.1.3}{\texttt{ 0.\+1.\+3}} -\/ 2016-\/07-\/04}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.1.2...v0.1.3}{\texttt{ 0.\+1.\+3}} -\/ 2016-\/07-\/04}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13051}
+Refactoring release, no changes to functionality / API\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13052}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.1.1...v0.1.2}{\texttt{ 0.\+1.\+2}} -\/ 2016-\/07-\/03}{\href{https://github.com/xz64/license-webpack-plugin/compare/v0.1.1...v0.1.2}{\texttt{ 0.\+1.\+2}} -\/ 2016-\/07-\/03}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13052}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13053}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13053}
+
+\begin{DoxyItemize}
+\item Handle scoped packages properly
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13054}{}\doxysection{\texorpdfstring{\href{https://github.com/xz64/license-webpack-plugin/tree/v0.1.1}{\texttt{ 0.\+1.\+1}} -\/ 2016-\/07-\/02}{\href{https://github.com/xz64/license-webpack-plugin/tree/v0.1.1}{\texttt{ 0.\+1.\+1}} -\/ 2016-\/07-\/02}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13054}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13055}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g_autotoc_md13055}
+
+\begin{DoxyItemize}
+\item Initial release 
+\end{DoxyItemize}

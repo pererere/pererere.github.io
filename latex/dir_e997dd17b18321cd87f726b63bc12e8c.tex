@@ -1,0 +1,31 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/babel-\/preset-\/current-\/node-\/syntax Directory Reference}
+\hypertarget{dir_e997dd17b18321cd87f726b63bc12e8c}{}\label{dir_e997dd17b18321cd87f726b63bc12e8c}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/babel-\/preset-\/current-\/node-\/syntax Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/babel-\/preset-\/current-\/node-\/syntax Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+A Babel preset that enables parsing of proposals supported by the current Node.\+js version. \end{quote}
+\hypertarget{README.md_autotoc_md2910}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md2910}
+If you are using yarn\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn\ add\ -\/-\/dev\ babel-\/preset-\/current-\/node-\/syntax}
+
+\end{DoxyCode}
+
+
+If you are using npm\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/-\/save-\/dev\ babel-\/preset-\/current-\/node-\/syntax}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2911}{}\doxysubsection{\texorpdfstring{Contributing}{Contributing}}\label{README.md_autotoc_md2911}
+PRs are welcome! The codebase is so small that I didn\textquotesingle{}t setup a linter, but try to match the style of the existing code.
+
+You can run tests with the following command\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn\ node\ test/index.js}
+
+\end{DoxyCode}
+
+
+The {\ttfamily test/fixtures.\+json} file contains a bunch of syntax tests, alongside with the minimum supported node version for each of them. Babel should throw on older versions, without support for that given syntax. All the tests are run using {\ttfamily @babel/parser@7.\+0.\+0}. 

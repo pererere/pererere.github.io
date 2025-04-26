@@ -1,0 +1,43 @@
+\chapter{write\+Json(file, object, \mbox{[}options, callback\mbox{]})}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2write_json}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2write_json}\index{writeJson(file, object, \mbox{[}options, callback\mbox{]})@{writeJson(file, object, [options, callback])}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2write_json_autotoc_md8300}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2write_json_autotoc_md8300}%
+
+
+Writes an object to a JSON file. {\ttfamily options} are the same that you\textquotesingle{}d pass to \href{https://github.com/jprichardson/node-jsonfile\#writefilefilename-options-callback}{\texttt{ {\ttfamily json\+File.\+write\+File()}}}.
+
+{\bfseries{Alias\+:}} {\ttfamily write\+JSON()}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily file} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily object} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}
+\item {\ttfamily options} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}
+\item {\ttfamily callback} {\ttfamily \texorpdfstring{$<$}{<}Function\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2write_json_autotoc_md8301}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2write_json_autotoc_md8301}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{fs.writeJson('./package.json',\ \{name:\ 'fs-\/extra'\},\ err\ =>\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ return\ console.error(err)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.log('success!')}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ With\ Promises}
+\DoxyCodeLine{fs.writeJson('./package.json',\ \{name:\ 'fs-\/extra'\})}
+\DoxyCodeLine{.then(()\ =>\ \{}
+\DoxyCodeLine{\ \ console.log('success!')}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{.catch(err\ =>\ \{}
+\DoxyCodeLine{\ \ console.error(err)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+
+
+{\bfseries{See also\+:}} \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_json}{{\ttfamily output\+Json()}}{0} 

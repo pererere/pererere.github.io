@@ -1,0 +1,94 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes Directory Reference}
+\hypertarget{dir_9cddd833260fa705c556a6411c337d55}{}\label{dir_9cddd833260fa705c556a6411c337d55}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+There are endless amounts of possible integrations and workflow scenarios when using Browsersync, so this project is an attempt to highlight as many of them as we can, whilst providing full, working examples.
+
+Here\textquotesingle{}s what we have currently...
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/grunt.html.injection}{\texttt{ Grunt, SASS, HTML/\+CSS injection example}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/grunt.sass}{\texttt{ Grunt \& SASS}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/grunt.sass.autoprefixer}{\texttt{ Grunt, SASS \& Autoprefixer}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/gulp.browserify}{\texttt{ Browserify, Babelify + Watchify + Sourcemaps Example}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/gulp.pug}{\texttt{ Gulp, SASS + Pug Templates}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/gulp.ruby.sass}{\texttt{ Gulp \& Ruby SASS}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/gulp.sass}{\texttt{ Gulp \& SASS}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/gulp.swig}{\texttt{ Gulp \& Swig Templates}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/gulp.task.sequence}{\texttt{ Gulp, SASS + Slow running tasks}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/html.injection}{\texttt{ HTML/\+CSS injection example}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/middleware.css.injection}{\texttt{ Middleware + CSS example}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/proxy.custom-css}{\texttt{ Proxy example + injecting custom css file}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/server}{\texttt{ Server example}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/server.gzipped.assets}{\texttt{ Server with pre-\/gzipped assets example}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/server.includes}{\texttt{ Server includes example}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/server.middleware}{\texttt{ Server + Logging + History API fallback middlewares Example}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/webpack.babel}{\texttt{ Webpack + Babel}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/webpack.monkey-hot-loader}{\texttt{ Webpack + Monkey Hot Loader}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/webpack.preact-hot-loader}{\texttt{ Webpack + Preact Hot Loader}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/webpack.react-hot-loader}{\texttt{ Webpack + React Hot Loader}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/webpack.react-transform-hmr}{\texttt{ Webpack + React Transform HMR}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/webpack.typescript}{\texttt{ Webpack + Type\+Script}}
+\item \href{https://github.com/Browsersync/recipes/tree/master/recipes/webpack.typescript.react}{\texttt{ Webpack, Type\+Script + React}}
+\end{DoxyItemize}
+
+... each one is a full, working example -\/ just have a look at the {\ttfamily readme.\+md} in each one for installation instructions.\hypertarget{readme.md_autotoc_md3499}{}\doxysubsubsection{\texorpdfstring{Contributions / Feedback}{Contributions / Feedback}}\label{readme.md_autotoc_md3499}
+Spotted an error? Couldn\textquotesingle{}t get one of the examples running? Have your own sweet setup that you want to show off to the world? We\textquotesingle{}d love to receive your feedback and contributions -\/ so please get in touch! We aim to make this project the canonical source of example projects \& code snippets related to running Browsersync.\hypertarget{readme.md_autotoc_md3500}{}\doxysubsubsection{\texorpdfstring{How to contribute an example}{How to contribute an example}}\label{readme.md_autotoc_md3500}
+First thing you should do, is take a look at our \href{https://github.com/Browsersync/recipes/tree/master/recipes/server}{\texttt{ simplest example here}} -\/ this will give you a great head-\/start on setting up your code.
+
+Then, {\ttfamily fork} this repo and {\ttfamily clone} your fork down to your local machine. Now create a new folder inside {\ttfamily recipes} (note the naming structure). This is where you create your awesome example. You\textquotesingle{}re free to do as you like, but there are a couple of rules you\textquotesingle{}ll need to follow to ensure the project can build.
+
+{\bfseries{Required Files}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily package.\+json} (see below for requirements)
+\item {\ttfamily app.\+js} (or any JS file showing the example)
+\item {\ttfamily ./app} directory. Always include the minimum HTML, JS \& CSS needed to prove your example.
+\end{DoxyItemize}
+
+{\bfseries{Do NOT include}}
+\begin{DoxyItemize}
+\item {\ttfamily readme.\+md} (this is created dynamically for you)
+\item any other files that are not related to your example.
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md3501}{}\doxysubsubsection{\texorpdfstring{package.\+json requirements}{package.\+json requirements}}\label{readme.md_autotoc_md3501}
+{\bfseries{start command}}\+: For consistency, ensure your example can be run with the command {\ttfamily npm start}. To do this, you just need to provide something along these lines\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{"{}scripts"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}start"{}:\ "{}node\ app.js"{}}
+\DoxyCodeLine{\},}
+
+\end{DoxyCode}
+
+
+{\bfseries{main file}}\+: We inline your main Javascript file into the {\ttfamily readme.\+md}, so don\textquotesingle{}t miss this field.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{"{}main"{}:\ "{}app.js"{}\ //\ or\ gulpfile.js\ etc}
+
+\end{DoxyCode}
+
+
+{\bfseries{description}}\+: We use this as the Title. So make it short and descriptive, such as
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{"{}description"{}:\ "{}Server\ example"{}}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3502}{}\doxysubsubsection{\texorpdfstring{Finally, build.}{Finally, build.}}\label{readme.md_autotoc_md3502}
+After you\textquotesingle{}ve added your example in the recipes folder, return to the root and run
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ \&\&\ npm\ run\ build}
+
+\end{DoxyCode}
+
+
+This will install \href{https://github.com/shakyShane/crossbow.js}{\texttt{ Crossbow.\+js}} and compile the project. Commit everything that has changed and push it up to your fork. Send a Pull Request when you\textquotesingle{}re ready, or if you\textquotesingle{}d like us to have a look over your code before that, just ping us \href{https://twitter.com/browsersync}{\texttt{ twitter}} and we\textquotesingle{}ll take a look! 

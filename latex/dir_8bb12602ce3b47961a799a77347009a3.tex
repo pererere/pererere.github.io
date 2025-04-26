@@ -1,0 +1,91 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@npmcli/fs Directory Reference}
+\hypertarget{dir_8bb12602ce3b47961a799a77347009a3}{}\label{dir_8bb12602ce3b47961a799a77347009a3}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@npmcli/fs Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@npmcli/fs Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+polyfills, and extensions, of the core {\ttfamily fs} module.\hypertarget{README.md_autotoc_md1508}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{README.md_autotoc_md1508}
+
+\begin{DoxyItemize}
+\item {\ttfamily fs.\+cp} polyfill for node \texorpdfstring{$<$}{<} 16.\+7.\+0
+\item {\ttfamily fs.\+with\+Temp\+Dir} added
+\item {\ttfamily fs.\+readdir\+Scoped} added
+\item {\ttfamily fs.\+move\+File} added
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1509}{}\doxysubsection{\texorpdfstring{{\ttfamily fs.\+with\+Temp\+Dir(root, fn, options) -\/\texorpdfstring{$>$}{>} Promise}}{{\ttfamily fs.\+with\+Temp\+Dir(root, fn, options) -\/\texorpdfstring{$>$}{>} Promise}}}\label{README.md_autotoc_md1509}
+\hypertarget{README.md_autotoc_md1510}{}\doxysubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{README.md_autotoc_md1510}
+
+\begin{DoxyItemize}
+\item {\ttfamily root}\+: the directory in which to create the temporary directory
+\item {\ttfamily fn}\+: a function that will be called with the path to the temporary directory
+\item {\ttfamily options}
+\begin{DoxyItemize}
+\item {\ttfamily tmp\+Prefix}\+: a prefix to be used in the generated directory name
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1511}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md1511}
+The {\ttfamily with\+Temp\+Dir} function creates a temporary directory, runs the provided function ({\ttfamily fn}), then removes the temporary directory and resolves or rejects based on the result of {\ttfamily fn}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('@npmcli/fs')}
+\DoxyCodeLine{const\ os\ =\ require('os')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ this\ function\ will\ be\ called\ with\ the\ full\ path\ to\ the\ temporary\ directory}
+\DoxyCodeLine{//\ it\ is\ called\ with\ \`{}await`\ behind\ the\ scenes,\ so\ can\ be\ async\ if\ desired.}
+\DoxyCodeLine{const\ myFunction\ =\ async\ (tempPath)\ =>\ \{}
+\DoxyCodeLine{\ \ return\ 'done!'}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ main\ =\ async\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ const\ result\ =\ await\ fs.withTempDir(os.tmpdir(),\ myFunction)}
+\DoxyCodeLine{\ \ //\ result\ ===\ 'done!'}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{main()}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1512}{}\doxysubsection{\texorpdfstring{{\ttfamily fs.\+readdir\+Scoped(root) -\/\texorpdfstring{$>$}{>} Promise}}{{\ttfamily fs.\+readdir\+Scoped(root) -\/\texorpdfstring{$>$}{>} Promise}}}\label{README.md_autotoc_md1512}
+\hypertarget{README.md_autotoc_md1513}{}\doxysubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{README.md_autotoc_md1513}
+
+\begin{DoxyItemize}
+\item {\ttfamily root}\+: the directory to read
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1514}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md1514}
+Like {\ttfamily fs.\+readdir} but handling {\ttfamily @org/module} dirs as if they were a single entry.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ readdir\ =\ require('readdir-\/scoped-\/modules')}
+\DoxyCodeLine{const\ entries\ =\ await\ readdir('node\_modules')}
+\DoxyCodeLine{//\ entries\ will\ be\ something\ like:\ ['a',\ '@org/foo',\ '@org/bar']}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1515}{}\doxysubsection{\texorpdfstring{{\ttfamily fs.\+move\+File(source, dest, options) -\/\texorpdfstring{$>$}{>} Promise}}{{\ttfamily fs.\+move\+File(source, dest, options) -\/\texorpdfstring{$>$}{>} Promise}}}\label{README.md_autotoc_md1515}
+A fork of \href{https://github.com/sindresorhus/move-file}{\texttt{ move-\/file}} with support for Common JS.\hypertarget{README.md_autotoc_md1516}{}\doxysubsubsection{\texorpdfstring{Highlights}{Highlights}}\label{README.md_autotoc_md1516}
+
+\begin{DoxyItemize}
+\item Promise API.
+\item Supports moving a file across partitions and devices.
+\item Optionally prevent overwriting an existing file.
+\item Creates non-\/existent destination directories for you.
+\item Automatically recurses when source is a directory.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1517}{}\doxysubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{README.md_autotoc_md1517}
+
+\begin{DoxyItemize}
+\item {\ttfamily source}\+: File, or directory, you want to move.
+\item {\ttfamily dest}\+: Where you want the file or directory moved.
+\item {\ttfamily options}
+\begin{DoxyItemize}
+\item {\ttfamily overwrite} ({\ttfamily boolean}, default\+: {\ttfamily true})\+: Overwrite existing destination file(s).
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1518}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md1518}
+The built-\/in \href{https://nodejs.org/api/fs.html\#fs_fs_rename_oldpath_newpath_callback}{\texttt{ {\ttfamily fs.\+rename()}}} is just a Java\+Script wrapper for the C {\ttfamily rename(2)} function, which doesn\textquotesingle{}t support moving files across partitions or devices. This module is what you would have expected {\ttfamily fs.\+rename()} to be.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ moveFile\ \}\ =\ require('@npmcli/fs');}
+\DoxyCodeLine{}
+\DoxyCodeLine{(async\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ await\ moveFile('source/unicorn.png',\ 'destination/unicorn.png');}
+\DoxyCodeLine{\ \ \ \ console.log('The\ file\ has\ been\ moved');}
+\DoxyCodeLine{\})();}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,159 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/mitt Directory Reference}
+\hypertarget{dir_a6d77af20ac27e991ef008292ff2bbff}{}\label{dir_a6d77af20ac27e991ef008292ff2bbff}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/mitt Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/mitt Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+
+
+ ~\newline
+ \href{https://www.npmjs.org/package/mitt}{\texttt{ }} \href{https://travis-ci.org/developit/mitt}{\texttt{ }} \href{https://david-dm.org/developit/mitt}{\texttt{ }} \href{https://unpkg.com/mitt/dist/mitt.umd.js}{\texttt{ }} \href{https://packagephobia.now.sh/result?p=mitt}{\texttt{ }}\hypertarget{README.md_autotoc_md14531}{}\doxysubsection{\texorpdfstring{Mitt}{Mitt}}\label{README.md_autotoc_md14531}
+\begin{quote}
+Tiny 200b functional event emitter / pubsub. \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Microscopic\+:}} weighs less than 200 bytes gzipped
+\item {\bfseries{Useful\+:}} a wildcard {\ttfamily "{}\texorpdfstring{$\ast$}{*}"{}} event type listens to all events
+\item {\bfseries{Familiar\+:}} same names \& ideas as \href{https://nodejs.org/api/events.html\#events_class_eventemitter}{\texttt{ Node\textquotesingle{}s Event\+Emitter}}
+\item {\bfseries{Functional\+:}} methods don\textquotesingle{}t rely on {\ttfamily this}
+\item {\bfseries{Great Name\+:}} somehow \href{https://npm.im/mitt}{\texttt{ mitt}} wasn\textquotesingle{}t taken
+\end{DoxyItemize}
+
+Mitt was made for the browser, but works in any Java\+Script runtime. It has no dependencies and supports IE9+.\hypertarget{README.md_autotoc_md14532}{}\doxysubsubsection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{README.md_autotoc_md14532}
+
+\begin{DoxyItemize}
+\item Install
+\item Usage
+\item Examples \& Demos
+\item API
+\item Contribute
+\item \doxylink{README.md_license}{License}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md14533}{}\doxysubsubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md14533}
+This project uses \href{http://nodejs.org}{\texttt{ node}} and \href{https://npmjs.com}{\texttt{ npm}}. Go check them out if you don\textquotesingle{}t have them locally installed.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ -\/-\/save\ mitt}
+
+\end{DoxyCode}
+
+
+Then with a module bundler like \href{http://rollupjs.org/}{\texttt{ rollup}} or \href{https://webpack.js.org/}{\texttt{ webpack}}, use as you would anything else\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ using\ ES6\ modules}
+\DoxyCodeLine{import\ mitt\ from\ 'mitt'}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ using\ CommonJS\ modules}
+\DoxyCodeLine{var\ mitt\ =\ require('mitt')}
+
+\end{DoxyCode}
+
+
+The \href{https://github.com/umdjs/umd}{\texttt{ UMD}} build is also available on \href{https://unpkg.com}{\texttt{ unpkg}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<script\ src="{}https://unpkg.com/mitt/dist/mitt.umd.js"{}></script>}
+
+\end{DoxyCode}
+
+
+You can find the library on {\ttfamily window.\+mitt}.\hypertarget{README.md_autotoc_md14534}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md14534}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ mitt\ from\ 'mitt'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ emitter\ =\ mitt()}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ listen\ to\ an\ event}
+\DoxyCodeLine{emitter.on('foo',\ e\ =>\ console.log('foo',\ e)\ )}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ listen\ to\ all\ events}
+\DoxyCodeLine{emitter.on('*',\ (type,\ e)\ =>\ console.log(type,\ e)\ )}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ fire\ an\ event}
+\DoxyCodeLine{emitter.emit('foo',\ \{\ a:\ 'b'\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ working\ with\ handler\ references:}
+\DoxyCodeLine{function\ onFoo()\ \{\}}
+\DoxyCodeLine{emitter.on('foo',\ onFoo)\ \ \ //\ listen}
+\DoxyCodeLine{emitter.off('foo',\ onFoo)\ \ //\ unlisten}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14535}{}\doxysubsubsubsection{\texorpdfstring{Typescript}{Typescript}}\label{README.md_autotoc_md14535}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ mitt\ from\ 'mitt';}
+\DoxyCodeLine{const\ emitter:\ mitt.Emitter\ =\ mitt();}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14536}{}\doxysubsubsection{\texorpdfstring{Examples \& Demos}{Examples \& Demos}}\label{README.md_autotoc_md14536}
+\href{http://codepen.io/developit/pen/rjMEwW?editors=0110}{\texttt{ {\bfseries{Preact + Mitt Codepen Demo}} ~\newline
+  }}
+
+\DoxyHorRuler{0}
+\hypertarget{README.md_autotoc_md14537}{}\doxysubsubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md14537}
+\hypertarget{README.md_autotoc_md14538}{}\doxysubsubsubsection{\texorpdfstring{mitt}{mitt}}\label{README.md_autotoc_md14538}
+Mitt\+: Tiny (\texorpdfstring{$\sim$}{\string~}200b) functional event emitter / pubsub.
+
+{\bfseries{Parameters}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily all} {\bfseries{Event\+Handler\+Map}}
+\end{DoxyItemize}
+
+Returns {\bfseries{Mitt}}\hypertarget{README.md_autotoc_md14539}{}\doxysubsubsubsection{\texorpdfstring{on}{on}}\label{README.md_autotoc_md14539}
+Register an event handler for the given type.
+
+{\bfseries{Parameters}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily type} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}}}} Type of event to listen for, or {\ttfamily "{}\texorpdfstring{$\ast$}{*}"{}} for all events
+\item {\ttfamily handler} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function}{\texttt{ Function}}}} Function to call in response to given event
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md14540}{}\doxysubsubsubsection{\texorpdfstring{off}{off}}\label{README.md_autotoc_md14540}
+Remove an event handler for the given type.
+
+{\bfseries{Parameters}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily type} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}}}} Type of event to unregister {\ttfamily handler} from, or {\ttfamily "{}\texorpdfstring{$\ast$}{*}"{}}
+\item {\ttfamily handler} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function}{\texttt{ Function}}}} Handler function to remove
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md14541}{}\doxysubsubsubsection{\texorpdfstring{emit}{emit}}\label{README.md_autotoc_md14541}
+Invoke all handlers for the given type. If present, {\ttfamily "{}\texorpdfstring{$\ast$}{*}"{}} handlers are invoked after type-\/matched handlers.
+
+{\bfseries{Parameters}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily type} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}}}} The event type to invoke
+\item {\ttfamily evt} {\bfseries{Any?}} Any value (object is recommended and powerful), passed to each handler
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md14542}{}\doxysubsubsection{\texorpdfstring{Contribute}{Contribute}}\label{README.md_autotoc_md14542}
+First off, thanks for taking the time to contribute! Now, take a moment to be sure your contributions make sense to everyone else.
+
+Development Start\+:
+
+This project is typed with Flow Type annotations. To ensure you have the proper typings for this project run
+
+{\ttfamily flow-\/typed install}\hypertarget{README.md_autotoc_md14543}{}\doxysubsubsubsection{\texorpdfstring{Reporting Issues}{Reporting Issues}}\label{README.md_autotoc_md14543}
+Found a problem? Want a new feature? First of all see if your issue or idea has \href{../../issues}{\texttt{ already been reported}}. If don\textquotesingle{}t, just open a \href{../../issues/new}{\texttt{ new clear and descriptive issue}}.\hypertarget{README.md_autotoc_md14544}{}\doxysubsubsubsection{\texorpdfstring{Submitting pull requests}{Submitting pull requests}}\label{README.md_autotoc_md14544}
+Pull requests are the greatest contributions, so be sure they are focused in scope, and do avoid unrelated commits.
+
+
+\begin{DoxyItemize}
+\item Fork it!
+\item Clone your fork\+: {\ttfamily git clone \href{https://github.com/}{\texttt{ https\+://github.\+com/}}\texorpdfstring{$<$}{<}your-\/username\texorpdfstring{$>$}{>}/mitt}
+\item Navigate to the newly cloned directory\+: {\ttfamily cd mitt}
+\item Create a new branch for the new feature\+: {\ttfamily git checkout -\/b my-\/new-\/feature}
+\item Install the tools necessary for development\+: {\ttfamily npm install}
+\item Make your changes.
+\item Commit your changes\+: `git commit -\/am \textquotesingle{}Add some feature'{\ttfamily }
+\item {\ttfamily  Push to the branch\+:}git push origin my-\/new-\/feature\`{}
+\item Submit a pull request with full remarks documenting your changes.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md14545}{}\doxysubsubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md14545}
+\href{https://opensource.org/licenses/MIT}{\texttt{ MIT License}} © \href{https://jasonformat.com/}{\texttt{ Jason Miller}} 

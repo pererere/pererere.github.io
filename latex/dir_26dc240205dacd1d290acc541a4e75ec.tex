@@ -1,0 +1,54 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/jsbn Directory Reference}
+\hypertarget{dir_26dc240205dacd1d290acc541a4e75ec}{}\label{dir_26dc240205dacd1d290acc541a4e75ec}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/jsbn Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/jsbn Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{http://www-cs-students.stanford.edu/~tjw/jsbn/}{\texttt{ Tom Wu\textquotesingle{}s Original Website}}
+
+I felt compelled to put this on github and publish to npm. I haven\textquotesingle{}t tested every other big integer library out there, but the few that I have tested in comparison to this one have not even come close in performance. I am aware of the {\ttfamily bi} module on npm, however it has been modified and I wanted to publish the original without modifications. This is jsbn and jsbn2 from Tom Wu\textquotesingle{}s original website above, with the module pattern applied to prevent global leaks and to allow for use with node.\+js on the server side.\hypertarget{README.md_autotoc_md10961}{}\doxysubsection{\texorpdfstring{usage}{usage}}\label{README.md_autotoc_md10961}
+\begin{DoxyVerb}var BigInteger = require('jsbn').BigInteger;
+
+var bi = new BigInteger('91823918239182398123');
+console.log(bi.bitLength()); // 67
+\end{DoxyVerb}
+\hypertarget{README.md_autotoc_md10962}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md10962}
+\hypertarget{README.md_autotoc_md10963}{}\doxysubsubsection{\texorpdfstring{bi.\+to\+String()}{bi.\+to\+String()}}\label{README.md_autotoc_md10963}
+returns the base-\/10 number as a string\hypertarget{README.md_autotoc_md10964}{}\doxysubsubsection{\texorpdfstring{bi.\+negate()}{bi.\+negate()}}\label{README.md_autotoc_md10964}
+returns a new Big\+Integer equal to the negation of {\ttfamily bi}\hypertarget{README.md_autotoc_md10965}{}\doxysubsubsection{\texorpdfstring{bi.\+abs}{bi.\+abs}}\label{README.md_autotoc_md10965}
+returns new BI of absolute value\hypertarget{README.md_autotoc_md10966}{}\doxysubsubsection{\texorpdfstring{bi.\+compare\+To}{bi.\+compare\+To}}\label{README.md_autotoc_md10966}
+\hypertarget{README.md_autotoc_md10967}{}\doxysubsubsection{\texorpdfstring{bi.\+bit\+Length}{bi.\+bit\+Length}}\label{README.md_autotoc_md10967}
+\hypertarget{README.md_autotoc_md10968}{}\doxysubsubsection{\texorpdfstring{bi.\+mod}{bi.\+mod}}\label{README.md_autotoc_md10968}
+\hypertarget{README.md_autotoc_md10969}{}\doxysubsubsection{\texorpdfstring{bi.\+mod\+Pow\+Int}{bi.\+mod\+Pow\+Int}}\label{README.md_autotoc_md10969}
+\hypertarget{README.md_autotoc_md10970}{}\doxysubsubsection{\texorpdfstring{bi.\+clone}{bi.\+clone}}\label{README.md_autotoc_md10970}
+\hypertarget{README.md_autotoc_md10971}{}\doxysubsubsection{\texorpdfstring{bi.\+int\+Value}{bi.\+int\+Value}}\label{README.md_autotoc_md10971}
+\hypertarget{README.md_autotoc_md10972}{}\doxysubsubsection{\texorpdfstring{bi.\+byte\+Value}{bi.\+byte\+Value}}\label{README.md_autotoc_md10972}
+\hypertarget{README.md_autotoc_md10973}{}\doxysubsubsection{\texorpdfstring{bi.\+short\+Value}{bi.\+short\+Value}}\label{README.md_autotoc_md10973}
+\hypertarget{README.md_autotoc_md10974}{}\doxysubsubsection{\texorpdfstring{bi.\+signum}{bi.\+signum}}\label{README.md_autotoc_md10974}
+\hypertarget{README.md_autotoc_md10975}{}\doxysubsubsection{\texorpdfstring{bi.\+to\+Byte\+Array}{bi.\+to\+Byte\+Array}}\label{README.md_autotoc_md10975}
+\hypertarget{README.md_autotoc_md10976}{}\doxysubsubsection{\texorpdfstring{bi.\+equals}{bi.\+equals}}\label{README.md_autotoc_md10976}
+\hypertarget{README.md_autotoc_md10977}{}\doxysubsubsection{\texorpdfstring{bi.\+min}{bi.\+min}}\label{README.md_autotoc_md10977}
+\hypertarget{README.md_autotoc_md10978}{}\doxysubsubsection{\texorpdfstring{bi.\+max}{bi.\+max}}\label{README.md_autotoc_md10978}
+\hypertarget{README.md_autotoc_md10979}{}\doxysubsubsection{\texorpdfstring{bi.\+and}{bi.\+and}}\label{README.md_autotoc_md10979}
+\hypertarget{README.md_autotoc_md10980}{}\doxysubsubsection{\texorpdfstring{bi.\+or}{bi.\+or}}\label{README.md_autotoc_md10980}
+\hypertarget{README.md_autotoc_md10981}{}\doxysubsubsection{\texorpdfstring{bi.\+xor}{bi.\+xor}}\label{README.md_autotoc_md10981}
+\hypertarget{README.md_autotoc_md10982}{}\doxysubsubsection{\texorpdfstring{bi.\+and\+Not}{bi.\+and\+Not}}\label{README.md_autotoc_md10982}
+\hypertarget{README.md_autotoc_md10983}{}\doxysubsubsection{\texorpdfstring{bi.\+not}{bi.\+not}}\label{README.md_autotoc_md10983}
+\hypertarget{README.md_autotoc_md10984}{}\doxysubsubsection{\texorpdfstring{bi.\+shift\+Left}{bi.\+shift\+Left}}\label{README.md_autotoc_md10984}
+\hypertarget{README.md_autotoc_md10985}{}\doxysubsubsection{\texorpdfstring{bi.\+shift\+Right}{bi.\+shift\+Right}}\label{README.md_autotoc_md10985}
+\hypertarget{README.md_autotoc_md10986}{}\doxysubsubsection{\texorpdfstring{bi.\+get\+Lowest\+Set\+Bit}{bi.\+get\+Lowest\+Set\+Bit}}\label{README.md_autotoc_md10986}
+\hypertarget{README.md_autotoc_md10987}{}\doxysubsubsection{\texorpdfstring{bi.\+bit\+Count}{bi.\+bit\+Count}}\label{README.md_autotoc_md10987}
+\hypertarget{README.md_autotoc_md10988}{}\doxysubsubsection{\texorpdfstring{bi.\+test\+Bit}{bi.\+test\+Bit}}\label{README.md_autotoc_md10988}
+\hypertarget{README.md_autotoc_md10989}{}\doxysubsubsection{\texorpdfstring{bi.\+set\+Bit}{bi.\+set\+Bit}}\label{README.md_autotoc_md10989}
+\hypertarget{README.md_autotoc_md10990}{}\doxysubsubsection{\texorpdfstring{bi.\+clear\+Bit}{bi.\+clear\+Bit}}\label{README.md_autotoc_md10990}
+\hypertarget{README.md_autotoc_md10991}{}\doxysubsubsection{\texorpdfstring{bi.\+flip\+Bit}{bi.\+flip\+Bit}}\label{README.md_autotoc_md10991}
+\hypertarget{README.md_autotoc_md10992}{}\doxysubsubsection{\texorpdfstring{bi.\+add}{bi.\+add}}\label{README.md_autotoc_md10992}
+\hypertarget{README.md_autotoc_md10993}{}\doxysubsubsection{\texorpdfstring{bi.\+subtract}{bi.\+subtract}}\label{README.md_autotoc_md10993}
+\hypertarget{README.md_autotoc_md10994}{}\doxysubsubsection{\texorpdfstring{bi.\+multiply}{bi.\+multiply}}\label{README.md_autotoc_md10994}
+\hypertarget{README.md_autotoc_md10995}{}\doxysubsubsection{\texorpdfstring{bi.\+divide}{bi.\+divide}}\label{README.md_autotoc_md10995}
+\hypertarget{README.md_autotoc_md10996}{}\doxysubsubsection{\texorpdfstring{bi.\+remainder}{bi.\+remainder}}\label{README.md_autotoc_md10996}
+\hypertarget{README.md_autotoc_md10997}{}\doxysubsubsection{\texorpdfstring{bi.\+divide\+And\+Remainder}{bi.\+divide\+And\+Remainder}}\label{README.md_autotoc_md10997}
+\hypertarget{README.md_autotoc_md10998}{}\doxysubsubsection{\texorpdfstring{bi.\+mod\+Pow}{bi.\+mod\+Pow}}\label{README.md_autotoc_md10998}
+\hypertarget{README.md_autotoc_md10999}{}\doxysubsubsection{\texorpdfstring{bi.\+mod\+Inverse}{bi.\+mod\+Inverse}}\label{README.md_autotoc_md10999}
+\hypertarget{README.md_autotoc_md11000}{}\doxysubsubsection{\texorpdfstring{bi.\+pow}{bi.\+pow}}\label{README.md_autotoc_md11000}
+\hypertarget{README.md_autotoc_md11001}{}\doxysubsubsection{\texorpdfstring{bi.\+gcd}{bi.\+gcd}}\label{README.md_autotoc_md11001}
+\hypertarget{README.md_autotoc_md11002}{}\doxysubsubsection{\texorpdfstring{bi.\+is\+Probable\+Prime}{bi.\+is\+Probable\+Prime}}\label{README.md_autotoc_md11002}

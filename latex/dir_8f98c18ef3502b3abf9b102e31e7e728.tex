@@ -1,0 +1,56 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/minipass-\/pipeline Directory Reference}
+\hypertarget{dir_8f98c18ef3502b3abf9b102e31e7e728}{}\label{dir_8f98c18ef3502b3abf9b102e31e7e728}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/minipass-\/pipeline Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/minipass-\/pipeline Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Create a pipeline of streams using Minipass.
+
+Calls {\ttfamily .pipe()} on all the streams in the list. Returns a stream where writes got to the first pipe in the chain, and reads are from the last.
+
+Errors are proxied along the chain and emitted on the Pipeline stream.\hypertarget{README.md_autotoc_md14364}{}\doxysubsection{\texorpdfstring{USAGE}{USAGE}}\label{README.md_autotoc_md14364}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ Pipeline\ =\ require('minipass-\/pipeline')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ the\ list\ of\ streams\ to\ pipeline\ together,}
+\DoxyCodeLine{//\ a\ bit\ like\ \`{}input\ |\ transform\ |\ output`\ in\ bash}
+\DoxyCodeLine{const\ p\ =\ new\ Pipeline(input,\ transform,\ output)}
+\DoxyCodeLine{}
+\DoxyCodeLine{p.write('foo')\ //\ writes\ to\ input}
+\DoxyCodeLine{p.on('data',\ chunk\ =>\ doSomething())\ //\ reads\ from\ output\ stream}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ less\ contrived\ example\ (but\ still\ pretty\ contrived)...}
+\DoxyCodeLine{const\ decode\ =\ new\ bunzipDecoder()}
+\DoxyCodeLine{const\ unpack\ =\ tar.extract(\{\ cwd:\ 'target-\/dir'\ \})}
+\DoxyCodeLine{const\ tbz\ =\ new\ Pipeline(decode,\ unpack)}
+\DoxyCodeLine{}
+\DoxyCodeLine{fs.createReadStream('archive.tbz').pipe(tbz)}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ specify\ any\ minipass\ options\ if\ you\ like,\ as\ the\ first\ argument}
+\DoxyCodeLine{//\ it'll\ only\ try\ to\ pipeline\ event\ emitters\ with\ a\ .pipe()\ method}
+\DoxyCodeLine{const\ p\ =\ new\ Pipeline(\{\ objectMode:\ true\ \},\ input,\ transform,\ output)}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ If\ you\ don't\ know\ the\ things\ to\ pipe\ in\ right\ away,\ that's\ fine.}
+\DoxyCodeLine{//\ use\ p.push(stream)\ to\ add\ to\ the\ end,\ or\ p.unshift(stream)\ to\ the\ front}
+\DoxyCodeLine{const\ databaseDecoderStreamDoohickey\ =\ (connectionInfo)\ =>\ \{}
+\DoxyCodeLine{\ \ const\ p\ =\ new\ Pipeline()}
+\DoxyCodeLine{\ \ logIntoDatabase(connectionInfo).then(connection\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ initializeDecoderRing(connectionInfo).then(decoderRing\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ p.push(connection,\ decoderRing)}
+\DoxyCodeLine{\ \ \ \ \ \ getUpstreamSource(upstream\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ p.unshift(upstream)}
+\DoxyCodeLine{\ \ \ \ \ \ \})}
+\DoxyCodeLine{\ \ \ \ \})}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ //\ return\ to\ caller\ right\ away}
+\DoxyCodeLine{\ \ //\ emitted\ data\ will\ be\ upstream\ -\/>\ connection\ -\/>\ decoderRing\ pipeline}
+\DoxyCodeLine{\ \ return\ p}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Pipeline is a \href{http://npm.im/minipass}{\texttt{ minipass}} stream, so it\textquotesingle{}s as synchronous as the streams it wraps. It will buffer data until there is a reader, but no longer, so make sure to attach your listeners before you pipe it somewhere else.\hypertarget{README.md_autotoc_md14365}{}\doxysubsection{\texorpdfstring{{\ttfamily new Pipeline(opts = \{\}, ...streams)}}{{\ttfamily new Pipeline(opts = \{\}, ...streams)}}}\label{README.md_autotoc_md14365}
+Create a new Pipeline with the specified Minipass options and any streams provided.\hypertarget{README.md_autotoc_md14366}{}\doxysubsection{\texorpdfstring{{\ttfamily pipeline.\+push(stream, ...)}}{{\ttfamily pipeline.\+push(stream, ...)}}}\label{README.md_autotoc_md14366}
+Attach one or more streams to the pipeline at the end (read) side of the pipe chain.\hypertarget{README.md_autotoc_md14367}{}\doxysubsection{\texorpdfstring{{\ttfamily pipeline.\+unshift(stream, ...)}}{{\ttfamily pipeline.\+unshift(stream, ...)}}}\label{README.md_autotoc_md14367}
+Attach one or more streams to the pipeline at the start (write) side of the pipe chain. 

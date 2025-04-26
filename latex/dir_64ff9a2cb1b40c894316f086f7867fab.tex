@@ -1,0 +1,38 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@jest/transform/node\+\_\+modules/slash Directory Reference}
+\hypertarget{dir_64ff9a2cb1b40c894316f086f7867fab}{}\label{dir_64ff9a2cb1b40c894316f086f7867fab}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@jest/transform/node\_modules/slash Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@jest/transform/node\_modules/slash Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Convert Windows backslash paths to slash paths\+: {\ttfamily foo\textbackslash{}\textbackslash{}bar} ➔ {\ttfamily foo/bar} \end{quote}
+
+
+\href{http://superuser.com/a/176395/6877}{\texttt{ Forward-\/slash paths can be used in Windows}} as long as they\textquotesingle{}re not extended-\/length paths and don\textquotesingle{}t contain any non-\/ascii characters.
+
+This was created since the {\ttfamily path} methods in Node.\+js outputs {\ttfamily \textbackslash{}\textbackslash{}} paths on Windows.\hypertarget{readme.md_autotoc_md1096}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md1096}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ slash}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md1097}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md1097}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ path\ =\ require('path');}
+\DoxyCodeLine{const\ slash\ =\ require('slash');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ string\ =\ path.join('foo',\ 'bar');}
+\DoxyCodeLine{//\ Unix\ \ \ \ =>\ foo/bar}
+\DoxyCodeLine{//\ Windows\ =>\ foo\(\backslash\)\(\backslash\)bar}
+\DoxyCodeLine{}
+\DoxyCodeLine{slash(string);}
+\DoxyCodeLine{//\ Unix\ \ \ \ =>\ foo/bar}
+\DoxyCodeLine{//\ Windows\ =>\ foo/bar}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md1098}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md1098}
+\hypertarget{readme.md_autotoc_md1099}{}\doxysubsubsection{\texorpdfstring{slash(path)}{slash(path)}}\label{readme.md_autotoc_md1099}
+Type\+: {\ttfamily string}
+
+Accepts a Windows backslash path and returns a path with forward slashes.\hypertarget{readme.md_autotoc_md1100}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md1100}
+MIT © \href{https://sindresorhus.com}{\texttt{ Sindre Sorhus}} 

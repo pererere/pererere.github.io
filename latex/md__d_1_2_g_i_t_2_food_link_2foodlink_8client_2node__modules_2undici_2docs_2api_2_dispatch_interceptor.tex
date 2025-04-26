@@ -1,0 +1,56 @@
+\chapter{Interface\+: Dispatch\+Interceptor}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor}\index{Interface: DispatchInterceptor@{Interface: DispatchInterceptor}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor_autotoc_md21359}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor_autotoc_md21359}%
+
+
+Extends\+: {\ttfamily Function}
+
+A function that can be applied to the {\ttfamily Dispatcher.\+Dispatch} function before it is invoked with a dispatch request.
+
+This allows one to write logic to intercept both the outgoing request, and the incoming response.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor_autotoc_md21360}{}\doxysubsection{\texorpdfstring{Parameter\+: {\ttfamily Dispatcher.\+Dispatch}}{Parameter\+: {\ttfamily Dispatcher.\+Dispatch}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor_autotoc_md21360}
+The base dispatch function you are decorating.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor_autotoc_md21361}{}\doxysubsection{\texorpdfstring{Return\+Type\+: {\ttfamily Dispatcher.\+Dispatch}}{Return\+Type\+: {\ttfamily Dispatcher.\+Dispatch}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor_autotoc_md21361}
+A dispatch function that has been altered to provide additional logic\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor_autotoc_md21362}{}\doxysubsection{\texorpdfstring{Basic Example}{Basic Example}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor_autotoc_md21362}
+Here is an example of an interceptor being used to provide a JWT bearer token
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{'use\ strict'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ insertHeaderInterceptor\ =\ dispatch\ =>\ \{}
+\DoxyCodeLine{\ \ return\ function\ InterceptedDispatch(opts,\ handler)\{}
+\DoxyCodeLine{\ \ \ \ opts.headers.push('Authorization',\ 'Bearer\ [Some\ token]')}
+\DoxyCodeLine{\ \ \ \ return\ dispatch(opts,\ handler)}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client('https://localhost:3000',\ \{}
+\DoxyCodeLine{\ \ interceptors:\ \{\ Client:\ [insertHeaderInterceptor]\ \}}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor_autotoc_md21363}{}\doxysubsection{\texorpdfstring{Basic Example 2}{Basic Example 2}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatch_interceptor_autotoc_md21363}
+Here is a contrived example of an interceptor stripping the headers from a response.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{'use\ strict'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ clearHeadersInterceptor\ =\ dispatch\ =>\ \{}
+\DoxyCodeLine{\ \ const\ \{\ DecoratorHandler\ \}\ =\ require('undici')}
+\DoxyCodeLine{\ \ class\ ResultInterceptor\ extends\ DecoratorHandler\ \{}
+\DoxyCodeLine{\ \ \ \ onHeaders\ (statusCode,\ headers,\ resume)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ return\ super.onHeaders(statusCode,\ [],\ resume)}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ return\ function\ InterceptedDispatch(opts,\ handler)\{}
+\DoxyCodeLine{\ \ \ \ return\ dispatch(opts,\ new\ ResultInterceptor(handler))}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client('https://localhost:3000',\ \{}
+\DoxyCodeLine{\ \ interceptors:\ \{\ Client:\ [clearHeadersInterceptor]\ \}}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+ 

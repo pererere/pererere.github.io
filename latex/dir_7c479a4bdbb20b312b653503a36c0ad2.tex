@@ -1,0 +1,114 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/npm-\/pick-\/manifest Directory Reference}
+\hypertarget{dir_7c479a4bdbb20b312b653503a36c0ad2}{}\label{dir_7c479a4bdbb20b312b653503a36c0ad2}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/pick-\/manifest Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/pick-\/manifest Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://github.com/npm/npm-pick-manifest}{\texttt{ {\ttfamily npm-\/pick-\/manifest}}} is a standalone implementation of \href{https://npmjs.com}{\texttt{ npm}}\textquotesingle{}s semver range resolution algorithm.\hypertarget{README.md_autotoc_md15177}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md15177}
+{\ttfamily \$ npm install -\/-\/save npm-\/pick-\/manifest}\hypertarget{README.md_autotoc_md15178}{}\doxysubsection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{README.md_autotoc_md15178}
+
+\begin{DoxyItemize}
+\item Example
+\item Features
+\item API
+\begin{DoxyItemize}
+\item \`{}pick\+Manifest()\`{}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md15179}{}\doxysubsubsection{\texorpdfstring{Example}{Example}}\label{README.md_autotoc_md15179}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ pickManifest\ =\ require('npm-\/pick-\/manifest')}
+\DoxyCodeLine{}
+\DoxyCodeLine{fetch('https://registry.npmjs.org/npm-\/pick-\/manifest').then(res\ =>\ \{}
+\DoxyCodeLine{\ \ return\ res.json()}
+\DoxyCodeLine{\}).then(packument\ =>\ \{}
+\DoxyCodeLine{\ \ return\ pickManifest(packument,\ '\string^1.0.0')}
+\DoxyCodeLine{\})\ //\ get\ same\ manifest\ as\ npm\ would\ get\ if\ you\ \`{}npm\ i\ npm-\/pick-\/manifest@\string^1.0.0`}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md15180}{}\doxysubsubsection{\texorpdfstring{Features}{Features}}\label{README.md_autotoc_md15180}
+
+\begin{DoxyItemize}
+\item Uses npm\textquotesingle{}s exact \href{http://npm.im/semver}{\texttt{ semver resolution algorithm}}.
+\item Supports ranges, tags, and versions.
+\item Prefers non-\/deprecated versions to deprecated versions.
+\item Prefers versions whose {\ttfamily engines} requirements are satisfied over those that will raise a warning or error at install time.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md15181}{}\doxysubsubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md15181}
+\hypertarget{README.md_autotoc_md15182}{}\doxysubsubsubsection{\texorpdfstring{\label{_pick-manifest}%
+ {\ttfamily \texorpdfstring{$>$}{>} pick\+Manifest(packument, selector, \mbox{[}opts\mbox{]}) -\/\texorpdfstring{$>$}{>} manifest}}{\label{_pick-manifest}%
+ {\ttfamily \texorpdfstring{$>$}{>} pick\+Manifest(packument, selector, \mbox{[}opts\mbox{]}) -\/\texorpdfstring{$>$}{>} manifest}}}\label{README.md_autotoc_md15182}
+Returns the manifest that best matches {\ttfamily selector}, or throws an error.
+
+Packuments are anything returned by metadata URLs from the npm registry. That is, they\textquotesingle{}re objects with the following shape (only fields used by {\ttfamily npm-\/pick-\/manifest} included)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ name:\ 'some-\/package',}
+\DoxyCodeLine{\ \ 'dist-\/tags':\ \{}
+\DoxyCodeLine{\ \ \ \ foo:\ '1.0.1'}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ versions:\ \{}
+\DoxyCodeLine{\ \ \ \ '1.0.0':\ \{\ version:\ '1.0.0'\ \},}
+\DoxyCodeLine{\ \ \ \ '1.0.1':\ \{\ version:\ '1.0.1'\ \},}
+\DoxyCodeLine{\ \ \ \ '1.0.2':\ \{\ version:\ '1.0.2'\ \},}
+\DoxyCodeLine{\ \ \ \ '2.0.0':\ \{\ version:\ '2.0.0'\ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The algorithm will follow npm\textquotesingle{}s algorithm for semver resolution, and only {\ttfamily tag}, {\ttfamily range}, and {\ttfamily version} selectors are supported.
+
+The function will throw {\ttfamily ETARGET} if there was no matching manifest, and {\ttfamily ENOVERSIONS} if the packument object has no valid versions in {\ttfamily versions}. If the only matching manifest is included in a {\ttfamily policy\+Restrictions} section of the packument, then an {\ttfamily E403} is raised.\hypertarget{README.md_autotoc_md15183}{}\doxysubsubsubsection{\texorpdfstring{\label{_pick-manifest-options}%
+ Options}{\label{_pick-manifest-options}%
+ Options}}\label{README.md_autotoc_md15183}
+All options are optional.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily include\+Staged} -\/ Boolean, default {\ttfamily false}. Include manifests in the {\ttfamily staged\+Versions.\+versions} set, to support installing \href{https://github.com/npm/rfcs/pull/92}{\texttt{ staged packages}} when appropriate. Note that staged packages are always treated as lower priority than actual publishes, even when {\ttfamily include\+Staged} is set.
+\item {\ttfamily default\+Tag} -\/ String, default `\textquotesingle{}latest'{\ttfamily . The default}dist-\/tag{\ttfamily to install when no specifier is provided. Note that the version indicated by this specifier will be given top priority if it matches a supplied semver range. \texorpdfstring{$\ast$}{*}}before{\ttfamily -\/ String, Date, or Number, default}null{\ttfamily . This is passed to }new Date(){\ttfamily , so anything that works there will be valid. Do not consider \+\_\+any\+\_\+ manifests that were published after the date indicated. Note that this is only relevant when the packument includes a}time{\ttfamily  field listing the publish date of all the packages. \texorpdfstring{$\ast$}{*}}node\+Version{\ttfamily -\/ String, default}process.\+version{\ttfamily . The Node.\+js version to use when checking manifests for}engines{\ttfamily requirement satisfaction. \texorpdfstring{$\ast$}{*}}npm\+Version{\ttfamily -\/ String, default}null{\ttfamily . The npm version to use when checking manifest for}engines{\ttfamily requirement satisfaction. (If}null{\ttfamily , then this particular check is skipped.) \texorpdfstring{$\ast$}{*}}avoid{\ttfamily -\/ String, default}null{\ttfamily . A Sem\+Ver range of versions that should be avoided. An avoided version MAY be selected if there is no other option, so when using this for version selection ensure that you check the result against the range to see if there was no alternative available. \texorpdfstring{$\ast$}{*}}avoid\+Strict{\ttfamily Boolean, default}false{\ttfamily . If set to true, then }pick\+Manifest{\ttfamily will never return a version in the}avoid{\ttfamily range. If the only available version in the}wanted{\ttfamily range is a version that should be avoided, then it will return a version \+\_\+outside\+\_\+ the}wanted{\ttfamily range, preferring to do so without making a Sem\+Ver-\/major jump, if possible. If there are no versions outside the}avoid{\ttfamily range, then throw an }ETARGET{\ttfamily error. It does this by calling pick\+Manifest first with the }wanted{\ttfamily range, then with a}\texorpdfstring{$^\wedge$}{\string^}{\ttfamily affixed to the version returned by the }wanted{\ttfamily range, and then with a}\texorpdfstring{$\ast$}{*}\`{} version range, and throwing if nothing could be found to satisfy the avoidance request.
+\end{DoxyItemize}
+
+Return value is the manifest as it exists in the packument, possibly decorated with the following boolean flags\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \+\_\+should\+Avoid} The version is in the {\ttfamily avoid} range. Watch out!
+\item {\ttfamily \+\_\+outside\+Dependency\+Range} The version is outside the {\ttfamily wanted} range, because {\ttfamily avoid\+Strict\+: true} was set.
+\item {\ttfamily \+\_\+is\+Sem\+Ver\+Major} The {\ttfamily \+\_\+outside\+Dependency\+Range} result is a Sem\+Ver-\/major step up from the version returned by the {\ttfamily wanted} range.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md15184}{}\doxysubsubsection{\texorpdfstring{Algorithm}{Algorithm}}\label{README.md_autotoc_md15184}
+
+\begin{DoxyEnumerate}
+\item Create list of all versions in {\ttfamily versions}, {\ttfamily policy\+Restrictions.\+versions}, and (if {\ttfamily include\+Staged} is set) {\ttfamily staged\+Versions.\+versions}.
+\item If a {\ttfamily dist-\/tag} is requested,
+\begin{DoxyEnumerate}
+\item If the manifest is not after the specified {\ttfamily before} date, then select that from the set.
+\item If the manifest is after the specified {\ttfamily before} date, then re-\/start the selection looking for the highest Sem\+Ver range that is equal to or less than the {\ttfamily dist-\/tag} target.
+\end{DoxyEnumerate}
+\item If a specific version is requested,
+\begin{DoxyEnumerate}
+\item If the manifest is not after the specified {\ttfamily before} date, then select the specified manifest.
+\item If the manifest is after the specified {\ttfamily before} date, then raise {\ttfamily ETARGET} error. (NB\+: this is a breaking change from v5, where a specified version would override the {\ttfamily before} setting.)
+\end{DoxyEnumerate}
+\item (At this point we know a range is requested.)
+\item If the {\ttfamily default\+Tag} refers to a {\ttfamily dist-\/tag} that satisfies the range (or if the range is `'\texorpdfstring{$\ast$}{*}\textquotesingle{}{\ttfamily or}\textquotesingle{}\textquotesingle{}{\ttfamily ), and the manifest is published before the }before{\ttfamily setting, then select that manifest.}
+\item {\ttfamily If nothing is yet selected, sort by the following heuristics in order, and select the top item\+:
+\begin{DoxyEnumerate}
+\item Prioritize versions that are not in the
+\end{DoxyEnumerate}}avoid{\ttfamily range over those that are.
+\begin{DoxyEnumerate}
+\item Prioritize versions that are not in
+\end{DoxyEnumerate}}policy\+Restrictions{\ttfamily over those that are.
+\begin{DoxyEnumerate}
+\item Prioritize published versions over staged versions.
+\item Prioritize versions that are not deprecated, and which have a satisfied engines requirement, over those that are either deprecated or have an engines mismatch.
+\item Prioritize versions that have a satisfied engines requirement over those that do not.
+\item Prioritize versions that are not are not deprecated (but have a mismatched engines requirement) over those that are deprecated.
+\item Prioritize higher Sem\+Ver precedence over lower Sem\+Ver precedence.
+\end{DoxyEnumerate}}
+\item {\ttfamily If no manifest was selected, raise an}ETARGET{\ttfamily error.}
+\item {\ttfamily If the selected item is in the}policy\+Restrictions.\+versions{\ttfamily list, raise an}E403\`{} error.
+\item Return the selected manifest. 
+\end{DoxyEnumerate}

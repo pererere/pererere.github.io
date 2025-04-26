@@ -1,0 +1,95 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/npm-\/packlist Directory Reference}
+\hypertarget{dir_0b7cce2c7131ae208b5e71290faf0e34}{}\label{dir_0b7cce2c7131ae208b5e71290faf0e34}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/packlist Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/packlist Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Get a list of the files to add from a folder into an npm package.
+
+These can be handed to \href{http://npm.im/tar}{\texttt{ tar}} like so to make an npm package tarball\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ Arborist\ =\ require('@npmcli/arborist')}
+\DoxyCodeLine{const\ packlist\ =\ require('npm-\/packlist')}
+\DoxyCodeLine{const\ tar\ =\ require('tar')}
+\DoxyCodeLine{const\ packageDir\ =\ '/path/to/package'}
+\DoxyCodeLine{const\ packageTarball\ =\ '/path/to/package.tgz'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ arborist\ =\ new\ Arborist(\{\ path:\ packageDir\ \})}
+\DoxyCodeLine{arborist.loadActual().then((tree)\ =>\ \{}
+\DoxyCodeLine{\ \ packlist(tree)}
+\DoxyCodeLine{\ \ \ \ .then(files\ =>\ tar.create(\{}
+\DoxyCodeLine{\ \ \ \ \ \ prefix:\ 'package/',}
+\DoxyCodeLine{\ \ \ \ \ \ cwd:\ packageDir,}
+\DoxyCodeLine{\ \ \ \ \ \ file:\ packageTarball,}
+\DoxyCodeLine{\ \ \ \ \ \ gzip:\ true}
+\DoxyCodeLine{\ \ \ \ \},\ files))}
+\DoxyCodeLine{\ \ \ \ .then(\_\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ tarball\ has\ been\ created,\ continue\ with\ your\ day}
+\DoxyCodeLine{\ \ \ \ \})}
+\DoxyCodeLine{\ \ \})}
+
+\end{DoxyCode}
+
+
+This uses the following rules\+:
+
+
+\begin{DoxyEnumerate}
+\item If a {\ttfamily package.\+json} file is found, and it has a {\ttfamily files} list, then ignore everything that isn\textquotesingle{}t in {\ttfamily files}. Always include the root readme, license, licence and copying files, if they exist, as well as the package.\+json file itself. Non-\/root readme, license, licence and copying files are included by default, but can be excluded using the {\ttfamily files} list e.\+g. {\ttfamily "{}!readme"{}}.
+\item If there\textquotesingle{}s no {\ttfamily package.\+json} file (or it has no {\ttfamily files} list), and there is a {\ttfamily .npmignore} file, then ignore all the files in the {\ttfamily .npmignore} file.
+\item If there\textquotesingle{}s no {\ttfamily package.\+json} with a {\ttfamily files} list, and there\textquotesingle{}s no {\ttfamily .npmignore} file, but there is a {\ttfamily .gitignore} file, then ignore all the files in the {\ttfamily .gitignore} file.
+\item Everything in the root {\ttfamily node\+\_\+modules} is ignored, unless it\textquotesingle{}s a bundled dependency. If it IS a bundled dependency, and it\textquotesingle{}s a symbolic link, then the target of the link is included, not the symlink itself.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Unless they\textquotesingle{}re explicitly included (by being in a {\ttfamily files} list, or a {\ttfamily !negated} rule in a relevant {\ttfamily .npmignore} or {\ttfamily .gitignore}), always ignore certain common cruft files\+:
+\begin{DoxyEnumerate}
+\item .npmignore and .gitignore files (their effect is in the package already, there\textquotesingle{}s no need to include them in the package)
+\item editor junk like {\ttfamily .\texorpdfstring{$\ast$}{*}.swp}, {\ttfamily .\+\_\+\texorpdfstring{$\ast$}{*}} and {\ttfamily .\texorpdfstring{$\ast$}{*}.orig} files
+\item {\ttfamily .npmrc} files (these may contain private configs)
+\item The {\ttfamily node\+\_\+modules/.bin} folder
+\item Waf and gyp cruft like {\ttfamily /build/config.gypi} and {\ttfamily .lock-\/wscript}
+\item Darwin\textquotesingle{}s {\ttfamily .DS\+\_\+\+Store} files because wtf are those even
+\item {\ttfamily npm-\/debug.\+log} files at the root of a project
+\end{DoxyEnumerate}
+
+You can explicitly re-\/include any of these with a {\ttfamily files} list in {\ttfamily package.\+json} or a negated ignore file rule.
+\end{DoxyEnumerate}
+
+Only the {\ttfamily package.\+json} file in the very root of the project is ever inspected for a {\ttfamily files} list. Below the top level of the root package, {\ttfamily package.\+json} is treated as just another file, and no package-\/specific semantics are applied.\hypertarget{README.md_autotoc_md15174}{}\doxysubsubsection{\texorpdfstring{Interaction between {\ttfamily package.\+json} and {\ttfamily .npmignore} rules}{Interaction between {\ttfamily package.\+json} and {\ttfamily .npmignore} rules}}\label{README.md_autotoc_md15174}
+In previous versions of this library, the {\ttfamily files} list in {\ttfamily package.\+json} was used as an initial filter to drive further tree walking. That is no longer the case as of version 6.\+0.\+0.
+
+If you have a {\ttfamily package.\+json} file with a {\ttfamily files} array within, any top level {\ttfamily .npmignore} and {\ttfamily .gitignore} files {\itshape will be ignored}.
+
+If a {\itshape directory} is listed in {\ttfamily files}, then any rules in nested {\ttfamily .npmignore} files within that directory will be honored.
+
+For example, with this package.\+json\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}files"{}:\ [\ "{}dir"{}\ ]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+a {\ttfamily .npmignore} file at {\ttfamily dir/.npmignore} (and any subsequent sub-\/directories) will be honored. However, a {\ttfamily .npmignore} at the root level will be skipped.
+
+Additionally, with this package.\+json\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}files"{}:\ ["{}dir/subdir"{}]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+a {\ttfamily .npmignore} file at {\ttfamily dir/.npmignore} will be honored, as well as {\ttfamily dir/subdir/.npmignore}.
+
+Any specific file matched by an exact filename in the package.\+json {\ttfamily files} list will be included, and cannot be excluded, by any {\ttfamily .npmignore} files.\hypertarget{README.md_autotoc_md15175}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md15175}
+Same API as \href{http://npm.im/ignore-walk}{\texttt{ ignore-\/walk}}, except providing a {\ttfamily tree} is required and there are hard-\/coded file list and rule sets.
+
+The {\ttfamily Walker} class requires an \href{https://github.com/npm/cli/tree/latest/workspaces/arborist}{\texttt{ arborist}} tree, and if any bundled dependencies are found will include them as well as their own dependencies in the resulting file set. 

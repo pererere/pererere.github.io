@@ -1,0 +1,40 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/array-\/flatten Directory Reference}
+\hypertarget{dir_c26383e1dc46f9a00eced6140351ef72}{}\label{dir_c26383e1dc46f9a00eced6140351ef72}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/array-\/flatten Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/array-\/flatten Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://npmjs.org/package/array-flatten}{\texttt{ }} \href{https://npmjs.org/package/array-flatten}{\texttt{ }} \href{https://travis-ci.org/blakeembrey/array-flatten}{\texttt{ }} \href{https://coveralls.io/r/blakeembrey/array-flatten?branch=master}{\texttt{ }}
+
+\begin{quote}
+Flatten nested arrays. \end{quote}
+\hypertarget{README.md_autotoc_md2591}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md2591}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ array-\/flatten\ -\/-\/save}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2592}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md2592}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ flatten\ =\ require('array-\/flatten')}
+\DoxyCodeLine{}
+\DoxyCodeLine{flatten([1,\ [2,\ [3,\ [4,\ [5],\ 6],\ 7],\ 8],\ 9])}
+\DoxyCodeLine{//=>\ [1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9]}
+\DoxyCodeLine{}
+\DoxyCodeLine{flatten.depth([1,\ [2,\ [3,\ [4,\ [5],\ 6],\ 7],\ 8],\ 9],\ 2)}
+\DoxyCodeLine{//=>\ [1,\ 2,\ 3,\ [4,\ [5],\ 6],\ 7,\ 8,\ 9]}
+\DoxyCodeLine{}
+\DoxyCodeLine{(function\ ()\ \{}
+\DoxyCodeLine{\ \ flatten.from(arguments)\ //=>\ [1,\ 2,\ 3]}
+\DoxyCodeLine{\})(1,\ [2,\ 3])}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2593}{}\doxysubsubsection{\texorpdfstring{Methods}{Methods}}\label{README.md_autotoc_md2593}
+
+\begin{DoxyItemize}
+\item {\bfseries{flatten(array)}} Flatten a nested array structure
+\item {\bfseries{flatten.\+from(arrayish)}} Flatten an array-\/like structure (E.\+g. arguments)
+\item {\bfseries{flatten.\+depth(array, depth)}} Flatten a nested array structure with a specific depth
+\item {\bfseries{flatten.\+from\+Depth(arrayish, depth)}} Flatten an array-\/like structure with a specific depth
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md2594}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md2594}
+MIT 

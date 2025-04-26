@@ -1,0 +1,29 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/strip-\/final-\/newline Directory Reference}
+\hypertarget{dir_3dad5ab77fdc8fbe20c4629cbfb60934}{}\label{dir_3dad5ab77fdc8fbe20c4629cbfb60934}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/strip-\/final-\/newline Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/strip-\/final-\/newline Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Strip the final \href{https://en.wikipedia.org/wiki/Newline}{\texttt{ newline character}} from a string/buffer \end{quote}
+
+
+Can be useful when parsing the output of, for example, {\ttfamily Child\+Process\#exec\+File}, as \href{https://stackoverflow.com/questions/729692/why-should-text-files-end-with-a-newline}{\texttt{ binaries usually output a newline at the end}}. Normally, you would use {\ttfamily stdout.\+trim()}, but that would also remove newlines at the start and whitespace.\hypertarget{readme.md_autotoc_md20132}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md20132}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ strip-\/final-\/newline}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md20133}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md20133}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ stripFinalNewline\ =\ require('strip-\/final-\/newline');}
+\DoxyCodeLine{}
+\DoxyCodeLine{stripFinalNewline('foo\(\backslash\)nbar\(\backslash\)n\(\backslash\)n');}
+\DoxyCodeLine{//=>\ 'foo\(\backslash\)nbar\(\backslash\)n'}
+\DoxyCodeLine{}
+\DoxyCodeLine{stripFinalNewline(Buffer.from('foo\(\backslash\)nbar\(\backslash\)n\(\backslash\)n')).toString();}
+\DoxyCodeLine{//=>\ 'foo\(\backslash\)nbar\(\backslash\)n'}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md20134}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md20134}
+MIT © \href{https://sindresorhus.com}{\texttt{ Sindre Sorhus}} 

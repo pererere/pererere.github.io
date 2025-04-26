@@ -1,0 +1,40 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@babel/regjsgen Directory Reference}
+\hypertarget{dir_aba8b8b439c4f9f60a0589a9acd0bbcf}{}\label{dir_aba8b8b439c4f9f60a0589a9acd0bbcf}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@babel/regjsgen Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@babel/regjsgen Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+This is a fork of \href{https://github.com/bnjmnt4n/regjsgen}{\texttt{ bnjmnt4n/regjsgen}} with some additional patches. The end goal is to merge these patches upstream.
+\begin{DoxyItemize}
+\item \href{https://github.com/babel/regjsgen/commit/be86643508658c70ccb5bec8bc4e3dc2479cac62}{\texttt{ be866435}} {\itshape feat\+: support modifiers proposal} (\href{https://github.com/bnjmnt4n/regjsgen/pull/28}{\texttt{ bnjmnt4n/regjsgen\#28}}) 
+\end{DoxyItemize}\end{quote}
+
+
+Generate regular expressions from \href{https://github.com/jviereck/regjsparser}{\texttt{ regjsparser}}’s AST.\hypertarget{README.md_autotoc_md461}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md461}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ i\ regjsgen}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md462}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md462}
+\hypertarget{README.md_autotoc_md463}{}\doxysubsubsection{\texorpdfstring{{\ttfamily regjsgen.\+generate(ast)}}{{\ttfamily regjsgen.\+generate(ast)}}}\label{README.md_autotoc_md463}
+This function accepts an abstract syntax tree representing a regular expression (see \href{https://github.com/jviereck/regjsparser}{\texttt{ regjsparser}}), and returns the generated regular expression string.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ regjsparser\ =\ require('regjsparser');}
+\DoxyCodeLine{const\ regjsgen\ =\ require('regjsgen');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Generate\ an\ AST\ with\ \`{}regjsparser`.}
+\DoxyCodeLine{let\ ast\ =\ regjsparser.parse(regex);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Modify\ AST}
+\DoxyCodeLine{//\ …}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Generate\ \`{}RegExp`\ string\ with\ \`{}regjsgen`.}
+\DoxyCodeLine{let\ regex\ =\ regjsgen.generate(ast);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md464}{}\doxysubsection{\texorpdfstring{Support}{Support}}\label{README.md_autotoc_md464}
+Tested in Node.\+js 10, 12, 14, and 16.~\newline
+ Compatible with regjsparser v0.\+7.\+0’s AST. 

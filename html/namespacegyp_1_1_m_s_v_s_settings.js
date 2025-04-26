@@ -1,0 +1,25 @@
+var namespacegyp_1_1_m_s_v_s_settings =
+[
+    [ "_Boolean", "classgyp_1_1_m_s_v_s_settings_1_1___boolean.html", "classgyp_1_1_m_s_v_s_settings_1_1___boolean" ],
+    [ "_Enumeration", "classgyp_1_1_m_s_v_s_settings_1_1___enumeration.html", "classgyp_1_1_m_s_v_s_settings_1_1___enumeration" ],
+    [ "_Integer", "classgyp_1_1_m_s_v_s_settings_1_1___integer.html", "classgyp_1_1_m_s_v_s_settings_1_1___integer" ],
+    [ "_String", "classgyp_1_1_m_s_v_s_settings_1_1___string.html", "classgyp_1_1_m_s_v_s_settings_1_1___string" ],
+    [ "_StringList", "classgyp_1_1_m_s_v_s_settings_1_1___string_list.html", "classgyp_1_1_m_s_v_s_settings_1_1___string_list" ],
+    [ "_Tool", "classgyp_1_1_m_s_v_s_settings_1_1___tool.html", null ],
+    [ "_Type", "classgyp_1_1_m_s_v_s_settings_1_1___type.html", "classgyp_1_1_m_s_v_s_settings_1_1___type" ],
+    [ "_AddTool", "namespacegyp_1_1_m_s_v_s_settings.html#af53750e9d3531467e8820ecb1012464b", null ],
+    [ "_ConvertedToAdditionalOption", "namespacegyp_1_1_m_s_v_s_settings.html#a837e5b1a0fbabbc6e75a8df2cad985ec", null ],
+    [ "_GetMSBuildToolSettings", "namespacegyp_1_1_m_s_v_s_settings.html#a2318bce778cd115a6bd7ec2cb0bf0008", null ],
+    [ "_MovedAndRenamed", "namespacegyp_1_1_m_s_v_s_settings.html#a2ea802e7705483872fbe58a9f87af130", null ],
+    [ "_MSBuildOnly", "namespacegyp_1_1_m_s_v_s_settings.html#a832b49b72ab793594fcaae61ae0da071", null ],
+    [ "_MSVSOnly", "namespacegyp_1_1_m_s_v_s_settings.html#abab24df9fb2b2d157090d50862029df2", null ],
+    [ "_Renamed", "namespacegyp_1_1_m_s_v_s_settings.html#a13411cb7172115bc81264c3af4a2d4b3", null ],
+    [ "_Same", "namespacegyp_1_1_m_s_v_s_settings.html#abc988eaeec69764dc30f135044c8b9f6", null ],
+    [ "_ValidateExclusionSetting", "namespacegyp_1_1_m_s_v_s_settings.html#ab4c75c765645a10ecf27f5f11d77d069", null ],
+    [ "_ValidateSettings", "namespacegyp_1_1_m_s_v_s_settings.html#a2a370591f8af065c83c50101d53e8bb3", null ],
+    [ "ConvertToMSBuildSettings", "namespacegyp_1_1_m_s_v_s_settings.html#a41a911a61fcd01adcc0d55c1e631f769", null ],
+    [ "ConvertVCMacrosToMSBuild", "namespacegyp_1_1_m_s_v_s_settings.html#a46c372a61c82b0b8b9c57a5275126ecd", null ],
+    [ "FixVCMacroSlashes", "namespacegyp_1_1_m_s_v_s_settings.html#ac6ff7eccd1ddf471f614de207176ad9e", null ],
+    [ "ValidateMSBuildSettings", "namespacegyp_1_1_m_s_v_s_settings.html#ace242953f88e9d80e0b7bdf313bc0feb", null ],
+    [ "ValidateMSVSSettings", "namespacegyp_1_1_m_s_v_s_settings.html#ae7143e207e5160c79c61925069ef5e89", null ]
+];

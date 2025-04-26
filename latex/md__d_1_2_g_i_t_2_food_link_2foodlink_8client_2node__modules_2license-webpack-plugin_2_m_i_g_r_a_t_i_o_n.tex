@@ -1,0 +1,41 @@
+\chapter{Migration Guide}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n}\index{Migration Guide@{Migration Guide}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n_autotoc_md13059}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n_autotoc_md13059}%
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n_autotoc_md13060}{}\doxysection{\texorpdfstring{3.\+x to 4.\+x}{3.\+x to 4.\+x}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n_autotoc_md13060}
+
+\begin{DoxyItemize}
+\item Support for webpack 4 and below are now removed. Please use an older version of the plugin if you need it to work with webpack 4 or below.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n_autotoc_md13061}{}\doxysection{\texorpdfstring{2.\+x to 3.\+x}{2.\+x to 3.\+x}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n_autotoc_md13061}
+
+\begin{DoxyItemize}
+\item Most builds can upgrade directly from 2.\+x to 3.\+x without having to change anything.
+\item The {\ttfamily webpack-\/sources} package is no longer bundled with the plugin nor listed as a peer\+Dependency of the plugin. This allows the plugin to use the same version of {\ttfamily webpack-\/sources} that comes with the {\ttfamily webpack} installation.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n_autotoc_md13062}{}\doxysection{\texorpdfstring{1.\+x to 2.\+x}{1.\+x to 2.\+x}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n_autotoc_md13062}
+
+\begin{DoxyItemize}
+\item The plugin no longer requires any explicit configuration. By default it will pick up all license types.
+\item The plugin no longer writes warnings/errors directly to console and instead reports warnings/errors to webpack.
+\item The {\ttfamily modules\+Directories} option defaults to null and requires full paths if specified. When {\ttfamily modules\+Directories} is null, third-\/party modules may be picked up from any directory.
+\item The following options have been removed\+:
+\begin{DoxyItemize}
+\item {\ttfamily build\+Root} -\/ The plugin can work reliably without this option having to be specified now. You can remove it from your configuration.
+\item {\ttfamily suppress\+Errors} -\/ Use the {\ttfamily stats} option on the plugin config instead to turn off warnings/errors.
+\item {\ttfamily pattern} -\/ Use the new {\ttfamily license\+Inclusion\+Test} option instead.
+\item {\ttfamily output\+Template} -\/ Use the new {\ttfamily render\+Licenses} option instead.
+\item {\ttfamily include\+Packages\+Without\+License} -\/ Use the new {\ttfamily license\+Inclusion\+Test} option instead.
+\item {\ttfamily unacceptable\+Pattern} -\/ Use the new {\ttfamily unacceptable\+License\+Test} option instead.
+\item {\ttfamily abort\+On\+Unacceptable\+License} -\/ The plugin will send an error to webpack whenever an unacceptable license is found. Use the new {\ttfamily handle\+Unacceptable\+License} option if you want to do something in addition to that.
+\item {\ttfamily banner\+Template} -\/ Use the new {\ttfamily render\+Banner} option instead.
+\item {\ttfamily included\+Chunks} -\/ Use the new {\ttfamily chunk\+Include\+Exclude\+Test} option instead.
+\item {\ttfamily excluded\+Chunks} -\/ Use the new {\ttfamily chunk\+Include\+Exclude\+Test} option instead.
+\item {\ttfamily additional\+Packages} -\/ Use the new {\ttfamily additional\+Chunk\+Modules} or {\ttfamily additional\+Modules} option instead.
+\end{DoxyItemize}
+\item Check the \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_d_o_c_u_m_e_n_t_a_t_i_o_n}{documentation}{0} for information on how to use the new options.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n_autotoc_md13063}{}\doxysection{\texorpdfstring{0.\+6.\+x to 1.\+x}{0.\+6.\+x to 1.\+x}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n_autotoc_md13063}
+
+\begin{DoxyItemize}
+\item Change `require(\textquotesingle{}license-\/webpack-\/plugin'){\ttfamily to}require(\textquotesingle{}license-\/webpack-\/plugin\textquotesingle{}).License\+Webpack\+Plugin{\ttfamily .}
+\item {\ttfamily Change}include\+Undefined{\ttfamily in the plugin options to}include\+Packages\+Without\+License{\ttfamily .}
+\item {\ttfamily The following options have been removed\+: -\/}add\+Version{\ttfamily -\/ Use the new}output\+Template{\ttfamily option to configure an ejs template to be used for writing the output. -\/}add\+License\+Text{\ttfamily -\/ Use the new}output\+Template{\ttfamily option to configure an ejs template to be used for writing the output. -\/}add\+Url{\ttfamily -\/ Use the new}output\+Template{\ttfamily option to configure an ejs template to be used for writing the output. -\/}filename{\ttfamily -\/ The plugin outputs an individual file per chunk now and is configured by the}output\+Filename{\ttfamily option. Check the}README.\+md\`{} file to see how it works. 
+\end{DoxyItemize}

@@ -1,0 +1,209 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/webpack-\/sources Directory Reference}
+\hypertarget{dir_09f6a3810500d6a3f467807396ca6f4f}{}\label{dir_09f6a3810500d6a3f467807396ca6f4f}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/webpack-\/sources Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/webpack-\/sources Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Contains multiple classes which represent a {\ttfamily Source}. A {\ttfamily Source} can be asked for source code, size, source map and hash.\hypertarget{README.md_autotoc_md22103}{}\doxysubsection{\texorpdfstring{{\ttfamily Source}}{{\ttfamily Source}}}\label{README.md_autotoc_md22103}
+Base class for all sources.\hypertarget{README.md_autotoc_md22104}{}\doxysubsubsection{\texorpdfstring{Public methods}{Public methods}}\label{README.md_autotoc_md22104}
+All methods should be considered as expensive as they may need to do computations.\hypertarget{README.md_autotoc_md22105}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily source}}{{\ttfamily source}}}\label{README.md_autotoc_md22105}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Source.prototype.source()\ -\/>\ String\ |\ Buffer}
+
+\end{DoxyCode}
+
+
+Returns the represented source code as string or Buffer (for binary Sources).\hypertarget{README.md_autotoc_md22106}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily buffer}}{{\ttfamily buffer}}}\label{README.md_autotoc_md22106}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Source.prototype.buffer()\ -\/>\ Buffer}
+
+\end{DoxyCode}
+
+
+Returns the represented source code as Buffer. Strings are converted to utf-\/8.\hypertarget{README.md_autotoc_md22107}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily size}}{{\ttfamily size}}}\label{README.md_autotoc_md22107}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Source.prototype.size()\ -\/>\ Number}
+
+\end{DoxyCode}
+
+
+Returns the size in bytes of the represented source code.\hypertarget{README.md_autotoc_md22108}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily map}}{{\ttfamily map}}}\label{README.md_autotoc_md22108}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Source.prototype.map(options?:\ Object)\ -\/>\ Object\ |\ null}
+
+\end{DoxyCode}
+
+
+Returns the Source\+Map of the represented source code as JSON. May return {\ttfamily null} if no Source\+Map is available.
+
+The {\ttfamily options} object can contain the following keys\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily columns\+: Boolean} (default {\ttfamily true})\+: If set to false the implementation may omit mappings for columns.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md22109}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily source\+And\+Map}}{{\ttfamily source\+And\+Map}}}\label{README.md_autotoc_md22109}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Source.prototype.sourceAndMap(options?:\ Object)\ -\/>\ \{}
+\DoxyCodeLine{\ \ \ \ source:\ String\ |\ Buffer,}
+\DoxyCodeLine{\ \ \ \ map:\ Object\ |\ null}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Returns both, source code (like {\ttfamily Source.\+prototype.\+source()} and Source\+Map (like {\ttfamily Source.\+prototype.\+map()}). This method could have better performance than calling {\ttfamily source()} and {\ttfamily map()} separately.
+
+See {\ttfamily map()} for {\ttfamily options}.\hypertarget{README.md_autotoc_md22110}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily update\+Hash}}{{\ttfamily update\+Hash}}}\label{README.md_autotoc_md22110}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Source.prototype.updateHash(hash:\ Hash)\ -\/>\ void}
+
+\end{DoxyCode}
+
+
+Updates the provided {\ttfamily Hash} object with the content of the represented source code. ({\ttfamily Hash} is an object with an {\ttfamily update} method, which is called with string values)\hypertarget{README.md_autotoc_md22111}{}\doxysubsection{\texorpdfstring{{\ttfamily Raw\+Source}}{{\ttfamily Raw\+Source}}}\label{README.md_autotoc_md22111}
+Represents source code without Source\+Map.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{new\ RawSource(sourceCode:\ String\ |\ Buffer)}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22112}{}\doxysubsection{\texorpdfstring{{\ttfamily Original\+Source}}{{\ttfamily Original\+Source}}}\label{README.md_autotoc_md22112}
+Represents source code, which is a copy of the original file.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{new\ OriginalSource(}
+\DoxyCodeLine{\ \ \ \ sourceCode:\ String\ |\ Buffer,}
+\DoxyCodeLine{\ \ \ \ name:\ String}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily source\+Code}\+: The source code.
+\item {\ttfamily name}\+: The filename of the original source code.
+\end{DoxyItemize}
+
+Original\+Source tries to create column mappings if requested, by splitting the source code at typical statement borders ({\ttfamily ;}, {\ttfamily \{}, {\ttfamily \}}).\hypertarget{README.md_autotoc_md22113}{}\doxysubsection{\texorpdfstring{{\ttfamily Source\+Map\+Source}}{{\ttfamily Source\+Map\+Source}}}\label{README.md_autotoc_md22113}
+Represents source code with Source\+Map, optionally having an additional Source\+Map for the original source.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{new\ SourceMapSource(}
+\DoxyCodeLine{\ \ \ \ sourceCode:\ String\ |\ Buffer,}
+\DoxyCodeLine{\ \ \ \ name:\ String,}
+\DoxyCodeLine{\ \ \ \ sourceMap:\ Object\ |\ String\ |\ Buffer,}
+\DoxyCodeLine{\ \ \ \ originalSource?:\ String\ |\ Buffer,}
+\DoxyCodeLine{\ \ \ \ innerSourceMap?:\ Object\ |\ String\ |\ Buffer,}
+\DoxyCodeLine{\ \ \ \ removeOriginalSource?:\ boolean}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily source\+Code}\+: The source code.
+\item {\ttfamily name}\+: The filename of the original source code.
+\item {\ttfamily source\+Map}\+: The Source\+Map for the source code.
+\item {\ttfamily original\+Source}\+: The source code of the original file. Can be omitted if the {\ttfamily source\+Map} already contains the original source code.
+\item {\ttfamily inner\+Source\+Map}\+: The Source\+Map for the {\ttfamily original\+Source}/{\ttfamily name}.
+\item {\ttfamily remove\+Original\+Source}\+: Removes the source code for {\ttfamily name} from the final map, keeping only the deeper mappings for that file.
+\end{DoxyItemize}
+
+The {\ttfamily Source\+Map\+Source} supports "{}identity"{} mappings for the {\ttfamily inner\+Source\+Map}. When original source matches generated source for a mapping it\textquotesingle{}s assumed to be mapped char by char allowing to keep finer mappings from {\ttfamily source\+Map}.\hypertarget{README.md_autotoc_md22114}{}\doxysubsection{\texorpdfstring{{\ttfamily Cached\+Source}}{{\ttfamily Cached\+Source}}}\label{README.md_autotoc_md22114}
+Decorates a {\ttfamily Source} and caches returned results of {\ttfamily map}, {\ttfamily source}, {\ttfamily buffer}, {\ttfamily size} and {\ttfamily source\+And\+Map} in memory. {\ttfamily update\+Hash} is not cached. It tries to reused cached results from other methods to avoid calculations, i. e. when {\ttfamily source} is already cached, calling {\ttfamily size} will get the size from the cached source, calling {\ttfamily source\+And\+Map} will only call {\ttfamily map} on the wrapped Source.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{new\ CachedSource(source:\ Source)}
+\DoxyCodeLine{new\ CachedSource(source:\ Source\ |\ ()\ =>\ Source,\ cachedData?:\ CachedData)}
+
+\end{DoxyCode}
+
+
+Instead of passing a {\ttfamily Source} object directly one can pass an function that returns a {\ttfamily Source} object. The function is only called when needed and once.\hypertarget{README.md_autotoc_md22115}{}\doxysubsubsection{\texorpdfstring{Public methods}{Public methods}}\label{README.md_autotoc_md22115}
+\hypertarget{README.md_autotoc_md22116}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily get\+Cached\+Data()}}{{\ttfamily get\+Cached\+Data()}}}\label{README.md_autotoc_md22116}
+Returns the cached data for passing to the constructor. All cached entries are converted to Buffers and strings are avoided.\hypertarget{README.md_autotoc_md22117}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily original()}}{{\ttfamily original()}}}\label{README.md_autotoc_md22117}
+Returns the original {\ttfamily Source} object.\hypertarget{README.md_autotoc_md22118}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily original\+Lazy()}}{{\ttfamily original\+Lazy()}}}\label{README.md_autotoc_md22118}
+Returns the original {\ttfamily Source} object or a function returning these.\hypertarget{README.md_autotoc_md22119}{}\doxysubsection{\texorpdfstring{{\ttfamily Prefix\+Source}}{{\ttfamily Prefix\+Source}}}\label{README.md_autotoc_md22119}
+Prefix every line of the decorated {\ttfamily Source} with a provided string.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{new\ PrefixSource(}
+\DoxyCodeLine{\ \ \ \ prefix:\ String,}
+\DoxyCodeLine{\ \ \ \ source:\ Source\ |\ String\ |\ Buffer}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22120}{}\doxysubsection{\texorpdfstring{{\ttfamily Concat\+Source}}{{\ttfamily Concat\+Source}}}\label{README.md_autotoc_md22120}
+Concatenate multiple {\ttfamily Source}s or strings to a single source.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{new\ ConcatSource(}
+\DoxyCodeLine{\ \ \ \ ...items?:\ Source\ |\ String}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22121}{}\doxysubsubsection{\texorpdfstring{Public methods}{Public methods}}\label{README.md_autotoc_md22121}
+\hypertarget{README.md_autotoc_md22122}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily add}}{{\ttfamily add}}}\label{README.md_autotoc_md22122}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ConcatSource.prototype.add(item:\ Source\ |\ String)}
+
+\end{DoxyCode}
+
+
+Adds an item to the source.\hypertarget{README.md_autotoc_md22123}{}\doxysubsection{\texorpdfstring{{\ttfamily Replace\+Source}}{{\ttfamily Replace\+Source}}}\label{README.md_autotoc_md22123}
+Decorates a {\ttfamily Source} with replacements and insertions of source code.
+
+The {\ttfamily Replace\+Source} supports "{}identity"{} mappings for child source. When original source matches generated source for a mapping it\textquotesingle{}s assumed to be mapped char by char allowing to split mappings at replacements/insertions.\hypertarget{README.md_autotoc_md22124}{}\doxysubsubsection{\texorpdfstring{Public methods}{Public methods}}\label{README.md_autotoc_md22124}
+\hypertarget{README.md_autotoc_md22125}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily replace}}{{\ttfamily replace}}}\label{README.md_autotoc_md22125}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ReplaceSource.prototype.replace(}
+\DoxyCodeLine{\ \ \ \ start:\ Number,}
+\DoxyCodeLine{\ \ \ \ end:\ Number,}
+\DoxyCodeLine{\ \ \ \ replacement:\ String}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+
+
+Replaces chars from {\ttfamily start} (0-\/indexed, inclusive) to {\ttfamily end} (0-\/indexed, inclusive) with {\ttfamily replacement}.
+
+Locations represents locations in the original source and are not influenced by other replacements or insertions.\hypertarget{README.md_autotoc_md22126}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily insert}}{{\ttfamily insert}}}\label{README.md_autotoc_md22126}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ReplaceSource.prototype.insert(}
+\DoxyCodeLine{\ \ \ \ pos:\ Number,}
+\DoxyCodeLine{\ \ \ \ insertion:\ String}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+
+
+Inserts the {\ttfamily insertion} before char {\ttfamily pos} (0-\/indexed).
+
+Location represents location in the original source and is not influenced by other replacements or insertions.\hypertarget{README.md_autotoc_md22127}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily original}}{{\ttfamily original}}}\label{README.md_autotoc_md22127}
+Get decorated {\ttfamily Source}.\hypertarget{README.md_autotoc_md22128}{}\doxysubsection{\texorpdfstring{{\ttfamily Compat\+Source}}{{\ttfamily Compat\+Source}}}\label{README.md_autotoc_md22128}
+Converts a Source-\/like object into a real Source object.\hypertarget{README.md_autotoc_md22129}{}\doxysubsubsection{\texorpdfstring{Public methods}{Public methods}}\label{README.md_autotoc_md22129}
+\hypertarget{README.md_autotoc_md22130}{}\doxysubsubsubsection{\texorpdfstring{static {\ttfamily from}}{static {\ttfamily from}}}\label{README.md_autotoc_md22130}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CompatSource.from(sourceLike:\ any\ |\ Source)}
+
+\end{DoxyCode}
+
+
+If {\ttfamily source\+Like} is a real Source it returns it unmodified. Otherwise it returns it wrapped in a Compat\+Source. 

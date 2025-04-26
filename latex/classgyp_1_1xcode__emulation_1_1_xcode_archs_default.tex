@@ -1,0 +1,71 @@
+\doxysection{gyp.\+xcode\+\_\+emulation.\+Xcode\+Archs\+Default Class Reference}
+\hypertarget{classgyp_1_1xcode__emulation_1_1_xcode_archs_default}{}\label{classgyp_1_1xcode__emulation_1_1_xcode_archs_default}\index{gyp.xcode\_emulation.XcodeArchsDefault@{gyp.xcode\_emulation.XcodeArchsDefault}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_a14f4c8bd8a6b9d8850140ff28b7e2ea3}\label{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_a14f4c8bd8a6b9d8850140ff28b7e2ea3} 
+{\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, default, mac, iphonesimulator, iphoneos)
+\item 
+\mbox{\hyperlink{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_ac02ed0a7a882fb12598ca7c85a6519d2}{Active\+Archs}} (self, archs, valid\+\_\+archs, sdkroot)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_a4f934203c84a10ac2f3d41c291f13b23}\label{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_a4f934203c84a10ac2f3d41c291f13b23} 
+{\bfseries variable\+\_\+pattern} = re.\+compile(r"{}\textbackslash{}\$\textbackslash{}(\mbox{[}a-\/zA-\/Z\+\_\+\mbox{]}\mbox{[}a-\/zA-\/Z0-\/9\+\_\+\mbox{]}\texorpdfstring{$\ast$}{*}\textbackslash{})\$"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_ad96c9d9182f8068e6af11db224cb806d}{\+\_\+\+Variable\+Mapping}} (self, sdkroot)
+\item 
+\mbox{\hyperlink{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_ad827904baa1dd56de8ee432b8ca03791}{\+\_\+\+Expand\+Archs}} (self, archs, sdkroot)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_aabdd6d63cce2c482e5d6fb985e912f99}\label{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_aabdd6d63cce2c482e5d6fb985e912f99} 
+tuple {\bfseries \+\_\+default} = (default,)
+\item 
+\Hypertarget{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_ab77e900a4b9c33a9f05455da7d6bab9e}\label{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_ab77e900a4b9c33a9f05455da7d6bab9e} 
+dict {\bfseries \+\_\+archs} = \{"{}mac"{}\+: mac, "{}ios"{}\+: iphoneos, "{}iossim"{}\+: iphonesimulator\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A class to resolve ARCHS variable from xcode_settings, resolving Xcode
+macros and implementing filtering by VALID_ARCHS. The expansion of macros
+depends on the SDKROOT used ("macosx", "iphoneos", "iphonesimulator") and
+on the version of Xcode.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_ad827904baa1dd56de8ee432b8ca03791}\index{gyp.xcode\_emulation.XcodeArchsDefault@{gyp.xcode\_emulation.XcodeArchsDefault}!\_ExpandArchs@{\_ExpandArchs}}
+\index{\_ExpandArchs@{\_ExpandArchs}!gyp.xcode\_emulation.XcodeArchsDefault@{gyp.xcode\_emulation.XcodeArchsDefault}}
+\doxysubsubsection{\texorpdfstring{\_ExpandArchs()}{\_ExpandArchs()}}
+{\footnotesize\ttfamily \label{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_ad827904baa1dd56de8ee432b8ca03791} 
+gyp.\+xcode\+\_\+emulation.\+Xcode\+Archs\+Default.\+\_\+\+Expand\+Archs (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{archs}{, }\item[{}]{sdkroot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyVerb}Expands variables references in ARCHS, and remove duplicates.\end{DoxyVerb}
+ \Hypertarget{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_ad96c9d9182f8068e6af11db224cb806d}\index{gyp.xcode\_emulation.XcodeArchsDefault@{gyp.xcode\_emulation.XcodeArchsDefault}!\_VariableMapping@{\_VariableMapping}}
+\index{\_VariableMapping@{\_VariableMapping}!gyp.xcode\_emulation.XcodeArchsDefault@{gyp.xcode\_emulation.XcodeArchsDefault}}
+\doxysubsubsection{\texorpdfstring{\_VariableMapping()}{\_VariableMapping()}}
+{\footnotesize\ttfamily \label{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_ad96c9d9182f8068e6af11db224cb806d} 
+gyp.\+xcode\+\_\+emulation.\+Xcode\+Archs\+Default.\+\_\+\+Variable\+Mapping (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{sdkroot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyVerb}Returns the dictionary of variable mapping depending on the SDKROOT.\end{DoxyVerb}
+ \Hypertarget{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_ac02ed0a7a882fb12598ca7c85a6519d2}\index{gyp.xcode\_emulation.XcodeArchsDefault@{gyp.xcode\_emulation.XcodeArchsDefault}!ActiveArchs@{ActiveArchs}}
+\index{ActiveArchs@{ActiveArchs}!gyp.xcode\_emulation.XcodeArchsDefault@{gyp.xcode\_emulation.XcodeArchsDefault}}
+\doxysubsubsection{\texorpdfstring{ActiveArchs()}{ActiveArchs()}}
+{\footnotesize\ttfamily \label{classgyp_1_1xcode__emulation_1_1_xcode_archs_default_ac02ed0a7a882fb12598ca7c85a6519d2} 
+gyp.\+xcode\+\_\+emulation.\+Xcode\+Archs\+Default.\+Active\+Archs (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{archs}{, }\item[{}]{valid\+\_\+archs}{, }\item[{}]{sdkroot}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Expands variables references in ARCHS, and filter by VALID_ARCHS if it
+is defined (if not set, Xcode accept any value in ARCHS, otherwise, only
+values present in VALID_ARCHS are kept).\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/foodlink.\+client/node\+\_\+modules/node-\/gyp/gyp/pylib/gyp/xcode\+\_\+emulation.\+py\end{DoxyCompactItemize}

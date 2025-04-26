@@ -1,0 +1,34 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/promise-\/inflight Directory Reference}
+\hypertarget{dir_04daf896d3c772590ae7d26bc082cd44}{}\label{dir_04daf896d3c772590ae7d26bc082cd44}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/promise-\/inflight Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/promise-\/inflight Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+One promise for multiple requests in flight to avoid async duplication\hypertarget{README.md_autotoc_md16856}{}\doxysubsection{\texorpdfstring{USAGE}{USAGE}}\label{README.md_autotoc_md16856}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ inflight\ =\ require('promise-\/inflight')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ some\ request\ that\ does\ some\ stuff}
+\DoxyCodeLine{function\ req(key)\ \{}
+\DoxyCodeLine{\ \ //\ key\ is\ any\ random\ string.\ \ like\ a\ url\ or\ filename\ or\ whatever.}
+\DoxyCodeLine{\ \ return\ inflight(key,\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ //\ this\ is\ where\ you'd\ fetch\ the\ url\ or\ whatever}
+\DoxyCodeLine{\ \ \ \ return\ Promise.delay(100)}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ only\ assigns\ a\ single\ setTimeout}
+\DoxyCodeLine{//\ when\ it\ dings,\ all\ thens\ get\ called\ with\ the\ same\ result.\ \ (There's\ only}
+\DoxyCodeLine{//\ one\ underlying\ promise.)}
+\DoxyCodeLine{req('foo').then(…)}
+\DoxyCodeLine{req('foo').then(…)}
+\DoxyCodeLine{req('foo').then(…)}
+\DoxyCodeLine{req('foo').then(…)}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16857}{}\doxysubsection{\texorpdfstring{SEE ALSO}{SEE ALSO}}\label{README.md_autotoc_md16857}
+
+\begin{DoxyItemize}
+\item \href{https://npmjs.com/package/inflight}{\texttt{ inflight}} -\/ For the callback based function on which this is based.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md16858}{}\doxysubsection{\texorpdfstring{STILL NEEDS}{STILL NEEDS}}\label{README.md_autotoc_md16858}
+Tests! 

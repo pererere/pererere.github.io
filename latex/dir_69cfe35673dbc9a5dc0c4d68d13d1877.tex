@@ -1,0 +1,37 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/detect-\/node Directory Reference}
+\hypertarget{dir_69cfe35673dbc9a5dc0c4d68d13d1877}{}\label{dir_69cfe35673dbc9a5dc0c4d68d13d1877}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/detect-\/node Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/detect-\/node Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/-\/save\ detect-\/node}
+
+\end{DoxyCode}
+\hypertarget{Readme.md_autotoc_md5590}{}\doxysubsubsection{\texorpdfstring{Usage\+:}{Usage\+:}}\label{Readme.md_autotoc_md5590}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ isNode\ =\ require('detect-\/node');}
+\DoxyCodeLine{}
+\DoxyCodeLine{if\ (isNode)\ \{}
+\DoxyCodeLine{\ \ console.log("{}Running\ under\ Node.JS"{});}
+\DoxyCodeLine{\}\ else\ \{}
+\DoxyCodeLine{\ \ alert("{}Hello\ from\ browser\ (or\ whatever\ not-\/a-\/node\ env)"{});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The check is performed as\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ false;}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Only\ Node.JS\ has\ a\ process\ variable\ that\ is\ of\ [[Class]]\ process}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ module.exports\ =\ Object.prototype.toString.call(global.process)\ ===\ '[object\ process]'\ }
+\DoxyCodeLine{\}\ catch(e)\ \{\}}
+
+\end{DoxyCode}
+
+
+Thanks to Ingvar Stepanyan for the initial idea. This check is both {\bfseries{the most reliable I could find}} and it does not use {\ttfamily process} env directly, which would cause browserify to include it into the build. 

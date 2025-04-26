@@ -1,0 +1,16 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/npm-\/normalize-\/package-\/bin Directory Reference}
+\hypertarget{dir_ed01a335d241dc2387c652ac4496b231}{}\label{dir_ed01a335d241dc2387c652ac4496b231}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/normalize-\/package-\/bin Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/normalize-\/package-\/bin Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Turn any flavor of allowable package.\+json bin into a normalized object.\hypertarget{README.md_autotoc_md15165}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md15165}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ normalize\ =\ require('npm-\/normalize-\/package-\/bin')}
+\DoxyCodeLine{const\ pkg\ =\ \{name:\ 'foo',\ bin:\ 'bar'\}}
+\DoxyCodeLine{console.log(normalize(pkg))\ //\ \{name:'foo',\ bin:\{foo:\ 'bar'\}\}}
+
+\end{DoxyCode}
+
+
+Also strips out weird dots and slashes to prevent accidental and/or malicious bad behavior when the package is installed. 

@@ -1,0 +1,74 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/unicode-\/canonical-\/property-\/names-\/ecmascript Directory Reference}
+\hypertarget{dir_cec866dc601b14b13590090a1dab7f13}{}\label{dir_cec866dc601b14b13590090a1dab7f13}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/unicode-\/canonical-\/property-\/names-\/ecmascript Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/unicode-\/canonical-\/property-\/names-\/ecmascript Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+{\itshape unicode-\/canonical-\/property-\/names-\/ecmascript} exports the set of canonical Unicode property names that are supported in \href{https://github.com/tc39/proposal-regexp-unicode-property-escapes}{\texttt{ ECMAScript Reg\+Exp property escapes}}.\hypertarget{README.md_autotoc_md21536}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md21536}
+To use {\itshape unicode-\/canonical-\/property-\/names-\/ecmascript}, install it as a dependency via \href{https://www.npmjs.com/}{\texttt{ npm}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ unicode-\/canonical-\/property-\/names-\/ecmascript}
+
+\end{DoxyCode}
+
+
+Then, {\ttfamily require} it\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ properties\ =\ require('unicode-\/canonical-\/property-\/names-\/ecmascript');}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21537}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{README.md_autotoc_md21537}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{properties.has('ID\_Start');}
+\DoxyCodeLine{//\ →\ true}
+\DoxyCodeLine{properties.has('IDS');}
+\DoxyCodeLine{//\ →\ false}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21538}{}\doxysubsection{\texorpdfstring{For maintainers}{For maintainers}}\label{README.md_autotoc_md21538}
+\hypertarget{README.md_autotoc_md21539}{}\doxysubsubsection{\texorpdfstring{How to publish a new release}{How to publish a new release}}\label{README.md_autotoc_md21539}
+
+\begin{DoxyEnumerate}
+\item On the {\ttfamily main} branch, bump the version number in {\ttfamily package.\+json}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ version\ patch\ -\/m\ 'Release\ v\%s'}
+
+\end{DoxyCode}
+
+
+Instead of {\ttfamily patch}, use {\ttfamily minor} or {\ttfamily major} \href{https://semver.org/}{\texttt{ as needed}}.
+
+Note that this produces a Git commit + tag.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Push the release commit and tag\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ push\ \&\&\ git\ push\ -\/-\/tags}
+
+\end{DoxyCode}
+
+
+Our CI then automatically publishes the new release to npm.
+\end{DoxyEnumerate}\hypertarget{README.md_autotoc_md21540}{}\doxysubsection{\texorpdfstring{Author}{Author}}\label{README.md_autotoc_md21540}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \href{https://twitter.com/mathias}{\texttt{ }}    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \href{https://twitter.com/mathias}{\texttt{ }}    }\\\cline{1-1}
+\endhead
+\href{https://mathiasbynens.be/}{\texttt{ Mathias Bynens}}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{README.md_autotoc_md21541}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md21541}
+{\itshape unicode-\/canonical-\/property-\/names-\/ecmascript} is available under the \href{https://mths.be/mit}{\texttt{ MIT}} license. 

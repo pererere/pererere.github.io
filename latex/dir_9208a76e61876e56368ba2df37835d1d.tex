@@ -1,0 +1,50 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/prr Directory Reference}
+\hypertarget{dir_9208a76e61876e56368ba2df37835d1d}{}\label{dir_9208a76e61876e56368ba2df37835d1d}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/prr Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/prr Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+An sensible alternative to {\ttfamily Object.\+define\+Property()}. Available in npm and Ender as {\bfseries{prr}}.\hypertarget{README.md_autotoc_md16912}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md16912}
+Set the property `\textquotesingle{}foo'{\ttfamily (}obj.\+foo{\ttfamily ) to have the value}\textquotesingle{}bar\textquotesingle{}{\ttfamily with default options (}\textquotesingle{}enumerable\textquotesingle{}{\ttfamily ,}\textquotesingle{}configurable\textquotesingle{}{\ttfamily and}\textquotesingle{}writable\textquotesingle{}{\ttfamily are all}false\`{})\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{prr(obj,\ 'foo',\ 'bar')}
+
+\end{DoxyCode}
+
+
+Adjust the default options\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{prr(obj,\ 'foo',\ 'bar',\ \{\ enumerable:\ true,\ writable:\ true\ \})}
+
+\end{DoxyCode}
+
+
+Do the same operation for multiple properties\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{prr(obj,\ \{\ one:\ 'one',\ two:\ 'two'\ \})}
+\DoxyCodeLine{//\ or\ with\ options:}
+\DoxyCodeLine{prr(obj,\ \{\ one:\ 'one',\ two:\ 'two'\ \},\ \{\ enumerable:\ true,\ writable:\ true\ \})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16913}{}\doxysubsubsection{\texorpdfstring{Simplify!}{Simplify!}}\label{README.md_autotoc_md16913}
+But obviously, having to write out the full options object makes it nearly as bad as the original {\ttfamily Object.\+define\+Property()} so we can simplify.
+
+As an alternative method we can use an options string where each character represents a option\+: `\textquotesingle{}e'==\textquotesingle{}enumerable\textquotesingle{}{\ttfamily ,}\textquotesingle{}c\textquotesingle{}==\textquotesingle{}configurable\textquotesingle{}{\ttfamily and}\textquotesingle{}w\textquotesingle{}==\textquotesingle{}writable\textquotesingle{}\`{}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{prr(obj,\ 'foo',\ 'bar',\ 'ew')\ //\ enumerable\ and\ writable\ but\ not\ configurable}
+\DoxyCodeLine{//\ muliple\ properties:}
+\DoxyCodeLine{prr(obj,\ \{\ one:\ 'one',\ two:\ 'two'\ \},\ 'ewc')\ //\ configurable\ too}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16914}{}\doxysubsection{\texorpdfstring{Where can I use it?}{Where can I use it?}}\label{README.md_autotoc_md16914}
+Anywhere! For pre-\/\+ES5 environments {\itshape prr} will simply fall-\/back to an {\ttfamily object\mbox{[}property\mbox{]} = value} so you can get close to what you want.
+
+{\itshape prr} is Ender-\/compatible so you can include it in your Ender build and {\ttfamily \$.prr(...)} or `var prr = require(\textquotesingle{}prr'); prr(...)\`{}.\hypertarget{README.md_autotoc_md16915}{}\doxysubsection{\texorpdfstring{Licence}{Licence}}\label{README.md_autotoc_md16915}
+prr is Copyright (c) 2013 Rod Vagg \href{https://twitter.com/rvagg}{\texttt{ @rvagg}} and licensed under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE.\+md file for more details. 

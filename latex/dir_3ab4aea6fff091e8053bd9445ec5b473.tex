@@ -1,0 +1,100 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/karma-\/chrome-\/launcher Directory Reference}
+\hypertarget{dir_3ab4aea6fff091e8053bd9445ec5b473}{}\label{dir_3ab4aea6fff091e8053bd9445ec5b473}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/karma-\/chrome-\/launcher Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/karma-\/chrome-\/launcher Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://github.com/karma-runner/karma-chrome-launcher}{\texttt{ }} \href{https://www.npmjs.com/package/karma-chrome-launcher}{\texttt{ }} \href{https://www.npmjs.com/package/karma-chrome-launcher}{\texttt{ }}
+
+\href{https://travis-ci.org/karma-runner/karma-chrome-launcher}{\texttt{ }} \href{https://david-dm.org/karma-runner/karma-chrome-launcher}{\texttt{ }} \href{https://david-dm.org/karma-runner/karma-chrome-launcher\#info=devDependencies}{\texttt{ }}
+
+\begin{quote}
+Launcher for Google Chrome, Google Chrome Canary and Google Chromium. \end{quote}
+\hypertarget{README.md_autotoc_md11218}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md11218}
+The easiest way is to keep {\ttfamily karma-\/chrome-\/launcher} as a dev\+Dependency in your {\ttfamily package.\+json}, by running
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ i\ -\/D\ karma-\/chrome-\/launcher}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11219}{}\doxysubsection{\texorpdfstring{Configuration}{Configuration}}\label{README.md_autotoc_md11219}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ karma.conf.js}
+\DoxyCodeLine{module.exports\ =\ function(config)\ \{}
+\DoxyCodeLine{\ \ config.set(\{}
+\DoxyCodeLine{\ \ \ \ browsers:\ ['Chrome',\ 'Chrome\_without\_security'],\ //\ You\ may\ use\ 'ChromeCanary',\ 'Chromium'\ or\ any\ other\ supported\ browser}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ you\ can\ define\ custom\ flags}
+\DoxyCodeLine{\ \ \ \ customLaunchers:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ Chrome\_without\_security:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ base:\ 'Chrome',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ flags:\ ['-\/-\/disable-\/web-\/security',\ '-\/-\/disable-\/site-\/isolation-\/trials']}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The {\ttfamily -\/-\/user-\/data-\/dir} is set to a temporary directory but can be overridden on a custom launcher as shown below. One reason to do this is to have a permanent Chrome user data directory inside the project directory to be able to install plugins there (e.\+g. Jet\+Brains IDE Support plugin).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{customLaunchers:\ \{}
+\DoxyCodeLine{\ \ Chrome\_with\_debugging:\ \{}
+\DoxyCodeLine{\ \ \ \ base:\ 'Chrome',}
+\DoxyCodeLine{\ \ \ \ chromeDataDir:\ path.resolve(\_\_dirname,\ '.chrome')}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+You can pass list of browsers as a CLI argument too\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ karma\ start\ -\/-\/browsers\ Chrome,Chrome\_without\_security}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11220}{}\doxysubsection{\texorpdfstring{Headless Chromium with Puppeteer}{Headless Chromium with Puppeteer}}\label{README.md_autotoc_md11220}
+The Chrome Dev\+Tools team created \href{https://github.com/GoogleChrome/puppeteer}{\texttt{ Puppeteer}} -\/ it will automatically install Chromium for all platforms and contains everything you need to run it from within your CI.\hypertarget{README.md_autotoc_md11221}{}\doxysubsubsection{\texorpdfstring{Available Browsers}{Available Browsers}}\label{README.md_autotoc_md11221}
+{\itshape Note\+: Headless mode requires a browser version \texorpdfstring{$>$}{>}= 59}
+
+
+\begin{DoxyItemize}
+\item Chrome (CHROME\+\_\+\+BIN)
+\item Chrome\+Headless (CHROME\+\_\+\+BIN)
+\item Chromium (CHROMIUM\+\_\+\+BIN)
+\item Chromium\+Headless (CHROMIUM\+\_\+\+BIN)
+\item Chrome\+Canary (CHROME\+\_\+\+CANARY\+\_\+\+BIN)
+\item Chrome\+Canary\+Headless (CHROME\+\_\+\+CANARY\+\_\+\+BIN)
+\item Dartium (DARTIUM\+\_\+\+BIN)
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md11222}{}\doxysubsubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md11222}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ i\ -\/D\ puppeteer\ karma-\/chrome-\/launcher}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ karma.conf.js}
+\DoxyCodeLine{process.env.CHROME\_BIN\ =\ require('puppeteer').executablePath()}
+\DoxyCodeLine{}
+\DoxyCodeLine{module.exports\ =\ function(config)\ \{}
+\DoxyCodeLine{\ \ config.set(\{}
+\DoxyCodeLine{\ \ \ \ browsers:\ ['ChromeHeadless']}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+
+
+For more information on Karma see the \href{https://karma-runner.github.io}{\texttt{ homepage}}. 

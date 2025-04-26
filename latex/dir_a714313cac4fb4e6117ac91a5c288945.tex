@@ -1,0 +1,53 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@npmcli/promise-\/spawn Directory Reference}
+\hypertarget{dir_a714313cac4fb4e6117ac91a5c288945}{}\label{dir_a714313cac4fb4e6117ac91a5c288945}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@npmcli/promise-\/spawn Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@npmcli/promise-\/spawn Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Spawn processes the way the npm cli likes to do. Give it some options, it\textquotesingle{}ll give you a Promise that resolves or rejects based on the results of the execution.\hypertarget{README.md_autotoc_md1620}{}\doxysubsection{\texorpdfstring{USAGE}{USAGE}}\label{README.md_autotoc_md1620}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ promiseSpawn\ =\ require('@npmcli/promise-\/spawn')}
+\DoxyCodeLine{}
+\DoxyCodeLine{promiseSpawn('ls',\ [\ '-\/laF',\ 'some/dir/*.js'\ ],\ \{}
+\DoxyCodeLine{\ \ cwd:\ '/tmp/some/path',\ //\ defaults\ to\ process.cwd()}
+\DoxyCodeLine{\ \ stdioString:\ true,\ //\ stdout/stderr\ as\ strings\ rather\ than\ buffers}
+\DoxyCodeLine{\ \ stdio:\ 'pipe',\ //\ any\ node\ spawn\ stdio\ arg\ is\ valid\ here}
+\DoxyCodeLine{\ \ //\ any\ other\ arguments\ to\ node\ child\_process.spawn\ can\ go\ here\ as\ well,}
+\DoxyCodeLine{\},\ \{}
+\DoxyCodeLine{\ \ extra:\ 'things',}
+\DoxyCodeLine{\ \ to:\ 'decorate',}
+\DoxyCodeLine{\ \ the:\ 'result',}
+\DoxyCodeLine{\}).then(result\ =>\ \{}
+\DoxyCodeLine{\ \ //\ \{code\ ===\ 0,\ signal\ ===\ null,\ stdout,\ stderr,\ and\ all\ the\ extras\}}
+\DoxyCodeLine{\ \ console.log('ok!',\ result)}
+\DoxyCodeLine{\}).catch(er\ =>\ \{}
+\DoxyCodeLine{\ \ //\ er\ has\ all\ the\ same\ properties\ as\ the\ result,\ set\ appropriately}
+\DoxyCodeLine{\ \ console.error('failed!',\ er)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1621}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md1621}
+\hypertarget{README.md_autotoc_md1622}{}\doxysubsubsection{\texorpdfstring{{\ttfamily promise\+Spawn(cmd, args, opts, extra)} -\/\texorpdfstring{$>$}{>} {\ttfamily Promise}}{{\ttfamily promise\+Spawn(cmd, args, opts, extra)} -\/\texorpdfstring{$>$}{>} {\ttfamily Promise}}}\label{README.md_autotoc_md1622}
+Run the command, return a Promise that resolves/rejects based on the process result.
+
+Result or error will be decorated with the properties in the {\ttfamily extra} object. You can use this to attach some helpful info about {\itshape why} the command is being run, if it makes sense for your use case.
+
+If {\ttfamily stdio} is set to anything other than `\textquotesingle{}inherit'{\ttfamily , then the result/error will be decorated with}stdout{\ttfamily and}stderr{\ttfamily values. If}stdio\+String{\ttfamily is set to}true\`{}, these will be strings. Otherwise they will be Buffer objects.
+
+Returned promise is decorated with the {\ttfamily stdin} stream if the process is set to pipe from {\ttfamily stdin}. Writing to this stream writes to the {\ttfamily stdin} of the spawned process.\hypertarget{README.md_autotoc_md1623}{}\doxysubsubsubsection{\texorpdfstring{Options}{Options}}\label{README.md_autotoc_md1623}
+
+\begin{DoxyItemize}
+\item {\ttfamily stdio\+String} Boolean, default {\ttfamily true}. Return stdout/stderr output as strings rather than buffers.
+\item {\ttfamily cwd} String, default {\ttfamily process.\+cwd()}. Current working directory for running the script. Also the argument to {\ttfamily infer-\/owner} to determine effective uid/gid when run as root on Unix systems.
+\item {\ttfamily shell} Boolean or String. If false, no shell is used during spawn. If true, the system default shell is used. If a String, that specific shell is used. When a shell is used, the given command runs from within that shell by concatenating the command and its escaped arguments and running the result. This option is {\itshape not} passed through to {\ttfamily child\+\_\+process.\+spawn}.
+\item Any other options for {\ttfamily child\+\_\+process.\+spawn} can be passed as well.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1624}{}\doxysubsubsection{\texorpdfstring{{\ttfamily promise\+Spawn.\+open(arg, opts, extra)} -\/\texorpdfstring{$>$}{>} {\ttfamily Promise}}{{\ttfamily promise\+Spawn.\+open(arg, opts, extra)} -\/\texorpdfstring{$>$}{>} {\ttfamily Promise}}}\label{README.md_autotoc_md1624}
+Use the operating system to open {\ttfamily arg} with a default program. This is useful for things like opening the user\textquotesingle{}s default browser to a specific URL.
+
+Depending on the platform in use this will use {\ttfamily start} (win32), {\ttfamily open} (darwin) or {\ttfamily xdg-\/open} (everything else). In the case of Windows Subsystem for Linux we use the default win32 behavior as it is much more predictable to open the arg using the host operating system.\hypertarget{README.md_autotoc_md1625}{}\doxysubsubsubsection{\texorpdfstring{Options}{Options}}\label{README.md_autotoc_md1625}
+Options are identical to {\ttfamily promise\+Spawn} except for the following\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily command} String, the command to use to open the file in question. Default is one of {\ttfamily start}, {\ttfamily open} or {\ttfamily xdg-\/open} depending on platform in use. 
+\end{DoxyItemize}

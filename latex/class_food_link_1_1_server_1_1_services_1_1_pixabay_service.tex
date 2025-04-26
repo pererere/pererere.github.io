@@ -1,0 +1,82 @@
+\doxysection{Food\+Link.\+Server.\+Services.\+Pixabay\+Service Class Reference}
+\hypertarget{class_food_link_1_1_server_1_1_services_1_1_pixabay_service}{}\label{class_food_link_1_1_server_1_1_services_1_1_pixabay_service}\index{FoodLink.Server.Services.PixabayService@{FoodLink.Server.Services.PixabayService}}
+
+
+Service for interacting with the Pixabay API to retrieve images.  
+
+
+Inheritance diagram for Food\+Link.\+Server.\+Services.\+Pixabay\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_food_link_1_1_server_1_1_services_1_1_pixabay_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_food_link_1_1_server_1_1_services_1_1_pixabay_service_ae85119a28f0010776cd28dd6f585ab41}{Pixabay\+Service}} (Http\+Client http\+Client, IOptions$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_services_1_1_pixabay_settings}{Pixabay\+Settings}} $>$ pixabay\+Settings)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_food_link_1_1_server_1_1_services_1_1_pixabay_service}{Pixabay\+Service} class. \end{DoxyCompactList}\item 
+async Task$<$ string?$>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_services_1_1_pixabay_service_ac05b3d22b008f7307f5a22699c90f437}{Get\+Image\+Url\+Async}} (string search\+Query)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves the image URL based on the provided search query. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_food_link_1_1_server_1_1_services_1_1_pixabay_service_a91621d9c70a04825411bf043af9289f5}\label{class_food_link_1_1_server_1_1_services_1_1_pixabay_service_a91621d9c70a04825411bf043af9289f5} 
+readonly Http\+Client {\bfseries \+\_\+http\+Client}
+\item 
+\Hypertarget{class_food_link_1_1_server_1_1_services_1_1_pixabay_service_a6f91e91a096347e2e6f297682161d054}\label{class_food_link_1_1_server_1_1_services_1_1_pixabay_service_a6f91e91a096347e2e6f297682161d054} 
+readonly string {\bfseries \+\_\+api\+Key}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service for interacting with the Pixabay API to retrieve images. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_food_link_1_1_server_1_1_services_1_1_pixabay_service_ae85119a28f0010776cd28dd6f585ab41}\index{FoodLink.Server.Services.PixabayService@{FoodLink.Server.Services.PixabayService}!PixabayService@{PixabayService}}
+\index{PixabayService@{PixabayService}!FoodLink.Server.Services.PixabayService@{FoodLink.Server.Services.PixabayService}}
+\doxysubsubsection{\texorpdfstring{PixabayService()}{PixabayService()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_services_1_1_pixabay_service_ae85119a28f0010776cd28dd6f585ab41} 
+Food\+Link.\+Server.\+Services.\+Pixabay\+Service.\+Pixabay\+Service (\begin{DoxyParamCaption}\item[{Http\+Client}]{http\+Client}{, }\item[{IOptions$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_services_1_1_pixabay_settings}{Pixabay\+Settings}} $>$}]{pixabay\+Settings}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_food_link_1_1_server_1_1_services_1_1_pixabay_service}{Pixabay\+Service} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em http\+Client} & The Http\+Client instance used for making API requests.\\
+\hline
+{\em pixabay\+Settings} & The configuration settings for Pixabay, including the API key.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_food_link_1_1_server_1_1_services_1_1_pixabay_service_ac05b3d22b008f7307f5a22699c90f437}\index{FoodLink.Server.Services.PixabayService@{FoodLink.Server.Services.PixabayService}!GetImageUrlAsync@{GetImageUrlAsync}}
+\index{GetImageUrlAsync@{GetImageUrlAsync}!FoodLink.Server.Services.PixabayService@{FoodLink.Server.Services.PixabayService}}
+\doxysubsubsection{\texorpdfstring{GetImageUrlAsync()}{GetImageUrlAsync()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_services_1_1_pixabay_service_ac05b3d22b008f7307f5a22699c90f437} 
+async Task$<$ string?$>$ Food\+Link.\+Server.\+Services.\+Pixabay\+Service.\+Get\+Image\+Url\+Async (\begin{DoxyParamCaption}\item[{string}]{search\+Query}{}\end{DoxyParamCaption})}
+
+
+
+Asynchronously retrieves the image URL based on the provided search query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em search\+Query} & The query used to search for images on Pixabay.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation, containing the image URL as a string, or null if no image is found.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_food_link_1_1_server_1_1_services_1_1_i_pixabay_service_aed7a967c61b907de6c8e52b4a73fc456}{Food\+Link.\+Server.\+Services.\+IPixabay\+Service}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/\+Food\+Link.\+Server/\+Services/Pixabay\+Service.\+cs\end{DoxyCompactItemize}

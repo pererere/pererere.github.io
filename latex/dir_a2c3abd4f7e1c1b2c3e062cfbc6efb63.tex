@@ -1,0 +1,47 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/jest-\/serializer Directory Reference}
+\hypertarget{dir_a2c3abd4f7e1c1b2c3e062cfbc6efb63}{}\label{dir_a2c3abd4f7e1c1b2c3e062cfbc6efb63}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/jest-\/serializer Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/jest-\/serializer Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Module for serializing and deserializing object into memory and disk. By default, the {\ttfamily v8} implementations are used, but if not present, it defaults to {\ttfamily JSON} implementation. Both serializers have the advantage of being able to serialize {\ttfamily Map}, {\ttfamily Set}, {\ttfamily undefined}, {\ttfamily NaN}, etc, although the JSON one does it through a replacer/reviver.\hypertarget{README.md_autotoc_md10489}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md10489}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ yarn\ add\ jest-\/serializer}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md10490}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md10490}
+Three kinds of API groups are exposed\+:\hypertarget{README.md_autotoc_md10491}{}\doxysubsubsection{\texorpdfstring{In-\/memory serialization\+: {\ttfamily serialize} and {\ttfamily deserialize}}{In-\/memory serialization\+: {\ttfamily serialize} and {\ttfamily deserialize}}}\label{README.md_autotoc_md10491}
+This set of functions take or return a {\ttfamily Buffer}. All the process happens in memory. This is useful when willing to transfer over HTTP, TCP or via UNIX pipes.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{deserialize,\ serialize\}\ from\ 'jest-\/serializer';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ myObject\ =\ \{}
+\DoxyCodeLine{\ \ foo:\ 'bar',}
+\DoxyCodeLine{\ \ baz:\ [0,\ true,\ '2',\ [],\ \{\}],}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ buffer\ =\ serialize(myObject);}
+\DoxyCodeLine{const\ myCopyObject\ =\ deserialize(buffer);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md10492}{}\doxysubsubsection{\texorpdfstring{Synchronous persistent filesystem\+: {\ttfamily read\+File\+Sync} and {\ttfamily write\+File\+Sync}}{Synchronous persistent filesystem\+: {\ttfamily read\+File\+Sync} and {\ttfamily write\+File\+Sync}}}\label{README.md_autotoc_md10492}
+This set of functions allow to send to disk a serialization result and retrieve it back, in a synchronous way. It mimics the {\ttfamily fs} API so it looks familiar.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{readFileSync,\ writeFileSync\}\ from\ 'jest-\/serializer';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ myObject\ =\ \{}
+\DoxyCodeLine{\ \ foo:\ 'bar',}
+\DoxyCodeLine{\ \ baz:\ [0,\ true,\ '2',\ [],\ \{\}],}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ myFile\ =\ '/tmp/obj';}
+\DoxyCodeLine{}
+\DoxyCodeLine{writeFileSync(myFile,\ myObject);}
+\DoxyCodeLine{const\ myCopyObject\ =\ readFileSync(myFile);}
+
+\end{DoxyCode}
+ 

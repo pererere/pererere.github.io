@@ -1,0 +1,268 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/critters Directory Reference}
+\hypertarget{dir_93431bbb2a78024a569f2dbc9a95aa41}{}\label{dir_93431bbb2a78024a569f2dbc9a95aa41}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/critters Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/critters Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+
+
+ \doxysubsection*{Critters}
+
+\begin{quote}
+Critters is a plugin that inlines your app\textquotesingle{}s \href{https://www.smashingmagazine.com/2015/08/understanding-critical-css/}{\texttt{ critical CSS}} and lazy-\/loads the rest. \end{quote}
+\hypertarget{README.md_autotoc_md5273}{}\doxysubsubsection{\texorpdfstring{critters \href{https://www.npmjs.org/package/critters}{\texttt{ }}}{critters \href{https://www.npmjs.org/package/critters}{\texttt{ }}}}\label{README.md_autotoc_md5273}
+It\textquotesingle{}s a little different from other options, because it {\bfseries{doesn\textquotesingle{}t use a headless browser}} to render content. This tradeoff allows Critters to be very {\bfseries{fast and lightweight}}. It also means Critters inlines all CSS rules used by your document, rather than only those needed for above-\/the-\/fold content. For alternatives, see Similar Libraries.
+
+Critters\textquotesingle{} design makes it a good fit when inlining critical CSS for prerendered/\+SSR\textquotesingle{}d Single Page Applications. It was developed to be an excellent compliment to \href{https://github.com/GoogleChromeLabs/prerender-loader}{\texttt{ prerender-\/loader}}, combining to dramatically improve first paint time for most Single Page Applications.\hypertarget{README.md_autotoc_md5274}{}\doxysubsubsection{\texorpdfstring{Features}{Features}}\label{README.md_autotoc_md5274}
+
+\begin{DoxyItemize}
+\item Fast -\/ no browser, few dependencies
+\item Integrates with Webpack \href{https://github.com/GoogleChromeLabs/critters/tree/main/packages/critters-webpack-plugin}{\texttt{ critters-\/webpack-\/plugin}}
+\item Supports preloading and/or inlining critical fonts
+\item Prunes unused CSS keyframes and media queries
+\item Removes inlined CSS rules from lazy-\/loaded stylesheets
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md5275}{}\doxysubsubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md5275}
+First, install Critters as a development dependency\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ i\ -\/D\ critters}
+
+\end{DoxyCode}
+
+
+or
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn\ add\ -\/D\ critters}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5276}{}\doxysubsubsection{\texorpdfstring{Simple Example}{Simple Example}}\label{README.md_autotoc_md5276}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ Critters\ from\ 'critters';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ critters\ =\ new\ Critters(\{}
+\DoxyCodeLine{\ \ //\ optional\ configuration\ (see\ below)}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ html\ =\ \`{}}
+\DoxyCodeLine{\ \ <style>}
+\DoxyCodeLine{\ \ \ \ .red\ \{\ color:\ red\ \}}
+\DoxyCodeLine{\ \ \ \ .blue\ \{\ color:\ blue\ \}}
+\DoxyCodeLine{\ \ </style>}
+\DoxyCodeLine{\ \ <div\ class="{}blue"{}>I'm\ Blue</div>}
+\DoxyCodeLine{\`{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ inlined\ =\ await\ critters.process(html);}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(inlined);}
+\DoxyCodeLine{//\ "{}<style>.blue\{color:blue\}</style><div\ class=\(\backslash\)"{}blue\(\backslash\)"{}>I'm\ Blue</div>"{}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5277}{}\doxysubsubsection{\texorpdfstring{Usage with webpack}{Usage with webpack}}\label{README.md_autotoc_md5277}
+Critters is also available as a Webpack plugin called \href{https://www.npmjs.org/package/critters-webpack-plugin}{\texttt{ critters-\/webpack-\/plugin}}. \href{https://www.npmjs.org/package/critters-webpack-plugin}{\texttt{ }}
+
+The Webpack plugin supports the same configuration options as the main {\ttfamily critters} package\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ webpack.config.js}
+\DoxyCodeLine{+const\ Critters\ =\ require('critters-\/webpack-\/plugin');}
+\DoxyCodeLine{}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ plugins:\ [}
+\DoxyCodeLine{+\ \ \ \ new\ Critters(\{}
+\DoxyCodeLine{+\ \ \ \ \ \ //\ optional\ configuration}
+\DoxyCodeLine{+\ \ \ \ \ \ preload:\ 'swap',}
+\DoxyCodeLine{+\ \ \ \ \ \ includeSelectors:\ [/\string^\(\backslash\).btn/,\ '.banner'],}
+\DoxyCodeLine{+\ \ \ \ \})}
+\DoxyCodeLine{\ \ ]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+That\textquotesingle{}s it! The resultant html will have its critical CSS inlined and the stylesheets lazy-\/loaded.\hypertarget{README.md_autotoc_md5278}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md5278}
+\hypertarget{README.md_autotoc_md5279}{}\doxysubsubsubsection{\texorpdfstring{Critters}{Critters}}\label{README.md_autotoc_md5279}
+All optional. Pass them to {\ttfamily new Critters(\{ ... \})}.\hypertarget{README.md_autotoc_md5280}{}\doxysubsubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{README.md_autotoc_md5280}
+
+\begin{DoxyItemize}
+\item {\ttfamily options}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md5281}{}\doxysubsubsubsubsection{\texorpdfstring{Properties}{Properties}}\label{README.md_autotoc_md5281}
+
+\begin{DoxyItemize}
+\item {\ttfamily path} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}}}} Base path location of the CSS files {\itshape (default\+: `'\textquotesingle{}\`{})}
+\item {\ttfamily public\+Path} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}}}} Public path of the CSS resources. This prefix is removed from the href {\itshape (default\+: `'\textquotesingle{}\`{})}
+\item {\ttfamily external} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean}{\texttt{ Boolean}}}} Inline styles from external stylesheets {\itshape (default\+: {\ttfamily true})}
+\item {\ttfamily inline\+Threshold} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number}{\texttt{ Number}}}} Inline external stylesheets smaller than a given size {\itshape (default\+: {\ttfamily 0})}
+\item {\ttfamily minimum\+External\+Size} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number}{\texttt{ Number}}}} If the non-\/critical external stylesheet would be below this size, just inline it {\itshape (default\+: {\ttfamily 0})}
+\item {\ttfamily prune\+Source} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean}{\texttt{ Boolean}}}} Remove inlined rules from the external stylesheet {\itshape (default\+: {\ttfamily false})}
+\item {\ttfamily merge\+Stylesheets} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean}{\texttt{ Boolean}}}} Merged inlined stylesheets into a single {\ttfamily \texorpdfstring{$<$}{<}style\texorpdfstring{$>$}{>}} tag {\itshape (default\+: {\ttfamily true})}
+\item {\ttfamily additional\+Stylesheets} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array}{\texttt{ Array}}\texorpdfstring{$<$}{<}\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}}\texorpdfstring{$>$}{>}}} Glob for matching other stylesheets to be used while looking for critical CSS.
+\item {\ttfamily reduce\+Inline\+Styles} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean}{\texttt{ Boolean}}}} Option indicates if inline styles should be evaluated for critical CSS. By default inline style tags will be evaluated and rewritten to only contain critical CSS. Set it to {\ttfamily false} to skip processing inline styles. {\itshape (default\+: {\ttfamily true})}
+\item {\ttfamily preload} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}}}} Which preload strategy to use
+\item {\ttfamily noscript\+Fallback} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean}{\texttt{ Boolean}}}} Add {\ttfamily \texorpdfstring{$<$}{<}noscript\texorpdfstring{$>$}{>}} fallback to JS-\/based strategies
+\item {\ttfamily inline\+Fonts} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean}{\texttt{ Boolean}}}} Inline critical font-\/face rules {\itshape (default\+: {\ttfamily false})}
+\item {\ttfamily preload\+Fonts} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean}{\texttt{ Boolean}}}} Preloads critical fonts {\itshape (default\+: {\ttfamily true})}
+\item {\ttfamily fonts} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean}{\texttt{ Boolean}}}} Shorthand for setting {\ttfamily inline\+Fonts} + {\ttfamily preload\+Fonts}\texorpdfstring{$\ast$}{*} Values\+:
+\begin{DoxyItemize}
+\item {\ttfamily true} to inline critical font-\/face rules and preload the fonts
+\item {\ttfamily false} to don\textquotesingle{}t inline any font-\/face rules and don\textquotesingle{}t preload fonts
+\end{DoxyItemize}
+\item {\ttfamily keyframes} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}}}} Controls which keyframes rules are inlined.\texorpdfstring{$\ast$}{*} Values\+:
+\begin{DoxyItemize}
+\item {\ttfamily "{}critical"{}}\+: {\itshape (default)} inline keyframes rules used by the critical CSS
+\item {\ttfamily "{}all"{}} inline all keyframes rules
+\item {\ttfamily "{}none"{}} remove all keyframes rules
+\end{DoxyItemize}
+\item {\ttfamily compress} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean}{\texttt{ Boolean}}}} Compress resulting critical CSS {\itshape (default\+: {\ttfamily true})}
+\item {\ttfamily log\+Level} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}}}} Controls log level of the plugin {\itshape (default\+: {\ttfamily "{}info"{}})}
+\item {\ttfamily logger} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object}{\texttt{ object}}}} Provide a custom logger interface logger
+\item {\ttfamily include\+Selectors} {\bfseries{\href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp}{\texttt{ Reg\+Exp}}}} \texorpdfstring{$\vert$}{|} {\bfseries{\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}}}} Provide a list of selectors that should be included in the critical CSS. Accepts both Reg\+Exp and string.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md5282}{}\doxysubsubsubsection{\texorpdfstring{Include/exclude rules}{Include/exclude rules}}\label{README.md_autotoc_md5282}
+We can include or exclude rules to be part of critical CSS by adding comments in the CSS
+
+Single line comments to include/exclude the next CSS rule
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/*\ critters:exclude\ */}
+\DoxyCodeLine{.selector1\ \{}
+\DoxyCodeLine{\ \ /*\ this\ rule\ will\ be\ excluded\ from\ critical\ CSS\ */}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.selector2\ \{}
+\DoxyCodeLine{\ \ /*\ this\ will\ be\ evaluated\ normally\ */}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{/*\ critters:include\ */}
+\DoxyCodeLine{.selector3\ \{}
+\DoxyCodeLine{\ \ /*\ this\ rule\ will\ be\ included\ in\ the\ critical\ CSS\ */}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.selector4\ \{}
+\DoxyCodeLine{\ \ /*\ this\ will\ be\ evaluated\ normally\ */}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Including/\+Excluding multiple rules by adding start and end markers
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/*\ critters:exclude\ start\ */}
+\DoxyCodeLine{}
+\DoxyCodeLine{.selector1\ \{}
+\DoxyCodeLine{\ \ /*\ this\ rule\ will\ be\ excluded\ from\ critical\ CSS\ */}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.selector2\ \{}
+\DoxyCodeLine{\ \ /*\ this\ rule\ will\ be\ excluded\ from\ critical\ CSS\ */}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{/*\ critters:exclude\ end\ */}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/*\ critters:include\ start\ */}
+\DoxyCodeLine{}
+\DoxyCodeLine{.selector3\ \{}
+\DoxyCodeLine{\ \ /*\ this\ rule\ will\ be\ included\ in\ the\ critical\ CSS\ */}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.selector4\ \{}
+\DoxyCodeLine{\ \ /*\ this\ rule\ will\ be\ included\ in\ the\ critical\ CSS\ */}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{/*\ critters:include\ end\ */}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5283}{}\doxysubsubsubsection{\texorpdfstring{Critters container}{Critters container}}\label{README.md_autotoc_md5283}
+By default Critters evaluates the CSS against the entire input HTML. Critters evaluates the Critical CSS by reconstructing the entire DOM and evaluating the CSS selectors to find matching nodes. Usually this works well as Critters is lightweight and fast.
+
+For some cases, the input HTML can be very large or deeply nested which makes the reconstructed DOM much larger, which in turn can slow down the critical CSS generation. Critters is not aware of viewport size and what specific nodes are above the fold since there is not a headless browser involved.
+
+To overcome this issue Critters makes use of {\bfseries{Critters containers}}.
+
+A Critters container mimics the viewport and can be enabled by adding {\ttfamily data-\/critters-\/container} into the top level container thats contains the HTML elements above the fold.
+
+You can estimate the contents of your viewport roughly and add a \texorpdfstring{$<$}{<}div \`{}data-\/critters-\/container\`{} \texorpdfstring{$>$}{>} around the contents.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<html>}
+\DoxyCodeLine{\ \ <body>}
+\DoxyCodeLine{\ \ \ \ <div\ class="{}container"{}>}
+\DoxyCodeLine{\ \ \ \ \ \ <div\ data-\/critters-\/container>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ /*\ HTML\ inside\ this\ container\ are\ used\ to\ evaluate\ critical\ CSS\ */}
+\DoxyCodeLine{\ \ \ \ \ \ </div>}
+\DoxyCodeLine{\ \ \ \ \ \ /*\ HTML\ is\ ignored\ when\ evaluating\ critical\ CSS\ */}
+\DoxyCodeLine{\ \ \ \ </div>}
+\DoxyCodeLine{\ \ \ \ <footer></footer>}
+\DoxyCodeLine{\ \ </body>}
+\DoxyCodeLine{</html>}
+
+\end{DoxyCode}
+
+
+{\itshape Note\+: This is an easy way to improve the performance of Critters}\hypertarget{README.md_autotoc_md5284}{}\doxysubsubsubsection{\texorpdfstring{Logger}{Logger}}\label{README.md_autotoc_md5284}
+Custom logger interface\+:
+
+Type\+: \href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object}{\texttt{ object}}\hypertarget{README.md_autotoc_md5285}{}\doxysubsubsubsubsection{\texorpdfstring{Properties}{Properties}}\label{README.md_autotoc_md5285}
+
+\begin{DoxyItemize}
+\item {\ttfamily trace} {\bfseries{function (\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}})}} Prints a trace message
+\item {\ttfamily debug} {\bfseries{function (\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}})}} Prints a debug message
+\item {\ttfamily info} {\bfseries{function (\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}})}} Prints an information message
+\item {\ttfamily warn} {\bfseries{function (\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}})}} Prints a warning message
+\item {\ttfamily error} {\bfseries{function (\href{https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String}{\texttt{ String}})}} Prints an error message
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md5286}{}\doxysubsubsubsection{\texorpdfstring{Log\+Level}{Log\+Level}}\label{README.md_autotoc_md5286}
+Controls log level of the plugin. Specifies the level the logger should use. A logger will not produce output for any log level beneath the specified level. Available levels and order are\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{"{}info"{}}} {\itshape (default)}
+\item {\bfseries{"{}warn"{}}}
+\item {\bfseries{"{}error"{}}}
+\item {\bfseries{"{}trace"{}}}
+\item {\bfseries{"{}debug"{}}}
+\item {\bfseries{"{}silent"{}}}
+\end{DoxyItemize}
+
+Type\+: ({\ttfamily "{}info"{}} \texorpdfstring{$\vert$}{|} {\ttfamily "{}warn"{}} \texorpdfstring{$\vert$}{|} {\ttfamily "{}error"{}} \texorpdfstring{$\vert$}{|} {\ttfamily "{}trace"{}} \texorpdfstring{$\vert$}{|} {\ttfamily "{}debug"{}} \texorpdfstring{$\vert$}{|} {\ttfamily "{}silent"{}})\hypertarget{README.md_autotoc_md5287}{}\doxysubsubsubsection{\texorpdfstring{Preload\+Strategy}{Preload\+Strategy}}\label{README.md_autotoc_md5287}
+The mechanism to use for lazy-\/loading stylesheets.
+
+Note\+: {\ttfamily JS} indicates a strategy requiring Java\+Script (falls back to {\ttfamily \texorpdfstring{$<$}{<}noscript\texorpdfstring{$>$}{>}} unless disabled).
+
+
+\begin{DoxyItemize}
+\item {\bfseries{default\+:}} Move stylesheet links to the end of the document and insert preload meta tags in their place.
+\item {\bfseries{"{}body"{}\+:}} Move all external stylesheet links to the end of the document.
+\item {\bfseries{"{}media"{}\+:}} Load stylesheets asynchronously by adding {\ttfamily media="{}not x"{}} and removing once loaded. {\ttfamily JS}
+\item {\bfseries{"{}swap"{}\+:}} Convert stylesheet links to preloads that swap to {\ttfamily rel="{}stylesheet"{}} once loaded (\href{https://www.filamentgroup.com/lab/load-css-simpler/\#the-code}{\texttt{ details}}). {\ttfamily JS}
+\item {\bfseries{"{}swap-\/high"{}\+:}} Use {\ttfamily \texorpdfstring{$<$}{<}link rel="{}alternate stylesheet preload"{}\texorpdfstring{$>$}{>}} and swap to {\ttfamily rel="{}stylesheet"{}} once loaded (\href{http://filamentgroup.github.io/loadCSS/test/new-high.html}{\texttt{ details}}). {\ttfamily JS}
+\item {\bfseries{"{}js"{}\+:}} Inject an asynchronous CSS loader similar to \href{https://github.com/filamentgroup/loadCSS}{\texttt{ Load\+CSS}} and use it to load stylesheets. {\ttfamily JS}
+\item {\bfseries{"{}js-\/lazy"{}\+:}} Like {\ttfamily "{}js"{}}, but the stylesheet is disabled until fully loaded.
+\item {\bfseries{false\+:}} Disables adding preload tags.
+\end{DoxyItemize}
+
+Type\+: (default \texorpdfstring{$\vert$}{|} {\ttfamily "{}body"{}} \texorpdfstring{$\vert$}{|} {\ttfamily "{}media"{}} \texorpdfstring{$\vert$}{|} {\ttfamily "{}swap"{}} \texorpdfstring{$\vert$}{|} {\ttfamily "{}swap-\/high"{}} \texorpdfstring{$\vert$}{|} {\ttfamily "{}js"{}} \texorpdfstring{$\vert$}{|} {\ttfamily "{}js-\/lazy"{}})\hypertarget{README.md_autotoc_md5288}{}\doxysubsubsection{\texorpdfstring{Similar Libraries}{Similar Libraries}}\label{README.md_autotoc_md5288}
+There are a number of other libraries that can inline Critical CSS, each with a slightly different approach. Here are a few great options\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/addyosmani/critical}{\texttt{ Critical}}
+\item \href{https://github.com/pocketjoso/penthouse}{\texttt{ Penthouse}}
+\item \href{https://github.com/lukeed/webpack-critical}{\texttt{ webpack-\/critical}}
+\item \href{https://github.com/nrwl/webpack-plugin-critical}{\texttt{ webpack-\/plugin-\/critical}}
+\item \href{https://github.com/anthonygore/html-critical-webpack-plugin}{\texttt{ html-\/critical-\/webpack-\/plugin}}
+\item \href{https://github.com/stereobooster/react-snap}{\texttt{ react-\/snap}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md5289}{}\doxysubsubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md5289}
+\mbox{[}Apache 2.\+0\mbox{]}(LICENSE)
+
+This is not an official Google product. 

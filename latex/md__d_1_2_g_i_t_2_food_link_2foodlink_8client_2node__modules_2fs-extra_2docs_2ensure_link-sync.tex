@@ -1,0 +1,24 @@
+\chapter{ensure\+Link\+Sync(srcpath, dstpath)}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_link-sync}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_link-sync}\index{ensureLinkSync(srcpath, dstpath)@{ensureLinkSync(srcpath, dstpath)}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_link-sync_autotoc_md8264}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_link-sync_autotoc_md8264}%
+
+
+Ensures that the link exists. If the directory structure does not exist, it is created.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily srcpath} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily dstpath} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_link-sync_autotoc_md8265}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_link-sync_autotoc_md8265}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ srcpath\ =\ '/tmp/file.txt'}
+\DoxyCodeLine{const\ dstpath\ =\ '/tmp/this/path/does/not/exist/file.txt'}
+\DoxyCodeLine{fs.ensureLinkSync(srcpath,\ dstpath)}
+\DoxyCodeLine{//\ link\ has\ now\ been\ created,\ including\ the\ directory\ it\ is\ to\ be\ placed\ in}
+
+\end{DoxyCode}
+ 

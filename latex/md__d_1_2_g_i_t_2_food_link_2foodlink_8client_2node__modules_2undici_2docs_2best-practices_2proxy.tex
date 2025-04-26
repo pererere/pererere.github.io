@@ -1,0 +1,130 @@
+\chapter{Connecting through a proxy}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2proxy}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2proxy}\index{Connecting through a proxy@{Connecting through a proxy}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2proxy_autotoc_md21496}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2proxy_autotoc_md21496}%
+
+
+Connecting through a proxy is possible by\+:
+
+
+\begin{DoxyItemize}
+\item Using \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent}{Agent\+Proxy}{0}.
+\item Configuring {\ttfamily Client} or {\ttfamily Pool} constructor.
+\end{DoxyItemize}
+
+The proxy url should be passed to the {\ttfamily Client} or {\ttfamily Pool} constructor, while the upstream server url should be added to every request call in the {\ttfamily path}. For instance, if you need to send a request to the {\ttfamily /hello} route of your upstream server, the {\ttfamily path} should be `path\+: \textquotesingle{}\href{http://upstream.server:port/hello?foo=bar&rsquo;}{\texttt{ http\+://upstream.\+server\+:port/hello?foo=bar'}}\`{}.
+
+If you proxy requires basic authentication, you can send it via the {\ttfamily proxy-\/authorization} header.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2proxy_autotoc_md21497}{}\doxysubsection{\texorpdfstring{Connect without authentication}{Connect without authentication}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2proxy_autotoc_md21497}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ proxy\ from\ 'proxy'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ await\ buildServer()}
+\DoxyCodeLine{const\ proxyServer\ =\ await\ buildProxy()}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ serverUrl\ =\ \`{}http://localhost:\$\{server.address().port\}`}
+\DoxyCodeLine{const\ proxyUrl\ =\ \`{}http://localhost:\$\{proxyServer.address().port\}`}
+\DoxyCodeLine{}
+\DoxyCodeLine{server.on('request',\ (req,\ res)\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(req.url)\ //\ '/hello?foo=bar'}
+\DoxyCodeLine{\ \ res.setHeader('content-\/type',\ 'application/json')}
+\DoxyCodeLine{\ \ res.end(JSON.stringify(\{\ hello:\ 'world'\ \}))}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(proxyUrl)}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ response\ =\ await\ client.request(\{}
+\DoxyCodeLine{\ \ method:\ 'GET',}
+\DoxyCodeLine{\ \ path:\ serverUrl\ +\ '/hello?foo=bar'}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{response.body.setEncoding('utf8')}
+\DoxyCodeLine{let\ data\ =\ ''}
+\DoxyCodeLine{for\ await\ (const\ chunk\ of\ response.body)\ \{}
+\DoxyCodeLine{\ \ data\ +=\ chunk}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{console.log(response.statusCode)\ //\ 200}
+\DoxyCodeLine{console.log(JSON.parse(data))\ //\ \{\ hello:\ 'world'\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{server.close()}
+\DoxyCodeLine{proxyServer.close()}
+\DoxyCodeLine{client.close()}
+\DoxyCodeLine{}
+\DoxyCodeLine{function\ buildServer\ ()\ \{}
+\DoxyCodeLine{\ \ return\ new\ Promise((resolve,\ reject)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ const\ server\ =\ createServer()}
+\DoxyCodeLine{\ \ \ \ server.listen(0,\ ()\ =>\ resolve(server))}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{function\ buildProxy\ ()\ \{}
+\DoxyCodeLine{\ \ return\ new\ Promise((resolve,\ reject)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ const\ server\ =\ proxy(createServer())}
+\DoxyCodeLine{\ \ \ \ server.listen(0,\ ()\ =>\ resolve(server))}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2proxy_autotoc_md21498}{}\doxysubsection{\texorpdfstring{Connect with authentication}{Connect with authentication}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2proxy_autotoc_md21498}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ proxy\ from\ 'proxy'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ await\ buildServer()}
+\DoxyCodeLine{const\ proxyServer\ =\ await\ buildProxy()}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ serverUrl\ =\ \`{}http://localhost:\$\{server.address().port\}`}
+\DoxyCodeLine{const\ proxyUrl\ =\ \`{}http://localhost:\$\{proxyServer.address().port\}`}
+\DoxyCodeLine{}
+\DoxyCodeLine{proxyServer.authenticate\ =\ function\ (req,\ fn)\ \{}
+\DoxyCodeLine{\ \ fn(null,\ req.headers['proxy-\/authorization']\ ===\ \`{}Basic\ \$\{Buffer.from('user:pass').toString('base64')\}`)}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{server.on('request',\ (req,\ res)\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(req.url)\ //\ '/hello?foo=bar'}
+\DoxyCodeLine{\ \ res.setHeader('content-\/type',\ 'application/json')}
+\DoxyCodeLine{\ \ res.end(JSON.stringify(\{\ hello:\ 'world'\ \}))}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(proxyUrl)}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ response\ =\ await\ client.request(\{}
+\DoxyCodeLine{\ \ method:\ 'GET',}
+\DoxyCodeLine{\ \ path:\ serverUrl\ +\ '/hello?foo=bar',}
+\DoxyCodeLine{\ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ 'proxy-\/authorization':\ \`{}Basic\ \$\{Buffer.from('user:pass').toString('base64')\}`}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{response.body.setEncoding('utf8')}
+\DoxyCodeLine{let\ data\ =\ ''}
+\DoxyCodeLine{for\ await\ (const\ chunk\ of\ response.body)\ \{}
+\DoxyCodeLine{\ \ data\ +=\ chunk}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{console.log(response.statusCode)\ //\ 200}
+\DoxyCodeLine{console.log(JSON.parse(data))\ //\ \{\ hello:\ 'world'\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{server.close()}
+\DoxyCodeLine{proxyServer.close()}
+\DoxyCodeLine{client.close()}
+\DoxyCodeLine{}
+\DoxyCodeLine{function\ buildServer\ ()\ \{}
+\DoxyCodeLine{\ \ return\ new\ Promise((resolve,\ reject)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ const\ server\ =\ createServer()}
+\DoxyCodeLine{\ \ \ \ server.listen(0,\ ()\ =>\ resolve(server))}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{function\ buildProxy\ ()\ \{}
+\DoxyCodeLine{\ \ return\ new\ Promise((resolve,\ reject)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ const\ server\ =\ proxy(createServer())}
+\DoxyCodeLine{\ \ \ \ server.listen(0,\ ()\ =>\ resolve(server))}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

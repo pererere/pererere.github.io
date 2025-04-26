@@ -1,0 +1,186 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/jsonfile Directory Reference}
+\hypertarget{dir_048a70f9aa025e26c5ca7ee99daf8bf9}{}\label{dir_048a70f9aa025e26c5ca7ee99daf8bf9}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/jsonfile Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/jsonfile Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Easily read/write JSON files.
+
+\href{https://www.npmjs.org/package/jsonfile}{\texttt{ }} \href{http://travis-ci.org/jprichardson/node-jsonfile}{\texttt{ }} \href{https://ci.appveyor.com/project/jprichardson/node-jsonfile/branch/master}{\texttt{ }}
+
+\href{https://github.com/feross/standard}{\texttt{ }}\hypertarget{README.md_autotoc_md11148}{}\doxysubsection{\texorpdfstring{Why?}{Why?}}\label{README.md_autotoc_md11148}
+Writing {\ttfamily JSON.\+stringify()} and then {\ttfamily fs.\+write\+File()} and {\ttfamily JSON.\+parse()} with {\ttfamily fs.\+read\+File()} enclosed in {\ttfamily try/catch} blocks became annoying.\hypertarget{README.md_autotoc_md11149}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md11149}
+\begin{DoxyVerb}npm install --save jsonfile
+\end{DoxyVerb}
+\hypertarget{README.md_autotoc_md11150}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md11150}
+\hypertarget{README.md_autotoc_md11151}{}\doxysubsubsection{\texorpdfstring{read\+File(filename, \mbox{[}options\mbox{]}, callback)}{read\+File(filename, \mbox{[}options\mbox{]}, callback)}}\label{README.md_autotoc_md11151}
+{\ttfamily options} ({\ttfamily object}, default {\ttfamily undefined})\+: Pass in any {\ttfamily fs.\+read\+File} options or set {\ttfamily reviver} for a \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse}{\texttt{ JSON reviver}}.
+\begin{DoxyItemize}
+\item {\ttfamily throws} ({\ttfamily boolean}, default\+: {\ttfamily true}). If {\ttfamily JSON.\+parse} throws an error, pass this error to the callback. If {\ttfamily false}, returns {\ttfamily null} for the object.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ jsonfile\ =\ require('jsonfile')}
+\DoxyCodeLine{var\ file\ =\ '/tmp/data.json'}
+\DoxyCodeLine{jsonfile.readFile(file,\ function(err,\ obj)\ \{}
+\DoxyCodeLine{\ \ console.dir(obj)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11152}{}\doxysubsubsection{\texorpdfstring{read\+File\+Sync(filename, \mbox{[}options\mbox{]})}{read\+File\+Sync(filename, \mbox{[}options\mbox{]})}}\label{README.md_autotoc_md11152}
+{\ttfamily options} ({\ttfamily object}, default {\ttfamily undefined})\+: Pass in any {\ttfamily fs.\+read\+File\+Sync} options or set {\ttfamily reviver} for a \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse}{\texttt{ JSON reviver}}.
+\begin{DoxyItemize}
+\item {\ttfamily throws} ({\ttfamily boolean}, default\+: {\ttfamily true}). If an error is encountered reading or parsing the file, throw the error. If {\ttfamily false}, returns {\ttfamily null} for the object.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ jsonfile\ =\ require('jsonfile')}
+\DoxyCodeLine{var\ file\ =\ '/tmp/data.json'}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.dir(jsonfile.readFileSync(file))}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11153}{}\doxysubsubsection{\texorpdfstring{write\+File(filename, obj, \mbox{[}options\mbox{]}, callback)}{write\+File(filename, obj, \mbox{[}options\mbox{]}, callback)}}\label{README.md_autotoc_md11153}
+{\ttfamily options}\+: Pass in any {\ttfamily fs.\+write\+File} options or set {\ttfamily replacer} for a \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify}{\texttt{ JSON replacer}}. Can also pass in {\ttfamily spaces}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ jsonfile\ =\ require('jsonfile')}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ file\ =\ '/tmp/data.json'}
+\DoxyCodeLine{var\ obj\ =\ \{name:\ 'JP'\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{jsonfile.writeFile(file,\ obj,\ function\ (err)\ \{}
+\DoxyCodeLine{\ \ console.error(err)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+{\bfseries{formatting with spaces\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ jsonfile\ =\ require('jsonfile')}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ file\ =\ '/tmp/data.json'}
+\DoxyCodeLine{var\ obj\ =\ \{name:\ 'JP'\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{jsonfile.writeFile(file,\ obj,\ \{spaces:\ 2\},\ function(err)\ \{}
+\DoxyCodeLine{\ \ console.error(err)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+{\bfseries{appending to an existing JSON file\+:}}
+
+You can use {\ttfamily fs.\+write\+File} option `\{flag\+: \textquotesingle{}a'\}\`{} to achieve this.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ jsonfile\ =\ require('jsonfile')}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ file\ =\ '/tmp/mayAlreadyExistedData.json'}
+\DoxyCodeLine{var\ obj\ =\ \{name:\ 'JP'\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{jsonfile.writeFile(file,\ obj,\ \{flag:\ 'a'\},\ function\ (err)\ \{}
+\DoxyCodeLine{\ \ console.error(err)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11154}{}\doxysubsubsection{\texorpdfstring{write\+File\+Sync(filename, obj, \mbox{[}options\mbox{]})}{write\+File\+Sync(filename, obj, \mbox{[}options\mbox{]})}}\label{README.md_autotoc_md11154}
+{\ttfamily options}\+: Pass in any {\ttfamily fs.\+write\+File\+Sync} options or set {\ttfamily replacer} for a \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify}{\texttt{ JSON replacer}}. Can also pass in {\ttfamily spaces}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ jsonfile\ =\ require('jsonfile')}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ file\ =\ '/tmp/data.json'}
+\DoxyCodeLine{var\ obj\ =\ \{name:\ 'JP'\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{jsonfile.writeFileSync(file,\ obj)}
+
+\end{DoxyCode}
+
+
+{\bfseries{formatting with spaces\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ jsonfile\ =\ require('jsonfile')}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ file\ =\ '/tmp/data.json'}
+\DoxyCodeLine{var\ obj\ =\ \{name:\ 'JP'\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{jsonfile.writeFileSync(file,\ obj,\ \{spaces:\ 2\})}
+
+\end{DoxyCode}
+
+
+{\bfseries{appending to an existing JSON file\+:}}
+
+You can use {\ttfamily fs.\+write\+File\+Sync} option `\{flag\+: \textquotesingle{}a'\}\`{} to achieve this.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ jsonfile\ =\ require('jsonfile')}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ file\ =\ '/tmp/mayAlreadyExistedData.json'}
+\DoxyCodeLine{var\ obj\ =\ \{name:\ 'JP'\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{jsonfile.writeFileSync(file,\ obj,\ \{flag:\ 'a'\})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11155}{}\doxysubsubsection{\texorpdfstring{spaces}{spaces}}\label{README.md_autotoc_md11155}
+Global configuration to set spaces to indent JSON files.
+
+{\bfseries{default\+:}} {\ttfamily null}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ jsonfile\ =\ require('jsonfile')}
+\DoxyCodeLine{}
+\DoxyCodeLine{jsonfile.spaces\ =\ 4}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ file\ =\ '/tmp/data.json'}
+\DoxyCodeLine{var\ obj\ =\ \{name:\ 'JP'\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ json\ file\ has\ four\ space\ indenting\ now}
+\DoxyCodeLine{jsonfile.writeFile(file,\ obj,\ function\ (err)\ \{}
+\DoxyCodeLine{\ \ console.error(err)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+Note, it\textquotesingle{}s bound to {\ttfamily this.\+spaces}. So, if you do this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ myObj\ =\ \{\}}
+\DoxyCodeLine{myObj.writeJsonSync\ =\ jsonfile.writeFileSync}
+\DoxyCodeLine{//\ =>\ this.spaces\ =\ null}
+
+\end{DoxyCode}
+
+
+Could do the following\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ jsonfile\ =\ require('jsonfile')}
+\DoxyCodeLine{jsonfile.spaces\ =\ 4}
+\DoxyCodeLine{jsonfile.writeFileSync(file,\ obj)\ //\ will\ have\ 4\ spaces\ indentation}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ myCrazyObj\ =\ \{spaces:\ 32\}}
+\DoxyCodeLine{myCrazyObj.writeJsonSync\ =\ jsonfile.writeFileSync}
+\DoxyCodeLine{myCrazyObj.writeJsonSync(file,\ obj)\ //\ will\ have\ 32\ space\ indentation}
+\DoxyCodeLine{myCrazyObj.writeJsonSync(file,\ obj,\ \{spaces:\ 2\})\ //\ will\ have\ only\ 2}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11156}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md11156}
+(MIT License)
+
+Copyright 2012-\/2016, JP Richardson \href{mailto:jprichardson@gmail.com}{\texttt{ jprichardson@gmail.\+com}} 

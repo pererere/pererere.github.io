@@ -1,0 +1,41 @@
+\chapter{\texorpdfstring{$<$}{<}tt\texorpdfstring{$>$}{>}patch\+Fs(vol\mbox{[}, fs\mbox{]})\texorpdfstring{$<$}{<}/tt\texorpdfstring{$>$}{>}}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-monkey_2docs_2api_2patch_fs}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-monkey_2docs_2api_2patch_fs}\index{$<$tt$>$patchFs(vol\mbox{[}, fs\mbox{]})$<$/tt$>$@{$<$tt$>$patchFs(vol[, fs])$<$/tt$>$}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-monkey_2docs_2api_2patch_fs_autotoc_md8325}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-monkey_2docs_2api_2patch_fs_autotoc_md8325}%
+
+
+Rewrites Node\textquotesingle{}s filesystem module {\ttfamily fs} with {\itshape fs-\/like} object.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily vol} -\/ fs-\/like object
+\item {\ttfamily fs} {\itshape (optional)} -\/ a filesystem to patch, defaults to `require(\textquotesingle{}fs')\`{}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{patchFs\}\ from\ 'fs-\/monkey';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ myfs\ =\ \{}
+\DoxyCodeLine{\ \ \ \ readFileSync:\ ()\ =>\ 'hello\ world',}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{patchFs(myfs);}
+\DoxyCodeLine{console.log(require('fs').readFileSync('/foo/bar'));\ //\ hello\ world}
+
+\end{DoxyCode}
+
+
+You don\textquotesingle{}t need to create {\itshape fs-\/like} objects yourself, use \href{https://github.com/streamich/memfs}{\texttt{ {\ttfamily memfs}}} to create a virtual filesystem for you\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{vol\}\ from\ 'memfs';}
+\DoxyCodeLine{import\ \{patchFs\}\ from\ 'fs-\/monkey';}
+\DoxyCodeLine{}
+\DoxyCodeLine{vol.fromJSON(\{'/dir/foo':\ 'bar'\});}
+\DoxyCodeLine{patchFs(vol);}
+\DoxyCodeLine{console.log(require('fs').readdirSync('/'));\ //\ [\ 'dir'\ ]}
+
+\end{DoxyCode}
+ 

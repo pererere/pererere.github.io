@@ -1,0 +1,64 @@
+\doxysection{test\+\_\+gyp.\+Runner Class Reference}
+\hypertarget{classtest__gyp_1_1_runner}{}\label{classtest__gyp_1_1_runner}\index{test\_gyp.Runner@{test\_gyp.Runner}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_aa3f7fff561bc2946e5202dd063941f6e}\label{classtest__gyp_1_1_runner_aa3f7fff561bc2946e5202dd063941f6e} 
+{\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, formats, tests, gyp\+\_\+options, verbose)
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_ace70b5b6173bd780da53f6837560cde0}\label{classtest__gyp_1_1_runner_ace70b5b6173bd780da53f6837560cde0} 
+{\bfseries run} (self)
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_a51271cf1cfc67bb06bfdbbe45bb939de}\label{classtest__gyp_1_1_runner_a51271cf1cfc67bb06bfdbbe45bb939de} 
+{\bfseries run\+\_\+test} (self, test, fmt, i)
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_aca3af79ec70a4e88abbb69c245aeb625}\label{classtest__gyp_1_1_runner_aca3af79ec70a4e88abbb69c245aeb625} 
+{\bfseries print\+\_\+} (self, msg)
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_a5884291743dc72b6bbeab571fe4000e3}\label{classtest__gyp_1_1_runner_a5884291743dc72b6bbeab571fe4000e3} 
+{\bfseries erase\+\_\+current\+\_\+line} (self)
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_a2d780179cb915cc572ae37eb1f8a1708}\label{classtest__gyp_1_1_runner_a2d780179cb915cc572ae37eb1f8a1708} 
+{\bfseries print\+\_\+results} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_a80c1115c8cd9ad71ad283ba35e278453}\label{classtest__gyp_1_1_runner_a80c1115c8cd9ad71ad283ba35e278453} 
+{\bfseries formats} = formats
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_a4945e3d4f92a2b9dcccfabcbd63d55a3}\label{classtest__gyp_1_1_runner_a4945e3d4f92a2b9dcccfabcbd63d55a3} 
+{\bfseries tests} = tests
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_a96d5810a6d059cd7766e246f004b14e5}\label{classtest__gyp_1_1_runner_a96d5810a6d059cd7766e246f004b14e5} 
+{\bfseries verbose} = verbose
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_af961364ff9149636dc5b9a60946bb552}\label{classtest__gyp_1_1_runner_af961364ff9149636dc5b9a60946bb552} 
+{\bfseries gyp\+\_\+options} = gyp\+\_\+options
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_ad3da2d8203b69c32b5576b11a5c6a338}\label{classtest__gyp_1_1_runner_ad3da2d8203b69c32b5576b11a5c6a338} 
+list {\bfseries failures} = \mbox{[}$\,$\mbox{]}
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_aebc594b82df79a3340083a2d95a0a227}\label{classtest__gyp_1_1_runner_aebc594b82df79a3340083a2d95a0a227} 
+{\bfseries num\+\_\+tests} = len(formats) \texorpdfstring{$\ast$}{*} len(tests)
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_a2bcb8e03c932b9019c731288ec9752bf}\label{classtest__gyp_1_1_runner_a2bcb8e03c932b9019c731288ec9752bf} 
+str {\bfseries fmt\+\_\+str} = "{}\mbox{[}\%\%\%dd/\%\%\%dd\mbox{]} (\%\%s) \%\%s"{} \% (num\+\_\+digits, num\+\_\+digits)
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_a8669535bdf0a63628df2d87dd6f96d94}\label{classtest__gyp_1_1_runner_a8669535bdf0a63628df2d87dd6f96d94} 
+{\bfseries isatty} = sys.\+stdout.\+isatty() and not self.\+verbose
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_aab3eaf4dbf6164423ecf5ae0c3143e81}\label{classtest__gyp_1_1_runner_aab3eaf4dbf6164423ecf5ae0c3143e81} 
+{\bfseries env} = os.\+environ.\+copy()
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_a2a7413b6f7516bd083a7b296077f8b6b}\label{classtest__gyp_1_1_runner_a2a7413b6f7516bd083a7b296077f8b6b} 
+int {\bfseries hpos} = 0
+\item 
+\Hypertarget{classtest__gyp_1_1_runner_a2500749a78a6fb250af19434b329d64d}\label{classtest__gyp_1_1_runner_a2500749a78a6fb250af19434b329d64d} 
+{\bfseries took} = time.\+time() -\/ run\+\_\+start
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/foodlink.\+client/node\+\_\+modules/node-\/gyp/gyp/test\+\_\+gyp.\+py\end{DoxyCompactItemize}

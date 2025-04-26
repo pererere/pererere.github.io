@@ -1,0 +1,69 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/portscanner Directory Reference}
+\hypertarget{dir_474be65a72d4e44015aea83b7d93ff9a}{}\label{dir_474be65a72d4e44015aea83b7d93ff9a}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/portscanner Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/portscanner Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.com/package/portscanner}{\texttt{ }} \href{http://standardjs.com/}{\texttt{ }}
+
+The portscanner module is an asynchronous Java\+Script port scanner for Node.\+js.
+
+Portscanner can check a port, or range of ports, for \textquotesingle{}open\textquotesingle{} or \textquotesingle{}closed\textquotesingle{} statuses.
+
+\href{https://github.com/baalexander/node-portscanner/issues/25}{\texttt{ Looking for maintainer}}!\hypertarget{README.md_autotoc_md16406}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md16406}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ portscanner}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16407}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md16407}
+A brief example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ portscanner\ =\ require('portscanner')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Checks\ the\ status\ of\ a\ single\ port}
+\DoxyCodeLine{portscanner.checkPortStatus(3000,\ '127.0.0.1',\ function(error,\ status)\ \{}
+\DoxyCodeLine{\ \ //\ Status\ is\ 'open'\ if\ currently\ in\ use\ or\ 'closed'\ if\ available}
+\DoxyCodeLine{\ \ console.log(status)}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Find\ the\ first\ available\ port.\ Asynchronously\ checks,\ so\ first\ port}
+\DoxyCodeLine{//\ determined\ as\ available\ is\ returned.}
+\DoxyCodeLine{portscanner.findAPortNotInUse(3000,\ 3010,\ '127.0.0.1',\ function(error,\ port)\ \{}
+\DoxyCodeLine{\ \ console.log('AVAILABLE\ PORT\ AT:\ '\ +\ port)}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Find\ the\ first\ port\ in\ use\ or\ blocked.\ Asynchronously\ checks,\ so\ first\ port}
+\DoxyCodeLine{//\ to\ respond\ is\ returned.}
+\DoxyCodeLine{portscanner.findAPortInUse(3000,\ 3010,\ '127.0.0.1',\ function(error,\ port)\ \{}
+\DoxyCodeLine{\ \ console.log('PORT\ IN\ USE\ AT:\ '\ +\ port)}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ You\ can\ also\ pass\ array\ of\ ports\ to\ check}
+\DoxyCodeLine{portscanner.findAPortInUse([3000,\ 3005,\ 3006],\ '127.0.0.1',\ function(error,\ port)\ \{}
+\DoxyCodeLine{\ \ console.log('PORT\ IN\ USE\ AT:\ '\ +\ port)}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ And\ skip\ host\ param.\ Default\ is\ '127.0.0.1'}
+\DoxyCodeLine{portscanner.findAPortNotInUse(3000,\ 4000,\ function(error,\ port)\ \{}
+\DoxyCodeLine{\ \ console.log('PORT\ IN\ USE\ AT:\ '\ +\ port)}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ And\ use\ promises}
+\DoxyCodeLine{portscanner.findAPortNotInUse(3000,\ 4000).then(function(port)\ \{}
+\DoxyCodeLine{\ \ console.log('PORT\ IN\ USE\ AT:\ '\ +\ port)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+The example directory contains a more detailed example.\hypertarget{README.md_autotoc_md16408}{}\doxysubsection{\texorpdfstring{Test}{Test}}\label{README.md_autotoc_md16408}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ test}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16409}{}\doxysubsection{\texorpdfstring{Future}{Future}}\label{README.md_autotoc_md16409}
+Please create issues or pull requests for port scanning related features you\textquotesingle{}d like to see included.\hypertarget{README.md_autotoc_md16410}{}\doxysubsection{\texorpdfstring{License (MIT)}{License (MIT)}}\label{README.md_autotoc_md16410}
+\mbox{[}MIT\mbox{]}(LICENSE) 

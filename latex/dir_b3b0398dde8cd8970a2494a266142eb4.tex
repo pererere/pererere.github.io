@@ -1,0 +1,113 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/postcss-\/modules-\/scope Directory Reference}
+\hypertarget{dir_b3b0398dde8cd8970a2494a266142eb4}{}\label{dir_b3b0398dde8cd8970a2494a266142eb4}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/postcss-\/modules-\/scope Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/postcss-\/modules-\/scope Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://travis-ci.org/css-modules/postcss-modules-scope}{\texttt{ }}
+
+Transforms\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{:local(.continueButton)\ \{}
+\DoxyCodeLine{\ \ color:\ green;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+into\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{:export\ \{}
+\DoxyCodeLine{\ \ continueButton:\ \_\_buttons\_continueButton\_djd347adcxz9;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{.\_\_buttons\_continueButton\_djd347adcxz9\ \{}
+\DoxyCodeLine{\ \ color:\ green;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+so it doesn\textquotesingle{}t pollute CSS global scope and can be simply used in JS like so\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ styles\ from\ "{}./buttons.css"{};}
+\DoxyCodeLine{elem.innerHTML\ =\ \`{}<button\ class="{}\$\{styles.continueButton\}"{}>Continue</button>`;}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16618}{}\doxysubsection{\texorpdfstring{Composition}{Composition}}\label{README.md_autotoc_md16618}
+Since we\textquotesingle{}re exporting class names, there\textquotesingle{}s no reason to export only one. This can give us some really useful reuse of styles\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{.globalButtonStyle\ \{}
+\DoxyCodeLine{\ \ background:\ white;}
+\DoxyCodeLine{\ \ border:\ 1px\ solid;}
+\DoxyCodeLine{\ \ border-\/radius:\ 0.25rem;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{.globalButtonStyle:hover\ \{}
+\DoxyCodeLine{\ \ box-\/shadow:\ 0\ 0\ 4px\ -\/2px;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{:local(.continueButton)\ \{}
+\DoxyCodeLine{\ \ compose-\/with:\ globalButtonStyle;}
+\DoxyCodeLine{\ \ color:\ green;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+becomes\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{.globalButtonStyle\ \{}
+\DoxyCodeLine{\ \ background:\ white;}
+\DoxyCodeLine{\ \ border:\ 1px\ solid;}
+\DoxyCodeLine{\ \ border-\/radius:\ 0.25rem;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{.globalButtonStyle:hover\ \{}
+\DoxyCodeLine{\ \ box-\/shadow:\ 0\ 0\ 4px\ -\/2px;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{:local(.continueButton)\ \{}
+\DoxyCodeLine{\ \ compose-\/with:\ globalButtonStyle;}
+\DoxyCodeLine{\ \ color:\ green;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Note\+:}} you can also use {\ttfamily composes} as a shorthand for {\ttfamily compose-\/with}\hypertarget{README.md_autotoc_md16619}{}\doxysubsection{\texorpdfstring{Local-\/by-\/default \& reuse across files}{Local-\/by-\/default \& reuse across files}}\label{README.md_autotoc_md16619}
+You\textquotesingle{}re looking for \href{https://github.com/css-modules/css-modules}{\texttt{ CSS Modules}}. It uses this plugin as well as a few others, and it\textquotesingle{}s amazing.\hypertarget{README.md_autotoc_md16620}{}\doxysubsection{\texorpdfstring{Building}{Building}}\label{README.md_autotoc_md16620}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install}
+\DoxyCodeLine{npm\ test}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Status\+: \href{https://travis-ci.org/css-modules/postcss-modules-scope}{\texttt{ }}
+\item Lines\+: \href{https://coveralls.io/r/css-modules/postcss-modules-scope?branch=master}{\texttt{ }}
+\item Statements\+: \href{http://codecov.io/github/css-modules/postcss-modules-scope?branch=master}{\texttt{ }}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md16621}{}\doxysubsection{\texorpdfstring{Development}{Development}}\label{README.md_autotoc_md16621}
+
+\begin{DoxyItemize}
+\item {\ttfamily npm test\+:watch} will watch {\ttfamily src} and {\ttfamily test} for changes and run the tests
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md16622}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md16622}
+ISC\hypertarget{README.md_autotoc_md16623}{}\doxysubsection{\texorpdfstring{With thanks}{With thanks}}\label{README.md_autotoc_md16623}
+
+\begin{DoxyItemize}
+\item Mark Dalgleish
+\item Tobias Koppers
+\item Guy Bedford
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+Glen Maddern, 2015. 

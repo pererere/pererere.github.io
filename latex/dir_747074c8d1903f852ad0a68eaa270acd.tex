@@ -1,0 +1,8 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/boolbase Directory Reference}
+\hypertarget{dir_747074c8d1903f852ad0a68eaa270acd}{}\label{dir_747074c8d1903f852ad0a68eaa270acd}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/boolbase Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/boolbase Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#boolbase This very simple module provides two basic functions, one that always returns true ({\ttfamily true\+Func}) and one that always returns false ({\ttfamily false\+Func}).\hypertarget{README.md_autotoc_md3287}{}\doxysubsubsubsection{\texorpdfstring{WTF?}{WTF?}}\label{README.md_autotoc_md3287}
+By having only a single instance of these functions around, it\textquotesingle{}s possible to do some nice optimizations. Eg. \href{https://github.com/fb55/CSSselect}{\texttt{ {\ttfamily CSSselect}}} uses these functions to determine whether a selector won\textquotesingle{}t match any elements. If that\textquotesingle{}s the case, the DOM doesn\textquotesingle{}t even have to be touched.\hypertarget{README.md_autotoc_md3288}{}\doxysubsubsubsection{\texorpdfstring{And why is this a separate module?}{And why is this a separate module?}}\label{README.md_autotoc_md3288}
+I\textquotesingle{}m trying to modularize {\ttfamily CSSselect} and most modules depend on these functions. IMHO, having a separate module is the easiest solution to this problem. 

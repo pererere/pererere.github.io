@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['ienumsetupinstances_0',['IEnumSetupInstances',['../interface_visual_studio_configuration_1_1_i_enum_setup_instances.html',1,'VisualStudioConfiguration']]],
+  ['infinitytype_1',['InfinityType',['../classpackaging_1_1__structures_1_1_infinity_type.html',1,'packaging::_structures']]],
+  ['initial_2',['initial',['../class_food_link_1_1_server_1_1_migrations_1_1initial.html',1,'FoodLink::Server::Migrations']]],
+  ['invalidmarker_3',['InvalidMarker',['../classpackaging_1_1markers_1_1_invalid_marker.html',1,'packaging::markers']]],
+  ['invalidmetadata_4',['InvalidMetadata',['../classpackaging_1_1metadata_1_1_invalid_metadata.html',1,'packaging::metadata']]],
+  ['invalidname_5',['InvalidName',['../classpackaging_1_1utils_1_1_invalid_name.html',1,'packaging::utils']]],
+  ['invalidrequirement_6',['InvalidRequirement',['../classpackaging_1_1requirements_1_1_invalid_requirement.html',1,'packaging::requirements']]],
+  ['invalidsdistfilename_7',['InvalidSdistFilename',['../classpackaging_1_1utils_1_1_invalid_sdist_filename.html',1,'packaging::utils']]],
+  ['invalidspecifier_8',['InvalidSpecifier',['../classpackaging_1_1specifiers_1_1_invalid_specifier.html',1,'packaging::specifiers']]],
+  ['invalidversion_9',['InvalidVersion',['../classpackaging_1_1version_1_1_invalid_version.html',1,'packaging::version']]],
+  ['invalidwheelfilename_10',['InvalidWheelFilename',['../classpackaging_1_1utils_1_1_invalid_wheel_filename.html',1,'packaging::utils']]],
+  ['ipixabayservice_11',['IPixabayService',['../interface_food_link_1_1_server_1_1_services_1_1_i_pixabay_service.html',1,'FoodLink::Server::Services']]],
+  ['isetupconfiguration_12',['ISetupConfiguration',['../interface_visual_studio_configuration_1_1_i_setup_configuration.html',1,'VisualStudioConfiguration']]],
+  ['isetupconfiguration2_13',['ISetupConfiguration2',['../interface_visual_studio_configuration_1_1_i_setup_configuration2.html',1,'VisualStudioConfiguration']]],
+  ['isetupinstance_14',['ISetupInstance',['../interface_visual_studio_configuration_1_1_i_setup_instance.html',1,'VisualStudioConfiguration']]],
+  ['isetupinstance2_15',['ISetupInstance2',['../interface_visual_studio_configuration_1_1_i_setup_instance2.html',1,'VisualStudioConfiguration']]],
+  ['isetuppackagereference_16',['ISetupPackageReference',['../interface_visual_studio_configuration_1_1_i_setup_package_reference.html',1,'VisualStudioConfiguration']]],
+  ['isetuppropertystore_17',['ISetupPropertyStore',['../interface_visual_studio_configuration_1_1_i_setup_property_store.html',1,'VisualStudioConfiguration']]]
+];

@@ -1,0 +1,49 @@
+\chapter{Agent}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent}\index{Agent@{Agent}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21207}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21207}%
+
+
+Extends\+: {\ttfamily undici.\+Dispatcher}
+
+Agent allow dispatching requests against multiple different origins.
+
+Requests are not guaranteed to be dispatched in order of invocation.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21208}{}\doxysection{\texorpdfstring{{\ttfamily new undici.\+Agent(\mbox{[}options\mbox{]})}}{{\ttfamily new undici.\+Agent(\mbox{[}options\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21208}
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{options}} {\ttfamily Agent\+Options} (optional)
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily Agent}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21209}{}\doxysubsection{\texorpdfstring{Parameter\+: {\ttfamily Agent\+Options}}{Parameter\+: {\ttfamily Agent\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21209}
+Extends\+: \href{Pool.md\#parameter-pooloptions}{\texttt{ {\ttfamily Pool\+Options}}}
+
+
+\begin{DoxyItemize}
+\item {\bfseries{factory}} {\ttfamily (origin\+: URL, opts\+: Object) =\texorpdfstring{$>$}{>} Dispatcher} -\/ Default\+: {\ttfamily (origin, opts) =\texorpdfstring{$>$}{>} new Pool(origin, opts)}
+\item {\bfseries{max\+Redirections}} {\ttfamily Integer} -\/ Default\+: {\ttfamily 0}. The number of HTTP redirection to follow unless otherwise specified in {\ttfamily Dispatch\+Options}.
+\item {\bfseries{interceptors}} {\ttfamily \{ Agent\+: Dispatch\+Interceptor\mbox{[}\mbox{]} \}} -\/ Default\+: {\ttfamily \mbox{[}Redirect\+Interceptor\mbox{]}} -\/ A list of interceptors that are applied to the dispatch method. Additional logic can be applied (such as, but not limited to\+: 302 status code handling, authentication, cookies, compression and caching). Note that the behavior of interceptors is Experimental and might change at any given time.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21210}{}\doxysection{\texorpdfstring{Instance Properties}{Instance Properties}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21210}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21211}{}\doxysubsection{\texorpdfstring{{\ttfamily Agent.\+closed}}{{\ttfamily Agent.\+closed}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21211}
+Implements \href{Client.md\#clientclosed}{\texttt{ Client.\+closed}}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21212}{}\doxysubsection{\texorpdfstring{{\ttfamily Agent.\+destroyed}}{{\ttfamily Agent.\+destroyed}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21212}
+Implements \href{Client.md\#clientdestroyed}{\texttt{ Client.\+destroyed}}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21213}{}\doxysection{\texorpdfstring{Instance Methods}{Instance Methods}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21213}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21214}{}\doxysubsection{\texorpdfstring{{\ttfamily Agent.\+close(\mbox{[}callback\mbox{]})}}{{\ttfamily Agent.\+close(\mbox{[}callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21214}
+Implements \href{Dispatcher.md\#dispatcherclosecallback-promise}{\texttt{ {\ttfamily Dispatcher.\+close(\mbox{[}callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21215}{}\doxysubsection{\texorpdfstring{{\ttfamily Agent.\+destroy(\mbox{[}error, callback\mbox{]})}}{{\ttfamily Agent.\+destroy(\mbox{[}error, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21215}
+Implements \href{Dispatcher.md\#dispatcherdestroyerror-callback-promise}{\texttt{ {\ttfamily Dispatcher.\+destroy(\mbox{[}error, callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21216}{}\doxysubsection{\texorpdfstring{{\ttfamily Agent.\+dispatch(options, handler\+: Agent\+Dispatch\+Options)}}{{\ttfamily Agent.\+dispatch(options, handler\+: Agent\+Dispatch\+Options)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21216}
+Implements \href{Dispatcher.md\#dispatcherdispatchoptions-handler}{\texttt{ {\ttfamily Dispatcher.\+dispatch(options, handler)}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21217}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Agent\+Dispatch\+Options}}{Parameter\+: {\ttfamily Agent\+Dispatch\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21217}
+Extends\+: \href{Dispatcher.md\#parameter-dispatchoptions}{\texttt{ {\ttfamily Dispatch\+Options}}}
+
+
+\begin{DoxyItemize}
+\item {\bfseries{origin}} {\ttfamily string \texorpdfstring{$\vert$}{|} URL}
+\item {\bfseries{max\+Redirections}} {\ttfamily Integer}.
+\end{DoxyItemize}
+
+Implements \href{Dispatcher.md\#dispatcherdestroyerror-callback-promise}{\texttt{ {\ttfamily Dispatcher.\+destroy(\mbox{[}error, callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21218}{}\doxysubsection{\texorpdfstring{{\ttfamily Agent.\+connect(options\mbox{[}, callback\mbox{]})}}{{\ttfamily Agent.\+connect(options\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21218}
+See \href{Dispatcher.md\#dispatcherconnectoptions-callback}{\texttt{ {\ttfamily Dispatcher.\+connect(options\mbox{[}, callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21219}{}\doxysubsection{\texorpdfstring{{\ttfamily Agent.\+dispatch(options, handler)}}{{\ttfamily Agent.\+dispatch(options, handler)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21219}
+Implements \href{Dispatcher.md\#dispatcherdispatchoptions-handler}{\texttt{ {\ttfamily Dispatcher.\+dispatch(options, handler)}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21220}{}\doxysubsection{\texorpdfstring{{\ttfamily Agent.\+pipeline(options, handler)}}{{\ttfamily Agent.\+pipeline(options, handler)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21220}
+See \href{Dispatcher.md\#dispatcherpipelineoptions-handler}{\texttt{ {\ttfamily Dispatcher.\+pipeline(options, handler)}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21221}{}\doxysubsection{\texorpdfstring{{\ttfamily Agent.\+request(options\mbox{[}, callback\mbox{]})}}{{\ttfamily Agent.\+request(options\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21221}
+See \href{Dispatcher.md\#dispatcherrequestoptions-callback}{\texttt{ {\ttfamily Dispatcher.\+request(options \mbox{[}, callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21222}{}\doxysubsection{\texorpdfstring{{\ttfamily Agent.\+stream(options, factory\mbox{[}, callback\mbox{]})}}{{\ttfamily Agent.\+stream(options, factory\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21222}
+See \href{Dispatcher.md\#dispatcherstreamoptions-factory-callback}{\texttt{ {\ttfamily Dispatcher.\+stream(options, factory\mbox{[}, callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21223}{}\doxysubsection{\texorpdfstring{{\ttfamily Agent.\+upgrade(options\mbox{[}, callback\mbox{]})}}{{\ttfamily Agent.\+upgrade(options\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_agent_autotoc_md21223}
+See \href{Dispatcher.md\#dispatcherupgradeoptions-callback}{\texttt{ {\ttfamily Dispatcher.\+upgrade(options\mbox{[}, callback\mbox{]})}}}. 

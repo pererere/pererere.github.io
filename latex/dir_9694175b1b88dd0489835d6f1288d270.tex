@@ -1,0 +1,36 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/custom-\/event Directory Reference}
+\hypertarget{dir_9694175b1b88dd0489835d6f1288d270}{}\label{dir_9694175b1b88dd0489835d6f1288d270}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/custom-\/event Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/custom-\/event Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{README.md_autotoc_md5465}{}\doxysubsubsection{\texorpdfstring{Cross-\/browser {\ttfamily Custom\+Event} constructor}{Cross-\/browser {\ttfamily Custom\+Event} constructor}}\label{README.md_autotoc_md5465}
+\href{https://saucelabs.com/u/custom-event}{\texttt{ }}
+
+\href{https://travis-ci.org/webmodules/custom-event}{\texttt{ }}
+
+\href{https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent.CustomEvent}{\texttt{ https\+://developer.\+mozilla.\+org/en-\/\+US/docs/\+Web/\+API/\+Custom\+Event.\+Custom\+Event}}\hypertarget{README.md_autotoc_md5466}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md5466}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{\$\ npm\ install\ custom-\/event}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5467}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{README.md_autotoc_md5467}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{var\ CustomEvent\ =\ require('custom-\/event');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ add\ an\ appropriate\ event\ listener}
+\DoxyCodeLine{target.addEventListener('cat',\ function(e)\ \{\ process(e.detail)\ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ create\ and\ dispatch\ the\ event}
+\DoxyCodeLine{var\ event\ =\ new\ CustomEvent('cat',\ \{}
+\DoxyCodeLine{\ \ detail:\ \{}
+\DoxyCodeLine{\ \ \ \ hazcheeseburger:\ true}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{target.dispatchEvent(event);}
+
+\end{DoxyCode}
+ 

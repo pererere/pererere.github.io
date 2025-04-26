@@ -1,0 +1,60 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/server.gzipped.\+assets Directory Reference}
+\hypertarget{dir_bfac2bff9e7b039271e856e69991d40c}{}\label{dir_bfac2bff9e7b039271e856e69991d40c}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/server.gzipped.assets Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/server.gzipped.assets Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Server with pre-\/gzipped assets example\hypertarget{readme.md_autotoc_md3539}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3539}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/server.gzipped.assets}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3540}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3540}
+This example shows how you can use the {\ttfamily connect-\/gzip-\/static} middleware to serve already-\/gzipped assets.\hypertarget{readme.md_autotoc_md3541}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily app.\+js}\+:}{Preview of {\ttfamily app.\+js}\+:}}\label{readme.md_autotoc_md3541}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Require\ Browsersync}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{var\ browserSync\ =\ require('browser-\/sync').create();}
+\DoxyCodeLine{var\ middleware\ \ =\ require('connect-\/gzip-\/static')('./app');}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Run\ Browsersync\ with\ server\ config}
+\DoxyCodeLine{\ *\ Add\ middleware\ with\ override:true\ to\ ensure\ all\ files\ are}
+\DoxyCodeLine{\ *\ picked\ up.}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{browserSync.init(\{}
+\DoxyCodeLine{\ \ \ \ server:\ 'app',}
+\DoxyCodeLine{\ \ \ \ files:\ ['app/*.html',\ 'app/css/*.css']}
+\DoxyCodeLine{\},\ function\ (err,\ bs)\ \{}
+\DoxyCodeLine{\ \ \ \ bs.addMiddleware("{}*"{},\ middleware,\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ override:\ true}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+ 

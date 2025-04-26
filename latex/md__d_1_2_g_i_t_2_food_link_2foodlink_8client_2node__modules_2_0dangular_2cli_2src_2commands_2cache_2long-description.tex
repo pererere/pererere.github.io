@@ -1,0 +1,60 @@
+\chapter{long-\/description}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2cache_2long-description}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2cache_2long-description}\index{long-\/description@{long-\/description}}
+Angular CLI saves a number of cachable operations on disk by default.
+
+When you re-\/run the same build, the build system restores the state of the previous build and re-\/uses previously performed operations, which decreases the time taken to build and test your applications and libraries.
+
+To amend the default cache settings, add the {\ttfamily cli.\+cache} object to your \href{guide/workspace-config}{\texttt{ Workspace Configuration}}. The object goes under {\ttfamily cli.\+cache} at the top level of the file, outside the {\ttfamily projects} sections.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}\$schema"{}:\ "{}./node\_modules/@angular/cli/lib/config/schema.json"{},}
+\DoxyCodeLine{\ \ "{}version"{}:\ 1,}
+\DoxyCodeLine{\ \ "{}cli"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}cache"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ ...}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ "{}projects"{}:\ \{\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+For more information, see \href{guide/workspace-config\#cache-options}{\texttt{ cache options}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2cache_2long-description_autotoc_md68}{}\doxysubsubsection{\texorpdfstring{Cache environments}{Cache environments}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2cache_2long-description_autotoc_md68}
+By default, disk cache is only enabled for local environments. The value of environment can be one of the following\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily all} -\/ allows disk cache on all machines.
+\item {\ttfamily local} -\/ allows disk cache only on development machines.
+\item {\ttfamily ci} -\/ allows disk cache only on continuous integration (CI) systems.
+\end{DoxyItemize}
+
+To change the environment setting to {\ttfamily all}, run the following command\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ng\ config\ cli.cache.environment\ all}
+
+\end{DoxyCode}
+
+
+For more information, see {\ttfamily environment} in \href{guide/workspace-config\#cache-options}{\texttt{ cache options}}.
+
+
+
+The Angular CLI checks for the presence and value of the {\ttfamily CI} environment variable to determine in which environment it is running.
+
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2cache_2long-description_autotoc_md69}{}\doxysubsubsection{\texorpdfstring{Cache path}{Cache path}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2cache_2long-description_autotoc_md69}
+By default, {\ttfamily .angular/cache} is used as a base directory to store cache results.
+
+To change this path to {\ttfamily .cache/ng}, run the following command\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ng\ config\ cli.cache.path\ "{}.cache/ng"{}}
+
+\end{DoxyCode}
+ 

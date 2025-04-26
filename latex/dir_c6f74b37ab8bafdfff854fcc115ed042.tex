@@ -1,0 +1,86 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/karma-\/jasmine-\/html-\/reporter Directory Reference}
+\hypertarget{dir_c6f74b37ab8bafdfff854fcc115ed042}{}\label{dir_c6f74b37ab8bafdfff854fcc115ed042}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/karma-\/jasmine-\/html-\/reporter Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/karma-\/jasmine-\/html-\/reporter Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.com/package/karma-jasmine-html-reporter}{\texttt{ }} \href{https://www.npmjs.com/package/karma-jasmine-html-reporter}{\texttt{ }}
+
+Reporter that dynamically shows tests results at debug.\+html page.
+
+
+
+You can also run a describe block, or a single test.
+
+\hypertarget{README.md_autotoc_md11337}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md11337}
+You can simply install {\ttfamily karma-\/jasmine-\/html-\/reporter} as a dev\+Dependency by\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ karma-\/jasmine-\/html-\/reporter\ -\/-\/save-\/dev}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11338}{}\doxysubsection{\texorpdfstring{Configuration}{Configuration}}\label{README.md_autotoc_md11338}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ karma.conf.js}
+\DoxyCodeLine{module.exports\ =\ function(config)\ \{}
+\DoxyCodeLine{\ \ config.set(\{}
+\DoxyCodeLine{\ \ \ \ frameworks:\ ['jasmine'],}
+\DoxyCodeLine{\ \ \ \ plugins:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ require('karma-\/jasmine'),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ require('karma-\/jasmine-\/html-\/reporter')}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ client:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ jasmine:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ //\ you\ can\ add\ configuration\ options\ for\ Jasmine\ here}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ //\ the\ possible\ options\ are\ listed\ at\ https://jasmine.github.io/api/edge/Configuration.html}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ //\ for\ example,\ you\ can\ disable\ the\ random\ execution\ with\ \`{}random:\ false`}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ //\ or\ set\ a\ specific\ seed\ with\ \`{}seed:\ 4321`}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ reporters:\ ['kjhtml']}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ \hypertarget{README.md_autotoc_md11339}{}\doxysubsubsubsection{\texorpdfstring{With options}{With options}}\label{README.md_autotoc_md11339}
+In combination with multiple reporters you may want to disable terminal messages because it\textquotesingle{}s already handled by another reporter.
+
+{\itshape Example using the \textquotesingle{}karma-\/mocha-\/reporter\textquotesingle{} plugin}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ karma.conf.js}
+\DoxyCodeLine{module.exports\ =\ function(config)\ \{}
+\DoxyCodeLine{\ \ config.set(\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ Combine\ multiple\ reporters}
+\DoxyCodeLine{\ \ \ \ reporters:\ ['kjhtml',\ 'mocha'],}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ jasmineHtmlReporter:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ suppressAll:\ true,\ //\ Suppress\ all\ messages\ (overrides\ other\ suppress\ settings)}
+\DoxyCodeLine{\ \ \ \ \ \ suppressFailed:\ true\ //\ Suppress\ failed\ messages}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+You can pass a list of reporters as a CLI argument too\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{karma\ start\ -\/-\/reporters\ kjhtml}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11340}{}\doxysubsection{\texorpdfstring{Version compatibility}{Version compatibility}}\label{README.md_autotoc_md11340}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ jasmine Version   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ karma-\/jasmine-\/html-\/reporter version    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ jasmine Version   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ karma-\/jasmine-\/html-\/reporter version    }\\\cline{1-2}
+\endhead
+2.\+x   &0.\+2.\+2    \\\cline{1-2}
+3.\+x   &1.\+x    \\\cline{1-2}
+4.\+x   &2.\+x   \\\cline{1-2}
+\end{longtabu}

@@ -1,0 +1,183 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/connect-\/history-\/api-\/fallback Directory Reference}
+\hypertarget{dir_f3c4a45f38fd6d61aac8d688abeb687b}{}\label{dir_f3c4a45f38fd6d61aac8d688abeb687b}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/connect-\/history-\/api-\/fallback Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/connect-\/history-\/api-\/fallback Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\doxysubsection*{connect-\/history-\/api-\/fallback}
+
+
+
+Middleware to proxy requests through a specified index page, useful for Single Page Applications that utilise the HTML5 History API.
+
+\href{https://travis-ci.org/bripkens/connect-history-api-fallback}{\texttt{ }} \href{https://david-dm.org/bripkens/connect-history-api-fallback/master}{\texttt{ }}
+
+\href{https://nodei.co/npm/connect-history-api-fallback/}{\texttt{ }}
+
+\doxysubsubsection*{Table of Contents}
+
+
+\begin{DoxyItemize}
+\item Introduction
+\item Usage
+\item \doxylink{README.md_options}{Options}
+\begin{DoxyItemize}
+\item index
+\item rewrites
+\item verbose
+\item html\+Accept\+Headers
+\item disable\+Dot\+Rule
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md4418}{}\doxysubsubsection{\texorpdfstring{Introduction}{Introduction}}\label{README.md_autotoc_md4418}
+Single Page Applications (SPA) typically only utilise one index file that is accessible by web browsers\+: usually {\ttfamily index.\+html}. Navigation in the application is then commonly handled using Java\+Script with the help of the \href{http://www.w3.org/html/wg/drafts/html/master/single-page.html\#the-history-interface}{\texttt{ HTML5 History API}}. This results in issues when the user hits the refresh button or is directly accessing a page other than the landing page, e.\+g. {\ttfamily /help} or {\ttfamily /help/online} as the web server bypasses the index file to locate the file at this location. As your application is a SPA, the web server will fail trying to retrieve the file and return a {\itshape 404 -\/ Not Found} message to the user.
+
+This tiny middleware addresses some of the issues. Specifically, it will change the requested location to the index you specify (default being {\ttfamily /index.html}) whenever there is a request which fulfills the following criteria\+:
+
+
+\begin{DoxyEnumerate}
+\item The request is a GET request
+\item which accepts {\ttfamily text/html},
+\item is not a direct file request, i.\+e. the requested path does not contain a {\ttfamily .} (DOT) character and
+\item does not match a pattern provided in options.\+rewrites (see options below)
+\end{DoxyEnumerate}\hypertarget{README.md_autotoc_md4419}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md4419}
+The middleware is available through NPM and can easily be added.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/-\/save\ connect-\/history-\/api-\/fallback}
+
+\end{DoxyCode}
+
+
+Import the library
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ history\ =\ require('connect-\/history-\/api-\/fallback');}
+
+\end{DoxyCode}
+
+
+Now you only need to add the middleware to your application like so
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ connect\ =\ require('connect');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ app\ =\ connect()}
+\DoxyCodeLine{\ \ .use(history())}
+\DoxyCodeLine{\ \ .listen(3000);}
+
+\end{DoxyCode}
+
+
+Of course you can also use this piece of middleware with express\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ express\ =\ require('express');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ app\ =\ express();}
+\DoxyCodeLine{app.use(history());}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4420}{}\doxysubsubsection{\texorpdfstring{Options}{Options}}\label{README.md_autotoc_md4420}
+You can optionally pass options to the library when obtaining the middleware
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ middleware\ =\ history(\{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4421}{}\doxysubsubsubsection{\texorpdfstring{index}{index}}\label{README.md_autotoc_md4421}
+Override the index (default {\ttfamily /index.html})
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{history(\{}
+\DoxyCodeLine{\ \ index:\ '/default.html'}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4422}{}\doxysubsubsubsection{\texorpdfstring{rewrites}{rewrites}}\label{README.md_autotoc_md4422}
+Override the index when the request url matches a regex pattern. You can either rewrite to a static string or use a function to transform the incoming request.
+
+The following will rewrite a request that matches the {\ttfamily /\textbackslash{}/soccer/} pattern to {\ttfamily /soccer.html}. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{history(\{}
+\DoxyCodeLine{\ \ rewrites:\ [}
+\DoxyCodeLine{\ \ \ \ \{\ from:\ /\(\backslash\)/soccer/,\ to:\ '/soccer.html'\}}
+\DoxyCodeLine{\ \ ]}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+Alternatively functions can be used to have more control over the rewrite process. For instance, the following listing shows how requests to {\ttfamily /libs/jquery/jquery.1.\+12.\+0.\+min.\+js} and the like can be routed to {\ttfamily ./bower\+\_\+components/libs/jquery/jquery.1.\+12.\+0.\+min.\+js}. You can also make use of this if you have an API version in the URL path. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{history(\{}
+\DoxyCodeLine{\ \ rewrites:\ [}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ from:\ /\string^\(\backslash\)/libs\(\backslash\)/.*\$/,}
+\DoxyCodeLine{\ \ \ \ \ \ to:\ function(context)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ return\ '/bower\_components'\ +\ context.parsedUrl.pathname;}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ ]}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+The function will always be called with a context object that has the following properties\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{parsed\+Url}}\+: Information about the URL as provided by the \href{https://nodejs.org/api/url.html\#url_url_parse_urlstr_parsequerystring_slashesdenotehost}{\texttt{ URL module\textquotesingle{}s}} {\ttfamily url.\+parse}.
+\item {\bfseries{match}}\+: An Array of matched results as provided by {\ttfamily String.\+match(...)}.
+\item {\bfseries{request}}\+: The HTTP request object.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md4423}{}\doxysubsubsubsection{\texorpdfstring{verbose}{verbose}}\label{README.md_autotoc_md4423}
+This middleware does not log any information by default. If you wish to activate logging, then you can do so via the {\ttfamily verbose} option or by specifying a logger function.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{history(\{}
+\DoxyCodeLine{\ \ verbose:\ true}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+Alternatively use your own logger
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{history(\{}
+\DoxyCodeLine{\ \ logger:\ console.log.bind(console)}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4424}{}\doxysubsubsubsection{\texorpdfstring{html\+Accept\+Headers}{html\+Accept\+Headers}}\label{README.md_autotoc_md4424}
+Override the default {\ttfamily Accepts\+:} headers that are queried when matching HTML content requests (Default\+: `\mbox{[}\textquotesingle{}text/html', \textquotesingle{}\texorpdfstring{$\ast$}{*}/\texorpdfstring{$\ast$}{*}\textquotesingle{}\mbox{]}\`{}).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{history(\{}
+\DoxyCodeLine{\ \ htmlAcceptHeaders:\ ['text/html',\ 'application/xhtml+xml']}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4425}{}\doxysubsubsubsection{\texorpdfstring{disable\+Dot\+Rule}{disable\+Dot\+Rule}}\label{README.md_autotoc_md4425}
+Disables the dot rule mentioned above\+:
+
+\begin{quote}
+\mbox{[}…\mbox{]} is not a direct file request, i.\+e. the requested path does not contain a {\ttfamily .} (DOT) character \mbox{[}…\mbox{]} \end{quote}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{history(\{}
+\DoxyCodeLine{\ \ disableDotRule:\ true}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+ 

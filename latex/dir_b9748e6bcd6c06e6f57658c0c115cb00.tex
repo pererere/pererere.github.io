@@ -1,0 +1,44 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/slash Directory Reference}
+\hypertarget{dir_b9748e6bcd6c06e6f57658c0c115cb00}{}\label{dir_b9748e6bcd6c06e6f57658c0c115cb00}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/slash Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/slash Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Convert Windows backslash paths to slash paths\+: {\ttfamily foo\textbackslash{}\textbackslash{}bar} ➔ {\ttfamily foo/bar} \end{quote}
+
+
+\href{http://superuser.com/a/176395/6877}{\texttt{ Forward-\/slash paths can be used in Windows}} as long as they\textquotesingle{}re not extended-\/length paths and don\textquotesingle{}t contain any non-\/ascii characters.
+
+This was created since the {\ttfamily path} methods in Node.\+js outputs {\ttfamily \textbackslash{}\textbackslash{}} paths on Windows.\hypertarget{readme.md_autotoc_md19237}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md19237}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ slash}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md19238}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md19238}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ path\ from\ 'path';}
+\DoxyCodeLine{import\ slash\ from\ 'slash';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ string\ =\ path.join('foo',\ 'bar');}
+\DoxyCodeLine{//\ Unix\ \ \ \ =>\ foo/bar}
+\DoxyCodeLine{//\ Windows\ =>\ foo\(\backslash\)\(\backslash\)bar}
+\DoxyCodeLine{}
+\DoxyCodeLine{slash(string);}
+\DoxyCodeLine{//\ Unix\ \ \ \ =>\ foo/bar}
+\DoxyCodeLine{//\ Windows\ =>\ foo/bar}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md19239}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md19239}
+\hypertarget{readme.md_autotoc_md19240}{}\doxysubsubsection{\texorpdfstring{slash(path)}{slash(path)}}\label{readme.md_autotoc_md19240}
+Type\+: {\ttfamily string}
+
+Accepts a Windows backslash path and returns a path with forward slashes.
+
+\DoxyHorRuler{0}
+
+
+ {\bfseries{ \href{https://tidelift.com/subscription/pkg/npm-slash?utm_source=npm-slash&utm_medium=referral&utm_campaign=readme}{\texttt{ Get professional support for this package with a Tidelift subscription}} }} ~\newline
+ \textsubscript{ Tidelift helps make open source sustainable for maintainers while giving companies~\newline
+assurances about security, maintenance, and licensing for their dependencies. }  

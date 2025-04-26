@@ -1,0 +1,149 @@
+\chapter{Mocking Request}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2mocking-request}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2mocking-request}\index{Mocking Request@{Mocking Request}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2mocking-request_autotoc_md21493}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2mocking-request_autotoc_md21493}%
+
+
+Undici has its own mocking \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_agent}{utility}{0}. It allow us to intercept undici HTTP requests and return mocked values instead. It can be useful for testing purposes.
+
+Example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ bank.mjs}
+\DoxyCodeLine{import\ \{\ request\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ async\ function\ bankTransfer(recipient,\ amount)\ \{}
+\DoxyCodeLine{\ \ const\ \{\ body\ \}\ =\ await\ request('http://localhost:3000/bank-\/transfer',}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ method:\ 'POST',}
+\DoxyCodeLine{\ \ \ \ \ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 'X-\/TOKEN-\/SECRET':\ 'SuperSecretToken',}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ body:\ JSON.stringify(\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ recipient,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ amount}
+\DoxyCodeLine{\ \ \ \ \ \ \})}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ )}
+\DoxyCodeLine{\ \ return\ await\ body.json()}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+And this is what the test file looks like\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ index.test.mjs}
+\DoxyCodeLine{import\ \{\ strict\ as\ assert\ \}\ from\ 'assert'}
+\DoxyCodeLine{import\ \{\ MockAgent,\ setGlobalDispatcher,\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ bankTransfer\ \}\ from\ './bank.mjs'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ mockAgent\ =\ new\ MockAgent();}
+\DoxyCodeLine{}
+\DoxyCodeLine{setGlobalDispatcher(mockAgent);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Provide\ the\ base\ url\ to\ the\ request}
+\DoxyCodeLine{const\ mockPool\ =\ mockAgent.get('http://localhost:3000');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ intercept\ the\ request}
+\DoxyCodeLine{mockPool.intercept(\{}
+\DoxyCodeLine{\ \ path:\ '/bank-\/transfer',}
+\DoxyCodeLine{\ \ method:\ 'POST',}
+\DoxyCodeLine{\ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ 'X-\/TOKEN-\/SECRET':\ 'SuperSecretToken',}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ body:\ JSON.stringify(\{}
+\DoxyCodeLine{\ \ \ \ recipient:\ '1234567890',}
+\DoxyCodeLine{\ \ \ \ amount:\ '100'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}).reply(200,\ \{}
+\DoxyCodeLine{\ \ message:\ 'transaction\ processed'}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ success\ =\ await\ bankTransfer('1234567890',\ '100')}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert.deepEqual(success,\ \{\ message:\ 'transaction\ processed'\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ if\ you\ dont\ want\ to\ check\ whether\ the\ body\ or\ the\ headers\ contain\ the\ same\ value}
+\DoxyCodeLine{//\ just\ remove\ it\ from\ interceptor}
+\DoxyCodeLine{mockPool.intercept(\{}
+\DoxyCodeLine{\ \ path:\ '/bank-\/transfer',}
+\DoxyCodeLine{\ \ method:\ 'POST',}
+\DoxyCodeLine{\}).reply(400,\ \{}
+\DoxyCodeLine{\ \ message:\ 'bank\ account\ not\ found'}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ badRequest\ =\ await\ bankTransfer('1234567890',\ '100')}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert.deepEqual(badRequest,\ \{\ message:\ 'bank\ account\ not\ found'\ \})}
+
+\end{DoxyCode}
+
+
+Explore other Mock\+Agent functionality \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_agent}{here}{0}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2mocking-request_autotoc_md21494}{}\doxysection{\texorpdfstring{Debug Mock Value}{Debug Mock Value}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2mocking-request_autotoc_md21494}
+When the interceptor and the request options are not the same, undici will automatically make a real HTTP request. To prevent real requests from being made, use {\ttfamily mock\+Agent.\+disable\+Net\+Connect()}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ mockAgent\ =\ new\ MockAgent();}
+\DoxyCodeLine{}
+\DoxyCodeLine{setGlobalDispatcher(mockAgent);}
+\DoxyCodeLine{mockAgent.disableNetConnect()}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Provide\ the\ base\ url\ to\ the\ request}
+\DoxyCodeLine{const\ mockPool\ =\ mockAgent.get('http://localhost:3000');}
+\DoxyCodeLine{}
+\DoxyCodeLine{mockPool.intercept(\{}
+\DoxyCodeLine{\ \ path:\ '/bank-\/transfer',}
+\DoxyCodeLine{\ \ method:\ 'POST',}
+\DoxyCodeLine{\}).reply(200,\ \{}
+\DoxyCodeLine{\ \ message:\ 'transaction\ processed'}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ badRequest\ =\ await\ bankTransfer('1234567890',\ '100')}
+\DoxyCodeLine{//\ Will\ throw\ an\ error}
+\DoxyCodeLine{//\ MockNotMatchedError:\ Mock\ dispatch\ not\ matched\ for\ path\ '/bank-\/transfer':}
+\DoxyCodeLine{//\ subsequent\ request\ to\ origin\ http://localhost:3000\ was\ not\ allowed\ (net.connect\ disabled)}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2mocking-request_autotoc_md21495}{}\doxysection{\texorpdfstring{Reply with data based on request}{Reply with data based on request}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2mocking-request_autotoc_md21495}
+If the mocked response needs to be dynamically derived from the request parameters, you can provide a function instead of an object to {\ttfamily reply}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mockPool.intercept(\{}
+\DoxyCodeLine{\ \ path:\ '/bank-\/transfer',}
+\DoxyCodeLine{\ \ method:\ 'POST',}
+\DoxyCodeLine{\ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ 'X-\/TOKEN-\/SECRET':\ 'SuperSecretToken',}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ body:\ JSON.stringify(\{}
+\DoxyCodeLine{\ \ \ \ recipient:\ '1234567890',}
+\DoxyCodeLine{\ \ \ \ amount:\ '100'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}).reply(200,\ (opts)\ =>\ \{}
+\DoxyCodeLine{\ \ //\ do\ something\ with\ opts}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ return\ \{\ message:\ 'transaction\ processed'\ \}}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+in this case opts will be
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ method:\ 'POST',}
+\DoxyCodeLine{\ \ headers:\ \{\ 'X-\/TOKEN-\/SECRET':\ 'SuperSecretToken'\ \},}
+\DoxyCodeLine{\ \ body:\ '\{"{}recipient"{}:"{}1234567890"{},"{}amount"{}:"{}100"{}\}',}
+\DoxyCodeLine{\ \ origin:\ 'http://localhost:3000',}
+\DoxyCodeLine{\ \ path:\ '/bank-\/transfer'}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

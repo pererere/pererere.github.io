@@ -1,0 +1,72 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@ljharb/through Directory Reference}
+\hypertarget{dir_2be891c707ebc978dcb77b0120d5d1ec}{}\label{dir_2be891c707ebc978dcb77b0120d5d1ec}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@ljharb/through Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@ljharb/through Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+{\itshape Note}\+: This package is a fork of \href{https://npmjs.com/through}{\texttt{ https\+://npmjs.\+com/through}}, and builds off of it.
+
+\href{https://github.com/ljharb/through/actions}{\texttt{ }} \href{https://app.codecov.io/gh/ljharb/through/}{\texttt{ }} \mbox{[}\mbox{]}\mbox{[}license-\/url\mbox{]} \href{https://npm-stat.com/charts.html?package=@ljharb/through}{\texttt{ }}
+
+\href{https://npmjs.org/package/@ljharb/through}{\texttt{ }}
+
+Easy way to create a {\ttfamily Stream} that is both {\ttfamily readable} and {\ttfamily writable}.
+
+
+\begin{DoxyItemize}
+\item Pass in optional {\ttfamily write} and {\ttfamily end} methods.
+\item {\ttfamily through} takes care of pause/resume logic if you use {\ttfamily this.\+queue(data)} instead of `this.\+emit(\textquotesingle{}data', data){\ttfamily .}
+\item {\ttfamily Use}this.\+pause(){\ttfamily and}this.\+resume(){\ttfamily to manage flow.}
+\item {\ttfamily Check}this.\+paused{\ttfamily to see current flow state. (}write{\ttfamily always returns}!this.paused\`{}).
+\end{DoxyItemize}
+
+This function is the basis for most of the synchronous streams in \href{http://github.com/dominictarr/event-stream}{\texttt{ event-\/stream}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{var\ through\ =\ require('through')}
+\DoxyCodeLine{}
+\DoxyCodeLine{through(function\ write(data)\ \{}
+\DoxyCodeLine{\ \ \ \ this.queue(data)\ //data\ *must*\ not\ be\ null}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ function\ end\ ()\ \{\ //optional}
+\DoxyCodeLine{\ \ \ \ this.queue(null)}
+\DoxyCodeLine{\ \ \})}
+
+\end{DoxyCode}
+
+
+Or, can also be used {\itshape without} buffering on pause, use `this.\+emit(\textquotesingle{}data', data)`, and this.\+emit(\textquotesingle{}end')
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{var\ through\ =\ require('through')}
+\DoxyCodeLine{}
+\DoxyCodeLine{through(function\ write(data)\ \{}
+\DoxyCodeLine{\ \ \ \ this.emit('data',\ data)}
+\DoxyCodeLine{\ \ \ \ //this.pause()}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ function\ end\ ()\ \{\ //optional}
+\DoxyCodeLine{\ \ \ \ this.emit('end')}
+\DoxyCodeLine{\ \ \})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1372}{}\doxysubsection{\texorpdfstring{Extended Options}{Extended Options}}\label{README.md_autotoc_md1372}
+You will probably not need these 99\% of the time.\hypertarget{README.md_autotoc_md1373}{}\doxysubsubsection{\texorpdfstring{auto\+Destroy=false}{auto\+Destroy=false}}\label{README.md_autotoc_md1373}
+By default, {\ttfamily through} emits close when the writable and readable side of the stream has ended. If that is not desired, set {\ttfamily auto\+Destroy=false}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{var\ through\ =\ require('through')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//like\ this}
+\DoxyCodeLine{var\ ts\ =\ through(write,\ end,\ \{autoDestroy:\ false\})}
+\DoxyCodeLine{//or\ like\ this}
+\DoxyCodeLine{var\ ts\ =\ through(write,\ end)}
+\DoxyCodeLine{ts.autoDestroy\ =\ false}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1374}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md1374}
+MIT / Apache2 

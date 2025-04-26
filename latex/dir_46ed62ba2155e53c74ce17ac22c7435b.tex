@@ -1,0 +1,71 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@types/sockjs Directory Reference}
+\hypertarget{dir_46ed62ba2155e53c74ce17ac22c7435b}{}\label{dir_46ed62ba2155e53c74ce17ac22c7435b}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@types/sockjs Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@types/sockjs Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+{\ttfamily npm install -\/-\/save @types/sockjs} \end{quote}
+\hypertarget{README.md_autotoc_md1956}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{README.md_autotoc_md1956}
+This package contains type definitions for sockjs (\href{https://github.com/sockjs/sockjs-node}{\texttt{ https\+://github.\+com/sockjs/sockjs-\/node}}).\hypertarget{README.md_autotoc_md1957}{}\doxysubsection{\texorpdfstring{Details}{Details}}\label{README.md_autotoc_md1957}
+Files were exported from \href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/sockjs}{\texttt{ https\+://github.\+com/\+Definitely\+Typed/\+Definitely\+Typed/tree/master/types/sockjs}}. \hypertarget{README.md_autotoc_md1958}{}\doxysubsubsection{\texorpdfstring{\href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/sockjs/index.d.ts}{\texttt{ index.\+d.\+ts}}}{\href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/sockjs/index.d.ts}{\texttt{ index.\+d.\+ts}}}}\label{README.md_autotoc_md1958}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{///\ <reference\ types="{}node"{}\ />}
+\DoxyCodeLine{}
+\DoxyCodeLine{import\ http\ =\ require("{}http"{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ interface\ ServerOptions\ \{}
+\DoxyCodeLine{\ \ \ \ sockjs\_url?:\ string\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ prefix?:\ string\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ response\_limit?:\ number\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ websocket?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ jsessionid?:\ any;}
+\DoxyCodeLine{\ \ \ \ log?(severity:\ string,\ message:\ string):\ void;}
+\DoxyCodeLine{\ \ \ \ heartbeat\_delay?:\ number\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ disconnect\_delay?:\ number\ |\ undefined;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ function\ createServer(options?:\ ServerOptions):\ Server;}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ interface\ Server\ extends\ NodeJS.EventEmitter\ \{}
+\DoxyCodeLine{\ \ \ \ installHandlers(server:\ http.Server,\ options?:\ ServerOptions):\ any;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ on(event:\ "{}connection"{},\ listener:\ (conn:\ Connection)\ =>\ any):\ this;}
+\DoxyCodeLine{\ \ \ \ on(event:\ string,\ listener:\ Function):\ this;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ interface\ Connection\ extends\ NodeJS.ReadWriteStream\ \{}
+\DoxyCodeLine{\ \ \ \ remoteAddress:\ string;}
+\DoxyCodeLine{\ \ \ \ remotePort:\ number;}
+\DoxyCodeLine{\ \ \ \ address:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ [key:\ string]:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ address:\ string;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ port:\ number;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ [key:\ string]:\ string;}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ url:\ string;}
+\DoxyCodeLine{\ \ \ \ pathname:\ string;}
+\DoxyCodeLine{\ \ \ \ prefix:\ string;}
+\DoxyCodeLine{\ \ \ \ protocol:\ string;}
+\DoxyCodeLine{\ \ \ \ readyState:\ number;}
+\DoxyCodeLine{\ \ \ \ id:\ string;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ close(code?:\ string,\ reason?:\ string):\ boolean;}
+\DoxyCodeLine{\ \ \ \ destroy():\ void;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ on(event:\ "{}data"{},\ listener:\ (message:\ string)\ =>\ any):\ this;}
+\DoxyCodeLine{\ \ \ \ on(event:\ "{}close"{},\ listener:\ ()\ =>\ void):\ this;}
+\DoxyCodeLine{\ \ \ \ on(event:\ string,\ listener:\ Function):\ this;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1959}{}\doxysubsubsubsection{\texorpdfstring{Additional Details}{Additional Details}}\label{README.md_autotoc_md1959}
+
+\begin{DoxyItemize}
+\item Last updated\+: Tue, 07 Nov 2023 15\+:11\+:36 GMT
+\item Dependencies\+: \href{https://npmjs.com/package/@types/node}{\texttt{ @types/node}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1960}{}\doxysubsection{\texorpdfstring{Credits}{Credits}}\label{README.md_autotoc_md1960}
+These definitions were written by \href{https://github.com/pmccloghrylaing}{\texttt{ Phil Mc\+Cloghry-\/\+Laing}}. 

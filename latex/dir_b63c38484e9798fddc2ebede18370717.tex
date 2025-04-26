@@ -1,0 +1,132 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/memfs Directory Reference}
+\hypertarget{dir_b63c38484e9798fddc2ebede18370717}{}\label{dir_b63c38484e9798fddc2ebede18370717}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/memfs Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/memfs Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://onp4.com/@vadim/~memfs}{\texttt{ }} \href{https://www.npmjs.com/package/memfs}{\texttt{ }} \href{https://travis-ci.org/streamich/memfs}{\texttt{ }}
+
+In-\/memory file-\/system with \href{https://nodejs.org/api/fs.html}{\texttt{ Node\textquotesingle{}s {\ttfamily fs} API}}.
+
+
+\begin{DoxyItemize}
+\item Node\textquotesingle{}s {\ttfamily fs} API implemented, see {\itshape old API Status}, \href{https://github.com/streamich/memfs/issues/735}{\texttt{ missing list}}, \href{https://github.com/streamich/memfs/issues/663}{\texttt{ missing {\ttfamily opendir}}}
+\item Stores files in memory, in {\ttfamily Buffer}s
+\item Throws sameish\texorpdfstring{$\ast$}{*} errors as Node.\+js
+\item Has concept of {\itshape i-\/nodes}
+\item Implements {\itshape hard links}
+\item Implements {\itshape soft links} (aka symlinks, symbolic links)
+\item Permissions may\texorpdfstring{$\ast$}{*} be implemented in the future
+\item Can be used in browser, see \href{https://github.com/streamich/memfs-webpack}{\texttt{ {\ttfamily memfs-\/webpack}}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md13637}{}\doxysubsubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md13637}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/-\/save\ memfs}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md13638}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md13638}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ fs\ \}\ from\ 'memfs';}
+\DoxyCodeLine{}
+\DoxyCodeLine{fs.writeFileSync('/hello.txt',\ 'World!');}
+\DoxyCodeLine{fs.readFileSync('/hello.txt',\ 'utf8');\ //\ World!}
+
+\end{DoxyCode}
+
+
+Create a file system from a plain JSON\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ fs,\ vol\ \}\ from\ 'memfs';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ json\ =\ \{}
+\DoxyCodeLine{\ \ './README.md':\ '1',}
+\DoxyCodeLine{\ \ './src/index.js':\ '2',}
+\DoxyCodeLine{\ \ './node\_modules/debug/index.js':\ '3',}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{vol.fromJSON(json,\ '/app');}
+\DoxyCodeLine{}
+\DoxyCodeLine{fs.readFileSync('/app/README.md',\ 'utf8');\ //\ 1}
+\DoxyCodeLine{vol.readFileSync('/app/src/index.js',\ 'utf8');\ //\ 2}
+
+\end{DoxyCode}
+
+
+Export to JSON\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{vol.writeFileSync('/script.sh',\ 'sudo\ rm\ -\/rf\ *');}
+\DoxyCodeLine{vol.toJSON();\ //\ \{"{}/script.sh"{}:\ "{}sudo\ rm\ -\/rf\ *"{}\}}
+
+\end{DoxyCode}
+
+
+Use it for testing\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{vol.writeFileSync('/foo',\ 'bar');}
+\DoxyCodeLine{expect(vol.toJSON()).toEqual(\{\ '/foo':\ 'bar'\ \});}
+
+\end{DoxyCode}
+
+
+Create as many filesystem volumes as you need\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ Volume\ \}\ from\ 'memfs';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ vol\ =\ Volume.fromJSON(\{\ '/foo':\ 'bar'\ \});}
+\DoxyCodeLine{vol.readFileSync('/foo');\ //\ bar}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ vol2\ =\ Volume.fromJSON(\{\ '/foo':\ 'bar\ 2'\ \});}
+\DoxyCodeLine{vol2.readFileSync('/foo');\ //\ bar\ 2}
+
+\end{DoxyCode}
+
+
+Use {\ttfamily memfs} together with \href{https://github.com/streamich/unionfs}{\texttt{ {\ttfamily unionfs}}} to create one filesystem from your in-\/memory volumes and the real disk filesystem\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ *\ as\ fs\ from\ 'fs';}
+\DoxyCodeLine{import\ \{\ ufs\ \}\ from\ 'unionfs';}
+\DoxyCodeLine{}
+\DoxyCodeLine{ufs.use(fs).use(vol);}
+\DoxyCodeLine{}
+\DoxyCodeLine{ufs.readFileSync('/foo');\ //\ bar}
+
+\end{DoxyCode}
+
+
+Use \href{https://github.com/streamich/fs-monkey}{\texttt{ {\ttfamily fs-\/monkey}}} to monkey-\/patch Node\textquotesingle{}s {\ttfamily require} function\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ patchRequire\ \}\ from\ 'fs-\/monkey';}
+\DoxyCodeLine{}
+\DoxyCodeLine{vol.writeFileSync('/index.js',\ 'console.log("{}hi\ world"{})');}
+\DoxyCodeLine{patchRequire(vol);}
+\DoxyCodeLine{require('/index');\ //\ hi\ world}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md13639}{}\doxysubsection{\texorpdfstring{Docs}{Docs}}\label{README.md_autotoc_md13639}
+
+\begin{DoxyItemize}
+\item Reference
+\item Relative paths
+\item API status
+\item Dependencies
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md13640}{}\doxysubsection{\texorpdfstring{See also}{See also}}\label{README.md_autotoc_md13640}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/streamich/spyfs}{\texttt{ {\ttfamily spyfs}}} -\/ spies on filesystem actions
+\item \href{https://github.com/streamich/unionfs}{\texttt{ {\ttfamily unionfs}}} -\/ creates a union of multiple filesystem volumes
+\item \href{https://github.com/streamich/linkfs}{\texttt{ {\ttfamily linkfs}}} -\/ redirects filesystem paths
+\item \href{https://github.com/streamich/fs-monkey}{\texttt{ {\ttfamily fs-\/monkey}}} -\/ monkey-\/patches Node\textquotesingle{}s {\ttfamily fs} module and {\ttfamily require} function
+\item \href{https://github.com/streamich/full-js/blob/master/src/lib/fs.ts}{\texttt{ {\ttfamily libfs}}} -\/ real filesystem (that executes UNIX system calls) implemented in Java\+Script
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md13641}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md13641}
+\href{./LICENSE}{\texttt{ Unlicense}} -\/ public domain. 

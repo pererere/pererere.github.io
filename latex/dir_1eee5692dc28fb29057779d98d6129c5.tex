@@ -1,0 +1,53 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/cli-\/spinners Directory Reference}
+\hypertarget{dir_1eee5692dc28fb29057779d98d6129c5}{}\label{dir_1eee5692dc28fb29057779d98d6129c5}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/cli-\/spinners Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/cli-\/spinners Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+70+ spinners for use in the terminal \end{quote}
+
+
+
+
+~\newline
+  ~\newline
+ ~\newline
+ 
+
+The list of spinners is just a \href{spinners.json}{\texttt{ JSON file}} and can be used wherever.
+
+You probably want to use one of these spinners through the \href{https://github.com/sindresorhus/ora}{\texttt{ {\ttfamily ora}}} module.\hypertarget{readme.md_autotoc_md4004}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md4004}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ cli-\/spinners}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md4005}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md4005}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ cliSpinners\ =\ require('cli-\/spinners');}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(cliSpinners.dots);}
+\DoxyCodeLine{/*}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ interval:\ 80,}
+\DoxyCodeLine{\ \ \ \ frames:\ ['⠋',\ '⠙',\ '⠹',\ '⠸',\ '⠼',\ '⠴',\ '⠦',\ '⠧',\ '⠇',\ '⠏']}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{*/}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md4006}{}\doxysubsection{\texorpdfstring{Preview}{Preview}}\label{readme.md_autotoc_md4006}
+The header GIF is outdated. See all the \href{https://jsfiddle.net/sindresorhus/2eLtsbey/embedded/result/}{\texttt{ spinner at once}} or \href{https://asciinema.org/a/95348?size=big}{\texttt{ one at the time}}.\hypertarget{readme.md_autotoc_md4007}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md4007}
+Each spinner comes with a recommended {\ttfamily interval} and an array of {\ttfamily frames}.
+
+\href{spinners.json}{\texttt{ See the spinners.}}
+
+The {\ttfamily random} spinner will return a random spinner each time it\textquotesingle{}s called.\hypertarget{readme.md_autotoc_md4008}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{readme.md_autotoc_md4008}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/ora}{\texttt{ ora}} -\/ Elegant terminal spinner
+\item \href{https://github.com/kiliankoe/CLISpinner}{\texttt{ CLISpinner}} -\/ Terminal spinners for Swift
+\item \href{https://github.com/ManrajGrover/py-spinners}{\texttt{ py-\/spinners}} -\/ Python port
+\item \href{https://github.com/FGRibreau/spinners}{\texttt{ spinners}} -\/ Terminal spinners for Rust
+\item \href{https://github.com/gabe565/go-spinners}{\texttt{ go-\/spinners}} -\/ Go port 
+\end{DoxyItemize}

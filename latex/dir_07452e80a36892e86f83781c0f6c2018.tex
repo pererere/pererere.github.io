@@ -1,0 +1,50 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/define-\/lazy-\/prop Directory Reference}
+\hypertarget{dir_07452e80a36892e86f83781c0f6c2018}{}\label{dir_07452e80a36892e86f83781c0f6c2018}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/define-\/lazy-\/prop Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/define-\/lazy-\/prop Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Define a \href{https://en.wikipedia.org/wiki/Lazy_evaluation}{\texttt{ lazily evaluated}} property on an object \end{quote}
+
+
+Useful when the value of a property is expensive to generate, so you want to delay the computation until the property is needed. For example, improving startup performance by deferring nonessential operations.\hypertarget{readme.md_autotoc_md5544}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md5544}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ define-\/lazy-\/prop}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md5545}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md5545}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ defineLazyProp\ =\ require('define-\/lazy-\/prop');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ unicorn\ =\ \{}
+\DoxyCodeLine{\ \ \ \ //\ …}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{defineLazyProp(unicorn,\ 'rainbow',\ ()\ =>\ expensiveComputation());}
+\DoxyCodeLine{}
+\DoxyCodeLine{app.on('user-\/action',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ doSomething(unicorn.rainbow);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md5546}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md5546}
+\hypertarget{readme.md_autotoc_md5547}{}\doxysubsubsection{\texorpdfstring{define\+Lazy\+Prop(object, property\+Name, fn)}{define\+Lazy\+Prop(object, property\+Name, fn)}}\label{readme.md_autotoc_md5547}
+\hypertarget{readme.md_autotoc_md5548}{}\doxysubsubsubsection{\texorpdfstring{object}{object}}\label{readme.md_autotoc_md5548}
+Type\+: {\ttfamily Object}
+
+Object to add property to.\hypertarget{readme.md_autotoc_md5549}{}\doxysubsubsubsection{\texorpdfstring{property\+Name}{property\+Name}}\label{readme.md_autotoc_md5549}
+Type\+: {\ttfamily string}
+
+Name of the property to add.\hypertarget{readme.md_autotoc_md5550}{}\doxysubsubsubsection{\texorpdfstring{fn}{fn}}\label{readme.md_autotoc_md5550}
+Type\+: {\ttfamily Function}
+
+Called the first time {\ttfamily property\+Name} is accessed. Expected to return a value.\hypertarget{readme.md_autotoc_md5551}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{readme.md_autotoc_md5551}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/lazy-value}{\texttt{ lazy-\/value}} -\/ Create a lazily evaluated value
+\item \href{https://github.com/sindresorhus/import-lazy}{\texttt{ import-\/lazy}} -\/ Import a module lazily
+\item \href{https://github.com/sindresorhus/p-lazy}{\texttt{ p-\/lazy}} -\/ Create a lazy promise
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md5552}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md5552}
+MIT © \href{https://sindresorhus.com}{\texttt{ Sindre Sorhus}} 

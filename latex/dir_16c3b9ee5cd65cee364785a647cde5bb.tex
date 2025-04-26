@@ -1,0 +1,387 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/dns-\/packet Directory Reference}
+\hypertarget{dir_16c3b9ee5cd65cee364785a647cde5bb}{}\label{dir_16c3b9ee5cd65cee364785a647cde5bb}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/dns-\/packet Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/dns-\/packet Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.org/package/dns-packet}{\texttt{ }} \href{https://www.npmjs.org/package/dns-packet}{\texttt{ }} \href{https://github.com/github/mafintosh/dns-packet/workflows/ci.yml}{\texttt{ }} \href{https://coveralls.io/github/mafintosh/dns-packet?branch=master}{\texttt{ }}
+
+An \href{https://github.com/mafintosh/abstract-encoding}{\texttt{ abstract-\/encoding}} compliant module for encoding / decoding DNS packets. Lifted out of \href{https://github.com/mafintosh/multicast-dns}{\texttt{ multicast-\/dns}} as a separate module.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ dns-\/packet}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5627}{}\doxysubsection{\texorpdfstring{UDP Usage}{UDP Usage}}\label{README.md_autotoc_md5627}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{const\ dnsPacket\ =\ require('dns-\/packet')}
+\DoxyCodeLine{const\ dgram\ =\ require('dgram')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ socket\ =\ dgram.createSocket('udp4')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ buf\ =\ dnsPacket.encode(\{}
+\DoxyCodeLine{\ \ type:\ 'query',}
+\DoxyCodeLine{\ \ id:\ 1,}
+\DoxyCodeLine{\ \ flags:\ dnsPacket.RECURSION\_DESIRED,}
+\DoxyCodeLine{\ \ questions:\ [\{}
+\DoxyCodeLine{\ \ \ \ type:\ 'A',}
+\DoxyCodeLine{\ \ \ \ name:\ 'google.com'}
+\DoxyCodeLine{\ \ \}]}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{socket.on('message',\ message\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(dnsPacket.decode(message))\ //\ prints\ out\ a\ response\ from\ google\ dns}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{socket.send(buf,\ 0,\ buf.length,\ 53,\ '8.8.8.8')}
+
+\end{DoxyCode}
+
+
+Also see \href{examples/udp.js}{\texttt{ the UDP example}}.\hypertarget{README.md_autotoc_md5628}{}\doxysubsection{\texorpdfstring{TCP, TLS, HTTPS}{TCP, TLS, HTTPS}}\label{README.md_autotoc_md5628}
+While DNS has traditionally been used over a datagram transport, it is increasingly being carried over TCP for larger responses commonly including DNSSEC responses and TLS or HTTPS for enhanced security. See below examples on how to use {\ttfamily dns-\/packet} to wrap DNS packets in these protocols\+:
+
+
+\begin{DoxyItemize}
+\item \href{examples/tcp.js}{\texttt{ TCP}}
+\item \href{examples/tls.js}{\texttt{ DNS over TLS}}
+\item \href{examples/doh.js}{\texttt{ DNS over HTTPS}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md5629}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md5629}
+\hypertarget{README.md_autotoc_md5630}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily var buf = packets.\+encode(packet, \mbox{[}buf\mbox{]}, \mbox{[}offset\mbox{]})}}{{\ttfamily var buf = packets.\+encode(packet, \mbox{[}buf\mbox{]}, \mbox{[}offset\mbox{]})}}}\label{README.md_autotoc_md5630}
+Encodes a DNS packet into a buffer containing a UDP payload.\hypertarget{README.md_autotoc_md5631}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily var packet = packets.\+decode(buf, \mbox{[}offset\mbox{]})}}{{\ttfamily var packet = packets.\+decode(buf, \mbox{[}offset\mbox{]})}}}\label{README.md_autotoc_md5631}
+Decode a DNS packet from a buffer containing a UDP payload.\hypertarget{README.md_autotoc_md5632}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily var buf = packets.\+stream\+Encode(packet, \mbox{[}buf\mbox{]}, \mbox{[}offset\mbox{]})}}{{\ttfamily var buf = packets.\+stream\+Encode(packet, \mbox{[}buf\mbox{]}, \mbox{[}offset\mbox{]})}}}\label{README.md_autotoc_md5632}
+Encodes a DNS packet into a buffer containing a TCP payload.\hypertarget{README.md_autotoc_md5633}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily var packet = packets.\+stream\+Decode(buf, \mbox{[}offset\mbox{]})}}{{\ttfamily var packet = packets.\+stream\+Decode(buf, \mbox{[}offset\mbox{]})}}}\label{README.md_autotoc_md5633}
+Decode a DNS packet from a buffer containing a TCP payload.\hypertarget{README.md_autotoc_md5634}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily var len = packets.\+encoding\+Length(packet)}}{{\ttfamily var len = packets.\+encoding\+Length(packet)}}}\label{README.md_autotoc_md5634}
+Returns how many bytes are needed to encode the DNS packet\hypertarget{README.md_autotoc_md5635}{}\doxysubsection{\texorpdfstring{Packets}{Packets}}\label{README.md_autotoc_md5635}
+Packets look like this
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ type:\ 'query|response',}
+\DoxyCodeLine{\ \ id:\ optionalIdNumber,}
+\DoxyCodeLine{\ \ flags:\ optionalBitFlags,}
+\DoxyCodeLine{\ \ questions:\ [...],}
+\DoxyCodeLine{\ \ answers:\ [...],}
+\DoxyCodeLine{\ \ additionals:\ [...],}
+\DoxyCodeLine{\ \ authorities:\ [...]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The bit flags available are
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{packet.RECURSION\_DESIRED}
+\DoxyCodeLine{packet.RECURSION\_AVAILABLE}
+\DoxyCodeLine{packet.TRUNCATED\_RESPONSE}
+\DoxyCodeLine{packet.AUTHORITATIVE\_ANSWER}
+\DoxyCodeLine{packet.AUTHENTIC\_DATA}
+\DoxyCodeLine{packet.CHECKING\_DISABLED}
+
+\end{DoxyCode}
+
+
+To use more than one flag bitwise-\/or them together
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{var\ flags\ =\ packet.RECURSION\_DESIRED\ |\ packet.RECURSION\_AVAILABLE}
+
+\end{DoxyCode}
+
+
+And to check for a flag use bitwise-\/and
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{var\ isRecursive\ =\ message.flags\ \&\ packet.RECURSION\_DESIRED}
+
+\end{DoxyCode}
+
+
+A question looks like this
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ type:\ 'A',\ //\ or\ SRV,\ AAAA,\ etc}
+\DoxyCodeLine{\ \ class:\ 'IN',\ //\ one\ of\ IN,\ CS,\ CH,\ HS,\ ANY.\ Default:\ IN}
+\DoxyCodeLine{\ \ name:\ 'google.com'\ //\ which\ record\ are\ you\ looking\ for}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+And an answer, additional, or authority looks like this
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ type:\ 'A',\ //\ or\ SRV,\ AAAA,\ etc}
+\DoxyCodeLine{\ \ class:\ 'IN',\ //\ one\ of\ IN,\ CS,\ CH,\ HS}
+\DoxyCodeLine{\ \ name:\ 'google.com',\ //\ which\ name\ is\ this\ record\ for}
+\DoxyCodeLine{\ \ ttl:\ optionalTimeToLiveInSeconds,}
+\DoxyCodeLine{\ \ (record\ specific\ data,\ see\ below)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5636}{}\doxysubsection{\texorpdfstring{Supported record types}{Supported record types}}\label{README.md_autotoc_md5636}
+\hypertarget{README.md_autotoc_md5637}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily A}}{{\ttfamily A}}}\label{README.md_autotoc_md5637}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ data:\ 'IPv4\ address'\ //\ fx\ 127.0.0.1}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5638}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily AAAA}}{{\ttfamily AAAA}}}\label{README.md_autotoc_md5638}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ data:\ 'IPv6\ address'\ //\ fx\ fe80::1}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5639}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily CAA}}{{\ttfamily CAA}}}\label{README.md_autotoc_md5639}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ flags:\ 128,\ //\ octet}
+\DoxyCodeLine{\ \ tag:\ 'issue|issuewild|iodef',}
+\DoxyCodeLine{\ \ value:\ 'ca.example.net',}
+\DoxyCodeLine{\ \ issuerCritical:\ false}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5640}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily CNAME}}{{\ttfamily CNAME}}}\label{README.md_autotoc_md5640}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ data:\ 'cname.to.another.record'}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5641}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily DNAME}}{{\ttfamily DNAME}}}\label{README.md_autotoc_md5641}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ data:\ 'dname.to.another.record'}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5642}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily DNSKEY}}{{\ttfamily DNSKEY}}}\label{README.md_autotoc_md5642}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ flags:\ 257,\ //\ 16\ bits}
+\DoxyCodeLine{\ \ algorithm:\ 1,\ //\ octet}
+\DoxyCodeLine{\ \ key:\ Buffer}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5643}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily DS}}{{\ttfamily DS}}}\label{README.md_autotoc_md5643}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ keyTag:\ 12345,}
+\DoxyCodeLine{\ \ algorithm:\ 8,}
+\DoxyCodeLine{\ \ digestType:\ 1,}
+\DoxyCodeLine{\ \ digest:\ Buffer}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5644}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily HINFO}}{{\ttfamily HINFO}}}\label{README.md_autotoc_md5644}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ data:\ \{}
+\DoxyCodeLine{\ \ \ \ cpu:\ 'cpu\ info',}
+\DoxyCodeLine{\ \ \ \ os:\ 'os\ info'}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5645}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily MX}}{{\ttfamily MX}}}\label{README.md_autotoc_md5645}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ preference:\ 10,}
+\DoxyCodeLine{\ \ exchange:\ 'mail.example.net'}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5646}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily NAPTR}}{{\ttfamily NAPTR}}}\label{README.md_autotoc_md5646}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ data:}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ order:\ 100,}
+\DoxyCodeLine{\ \ \ \ \ \ preference:\ 10,}
+\DoxyCodeLine{\ \ \ \ \ \ flags:\ 's',}
+\DoxyCodeLine{\ \ \ \ \ \ services:\ 'SIP+D2U',}
+\DoxyCodeLine{\ \ \ \ \ \ regexp:\ '!\string^.*\$!sip:customer-\/service@example.com!',}
+\DoxyCodeLine{\ \ \ \ \ \ replacement:\ '\_sip.\_udp.example.com'}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5647}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily NS}}{{\ttfamily NS}}}\label{README.md_autotoc_md5647}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ data:\ nameServer}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5648}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily NSEC}}{{\ttfamily NSEC}}}\label{README.md_autotoc_md5648}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ nextDomain:\ 'a.domain',}
+\DoxyCodeLine{\ \ rrtypes:\ ['A',\ 'TXT',\ 'RRSIG']}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5649}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily NSEC3}}{{\ttfamily NSEC3}}}\label{README.md_autotoc_md5649}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ algorithm:\ 1,}
+\DoxyCodeLine{\ \ flags:\ 0,}
+\DoxyCodeLine{\ \ iterations:\ 2,}
+\DoxyCodeLine{\ \ salt:\ Buffer,}
+\DoxyCodeLine{\ \ nextDomain:\ Buffer,\ //\ Hashed\ per\ RFC5155}
+\DoxyCodeLine{\ \ rrtypes:\ ['A',\ 'TXT',\ 'RRSIG']}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5650}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily NULL}}{{\ttfamily NULL}}}\label{README.md_autotoc_md5650}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ data:\ Buffer('any\ binary\ data')}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5651}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily OPT}}{{\ttfamily OPT}}}\label{README.md_autotoc_md5651}
+\href{https://tools.ietf.org/html/rfc6891}{\texttt{ EDNS0}} options.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ type:\ 'OPT',}
+\DoxyCodeLine{\ \ name:\ '.',}
+\DoxyCodeLine{\ \ udpPayloadSize:\ 4096,}
+\DoxyCodeLine{\ \ flags:\ packet.DNSSEC\_OK,}
+\DoxyCodeLine{\ \ options:\ [\{}
+\DoxyCodeLine{\ \ \ \ //\ pass\ in\ any\ code/data\ for\ generic\ EDNS0\ options}
+\DoxyCodeLine{\ \ \ \ code:\ 12,}
+\DoxyCodeLine{\ \ \ \ data:\ Buffer.alloc(31)}
+\DoxyCodeLine{\ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Several\ EDNS0\ options\ have\ enhanced\ support}
+\DoxyCodeLine{\ \ \ \ code:\ 'PADDING',}
+\DoxyCodeLine{\ \ \ \ length:\ 31,}
+\DoxyCodeLine{\ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ code:\ 'CLIENT\_SUBNET',}
+\DoxyCodeLine{\ \ \ \ family:\ 2,\ //\ 1\ for\ IPv4,\ 2\ for\ IPv6}
+\DoxyCodeLine{\ \ \ \ sourcePrefixLength:\ 64,\ //\ used\ to\ truncate\ IP\ address}
+\DoxyCodeLine{\ \ \ \ scopePrefixLength:\ 0,}
+\DoxyCodeLine{\ \ \ \ ip:\ 'fe80::',}
+\DoxyCodeLine{\ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ code:\ 'TCP\_KEEPALIVE',}
+\DoxyCodeLine{\ \ \ \ timeout:\ 150\ //\ increments\ of\ 100ms.\ \ This\ means\ 15s.}
+\DoxyCodeLine{\ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ code:\ 'KEY\_TAG',}
+\DoxyCodeLine{\ \ \ \ tags:\ [1,\ 2,\ 3],}
+\DoxyCodeLine{\ \ \}]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The options {\ttfamily PADDING}, {\ttfamily CLIENT\+\_\+\+SUBNET}, {\ttfamily TCP\+\_\+\+KEEPALIVE} and {\ttfamily KEY\+\_\+\+TAG} support enhanced de/encoding. See \href{https://github.com/mafintosh/dns-packet/blob/master/optioncodes.js}{\texttt{ optionscodes.\+js}} for all supported option codes. If the {\ttfamily data} property is present on a option, it takes precedence. On decoding, {\ttfamily data} will always be defined.\hypertarget{README.md_autotoc_md5652}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily PTR}}{{\ttfamily PTR}}}\label{README.md_autotoc_md5652}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ data:\ 'points.to.another.record'}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5653}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily RP}}{{\ttfamily RP}}}\label{README.md_autotoc_md5653}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ mbox:\ 'admin.example.com',}
+\DoxyCodeLine{\ \ txt:\ 'txt.example.com'}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5654}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily SSHFP}}{{\ttfamily SSHFP}}}\label{README.md_autotoc_md5654}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ algorithm:\ 1,}
+\DoxyCodeLine{\ \ hash:\ 1,}
+\DoxyCodeLine{\ \ fingerprint:\ 'A108C9F834354D5B37AF988141C9294822F5BC00'}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\`{}\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\#\ \`{}RRSIG`}
+
+\end{DoxyCode}
+ js \{ type\+Covered\+: \textquotesingle{}A\textquotesingle{}, algorithm\+: 8, labels\+: 1, original\+TTL\+: 3600, expiration\+: timestamp, inception\+: timestamp, key\+Tag\+: 12345, signers\+Name\+: \textquotesingle{}a.\+name\textquotesingle{}, signature\+: Buffer \} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\#\ \`{}SOA`}
+
+\end{DoxyCode}
+ js \{ data\+: \{ mname\+: domain\+Name, rname\+: mailbox, serial\+: zone\+Serial, refresh\+: refresh\+Interval, retry\+: retry\+Interval, expire\+: expire\+Interval, minimum\+: minimum\+TTL \} \} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\#\ \`{}SRV`}
+
+\end{DoxyCode}
+ js \{ data\+: \{ port\+: service\+Port, target\+: service\+Host\+Name, priority\+: optional\+Service\+Priority, weight\+: optional\+Service\+Weight \} \} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\#\ \`{}TLSA`}
+
+\end{DoxyCode}
+ js \{ usage\+: 3, selector\+: 1, matching\+Type\+: 1, certificate\+: Buffer \} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\#\ \`{}TXT`}
+
+\end{DoxyCode}
+ js \{ data\+: \textquotesingle{}text\textquotesingle{} \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} Buffer \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} \mbox{[} Buffer \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} \textquotesingle{}text\textquotesingle{} \mbox{]} \} \`{}\`{}\`{}
+
+When encoding, scalar values are converted to an array and strings are converted to UTF-\/8 encoded Buffers. When decoding, the return value will always be an array of Buffer.
+
+If you need another record type, open an issue and we\textquotesingle{}ll try to add it.\hypertarget{README.md_autotoc_md5655}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md5655}
+MIT 

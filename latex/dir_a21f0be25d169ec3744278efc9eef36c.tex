@@ -1,0 +1,37 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/path-\/to-\/regexp Directory Reference}
+\hypertarget{dir_a21f0be25d169ec3744278efc9eef36c}{}\label{dir_a21f0be25d169ec3744278efc9eef36c}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/path-\/to-\/regexp Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/path-\/to-\/regexp Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Turn an Express-\/style path string such as {\ttfamily /user/\+:name} into a regular expression.
+
+{\bfseries{Note\+:}} This is a legacy branch. You should upgrade to {\ttfamily 1.\+x}.\hypertarget{Readme.md_autotoc_md16142}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{Readme.md_autotoc_md16142}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ pathToRegexp\ =\ require('path-\/to-\/regexp');}
+
+\end{DoxyCode}
+\hypertarget{Readme.md_autotoc_md16143}{}\doxysubsubsection{\texorpdfstring{path\+To\+Regexp(path, keys, options)}{path\+To\+Regexp(path, keys, options)}}\label{Readme.md_autotoc_md16143}
+
+\begin{DoxyItemize}
+\item {\bfseries{path}} A string in the express format, an array of such strings, or a regular expression
+\item {\bfseries{keys}} An array to be populated with the keys present in the url. Once the function completes, this will be an array of strings.
+\item {\bfseries{options}}
+\begin{DoxyItemize}
+\item {\bfseries{options.\+sensitive}} Defaults to false, set this to true to make routes case sensitive
+\item {\bfseries{options.\+strict}} Defaults to false, set this to true to make the trailing slash matter.
+\item {\bfseries{options.\+end}} Defaults to true, set this to false to only match the prefix of the URL.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ keys\ =\ [];}
+\DoxyCodeLine{var\ exp\ =\ pathToRegexp('/foo/:bar',\ keys);}
+\DoxyCodeLine{//keys\ =\ ['bar']}
+\DoxyCodeLine{//exp\ =\ /\string^\(\backslash\)/foo\(\backslash\)/(?:([\string^\(\backslash\)/]+?))\(\backslash\)/?\$/i}
+
+\end{DoxyCode}
+\hypertarget{Readme.md_autotoc_md16144}{}\doxysubsection{\texorpdfstring{Live Demo}{Live Demo}}\label{Readme.md_autotoc_md16144}
+You can see a live demo of this library in use at \href{http://forbeslindesay.github.com/express-route-tester/}{\texttt{ express-\/route-\/tester}}.\hypertarget{Readme.md_autotoc_md16145}{}\doxysubsection{\texorpdfstring{License}{License}}\label{Readme.md_autotoc_md16145}
+MIT 

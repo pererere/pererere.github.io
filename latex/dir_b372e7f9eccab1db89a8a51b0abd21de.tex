@@ -1,0 +1,38 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/fs-\/monkey Directory Reference}
+\hypertarget{dir_b372e7f9eccab1db89a8a51b0abd21de}{}\label{dir_b372e7f9eccab1db89a8a51b0abd21de}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/fs-\/monkey Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/fs-\/monkey Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.com/package/fs-monkey}{\texttt{ }} \href{https://travis-ci.org/streamich/fs-monkey}{\texttt{ }}
+
+Monkey-\/patches for filesystem related things.
+
+
+\begin{DoxyItemize}
+\item Rewrite {\ttfamily require} function to load Node\textquotesingle{}s modules from memory.
+\item Or rewrite the whole {\ttfamily fs} filesystem module.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md8328}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md8328}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/-\/save\ fs-\/monkey}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md8329}{}\doxysubsection{\texorpdfstring{Terms}{Terms}}\label{README.md_autotoc_md8329}
+An {\itshape fs-\/like} object is an object that implements methods of Node\textquotesingle{}s \href{https://nodejs.org/api/fs.html}{\texttt{ filesystem API}}. It is denoted as {\ttfamily vol}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{let\ vol\ =\ \{}
+\DoxyCodeLine{\ \ \ \ readFile:\ ()\ =>\ \{\ /*\ ...\ */\ \},}
+\DoxyCodeLine{\ \ \ \ readFileSync:\ ()\ =>\ \{\ /*\ ...\ */\ \},}
+\DoxyCodeLine{\ \ \ \ //\ etc...}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md8330}{}\doxysubsection{\texorpdfstring{Reference}{Reference}}\label{README.md_autotoc_md8330}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-monkey_2docs_2api_2patch_fs}{{\ttfamily patch\+Fs}}{0} -\/ rewrites Node\textquotesingle{}s filesystem module {\ttfamily fs} with {\itshape fs-\/like} object {\ttfamily vol}
+\item \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-monkey_2docs_2api_2patch_require}{{\ttfamily patch\+Require}}{0} -\/ rewrites {\ttfamily require} function, patches Node\textquotesingle{}s {\ttfamily module} module to use a given {\itshape fs-\/like} object for module loading
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md8331}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md8331}
+\href{./LICENSE}{\texttt{ Unlicense}} -\/ public domain. 

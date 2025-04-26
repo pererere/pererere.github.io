@@ -1,0 +1,307 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/webpack-\/merge Directory Reference}
+\hypertarget{dir_cf81dbe06fdef61044803ae6d6228fe6}{}\label{dir_cf81dbe06fdef61044803ae6d6228fe6}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/webpack-\/merge Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/webpack-\/merge Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}!\mbox{[}Financial Contributors on Open Collective\mbox{]}(\href{https://opencollective.com/webpack-merge/all/badge.svg?label=financial+contributors}{\texttt{ https\+://opencollective.\+com/webpack-\/merge/all/badge.\+svg?label=financial+contributors}})\mbox{]}(\href{https://opencollective.com/webpack-merge}{\texttt{ https\+://opencollective.\+com/webpack-\/merge}}) \mbox{[}!\mbox{[}Test\mbox{]}(\href{https://github.com/survivejs/webpack-merge/actions/workflows/test.yml/badge.svg?branch=develop&event=push}{\texttt{ https\+://github.\+com/survivejs/webpack-\/merge/actions/workflows/test.\+yml/badge.\+svg?branch=develop\&event=push}})\mbox{]}(\href{https://github.com/survivejs/webpack-merge/actions/workflows/test.yml}{\texttt{ https\+://github.\+com/survivejs/webpack-\/merge/actions/workflows/test.\+yml}}) \mbox{[}!\mbox{[}codecov\mbox{]}(\href{https://codecov.io/gh/survivejs/webpack-merge/branch/master/graph/badge.svg}{\texttt{ https\+://codecov.\+io/gh/survivejs/webpack-\/merge/branch/master/graph/badge.\+svg}})\mbox{]}(\href{https://codecov.io/gh/survivejs/webpack-merge}{\texttt{ https\+://codecov.\+io/gh/survivejs/webpack-\/merge}})\hypertarget{README.md_autotoc_md22086}{}\doxysubsection{\texorpdfstring{webpack-\/merge -\/ Merge designed for Webpack}{webpack-\/merge -\/ Merge designed for Webpack}}\label{README.md_autotoc_md22086}
+{\bfseries{webpack-\/merge}} provides a {\ttfamily merge} function that concatenates arrays and merges objects creating a new object. If functions are encountered, it will execute them, run the results through the algorithm, and then wrap the returned values within a function again.
+
+This behavior is particularly useful in configuring webpack although it has uses beyond it. Whenever you need to merge configuration objects, {\bfseries{webpack-\/merge}} can come in handy.\hypertarget{README.md_autotoc_md22087}{}\doxysubsubsection{\texorpdfstring{{\bfseries{{\ttfamily merge(...configuration \texorpdfstring{$\vert$}{|} \mbox{[}...configuration\mbox{]})}}}}{{\bfseries{{\ttfamily merge(...configuration \texorpdfstring{$\vert$}{|} \mbox{[}...configuration\mbox{]})}}}}}\label{README.md_autotoc_md22087}
+{\ttfamily merge} is the core, and the most important idea, of the API. Often this is all you need unless you want further customization.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ merge\ \}\ =\ require('webpack-\/merge');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Default\ API}
+\DoxyCodeLine{const\ output\ =\ merge(object1,\ object2,\ object3,\ ...);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ You\ can\ pass\ an\ array\ of\ objects\ directly.}
+\DoxyCodeLine{//\ This\ works\ with\ all\ available\ functions.}
+\DoxyCodeLine{const\ output\ =\ merge([object1,\ object2,\ object3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Keys\ matching\ to\ the\ right\ take\ precedence:}
+\DoxyCodeLine{const\ output\ =\ merge(}
+\DoxyCodeLine{\ \ \{\ fruit:\ "{}apple"{},\ color:\ "{}red"{}\ \},}
+\DoxyCodeLine{\ \ \{\ fruit:\ "{}strawberries"{}\ \}}
+\DoxyCodeLine{);}
+\DoxyCodeLine{console.log(output);}
+\DoxyCodeLine{//\ \{\ color:\ "{}red"{},\ fruit:\ "{}strawberries"{}\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22088}{}\doxysubsubsubsection{\texorpdfstring{Limitations}{Limitations}}\label{README.md_autotoc_md22088}
+Note that {\ttfamily Promise}s are not supported! If you want to return a configuration wrapped within a {\ttfamily Promise}, {\ttfamily merge} inside one. Example\+: {\ttfamily Promise.\+resolve(merge(\{ ... \}, \{ ... \}))}.
+
+The same goes for configuration level functions as in the example below\+:
+
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ commonConfig\ =\ \{\ ...\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ productionConfig\ =\ \{\ ...\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ developmentConfig\ =\ \{\ ...\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{module.exports\ =\ (env,\ args)\ =>\ \{}
+\DoxyCodeLine{\ \ switch(args.mode)\ \{}
+\DoxyCodeLine{\ \ \ \ case\ 'development':}
+\DoxyCodeLine{\ \ \ \ \ \ return\ merge(commonConfig,\ developmentConfig);}
+\DoxyCodeLine{\ \ \ \ case\ 'production':}
+\DoxyCodeLine{\ \ \ \ \ \ return\ merge(commonConfig,\ productionConfig);}
+\DoxyCodeLine{\ \ \ \ default:}
+\DoxyCodeLine{\ \ \ \ \ \ throw\ new\ Error('No\ matching\ configuration\ was\ found!');}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+You can choose the configuration you want by using {\ttfamily webpack -\/-\/mode development} assuming you are using {\itshape webpack-\/cli}.\hypertarget{README.md_autotoc_md22089}{}\doxysubsubsection{\texorpdfstring{{\bfseries{{\ttfamily merge\+With\+Customize(\{ customize\+Array, customize\+Object \})(...configuration \texorpdfstring{$\vert$}{|} \mbox{[}...configuration\mbox{]})}}}}{{\bfseries{{\ttfamily merge\+With\+Customize(\{ customize\+Array, customize\+Object \})(...configuration \texorpdfstring{$\vert$}{|} \mbox{[}...configuration\mbox{]})}}}}}\label{README.md_autotoc_md22089}
+In case you need more flexibility, {\ttfamily merge} behavior can be customized per field as below\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ mergeWithCustomize\ \}\ =\ require('webpack-\/merge');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ output\ =\ mergeWithCustomize(}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ customizeArray(a,\ b,\ key)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ if\ (key\ ===\ 'extensions')\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ return\ \_.uniq([...a,\ ...b]);}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ Fall\ back\ to\ default\ merging}
+\DoxyCodeLine{\ \ \ \ \ \ return\ undefined;}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ customizeObject(a,\ b,\ key)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ if\ (key\ ===\ 'module')\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ //\ Custom\ merging}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ return\ \_.merge(\{\},\ a,\ b);}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ Fall\ back\ to\ default\ merging}
+\DoxyCodeLine{\ \ \ \ \ \ return\ undefined;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{)(object1,\ object2,\ object3,\ ...);}
+
+\end{DoxyCode}
+
+
+For example, if the previous code was invoked with only {\ttfamily object1} and {\ttfamily object2} with {\ttfamily object1} as\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ foo1:\ ['object1'],}
+\DoxyCodeLine{\ \ \ \ foo2:\ ['object1'],}
+\DoxyCodeLine{\ \ \ \ bar1:\ \{\ object1:\ \{\}\ \},}
+\DoxyCodeLine{\ \ \ \ bar2:\ \{\ object1:\ \{\}\ \},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+and {\ttfamily object2} as\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ foo1:\ ['object2'],}
+\DoxyCodeLine{\ \ \ \ foo2:\ ['object2'],}
+\DoxyCodeLine{\ \ \ \ bar1:\ \{\ object2:\ \{\}\ \},}
+\DoxyCodeLine{\ \ \ \ bar2:\ \{\ object2:\ \{\}\ \},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+then {\ttfamily customize\+Array} will be invoked for each property of {\ttfamily Array} type, i.\+e\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{customizeArray(["{}object1"{}],\ ["{}object2"{}],\ "{}foo1"{});}
+\DoxyCodeLine{customizeArray(["{}object1"{}],\ ["{}object2"{}],\ "{}foo2"{});}
+
+\end{DoxyCode}
+
+
+and {\ttfamily customize\+Object} will be invoked for each property of {\ttfamily Object} type, i.\+e\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{customizeObject(\{\ object1:\ \{\}\ \},\ \{\ object2:\ \{\}\ \},\ bar1);}
+\DoxyCodeLine{customizeObject(\{\ object1:\ \{\}\ \},\ \{\ object2:\ \{\}\ \},\ bar2);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22090}{}\doxysubsubsection{\texorpdfstring{{\bfseries{{\ttfamily customize\+Array}}} and {\bfseries{{\ttfamily customize\+Object}}}}{{\bfseries{{\ttfamily customize\+Array}}} and {\bfseries{{\ttfamily customize\+Object}}}}}\label{README.md_autotoc_md22090}
+{\ttfamily customize\+Array} and {\ttfamily customize\+Object} provide small strategies to for {\ttfamily merge\+With\+Customize}. They support {\ttfamily append}, {\ttfamily prepend}, {\ttfamily replace}, and wildcards for field names.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ mergeWithCustomize,\ customizeArray,\ customizeObject\ \}\ =\ require('webpack-\/merge');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ output\ =\ mergeWithCustomize(\{}
+\DoxyCodeLine{\ \ customizeArray:\ customizeArray(\{}
+\DoxyCodeLine{\ \ \ \ 'entry.*':\ 'prepend'}
+\DoxyCodeLine{\ \ \}),}
+\DoxyCodeLine{\ \ customizeObject:\ customizeObject(\{}
+\DoxyCodeLine{\ \ \ \ entry:\ 'prepend'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\})(object1,\ object2,\ object3,\ ...);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22091}{}\doxysubsubsection{\texorpdfstring{{\bfseries{{\ttfamily unique(\texorpdfstring{$<$}{<}field\texorpdfstring{$>$}{>}, \texorpdfstring{$<$}{<}fields\texorpdfstring{$>$}{>}, field =\texorpdfstring{$>$}{>} field)}}}}{{\bfseries{{\ttfamily unique(\texorpdfstring{$<$}{<}field\texorpdfstring{$>$}{>}, \texorpdfstring{$<$}{<}fields\texorpdfstring{$>$}{>}, field =\texorpdfstring{$>$}{>} field)}}}}}\label{README.md_autotoc_md22091}
+{\ttfamily unique} is a strategy used for forcing uniqueness within configuration. It\textquotesingle{}s most useful with plugins when you want to make sure there\textquotesingle{}s only one in place.
+
+The first {\ttfamily \texorpdfstring{$<$}{<}field\texorpdfstring{$>$}{>}} is the config property to look through for duplicates.
+
+{\ttfamily \texorpdfstring{$<$}{<}fields\texorpdfstring{$>$}{>}} represents the values that should be unique when you run the field =\texorpdfstring{$>$}{>} field function on each duplicate.
+
+When the order of elements of the {\ttfamily \texorpdfstring{$<$}{<}field\texorpdfstring{$>$}{>}} in the first configuration differs from the order in the second configuration, the latter is preserved.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ mergeWithCustomize,\ unique\ \}\ =\ require("{}webpack-\/merge"{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ output\ =\ mergeWithCustomize(\{}
+\DoxyCodeLine{\ \ customizeArray:\ unique(}
+\DoxyCodeLine{\ \ \ \ "{}plugins"{},}
+\DoxyCodeLine{\ \ \ \ ["{}HotModuleReplacementPlugin"{}],}
+\DoxyCodeLine{\ \ \ \ (plugin)\ =>\ plugin.constructor\ \&\&\ plugin.constructor.name}
+\DoxyCodeLine{\ \ ),}
+\DoxyCodeLine{\})(}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ plugins:\ [new\ webpack.HotModuleReplacementPlugin()],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ plugins:\ [new\ webpack.HotModuleReplacementPlugin()],}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Output\ contains\ only\ single\ HotModuleReplacementPlugin\ now\ and\ it's}
+\DoxyCodeLine{//\ going\ to\ be\ the\ last\ plugin\ instance.}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22092}{}\doxysubsubsection{\texorpdfstring{{\bfseries{{\ttfamily merge\+With\+Rules}}}}{{\bfseries{{\ttfamily merge\+With\+Rules}}}}}\label{README.md_autotoc_md22092}
+To support advanced merging needs (i.\+e. merging within loaders), {\ttfamily merge\+With\+Rules} includes additional syntax that allows you to match fields and apply strategies to match. Consider the full example below\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ a\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).css\$/,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [\{\ loader:\ "{}style-\/loader"{}\ \},\ \{\ loader:\ "{}sass-\/loader"{}\ \}],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{const\ b\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).css\$/,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ modules:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{const\ result\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).css\$/,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ modules:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{\ loader:\ "{}sass-\/loader"{}\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert.deepStrictEqual(}
+\DoxyCodeLine{\ \ mergeWithRules(\{}
+\DoxyCodeLine{\ \ \ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ rules:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ "{}match"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ loader:\ "{}match"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ options:\ "{}replace"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \})(a,\ b),}
+\DoxyCodeLine{\ \ result}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+
+
+The way it works is that you should annotate fields to match using {\ttfamily match} (or {\ttfamily Customize\+Rule.\+Match} if you are using Type\+Script) matching your configuration structure and then use specific strategies to define how particular fields should be transformed. If a match doesn\textquotesingle{}t exist above a rule, then it will apply the rule automatically.
+
+{\bfseries{Supported annotations\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily match} ({\ttfamily Customize\+Rule.\+Match}) -\/ Optional matcher that scopes merging behavior to a specific part based on similarity (think DOM or j\+Query selectors)
+\item {\ttfamily append} ({\ttfamily Customize\+Rule.\+Append}) -\/ Appends items
+\item {\ttfamily prepend} ({\ttfamily Customize\+Rule.\+Prepend}) -\/ Prepends items
+\item {\ttfamily replace} ({\ttfamily Customize\+Rule.\+Replace}) -\/ Replaces items
+\item {\ttfamily merge} ({\ttfamily Customize\+Rule.\+Merge}) -\/ Merges objects (shallow merge)
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md22093}{}\doxysubsubsection{\texorpdfstring{Using with Type\+Script}{Using with Type\+Script}}\label{README.md_autotoc_md22093}
+{\bfseries{webpack-\/merge}} supports Type\+Script out of the box. You should pass {\ttfamily Configuration} type from webpack to it as follows\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ Configuration\ \}\ from\ "{}webpack"{};}
+\DoxyCodeLine{import\ \{\ merge\ \}\ from\ "{}webpack-\/merge"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ config\ =\ merge<Configuration>(\{...\},\ \{...\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22094}{}\doxysubsubsection{\texorpdfstring{Development}{Development}}\label{README.md_autotoc_md22094}
+
+\begin{DoxyEnumerate}
+\item {\ttfamily nvm use}
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item {\ttfamily npm i}
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item {\ttfamily npm run build -\/-\/ -\/-\/watch} in one terminal
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item {\ttfamily npm t -\/-\/ -\/-\/watch} in another one
+\end{DoxyEnumerate}
+
+Before contributing, please \href{https://github.com/survivejs/webpack-merge/issues/new}{\texttt{ open an issue}} where to discuss.\hypertarget{README.md_autotoc_md22095}{}\doxysubsubsection{\texorpdfstring{Further Information and Support}{Further Information and Support}}\label{README.md_autotoc_md22095}
+Check out \href{http://survivejs.com/}{\texttt{ Survive\+JS -\/ Webpack 5}} to dig deeper into webpack. The free book uses {\bfseries{webpack-\/merge}} extensively and shows you how to compose your configuration to keep it maintainable.
+
+I am also available as a consultant in case you require specific assistance. I can contribute particularly in terms of improving maintainability of the setup while speeding it up and pointing out better practices. In addition to improving developer productivity, the work has impact on the end users of the product in terms of reduced application size and loading times.\hypertarget{README.md_autotoc_md22096}{}\doxysubsubsection{\texorpdfstring{Contributors}{Contributors}}\label{README.md_autotoc_md22096}
+\hypertarget{README.md_autotoc_md22097}{}\doxysubsubsubsection{\texorpdfstring{Code Contributors}{Code Contributors}}\label{README.md_autotoc_md22097}
+This project exists thanks to all the people who contribute. \mbox{[}Contribute\mbox{]}. \href{https://github.com/survivejs/webpack-merge/graphs/contributors}{\texttt{ }}\hypertarget{README.md_autotoc_md22098}{}\doxysubsubsubsection{\texorpdfstring{Financial Contributors}{Financial Contributors}}\label{README.md_autotoc_md22098}
+Become a financial contributor and help us sustain our community. \mbox{[}\href{https://opencollective.com/webpack-merge/contribute}{\texttt{ Contribute}}\mbox{]}\hypertarget{README.md_autotoc_md22099}{}\doxysubsubsubsubsection{\texorpdfstring{Individuals}{Individuals}}\label{README.md_autotoc_md22099}
+\href{https://opencollective.com/webpack-merge}{\texttt{ }}\hypertarget{README.md_autotoc_md22100}{}\doxysubsubsubsubsection{\texorpdfstring{Organizations}{Organizations}}\label{README.md_autotoc_md22100}
+Support this project with your organization. Your logo will show up here with a link to your website. \mbox{[}\href{https://opencollective.com/webpack-merge/contribute}{\texttt{ Contribute}}\mbox{]}
+
+\href{https://opencollective.com/webpack-merge/organization/0/website}{\texttt{ }} \href{https://opencollective.com/webpack-merge/organization/1/website}{\texttt{ }} \href{https://opencollective.com/webpack-merge/organization/2/website}{\texttt{ }} \href{https://opencollective.com/webpack-merge/organization/3/website}{\texttt{ }} \href{https://opencollective.com/webpack-merge/organization/4/website}{\texttt{ }} \href{https://opencollective.com/webpack-merge/organization/5/website}{\texttt{ }} \href{https://opencollective.com/webpack-merge/organization/6/website}{\texttt{ }} \href{https://opencollective.com/webpack-merge/organization/7/website}{\texttt{ }} \href{https://opencollective.com/webpack-merge/organization/8/website}{\texttt{ }} \href{https://opencollective.com/webpack-merge/organization/9/website}{\texttt{ }}\hypertarget{README.md_autotoc_md22101}{}\doxysubsubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md22101}
+{\bfseries{webpack-\/merge}} is available under MIT. See LICENSE for more details. 

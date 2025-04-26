@@ -1,0 +1,66 @@
+\chapter{MIME Type Parsing}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_content_type}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_content_type}\index{MIME Type Parsing@{MIME Type Parsing}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_content_type_autotoc_md21292}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_content_type_autotoc_md21292}%
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_content_type_autotoc_md21293}{}\doxysection{\texorpdfstring{{\ttfamily MIMEType} interface}{{\ttfamily MIMEType} interface}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_content_type_autotoc_md21293}
+
+\begin{DoxyItemize}
+\item {\bfseries{type}} {\ttfamily string}
+\item {\bfseries{subtype}} {\ttfamily string}
+\item {\bfseries{parameters}} {\ttfamily Map\texorpdfstring{$<$}{<}string, string\texorpdfstring{$>$}{>}}
+\item {\bfseries{essence}} {\ttfamily string}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_content_type_autotoc_md21294}{}\doxysection{\texorpdfstring{{\ttfamily parse\+MIMEType(input)}}{{\ttfamily parse\+MIMEType(input)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_content_type_autotoc_md21294}
+Implements \href{https://mimesniff.spec.whatwg.org/\#parse-a-mime-type}{\texttt{ parse a MIME type}}.
+
+Parses a MIME type, returning its type, subtype, and any associated parameters. If the parser can\textquotesingle{}t parse an input it returns the string literal `\textquotesingle{}failure'\`{}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ parseMIMEType\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{parseMIMEType('text/html;\ charset=gbk')}
+\DoxyCodeLine{//\ \{}
+\DoxyCodeLine{//\ \ \ type:\ 'text',}
+\DoxyCodeLine{//\ \ \ subtype:\ 'html',}
+\DoxyCodeLine{//\ \ \ parameters:\ Map(1)\ \{\ 'charset'\ =>\ 'gbk'\ \},}
+\DoxyCodeLine{//\ \ \ essence:\ 'text/html'}
+\DoxyCodeLine{//\ \}}
+
+\end{DoxyCode}
+
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{input}} {\ttfamily string}
+\end{DoxyItemize}
+
+Returns\+: `MIMEType\texorpdfstring{$\vert$}{|}\textquotesingle{}failure'\`{}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_content_type_autotoc_md21295}{}\doxysection{\texorpdfstring{{\ttfamily serialize\+AMime\+Type(input)}}{{\ttfamily serialize\+AMime\+Type(input)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_content_type_autotoc_md21295}
+Implements \href{https://mimesniff.spec.whatwg.org/\#serialize-a-mime-type}{\texttt{ serialize a MIME type}}.
+
+Serializes a MIMEType object.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ serializeAMimeType\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{serializeAMimeType(\{}
+\DoxyCodeLine{\ \ type:\ 'text',}
+\DoxyCodeLine{\ \ subtype:\ 'html',}
+\DoxyCodeLine{\ \ parameters:\ new\ Map([['charset',\ 'gbk']]),}
+\DoxyCodeLine{\ \ essence:\ 'text/html'}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{//\ text/html;charset=gbk}
+
+\end{DoxyCode}
+
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{mime\+Type}} {\ttfamily MIMEType}
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily string} 

@@ -1,0 +1,625 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/less-\/loader Directory Reference}
+\hypertarget{dir_8d28a3de1b6e700c03146076844c7e85}{}\label{dir_8d28a3de1b6e700c03146076844c7e85}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/less-\/loader Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/less-\/loader Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+ \href{https://github.com/webpack/webpack}{\texttt{  }} 
+
+\href{https://npmjs.com/package/less-loader}{\texttt{ }} \href{https://nodejs.org}{\texttt{ }} \href{https://github.com/webpack-contrib/less-loader/actions}{\texttt{ }} \href{https://codecov.io/gh/webpack-contrib/less-loader}{\texttt{ }} \href{https://gitter.im/webpack/webpack}{\texttt{ }} \href{https://packagephobia.now.sh/result?p=less-loader}{\texttt{ }}\hypertarget{README.md_autotoc_md12714}{}\doxysubsection{\texorpdfstring{less-\/loader}{less-\/loader}}\label{README.md_autotoc_md12714}
+A Less loader for webpack. Compiles Less to CSS.\hypertarget{README.md_autotoc_md12715}{}\doxysubsubsection{\texorpdfstring{Getting Started}{Getting Started}}\label{README.md_autotoc_md12715}
+To begin, you\textquotesingle{}ll need to install {\ttfamily less} and {\ttfamily less-\/loader}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ less\ less-\/loader\ -\/-\/save-\/dev}
+
+\end{DoxyCode}
+
+
+or
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn\ add\ -\/D\ less\ less-\/loader}
+
+\end{DoxyCode}
+
+
+or
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{pnpm\ add\ -\/D\ less\ less-\/loader}
+
+\end{DoxyCode}
+
+
+Then add the loader to your {\ttfamily webpack} config. For example\+:
+
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ //\ compiles\ Less\ to\ CSS}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+And run {\ttfamily webpack} via your preferred method.\hypertarget{README.md_autotoc_md12716}{}\doxysubsubsection{\texorpdfstring{Options}{Options}}\label{README.md_autotoc_md12716}
+
+\begin{DoxyItemize}
+\item {\bfseries{\`{}less\+Options\`{}}}
+\item {\bfseries{\`{}additional\+Data\`{}}}
+\item {\bfseries{\`{}source\+Map\`{}}}
+\item {\bfseries{\`{}webpack\+Importer\`{}}}
+\item {\bfseries{\`{}implementation\`{}}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md12717}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily less\+Options}}{{\ttfamily less\+Options}}}\label{README.md_autotoc_md12717}
+Type\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{type\ lessOptions\ =\ import('less').options\ |\ ((loaderContext:\ LoaderContext)\ =>\ import('less').options\})}
+
+\end{DoxyCode}
+
+
+Default\+: {\ttfamily \{ relative\+Urls\+: true \}}
+
+You can pass any Less specific options to the {\ttfamily less-\/loader} through the {\ttfamily less\+Options} property in the \href{https://webpack.js.org/configuration/module/\#rule-options-rule-query}{\texttt{ loader options}}. See the \href{http://lesscss.org/usage/\#command-line-usage-options}{\texttt{ Less documentation}} for all available options in dash-\/case. Since we\textquotesingle{}re passing these options to Less programmatically, you need to pass them in camel\+Case here\+:\hypertarget{README.md_autotoc_md12718}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily object}}{{\ttfamily object}}}\label{README.md_autotoc_md12718}
+Use an object to pass options through to Less.
+
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ lessOptions:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strictMath:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12719}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily function}}{{\ttfamily function}}}\label{README.md_autotoc_md12719}
+Allows setting the options passed through to Less based off of the loader context.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ lessOptions:\ (loaderContext)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ More\ information\ about\ available\ properties\ https://webpack.js.org/api/loaders/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ \{\ resourcePath,\ rootContext\ \}\ =\ loaderContext;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ relativePath\ =\ path.relative(rootContext,\ resourcePath);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (relativePath\ ===\ "{}styles/foo.less"{})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ paths:\ ["{}absolute/path/c"{},\ "{}absolute/path/d"{}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ paths:\ ["{}absolute/path/a"{},\ "{}absolute/path/b"{}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12720}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily additional\+Data}}{{\ttfamily additional\+Data}}}\label{README.md_autotoc_md12720}
+Type\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{type\ additionalData\ =}
+\DoxyCodeLine{\ \ |\ string}
+\DoxyCodeLine{\ \ |\ ((content:\ string,\ loaderContext:\ LoaderContext)\ =>\ string);}
+
+\end{DoxyCode}
+
+
+Default\+: {\ttfamily undefined}
+
+Prepends/\+Appends {\ttfamily Less} code to the actual entry file. In this case, the {\ttfamily less-\/loader} will not override the source but just {\bfseries{prepend}} the entry\textquotesingle{}s content.
+
+This is especially useful when some of your Less variables depend on the environment\+:
+
+\begin{quote}
+Since you\textquotesingle{}re injecting code, this will break the source mappings in your entry file. Often there\textquotesingle{}s a simpler solution than this, like multiple Less entry files. \end{quote}
+\hypertarget{README.md_autotoc_md12721}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily string}}{{\ttfamily string}}}\label{README.md_autotoc_md12721}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ additionalData:\ \`{}@env:\ \$\{process.env.NODE\_ENV\};`,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12722}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily function}}{{\ttfamily function}}}\label{README.md_autotoc_md12722}
+\hypertarget{README.md_autotoc_md12723}{}\doxysubsubsubsubsubsection{\texorpdfstring{{\ttfamily Sync}}{{\ttfamily Sync}}}\label{README.md_autotoc_md12723}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ additionalData:\ (content,\ loaderContext)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ More\ information\ about\ available\ properties\ https://webpack.js.org/api/loaders/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ \{\ resourcePath,\ rootContext\ \}\ =\ loaderContext;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ relativePath\ =\ path.relative(rootContext,\ resourcePath);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (relativePath\ ===\ "{}styles/foo.less"{})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ "{}@value:\ 100px;"{}\ +\ content;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ "{}@value:\ 200px;"{}\ +\ content;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12724}{}\doxysubsubsubsubsubsection{\texorpdfstring{{\ttfamily Async}}{{\ttfamily Async}}}\label{README.md_autotoc_md12724}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ additionalData:\ async\ (content,\ loaderContext)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ More\ information\ about\ available\ properties\ https://webpack.js.org/api/loaders/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ \{\ resourcePath,\ rootContext\ \}\ =\ loaderContext;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ relativePath\ =\ path.relative(rootContext,\ resourcePath);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (relativePath\ ===\ "{}styles/foo.less"{})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ "{}@value:\ 100px;"{}\ +\ content;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ "{}@value:\ 200px;"{}\ +\ content;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12725}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily source\+Map}}{{\ttfamily source\+Map}}}\label{README.md_autotoc_md12725}
+Type\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{type\ sourceMap\ =\ boolean;}
+
+\end{DoxyCode}
+
+
+Default\+: depends on the {\ttfamily compiler.\+devtool} value
+
+By default generation of source maps depends on the \href{https://webpack.js.org/configuration/devtool/}{\texttt{ {\ttfamily devtool}}} option. All values enable source map generation except {\ttfamily eval} and {\ttfamily false} value.
+
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ sourceMap:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ sourceMap:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12726}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily webpack\+Importer}}{{\ttfamily webpack\+Importer}}}\label{README.md_autotoc_md12726}
+Type\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{type\ webpackImporter\ =\ boolean;}
+
+\end{DoxyCode}
+
+
+Default\+: {\ttfamily true}
+
+Enables/\+Disables the default {\ttfamily webpack} importer.
+
+This can improve performance in some cases. Use it with caution because aliases and {\ttfamily @import} from \href{https://webpack.js.org/configuration/resolve/\#resolvemodules}{\texttt{ {\ttfamily node\+\_\+modules}}} will not work.
+
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ webpackImporter:\ false,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12727}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily implementation}}{{\ttfamily implementation}}}\label{README.md_autotoc_md12727}
+Type\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{type\ implementation\ =\ object\ |\ string;}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+less-\/loader compatible with Less 3 and 4 versions \end{quote}
+
+
+The special {\ttfamily implementation} option determines which implementation of Less to use. Overrides the locally installed {\ttfamily peer\+Dependency} version of {\ttfamily less}.
+
+{\bfseries{This option is only really useful for downstream tooling authors to ease the Less 3-\/to-\/4 transition.}}\hypertarget{README.md_autotoc_md12728}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily object}}{{\ttfamily object}}}\label{README.md_autotoc_md12728}
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ implementation:\ require("{}less"{}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12729}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily string}}{{\ttfamily string}}}\label{README.md_autotoc_md12729}
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ implementation:\ require.resolve("{}less"{}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12730}{}\doxysubsubsection{\texorpdfstring{Examples}{Examples}}\label{README.md_autotoc_md12730}
+\hypertarget{README.md_autotoc_md12731}{}\doxysubsubsubsection{\texorpdfstring{Normal usage}{Normal usage}}\label{README.md_autotoc_md12731}
+Chain the {\ttfamily less-\/loader} with the \href{https://github.com/webpack-contrib/css-loader}{\texttt{ {\ttfamily css-\/loader}}} and the \href{https://github.com/webpack-contrib/style-loader}{\texttt{ {\ttfamily style-\/loader}}} to immediately apply all styles to the DOM.
+
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}style-\/loader"{},\ //\ creates\ style\ nodes\ from\ JS\ strings}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}css-\/loader"{},\ //\ translates\ CSS\ into\ CommonJS}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},\ //\ compiles\ Less\ to\ CSS}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+Unfortunately, Less doesn\textquotesingle{}t map all options 1-\/by-\/1 to camel\+Case. When in doubt, \href{https://github.com/less/less.js/blob/3.x/bin/lessc}{\texttt{ check their executable}} and search for the dash-\/case option.\hypertarget{README.md_autotoc_md12732}{}\doxysubsubsubsection{\texorpdfstring{Source maps}{Source maps}}\label{README.md_autotoc_md12732}
+To enable sourcemaps for CSS, you\textquotesingle{}ll need to pass the {\ttfamily source\+Map} property in the loader\textquotesingle{}s options. If this is not passed, the loader will respect the setting for webpack source maps, set in {\ttfamily devtool}.
+
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ devtool:\ "{}source-\/map"{},\ //\ any\ "{}source-\/map"{}-\/like\ devtool\ is\ possible}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ sourceMap:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ sourceMap:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+If you want to edit the original Less files inside Chrome, \href{https://medium.com/@toolmantim/getting-started-with-css-sourcemaps-and-in-browser-sass-editing-b4daab987fb0}{\texttt{ there\textquotesingle{}s a good blog post}}. The blog post is about Sass but it also works for Less.\hypertarget{README.md_autotoc_md12733}{}\doxysubsubsubsection{\texorpdfstring{In production}{In production}}\label{README.md_autotoc_md12733}
+Usually, it\textquotesingle{}s recommended to extract the style sheets into a dedicated file in production using the \href{https://github.com/webpack-contrib/mini-css-extract-plugin}{\texttt{ Mini\+Css\+Extract\+Plugin}}. This way your styles are not dependent on Java\+Script.\hypertarget{README.md_autotoc_md12734}{}\doxysubsubsubsection{\texorpdfstring{Imports}{Imports}}\label{README.md_autotoc_md12734}
+First we try to use built-\/in {\ttfamily less} resolve logic, then {\ttfamily webpack} resolve logic.\hypertarget{README.md_autotoc_md12735}{}\doxysubsubsubsubsection{\texorpdfstring{Webpack Resolver}{Webpack Resolver}}\label{README.md_autotoc_md12735}
+{\ttfamily webpack} provides an \href{https://webpack.js.org/configuration/resolve/}{\texttt{ advanced mechanism to resolve files}}. {\ttfamily less-\/loader} applies a Less plugin that passes all queries to the webpack resolver if {\ttfamily less} could not resolve {\ttfamily @import}. Thus you can import your Less modules from {\ttfamily node\+\_\+modules}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@import\ "{}bootstrap/less/bootstrap"{};}
+
+\end{DoxyCode}
+
+
+Using {\ttfamily \texorpdfstring{$\sim$}{\string~}} is deprecated and can be removed from your code ({\bfseries{we recommend it}}), but we still support it for historical reasons. Why you can removed it? The loader will first try to resolve {\ttfamily @import} as relative, if it cannot be resolved, the loader will try to resolve {\ttfamily @import} inside \href{https://webpack.js.org/configuration/resolve/\#resolvemodules}{\texttt{ {\ttfamily node\+\_\+modules}}}.
+
+Default resolver options can be modified by \href{https://webpack.js.org/configuration/resolve/\#resolvebydependency}{\texttt{ {\ttfamily resolve.\+by\+Dependency}}}\+:
+
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ devtool:\ "{}source-\/map"{},\ //\ any\ "{}source-\/map"{}-\/like\ devtool\ is\ possible}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ ["{}style-\/loader"{},\ "{}css-\/loader"{},\ "{}less-\/loader"{}],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ resolve:\ \{}
+\DoxyCodeLine{\ \ \ \ byDependency:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ More\ options\ can\ be\ found\ here\ https://webpack.js.org/configuration/resolve/}
+\DoxyCodeLine{\ \ \ \ \ \ less:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ mainFiles:\ ["{}custom"{}],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12736}{}\doxysubsubsubsubsection{\texorpdfstring{Less Resolver}{Less Resolver}}\label{README.md_autotoc_md12736}
+If you specify the {\ttfamily paths} option, modules will be searched in the given {\ttfamily paths}. This is {\ttfamily less} default behavior. {\ttfamily paths} should be an array with absolute paths\+:
+
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ module:\ \{}
+\DoxyCodeLine{\ \ \ \ rules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ test:\ /\(\backslash\).less\$/i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}style-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}css-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ loader:\ "{}less-\/loader"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ lessOptions:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ paths:\ [path.resolve(\_\_dirname,\ "{}node\_modules"{})],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12737}{}\doxysubsubsubsection{\texorpdfstring{Plugins}{Plugins}}\label{README.md_autotoc_md12737}
+In order to use \href{http://lesscss.org/usage/\#plugins}{\texttt{ plugins}}, simply set the {\ttfamily plugins} option like this\+:
+
+{\bfseries{webpack.\+config.\+js}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ CleanCSSPlugin\ =\ require('less-\/plugin-\/clean-\/css');}
+\DoxyCodeLine{}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ ...}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ loader:\ 'less-\/loader',}
+\DoxyCodeLine{\ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lessOptions:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ plugins:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ new\ CleanCSSPlugin(\{\ advanced:\ true\ \}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ ...}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+{\bfseries{Note}}
+
+Access to the \href{https://webpack.js.org/api/loaders/\#the-loader-context}{\texttt{ loader context}} inside the custom plugin can be done using the {\ttfamily plugin\+Manager.\+webpack\+Loader\+Context} property. \end{quote}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ install:\ function\ (less,\ pluginManager,\ functions)\ \{}
+\DoxyCodeLine{\ \ \ \ functions.add("{}pi"{},\ function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ Loader\ context\ is\ available\ in\ \`{}pluginManager.webpackLoaderContext`}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ return\ Math.PI;}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12738}{}\doxysubsubsubsection{\texorpdfstring{Extracting style sheets}{Extracting style sheets}}\label{README.md_autotoc_md12738}
+Bundling CSS with webpack has some nice advantages like referencing images and fonts with hashed urls or \href{https://webpack.js.org/concepts/hot-module-replacement/}{\texttt{ hot module replacement}} in development. In production, on the other hand, it\textquotesingle{}s not a good idea to apply your style sheets depending on JS execution. Rendering may be delayed or even a \href{https://en.wikipedia.org/wiki/Flash_of_unstyled_content}{\texttt{ FOUC}} might be visible. Thus it\textquotesingle{}s often still better to have them as separate files in your final production build.
+
+There are two possibilities to extract a style sheet from the bundle\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/peerigon/extract-loader}{\texttt{ {\ttfamily extract-\/loader}}} (simpler, but specialized on the css-\/loader\textquotesingle{}s output)
+\item \href{https://github.com/webpack-contrib/mini-css-extract-plugin}{\texttt{ {\ttfamily Mini\+Css\+Extract\+Plugin}}} (more complex, but works in all use-\/cases)
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md12739}{}\doxysubsubsubsection{\texorpdfstring{CSS modules gotcha}{CSS modules gotcha}}\label{README.md_autotoc_md12739}
+There is a known problem with Less and \href{https://github.com/css-modules/css-modules}{\texttt{ CSS modules}} regarding relative file paths in {\ttfamily url(...)} statements. \href{https://github.com/webpack-contrib/less-loader/issues/109\#issuecomment-253797335}{\texttt{ See this issue for an explanation}}.\hypertarget{README.md_autotoc_md12740}{}\doxysubsubsection{\texorpdfstring{Contributing}{Contributing}}\label{README.md_autotoc_md12740}
+Please take a moment to read our contributing guidelines if you haven\textquotesingle{}t yet done so.
+
+CONTRIBUTING\hypertarget{README.md_autotoc_md12741}{}\doxysubsubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md12741}
+\href{./LICENSE}{\texttt{ MIT}} 

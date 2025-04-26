@@ -1,0 +1,67 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@npmcli/git/node\+\_\+modules/isexe Directory Reference}
+\hypertarget{dir_50877ae86d5439d24cc41f281db6c201}{}\label{dir_50877ae86d5439d24cc41f281db6c201}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@npmcli/git/node\_modules/isexe Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@npmcli/git/node\_modules/isexe Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Minimal module to check if a file is executable, and a normal file.
+
+Uses {\ttfamily fs.\+stat} and tests against the {\ttfamily PATHEXT} environment variable on Windows.\hypertarget{README.md_autotoc_md1520}{}\doxysubsection{\texorpdfstring{USAGE}{USAGE}}\label{README.md_autotoc_md1520}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ isexe,\ sync\ \}\ from\ 'isexe'}
+\DoxyCodeLine{//\ or\ require()\ works\ too}
+\DoxyCodeLine{//\ const\ \{\ isexe\ \}\ =\ require('isexe')}
+\DoxyCodeLine{isexe('some-\/file-\/name').then(isExe\ =>\ \{}
+\DoxyCodeLine{\ \ if\ (isExe)\ \{}
+\DoxyCodeLine{\ \ \ \ console.error('this\ thing\ can\ be\ run')}
+\DoxyCodeLine{\ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ console.error('cannot\ be\ run')}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\},\ (err)\ =>\ \{}
+\DoxyCodeLine{\ \ console.error('probably\ file\ doesnt\ exist\ or\ something')}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ same\ thing\ but\ synchronous,\ throws\ errors}
+\DoxyCodeLine{isExe\ =\ sync('some-\/file-\/name')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ treat\ errors\ as\ just\ "{}not\ executable"{}}
+\DoxyCodeLine{const\ isExe\ =\ await\ isexe('maybe-\/missing-\/file',\ \{\ ignoreErrors:\ true\ \})}
+\DoxyCodeLine{const\ isExe\ =\ sync('maybe-\/missing-\/file',\ \{\ ignoreErrors:\ true\ \})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1521}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md1521}
+\hypertarget{README.md_autotoc_md1522}{}\doxysubsubsection{\texorpdfstring{{\ttfamily isexe(path, \mbox{[}options\mbox{]}) =\texorpdfstring{$>$}{>} Promise\texorpdfstring{$<$}{<}boolean\texorpdfstring{$>$}{>}}}{{\ttfamily isexe(path, \mbox{[}options\mbox{]}) =\texorpdfstring{$>$}{>} Promise\texorpdfstring{$<$}{<}boolean\texorpdfstring{$>$}{>}}}}\label{README.md_autotoc_md1522}
+Check if the path is executable.
+
+Will raise whatever errors may be raised by {\ttfamily fs.\+stat}, unless {\ttfamily options.\+ignore\+Errors} is set to true.\hypertarget{README.md_autotoc_md1523}{}\doxysubsubsection{\texorpdfstring{{\ttfamily sync(path, \mbox{[}options\mbox{]}) =\texorpdfstring{$>$}{>} boolean}}{{\ttfamily sync(path, \mbox{[}options\mbox{]}) =\texorpdfstring{$>$}{>} boolean}}}\label{README.md_autotoc_md1523}
+Same as {\ttfamily isexe} but returns the value and throws any errors raised.\hypertarget{README.md_autotoc_md1524}{}\doxysubsection{\texorpdfstring{Platform Specific Implementations}{Platform Specific Implementations}}\label{README.md_autotoc_md1524}
+If for some reason you want to use the implementation for a specific platform, you can do that.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ win32,\ posix\ \}\ from\ 'isexe'}
+\DoxyCodeLine{win32.isexe(...)}
+\DoxyCodeLine{win32.sync(...)}
+\DoxyCodeLine{//\ etc}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ or:}
+\DoxyCodeLine{import\ \{\ isexe,\ sync\ \}\ from\ 'isexe/posix'}
+
+\end{DoxyCode}
+
+
+The default exported implementation will be chosen based on {\ttfamily process.\+platform}.\hypertarget{README.md_autotoc_md1525}{}\doxysubsubsection{\texorpdfstring{Options}{Options}}\label{README.md_autotoc_md1525}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ type\ IsexeOptions\ from\ 'isexe'}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily ignore\+Errors} Treat all errors as "{}no, this is not   executable"{}, but don\textquotesingle{}t raise them.
+\item {\ttfamily uid} Number to use as the user id on posix
+\item {\ttfamily gid} Number to use as the group id on posix
+\item {\ttfamily path\+Ext} List of path extensions to use instead of {\ttfamily PATHEXT} environment variable on Windows. 
+\end{DoxyItemize}

@@ -1,0 +1,46 @@
+\chapter{long-\/description}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2completion_2long-description}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2completion_2long-description}\index{long-\/description@{long-\/description}}
+Setting up autocompletion configures your terminal, so pressing the {\ttfamily \texorpdfstring{$<$}{<}TAB\texorpdfstring{$>$}{>}} key while in the middle of typing will display various commands and options available to you. This makes it very easy to discover and use CLI commands without lots of memorization.
+
+!\mbox{[}A demo of Angular CLI autocompletion in a terminal. The user types several partial {\ttfamily ng} commands, using autocompletion to finish several arguments and list contextual options. \mbox{]}(generated/images/guide/cli/completion.\+gif)\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2completion_2long-description_autotoc_md70}{}\doxysubsection{\texorpdfstring{Automated setup}{Automated setup}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2completion_2long-description_autotoc_md70}
+The CLI should prompt and ask to set up autocompletion for you the first time you use it (v14+). Simply answer "{}\+Yes"{} and the CLI will take care of the rest.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ ng\ serve}
+\DoxyCodeLine{?\ Would\ you\ like\ to\ enable\ autocompletion?\ This\ will\ set\ up\ your\ terminal\ so\ pressing\ TAB\ while\ typing\ Angular\ CLI\ commands\ will\ show\ possible\ options\ and\ autocomplete\ arguments.\ (Enabling\ autocompletion\ will\ modify\ configuration\ files\ in\ your\ home\ directory.)\ Yes}
+\DoxyCodeLine{Appended\ \`{}source\ <(ng\ completion\ script)`\ to\ \`{}/home/my-\/username/.bashrc`.\ Restart\ your\ terminal\ or\ run:}
+\DoxyCodeLine{}
+\DoxyCodeLine{source\ <(ng\ completion\ script)}
+\DoxyCodeLine{}
+\DoxyCodeLine{to\ autocomplete\ \`{}ng`\ commands.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Serve\ output...}
+
+\end{DoxyCode}
+
+
+If you already refused the prompt, it won\textquotesingle{}t ask again. But you can run {\ttfamily ng completion} to do the same thing automatically.
+
+This modifies your terminal environment to load Angular CLI autocompletion, but can\textquotesingle{}t update your current terminal session. Either restart it or run {\ttfamily source \texorpdfstring{$<$}{<}(ng completion script)} directly to enable autocompletion in your current session.
+
+Test it out by typing {\ttfamily ng ser\texorpdfstring{$<$}{<}TAB\texorpdfstring{$>$}{>}} and it should autocomplete to {\ttfamily ng serve}. Ambiguous arguments will show all possible options and their documentation, such as {\ttfamily ng generate \texorpdfstring{$<$}{<}TAB\texorpdfstring{$>$}{>}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2completion_2long-description_autotoc_md71}{}\doxysubsection{\texorpdfstring{Manual setup}{Manual setup}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2completion_2long-description_autotoc_md71}
+Some users may have highly customized terminal setups, possibly with configuration files checked into source control with an opinionated structure. {\ttfamily ng completion} only ever appends Angular\textquotesingle{}s setup to an existing configuration file for your current shell, or creates one if none exists. If you want more control over exactly where this configuration lives, you can manually set it up by having your shell run at startup\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source\ <(ng\ completion\ script)}
+
+\end{DoxyCode}
+
+
+This is equivalent to what {\ttfamily ng completion} will automatically set up, and gives power users more flexibility in their environments when desired.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2completion_2long-description_autotoc_md72}{}\doxysubsection{\texorpdfstring{Platform support}{Platform support}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2completion_2long-description_autotoc_md72}
+Angular CLI supports autocompletion for the Bash and Zsh shells on Mac\+OS and Linux operating systems. On Windows, Git Bash and \href{https://docs.microsoft.com/en-us/windows/wsl/}{\texttt{ Windows Subsystem for Linux}} using Bash or Zsh are supported.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2completion_2long-description_autotoc_md73}{}\doxysubsection{\texorpdfstring{Global install}{Global install}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2_0dangular_2cli_2src_2commands_2completion_2long-description_autotoc_md73}
+Autocompletion works by configuring your terminal to invoke the Angular CLI on startup to load the setup script. This means the terminal must be able to find and execute the Angular CLI, typically through a global install that places the binary on the user\textquotesingle{}s {\ttfamily \$PATH}. If you get {\ttfamily command not found\+: ng}, make sure the CLI is installed globally which you can do with the {\ttfamily -\/g} flag\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/g\ @angular/cli}
+
+\end{DoxyCode}
+ 

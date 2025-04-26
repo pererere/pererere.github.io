@@ -1,0 +1,124 @@
+\chapter{Class\+: Proxy\+Agent}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent}\index{Class: ProxyAgent@{Class: ProxyAgent}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21476}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21476}%
+
+
+Extends\+: {\ttfamily undici.\+Dispatcher}
+
+A Proxy Agent class that implements the Agent API. It allows the connection through proxy in a simple way.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21477}{}\doxysection{\texorpdfstring{{\ttfamily new Proxy\+Agent(\mbox{[}options\mbox{]})}}{{\ttfamily new Proxy\+Agent(\mbox{[}options\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21477}
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{options}} {\ttfamily Proxy\+Agent\+Options} (required) -\/ It extends the {\ttfamily Agent} options.
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily Proxy\+Agent}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21478}{}\doxysubsection{\texorpdfstring{Parameter\+: {\ttfamily Proxy\+Agent\+Options}}{Parameter\+: {\ttfamily Proxy\+Agent\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21478}
+Extends\+: \href{Agent.md\#parameter-agentoptions}{\texttt{ {\ttfamily Agent\+Options}}}
+
+
+\begin{DoxyItemize}
+\item {\bfseries{uri}} {\ttfamily string} (required) -\/ It can be passed either by a string or a object containing {\ttfamily uri} as string.
+\item {\bfseries{token}} {\ttfamily string} (optional) -\/ It can be passed by a string of token for authentication.
+\item {\bfseries{auth}} {\ttfamily string} ({\bfseries{deprecated}}) -\/ Use token.
+\item {\bfseries{client\+Factory}} {\ttfamily (origin\+: URL, opts\+: Object) =\texorpdfstring{$>$}{>} Dispatcher} (optional) -\/ Default\+: {\ttfamily (origin, opts) =\texorpdfstring{$>$}{>} new Pool(origin, opts)}
+\item {\bfseries{request\+Tls}} {\ttfamily Build\+Options} (optional) -\/ Options object passed when creating the underlying socket via the connector builder for the request. See \href{https://nodejs.org/api/tls.html\#tlsconnectoptions-callback}{\texttt{ TLS}}.
+\item {\bfseries{proxy\+Tls}} {\ttfamily Build\+Options} (optional) -\/ Options object passed when creating the underlying socket via the connector builder for the proxy server. See \href{https://nodejs.org/api/tls.html\#tlsconnectoptions-callback}{\texttt{ TLS}}.
+\end{DoxyItemize}
+
+Examples\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ ProxyAgent\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ proxyAgent\ =\ new\ ProxyAgent('my.proxy.server')}
+\DoxyCodeLine{//\ or}
+\DoxyCodeLine{const\ proxyAgent\ =\ new\ ProxyAgent(\{\ uri:\ 'my.proxy.server'\ \})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21479}{}\doxysubsubsection{\texorpdfstring{Example -\/ Basic Proxy\+Agent instantiation}{Example -\/ Basic Proxy\+Agent instantiation}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21479}
+This will instantiate the Proxy\+Agent. It will not do anything until registered as the agent to use with requests.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ ProxyAgent\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ proxyAgent\ =\ new\ ProxyAgent('my.proxy.server')}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21480}{}\doxysubsubsection{\texorpdfstring{Example -\/ Basic Proxy Request with global agent dispatcher}{Example -\/ Basic Proxy Request with global agent dispatcher}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21480}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ setGlobalDispatcher,\ request,\ ProxyAgent\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ proxyAgent\ =\ new\ ProxyAgent('my.proxy.server')}
+\DoxyCodeLine{setGlobalDispatcher(proxyAgent)}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ \{\ statusCode,\ body\ \}\ =\ await\ request('http://localhost:3000/foo')}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('response\ received',\ statusCode)\ //\ response\ received\ 200}
+\DoxyCodeLine{}
+\DoxyCodeLine{for\ await\ (const\ data\ of\ body)\ \{}
+\DoxyCodeLine{\ \ console.log('data',\ data.toString('utf8'))\ //\ data\ foo}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21481}{}\doxysubsubsection{\texorpdfstring{Example -\/ Basic Proxy Request with local agent dispatcher}{Example -\/ Basic Proxy Request with local agent dispatcher}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21481}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ ProxyAgent,\ request\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ proxyAgent\ =\ new\ ProxyAgent('my.proxy.server')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ \{}
+\DoxyCodeLine{\ \ statusCode,}
+\DoxyCodeLine{\ \ body}
+\DoxyCodeLine{\}\ =\ await\ request('http://localhost:3000/foo',\ \{\ dispatcher:\ proxyAgent\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('response\ received',\ statusCode)\ //\ response\ received\ 200}
+\DoxyCodeLine{}
+\DoxyCodeLine{for\ await\ (const\ data\ of\ body)\ \{}
+\DoxyCodeLine{\ \ console.log('data',\ data.toString('utf8'))\ //\ data\ foo}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21482}{}\doxysubsubsection{\texorpdfstring{Example -\/ Basic Proxy Request with authentication}{Example -\/ Basic Proxy Request with authentication}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21482}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ setGlobalDispatcher,\ request,\ ProxyAgent\ \}\ from\ 'undici';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ proxyAgent\ =\ new\ ProxyAgent(\{}
+\DoxyCodeLine{\ \ uri:\ 'my.proxy.server',}
+\DoxyCodeLine{\ \ //\ token:\ 'Bearer\ xxxx'}
+\DoxyCodeLine{\ \ token:\ \`{}Basic\ \$\{Buffer.from('username:password').toString('base64')\}`}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{setGlobalDispatcher(proxyAgent);}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ \{\ statusCode,\ body\ \}\ =\ await\ request('http://localhost:3000/foo');}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('response\ received',\ statusCode);\ //\ response\ received\ 200}
+\DoxyCodeLine{}
+\DoxyCodeLine{for\ await\ (const\ data\ of\ body)\ \{}
+\DoxyCodeLine{\ \ console.log('data',\ data.toString('utf8'));\ //\ data\ foo}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21483}{}\doxysubsection{\texorpdfstring{{\ttfamily Proxy\+Agent.\+close()}}{{\ttfamily Proxy\+Agent.\+close()}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21483}
+Closes the proxy agent and waits for registered pools and clients to also close before resolving.
+
+Returns\+: {\ttfamily Promise\texorpdfstring{$<$}{<}void\texorpdfstring{$>$}{>}}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21484}{}\doxysubsubsection{\texorpdfstring{Example -\/ clean up after tests are complete}{Example -\/ clean up after tests are complete}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21484}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ ProxyAgent,\ setGlobalDispatcher\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ proxyAgent\ =\ new\ ProxyAgent('my.proxy.server')}
+\DoxyCodeLine{setGlobalDispatcher(proxyAgent)}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ proxyAgent.close()}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21485}{}\doxysubsection{\texorpdfstring{{\ttfamily Proxy\+Agent.\+dispatch(options, handlers)}}{{\ttfamily Proxy\+Agent.\+dispatch(options, handlers)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21485}
+Implements \href{Agent.md\#parameter-agentdispatchoptions}{\texttt{ {\ttfamily Agent.\+dispatch(options, handlers)}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21486}{}\doxysubsection{\texorpdfstring{{\ttfamily Proxy\+Agent.\+request(options\mbox{[}, callback\mbox{]})}}{{\ttfamily Proxy\+Agent.\+request(options\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_proxy_agent_autotoc_md21486}
+See \href{Dispatcher.md\#dispatcherrequestoptions-callback}{\texttt{ {\ttfamily Dispatcher.\+request(options \mbox{[}, callback\mbox{]})}}}. 

@@ -1,0 +1,76 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/unicode-\/property-\/aliases-\/ecmascript Directory Reference}
+\hypertarget{dir_4097c1f6e863da6d80c203868046fac2}{}\label{dir_4097c1f6e863da6d80c203868046fac2}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/unicode-\/property-\/aliases-\/ecmascript Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/unicode-\/property-\/aliases-\/ecmascript Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+{\itshape unicode-\/property-\/aliases-\/ecmascript} offers Unicode property alias mappings in an easy-\/to-\/consume Java\+Script format. It only contains the Unicode property names that are supported in \href{https://github.com/tc39/proposal-regexp-unicode-property-escapes}{\texttt{ ECMAScript Reg\+Exp property escapes}}.
+
+It’s based on Unicode’s {\ttfamily Property\+Aliases.\+txt}.\hypertarget{README.md_autotoc_md21559}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md21559}
+To use {\itshape unicode-\/property-\/aliases-\/ecmascript} programmatically, install it as a dependency via \href{https://www.npmjs.com/}{\texttt{ npm}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ unicode-\/property-\/aliases-\/ecmascript}
+
+\end{DoxyCode}
+
+
+Then, {\ttfamily require} it\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ propertyAliases\ =\ require('unicode-\/property-\/aliases-\/ecmascript');}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21560}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md21560}
+This module exports a {\ttfamily Map} object. The most common usage is to convert a property alias to its canonical form\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{propertyAliases.get('scx')}
+\DoxyCodeLine{//\ →\ 'Script\_Extensions'}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21561}{}\doxysubsection{\texorpdfstring{For maintainers}{For maintainers}}\label{README.md_autotoc_md21561}
+\hypertarget{README.md_autotoc_md21562}{}\doxysubsubsection{\texorpdfstring{How to publish a new release}{How to publish a new release}}\label{README.md_autotoc_md21562}
+
+\begin{DoxyEnumerate}
+\item On the {\ttfamily main} branch, bump the version number in {\ttfamily package.\+json}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ version\ patch\ -\/m\ 'Release\ v\%s'}
+
+\end{DoxyCode}
+
+
+Instead of {\ttfamily patch}, use {\ttfamily minor} or {\ttfamily major} \href{https://semver.org/}{\texttt{ as needed}}.
+
+Note that this produces a Git commit + tag.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Push the release commit and tag\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ push\ \&\&\ git\ push\ -\/-\/tags}
+
+\end{DoxyCode}
+
+
+Our CI then automatically publishes the new release to npm.
+\end{DoxyEnumerate}\hypertarget{README.md_autotoc_md21563}{}\doxysubsection{\texorpdfstring{Author}{Author}}\label{README.md_autotoc_md21563}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \href{https://twitter.com/mathias}{\texttt{ }}    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \href{https://twitter.com/mathias}{\texttt{ }}    }\\\cline{1-1}
+\endhead
+\href{https://mathiasbynens.be/}{\texttt{ Mathias Bynens}}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{README.md_autotoc_md21564}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md21564}
+{\itshape unicode-\/property-\/aliases-\/ecmascript} is available under the \href{https://mths.be/mit}{\texttt{ MIT}} license. 

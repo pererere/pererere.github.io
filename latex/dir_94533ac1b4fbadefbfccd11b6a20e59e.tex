@@ -1,0 +1,52 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/batch Directory Reference}
+\hypertarget{dir_94533ac1b4fbadefbfccd11b6a20e59e}{}\label{dir_94533ac1b4fbadefbfccd11b6a20e59e}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/batch Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/batch Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Simple async batch with concurrency control and progress reporting.\hypertarget{Readme.md_autotoc_md2945}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{Readme.md_autotoc_md2945}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ batch}
+
+\end{DoxyCode}
+\hypertarget{Readme.md_autotoc_md2946}{}\doxysubsection{\texorpdfstring{API}{API}}\label{Readme.md_autotoc_md2946}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ Batch\ =\ require('batch')}
+\DoxyCodeLine{\ \ ,\ batch\ =\ new\ Batch;}
+\DoxyCodeLine{}
+\DoxyCodeLine{batch.concurrency(4);}
+\DoxyCodeLine{}
+\DoxyCodeLine{ids.forEach(function(id)\{}
+\DoxyCodeLine{\ \ batch.push(function(done)\{}
+\DoxyCodeLine{\ \ \ \ User.get(id,\ done);}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{batch.on('progress',\ function(e)\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{batch.end(function(err,\ users)\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{Readme.md_autotoc_md2947}{}\doxysubsubsection{\texorpdfstring{Progress events}{Progress events}}\label{Readme.md_autotoc_md2947}
+Contain the "{}job"{} index, response value, duration information, and completion data.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\ index:\ 1,}
+\DoxyCodeLine{\ \ value:\ 'bar',}
+\DoxyCodeLine{\ \ pending:\ 2,}
+\DoxyCodeLine{\ \ total:\ 3,}
+\DoxyCodeLine{\ \ complete:\ 2,}
+\DoxyCodeLine{\ \ percent:\ 66,}
+\DoxyCodeLine{\ \ start:\ Thu\ Oct\ 04\ 2012\ 12:25:53\ GMT-\/0700\ (PDT),}
+\DoxyCodeLine{\ \ end:\ Thu\ Oct\ 04\ 2012\ 12:25:53\ GMT-\/0700\ (PDT),}
+\DoxyCodeLine{\ \ duration:\ 0\ \}}
+
+\end{DoxyCode}
+\hypertarget{Readme.md_autotoc_md2948}{}\doxysubsection{\texorpdfstring{License}{License}}\label{Readme.md_autotoc_md2948}
+\mbox{[}MIT\mbox{]}(LICENSE) 

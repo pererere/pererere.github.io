@@ -1,0 +1,66 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/server.includes Directory Reference}
+\hypertarget{dir_d71bc347e3c037010fc9b1a45b1b34c5}{}\label{dir_d71bc347e3c037010fc9b1a45b1b34c5}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/server.includes Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/server.includes Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Server includes example\hypertarget{readme.md_autotoc_md3542}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3542}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/server.includes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3543}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3543}
+\hypertarget{readme.md_autotoc_md3544}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily app.\+js}\+:}{Preview of {\ttfamily app.\+js}\+:}}\label{readme.md_autotoc_md3544}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Require\ Browsersync}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{var\ browserSync\ =\ require('browser-\/sync').create();}
+\DoxyCodeLine{var\ fs\ =\ require('fs');}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Run\ Browsersync\ with\ server\ config}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{browserSync.init(\{}
+\DoxyCodeLine{\ \ \ \ server:\ 'app',}
+\DoxyCodeLine{\ \ \ \ files:\ ['app/*.html',\ 'app/css/*.css'],}
+\DoxyCodeLine{\ \ \ \ rewriteRules:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ match:\ /@include\(\backslash\)("{}(.+?)"{}\(\backslash\))/g,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ fn:\ function\ (match,\ filename)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (fs.existsSync(filename))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ fs.readFileSync(filename);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ '<span\ style="{}color:\ red"{}>'+filename+'\ could\ not\ be\ found</span>';}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+ 

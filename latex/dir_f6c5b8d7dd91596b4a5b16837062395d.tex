@@ -1,0 +1,99 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/ini Directory Reference}
+\hypertarget{dir_f6c5b8d7dd91596b4a5b16837062395d}{}\label{dir_f6c5b8d7dd91596b4a5b16837062395d}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/ini Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/ini Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+An ini format parser and serializer for node.
+
+Sections are treated as nested objects. Items before the first heading are saved on the object directly.\hypertarget{README.md_autotoc_md9425}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md9425}
+Consider an ini-\/file {\ttfamily config.\+ini} that looks like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{;\ this\ comment\ is\ being\ ignored}
+\DoxyCodeLine{scope\ =\ global}
+\DoxyCodeLine{}
+\DoxyCodeLine{[database]}
+\DoxyCodeLine{user\ =\ dbuser}
+\DoxyCodeLine{password\ =\ dbpassword}
+\DoxyCodeLine{database\ =\ use\_this\_database}
+\DoxyCodeLine{}
+\DoxyCodeLine{[paths.default]}
+\DoxyCodeLine{datadir\ =\ /var/lib/data}
+\DoxyCodeLine{array[]\ =\ first\ value}
+\DoxyCodeLine{array[]\ =\ second\ value}
+\DoxyCodeLine{array[]\ =\ third\ value}
+
+\end{DoxyCode}
+
+
+You can read, manipulate and write the ini-\/file like so\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ fs\ =\ require('fs')}
+\DoxyCodeLine{\ \ ,\ ini\ =\ require('ini')}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ config\ =\ ini.parse(fs.readFileSync('./config.ini',\ 'utf-\/8'))}
+\DoxyCodeLine{}
+\DoxyCodeLine{config.scope\ =\ 'local'}
+\DoxyCodeLine{config.database.database\ =\ 'use\_another\_database'}
+\DoxyCodeLine{config.paths.default.tmpdir\ =\ '/tmp'}
+\DoxyCodeLine{delete\ config.paths.default.datadir}
+\DoxyCodeLine{config.paths.default.array.push('fourth\ value')}
+\DoxyCodeLine{}
+\DoxyCodeLine{fs.writeFileSync('./config\_modified.ini',\ ini.stringify(config,\ \{\ section:\ 'section'\ \}))}
+
+\end{DoxyCode}
+
+
+This will result in a file called {\ttfamily config\+\_\+modified.\+ini} being written to the filesystem with the following content\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[section]}
+\DoxyCodeLine{scope=local}
+\DoxyCodeLine{[section.database]}
+\DoxyCodeLine{user=dbuser}
+\DoxyCodeLine{password=dbpassword}
+\DoxyCodeLine{database=use\_another\_database}
+\DoxyCodeLine{[section.paths.default]}
+\DoxyCodeLine{tmpdir=/tmp}
+\DoxyCodeLine{array[]=first\ value}
+\DoxyCodeLine{array[]=second\ value}
+\DoxyCodeLine{array[]=third\ value}
+\DoxyCodeLine{array[]=fourth\ value}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md9426}{}\doxysubsubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md9426}
+\hypertarget{README.md_autotoc_md9427}{}\doxysubsubsubsection{\texorpdfstring{decode(inistring)}{decode(inistring)}}\label{README.md_autotoc_md9427}
+Decode the ini-\/style formatted {\ttfamily inistring} into a nested object.\hypertarget{README.md_autotoc_md9428}{}\doxysubsubsubsection{\texorpdfstring{parse(inistring)}{parse(inistring)}}\label{README.md_autotoc_md9428}
+Alias for {\ttfamily decode(inistring)}\hypertarget{README.md_autotoc_md9429}{}\doxysubsubsubsection{\texorpdfstring{encode(object, \mbox{[}options\mbox{]})}{encode(object, \mbox{[}options\mbox{]})}}\label{README.md_autotoc_md9429}
+Encode the object {\ttfamily object} into an ini-\/style formatted string. If the optional parameter {\ttfamily section} is given, then all top-\/level properties of the object are put into this section and the {\ttfamily section}-\/string is prepended to all sub-\/sections, see the usage example above.
+
+The {\ttfamily options} object may contain the following\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily align} Boolean to specify whether to align the {\ttfamily =} characters for each section. This option will automatically enable {\ttfamily whitespace}. Defaults to {\ttfamily false}.
+\item {\ttfamily section} String which will be the first {\ttfamily section} in the encoded ini data. Defaults to none.
+\item {\ttfamily sort} Boolean to specify if all keys in each section, as well as all sections, will be alphabetically sorted. Defaults to {\ttfamily false}.
+\item {\ttfamily whitespace} Boolean to specify whether to put whitespace around the {\ttfamily =} character. By default, whitespace is omitted, to be friendly to some persnickety old parsers that don\textquotesingle{}t tolerate it well. But some find that it\textquotesingle{}s more human-\/readable and pretty with the whitespace. Defaults to {\ttfamily false}.
+\item {\ttfamily newline} Boolean to specify whether to put an additional newline after a section header. Some INI file parsers (for example the TOSHIBA Flash\+Air one) need this to parse the file successfully. By default, the additional newline is omitted.
+\item {\ttfamily platform} String to define which platform this INI file is expected to be used with\+: when {\ttfamily platform} is {\ttfamily win32}, line terminations are CR+\+LF, for other platforms line termination is LF. By default, the current platform name is used.
+\item {\ttfamily bracketed\+Arrays} Boolean to specify whether array values are appended with {\ttfamily \mbox{[}\mbox{]}}. By default this is true but there are some ini parsers that instead treat duplicate names as arrays.
+\end{DoxyItemize}
+
+For backwards compatibility reasons, if a {\ttfamily string} options is passed in, then it is assumed to be the {\ttfamily section} value.\hypertarget{README.md_autotoc_md9430}{}\doxysubsubsubsection{\texorpdfstring{stringify(object, \mbox{[}options\mbox{]})}{stringify(object, \mbox{[}options\mbox{]})}}\label{README.md_autotoc_md9430}
+Alias for {\ttfamily encode(object, \mbox{[}options\mbox{]})}\hypertarget{README.md_autotoc_md9431}{}\doxysubsubsubsection{\texorpdfstring{safe(val)}{safe(val)}}\label{README.md_autotoc_md9431}
+Escapes the string {\ttfamily val} such that it is safe to be used as a key or value in an ini-\/file. Basically escapes quotes. For example
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ini.safe('"{}unsafe\ string"{}')}
+
+\end{DoxyCode}
+
+
+would result in \begin{DoxyVerb}"\"unsafe string\""
+\end{DoxyVerb}
+\hypertarget{README.md_autotoc_md9432}{}\doxysubsubsubsection{\texorpdfstring{unsafe(val)}{unsafe(val)}}\label{README.md_autotoc_md9432}
+Unescapes the string {\ttfamily val} 

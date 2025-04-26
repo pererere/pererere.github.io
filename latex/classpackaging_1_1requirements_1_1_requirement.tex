@@ -1,0 +1,58 @@
+\doxysection{packaging.\+requirements.\+Requirement Class Reference}
+\hypertarget{classpackaging_1_1requirements_1_1_requirement}{}\label{classpackaging_1_1requirements_1_1_requirement}\index{packaging.requirements.Requirement@{packaging.requirements.Requirement}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classpackaging_1_1requirements_1_1_requirement_ac7a1ef62cb418b11420467acc9e548df}\label{classpackaging_1_1requirements_1_1_requirement_ac7a1ef62cb418b11420467acc9e548df} 
+None {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, str requirement\+\_\+string)
+\item 
+\Hypertarget{classpackaging_1_1requirements_1_1_requirement_a81054d033973a49aeaf4f7f99bcf7d77}\label{classpackaging_1_1requirements_1_1_requirement_a81054d033973a49aeaf4f7f99bcf7d77} 
+str {\bfseries \+\_\+\+\_\+str\+\_\+\+\_\+} (self)
+\item 
+\Hypertarget{classpackaging_1_1requirements_1_1_requirement_a6708b6ed089a23b941832d811c8478c0}\label{classpackaging_1_1requirements_1_1_requirement_a6708b6ed089a23b941832d811c8478c0} 
+str {\bfseries \+\_\+\+\_\+repr\+\_\+\+\_\+} (self)
+\item 
+\Hypertarget{classpackaging_1_1requirements_1_1_requirement_a69426ed6e3cc347033b3096195023bfc}\label{classpackaging_1_1requirements_1_1_requirement_a69426ed6e3cc347033b3096195023bfc} 
+int {\bfseries \+\_\+\+\_\+hash\+\_\+\+\_\+} (self)
+\item 
+\Hypertarget{classpackaging_1_1requirements_1_1_requirement_ae285c586a0e8b9e700b0f5f25e2c2671}\label{classpackaging_1_1requirements_1_1_requirement_ae285c586a0e8b9e700b0f5f25e2c2671} 
+bool {\bfseries \+\_\+\+\_\+eq\+\_\+\+\_\+} (self, Any other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classpackaging_1_1requirements_1_1_requirement_aaaadd34e0716c514cbc9db753fc86e72}\label{classpackaging_1_1requirements_1_1_requirement_aaaadd34e0716c514cbc9db753fc86e72} 
+str {\bfseries name} = parsed.\+name
+\item 
+\Hypertarget{classpackaging_1_1requirements_1_1_requirement_ab245083a37b668934311b0d156d7556a}\label{classpackaging_1_1requirements_1_1_requirement_ab245083a37b668934311b0d156d7556a} 
+Optional\mbox{[}str\mbox{]} {\bfseries url} = parsed.\+url or None
+\item 
+\Hypertarget{classpackaging_1_1requirements_1_1_requirement_a967630654d685df109554f0d773c97b8}\label{classpackaging_1_1requirements_1_1_requirement_a967630654d685df109554f0d773c97b8} 
+Set\mbox{[}str\mbox{]} {\bfseries extras} = set(parsed.\+extras if parsed.\+extras else \mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{classpackaging_1_1requirements_1_1_requirement_a8692d57e7d40ca627bed3f331e6c17e0}\label{classpackaging_1_1requirements_1_1_requirement_a8692d57e7d40ca627bed3f331e6c17e0} 
+\mbox{\hyperlink{classpackaging_1_1specifiers_1_1_specifier_set}{Specifier\+Set}} {\bfseries specifier} = \mbox{\hyperlink{classpackaging_1_1specifiers_1_1_specifier_set}{Specifier\+Set}}(parsed.\+specifier)
+\item 
+\Hypertarget{classpackaging_1_1requirements_1_1_requirement_a644b02dd52dd907fde13b735cf99364e}\label{classpackaging_1_1requirements_1_1_requirement_a644b02dd52dd907fde13b735cf99364e} 
+Optional\mbox{[}\mbox{\hyperlink{classpackaging_1_1markers_1_1_marker}{Marker}}\mbox{]} {\bfseries marker} = None
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classpackaging_1_1requirements_1_1_requirement_a3e2189ef001b0ee563ff402a6a240895}\label{classpackaging_1_1requirements_1_1_requirement_a3e2189ef001b0ee563ff402a6a240895} 
+Iterator\mbox{[}str\mbox{]} {\bfseries \+\_\+iter\+\_\+parts} (self, str name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Parse a requirement.
+
+Parse a given requirement string into its parts, such as name, specifier,
+URL, and extras. Raises InvalidRequirement on a badly-formed requirement
+string.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/foodlink.\+client/node\+\_\+modules/node-\/gyp/gyp/pylib/packaging/requirements.\+py\end{DoxyCompactItemize}

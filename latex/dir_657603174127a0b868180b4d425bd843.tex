@@ -1,0 +1,164 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@sigstore/sign Directory Reference}
+\hypertarget{dir_657603174127a0b868180b4d425bd843}{}\label{dir_657603174127a0b868180b4d425bd843}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@sigstore/sign Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@sigstore/sign Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+A library for generating \href{https://www.sigstore.dev}{\texttt{ Sigstore}} signatures.\hypertarget{README.md_autotoc_md1728}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{README.md_autotoc_md1728}
+
+\begin{DoxyItemize}
+\item Support for keyless signature generation with \href{https://github.com/sigstore/fulcio}{\texttt{ Fulcio}}-\/issued signing certificates
+\item Support for ambient OIDC credential detection in CI/\+CD environments
+\item Support for recording signatures to the \href{https://github.com/sigstore/rekor}{\texttt{ Rekor}} transparency log
+\item Support for requesting timestamped countersignature from a \href{https://github.com/sigstore/timestamp-authority}{\texttt{ Timestamp Authority}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1729}{}\doxysubsection{\texorpdfstring{Prerequisites}{Prerequisites}}\label{README.md_autotoc_md1729}
+
+\begin{DoxyItemize}
+\item Node.\+js version \texorpdfstring{$>$}{>}= 14.\+17.\+0
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1730}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md1730}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ @sigstore/sign}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1731}{}\doxysubsection{\texorpdfstring{Overview}{Overview}}\label{README.md_autotoc_md1731}
+This library provides the building blocks for composing custom Sigstore signing workflows.\hypertarget{README.md_autotoc_md1732}{}\doxysubsubsection{\texorpdfstring{Bundle\+Builder}{Bundle\+Builder}}\label{README.md_autotoc_md1732}
+The top-\/level component is the {\ttfamily Bundle\+Builder} which has responsibility for taking some artifact and returning a \href{https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto}{\texttt{ Sigstore bundle}} containing the signature for that artifact and the various materials necessary to verify that signature.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{interface\ BundleBuilder\ \{}
+\DoxyCodeLine{\ \ create:\ (artifact:\ Artifact)\ =>\ Promise<Bundle>;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The artifact to be signed is simply an array of bytes and an optional mimetype. The type is necessary when the signature is packaged as a \href{https://github.com/secure-systems-lab/dsse}{\texttt{ DSSE}} envelope.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{type\ Artifact\ =\ \{}
+\DoxyCodeLine{\ \ data:\ Buffer;}
+\DoxyCodeLine{\ \ type?:\ string;}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+There are two {\ttfamily Bundle\+Builder} implementations provided as part of this package\+:
+
+
+\begin{DoxyItemize}
+\item \href{./src/bundler/dsse.ts}{\texttt{ {\ttfamily DSSEBundle\+Builder}}} -\/ Combines the verification material and artifact signature into a \href{https://github.com/sigstore/protobuf-specs/blob/5ef54068bb534152474c5685f5cd248f38549fbd/protos/sigstore_bundle.proto\#L80}{\texttt{ {\ttfamily dsse\+\_\+envelope}}} -\/style Sigstore bundle
+\item \href{./src/bundler/message.ts}{\texttt{ {\ttfamily Message\+Bundle\+Builder}}} -\/ Combines the verification material and artifact signature into a \href{https://github.com/sigstore/protobuf-specs/blob/5ef54068bb534152474c5685f5cd248f38549fbd/protos/sigstore_bundle.proto\#L74}{\texttt{ {\ttfamily message\+\_\+signature}}}-\/style Sigstore bundle.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1733}{}\doxysubsubsection{\texorpdfstring{Signer}{Signer}}\label{README.md_autotoc_md1733}
+Every {\ttfamily Bundle\+Builder} must be instantiated with a {\ttfamily Signer} implementation. The {\ttfamily Signer} is responsible for taking a {\ttfamily Buffer} and returning an {\ttfamily Signature}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{interface\ Signer\ \{}
+\DoxyCodeLine{\ \ sign:\ (data:\ Buffer)\ =>\ Promise<Signature>;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The returned {\ttfamily Signature} contains a signature and the public key which can be used to verify that signature -- the key may either take the form of a x509 certificate or public key.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{type\ Signature\ =\ \{}
+\DoxyCodeLine{\ \ signature:\ Buffer;}
+\DoxyCodeLine{\ \ key:\ KeyMaterial;}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{type\ KeyMaterial\ =}
+\DoxyCodeLine{\ \ |\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \$case:\ 'x509Certificate';}
+\DoxyCodeLine{\ \ \ \ \ \ certificate:\ string;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ |\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \$case:\ 'publicKey';}
+\DoxyCodeLine{\ \ \ \ \ \ publicKey:\ string;}
+\DoxyCodeLine{\ \ \ \ \ \ hint?:\ string;}
+\DoxyCodeLine{\ \ \ \ \};}
+
+\end{DoxyCode}
+
+
+This package provides the \href{./src/signer/fulcio/index.ts}{\texttt{ {\ttfamily Fulcio\+Signer}}} which implements the {\ttfamily Signer} interface and signs the artifact with an ephemeral keypair. It will also retrieve an OIDC token from the configured {\ttfamily Identity\+Provider} and then request a signing certificate from Fulcio which binds the ephemeral key to the identity embedded in the token. This signing certificate is returned as part of the {\ttfamily Signature}.\hypertarget{README.md_autotoc_md1734}{}\doxysubsubsection{\texorpdfstring{Witness}{Witness}}\label{README.md_autotoc_md1734}
+The {\ttfamily Bundle\+Builder} may also be configured with zero-\/or-\/more {\ttfamily Witness} instances. Each {\ttfamily Witness} receives the artifact signature and the public key and returns an {\ttfamily Verification\+Material} which represents some sort of counter-\/signature for the artifact\textquotesingle{}s signature.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{interface\ Witness\ \{}
+\DoxyCodeLine{\ \ testify:\ (}
+\DoxyCodeLine{\ \ \ \ signature:\ SignatureBundle,}
+\DoxyCodeLine{\ \ \ \ publicKey:\ string}
+\DoxyCodeLine{\ \ )\ =>\ Promise<VerificationMaterial>;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The returned {\ttfamily Verification\+Material} may contain either Rekor transparency log entries or RFC3161 timestamps.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{type\ VerificationMaterial\ =\ \{}
+\DoxyCodeLine{\ \ tlogEntries?:\ TransparencyLogEntry[];}
+\DoxyCodeLine{\ \ rfc3161Timestamps?:\ RFC3161SignedTimestamp[];}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+The entries in the returned {\ttfamily Verification\+Material} are automatically added to the Sigstore {\ttfamily Bundle} by the {\ttfamily Bundle\+Builder}.
+
+The package provides two different {\ttfamily Witness} implementations\+:
+
+
+\begin{DoxyItemize}
+\item \href{./src/witness/tlog/index.ts}{\texttt{ {\ttfamily Rekor\+Witness}}} -\/ Adds an entry to the Rekor transparency log and returns a {\ttfamily Transparency\+Log\+Entry} to be included in the {\ttfamily Bundle}
+\item \href{./src/witness/tsa/index.ts}{\texttt{ {\ttfamily TSAWitness}}} -\/ Requests an RFC3161 timestamp over the artifact signature and returns an {\ttfamily RFC3161\+Signed\+Timestamp} to be included in the {\ttfamily Bundle}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1735}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{README.md_autotoc_md1735}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{}
+\DoxyCodeLine{\ \ CIContextProvider,}
+\DoxyCodeLine{\ \ DSSEBundleBuilder,}
+\DoxyCodeLine{\ \ FulcioSigner,}
+\DoxyCodeLine{\ \ RekorWitness,}
+\DoxyCodeLine{\ \ TSAWitness,}
+\DoxyCodeLine{\}\ =\ require('@sigstore/sign');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Set-\/up\ the\ signer}
+\DoxyCodeLine{const\ signer\ =\ new\ FulcioSigner(\{}
+\DoxyCodeLine{\ \ fulcioBaseURL:\ 'https://fulcio.sigstore.dev',}
+\DoxyCodeLine{\ \ identityProvider:\ new\ CIContextProvider('sigstore'),}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Set-\/up\ the\ witnesses}
+\DoxyCodeLine{const\ rekorWitness\ =\ new\ RekorWitness(\{}
+\DoxyCodeLine{\ \ rekorBaseURL:\ 'https://rekor.sigstore.dev',}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ tsaWitness\ =\ new\ TSAWitness(\{}
+\DoxyCodeLine{\ \ tsaBaseURL:\ 'https://tsa.github.com',}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Instantiate\ a\ bundle\ builder}
+\DoxyCodeLine{const\ bundler\ =\ new\ DSSEBundleBuilder(\{}
+\DoxyCodeLine{\ \ signer,}
+\DoxyCodeLine{\ \ witnesses:\ [rekorWitness,\ tsaWitness],}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Sign\ a\ thing}
+\DoxyCodeLine{const\ artifact\ =\ \{}
+\DoxyCodeLine{\ \ type:\ 'text/plain',}
+\DoxyCodeLine{\ \ data:\ Buffer.from('something\ to\ be\ signed'),}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{const\ bundle\ =\ await\ bundler.create(artifact);}
+
+\end{DoxyCode}
+ 

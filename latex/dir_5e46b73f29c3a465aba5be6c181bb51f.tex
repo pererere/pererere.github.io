@@ -1,0 +1,140 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/rfdc Directory Reference}
+\hypertarget{dir_5e46b73f29c3a465aba5be6c181bb51f}{}\label{dir_5e46b73f29c3a465aba5be6c181bb51f}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/rfdc Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/rfdc Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Really Fast Deep Clone
+
+\href{https://travis-ci.org/davidmarkclements/rfdc}{\texttt{ }} \href{https://codecov.io/gh/davidmarkclements/rfdc}{\texttt{ }} \href{http://standardjs.com/}{\texttt{ }}\hypertarget{readme.md_autotoc_md17742}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md17742}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ clone\ =\ require('rfdc')()}
+\DoxyCodeLine{clone(\{a:\ 1,\ b:\ \{c:\ 2\}\})\ //\ =>\ \{a:\ 1,\ b:\ \{c:\ 2\}\}}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17743}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md17743}
+\hypertarget{readme.md_autotoc_md17744}{}\doxysubsubsection{\texorpdfstring{`require(\textquotesingle{}rfdc')(opts = \{ proto\+: false, circles\+: false \}) =\texorpdfstring{$>$}{>} clone(obj) =\texorpdfstring{$>$}{>} obj2\`{}}{`require(\textquotesingle{}rfdc')(opts = \{ proto\+: false, circles\+: false \}) =\texorpdfstring{$>$}{>} clone(obj) =\texorpdfstring{$>$}{>} obj2\`{}}}\label{readme.md_autotoc_md17744}
+\hypertarget{readme.md_autotoc_md17745}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily proto} option}{{\ttfamily proto} option}}\label{readme.md_autotoc_md17745}
+Copy prototype properties as well as own properties into the new object.
+
+It\textquotesingle{}s marginally faster to allow enumerable properties on the prototype to be copied into the cloned object (not onto it\textquotesingle{}s prototype, directly onto the object).
+
+To explain by way of code\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{require('rfdc')(\{\ proto:\ false\ \})(Object.create(\{a:\ 1\}))\ //\ =>\ \{\}}
+\DoxyCodeLine{require('rfdc')(\{\ proto:\ true\ \})(Object.create(\{a:\ 1\}))\ //\ =>\ \{a:\ 1\}}
+
+\end{DoxyCode}
+
+
+Setting {\ttfamily proto} to {\ttfamily true} will provide an additional 2\% performance boost.\hypertarget{readme.md_autotoc_md17746}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily circles} option}{{\ttfamily circles} option}}\label{readme.md_autotoc_md17746}
+Keeping track of circular references will slow down performance with an additional 25\% overhead. Even if an object doesn\textquotesingle{}t have any circular references, the tracking overhead is the cost. By default if an object with a circular reference is passed to {\ttfamily rfdc}, it will throw (similar to how {\ttfamily JSON.\+stringify} \textbackslash{} would throw).
+
+Use the {\ttfamily circles} option to detect and preserve circular references in the object. If performance is important, try removing the circular reference from the object (set to {\ttfamily undefined}) and then add it back manually after cloning instead of using this option.\hypertarget{readme.md_autotoc_md17747}{}\doxysubsubsection{\texorpdfstring{{\ttfamily default} import}{{\ttfamily default} import}}\label{readme.md_autotoc_md17747}
+It is also possible to directly import the clone function with all options set to their default\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ clone\ =\ require("{}rfdc/default"{})}
+\DoxyCodeLine{clone(\{a:\ 1,\ b:\ \{c:\ 2\}\})\ //\ =>\ \{a:\ 1,\ b:\ \{c:\ 2\}\}}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17748}{}\doxysubsubsection{\texorpdfstring{Types}{Types}}\label{readme.md_autotoc_md17748}
+{\ttfamily rfdc} clones all JSON types\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Object}
+\item {\ttfamily Array}
+\item {\ttfamily Number}
+\item {\ttfamily String}
+\item {\ttfamily null}
+\end{DoxyItemize}
+
+With additional support for\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Date} (copied)
+\item {\ttfamily undefined} (copied)
+\item {\ttfamily Buffer} (copied)
+\item {\ttfamily Typed\+Array} (copied)
+\item {\ttfamily Map} (copied)
+\item {\ttfamily Set} (copied)
+\item {\ttfamily Function} (referenced)
+\item {\ttfamily Async\+Function} (referenced)
+\item {\ttfamily Generator\+Function} (referenced)
+\item {\ttfamily arguments} (copied to a normal object)
+\end{DoxyItemize}
+
+All other types have output values that match the output of {\ttfamily JSON.\+parse(JSON.\+stringify(o))}.
+
+For instance\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ rfdc\ =\ require('rfdc')()}
+\DoxyCodeLine{const\ err\ =\ Error()}
+\DoxyCodeLine{err.code\ =\ 1}
+\DoxyCodeLine{JSON.parse(JSON.stringify(e))\ //\ \{code:\ 1\}}
+\DoxyCodeLine{rfdc(e)\ //\ \{code:\ 1\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{JSON.parse(JSON.stringify(\{rx:\ /foo/\}))\ //\ \{rx:\ \{\}\}}
+\DoxyCodeLine{rfdc(\{rx:\ /foo/\})\ //\ \{rx:\ \{\}\}}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17749}{}\doxysubsection{\texorpdfstring{Benchmarks}{Benchmarks}}\label{readme.md_autotoc_md17749}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ run\ bench}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{benchDeepCopy*100:\ 457.568ms}
+\DoxyCodeLine{benchLodashCloneDeep*100:\ 1230.773ms}
+\DoxyCodeLine{benchCloneDeep*100:\ 655.208ms}
+\DoxyCodeLine{benchFastCopy*100:\ 747.017ms}
+\DoxyCodeLine{benchRfdc*100:\ 281.018ms}
+\DoxyCodeLine{benchRfdcProto*100:\ 277.265ms}
+\DoxyCodeLine{benchRfdcCircles*100:\ 328.148ms}
+\DoxyCodeLine{benchRfdcCirclesProto*100:\ 323.004ms}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17750}{}\doxysubsection{\texorpdfstring{Tests}{Tests}}\label{readme.md_autotoc_md17750}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ test}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{169\ passing\ (342.514ms)}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17751}{}\doxysubsubsection{\texorpdfstring{Coverage}{Coverage}}\label{readme.md_autotoc_md17751}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ run\ cov}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|}
+\DoxyCodeLine{File\ \ \ \ \ \ |\ \ \%\ Stmts\ |\ \%\ Branch\ |\ \ \%\ Funcs\ |\ \ \%\ Lines\ |\ Uncovered\ Line\ \#s\ |}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|}
+\DoxyCodeLine{All\ files\ |\ \ \ \ \ \ 100\ |\ \ \ \ \ \ 100\ |\ \ \ \ \ \ 100\ |\ \ \ \ \ \ 100\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}
+\DoxyCodeLine{\ index.js\ |\ \ \ \ \ \ 100\ |\ \ \ \ \ \ 100\ |\ \ \ \ \ \ 100\ |\ \ \ \ \ \ 100\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17752}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md17752}
+MIT 

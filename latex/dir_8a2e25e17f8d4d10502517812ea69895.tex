@@ -1,0 +1,120 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/log4js Directory Reference}
+\hypertarget{dir_8a2e25e17f8d4d10502517812ea69895}{}\label{dir_8a2e25e17f8d4d10502517812ea69895}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/log4js Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/log4js Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://nodei.co/npm/log4js/}{\texttt{ }}
+
+This is a conversion of the \href{https://github.com/stritti/log4js}{\texttt{ log4js}} framework to work with \href{http://nodejs.org}{\texttt{ node}}. I started out just stripping out the browser-\/specific code and tidying up some of the javascript to work better in node. It grew from there. Although it\textquotesingle{}s got a similar name to the Java library \href{https://logging.apache.org/log4j/2.x/}{\texttt{ log4j}}, thinking that it will behave the same way will only bring you sorrow and confusion.
+
+The full documentation is available \href{https://log4js-node.github.io/log4js-node/}{\texttt{ here}}.
+
+\href{https://log4js-node.github.io/log4js-node/v3-changes.md}{\texttt{ Changes in version 3.\+x}}
+
+There have been a few changes between log4js 1.\+x and 2.\+x (and 0.\+x too). You should probably read this \href{https://log4js-node.github.io/log4js-node/migration-guide.html}{\texttt{ migration guide}} if things aren\textquotesingle{}t working.
+
+Out of the box it supports the following features\+:
+
+
+\begin{DoxyItemize}
+\item coloured console logging to stdout or stderr
+\item file appender, with configurable log rolling based on file size or date
+\item a logger for connect/express servers
+\item configurable log message layout/patterns
+\item different log levels for different log categories (make some parts of your app log as DEBUG, others only ERRORS, etc.)
+\end{DoxyItemize}
+
+Optional appenders are available\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/log4js-node/smtp}{\texttt{ SMTP}}
+\item \href{https://github.com/log4js-node/gelf}{\texttt{ GELF}}
+\item \href{https://github.com/log4js-node/loggly}{\texttt{ Loggly}}
+\item Logstash (\href{https://github.com/log4js-node/logstashUDP}{\texttt{ UDP}} and \href{https://github.com/log4js-node/logstashHTTP}{\texttt{ HTTP}})
+\item log\+Faces (\href{https://github.com/log4js-node/logFaces-UDP}{\texttt{ UDP}} and \href{https://github.com/log4js-node/logFaces-HTTP}{\texttt{ HTTP}})
+\item \href{https://github.com/log4js-node/rabbitmq}{\texttt{ Rabbit\+MQ}}
+\item \href{https://github.com/log4js-node/redis}{\texttt{ Redis}}
+\item \href{https://github.com/log4js-node/hipchat}{\texttt{ Hipchat}}
+\item \href{https://github.com/log4js-node/slack}{\texttt{ Slack}}
+\item \href{https://github.com/log4js-node/mailgun}{\texttt{ mailgun}}
+\item \href{https://github.com/rnd-debug/log4js-influxdb-appender}{\texttt{ Influx\+DB}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md13520}{}\doxysubsection{\texorpdfstring{Getting help}{Getting help}}\label{README.md_autotoc_md13520}
+Having problems? Jump on the \href{https://join.slack.com/t/log4js-node/shared_invite/enQtODkzMDQ3MzExMDczLWUzZmY0MmI0YWI1ZjFhODY0YjI0YmU1N2U5ZTRkOTYyYzg3MjY5NWI4M2FjZThjYjdiOGM0NjU2NzBmYTJjOGI}{\texttt{ slack}} channel, or create an issue. If you want to help out with the development, the slack channel is a good place to go as well.\hypertarget{README.md_autotoc_md13521}{}\doxysubsection{\texorpdfstring{installation}{installation}}\label{README.md_autotoc_md13521}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ log4js}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md13522}{}\doxysubsection{\texorpdfstring{usage}{usage}}\label{README.md_autotoc_md13522}
+Minimalist version\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ log4js\ =\ require("{}log4js"{});}
+\DoxyCodeLine{var\ logger\ =\ log4js.getLogger();}
+\DoxyCodeLine{logger.level\ =\ "{}debug"{};}
+\DoxyCodeLine{logger.debug("{}Some\ debug\ messages"{});}
+
+\end{DoxyCode}
+
+
+By default, log4js will not output any logs (so that it can safely be used in libraries). The {\ttfamily level} for the {\ttfamily default} category is set to {\ttfamily OFF}. To enable logs, set the level (as in the example). This will then output to stdout with the coloured layout (thanks to \href{http://github.com/masylum}{\texttt{ masylum}}), so for the above you would see\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[2010-\/01-\/17\ 11:43:37.987]\ [DEBUG]\ [default]\ -\/\ Some\ debug\ messages}
+
+\end{DoxyCode}
+
+
+See example.\+js for a full example, but here\textquotesingle{}s a snippet (also in {\ttfamily examples/fromreadme.\+js})\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ log4js\ =\ require("{}log4js"{});}
+\DoxyCodeLine{log4js.configure(\{}
+\DoxyCodeLine{\ \ appenders:\ \{\ cheese:\ \{\ type:\ "{}file"{},\ filename:\ "{}cheese.log"{}\ \}\ \},}
+\DoxyCodeLine{\ \ categories:\ \{\ default:\ \{\ appenders:\ ["{}cheese"{}],\ level:\ "{}error"{}\ \}\ \},}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ logger\ =\ log4js.getLogger("{}cheese"{});}
+\DoxyCodeLine{logger.trace("{}Entering\ cheese\ testing"{});}
+\DoxyCodeLine{logger.debug("{}Got\ cheese."{});}
+\DoxyCodeLine{logger.info("{}Cheese\ is\ Comté."{});}
+\DoxyCodeLine{logger.warn("{}Cheese\ is\ quite\ smelly."{});}
+\DoxyCodeLine{logger.error("{}Cheese\ is\ too\ ripe!"{});}
+\DoxyCodeLine{logger.fatal("{}Cheese\ was\ breeding\ ground\ for\ listeria."{});}
+
+\end{DoxyCode}
+
+
+Output (in {\ttfamily cheese.\+log})\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[2010-\/01-\/17\ 11:43:37.987]\ [ERROR]\ cheese\ -\/\ Cheese\ is\ too\ ripe!}
+\DoxyCodeLine{[2010-\/01-\/17\ 11:43:37.990]\ [FATAL]\ cheese\ -\/\ Cheese\ was\ breeding\ ground\ for\ listeria.}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md13523}{}\doxysubsection{\texorpdfstring{Note for library makers}{Note for library makers}}\label{README.md_autotoc_md13523}
+If you\textquotesingle{}re writing a library and would like to include support for log4js, without introducing a dependency headache for your users, take a look at \href{https://github.com/log4js-node/log4js-api}{\texttt{ log4js-\/api}}.\hypertarget{README.md_autotoc_md13524}{}\doxysubsection{\texorpdfstring{Documentation}{Documentation}}\label{README.md_autotoc_md13524}
+Available \href{https://log4js-node.github.io/log4js-node/}{\texttt{ here}}.
+
+There\textquotesingle{}s also \href{https://github.com/log4js-node/log4js-example}{\texttt{ an example application}}.\hypertarget{README.md_autotoc_md13525}{}\doxysubsection{\texorpdfstring{Type\+Script}{Type\+Script}}\label{README.md_autotoc_md13525}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ *\ as\ log4js\ from\ "{}log4js"{};}
+\DoxyCodeLine{log4js.configure(\{}
+\DoxyCodeLine{\ \ appenders:\ \{\ cheese:\ \{\ type:\ "{}file"{},\ filename:\ "{}cheese.log"{}\ \}\ \},}
+\DoxyCodeLine{\ \ categories:\ \{\ default:\ \{\ appenders:\ ["{}cheese"{}],\ level:\ "{}error"{}\ \}\ \},}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ logger\ =\ log4js.getLogger();}
+\DoxyCodeLine{logger.level\ =\ "{}debug"{};}
+\DoxyCodeLine{logger.debug("{}Some\ debug\ messages"{});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md13526}{}\doxysubsection{\texorpdfstring{Contributing}{Contributing}}\label{README.md_autotoc_md13526}
+We\textquotesingle{}re always looking for people to help out. Jump on \href{https://join.slack.com/t/log4js-node/shared_invite/enQtODkzMDQ3MzExMDczLWUzZmY0MmI0YWI1ZjFhODY0YjI0YmU1N2U5ZTRkOTYyYzg3MjY5NWI4M2FjZThjYjdiOGM0NjU2NzBmYTJjOGI}{\texttt{ slack}} and discuss what you want to do. Also, take a look at the \href{https://log4js-node.github.io/log4js-node/contrib-guidelines.html}{\texttt{ rules}} before submitting a pull request.\hypertarget{README.md_autotoc_md13527}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md13527}
+The original log4js was distributed under the Apache 2.\+0 License, and so is this. I\textquotesingle{}ve tried to keep the original copyright and author credits in place, except in sections that I have rewritten extensively. 

@@ -1,0 +1,28 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/chrome-\/trace-\/event Directory Reference}
+\hypertarget{dir_10455580619913fdfdc7ab9a8e7ce56b}{}\label{dir_10455580619913fdfdc7ab9a8e7ce56b}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/chrome-\/trace-\/event Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/chrome-\/trace-\/event Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}!\mbox{[}Build Status\mbox{]}(\href{https://travis-ci.org/samccone/chrome-trace-event.svg?branch=master}{\texttt{ https\+://travis-\/ci.\+org/samccone/chrome-\/trace-\/event.\+svg?branch=master}})\mbox{]}(\href{https://travis-ci.org/samccone/chrome-trace-event}{\texttt{ https\+://travis-\/ci.\+org/samccone/chrome-\/trace-\/event}})
+
+chrome-\/trace-\/event\+: A node library for creating trace event logs of program execution according to \href{https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU}{\texttt{ Google\textquotesingle{}s Trace Event format}}. These logs can then be visualized with \href{https://github.com/google/trace-viewer}{\texttt{ trace-\/viewer}} or chrome devtools to grok one\textquotesingle{}s programs.\hypertarget{README.md_autotoc_md3937}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md3937}
+\begin{DoxyVerb}npm install chrome-trace-event
+\end{DoxyVerb}
+\hypertarget{README.md_autotoc_md3938}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md3938}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ Trace\ =\ require("{}chrome-\/trace-\/event"{}).Tracer;}
+\DoxyCodeLine{const\ trace\ =\ new\ Trace(\{}
+\DoxyCodeLine{\ \ \ \ noStream:\ true}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{trace.pipe(fs.createWriteStream(outPath));}
+\DoxyCodeLine{trace.flush();}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md3939}{}\doxysubsection{\texorpdfstring{Links}{Links}}\label{README.md_autotoc_md3939}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/google/trace-viewer/wiki}{\texttt{ https\+://github.\+com/google/trace-\/viewer/wiki}}
+\item \href{https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU}{\texttt{ https\+://docs.\+google.\+com/document/d/1\+Cv\+AClv\+Ffy\+A5\+R-\/\+Ph\+YUmn5\+OOQt\+YMH4h6\+I0n\+Ss\+Kch\+NAy\+SU}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md3940}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md3940}
+MIT. See LICENSE.\+txt. 

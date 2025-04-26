@@ -1,0 +1,316 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/figures Directory Reference}
+\hypertarget{dir_62b16f1fb756aefc2c9e01ae2de6bf05}{}\label{dir_62b16f1fb756aefc2c9e01ae2de6bf05}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/figures Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/figures Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Unicode symbols with fallbacks for older terminals \end{quote}
+
+
+\href{index.js}{\texttt{ }}
+
+\href{index.js}{\texttt{ {\itshape and more...}}}
+
+Terminals such as Windows Console Host (and CMD) only support a \href{http://en.wikipedia.org/wiki/Code_page_437}{\texttt{ limited character set}}.\hypertarget{readme.md_autotoc_md7818}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md7818}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ figures}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md7819}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md7819}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ figures,\ \{replaceSymbols,\ mainSymbols,\ fallbackSymbols\}\ from\ 'figures';}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(figures.tick);}
+\DoxyCodeLine{//\ On\ terminals\ with\ Unicode\ symbols:\ \ ✔︎}
+\DoxyCodeLine{//\ On\ other\ terminals:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ √}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(figures.mainSymbols.tick);}
+\DoxyCodeLine{//\ On\ all\ terminals:\ \ ✔︎}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(figures.fallbackSymbols.tick);}
+\DoxyCodeLine{//\ On\ all\ terminals:\ \ √}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(figures.replaceSymbols('✔︎\ check'));}
+\DoxyCodeLine{//\ On\ terminals\ with\ Unicode\ symbols:\ \ ✔︎\ check}
+\DoxyCodeLine{//\ On\ other\ terminals:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ √\ check}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md7820}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md7820}
+\hypertarget{readme.md_autotoc_md7821}{}\doxysubsubsection{\texorpdfstring{figures (default export)}{figures (default export)}}\label{readme.md_autotoc_md7821}
+Type\+: {\ttfamily object}
+
+Symbols to use on any terminal.\hypertarget{readme.md_autotoc_md7822}{}\doxysubsubsection{\texorpdfstring{main\+Symbols}{main\+Symbols}}\label{readme.md_autotoc_md7822}
+Symbols to use when the terminal supports Unicode symbols.\hypertarget{readme.md_autotoc_md7823}{}\doxysubsubsection{\texorpdfstring{fallback\+Symbols}{fallback\+Symbols}}\label{readme.md_autotoc_md7823}
+Symbols to use when the terminal does not support Unicode symbols.\hypertarget{readme.md_autotoc_md7824}{}\doxysubsubsection{\texorpdfstring{replace\+Symbols(string)}{replace\+Symbols(string)}}\label{readme.md_autotoc_md7824}
+Returns the input with replaced fallback Unicode symbols on older terminals.
+
+All the below figures are attached to the default export as shown in the example above.\hypertarget{readme.md_autotoc_md7825}{}\doxysubsubsubsection{\texorpdfstring{string}{string}}\label{readme.md_autotoc_md7825}
+Type\+: {\ttfamily string}
+
+String where the Unicode symbols will be replaced with fallback symbols depending on the terminal.\hypertarget{readme.md_autotoc_md7826}{}\doxysubsection{\texorpdfstring{Figures}{Figures}}\label{readme.md_autotoc_md7826}
+{\ttfamily Fallback} characters are only shown when they differ from the {\ttfamily Main} ones.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Name   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Main   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Fallback    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Name   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Main   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Fallback    }\\\cline{1-3}
+\endhead
+tick   &\PBS\centering {\ttfamily ✔}   &\PBS\centering {\ttfamily √}    \\\cline{1-3}
+info   &\PBS\centering {\ttfamily ℹ}   &\PBS\centering {\ttfamily i}    \\\cline{1-3}
+warning   &\PBS\centering {\ttfamily ⚠}   &\PBS\centering {\ttfamily ‼}    \\\cline{1-3}
+cross   &\PBS\centering {\ttfamily ✘}   &\PBS\centering {\ttfamily ×}    \\\cline{1-3}
+square   &\PBS\centering {\ttfamily █}   &\PBS\centering \\\cline{1-3}
+square\+Small   &\PBS\centering {\ttfamily ◻}   &\PBS\centering {\ttfamily □}    \\\cline{1-3}
+square\+Small\+Filled   &\PBS\centering {\ttfamily ◼}   &\PBS\centering {\ttfamily ■}    \\\cline{1-3}
+square\+Dark\+Shade   &\PBS\centering {\ttfamily ▓}   &\PBS\centering \\\cline{1-3}
+square\+Medium\+Shade   &\PBS\centering {\ttfamily ▒}   &\PBS\centering \\\cline{1-3}
+square\+Light\+Shade   &\PBS\centering {\ttfamily ░}   &\PBS\centering \\\cline{1-3}
+square\+Top   &\PBS\centering {\ttfamily ▀}   &\PBS\centering \\\cline{1-3}
+square\+Bottom   &\PBS\centering {\ttfamily ▄}   &\PBS\centering \\\cline{1-3}
+square\+Left   &\PBS\centering {\ttfamily ▌}   &\PBS\centering \\\cline{1-3}
+square\+Right   &\PBS\centering {\ttfamily ▐}   &\PBS\centering \\\cline{1-3}
+square\+Center   &\PBS\centering {\ttfamily ■}   &\PBS\centering \\\cline{1-3}
+circle   &\PBS\centering {\ttfamily ◯}   &\PBS\centering {\ttfamily ( )}    \\\cline{1-3}
+circle\+Filled   &\PBS\centering {\ttfamily ◉}   &\PBS\centering {\ttfamily (\texorpdfstring{$\ast$}{*})}    \\\cline{1-3}
+circle\+Dotted   &\PBS\centering {\ttfamily ◌}   &\PBS\centering {\ttfamily ( )}    \\\cline{1-3}
+circle\+Double   &\PBS\centering {\ttfamily ◎}   &\PBS\centering {\ttfamily ( )}    \\\cline{1-3}
+circle\+Circle   &\PBS\centering {\ttfamily ⓞ}   &\PBS\centering {\ttfamily (○)}    \\\cline{1-3}
+circle\+Cross   &\PBS\centering {\ttfamily ⓧ}   &\PBS\centering {\ttfamily (×)}    \\\cline{1-3}
+circle\+Pipe   &\PBS\centering {\ttfamily Ⓘ}   &\PBS\centering {\ttfamily (│)}    \\\cline{1-3}
+circle\+Question\+Mark   &\PBS\centering {\ttfamily ?⃝}   &\PBS\centering {\ttfamily (?)}    \\\cline{1-3}
+radio\+On   &\PBS\centering {\ttfamily ◉}   &\PBS\centering {\ttfamily (\texorpdfstring{$\ast$}{*})}    \\\cline{1-3}
+radio\+Off   &\PBS\centering {\ttfamily ◯}   &\PBS\centering {\ttfamily ( )}    \\\cline{1-3}
+checkbox\+On   &\PBS\centering {\ttfamily ☒}   &\PBS\centering {\ttfamily \mbox{[}×\mbox{]}}    \\\cline{1-3}
+checkbox\+Off   &\PBS\centering {\ttfamily ☐}   &\PBS\centering {\ttfamily \mbox{[} \mbox{]}}    \\\cline{1-3}
+checkbox\+Circle\+On   &\PBS\centering {\ttfamily ⓧ}   &\PBS\centering {\ttfamily (×)}    \\\cline{1-3}
+checkbox\+Circle\+Off   &\PBS\centering {\ttfamily Ⓘ}   &\PBS\centering {\ttfamily ( )}    \\\cline{1-3}
+question\+Mark\+Prefix   &\PBS\centering {\ttfamily ?⃝}   &\PBS\centering {\ttfamily ？}    \\\cline{1-3}
+bullet   &\PBS\centering {\ttfamily ●}   &\PBS\centering \\\cline{1-3}
+dot   &\PBS\centering {\ttfamily ․}   &\PBS\centering \\\cline{1-3}
+ellipsis   &\PBS\centering {\ttfamily …}   &\PBS\centering \\\cline{1-3}
+pointer   &\PBS\centering {\ttfamily ❯}   &\PBS\centering {\ttfamily \texorpdfstring{$>$}{>}}    \\\cline{1-3}
+pointer\+Small   &\PBS\centering {\ttfamily ›}   &\PBS\centering {\ttfamily ›}    \\\cline{1-3}
+triangle\+Up   &\PBS\centering {\ttfamily ▲}   &\PBS\centering \\\cline{1-3}
+triangle\+Up\+Small   &\PBS\centering {\ttfamily ▴}   &\PBS\centering \\\cline{1-3}
+triangle\+Up\+Outline   &\PBS\centering {\ttfamily △}   &\PBS\centering {\ttfamily ∆}    \\\cline{1-3}
+triangle\+Down   &\PBS\centering {\ttfamily ▼}   &\PBS\centering \\\cline{1-3}
+triangle\+Down\+Small   &\PBS\centering {\ttfamily ▾}   &\PBS\centering \\\cline{1-3}
+triangle\+Left   &\PBS\centering {\ttfamily ◀}   &\PBS\centering {\ttfamily ◄}    \\\cline{1-3}
+triangle\+Left\+Small   &\PBS\centering {\ttfamily ◂}   &\PBS\centering \\\cline{1-3}
+triangle\+Right   &\PBS\centering {\ttfamily ▶}   &\PBS\centering {\ttfamily ►}    \\\cline{1-3}
+triangle\+Right\+Small   &\PBS\centering {\ttfamily ▸}   &\PBS\centering \\\cline{1-3}
+lozenge   &\PBS\centering {\ttfamily ◆}   &\PBS\centering {\ttfamily ♦}    \\\cline{1-3}
+lozenge\+Outline   &\PBS\centering {\ttfamily ◇}   &\PBS\centering {\ttfamily ◊}    \\\cline{1-3}
+home   &\PBS\centering {\ttfamily ⌂}   &\PBS\centering \\\cline{1-3}
+hamburger   &\PBS\centering {\ttfamily ☰}   &\PBS\centering {\ttfamily ≡}    \\\cline{1-3}
+smiley   &\PBS\centering {\ttfamily ㋡}   &\PBS\centering {\ttfamily ☺}    \\\cline{1-3}
+mustache   &\PBS\centering {\ttfamily ෴}   &\PBS\centering {\ttfamily ┌─┐}    \\\cline{1-3}
+heart   &\PBS\centering {\ttfamily ♥}   &\PBS\centering \\\cline{1-3}
+star   &\PBS\centering {\ttfamily ★}   &\PBS\centering {\ttfamily ✶}    \\\cline{1-3}
+play   &\PBS\centering {\ttfamily ▶}   &\PBS\centering {\ttfamily ►}    \\\cline{1-3}
+music\+Note   &\PBS\centering {\ttfamily ♪}   &\PBS\centering \\\cline{1-3}
+music\+Note\+Beamed   &\PBS\centering {\ttfamily ♫}   &\PBS\centering \\\cline{1-3}
+nodejs   &\PBS\centering {\ttfamily ⬢}   &\PBS\centering {\ttfamily ♦}    \\\cline{1-3}
+arrow\+Up   &\PBS\centering {\ttfamily ↑}   &\PBS\centering \\\cline{1-3}
+arrow\+Down   &\PBS\centering {\ttfamily ↓}   &\PBS\centering \\\cline{1-3}
+arrow\+Left   &\PBS\centering {\ttfamily ←}   &\PBS\centering \\\cline{1-3}
+arrow\+Right   &\PBS\centering {\ttfamily →}   &\PBS\centering \\\cline{1-3}
+arrow\+Left\+Right   &\PBS\centering {\ttfamily ↔}   &\PBS\centering \\\cline{1-3}
+arrow\+Up\+Down   &\PBS\centering {\ttfamily ↕}   &\PBS\centering \\\cline{1-3}
+almost\+Equal   &\PBS\centering {\ttfamily ≈}   &\PBS\centering \\\cline{1-3}
+not\+Equal   &\PBS\centering {\ttfamily ≠}   &\PBS\centering \\\cline{1-3}
+less\+Or\+Equal   &\PBS\centering {\ttfamily ≤}   &\PBS\centering \\\cline{1-3}
+greater\+Or\+Equal   &\PBS\centering {\ttfamily ≥}   &\PBS\centering \\\cline{1-3}
+identical   &\PBS\centering {\ttfamily ≡}   &\PBS\centering \\\cline{1-3}
+infinity   &\PBS\centering {\ttfamily ∞}   &\PBS\centering \\\cline{1-3}
+subscript\+Zero   &\PBS\centering {\ttfamily ₀}   &\PBS\centering \\\cline{1-3}
+subscript\+One   &\PBS\centering {\ttfamily ₁}   &\PBS\centering \\\cline{1-3}
+subscript\+Two   &\PBS\centering {\ttfamily ₂}   &\PBS\centering \\\cline{1-3}
+subscript\+Three   &\PBS\centering {\ttfamily ₃}   &\PBS\centering \\\cline{1-3}
+subscript\+Four   &\PBS\centering {\ttfamily ₄}   &\PBS\centering \\\cline{1-3}
+subscript\+Five   &\PBS\centering {\ttfamily ₅}   &\PBS\centering \\\cline{1-3}
+subscript\+Six   &\PBS\centering {\ttfamily ₆}   &\PBS\centering \\\cline{1-3}
+subscript\+Seven   &\PBS\centering {\ttfamily ₇}   &\PBS\centering \\\cline{1-3}
+subscript\+Eight   &\PBS\centering {\ttfamily ₈}   &\PBS\centering \\\cline{1-3}
+subscript\+Nine   &\PBS\centering {\ttfamily ₉}   &\PBS\centering \\\cline{1-3}
+one\+Half   &\PBS\centering {\ttfamily ½}   &\PBS\centering \\\cline{1-3}
+one\+Third   &\PBS\centering {\ttfamily ⅓}   &\PBS\centering \\\cline{1-3}
+one\+Quarter   &\PBS\centering {\ttfamily ¼}   &\PBS\centering \\\cline{1-3}
+one\+Fifth   &\PBS\centering {\ttfamily ⅕}   &\PBS\centering \\\cline{1-3}
+one\+Sixth   &\PBS\centering {\ttfamily ⅙}   &\PBS\centering \\\cline{1-3}
+one\+Seventh   &\PBS\centering {\ttfamily ⅐}   &\PBS\centering {\ttfamily 1/7}    \\\cline{1-3}
+one\+Eighth   &\PBS\centering {\ttfamily ⅛}   &\PBS\centering \\\cline{1-3}
+one\+Ninth   &\PBS\centering {\ttfamily ⅑}   &\PBS\centering {\ttfamily 1/9}    \\\cline{1-3}
+one\+Tenth   &\PBS\centering {\ttfamily ⅒}   &\PBS\centering {\ttfamily 1/10}    \\\cline{1-3}
+two\+Thirds   &\PBS\centering {\ttfamily ⅔}   &\PBS\centering \\\cline{1-3}
+two\+Fifths   &\PBS\centering {\ttfamily ⅖}   &\PBS\centering \\\cline{1-3}
+three\+Quarters   &\PBS\centering {\ttfamily ¾}   &\PBS\centering \\\cline{1-3}
+three\+Fifths   &\PBS\centering {\ttfamily ⅗}   &\PBS\centering \\\cline{1-3}
+three\+Eighths   &\PBS\centering {\ttfamily ⅜}   &\PBS\centering \\\cline{1-3}
+four\+Fifths   &\PBS\centering {\ttfamily ⅘}   &\PBS\centering \\\cline{1-3}
+five\+Sixths   &\PBS\centering {\ttfamily ⅚}   &\PBS\centering \\\cline{1-3}
+five\+Eighths   &\PBS\centering {\ttfamily ⅝}   &\PBS\centering \\\cline{1-3}
+seven\+Eighths   &\PBS\centering {\ttfamily ⅞}   &\PBS\centering \\\cline{1-3}
+line   &\PBS\centering {\ttfamily ─}   &\PBS\centering \\\cline{1-3}
+line\+Bold   &\PBS\centering {\ttfamily ━}   &\PBS\centering \\\cline{1-3}
+line\+Double   &\PBS\centering {\ttfamily ═}   &\PBS\centering \\\cline{1-3}
+line\+Dashed0   &\PBS\centering {\ttfamily ┄}   &\PBS\centering \\\cline{1-3}
+line\+Dashed1   &\PBS\centering {\ttfamily ┅}   &\PBS\centering \\\cline{1-3}
+line\+Dashed2   &\PBS\centering {\ttfamily ┈}   &\PBS\centering \\\cline{1-3}
+line\+Dashed3   &\PBS\centering {\ttfamily ┉}   &\PBS\centering \\\cline{1-3}
+line\+Dashed4   &\PBS\centering {\ttfamily ╌}   &\PBS\centering \\\cline{1-3}
+line\+Dashed5   &\PBS\centering {\ttfamily ╍}   &\PBS\centering \\\cline{1-3}
+line\+Dashed6   &\PBS\centering {\ttfamily ╴}   &\PBS\centering \\\cline{1-3}
+line\+Dashed7   &\PBS\centering {\ttfamily ╶}   &\PBS\centering \\\cline{1-3}
+line\+Dashed8   &\PBS\centering {\ttfamily ╸}   &\PBS\centering \\\cline{1-3}
+line\+Dashed9   &\PBS\centering {\ttfamily ╺}   &\PBS\centering \\\cline{1-3}
+line\+Dashed10   &\PBS\centering {\ttfamily ╼}   &\PBS\centering \\\cline{1-3}
+line\+Dashed11   &\PBS\centering {\ttfamily ╾}   &\PBS\centering \\\cline{1-3}
+line\+Dashed12   &\PBS\centering {\ttfamily −}   &\PBS\centering \\\cline{1-3}
+line\+Dashed13   &\PBS\centering {\ttfamily –}   &\PBS\centering \\\cline{1-3}
+line\+Dashed14   &\PBS\centering {\ttfamily ‐}   &\PBS\centering \\\cline{1-3}
+line\+Dashed15   &\PBS\centering {\ttfamily ⁃}   &\PBS\centering \\\cline{1-3}
+line\+Vertical   &\PBS\centering {\ttfamily │}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Bold   &\PBS\centering {\ttfamily ┃}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Double   &\PBS\centering {\ttfamily ║}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed0   &\PBS\centering {\ttfamily ┆}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed1   &\PBS\centering {\ttfamily ┇}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed2   &\PBS\centering {\ttfamily ┊}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed3   &\PBS\centering {\ttfamily ┋}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed4   &\PBS\centering {\ttfamily ╎}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed5   &\PBS\centering {\ttfamily ╏}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed6   &\PBS\centering {\ttfamily ╵}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed7   &\PBS\centering {\ttfamily ╷}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed8   &\PBS\centering {\ttfamily ╹}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed9   &\PBS\centering {\ttfamily ╻}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed10   &\PBS\centering {\ttfamily ╽}   &\PBS\centering \\\cline{1-3}
+line\+Vertical\+Dashed11   &\PBS\centering {\ttfamily ╿}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Left   &\PBS\centering {\ttfamily ┐}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Left\+Arc   &\PBS\centering {\ttfamily ╮}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Bold\+Left\+Bold   &\PBS\centering {\ttfamily ┓}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Bold\+Left   &\PBS\centering {\ttfamily ┒}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Left\+Bold   &\PBS\centering {\ttfamily ┑}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Double\+Left\+Double   &\PBS\centering {\ttfamily ╗}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Double\+Left   &\PBS\centering {\ttfamily ╖}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Left\+Double   &\PBS\centering {\ttfamily ╕}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Right   &\PBS\centering {\ttfamily ┌}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Right\+Arc   &\PBS\centering {\ttfamily ╭}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ┏}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Bold\+Right   &\PBS\centering {\ttfamily ┎}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Right\+Bold   &\PBS\centering {\ttfamily ┍}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Double\+Right\+Double   &\PBS\centering {\ttfamily ╔}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Double\+Right   &\PBS\centering {\ttfamily ╓}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Right\+Double   &\PBS\centering {\ttfamily ╒}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Left   &\PBS\centering {\ttfamily ┘}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Left\+Arc   &\PBS\centering {\ttfamily ╯}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Left\+Bold   &\PBS\centering {\ttfamily ┛}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Left   &\PBS\centering {\ttfamily ┚}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Left\+Bold   &\PBS\centering {\ttfamily ┙}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Left\+Double   &\PBS\centering {\ttfamily ╝}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Left   &\PBS\centering {\ttfamily ╜}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Left\+Double   &\PBS\centering {\ttfamily ╛}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Right   &\PBS\centering {\ttfamily └}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Right\+Arc   &\PBS\centering {\ttfamily ╰}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ┗}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Right   &\PBS\centering {\ttfamily ┖}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Right\+Bold   &\PBS\centering {\ttfamily ┕}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Right\+Double   &\PBS\centering {\ttfamily ╚}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Right   &\PBS\centering {\ttfamily ╙}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Right\+Double   &\PBS\centering {\ttfamily ╘}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Left   &\PBS\centering {\ttfamily ┤}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Bold\+Left\+Bold   &\PBS\centering {\ttfamily ┫}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Bold\+Left   &\PBS\centering {\ttfamily ┨}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Left\+Bold   &\PBS\centering {\ttfamily ┥}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Left\+Bold   &\PBS\centering {\ttfamily ┩}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Bold\+Left\+Bold   &\PBS\centering {\ttfamily ┪}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Bold\+Left   &\PBS\centering {\ttfamily ┧}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Left   &\PBS\centering {\ttfamily ┦}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Down\+Double\+Left\+Double   &\PBS\centering {\ttfamily ╣}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Down\+Double\+Left   &\PBS\centering {\ttfamily ╢}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Left\+Double   &\PBS\centering {\ttfamily ╡}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Right   &\PBS\centering {\ttfamily ├}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ┣}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Bold\+Right   &\PBS\centering {\ttfamily ┠}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Right\+Bold   &\PBS\centering {\ttfamily ┝}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Right\+Bold   &\PBS\centering {\ttfamily ┡}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ┢}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Bold\+Right   &\PBS\centering {\ttfamily ┟}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Right   &\PBS\centering {\ttfamily ┞}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Down\+Double\+Right\+Double   &\PBS\centering {\ttfamily ╠}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Down\+Double\+Right   &\PBS\centering {\ttfamily ╟}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Right\+Double   &\PBS\centering {\ttfamily ╞}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Left\+Right   &\PBS\centering {\ttfamily ┬}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Bold\+Left\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ┳}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Left\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ┯}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Bold\+Left\+Right   &\PBS\centering {\ttfamily ┰}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Bold\+Left\+Bold\+Right   &\PBS\centering {\ttfamily ┱}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Bold\+Left\+Right\+Bold   &\PBS\centering {\ttfamily ┲}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Left\+Right\+Bold   &\PBS\centering {\ttfamily ┮}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Left\+Bold\+Right   &\PBS\centering {\ttfamily ┭}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Double\+Left\+Double\+Right\+Double   &\PBS\centering {\ttfamily ╦}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Double\+Left\+Right   &\PBS\centering {\ttfamily ╥}   &\PBS\centering \\\cline{1-3}
+line\+Down\+Left\+Double\+Right\+Double   &\PBS\centering {\ttfamily ╤}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Left\+Right   &\PBS\centering {\ttfamily ┴}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Left\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ┻}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Left\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ┷}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Left\+Right   &\PBS\centering {\ttfamily ┸}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Left\+Bold\+Right   &\PBS\centering {\ttfamily ┹}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Left\+Right\+Bold   &\PBS\centering {\ttfamily ┺}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Left\+Right\+Bold   &\PBS\centering {\ttfamily ┶}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Left\+Bold\+Right   &\PBS\centering {\ttfamily ┵}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Left\+Double\+Right\+Double   &\PBS\centering {\ttfamily ╩}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Left\+Right   &\PBS\centering {\ttfamily ╨}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Left\+Double\+Right\+Double   &\PBS\centering {\ttfamily ╧}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Left\+Right   &\PBS\centering {\ttfamily ┼}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Bold\+Left\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ╋}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Bold\+Left\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ╈}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Left\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ╇}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Bold\+Left\+Right\+Bold   &\PBS\centering {\ttfamily ╊}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Bold\+Left\+Bold\+Right   &\PBS\centering {\ttfamily ╉}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Left\+Right   &\PBS\centering {\ttfamily ╀}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Bold\+Left\+Right   &\PBS\centering {\ttfamily ╁}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Left\+Bold\+Right   &\PBS\centering {\ttfamily ┽}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Left\+Right\+Bold   &\PBS\centering {\ttfamily ┾}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Bold\+Left\+Right   &\PBS\centering {\ttfamily ╂}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Left\+Bold\+Right\+Bold   &\PBS\centering {\ttfamily ┿}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Left\+Bold\+Right   &\PBS\centering {\ttfamily ╃}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Bold\+Down\+Left\+Right\+Bold   &\PBS\centering {\ttfamily ╄}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Bold\+Left\+Bold\+Right   &\PBS\centering {\ttfamily ╅}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Bold\+Left\+Right\+Bold   &\PBS\centering {\ttfamily ╆}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Down\+Double\+Left\+Double\+Right\+Double   &\PBS\centering {\ttfamily ╬}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Double\+Down\+Double\+Left\+Right   &\PBS\centering {\ttfamily ╫}   &\PBS\centering \\\cline{1-3}
+line\+Up\+Down\+Left\+Double\+Right\+Double   &\PBS\centering {\ttfamily ╪}   &\PBS\centering \\\cline{1-3}
+line\+Cross   &\PBS\centering {\ttfamily ╳}   &\PBS\centering \\\cline{1-3}
+line\+Backslash   &\PBS\centering {\ttfamily ╲}   &\PBS\centering \\\cline{1-3}
+line\+Slash   &\PBS\centering {\ttfamily ╱}   &\PBS\centering \\\cline{1-3}
+\end{longtabu}
+\hypertarget{readme.md_autotoc_md7827}{}\doxysubsection{\texorpdfstring{Other characters}{Other characters}}\label{readme.md_autotoc_md7827}
+If you cannot find the character you\textquotesingle{}re looking for in the table above, please look at this full list of \href{https://github.com/ehmicky/cross-platform-terminal-characters}{\texttt{ cross-\/platform terminal characters}}.\hypertarget{readme.md_autotoc_md7828}{}\doxysubsection{\texorpdfstring{Unsupported terminals}{Unsupported terminals}}\label{readme.md_autotoc_md7828}
+The following terminals are not officially supported\+:
+
+
+\begin{DoxyItemize}
+\item xterm
+\item Linux Terminal (kernel)
+\item cmder
+\end{DoxyItemize}
+
+They can display most but not all of the symbols listed above.\hypertarget{readme.md_autotoc_md7829}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{readme.md_autotoc_md7829}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/log-symbols}{\texttt{ log-\/symbols}} -\/ Colored symbols for various log levels
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+ {\bfseries{ \href{https://tidelift.com/subscription/pkg/npm-figures?utm_source=npm-figures&utm_medium=referral&utm_campaign=readme}{\texttt{ Get professional support for this package with a Tidelift subscription}} }} ~\newline
+ \textsubscript{ Tidelift helps make open source sustainable for maintainers while giving companies~\newline
+assurances about security, maintenance, and licensing for their dependencies. }  

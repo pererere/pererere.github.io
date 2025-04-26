@@ -1,0 +1,24 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/server-\/destroy Directory Reference}
+\hypertarget{dir_582e32fcd82cd5973d1be1811eb715c8}{}\label{dir_582e32fcd82cd5973d1be1811eb715c8}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/server-\/destroy Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/server-\/destroy Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Enable destroying a server, and all currently open connections.\hypertarget{README.md_autotoc_md19066}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md19066}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ enableDestroy\ =\ require('server-\/destroy');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ server\ =\ http.createServer(function(req,\ res)\ \{}
+\DoxyCodeLine{\ \ //\ do\ stuff,\ blah\ blah\ blah}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{server.listen(PORT);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ enhance\ with\ a\ 'destroy'\ function}
+\DoxyCodeLine{enableDestroy(server);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ some\ time\ later...}
+\DoxyCodeLine{server.destroy();}
+
+\end{DoxyCode}
+ 

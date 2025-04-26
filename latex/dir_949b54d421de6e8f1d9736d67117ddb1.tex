@@ -1,0 +1,21 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/npm-\/install-\/checks Directory Reference}
+\hypertarget{dir_949b54d421de6e8f1d9736d67117ddb1}{}\label{dir_949b54d421de6e8f1d9736d67117ddb1}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/install-\/checks Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/install-\/checks Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Check the engines and platform fields in package.\+json\hypertarget{README.md_autotoc_md15161}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md15161}
+Both functions will throw an error if the check fails, or return {\ttfamily undefined} if everything is ok.
+
+Errors have a {\ttfamily required} and {\ttfamily current} fields.\hypertarget{README.md_autotoc_md15162}{}\doxysubsubsection{\texorpdfstring{.check\+Engine(pkg, npm\+Ver, node\+Ver, force = false)}{.check\+Engine(pkg, npm\+Ver, node\+Ver, force = false)}}\label{README.md_autotoc_md15162}
+Check if a package\textquotesingle{}s {\ttfamily engines.\+node} and {\ttfamily engines.\+npm} match the running system.
+
+{\ttfamily force} argument will override the node version check, but not the npm version check, as this typically would indicate that the current version of npm is unable to install the package properly for some reason.
+
+Error code\+: \textquotesingle{}EBADENGINE\textquotesingle{}\hypertarget{README.md_autotoc_md15163}{}\doxysubsubsection{\texorpdfstring{.check\+Platform(pkg, force, environment)}{.check\+Platform(pkg, force, environment)}}\label{README.md_autotoc_md15163}
+Check if a package\textquotesingle{}s {\ttfamily os}, {\ttfamily cpu} and {\ttfamily libc} match the running system.
+
+{\ttfamily force} argument skips all checks.
+
+{\ttfamily environment} overrides the execution environment which comes from {\ttfamily process.\+platform} {\ttfamily process.\+arch} and current {\ttfamily libc} environment by default. {\ttfamily environment.\+os} {\ttfamily environment.\+cpu} and {\ttfamily environment.\+libc} are available.
+
+Error code\+: \textquotesingle{}EBADPLATFORM\textquotesingle{} 

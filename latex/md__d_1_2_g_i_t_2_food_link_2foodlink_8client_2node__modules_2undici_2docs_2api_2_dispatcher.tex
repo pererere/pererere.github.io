@@ -1,0 +1,914 @@
+\chapter{Dispatcher}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher}\index{Dispatcher@{Dispatcher}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21317}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21317}%
+
+
+Extends\+: {\ttfamily events.\+Event\+Emitter}
+
+Dispatcher is the core API used to dispatch requests.
+
+Requests are not guaranteed to be dispatched in order of invocation.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21318}{}\doxysection{\texorpdfstring{Instance Methods}{Instance Methods}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21318}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21319}{}\doxysubsection{\texorpdfstring{{\ttfamily Dispatcher.\+close(\mbox{[}callback\mbox{]})\+: Promise}}{{\ttfamily Dispatcher.\+close(\mbox{[}callback\mbox{]})\+: Promise}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21319}
+Closes the dispatcher and gracefully waits for enqueued requests to complete before resolving.
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{callback}} {\ttfamily (error\+: Error \texorpdfstring{$\vert$}{|} null, data\+: null) =\texorpdfstring{$>$}{>} void} (optional)
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily void \texorpdfstring{$\vert$}{|} Promise\texorpdfstring{$<$}{<}null\texorpdfstring{$>$}{>}} -\/ Only returns a {\ttfamily Promise} if no {\ttfamily callback} argument was passed
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{dispatcher.close()\ //\ -\/>\ Promise}
+\DoxyCodeLine{dispatcher.close(()\ =>\ \{\})\ //\ -\/>\ void}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21320}{}\doxysubsubsection{\texorpdfstring{Example -\/ Request resolves before Client closes}{Example -\/ Request resolves before Client closes}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21320}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end('undici')}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ const\ \{\ body\ \}\ =\ await\ client.request(\{}
+\DoxyCodeLine{\ \ \ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ \ \ method:\ 'GET'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ body.setEncoding('utf8')}
+\DoxyCodeLine{\ \ body.on('data',\ console.log)}
+\DoxyCodeLine{\}\ catch\ (error)\ \{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ client.close()}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('Client\ closed')}
+\DoxyCodeLine{server.close()}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21321}{}\doxysubsection{\texorpdfstring{{\ttfamily Dispatcher.\+connect(options\mbox{[}, callback\mbox{]})}}{{\ttfamily Dispatcher.\+connect(options\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21321}
+Starts two-\/way communications with the requested resource using \href{https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT}{\texttt{ HTTP CONNECT}}.
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{options}} {\ttfamily Connect\+Options}
+\item {\bfseries{callback}} {\ttfamily (err\+: Error \texorpdfstring{$\vert$}{|} null, data\+: Connect\+Data \texorpdfstring{$\vert$}{|} null) =\texorpdfstring{$>$}{>} void} (optional)
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily void \texorpdfstring{$\vert$}{|} Promise\texorpdfstring{$<$}{<}Connect\+Data\texorpdfstring{$>$}{>}} -\/ Only returns a {\ttfamily Promise} if no {\ttfamily callback} argument was passed\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21322}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Connect\+Options}}{Parameter\+: {\ttfamily Connect\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21322}
+
+\begin{DoxyItemize}
+\item {\bfseries{path}} {\ttfamily string}
+\item {\bfseries{headers}} {\ttfamily Undici\+Headers} (optional) -\/ Default\+: {\ttfamily null}
+\item {\bfseries{signal}} {\ttfamily Abort\+Signal \texorpdfstring{$\vert$}{|} events.\+Event\+Emitter \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily null}
+\item {\bfseries{opaque}} {\ttfamily unknown} (optional) -\/ This argument parameter is passed through to {\ttfamily Connect\+Data}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21323}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Connect\+Data}}{Parameter\+: {\ttfamily Connect\+Data}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21323}
+
+\begin{DoxyItemize}
+\item {\bfseries{status\+Code}} {\ttfamily number}
+\item {\bfseries{headers}} {\ttfamily Record\texorpdfstring{$<$}{<}string, string \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]} \texorpdfstring{$\vert$}{|} undefined\texorpdfstring{$>$}{>}}
+\item {\bfseries{socket}} {\ttfamily stream.\+Duplex}
+\item {\bfseries{opaque}} {\ttfamily unknown}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21324}{}\doxysubsubsection{\texorpdfstring{Example -\/ Connect request with echo}{Example -\/ Connect request with echo}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21324}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ throw\ Error('should\ never\ get\ here')}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{server.on('connect',\ (req,\ socket,\ head)\ =>\ \{}
+\DoxyCodeLine{\ \ socket.write('HTTP/1.1\ 200\ Connection\ established\(\backslash\)r\(\backslash\)n\(\backslash\)r\(\backslash\)n')}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ let\ data\ =\ head.toString()}
+\DoxyCodeLine{\ \ socket.on('data',\ (buf)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ data\ +=\ buf.toString()}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ socket.on('end',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ socket.end(data)}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ const\ \{\ socket\ \}\ =\ await\ client.connect(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ const\ wanted\ =\ 'Body'}
+\DoxyCodeLine{\ \ let\ data\ =\ ''}
+\DoxyCodeLine{\ \ socket.on('data',\ d\ =>\ \{\ data\ +=\ d\ \})}
+\DoxyCodeLine{\ \ socket.on('end',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(`Data\ received:\ \$\{data.toString()\}\ |\ Data\ wanted:\ \$\{wanted\}`)}
+\DoxyCodeLine{\ \ \ \ client.close()}
+\DoxyCodeLine{\ \ \ \ server.close()}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ socket.write(wanted)}
+\DoxyCodeLine{\ \ socket.end()}
+\DoxyCodeLine{\}\ catch\ (error)\ \{\ \}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21325}{}\doxysubsection{\texorpdfstring{{\ttfamily Dispatcher.\+destroy(\mbox{[}error, callback\mbox{]})\+: Promise}}{{\ttfamily Dispatcher.\+destroy(\mbox{[}error, callback\mbox{]})\+: Promise}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21325}
+Destroy the dispatcher abruptly with the given error. All the pending and running requests will be asynchronously aborted and error. Since this operation is asynchronously dispatched there might still be some progress on dispatched requests.
+
+Both arguments are optional; the method can be called in four different ways\+:
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{error}} {\ttfamily Error \texorpdfstring{$\vert$}{|} null} (optional)
+\item {\bfseries{callback}} {\ttfamily (error\+: Error \texorpdfstring{$\vert$}{|} null, data\+: null) =\texorpdfstring{$>$}{>} void} (optional)
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily void \texorpdfstring{$\vert$}{|} Promise\texorpdfstring{$<$}{<}void\texorpdfstring{$>$}{>}} -\/ Only returns a {\ttfamily Promise} if no {\ttfamily callback} argument was passed
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{dispatcher.destroy()\ //\ -\/>\ Promise}
+\DoxyCodeLine{dispatcher.destroy(new\ Error())\ //\ -\/>\ Promise}
+\DoxyCodeLine{dispatcher.destroy(()\ =>\ \{\})\ //\ -\/>\ void}
+\DoxyCodeLine{dispatcher.destroy(new\ Error(),\ ()\ =>\ \{\})\ //\ -\/>\ void}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21326}{}\doxysubsubsection{\texorpdfstring{Example -\/ Request is aborted when Client is destroyed}{Example -\/ Request is aborted when Client is destroyed}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21326}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end()}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ const\ request\ =\ client.request(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ method:\ 'GET'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ client.destroy()}
+\DoxyCodeLine{\ \ \ \ .then(()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ console.log('Client\ destroyed')}
+\DoxyCodeLine{\ \ \ \ \ \ server.close()}
+\DoxyCodeLine{\ \ \ \ \})}
+\DoxyCodeLine{\ \ await\ request}
+\DoxyCodeLine{\}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ console.error(error)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21327}{}\doxysubsection{\texorpdfstring{{\ttfamily Dispatcher.\+dispatch(options, handler)}}{{\ttfamily Dispatcher.\+dispatch(options, handler)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21327}
+This is the low level API which all the preceding APIs are implemented on top of. This API is expected to evolve through semver-\/major versions and is less stable than the preceding higher level APIs. It is primarily intended for library developers who implement higher level APIs on top of this.
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{options}} {\ttfamily Dispatch\+Options}
+\item {\bfseries{handler}} {\ttfamily Dispatch\+Handler}
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily Boolean} -\/ {\ttfamily false} if dispatcher is busy and further dispatch calls won\textquotesingle{}t make any progress until the `\textquotesingle{}drain'\`{} event has been emitted.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21328}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Dispatch\+Options}}{Parameter\+: {\ttfamily Dispatch\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21328}
+
+\begin{DoxyItemize}
+\item {\bfseries{origin}} {\ttfamily string \texorpdfstring{$\vert$}{|} URL}
+\item {\bfseries{path}} {\ttfamily string}
+\item {\bfseries{method}} {\ttfamily string}
+\item {\bfseries{reset}} {\ttfamily boolean} (optional) -\/ Default\+: {\ttfamily false} -\/ If {\ttfamily false}, the request will attempt to create a long-\/living connection by sending the {\ttfamily connection\+: keep-\/alive} header,otherwise will attempt to close it immediately after response by sending {\ttfamily connection\+: close} within the request and closing the socket afterwards.
+\item {\bfseries{body}} {\ttfamily string \texorpdfstring{$\vert$}{|} Buffer \texorpdfstring{$\vert$}{|} Uint8\+Array \texorpdfstring{$\vert$}{|} stream.\+Readable \texorpdfstring{$\vert$}{|} Iterable \texorpdfstring{$\vert$}{|} Async\+Iterable \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily null}
+\item {\bfseries{headers}} {\ttfamily Undici\+Headers \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]}} (optional) -\/ Default\+: {\ttfamily null}.
+\item {\bfseries{query}} {\ttfamily Record\texorpdfstring{$<$}{<}string, any\texorpdfstring{$>$}{>} \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily null} -\/ Query string params to be embedded in the request URL. Note that both keys and values of query are encoded using {\ttfamily encode\+URIComponent}. If for some reason you need to send them unencoded, embed query params into path directly instead.
+\item {\bfseries{idempotent}} {\ttfamily boolean} (optional) -\/ Default\+: {\ttfamily true} if {\ttfamily method} is `\textquotesingle{}HEAD'{\ttfamily or}\textquotesingle{}GET\textquotesingle{}{\ttfamily -\/ Whether the requests can be safely retried or not. If}false{\ttfamily the request won\textquotesingle{}t be sent until all preceding requests in the pipeline has completed.}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}blocking\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}boolean$<$tt$>$(optional) -\/ Default\+:
+\end{DoxyItemize}false{\ttfamily -\/ Whether the response is expected to take a long time and would end up blocking the pipeline. When this is set to}true{\ttfamily further pipelining will be avoided on the same connection until headers have been received.
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}upgrade\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\end{DoxyItemize}}string \texorpdfstring{$\vert$}{|} null$<$tt$>$(optional) -\/ Default\+:null{\ttfamily -\/ Upgrade the request. Should be used to specify the kind of upgrade i.\+e.}\textquotesingle{}Websocket\textquotesingle{}{\ttfamily .
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}body\+Timeout\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\end{DoxyItemize}}number \texorpdfstring{$\vert$}{|} null$<$tt$>$(optional) -\/ The timeout after which a request will time out, in milliseconds. Monitors time between receiving body data. Use0{\ttfamily to disable it entirely. Defaults to 300 seconds.
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}headers\+Timeout\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\end{DoxyItemize}}number \texorpdfstring{$\vert$}{|} null$<$tt$>$(optional) -\/ The amount of time, in milliseconds, the parser will wait to receive the complete HTTP headers while not sending the request. Defaults to 300 seconds.
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}throw\+On\+Error\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\end{DoxyItemize}boolean$<$tt$>$(optional) -\/ Default\+:false{\ttfamily -\/ Whether Undici should throw an error upon receiving a 4xx or 5xx response from the server.
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}expect\+Continue\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\end{DoxyItemize}}boolean$<$tt$>$(optional) -\/ Default\+:false\`{} -\/ For H2, it appends the expect\+: 100-\/continue header, and halts the request body until a 100-\/continue is received from the remote server\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21329}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Dispatch\+Handler}}{Parameter\+: {\ttfamily Dispatch\+Handler}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21329}
+
+\begin{DoxyItemize}
+\item {\bfseries{on\+Connect}} {\ttfamily (abort\+: () =\texorpdfstring{$>$}{>} void, context\+: object) =\texorpdfstring{$>$}{>} void} -\/ Invoked before request is dispatched on socket. May be invoked multiple times when a request is retried when the request at the head of the pipeline fails.
+\item {\bfseries{on\+Error}} {\ttfamily (error\+: Error) =\texorpdfstring{$>$}{>} void} -\/ Invoked when an error has occurred. May not throw.
+\item {\bfseries{on\+Upgrade}} {\ttfamily (status\+Code\+: number, headers\+: Buffer\mbox{[}\mbox{]}, socket\+: Duplex) =\texorpdfstring{$>$}{>} void} (optional) -\/ Invoked when request is upgraded. Required if {\ttfamily Dispatch\+Options.\+upgrade} is defined or `Dispatch\+Options.\+method === \textquotesingle{}CONNECT'{\ttfamily .}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}on\+Headers\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}(status\+Code\+: number, headers\+: Buffer\mbox{[}\mbox{]}, resume\+: () =\texorpdfstring{$>$}{>} void, status\+Text\+: string) =\texorpdfstring{$>$}{>} boolean{\ttfamily -\/ Invoked when status\+Code and headers have been received. May be invoked multiple times due to 1xx informational headers. Not required for}upgrade{\ttfamily requests.}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}on\+Data\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}(chunk\+: Buffer) =\texorpdfstring{$>$}{>} boolean{\ttfamily -\/ Invoked when response payload data is received. Not required for}upgrade{\ttfamily requests.}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}on\+Complete\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}(trailers\+: Buffer\mbox{[}\mbox{]}) =\texorpdfstring{$>$}{>} void{\ttfamily -\/ Invoked when response payload and trailers have been received and the request has completed. Not required for}upgrade{\ttfamily requests.}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}on\+Body\+Sent\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}(chunk\+: string \texorpdfstring{$\vert$}{|} Buffer \texorpdfstring{$\vert$}{|} Uint8\+Array) =\texorpdfstring{$>$}{>} void\`{} -\/ Invoked when a body chunk is sent to the server. Not required. For a stream or iterable body this will be invoked for every chunk. For other body types, it will be invoked once after the body is sent.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21330}{}\doxysubsubsection{\texorpdfstring{Example 1 -\/ Dispatch GET request}{Example 1 -\/ Dispatch GET request}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21330}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end('Hello,\ World!')}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ data\ =\ []}
+\DoxyCodeLine{}
+\DoxyCodeLine{client.dispatch(\{}
+\DoxyCodeLine{\ \ path:\ '/',}
+\DoxyCodeLine{\ \ method:\ 'GET',}
+\DoxyCodeLine{\ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ 'x-\/foo':\ 'bar'}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\},\ \{}
+\DoxyCodeLine{\ \ onConnect:\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('Connected!')}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ onError:\ (error)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.error(error)}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ onHeaders:\ (statusCode,\ headers)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(`onHeaders\ |\ statusCode:\ \$\{statusCode\}\ |\ headers:\ \$\{headers\}`)}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ onData:\ (chunk)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('onData:\ chunk\ received')}
+\DoxyCodeLine{\ \ \ \ data.push(chunk)}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ onComplete:\ (trailers)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(`onComplete\ |\ trailers:\ \$\{trailers\}`)}
+\DoxyCodeLine{\ \ \ \ const\ res\ =\ Buffer.concat(data).toString('utf8')}
+\DoxyCodeLine{\ \ \ \ console.log(`Data:\ \$\{res\}`)}
+\DoxyCodeLine{\ \ \ \ client.close()}
+\DoxyCodeLine{\ \ \ \ server.close()}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21331}{}\doxysubsubsection{\texorpdfstring{Example 2 -\/ Dispatch Upgrade Request}{Example 2 -\/ Dispatch Upgrade Request}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21331}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end()}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{server.on('upgrade',\ (request,\ socket,\ head)\ =>\ \{}
+\DoxyCodeLine{\ \ console.log('Node.js\ Server\ -\/\ upgrade\ event')}
+\DoxyCodeLine{\ \ socket.write('HTTP/1.1\ 101\ Web\ Socket\ Protocol\ Handshake\(\backslash\)r\(\backslash\)n')}
+\DoxyCodeLine{\ \ socket.write('Upgrade:\ WebSocket\(\backslash\)r\(\backslash\)n')}
+\DoxyCodeLine{\ \ socket.write('Connection:\ Upgrade\(\backslash\)r\(\backslash\)n')}
+\DoxyCodeLine{\ \ socket.write('\(\backslash\)r\(\backslash\)n')}
+\DoxyCodeLine{\ \ socket.end()}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{client.dispatch(\{}
+\DoxyCodeLine{\ \ path:\ '/',}
+\DoxyCodeLine{\ \ method:\ 'GET',}
+\DoxyCodeLine{\ \ upgrade:\ 'websocket'}
+\DoxyCodeLine{\},\ \{}
+\DoxyCodeLine{\ \ onConnect:\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('Undici\ Client\ -\/\ onConnect')}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ onError:\ (error)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('onError')\ //\ shouldn't\ print}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ onUpgrade:\ (statusCode,\ headers,\ socket)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('Undici\ Client\ -\/\ onUpgrade')}
+\DoxyCodeLine{\ \ \ \ console.log(`onUpgrade\ Headers:\ \$\{headers\}`)}
+\DoxyCodeLine{\ \ \ \ socket.on('data',\ buffer\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ console.log(buffer.toString('utf8'))}
+\DoxyCodeLine{\ \ \ \ \})}
+\DoxyCodeLine{\ \ \ \ socket.on('end',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ client.close()}
+\DoxyCodeLine{\ \ \ \ \ \ server.close()}
+\DoxyCodeLine{\ \ \ \ \})}
+\DoxyCodeLine{\ \ \ \ socket.end()}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21332}{}\doxysubsubsection{\texorpdfstring{Example 3 -\/ Dispatch POST request}{Example 3 -\/ Dispatch POST request}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21332}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ request.on('data',\ (data)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(`Request\ Data:\ \$\{data.toString('utf8')\}`)}
+\DoxyCodeLine{\ \ \ \ const\ body\ =\ JSON.parse(data)}
+\DoxyCodeLine{\ \ \ \ body.message\ =\ 'World'}
+\DoxyCodeLine{\ \ \ \ response.end(JSON.stringify(body))}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ data\ =\ []}
+\DoxyCodeLine{}
+\DoxyCodeLine{client.dispatch(\{}
+\DoxyCodeLine{\ \ path:\ '/',}
+\DoxyCodeLine{\ \ method:\ 'POST',}
+\DoxyCodeLine{\ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ 'content-\/type':\ 'application/json'}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ body:\ JSON.stringify(\{\ message:\ 'Hello'\ \})}
+\DoxyCodeLine{\},\ \{}
+\DoxyCodeLine{\ \ onConnect:\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('Connected!')}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ onError:\ (error)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.error(error)}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ onHeaders:\ (statusCode,\ headers)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(`onHeaders\ |\ statusCode:\ \$\{statusCode\}\ |\ headers:\ \$\{headers\}`)}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ onData:\ (chunk)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('onData:\ chunk\ received')}
+\DoxyCodeLine{\ \ \ \ data.push(chunk)}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ onComplete:\ (trailers)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(`onComplete\ |\ trailers:\ \$\{trailers\}`)}
+\DoxyCodeLine{\ \ \ \ const\ res\ =\ Buffer.concat(data).toString('utf8')}
+\DoxyCodeLine{\ \ \ \ console.log(`Response\ Data:\ \$\{res\}`)}
+\DoxyCodeLine{\ \ \ \ client.close()}
+\DoxyCodeLine{\ \ \ \ server.close()}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21333}{}\doxysubsection{\texorpdfstring{{\ttfamily Dispatcher.\+pipeline(options, handler)}}{{\ttfamily Dispatcher.\+pipeline(options, handler)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21333}
+For easy use with \href{https://nodejs.org/api/stream.html\#stream_stream_pipeline_source_transforms_destination_callback}{\texttt{ stream.\+pipeline}}. The {\ttfamily handler} argument should return a {\ttfamily Readable} from which the result will be read. Usually it should just return the {\ttfamily body} argument unless some kind of transformation needs to be performed based on e.\+g. {\ttfamily headers} or {\ttfamily status\+Code}. The {\ttfamily handler} should validate the response and save any required state. If there is an error, it should be thrown. The function returns a {\ttfamily Duplex} which writes to the request and reads from the response.
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{options}} {\ttfamily Pipeline\+Options}
+\item {\bfseries{handler}} {\ttfamily (data\+: Pipeline\+Handler\+Data) =\texorpdfstring{$>$}{>} stream.\+Readable}
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily stream.\+Duplex}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21334}{}\doxysubsubsection{\texorpdfstring{Parameter\+: Pipeline\+Options}{Parameter\+: Pipeline\+Options}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21334}
+Extends\+: \`{}\+Request\+Options\`{}
+
+
+\begin{DoxyItemize}
+\item {\bfseries{object\+Mode}} {\ttfamily boolean} (optional) -\/ Default\+: {\ttfamily false} -\/ Set to {\ttfamily true} if the {\ttfamily handler} will return an object stream.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21335}{}\doxysubsubsection{\texorpdfstring{Parameter\+: Pipeline\+Handler\+Data}{Parameter\+: Pipeline\+Handler\+Data}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21335}
+
+\begin{DoxyItemize}
+\item {\bfseries{status\+Code}} {\ttfamily number}
+\item {\bfseries{headers}} {\ttfamily Record\texorpdfstring{$<$}{<}string, string \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]} \texorpdfstring{$\vert$}{|} undefined\texorpdfstring{$>$}{>}}
+\item {\bfseries{opaque}} {\ttfamily unknown}
+\item {\bfseries{body}} {\ttfamily stream.\+Readable}
+\item {\bfseries{context}} {\ttfamily object}
+\item {\bfseries{on\+Info}} {\ttfamily (\{status\+Code\+: number, headers\+: Record\texorpdfstring{$<$}{<}string, string \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]}\texorpdfstring{$>$}{>}\}) =\texorpdfstring{$>$}{>} void \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily null} -\/ Callback collecting all the info headers (HTTP 100-\/199) received.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21336}{}\doxysubsubsection{\texorpdfstring{Example 1 -\/ Pipeline Echo}{Example 1 -\/ Pipeline Echo}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21336}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ Readable,\ Writable,\ PassThrough,\ pipeline\ \}\ from\ 'stream'}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ request.pipe(response)}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{let\ res\ =\ ''}
+\DoxyCodeLine{}
+\DoxyCodeLine{pipeline(}
+\DoxyCodeLine{\ \ new\ Readable(\{}
+\DoxyCodeLine{\ \ \ \ read\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ this.push(Buffer.from('undici'))}
+\DoxyCodeLine{\ \ \ \ \ \ this.push(null)}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}),}
+\DoxyCodeLine{\ \ client.pipeline(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ method:\ 'GET'}
+\DoxyCodeLine{\ \ \},\ (\{\ statusCode,\ headers,\ body\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(`response\ received\ \$\{statusCode\}`)}
+\DoxyCodeLine{\ \ \ \ console.log('headers',\ headers)}
+\DoxyCodeLine{\ \ \ \ return\ pipeline(body,\ new\ PassThrough(),\ ()\ =>\ \{\})}
+\DoxyCodeLine{\ \ \}),}
+\DoxyCodeLine{\ \ new\ Writable(\{}
+\DoxyCodeLine{\ \ \ \ write\ (chunk,\ \_,\ callback)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ res\ +=\ chunk.toString()}
+\DoxyCodeLine{\ \ \ \ \ \ callback()}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ final\ (callback)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ console.log(`Response\ pipelined\ to\ writable:\ \$\{res\}`)}
+\DoxyCodeLine{\ \ \ \ \ \ callback()}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}),}
+\DoxyCodeLine{\ \ error\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ if\ (error)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ console.error(error)}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ client.close()}
+\DoxyCodeLine{\ \ \ \ server.close()}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21337}{}\doxysubsection{\texorpdfstring{{\ttfamily Dispatcher.\+request(options\mbox{[}, callback\mbox{]})}}{{\ttfamily Dispatcher.\+request(options\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21337}
+Performs a HTTP request.
+
+Non-\/idempotent requests will not be pipelined in order to avoid indirect failures.
+
+Idempotent requests will be automatically retried if they fail due to indirect failure from the request at the head of the pipeline. This does not apply to idempotent requests with a stream request body.
+
+All response bodies must always be fully consumed or destroyed.
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{options}} {\ttfamily Request\+Options}
+\item {\bfseries{callback}} {\ttfamily (error\+: Error \texorpdfstring{$\vert$}{|} null, data\+: Response\+Data) =\texorpdfstring{$>$}{>} void} (optional)
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily void \texorpdfstring{$\vert$}{|} Promise\texorpdfstring{$<$}{<}Response\+Data\texorpdfstring{$>$}{>}} -\/ Only returns a {\ttfamily Promise} if no {\ttfamily callback} argument was passed.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21338}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Request\+Options}}{Parameter\+: {\ttfamily Request\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21338}
+Extends\+: \`{}\+Dispatch\+Options\`{}
+
+
+\begin{DoxyItemize}
+\item {\bfseries{opaque}} {\ttfamily unknown} (optional) -\/ Default\+: {\ttfamily null} -\/ Used for passing through context to {\ttfamily Response\+Data}.
+\item {\bfseries{signal}} {\ttfamily Abort\+Signal \texorpdfstring{$\vert$}{|} events.\+Event\+Emitter \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily null}.
+\item {\bfseries{on\+Info}} {\ttfamily (\{status\+Code\+: number, headers\+: Record\texorpdfstring{$<$}{<}string, string \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]}\texorpdfstring{$>$}{>}\}) =\texorpdfstring{$>$}{>} void \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily null} -\/ Callback collecting all the info headers (HTTP 100-\/199) received.
+\end{DoxyItemize}
+
+The {\ttfamily Request\+Options.\+method} property should not be value `\textquotesingle{}CONNECT'\`{}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21339}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Response\+Data}}{Parameter\+: {\ttfamily Response\+Data}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21339}
+
+\begin{DoxyItemize}
+\item {\bfseries{status\+Code}} {\ttfamily number}
+\item {\bfseries{headers}} {\ttfamily Record\texorpdfstring{$<$}{<}string, string \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]}\texorpdfstring{$>$}{>}} -\/ Note that all header keys are lower-\/cased, e. g. {\ttfamily content-\/type}.
+\item {\bfseries{body}} {\ttfamily stream.\+Readable} which also implements \href{https://fetch.spec.whatwg.org/\#body-mixin}{\texttt{ the body mixin from the Fetch Standard}}.
+\item {\bfseries{trailers}} {\ttfamily Record\texorpdfstring{$<$}{<}string, string\texorpdfstring{$>$}{>}} -\/ This object starts out as empty and will be mutated to contain trailers after {\ttfamily body} has emitted `\textquotesingle{}end'{\ttfamily .}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}opaque\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}unknown{\ttfamily }
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}context\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}object\`{}
+\end{DoxyItemize}
+
+{\ttfamily body} contains the following additional \href{https://fetch.spec.whatwg.org/\#body-mixin}{\texttt{ body mixin}} methods and properties\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily text()}
+\item {\ttfamily json()}
+\item {\ttfamily array\+Buffer()}
+\item {\ttfamily body}
+\item {\ttfamily body\+Used}
+\end{DoxyItemize}
+
+{\ttfamily body} can not be consumed twice. For example, calling {\ttfamily text()} after {\ttfamily json()} throws {\ttfamily Type\+Error}.
+
+{\ttfamily body} contains the following additional extensions\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily dump(\{ limit\+: Integer \})}, dump the response by reading up to {\ttfamily limit} bytes without killing the socket (optional) -\/ Default\+: 262144.
+\end{DoxyItemize}
+
+Note that body will still be a {\ttfamily Readable} even if it is empty, but attempting to deserialize it with {\ttfamily json()} will result in an exception. Recommended way to ensure there is a body to deserialize is to check if status code is not 204, and {\ttfamily content-\/type} header starts with {\ttfamily application/json}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21340}{}\doxysubsubsection{\texorpdfstring{Example 1 -\/ Basic GET Request}{Example 1 -\/ Basic GET Request}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21340}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end('Hello,\ World!')}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ const\ \{\ body,\ headers,\ statusCode,\ trailers\ \}\ =\ await\ client.request(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ method:\ 'GET'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ console.log(`response\ received\ \$\{statusCode\}`)}
+\DoxyCodeLine{\ \ console.log('headers',\ headers)}
+\DoxyCodeLine{\ \ body.setEncoding('utf8')}
+\DoxyCodeLine{\ \ body.on('data',\ console.log)}
+\DoxyCodeLine{\ \ body.on('end',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('trailers',\ trailers)}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ client.close()}
+\DoxyCodeLine{\ \ server.close()}
+\DoxyCodeLine{\}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ console.error(error)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21341}{}\doxysubsubsection{\texorpdfstring{Example 2 -\/ Aborting a request}{Example 2 -\/ Aborting a request}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21341}
+\begin{quote}
+Node.\+js v15+ is required to run this example \end{quote}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end('Hello,\ World!')}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{const\ abortController\ =\ new\ AbortController()}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ client.request(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ method:\ 'GET',}
+\DoxyCodeLine{\ \ \ \ signal:\ abortController.signal}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ console.error(error)\ //\ should\ print\ an\ RequestAbortedError}
+\DoxyCodeLine{\ \ client.close()}
+\DoxyCodeLine{\ \ server.close()}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{abortController.abort()}
+
+\end{DoxyCode}
+
+
+Alternatively, any {\ttfamily Event\+Emitter} that emits an `\textquotesingle{}abort'\`{} event may be used as an abort controller\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ EventEmitter,\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end('Hello,\ World!')}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{const\ ee\ =\ new\ EventEmitter()}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ client.request(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ method:\ 'GET',}
+\DoxyCodeLine{\ \ \ \ signal:\ ee}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ console.error(error)\ //\ should\ print\ an\ RequestAbortedError}
+\DoxyCodeLine{\ \ client.close()}
+\DoxyCodeLine{\ \ server.close()}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{ee.emit('abort')}
+
+\end{DoxyCode}
+
+
+Destroying the request or response body will have the same effect.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end('Hello,\ World!')}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ const\ \{\ body\ \}\ =\ await\ client.request(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ method:\ 'GET'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ body.destroy()}
+\DoxyCodeLine{\}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ console.error(error)\ //\ should\ print\ an\ RequestAbortedError}
+\DoxyCodeLine{\ \ client.close()}
+\DoxyCodeLine{\ \ server.close()}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21342}{}\doxysubsection{\texorpdfstring{{\ttfamily Dispatcher.\+stream(options, factory\mbox{[}, callback\mbox{]})}}{{\ttfamily Dispatcher.\+stream(options, factory\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21342}
+A faster version of {\ttfamily Dispatcher.\+request}. This method expects the second argument {\ttfamily factory} to return a \href{https://nodejs.org/api/stream.html\#stream_class_stream_writable}{\texttt{ {\ttfamily stream.\+Writable}}} stream which the response will be written to. This improves performance by avoiding creating an intermediate \href{https://nodejs.org/api/stream.html\#stream_readable_streams}{\texttt{ {\ttfamily stream.\+Readable}}} stream when the user expects to directly pipe the response body to a \href{https://nodejs.org/api/stream.html\#stream_class_stream_writable}{\texttt{ {\ttfamily stream.\+Writable}}} stream.
+
+As demonstrated in Example 1 -\/ Basic GET stream request, it is recommended to use the {\ttfamily option.\+opaque} property to avoid creating a closure for the {\ttfamily factory} method. This pattern works well with Node.\+js Web Frameworks such as \href{https://fastify.io}{\texttt{ Fastify}}. See Example 2 -\/ Stream to Fastify Response for more details.
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{options}} {\ttfamily Request\+Options}
+\item {\bfseries{factory}} {\ttfamily (data\+: Stream\+Factory\+Data) =\texorpdfstring{$>$}{>} stream.\+Writable}
+\item {\bfseries{callback}} {\ttfamily (error\+: Error \texorpdfstring{$\vert$}{|} null, data\+: Stream\+Data) =\texorpdfstring{$>$}{>} void} (optional)
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily void \texorpdfstring{$\vert$}{|} Promise\texorpdfstring{$<$}{<}Stream\+Data\texorpdfstring{$>$}{>}} -\/ Only returns a {\ttfamily Promise} if no {\ttfamily callback} argument was passed\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21343}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Stream\+Factory\+Data}}{Parameter\+: {\ttfamily Stream\+Factory\+Data}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21343}
+
+\begin{DoxyItemize}
+\item {\bfseries{status\+Code}} {\ttfamily number}
+\item {\bfseries{headers}} {\ttfamily Record\texorpdfstring{$<$}{<}string, string \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]} \texorpdfstring{$\vert$}{|} undefined\texorpdfstring{$>$}{>}}
+\item {\bfseries{opaque}} {\ttfamily unknown}
+\item {\bfseries{on\+Info}} {\ttfamily (\{status\+Code\+: number, headers\+: Record\texorpdfstring{$<$}{<}string, string \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]}\texorpdfstring{$>$}{>}\}) =\texorpdfstring{$>$}{>} void \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily null} -\/ Callback collecting all the info headers (HTTP 100-\/199) received.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21344}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Stream\+Data}}{Parameter\+: {\ttfamily Stream\+Data}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21344}
+
+\begin{DoxyItemize}
+\item {\bfseries{opaque}} {\ttfamily unknown}
+\item {\bfseries{trailers}} {\ttfamily Record\texorpdfstring{$<$}{<}string, string\texorpdfstring{$>$}{>}}
+\item {\bfseries{context}} {\ttfamily object}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21345}{}\doxysubsubsection{\texorpdfstring{Example 1 -\/ Basic GET stream request}{Example 1 -\/ Basic GET stream request}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21345}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{import\ \{\ Writable\ \}\ from\ 'stream'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end('Hello,\ World!')}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ bufs\ =\ []}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ await\ client.stream(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ method:\ 'GET',}
+\DoxyCodeLine{\ \ \ \ opaque:\ \{\ bufs\ \}}
+\DoxyCodeLine{\ \ \},\ (\{\ statusCode,\ headers,\ opaque:\ \{\ bufs\ \}\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(`response\ received\ \$\{statusCode\}`)}
+\DoxyCodeLine{\ \ \ \ console.log('headers',\ headers)}
+\DoxyCodeLine{\ \ \ \ return\ new\ Writable(\{}
+\DoxyCodeLine{\ \ \ \ \ \ write\ (chunk,\ encoding,\ callback)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ bufs.push(chunk)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ callback()}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \})}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.log(Buffer.concat(bufs).toString('utf-\/8'))}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ client.close()}
+\DoxyCodeLine{\ \ server.close()}
+\DoxyCodeLine{\}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ console.error(error)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21346}{}\doxysubsubsection{\texorpdfstring{Example 2 -\/ Stream to Fastify Response}{Example 2 -\/ Stream to Fastify Response}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21346}
+In this example, a (fake) request is made to the fastify server using {\ttfamily fastify.\+inject()}. This request then executes the fastify route handler which makes a subsequent request to the raw Node.\+js http server using {\ttfamily undici.\+dispatcher.\+stream()}. The fastify response is passed to the {\ttfamily opaque} option so that undici can tap into the underlying writable stream using {\ttfamily response.\+raw}. This methodology demonstrates how one could use undici and fastify together to create fast-\/as-\/possible requests from one backend server to another.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{import\ fastify\ from\ 'fastify'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ nodeServer\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end('Hello,\ World!\ From\ Node.js\ HTTP\ Server')}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(nodeServer,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('Node\ Server\ listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ nodeServerUndiciClient\ =\ new\ Client(`http://localhost:\$\{nodeServer.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ fastifyServer\ =\ fastify()}
+\DoxyCodeLine{}
+\DoxyCodeLine{fastifyServer.route(\{}
+\DoxyCodeLine{\ \ url:\ '/',}
+\DoxyCodeLine{\ \ method:\ 'GET',}
+\DoxyCodeLine{\ \ handler:\ (request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ nodeServerUndiciClient.stream(\{}
+\DoxyCodeLine{\ \ \ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ \ \ method:\ 'GET',}
+\DoxyCodeLine{\ \ \ \ \ \ opaque:\ response}
+\DoxyCodeLine{\ \ \ \ \},\ (\{\ opaque\ \})\ =>\ opaque.raw)}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ fastifyServer.listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('Fastify\ Server\ listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ fastifyServerUndiciClient\ =\ new\ Client(`http://localhost:\$\{fastifyServer.server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ const\ \{\ statusCode,\ body\ \}\ =\ await\ fastifyServerUndiciClient.request(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ method:\ 'GET'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.log(`response\ received\ \$\{statusCode\}`)}
+\DoxyCodeLine{\ \ body.setEncoding('utf8')}
+\DoxyCodeLine{\ \ body.on('data',\ console.log)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ nodeServerUndiciClient.close()}
+\DoxyCodeLine{\ \ fastifyServerUndiciClient.close()}
+\DoxyCodeLine{\ \ fastifyServer.close()}
+\DoxyCodeLine{\ \ nodeServer.close()}
+\DoxyCodeLine{\}\ catch\ (error)\ \{\ \}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21347}{}\doxysubsection{\texorpdfstring{{\ttfamily Dispatcher.\+upgrade(options\mbox{[}, callback\mbox{]})}}{{\ttfamily Dispatcher.\+upgrade(options\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21347}
+Upgrade to a different protocol. Visit \href{https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism}{\texttt{ MDN -\/ HTTP -\/ Protocol upgrade mechanism}} for more details.
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{options}} {\ttfamily Upgrade\+Options}
+\item {\bfseries{callback}} {\ttfamily (error\+: Error \texorpdfstring{$\vert$}{|} null, data\+: Upgrade\+Data) =\texorpdfstring{$>$}{>} void} (optional)
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily void \texorpdfstring{$\vert$}{|} Promise\texorpdfstring{$<$}{<}Upgrade\+Data\texorpdfstring{$>$}{>}} -\/ Only returns a {\ttfamily Promise} if no {\ttfamily callback} argument was passed\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21348}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Upgrade\+Options}}{Parameter\+: {\ttfamily Upgrade\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21348}
+
+\begin{DoxyItemize}
+\item {\bfseries{path}} {\ttfamily string}
+\item {\bfseries{method}} {\ttfamily string} (optional) -\/ Default\+: `\textquotesingle{}GET'{\ttfamily }
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}headers\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}Undici\+Headers$<$tt$>$(optional) -\/ Default\+:
+\end{DoxyItemize}null{\ttfamily 
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}protocol\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\end{DoxyItemize}}string$<$tt$>$(optional) -\/ Default\+:\textquotesingle{}Websocket\textquotesingle{}{\ttfamily -\/ A string of comma separated protocols, in descending preference order.
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}signal\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+\end{DoxyItemize}}Abort\+Signal \texorpdfstring{$\vert$}{|} Event\+Emitter \texorpdfstring{$\vert$}{|} null$<$tt$>$(optional) -\/ Default\+:null\`{}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21349}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Upgrade\+Data}}{Parameter\+: {\ttfamily Upgrade\+Data}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21349}
+
+\begin{DoxyItemize}
+\item {\bfseries{headers}} {\ttfamily http.\+Incoming\+Headers}
+\item {\bfseries{socket}} {\ttfamily stream.\+Duplex}
+\item {\bfseries{opaque}} {\ttfamily unknown}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21350}{}\doxysubsubsection{\texorpdfstring{Example 1 -\/ Basic Upgrade Request}{Example 1 -\/ Basic Upgrade Request}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21350}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.statusCode\ =\ 101}
+\DoxyCodeLine{\ \ response.setHeader('connection',\ 'upgrade')}
+\DoxyCodeLine{\ \ response.setHeader('upgrade',\ request.headers.upgrade)}
+\DoxyCodeLine{\ \ response.end()}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ const\ \{\ headers,\ socket\ \}\ =\ await\ client.upgrade(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ socket.on('end',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(`upgrade:\ \$\{headers.upgrade\}`)\ //\ upgrade:\ Websocket}
+\DoxyCodeLine{\ \ \ \ client.close()}
+\DoxyCodeLine{\ \ \ \ server.close()}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ socket.end()}
+\DoxyCodeLine{\}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ console.error(error)}
+\DoxyCodeLine{\ \ client.close()}
+\DoxyCodeLine{\ \ server.close()}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21351}{}\doxysection{\texorpdfstring{Instance Events}{Instance Events}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21351}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21352}{}\doxysubsection{\texorpdfstring{Event\+: `\textquotesingle{}connect'\`{}}{Event\+: `\textquotesingle{}connect'\`{}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21352}
+Parameters\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{origin}} {\ttfamily URL}
+\item {\bfseries{targets}} {\ttfamily Array\texorpdfstring{$<$}{<}Dispatcher\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21353}{}\doxysubsection{\texorpdfstring{Event\+: `\textquotesingle{}disconnect'\`{}}{Event\+: `\textquotesingle{}disconnect'\`{}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21353}
+Parameters\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{origin}} {\ttfamily URL}
+\item {\bfseries{targets}} {\ttfamily Array\texorpdfstring{$<$}{<}Dispatcher\texorpdfstring{$>$}{>}}
+\item {\bfseries{error}} {\ttfamily Error}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21354}{}\doxysubsection{\texorpdfstring{Event\+: `\textquotesingle{}connection\+Error'\`{}}{Event\+: `\textquotesingle{}connection\+Error'\`{}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21354}
+Parameters\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{origin}} {\ttfamily URL}
+\item {\bfseries{targets}} {\ttfamily Array\texorpdfstring{$<$}{<}Dispatcher\texorpdfstring{$>$}{>}}
+\item {\bfseries{error}} {\ttfamily Error}
+\end{DoxyItemize}
+
+Emitted when dispatcher fails to connect to origin.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21355}{}\doxysubsection{\texorpdfstring{Event\+: `\textquotesingle{}drain'\`{}}{Event\+: `\textquotesingle{}drain'\`{}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21355}
+Parameters\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{origin}} {\ttfamily URL}
+\end{DoxyItemize}
+
+Emitted when dispatcher is no longer busy.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21356}{}\doxysection{\texorpdfstring{Parameter\+: {\ttfamily Undici\+Headers}}{Parameter\+: {\ttfamily Undici\+Headers}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21356}
+
+\begin{DoxyItemize}
+\item {\ttfamily Record\texorpdfstring{$<$}{<}string, string \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]} \texorpdfstring{$\vert$}{|} undefined\texorpdfstring{$>$}{>} \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]} \texorpdfstring{$\vert$}{|} null}
+\end{DoxyItemize}
+
+Header arguments such as {\ttfamily options.\+headers} in \href{Client.md\#clientdispatchoptions-handlers}{\texttt{ {\ttfamily Client.\+dispatch}}} can be specified in two forms; either as an object specified by the {\ttfamily Record\texorpdfstring{$<$}{<}string, string \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]} \texorpdfstring{$\vert$}{|} undefined\texorpdfstring{$>$}{>}} ({\ttfamily Incoming\+Http\+Headers}) type, or an array of strings. An array representation of a header list must have an even length or an {\ttfamily Invalid\+Argument\+Error} will be thrown.
+
+Keys are lowercase and values are not modified.
+
+Response headers will derive a {\ttfamily host} from the {\ttfamily url} of the \href{Client.md\#class-client}{\texttt{ Client}} instance if no {\ttfamily host} header was previously specified.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21357}{}\doxysubsection{\texorpdfstring{Example 1 -\/ Object}{Example 1 -\/ Object}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21357}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ 'content-\/length':\ '123',}
+\DoxyCodeLine{\ \ 'content-\/type':\ 'text/plain',}
+\DoxyCodeLine{\ \ connection:\ 'keep-\/alive',}
+\DoxyCodeLine{\ \ host:\ 'mysite.com',}
+\DoxyCodeLine{\ \ accept:\ '*/*'}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21358}{}\doxysubsection{\texorpdfstring{Example 2 -\/ Array}{Example 2 -\/ Array}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher_autotoc_md21358}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[}
+\DoxyCodeLine{\ \ 'content-\/length',\ '123',}
+\DoxyCodeLine{\ \ 'content-\/type',\ 'text/plain',}
+\DoxyCodeLine{\ \ 'connection',\ 'keep-\/alive',}
+\DoxyCodeLine{\ \ 'host',\ 'mysite.com',}
+\DoxyCodeLine{\ \ 'accept',\ '*/*'}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,53 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/regjsparser Directory Reference}
+\hypertarget{dir_c2a401c4e6a38b366bb699a6e16670ad}{}\label{dir_c2a401c4e6a38b366bb699a6e16670ad}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/regjsparser Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/regjsparser Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Parsing the Java\+Script\textquotesingle{}s Reg\+Exp in Java\+Script.\hypertarget{README.md_autotoc_md17430}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md17430}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ regjsparser}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17431}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md17431}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ parse\ =\ require('regjsparser').parse;}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ parseTree\ =\ parse('\string^a');\ //\ /\string^a/}
+\DoxyCodeLine{console.log(parseTree);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Toggle\ on/off\ additional\ features:}
+\DoxyCodeLine{var\ parseTree\ =\ parse('\string^a',\ '',\ \{}
+\DoxyCodeLine{\ \ //\ SEE:\ https://github.com/jviereck/regjsparser/pull/78}
+\DoxyCodeLine{\ \ unicodePropertyEscape:\ true,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ SEE:\ https://github.com/jviereck/regjsparser/pull/83}
+\DoxyCodeLine{\ \ namedGroups:\ true,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ SEE:\ https://github.com/jviereck/regjsparser/pull/89}
+\DoxyCodeLine{\ \ lookbehind:\ true}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{console.log(parseTree);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17432}{}\doxysubsection{\texorpdfstring{Testing}{Testing}}\label{README.md_autotoc_md17432}
+To run the tests, run the following command\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ test}
+
+\end{DoxyCode}
+
+
+To create a new reference file, execute…
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{node\ test/update-\/fixtures.js}
+
+\end{DoxyCode}
+
+
+…from the repo top directory. 

@@ -1,0 +1,281 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/neo-\/async Directory Reference}
+\hypertarget{dir_6bad0c424abf9cef39111cb7b82431a7}{}\label{dir_6bad0c424abf9cef39111cb7b82431a7}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/neo-\/async Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/neo-\/async Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\doxysubsection*{Neo-\/\+Async}
+
+
+
+ 
+
+
+
+\href{https://www.npmjs.com/package/neo-async}{\texttt{ }} \href{https://travis-ci.org/suguru03/neo-async}{\texttt{ }} \href{https://codecov.io/gh/suguru03/neo-async}{\texttt{ }} \href{https://www.npmjs.com/package/neo-async}{\texttt{ }} \href{https://lgtm.com/projects/g/suguru03/neo-async/context:javascript}{\texttt{ }} \href{https://lgtm.com/projects/g/suguru03/neo-async/alerts}{\texttt{ }} \href{https://app.fossa.io/projects/git\%2Bgithub.com\%2Fsuguru03\%2Fneo-async?ref=badge_shield}{\texttt{ }} 
+
+Neo-\/\+Async is thought to be used as a drop-\/in replacement for \href{https://github.com/caolan/async}{\texttt{ Async}}, it almost fully covers its functionality and runs faster.
+
+Benchmark is here!
+
+Bluebird\textquotesingle{}s benchmark is \href{https://github.com/suguru03/bluebird/tree/aigle/benchmark}{\texttt{ here}}!\hypertarget{README.md_autotoc_md14731}{}\doxysubsubsection{\texorpdfstring{Code Coverage}{Code Coverage}}\label{README.md_autotoc_md14731}
+\hypertarget{README.md_autotoc_md14732}{}\doxysubsubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md14732}
+\hypertarget{README.md_autotoc_md14733}{}\doxysubsubsubsection{\texorpdfstring{In a browser}{In a browser}}\label{README.md_autotoc_md14733}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<script\ src="{}async.min.js"{}></script>}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14734}{}\doxysubsubsubsection{\texorpdfstring{In an AMD loader}{In an AMD loader}}\label{README.md_autotoc_md14734}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{require(['async'],\ function(async)\ \{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14735}{}\doxysubsubsubsection{\texorpdfstring{Promise and async/await}{Promise and async/await}}\label{README.md_autotoc_md14735}
+I recommend to use \href{https://github.com/suguru03/aigle}{\texttt{ {\ttfamily Aigle}}}.
+
+It is optimized for Promise handling and has almost the same functionality as {\ttfamily neo-\/async}.\hypertarget{README.md_autotoc_md14736}{}\doxysubsubsubsection{\texorpdfstring{Node.\+js}{Node.\+js}}\label{README.md_autotoc_md14736}
+\hypertarget{README.md_autotoc_md14737}{}\doxysubsubsubsubsection{\texorpdfstring{standard}{standard}}\label{README.md_autotoc_md14737}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ neo-\/async}
+
+\end{DoxyCode}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ async\ =\ require('neo-\/async');}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14738}{}\doxysubsubsubsubsection{\texorpdfstring{replacement}{replacement}}\label{README.md_autotoc_md14738}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ neo-\/async}
+\DoxyCodeLine{\$\ ln\ -\/s\ ./node\_modules/neo-\/async\ ./node\_modules/async}
+
+\end{DoxyCode}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ async\ =\ require('async');}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14739}{}\doxysubsubsubsection{\texorpdfstring{Bower}{Bower}}\label{README.md_autotoc_md14739}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{bower\ install\ neo-\/async}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14740}{}\doxysubsubsection{\texorpdfstring{Feature}{Feature}}\label{README.md_autotoc_md14740}
+\href{http://suguru03.github.io/neo-async/doc/async.html}{\texttt{ JSDoc}}
+
+
+\begin{DoxyItemize}
+\item not in Async
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md14741}{}\doxysubsubsubsection{\texorpdfstring{Collections}{Collections}}\label{README.md_autotoc_md14741}
+
+\begin{DoxyItemize}
+\item \href{http://suguru03.github.io/neo-async/doc/async.each.html}{\texttt{ {\ttfamily each}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.eachSeries.html}{\texttt{ {\ttfamily each\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.eachLimit.html}{\texttt{ {\ttfamily each\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.each.html}{\texttt{ {\ttfamily for\+Each}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.each.html}{\texttt{ {\ttfamily each}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.eachSeries.html}{\texttt{ {\ttfamily for\+Each\+Series}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.eachSeries.html}{\texttt{ {\ttfamily each\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.eachLimit.html}{\texttt{ {\ttfamily for\+Each\+Limit}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.eachLimit.html}{\texttt{ {\ttfamily each\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.each.html}{\texttt{ {\ttfamily each\+Of}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.each.html}{\texttt{ {\ttfamily each}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.eachSeries.html}{\texttt{ {\ttfamily each\+Of\+Series}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.eachSeries.html}{\texttt{ {\ttfamily each\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.eachLimit.html}{\texttt{ {\ttfamily each\+Of\+Limit}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.eachLimit.html}{\texttt{ {\ttfamily each\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.each.html}{\texttt{ {\ttfamily for\+Each\+Of}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.each.html}{\texttt{ {\ttfamily each}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.eachSeries.html}{\texttt{ {\ttfamily for\+Each\+Of\+Series}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.eachSeries.html}{\texttt{ {\ttfamily each\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.eachLimit.html}{\texttt{ {\ttfamily each\+Of\+Limit}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.eachLimit.html}{\texttt{ {\ttfamily for\+Each\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.map.html}{\texttt{ {\ttfamily map}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.mapSeries.html}{\texttt{ {\ttfamily map\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.mapLimit.html}{\texttt{ {\ttfamily map\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.mapValues.html}{\texttt{ {\ttfamily map\+Values}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.mapValuesSeries.html}{\texttt{ {\ttfamily map\+Values\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.mapValuesLimit.html}{\texttt{ {\ttfamily map\+Values\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.filter.html}{\texttt{ {\ttfamily filter}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.filterSeries.html}{\texttt{ {\ttfamily filter\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.filterLimit.html}{\texttt{ {\ttfamily filter\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.filter.html}{\texttt{ {\ttfamily select}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.filter.html}{\texttt{ {\ttfamily filter}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.filterSeries.html}{\texttt{ {\ttfamily select\+Series}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.filterSeries.html}{\texttt{ {\ttfamily filter\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.filterLimit.html}{\texttt{ {\ttfamily select\+Limit}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.filterLimit.html}{\texttt{ {\ttfamily filter\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.reject.html}{\texttt{ {\ttfamily reject}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.rejectSeries.html}{\texttt{ {\ttfamily reject\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.rejectLimit.html}{\texttt{ {\ttfamily reject\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.detect.html}{\texttt{ {\ttfamily detect}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.detectSeries.html}{\texttt{ {\ttfamily detect\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.detectLimit.html}{\texttt{ {\ttfamily detect\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.detect.html}{\texttt{ {\ttfamily find}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.detect.html}{\texttt{ {\ttfamily detect}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.detectSeries.html}{\texttt{ {\ttfamily find\+Series}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.detectSeries.html}{\texttt{ {\ttfamily detect\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.detectLimit.html}{\texttt{ {\ttfamily find\+Limit}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.detectLimit.html}{\texttt{ {\ttfamily detect\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.pick.html}{\texttt{ {\ttfamily pick}}} \texorpdfstring{$\ast$}{*}
+\item \href{http://suguru03.github.io/neo-async/doc/async.pickSeries.html}{\texttt{ {\ttfamily pick\+Series}}} \texorpdfstring{$\ast$}{*}
+\item \href{http://suguru03.github.io/neo-async/doc/async.pickLimit.html}{\texttt{ {\ttfamily pick\+Limit}}} \texorpdfstring{$\ast$}{*}
+\item \href{http://suguru03.github.io/neo-async/doc/async.omit.html}{\texttt{ {\ttfamily omit}}} \texorpdfstring{$\ast$}{*}
+\item \href{http://suguru03.github.io/neo-async/doc/async.omitSeries.html}{\texttt{ {\ttfamily omit\+Series}}} \texorpdfstring{$\ast$}{*}
+\item \href{http://suguru03.github.io/neo-async/doc/async.omitLimit.html}{\texttt{ {\ttfamily omit\+Limit}}} \texorpdfstring{$\ast$}{*}
+\item \href{http://suguru03.github.io/neo-async/doc/async.reduce.html}{\texttt{ {\ttfamily reduce}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.reduce.html}{\texttt{ {\ttfamily inject}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.reduce.html}{\texttt{ {\ttfamily reduce}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.reduce.html}{\texttt{ {\ttfamily foldl}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.reduce.html}{\texttt{ {\ttfamily reduce}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.reduceRight.html}{\texttt{ {\ttfamily reduce\+Right}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.reduceRight.html}{\texttt{ {\ttfamily foldr}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.reduceRight.html}{\texttt{ {\ttfamily reduce\+Right}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.transform.html}{\texttt{ {\ttfamily transform}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.transformSeries.html}{\texttt{ {\ttfamily transform\+Series}}} \texorpdfstring{$\ast$}{*}
+\item \href{http://suguru03.github.io/neo-async/doc/async.transformLimit.html}{\texttt{ {\ttfamily transform\+Limit}}} \texorpdfstring{$\ast$}{*}
+\item \href{http://suguru03.github.io/neo-async/doc/async.sortBy.html}{\texttt{ {\ttfamily sort\+By}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.sortBySeries.html}{\texttt{ {\ttfamily sort\+By\+Series}}} \texorpdfstring{$\ast$}{*}
+\item \href{http://suguru03.github.io/neo-async/doc/async.sortByLimit.html}{\texttt{ {\ttfamily sort\+By\+Limit}}} \texorpdfstring{$\ast$}{*}
+\item \href{http://suguru03.github.io/neo-async/doc/async.some.html}{\texttt{ {\ttfamily some}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.someSeries.html}{\texttt{ {\ttfamily some\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.someLimit.html}{\texttt{ {\ttfamily some\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.some.html}{\texttt{ {\ttfamily any}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.some.html}{\texttt{ {\ttfamily some}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.someSeries.html}{\texttt{ {\ttfamily any\+Series}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.someSeries.html}{\texttt{ {\ttfamily some\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.someLimit.html}{\texttt{ {\ttfamily any\+Limit}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.someLimit.html}{\texttt{ {\ttfamily some\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.every.html}{\texttt{ {\ttfamily every}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.everySeries.html}{\texttt{ {\ttfamily every\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.everyLimit.html}{\texttt{ {\ttfamily every\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.every.html}{\texttt{ {\ttfamily all}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.every.html}{\texttt{ {\ttfamily every}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.everySeries.html}{\texttt{ {\ttfamily all\+Series}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.everySeries.html}{\texttt{ {\ttfamily every}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.everyLimit.html}{\texttt{ {\ttfamily all\+Limit}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.everyLimit.html}{\texttt{ {\ttfamily every}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.concat.html}{\texttt{ {\ttfamily concat}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.concatSeries.html}{\texttt{ {\ttfamily concat\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.concatLimit.html}{\texttt{ {\ttfamily concat\+Limit}}} \texorpdfstring{$\ast$}{*}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md14742}{}\doxysubsubsubsection{\texorpdfstring{Control Flow}{Control Flow}}\label{README.md_autotoc_md14742}
+
+\begin{DoxyItemize}
+\item \href{http://suguru03.github.io/neo-async/doc/async.parallel.html}{\texttt{ {\ttfamily parallel}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.series.html}{\texttt{ {\ttfamily series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.series.html}{\texttt{ {\ttfamily parallel\+Limit}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.tryEach.html}{\texttt{ {\ttfamily try\+Each}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.waterfall.html}{\texttt{ {\ttfamily waterfall}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.angelFall.html}{\texttt{ {\ttfamily angel\+Fall}}} \texorpdfstring{$\ast$}{*}
+\item \href{http://suguru03.github.io/neo-async/doc/async.angelFall.html}{\texttt{ {\ttfamily angelfall}}} -\/\texorpdfstring{$>$}{>} \href{http://suguru03.github.io/neo-async/doc/async.angelFall.html}{\texttt{ {\ttfamily angel\+Fall}}} \texorpdfstring{$\ast$}{*}
+\item \`{}whilst\`{}
+\item \`{}do\+Whilst\`{}
+\item \`{}until\`{}
+\item \`{}do\+Until\`{}
+\item \`{}during\`{}
+\item \`{}do\+During\`{}
+\item \`{}forever\`{}
+\item \`{}compose\`{}
+\item \`{}seq\`{}
+\item \`{}apply\+Each\`{}
+\item \`{}apply\+Each\+Series\`{}
+\item \`{}queue\`{}
+\item \`{}priority\+Queue\`{}
+\item \`{}cargo\`{}
+\item \`{}auto\`{}
+\item \`{}auto\+Inject\`{}
+\item \`{}retry\`{}
+\item \`{}retryable\`{}
+\item \`{}iterator\`{}
+\item \href{http://suguru03.github.io/neo-async/doc/async.times.html}{\texttt{ {\ttfamily times}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.timesSeries.html}{\texttt{ {\ttfamily times\+Series}}}
+\item \href{http://suguru03.github.io/neo-async/doc/async.timesLimit.html}{\texttt{ {\ttfamily times\+Limit}}}
+\item \`{}race\`{}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md14743}{}\doxysubsubsubsection{\texorpdfstring{Utils}{Utils}}\label{README.md_autotoc_md14743}
+
+\begin{DoxyItemize}
+\item \`{}apply\`{}
+\item \`{}set\+Immediate\`{}
+\item \`{}next\+Tick\`{}
+\item \`{}memoize\`{}
+\item \`{}unmemoize\`{}
+\item \`{}ensure\+Async\`{}
+\item \`{}constant\`{}
+\item \`{}asyncify\`{}
+\item \`{}wrap\+Sync\`{} -\/\texorpdfstring{$>$}{>} \`{}asyncify\`{}
+\item \doxylink{README.md_log}{\`{}log\`{}}
+\item \`{}dir\`{}
+\item \href{http://suguru03.github.io/neo-async/doc/async.timeout.html}{\texttt{ {\ttfamily timeout}}}
+\item \`{}reflect\`{}
+\item \`{}reflect\+All\`{}
+\item \`{}create\+Logger\`{}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md14744}{}\doxysubsubsection{\texorpdfstring{Mode}{Mode}}\label{README.md_autotoc_md14744}
+
+\begin{DoxyItemize}
+\item \`{}safe\`{} \texorpdfstring{$\ast$}{*}
+\item \`{}fast\`{} \texorpdfstring{$\ast$}{*}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md14745}{}\doxysubsubsection{\texorpdfstring{Benchmark}{Benchmark}}\label{README.md_autotoc_md14745}
+\href{http://suguru03.hatenablog.com/entry/2016/06/10/135559}{\texttt{ Benchmark\+: Async vs Neo-\/\+Async}}\hypertarget{README.md_autotoc_md14746}{}\doxysubsubsubsection{\texorpdfstring{How to check}{How to check}}\label{README.md_autotoc_md14746}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ node\ perf}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14747}{}\doxysubsubsubsection{\texorpdfstring{Environment}{Environment}}\label{README.md_autotoc_md14747}
+
+\begin{DoxyItemize}
+\item Darwin 17.\+3.\+0 x64
+\item Node.\+js v8.\+9.\+4
+\item async v2.\+6.\+0
+\item neo-\/async v2.\+5.\+0
+\item benchmark v2.\+1.\+4
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md14748}{}\doxysubsubsubsection{\texorpdfstring{Result}{Result}}\label{README.md_autotoc_md14748}
+The value is the ratio (Neo-\/\+Async/\+Async) of the average speed.\hypertarget{README.md_autotoc_md14749}{}\doxysubsubsubsubsection{\texorpdfstring{Collections}{Collections}}\label{README.md_autotoc_md14749}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ function   }&\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ benchmark    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ function   }&\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ benchmark    }\\\cline{1-2}
+\endhead
+each/for\+Each   &\PBS\raggedleft 2.\+43    \\\cline{1-2}
+each\+Series/for\+Each\+Series   &\PBS\raggedleft 1.\+75    \\\cline{1-2}
+each\+Limit/for\+Each\+Limit   &\PBS\raggedleft 1.\+68    \\\cline{1-2}
+each\+Of   &\PBS\raggedleft 3.\+29    \\\cline{1-2}
+each\+Of\+Series   &\PBS\raggedleft 1.\+50    \\\cline{1-2}
+each\+Of\+Limit   &\PBS\raggedleft 1.\+59    \\\cline{1-2}
+map   &\PBS\raggedleft 3.\+95    \\\cline{1-2}
+map\+Series   &\PBS\raggedleft 1.\+81    \\\cline{1-2}
+map\+Limit   &\PBS\raggedleft 1.\+27    \\\cline{1-2}
+map\+Values   &\PBS\raggedleft 2.\+73    \\\cline{1-2}
+map\+Values\+Series   &\PBS\raggedleft 1.\+59    \\\cline{1-2}
+map\+Values\+Limit   &\PBS\raggedleft 1.\+23    \\\cline{1-2}
+filter   &\PBS\raggedleft 3.\+00    \\\cline{1-2}
+filter\+Series   &\PBS\raggedleft 1.\+74    \\\cline{1-2}
+filter\+Limit   &\PBS\raggedleft 1.\+17    \\\cline{1-2}
+reject   &\PBS\raggedleft 4.\+59    \\\cline{1-2}
+reject\+Series   &\PBS\raggedleft 2.\+31    \\\cline{1-2}
+reject\+Limit   &\PBS\raggedleft 1.\+58    \\\cline{1-2}
+detect   &\PBS\raggedleft 4.\+30    \\\cline{1-2}
+detect\+Series   &\PBS\raggedleft 1.\+86    \\\cline{1-2}
+detect\+Limit   &\PBS\raggedleft 1.\+32    \\\cline{1-2}
+reduce   &\PBS\raggedleft 1.\+82    \\\cline{1-2}
+transform   &\PBS\raggedleft 2.\+46    \\\cline{1-2}
+sort\+By   &\PBS\raggedleft 4.\+08    \\\cline{1-2}
+some   &\PBS\raggedleft 2.\+19    \\\cline{1-2}
+some\+Series   &\PBS\raggedleft 1.\+83    \\\cline{1-2}
+some\+Limit   &\PBS\raggedleft 1.\+32    \\\cline{1-2}
+every   &\PBS\raggedleft 2.\+09    \\\cline{1-2}
+every\+Series   &\PBS\raggedleft 1.\+84    \\\cline{1-2}
+every\+Limit   &\PBS\raggedleft 1.\+35    \\\cline{1-2}
+concat   &\PBS\raggedleft 3.\+79    \\\cline{1-2}
+concat\+Series   &\PBS\raggedleft 4.\+45   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{README.md_autotoc_md14750}{}\doxysubsubsubsubsection{\texorpdfstring{Control Flow}{Control Flow}}\label{README.md_autotoc_md14750}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ funciton   }&\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ benchmark    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ funciton   }&\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ benchmark    }\\\cline{1-2}
+\endhead
+parallel   &\PBS\raggedleft 2.\+93    \\\cline{1-2}
+series   &\PBS\raggedleft 1.\+96    \\\cline{1-2}
+waterfall   &\PBS\raggedleft 1.\+29    \\\cline{1-2}
+whilst   &\PBS\raggedleft 1.\+00    \\\cline{1-2}
+do\+Whilst   &\PBS\raggedleft 1.\+12    \\\cline{1-2}
+until   &\PBS\raggedleft 1.\+12    \\\cline{1-2}
+do\+Until   &\PBS\raggedleft 1.\+12    \\\cline{1-2}
+during   &\PBS\raggedleft 1.\+18    \\\cline{1-2}
+do\+During   &\PBS\raggedleft 2.\+42    \\\cline{1-2}
+times   &\PBS\raggedleft 4.\+25    \\\cline{1-2}
+auto   &\PBS\raggedleft 1.\+97   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{README.md_autotoc_md14751}{}\doxysubsubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md14751}
+\href{https://app.fossa.io/projects/git\%2Bgithub.com\%2Fsuguru03\%2Fneo-async?ref=badge_large}{\texttt{ }} 

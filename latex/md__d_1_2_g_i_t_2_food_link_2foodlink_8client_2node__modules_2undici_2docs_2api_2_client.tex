@@ -1,0 +1,245 @@
+\chapter{Class\+: Client}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client}\index{Class: Client@{Class: Client}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21260}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21260}%
+
+
+Extends\+: {\ttfamily undici.\+Dispatcher}
+
+A basic HTTP/1.\+1 client, mapped on top a single TCP/\+TLS connection. Pipelining is disabled by default.
+
+Requests are not guaranteed to be dispatched in order of invocation.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21261}{}\doxysection{\texorpdfstring{{\ttfamily new Client(url\mbox{[}, options\mbox{]})}}{{\ttfamily new Client(url\mbox{[}, options\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21261}
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{url}} {\ttfamily URL \texorpdfstring{$\vert$}{|} string} -\/ Should only include the {\bfseries{protocol, hostname, and port}}.
+\item {\bfseries{options}} {\ttfamily Client\+Options} (optional)
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily Client}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21262}{}\doxysubsection{\texorpdfstring{Parameter\+: {\ttfamily Client\+Options}}{Parameter\+: {\ttfamily Client\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21262}
+\begin{quote}
+⚠️ Warning\+: The {\ttfamily H2} support is experimental. \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item {\bfseries{body\+Timeout}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily 300e3} -\/ The timeout after which a request will time out, in milliseconds. Monitors time between receiving body data. Use {\ttfamily 0} to disable it entirely. Defaults to 300 seconds.
+\item {\bfseries{headers\+Timeout}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily 300e3} -\/ The amount of time, in milliseconds, the parser will wait to receive the complete HTTP headers while not sending the request. Defaults to 300 seconds.
+\item {\bfseries{keep\+Alive\+Max\+Timeout}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily 600e3} -\/ The maximum allowed {\ttfamily keep\+Alive\+Timeout}, in milliseconds, when overridden by {\itshape keep-\/alive} hints from the server. Defaults to 10 minutes.
+\item {\bfseries{keep\+Alive\+Timeout}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily 4e3} -\/ The timeout, in milliseconds, after which a socket without active requests will time out. Monitors time between activity on a connected socket. This value may be overridden by {\itshape keep-\/alive} hints from the server. See \href{https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Keep-Alive\#directives}{\texttt{ MDN\+: HTTP -\/ Headers -\/ Keep-\/\+Alive directives}} for more details. Defaults to 4 seconds.
+\item {\bfseries{keep\+Alive\+Timeout\+Threshold}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily 1e3} -\/ A number of milliseconds subtracted from server {\itshape keep-\/alive} hints when overriding {\ttfamily keep\+Alive\+Timeout} to account for timing inaccuracies caused by e.\+g. transport latency. Defaults to 1 second.
+\item {\bfseries{max\+Header\+Size}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily -\/-\/max-\/http-\/header-\/size} or {\ttfamily 16384} -\/ The maximum length of request headers in bytes. Defaults to Node.\+js\textquotesingle{} --max-\/http-\/header-\/size or 16KiB.
+\item {\bfseries{max\+Response\+Size}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily -\/1} -\/ The maximum length of response body in bytes. Set to {\ttfamily -\/1} to disable.
+\item {\bfseries{pipelining}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily 1} -\/ The amount of concurrent requests to be sent over the single TCP/\+TLS connection according to \href{https://tools.ietf.org/html/rfc7230\#section-6.3.2}{\texttt{ RFC7230}}. Carefully consider your workload and environment before enabling concurrent requests as pipelining may reduce performance if used incorrectly. Pipelining is sensitive to network stack settings as well as head of line blocking caused by e.\+g. long running requests. Set to {\ttfamily 0} to disable keep-\/alive connections.
+\item {\bfseries{connect}} {\ttfamily Connect\+Options \texorpdfstring{$\vert$}{|} Function \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily null}.
+\item {\bfseries{strict\+Content\+Length}} {\ttfamily Boolean} (optional) -\/ Default\+: {\ttfamily true} -\/ Whether to treat request content length mismatches as errors. If true, an error is thrown when the request content-\/length header doesn\textquotesingle{}t match the length of the request body.
+\item {\bfseries{interceptors}} {\ttfamily \{ Client\+: Dispatch\+Interceptor\mbox{[}\mbox{]} \}} -\/ Default\+: {\ttfamily \mbox{[}Redirect\+Interceptor\mbox{]}} -\/ A list of interceptors that are applied to the dispatch method. Additional logic can be applied (such as, but not limited to\+: 302 status code handling, authentication, cookies, compression and caching). Note that the behavior of interceptors is Experimental and might change at any given time.
+\item {\bfseries{auto\+Select\+Family}}\+: {\ttfamily boolean} (optional) -\/ Default\+: depends on local Node version, on Node 18.\+13.\+0 and above is {\ttfamily false}. Enables a family autodetection algorithm that loosely implements section 5 of \href{https://tools.ietf.org/html/rfc8305\#section-5}{\texttt{ RFC 8305}}. See \href{https://nodejs.org/api/net.html\#socketconnectoptions-connectlistener}{\texttt{ here}} for more details. This option is ignored if not supported by the current Node version.
+\item {\bfseries{auto\+Select\+Family\+Attempt\+Timeout}}\+: {\ttfamily number} -\/ Default\+: depends on local Node version, on Node 18.\+13.\+0 and above is {\ttfamily 250}. The amount of time in milliseconds to wait for a connection attempt to finish before trying the next address when using the {\ttfamily auto\+Select\+Family} option. See \href{https://nodejs.org/api/net.html\#socketconnectoptions-connectlistener}{\texttt{ here}} for more details.
+\item {\bfseries{allow\+H2}}\+: {\ttfamily boolean} -\/ Default\+: {\ttfamily false}. Enables support for H2 if the server has assigned bigger priority to it through ALPN negotiation.
+\item {\bfseries{max\+Concurrent\+Streams}}\+: {\ttfamily number} -\/ Default\+: {\ttfamily 100}. Dictates the maximum number of concurrent streams for a single H2 session. It can be overriden by a SETTINGS remote frame.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21263}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily Connect\+Options}}{Parameter\+: {\ttfamily Connect\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21263}
+Every Tls option, see \href{https://nodejs.org/api/tls.html\#tls_tls_connect_options_callback}{\texttt{ here}}. Furthermore, the following options can be passed\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{socket\+Path}} {\ttfamily string \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily null} -\/ An IPC endpoint, either Unix domain socket or Windows named pipe.
+\item {\bfseries{max\+Cached\+Sessions}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily 100} -\/ Maximum number of TLS cached sessions. Use 0 to disable TLS session caching. Default\+: 100.
+\item {\bfseries{timeout}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ In milliseconds, Default {\ttfamily 10e3}.
+\item {\bfseries{servername}} {\ttfamily string \texorpdfstring{$\vert$}{|} null} (optional)
+\item {\bfseries{keep\+Alive}} {\ttfamily boolean \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily true} -\/ TCP keep-\/alive enabled
+\item {\bfseries{keep\+Alive\+Initial\+Delay}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily 60000} -\/ TCP keep-\/alive interval for the socket in milliseconds
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21264}{}\doxysubsection{\texorpdfstring{Example -\/ Basic Client instantiation}{Example -\/ Basic Client instantiation}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21264}
+This will instantiate the undici Client, but it will not connect to the origin until something is queued. Consider using {\ttfamily client.\+connect} to prematurely connect to the origin, or just call {\ttfamily client.\+request}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{'use\ strict'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client('http://localhost:3000')}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21265}{}\doxysubsection{\texorpdfstring{Example -\/ Custom connector}{Example -\/ Custom connector}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21265}
+This will allow you to perform some additional check on the socket that will be used for the next request.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{'use\ strict'}
+\DoxyCodeLine{import\ \{\ Client,\ buildConnector\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ connector\ =\ buildConnector(\{\ rejectUnauthorized:\ false\ \})}
+\DoxyCodeLine{const\ client\ =\ new\ Client('https://localhost:3000',\ \{}
+\DoxyCodeLine{\ \ connect\ (opts,\ cb)\ \{}
+\DoxyCodeLine{\ \ \ \ connector(opts,\ (err,\ socket)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ if\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cb(err)}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ else\ if\ (/*\ assertion\ */)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ socket.destroy()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cb(new\ Error('kaboom'))}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cb(null,\ socket)}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \})}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21266}{}\doxysection{\texorpdfstring{Instance Methods}{Instance Methods}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21266}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21267}{}\doxysubsection{\texorpdfstring{{\ttfamily Client.\+close(\mbox{[}callback\mbox{]})}}{{\ttfamily Client.\+close(\mbox{[}callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21267}
+Implements \href{Dispatcher.md\#dispatcherclosecallback-promise}{\texttt{ {\ttfamily Dispatcher.\+close(\mbox{[}callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21268}{}\doxysubsection{\texorpdfstring{{\ttfamily Client.\+destroy(\mbox{[}error, callback\mbox{]})}}{{\ttfamily Client.\+destroy(\mbox{[}error, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21268}
+Implements \href{Dispatcher.md\#dispatcherdestroyerror-callback-promise}{\texttt{ {\ttfamily Dispatcher.\+destroy(\mbox{[}error, callback\mbox{]})}}}.
+
+Waits until socket is closed before invoking the callback (or returning a promise if no callback is provided).\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21269}{}\doxysubsection{\texorpdfstring{{\ttfamily Client.\+connect(options\mbox{[}, callback\mbox{]})}}{{\ttfamily Client.\+connect(options\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21269}
+See \href{Dispatcher.md\#dispatcherconnectoptions-callback}{\texttt{ {\ttfamily Dispatcher.\+connect(options\mbox{[}, callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21270}{}\doxysubsection{\texorpdfstring{{\ttfamily Client.\+dispatch(options, handlers)}}{{\ttfamily Client.\+dispatch(options, handlers)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21270}
+Implements \href{Dispatcher.md\#dispatcherdispatchoptions-handler}{\texttt{ {\ttfamily Dispatcher.\+dispatch(options, handlers)}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21271}{}\doxysubsection{\texorpdfstring{{\ttfamily Client.\+pipeline(options, handler)}}{{\ttfamily Client.\+pipeline(options, handler)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21271}
+See \href{Dispatcher.md\#dispatcherpipelineoptions-handler}{\texttt{ {\ttfamily Dispatcher.\+pipeline(options, handler)}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21272}{}\doxysubsection{\texorpdfstring{{\ttfamily Client.\+request(options\mbox{[}, callback\mbox{]})}}{{\ttfamily Client.\+request(options\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21272}
+See \href{Dispatcher.md\#dispatcherrequestoptions-callback}{\texttt{ {\ttfamily Dispatcher.\+request(options \mbox{[}, callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21273}{}\doxysubsection{\texorpdfstring{{\ttfamily Client.\+stream(options, factory\mbox{[}, callback\mbox{]})}}{{\ttfamily Client.\+stream(options, factory\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21273}
+See \href{Dispatcher.md\#dispatcherstreamoptions-factory-callback}{\texttt{ {\ttfamily Dispatcher.\+stream(options, factory\mbox{[}, callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21274}{}\doxysubsection{\texorpdfstring{{\ttfamily Client.\+upgrade(options\mbox{[}, callback\mbox{]})}}{{\ttfamily Client.\+upgrade(options\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21274}
+See \href{Dispatcher.md\#dispatcherupgradeoptions-callback}{\texttt{ {\ttfamily Dispatcher.\+upgrade(options\mbox{[}, callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21275}{}\doxysection{\texorpdfstring{Instance Properties}{Instance Properties}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21275}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21276}{}\doxysubsection{\texorpdfstring{{\ttfamily Client.\+closed}}{{\ttfamily Client.\+closed}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21276}
+
+\begin{DoxyItemize}
+\item {\ttfamily boolean}
+\end{DoxyItemize}
+
+{\ttfamily true} after {\ttfamily client.\+close()} has been called.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21277}{}\doxysubsection{\texorpdfstring{{\ttfamily Client.\+destroyed}}{{\ttfamily Client.\+destroyed}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21277}
+
+\begin{DoxyItemize}
+\item {\ttfamily boolean}
+\end{DoxyItemize}
+
+{\ttfamily true} after {\ttfamily client.\+destroyed()} has been called or {\ttfamily client.\+close()} has been called and the client shutdown has completed.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21278}{}\doxysubsection{\texorpdfstring{{\ttfamily Client.\+pipelining}}{{\ttfamily Client.\+pipelining}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21278}
+
+\begin{DoxyItemize}
+\item {\ttfamily number}
+\end{DoxyItemize}
+
+Property to get and set the pipelining factor.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21279}{}\doxysection{\texorpdfstring{Instance Events}{Instance Events}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21279}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21280}{}\doxysubsection{\texorpdfstring{Event\+: `\textquotesingle{}connect'\`{}}{Event\+: `\textquotesingle{}connect'\`{}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21280}
+See \href{Dispatcher.md\#event-connect}{\texttt{ Dispatcher Event\+: `\textquotesingle{}connect'\`{}}}.
+
+Parameters\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{origin}} {\ttfamily URL}
+\item {\bfseries{targets}} {\ttfamily Array\texorpdfstring{$<$}{<}Dispatcher\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}
+
+Emitted when a socket has been created and connected. The client will connect once {\ttfamily client.\+size \texorpdfstring{$>$}{>} 0}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21281}{}\doxysubsubsection{\texorpdfstring{Example -\/ Client connect event}{Example -\/ Client connect event}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21281}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end('Hello,\ World!')}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{client.on('connect',\ (origin)\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(`Connected\ to\ \$\{origin\}`)\ //\ should\ print\ before\ the\ request\ body\ statement}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ const\ \{\ body\ \}\ =\ await\ client.request(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ method:\ 'GET'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ body.setEncoding('utf-\/8')}
+\DoxyCodeLine{\ \ body.on('data',\ console.log)}
+\DoxyCodeLine{\ \ client.close()}
+\DoxyCodeLine{\ \ server.close()}
+\DoxyCodeLine{\}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ console.error(error)}
+\DoxyCodeLine{\ \ client.close()}
+\DoxyCodeLine{\ \ server.close()}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21282}{}\doxysubsection{\texorpdfstring{Event\+: `\textquotesingle{}disconnect'\`{}}{Event\+: `\textquotesingle{}disconnect'\`{}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21282}
+See \href{Dispatcher.md\#event-disconnect}{\texttt{ Dispatcher Event\+: `\textquotesingle{}disconnect'\`{}}}.
+
+Parameters\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{origin}} {\ttfamily URL}
+\item {\bfseries{targets}} {\ttfamily Array\texorpdfstring{$<$}{<}Dispatcher\texorpdfstring{$>$}{>}}
+\item {\bfseries{error}} {\ttfamily Error}
+\end{DoxyItemize}
+
+Emitted when socket has disconnected. The error argument of the event is the error which caused the socket to disconnect. The client will reconnect if or once {\ttfamily client.\+size \texorpdfstring{$>$}{>} 0}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21283}{}\doxysubsubsection{\texorpdfstring{Example -\/ Client disconnect event}{Example -\/ Client disconnect event}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21283}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.destroy()}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{client.on('disconnect',\ (origin)\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(`Disconnected\ from\ \$\{origin\}`)}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ await\ client.request(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ method:\ 'GET'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ console.error(error.message)}
+\DoxyCodeLine{\ \ client.close()}
+\DoxyCodeLine{\ \ server.close()}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21284}{}\doxysubsection{\texorpdfstring{Event\+: `\textquotesingle{}drain'\`{}}{Event\+: `\textquotesingle{}drain'\`{}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21284}
+Emitted when pipeline is no longer busy.
+
+See \href{Dispatcher.md\#event-drain}{\texttt{ Dispatcher Event\+: `\textquotesingle{}drain'\`{}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21285}{}\doxysubsubsection{\texorpdfstring{Example -\/ Client drain event}{Example -\/ Client drain event}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21285}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ createServer\ \}\ from\ 'http'}
+\DoxyCodeLine{import\ \{\ Client\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ once\ \}\ from\ 'events'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer((request,\ response)\ =>\ \{}
+\DoxyCodeLine{\ \ response.end('Hello,\ World!')}
+\DoxyCodeLine{\}).listen()}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ once(server,\ 'listening')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ client\ =\ new\ Client(`http://localhost:\$\{server.address().port\}`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{client.on('drain',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ console.log('drain\ event')}
+\DoxyCodeLine{\ \ client.close()}
+\DoxyCodeLine{\ \ server.close()}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ requests\ =\ [}
+\DoxyCodeLine{\ \ client.request(\{\ path:\ '/',\ method:\ 'GET'\ \}),}
+\DoxyCodeLine{\ \ client.request(\{\ path:\ '/',\ method:\ 'GET'\ \}),}
+\DoxyCodeLine{\ \ client.request(\{\ path:\ '/',\ method:\ 'GET'\ \})}
+\DoxyCodeLine{]}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ Promise.all(requests)}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('requests\ completed')}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21286}{}\doxysubsection{\texorpdfstring{Event\+: `\textquotesingle{}error'\`{}}{Event\+: `\textquotesingle{}error'\`{}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_client_autotoc_md21286}
+Invoked for users errors such as throwing in the {\ttfamily on\+Error} handler. 

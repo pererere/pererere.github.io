@@ -1,0 +1,133 @@
+\doxysection{Food\+Link.\+Server.\+Controllers.\+Comments\+Controller Class Reference}
+\hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller}{}\label{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller}\index{FoodLink.Server.Controllers.CommentsController@{FoodLink.Server.Controllers.CommentsController}}
+
+
+Controller responsible for managing comments related to recipes.  
+
+
+Inheritance diagram for Food\+Link.\+Server.\+Controllers.\+Comments\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a45d6ec01d57017c789331176c487920a}{Comments\+Controller}} (\mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}} context)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller}{Comments\+Controller} class. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ IEnumerable$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment}} $>$ $>$ $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a5271f22a7374d30cd09472c77a16501f}{Get\+Comments}} (int recipe\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all comments associated with a specific recipe. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment}} $>$ $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a4fbed92b84eb3a1d72db550c644f9122}{Get\+Comment}} (int comment\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves a specific comment by its ID. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment}} $>$ $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a01f27bd8adee5eb2b73e618f9b558d63}{Post\+Comment}} (\mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment}} comment)
+\begin{DoxyCompactList}\small\item\em Creates a new comment for a recipe. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a757eba97961090568a1805f63baf4019}{Delete\+Comment}} (int id)
+\begin{DoxyCompactList}\small\item\em Deletes a comment by its ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_af7753a6d1a51edf59ceec9550455f24f}\label{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_af7753a6d1a51edf59ceec9550455f24f} 
+readonly \mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}} {\bfseries \+\_\+context}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller responsible for managing comments related to recipes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a45d6ec01d57017c789331176c487920a}\index{FoodLink.Server.Controllers.CommentsController@{FoodLink.Server.Controllers.CommentsController}!CommentsController@{CommentsController}}
+\index{CommentsController@{CommentsController}!FoodLink.Server.Controllers.CommentsController@{FoodLink.Server.Controllers.CommentsController}}
+\doxysubsubsection{\texorpdfstring{CommentsController()}{CommentsController()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a45d6ec01d57017c789331176c487920a} 
+Food\+Link.\+Server.\+Controllers.\+Comments\+Controller.\+Comments\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller}{Comments\+Controller} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The database context for accessing comment data.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a757eba97961090568a1805f63baf4019}\index{FoodLink.Server.Controllers.CommentsController@{FoodLink.Server.Controllers.CommentsController}!DeleteComment@{DeleteComment}}
+\index{DeleteComment@{DeleteComment}!FoodLink.Server.Controllers.CommentsController@{FoodLink.Server.Controllers.CommentsController}}
+\doxysubsubsection{\texorpdfstring{DeleteComment()}{DeleteComment()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a757eba97961090568a1805f63baf4019} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+Comments\+Controller.\+Delete\+Comment (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Deletes a comment by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the comment to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result indicating the result of the deletion.
+\end{DoxyReturn}
+$<$response code="{}204"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment} deleted successfully.$<$/response$>$ $<$response code="{}404"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment} not found.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a4fbed92b84eb3a1d72db550c644f9122}\index{FoodLink.Server.Controllers.CommentsController@{FoodLink.Server.Controllers.CommentsController}!GetComment@{GetComment}}
+\index{GetComment@{GetComment}!FoodLink.Server.Controllers.CommentsController@{FoodLink.Server.Controllers.CommentsController}}
+\doxysubsubsection{\texorpdfstring{GetComment()}{GetComment()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a4fbed92b84eb3a1d72db550c644f9122} 
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment}} $>$ $>$ Food\+Link.\+Server.\+Controllers.\+Comments\+Controller.\+Get\+Comment (\begin{DoxyParamCaption}\item[{int}]{comment\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a specific comment by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comment\+Id} & The ID of the comment to retrieve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Action\+Result$<$\+T$>$ containing the requested comment or a not found response.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment} retrieved successfully.$<$/response$>$ $<$response code="{}404"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment} not found.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a5271f22a7374d30cd09472c77a16501f}\index{FoodLink.Server.Controllers.CommentsController@{FoodLink.Server.Controllers.CommentsController}!GetComments@{GetComments}}
+\index{GetComments@{GetComments}!FoodLink.Server.Controllers.CommentsController@{FoodLink.Server.Controllers.CommentsController}}
+\doxysubsubsection{\texorpdfstring{GetComments()}{GetComments()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a5271f22a7374d30cd09472c77a16501f} 
+async Task$<$ Action\+Result$<$ IEnumerable$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment}} $>$ $>$ $>$ Food\+Link.\+Server.\+Controllers.\+Comments\+Controller.\+Get\+Comments (\begin{DoxyParamCaption}\item[{int}]{recipe\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves all comments associated with a specific recipe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em recipe\+Id} & The ID of the recipe to fetch comments for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Action\+Result$<$\+T$>$ containing a list of comments for the specified recipe.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$Comments retrieved successfully.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a01f27bd8adee5eb2b73e618f9b558d63}\index{FoodLink.Server.Controllers.CommentsController@{FoodLink.Server.Controllers.CommentsController}!PostComment@{PostComment}}
+\index{PostComment@{PostComment}!FoodLink.Server.Controllers.CommentsController@{FoodLink.Server.Controllers.CommentsController}}
+\doxysubsubsection{\texorpdfstring{PostComment()}{PostComment()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_comments_controller_a01f27bd8adee5eb2b73e618f9b558d63} 
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment}} $>$ $>$ Food\+Link.\+Server.\+Controllers.\+Comments\+Controller.\+Post\+Comment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment}}}]{comment}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new comment for a recipe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comment} & The comment object to be created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Action\+Result$<$\+T$>$ containing the created comment or an error message.
+\end{DoxyReturn}
+$<$response code="{}201"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment} created successfully, returns the created comment.$<$/response$>$ $<$response code="{}400"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_comment}{Comment} text is empty or invalid.$<$/response$>$ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/\+Food\+Link.\+Server/\+Controllers/Comments\+Controller.\+cs\end{DoxyCompactItemize}

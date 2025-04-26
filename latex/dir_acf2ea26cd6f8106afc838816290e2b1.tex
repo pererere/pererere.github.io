@@ -1,0 +1,50 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/spdx-\/license-\/ids Directory Reference}
+\hypertarget{dir_acf2ea26cd6f8106afc838816290e2b1}{}\label{dir_acf2ea26cd6f8106afc838816290e2b1}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/spdx-\/license-\/ids Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/spdx-\/license-\/ids Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.com/package/spdx-license-ids}{\texttt{ }} \href{https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/jslicense/spdx-license-ids}{\texttt{ }}
+
+A list of \href{https://spdx.org/licenses/}{\texttt{ SPDX license}} identifiers\hypertarget{README.md_autotoc_md19807}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md19807}
+\href{https://raw.githubusercontent.com/jslicense/spdx-license-ids/main/index.json}{\texttt{ Download JSON directly}}, or \href{https://docs.npmjs.com/cli/install}{\texttt{ use}} \href{https://docs.npmjs.com/about-npm/}{\texttt{ npm}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ spdx-\/license-\/ids}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md19808}{}\doxysubsection{\texorpdfstring{\href{https://nodejs.org/}{\texttt{ Node.\+js}} API}{\href{https://nodejs.org/}{\texttt{ Node.\+js}} API}}\label{README.md_autotoc_md19808}
+\hypertarget{README.md_autotoc_md19809}{}\doxysubsubsection{\texorpdfstring{require(\textquotesingle{}spdx-\/license-\/ids\textquotesingle{})}{require(\textquotesingle{}spdx-\/license-\/ids\textquotesingle{})}}\label{README.md_autotoc_md19809}
+Type\+: {\ttfamily string\mbox{[}\mbox{]}}
+
+All license IDs except for the currently deprecated ones.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ ids\ =\ require('spdx-\/license-\/ids');}
+\DoxyCodeLine{//=>\ ['0BSD',\ 'AAL',\ 'ADSL',\ 'AFL-\/1.1',\ 'AFL-\/1.2',\ 'AFL-\/2.0',\ 'AFL-\/2.1',\ 'AFL-\/3.0',\ 'AGPL-\/1.0-\/only',\ ...]}
+\DoxyCodeLine{}
+\DoxyCodeLine{ids.includes('BSD-\/3-\/Clause');\ //=>\ true}
+\DoxyCodeLine{ids.includes('CC-\/BY-\/1.0');\ //=>\ true}
+\DoxyCodeLine{}
+\DoxyCodeLine{ids.includes('GPL-\/3.0');\ //=>\ false}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md19810}{}\doxysubsubsection{\texorpdfstring{require(\textquotesingle{}spdx-\/license-\/ids/deprecated\textquotesingle{})}{require(\textquotesingle{}spdx-\/license-\/ids/deprecated\textquotesingle{})}}\label{README.md_autotoc_md19810}
+Type\+: {\ttfamily string\mbox{[}\mbox{]}}
+
+Deprecated license IDs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ deprecatedIds\ =\ require('spdx-\/license-\/ids/deprecated');}
+\DoxyCodeLine{//=>\ ['AGPL-\/1.0',\ 'AGPL-\/3.0',\ 'GFDL-\/1.1',\ 'GFDL-\/1.2',\ 'GFDL-\/1.3',\ 'GPL-\/1.0',\ 'GPL-\/2.0',\ ...]}
+\DoxyCodeLine{}
+\DoxyCodeLine{deprecatedIds.includes('BSD-\/3-\/Clause');\ //=>\ false}
+\DoxyCodeLine{deprecatedIds.includes('CC-\/BY-\/1.0');\ //=>\ false}
+\DoxyCodeLine{}
+\DoxyCodeLine{deprecatedIds.includes('GPL-\/3.0');\ //=>\ true}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md19811}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md19811}
+\href{https://creativecommons.org/publicdomain/zero/1.0/deed}{\texttt{ Creative Commons Zero v1.\+0 Universal}} 

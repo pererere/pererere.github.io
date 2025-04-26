@@ -1,0 +1,65 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/convert-\/source-\/map Directory Reference}
+\hypertarget{dir_d10547bb78513354dd75df90cde7e02d}{}\label{dir_d10547bb78513354dd75df90cde7e02d}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/convert-\/source-\/map Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/convert-\/source-\/map Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Converts a source-\/map from/to different formats and allows adding/changing properties.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ convert\ =\ require('convert-\/source-\/map');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ json\ =\ convert}
+\DoxyCodeLine{\ \ .fromComment('//\#\ sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYnVpbGQvZm9vLm1pbi5qcyIsInNvdXJjZXMiOlsic3JjL2Zvby5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsInNvdXJjZVJvb3QiOiIvIn0=')}
+\DoxyCodeLine{\ \ .toJSON();}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ modified\ =\ convert}
+\DoxyCodeLine{\ \ .fromComment('//\#\ sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYnVpbGQvZm9vLm1pbi5qcyIsInNvdXJjZXMiOlsic3JjL2Zvby5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsInNvdXJjZVJvb3QiOiIvIn0=')}
+\DoxyCodeLine{\ \ .setProperty('sources',\ [\ 'SRC/FOO.JS'\ ])}
+\DoxyCodeLine{\ \ .toJSON();}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(json);}
+\DoxyCodeLine{console.log(modified);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{"{}version"{}:3,"{}file"{}:"{}build/foo.min.js"{},"{}sources"{}:["{}src/foo.js"{}],"{}names"{}:[],"{}mappings"{}:"{}AAAA"{},"{}sourceRoot"{}:"{}/"{}\}}
+\DoxyCodeLine{\{"{}version"{}:3,"{}file"{}:"{}build/foo.min.js"{},"{}sources"{}:["{}SRC/FOO.JS"{}],"{}names"{}:[],"{}mappings"{}:"{}AAAA"{},"{}sourceRoot"{}:"{}/"{}\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4777}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md4777}
+\hypertarget{README.md_autotoc_md4778}{}\doxysubsubsection{\texorpdfstring{from\+Object(obj)}{from\+Object(obj)}}\label{README.md_autotoc_md4778}
+Returns source map converter from given object.\hypertarget{README.md_autotoc_md4779}{}\doxysubsubsection{\texorpdfstring{from\+JSON(json)}{from\+JSON(json)}}\label{README.md_autotoc_md4779}
+Returns source map converter from given json string.\hypertarget{README.md_autotoc_md4780}{}\doxysubsubsection{\texorpdfstring{from\+Base64(base64)}{from\+Base64(base64)}}\label{README.md_autotoc_md4780}
+Returns source map converter from given base64 encoded json string.\hypertarget{README.md_autotoc_md4781}{}\doxysubsubsection{\texorpdfstring{from\+Comment(comment)}{from\+Comment(comment)}}\label{README.md_autotoc_md4781}
+Returns source map converter from given base64 encoded json string prefixed with {\ttfamily //\# source\+Mapping\+URL=...}.\hypertarget{README.md_autotoc_md4782}{}\doxysubsubsection{\texorpdfstring{from\+Map\+File\+Comment(comment, map\+File\+Dir)}{from\+Map\+File\+Comment(comment, map\+File\+Dir)}}\label{README.md_autotoc_md4782}
+Returns source map converter from given {\ttfamily filename} by parsing {\ttfamily //\# source\+Mapping\+URL=filename}.
+
+{\ttfamily filename} must point to a file that is found inside the {\ttfamily map\+File\+Dir}. Most tools store this file right next to the generated file, i.\+e. the one containing the source map.\hypertarget{README.md_autotoc_md4783}{}\doxysubsubsection{\texorpdfstring{from\+Source(source)}{from\+Source(source)}}\label{README.md_autotoc_md4783}
+Finds last sourcemap comment in file and returns source map converter or returns null if no source map comment was found.\hypertarget{README.md_autotoc_md4784}{}\doxysubsubsection{\texorpdfstring{from\+Map\+File\+Source(source, map\+File\+Dir)}{from\+Map\+File\+Source(source, map\+File\+Dir)}}\label{README.md_autotoc_md4784}
+Finds last sourcemap comment in file and returns source map converter or returns null if no source map comment was found.
+
+The sourcemap will be read from the map file found by parsing {\ttfamily \# source\+Mapping\+URL=file} comment. For more info see from\+Map\+File\+Comment.\hypertarget{README.md_autotoc_md4785}{}\doxysubsubsection{\texorpdfstring{to\+Object()}{to\+Object()}}\label{README.md_autotoc_md4785}
+Returns a copy of the underlying source map.\hypertarget{README.md_autotoc_md4786}{}\doxysubsubsection{\texorpdfstring{to\+JSON(\mbox{[}space\mbox{]})}{to\+JSON(\mbox{[}space\mbox{]})}}\label{README.md_autotoc_md4786}
+Converts source map to json string. If {\ttfamily space} is given (optional), this will be passed to \href{https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/JSON/stringify}{\texttt{ JSON.\+stringify}} when the JSON string is generated.\hypertarget{README.md_autotoc_md4787}{}\doxysubsubsection{\texorpdfstring{to\+Base64()}{to\+Base64()}}\label{README.md_autotoc_md4787}
+Converts source map to base64 encoded json string.\hypertarget{README.md_autotoc_md4788}{}\doxysubsubsection{\texorpdfstring{to\+Comment(\mbox{[}options\mbox{]})}{to\+Comment(\mbox{[}options\mbox{]})}}\label{README.md_autotoc_md4788}
+Converts source map to an inline comment that can be appended to the source-\/file.
+
+By default, the comment is formatted like\+: {\ttfamily //\# source\+Mapping\+URL=...}, which you would normally see in a JS source file.
+
+When {\ttfamily options.\+multiline == true}, the comment is formatted like\+: {\ttfamily /\texorpdfstring{$\ast$}{*}\# source\+Mapping\+URL=... \texorpdfstring{$\ast$}{*}/}, which you would find in a CSS source file.\hypertarget{README.md_autotoc_md4789}{}\doxysubsubsection{\texorpdfstring{add\+Property(key, value)}{add\+Property(key, value)}}\label{README.md_autotoc_md4789}
+Adds given property to the source map. Throws an error if property already exists.\hypertarget{README.md_autotoc_md4790}{}\doxysubsubsection{\texorpdfstring{set\+Property(key, value)}{set\+Property(key, value)}}\label{README.md_autotoc_md4790}
+Sets given property to the source map. If property doesn\textquotesingle{}t exist it is added, otherwise its value is updated.\hypertarget{README.md_autotoc_md4791}{}\doxysubsubsection{\texorpdfstring{get\+Property(key)}{get\+Property(key)}}\label{README.md_autotoc_md4791}
+Gets given property of the source map.\hypertarget{README.md_autotoc_md4792}{}\doxysubsubsection{\texorpdfstring{remove\+Comments(src)}{remove\+Comments(src)}}\label{README.md_autotoc_md4792}
+Returns {\ttfamily src} with all source map comments removed\hypertarget{README.md_autotoc_md4793}{}\doxysubsubsection{\texorpdfstring{remove\+Map\+File\+Comments(src)}{remove\+Map\+File\+Comments(src)}}\label{README.md_autotoc_md4793}
+Returns {\ttfamily src} with all source map comments pointing to map files removed.\hypertarget{README.md_autotoc_md4794}{}\doxysubsubsection{\texorpdfstring{comment\+Regex}{comment\+Regex}}\label{README.md_autotoc_md4794}
+Provides {\bfseries{a fresh}} Reg\+Exp each time it is accessed. Can be used to find source map comments.\hypertarget{README.md_autotoc_md4795}{}\doxysubsubsection{\texorpdfstring{map\+File\+Comment\+Regex}{map\+File\+Comment\+Regex}}\label{README.md_autotoc_md4795}
+Provides {\bfseries{a fresh}} Reg\+Exp each time it is accessed. Can be used to find source map comments pointing to map files.\hypertarget{README.md_autotoc_md4796}{}\doxysubsubsection{\texorpdfstring{generate\+Map\+File\+Comment(file, \mbox{[}options\mbox{]})}{generate\+Map\+File\+Comment(file, \mbox{[}options\mbox{]})}}\label{README.md_autotoc_md4796}
+Returns a comment that links to an external source map via {\ttfamily file}.
+
+By default, the comment is formatted like\+: {\ttfamily //\# source\+Mapping\+URL=...}, which you would normally see in a JS source file.
+
+When {\ttfamily options.\+multiline == true}, the comment is formatted like\+: {\ttfamily /\texorpdfstring{$\ast$}{*}\# source\+Mapping\+URL=... \texorpdfstring{$\ast$}{*}/}, which you would find in a CSS source file. 

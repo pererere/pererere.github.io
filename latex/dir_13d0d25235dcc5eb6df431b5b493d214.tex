@@ -1,0 +1,118 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/grunt.sass.\+autoprefixer Directory Reference}
+\hypertarget{dir_13d0d25235dcc5eb6df431b5b493d214}{}\label{dir_13d0d25235dcc5eb6df431b5b493d214}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/grunt.sass.autoprefixer Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/grunt.sass.autoprefixer Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Grunt, SASS \& Autoprefixer\hypertarget{readme.md_autotoc_md3506}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3506}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/grunt.sass.autoprefixer}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3507}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3507}
+This example shows how you can chain potentially slow-\/running tasks, but still achieve CSS Injection. The trick, as seen below, is to use the {\ttfamily bs\+Reload} task that now comes bundled with {\ttfamily grunt-\/browser-\/sync} since {\ttfamily 2.\+1.\+0}
+
+Don\textquotesingle{}t forget the {\ttfamily spawn\+: false} option for the watch task -\/ it\textquotesingle{}s a requirement that allows Browsersync to work correctly
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{watch:\ \{}
+\DoxyCodeLine{\ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ spawn:\ false\ //\ Important,\ don't\ remove\ this!}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ files:\ 'app/**/*.scss',}
+\DoxyCodeLine{\ \ \ \ tasks:\ ['sass',\ 'autoprefixer',\ 'bsReload:css']}
+\DoxyCodeLine{\},}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3508}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily Gruntfile.\+js}\+:}{Preview of {\ttfamily Gruntfile.\+js}\+:}}\label{readme.md_autotoc_md3508}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ function\ (grunt)\ \{}
+\DoxyCodeLine{\ \ \ \ grunt.initConfig(\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ dirs:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ css:\ \ "{}app/css"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ scss:\ "{}app/scss"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ watch:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spawn:\ false}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ sass:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ files:\ '<\%=\ dirs.scss\ \%>/**/*.scss',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tasks:\ ['sass',\ 'autoprefixer',\ 'bsReload:css']}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ html:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ files:\ 'app/*.html',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tasks:\ ['bsReload:all']}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ sass:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dev:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ files:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '<\%=\ dirs.css\ \%>/main.css':\ '<\%=\ dirs.scss\ \%>/main.scss'}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ autoprefixer:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ browsers:\ ['last\ 5\ versions',\ 'ie\ 8']}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ css:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ src:\ '<\%=\ dirs.css\ \%>/main.css',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dest:\ '<\%=\ dirs.css\ \%>/main.css'}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ browserSync:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dev:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ server:\ "{}./app"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ background:\ true}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ bsReload:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ css:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reload:\ "{}main.css"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ all:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reload:\ true}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ load\ npm\ tasks}
+\DoxyCodeLine{\ \ \ \ grunt.loadNpmTasks('grunt-\/contrib-\/sass');}
+\DoxyCodeLine{\ \ \ \ grunt.loadNpmTasks('grunt-\/autoprefixer');}
+\DoxyCodeLine{\ \ \ \ grunt.loadNpmTasks('grunt-\/browser-\/sync');}
+\DoxyCodeLine{\ \ \ \ grunt.loadNpmTasks('grunt-\/contrib-\/watch');}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ define\ default\ task}
+\DoxyCodeLine{\ \ \ \ grunt.registerTask('default',\ ['browserSync',\ 'watch']);}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ 

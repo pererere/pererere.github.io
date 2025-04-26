@@ -1,0 +1,97 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/gulp.ruby.\+sass Directory Reference}
+\hypertarget{dir_5545597c3971ccce07fccb00e031c5dc}{}\label{dir_5545597c3971ccce07fccb00e031c5dc}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/gulp.ruby.sass Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/gulp.ruby.sass Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Gulp \& Ruby SASS\hypertarget{readme.md_autotoc_md3518}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3518}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/gulp.ruby.sass}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3519}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3519}
+This example highlights both the stream support for injecting CSS, aswell as the support for calling {\ttfamily reload} directly following html changes.
+
+We also need to filter out any source maps created by ruby-\/sass.\hypertarget{readme.md_autotoc_md3520}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily gulpfile.\+js}\+:}{Preview of {\ttfamily gulpfile.\+js}\+:}}\label{readme.md_autotoc_md3520}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ gulp\ \ \ \ \ \ \ \ \ =\ require('gulp');}
+\DoxyCodeLine{var\ browserSync\ \ =\ require('browser-\/sync');}
+\DoxyCodeLine{var\ filter\ \ \ \ \ \ \ =\ require('gulp-\/filter');}
+\DoxyCodeLine{var\ sass\ \ \ \ \ \ \ \ \ =\ require('gulp-\/ruby-\/sass');}
+\DoxyCodeLine{var\ sourcemaps\ \ \ =\ require('gulp-\/sourcemaps');}
+\DoxyCodeLine{var\ reload\ \ \ \ \ \ \ =\ browserSync.reload;}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ src\ =\ \{}
+\DoxyCodeLine{\ \ \ \ scss:\ 'app/scss/*.scss',}
+\DoxyCodeLine{\ \ \ \ css:\ \ 'app/css',}
+\DoxyCodeLine{\ \ \ \ html:\ 'app/*.html'}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Kick\ off\ the\ sass\ stream\ with\ source\ maps\ +\ error\ handling}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{function\ sassStream\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ return\ sass('app/scss',\ \{sourcemap:\ true\})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .on('error',\ function\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ console.error('Error!',\ err.message);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(sourcemaps.write('./',\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ includeContent:\ false,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ sourceRoot:\ '/app/scss'}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}));}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Start\ the\ Browsersync\ Static\ Server\ +\ Watch\ files}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('serve',\ ['sass'],\ function()\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ browserSync(\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ server:\ "{}./app"{}}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ gulp.watch(src.scss,\ ['sass']);}
+\DoxyCodeLine{\ \ \ \ gulp.watch(src.html).on('change',\ reload);}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Compile\ sass,\ filter\ the\ results,\ inject\ CSS\ into\ all\ browsers}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('sass',\ function()\ \{}
+\DoxyCodeLine{\ \ \ \ return\ sassStream()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(gulp.dest(src.css))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(filter("{}**/*.css"{}))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(reload(\{stream:\ true\}));}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Default\ task}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('default',\ ['serve']);}
+
+\end{DoxyCode}
+ 

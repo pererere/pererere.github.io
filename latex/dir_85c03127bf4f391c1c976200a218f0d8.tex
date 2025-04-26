@@ -1,0 +1,90 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/postcss-\/modules-\/values Directory Reference}
+\hypertarget{dir_85c03127bf4f391c1c976200a218f0d8}{}\label{dir_85c03127bf4f391c1c976200a218f0d8}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/postcss-\/modules-\/values Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/postcss-\/modules-\/values Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Pass arbitrary values between your module files\hypertarget{README.md_autotoc_md16642}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md16642}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/*\ colors.css\ */}
+\DoxyCodeLine{@value\ primary:\ \#BF4040;}
+\DoxyCodeLine{@value\ secondary:\ \#1F4F7F;}
+\DoxyCodeLine{}
+\DoxyCodeLine{.text-\/primary\ \{}
+\DoxyCodeLine{\ \ color:\ primary;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.text-\/secondary\ \{}
+\DoxyCodeLine{\ \ color:\ secondary;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/*\ breakpoints.css\ */}
+\DoxyCodeLine{@value\ small:\ (max-\/width:\ 599px);}
+\DoxyCodeLine{@value\ medium:\ (min-\/width:\ 600px)\ and\ (max-\/width:\ 959px);}
+\DoxyCodeLine{@value\ large:\ (min-\/width:\ 960px);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/*\ my-\/component.css\ */}
+\DoxyCodeLine{/*\ alias\ paths\ for\ other\ values\ or\ composition\ */}
+\DoxyCodeLine{@value\ colors:\ "{}./colors.css"{};}
+\DoxyCodeLine{/*\ import\ multiple\ from\ a\ single\ file\ */}
+\DoxyCodeLine{@value\ primary,\ secondary\ from\ colors;}
+\DoxyCodeLine{/*\ make\ local\ aliases\ to\ imported\ values\ */}
+\DoxyCodeLine{@value\ small\ as\ bp-\/small,\ large\ as\ bp-\/large\ from\ "{}./breakpoints.css"{};}
+\DoxyCodeLine{/*\ value\ as\ selector\ name\ */}
+\DoxyCodeLine{@value\ selectorValue:\ secondary-\/color;}
+\DoxyCodeLine{}
+\DoxyCodeLine{.selectorValue\ \{}
+\DoxyCodeLine{\ \ color:\ secondary;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.header\ \{}
+\DoxyCodeLine{\ \ composes:\ text-\/primary\ from\ colors;}
+\DoxyCodeLine{\ \ box-\/shadow:\ 0\ 0\ 10px\ secondary;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{@media\ bp-\/small\ \{}
+\DoxyCodeLine{\ \ .header\ \{}
+\DoxyCodeLine{\ \ \ \ box-\/shadow:\ 0\ 0\ 4px\ secondary;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{@media\ bp-\/large\ \{}
+\DoxyCodeLine{\ \ .header\ \{}
+\DoxyCodeLine{\ \ \ \ box-\/shadow:\ 0\ 0\ 20px\ secondary;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{If you are using Sass}} along with this Post\+CSS plugin, do not use the colon {\ttfamily \+:} in your {\ttfamily @value} definitions. It will cause Sass to crash.
+
+Note also you can {\itshape import} multiple values at once but can only {\itshape define} one value per line.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@value\ a:\ b,\ c:\ d;\ /*\ defines\ a\ as\ "{}b,\ c:\ d"{}\ */}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16643}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md16643}
+ISC\hypertarget{README.md_autotoc_md16644}{}\doxysubsection{\texorpdfstring{With thanks}{With thanks}}\label{README.md_autotoc_md16644}
+
+\begin{DoxyItemize}
+\item Mark Dalgleish
+\item Tobias Koppers
+\item Josh Johnston
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+Glen Maddern, 2015. 

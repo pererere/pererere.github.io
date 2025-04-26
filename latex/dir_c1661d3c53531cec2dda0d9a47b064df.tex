@@ -1,0 +1,55 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/browser-\/sync Directory Reference}
+\hypertarget{dir_c1661d3c53531cec2dda0d9a47b064df}{}\label{dir_c1661d3c53531cec2dda0d9a47b064df}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/browser-\/sync Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/browser-\/sync Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+
+
+\href{https://travis-ci.org/BrowserSync/browser-sync}{\texttt{  }}\href{https://www.npmjs.com/package/browser-sync}{\texttt{  }} 
+
+
+
+\href{https://www.npmjs.com/package/browser-sync}{\texttt{  }} 
+
+
+
+\href{https://www.browsersync.io}{\texttt{ }}
+
+
+
+Keep multiple browsers \& devices in sync when building websites.
+
+
+
+Follow \href{https://twitter.com/browsersync}{\texttt{ @\+Browsersync}} on twitter for news \& updates.\hypertarget{readme.md_autotoc_md3489}{}\doxysubsubsection{\texorpdfstring{Features}{Features}}\label{readme.md_autotoc_md3489}
+Please visit \href{https://browsersync.io}{\texttt{ browsersync.\+io}} for a full run-\/down of features\hypertarget{readme.md_autotoc_md3490}{}\doxysubsubsection{\texorpdfstring{Requirements}{Requirements}}\label{readme.md_autotoc_md3490}
+Browsersync works by injecting an asynchronous script tag ({\ttfamily \texorpdfstring{$<$}{<}script async\texorpdfstring{$>$}{>}...\texorpdfstring{$<$}{<}/script\texorpdfstring{$>$}{>}}) right after the {\ttfamily \texorpdfstring{$<$}{<}body\texorpdfstring{$>$}{>}} tag during initial request. In order for this to work properly the {\ttfamily \texorpdfstring{$<$}{<}body\texorpdfstring{$>$}{>}} tag must be present. Alternatively you can provide a custom rule for the snippet using \href{https://www.browsersync.io/docs/options/\#option-snippetOptions}{\texttt{ snippet\+Options}}\hypertarget{readme.md_autotoc_md3491}{}\doxysubsubsection{\texorpdfstring{Upgrading from 1.\+x to 2.\+x ?}{Upgrading from 1.\+x to 2.\+x ?}}\label{readme.md_autotoc_md3491}
+Providing you haven\textquotesingle{}t accessed any internal properties, everything will just work as there are no breaking changes to the public API. Internally however, we now use an immutable data structure for storing/retrieving options. So whereas before you could access urls like this...
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{browserSync(\{server:\ true\},\ function(err,\ bs)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(bs.options.urls.local);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+... you now access them in the following way\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{browserSync(\{server:\ true\},\ function(err,\ bs)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(bs.options.getIn(["{}urls"{},\ "{}local"{}]));}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3492}{}\doxysubsubsection{\texorpdfstring{Install and trouble shooting}{Install and trouble shooting}}\label{readme.md_autotoc_md3492}
+\href{https://browsersync.io}{\texttt{ browsersync.\+io docs}}\hypertarget{readme.md_autotoc_md3493}{}\doxysubsubsection{\texorpdfstring{Integrations / recipes}{Integrations / recipes}}\label{readme.md_autotoc_md3493}
+\href{https://github.com/Browsersync/recipes}{\texttt{ Browsersync recipes}}\hypertarget{readme.md_autotoc_md3494}{}\doxysubsubsection{\texorpdfstring{Support}{Support}}\label{readme.md_autotoc_md3494}
+If you\textquotesingle{}ve found Browser-\/sync useful and would like to contribute to its continued development \& support, please feel free to send a donation of any size -\/ it would be greatly appreciated!
+
+\href{https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=shakyshane\%40gmail\%2ecom&lc=US&item_name=browser\%2dsync}{\texttt{ Support via Pay\+Pal}}\hypertarget{readme.md_autotoc_md3495}{}\doxysubsubsection{\texorpdfstring{Supported by}{Supported by}}\label{readme.md_autotoc_md3495}
+Originally supported by \href{https://www.wearejh.com}{\texttt{ JH}} -\/ they provided financial support as well as access to a professional designer to help with Branding.
+
+Apache 2 Copyright (c) 2021 Shane Osbourne 

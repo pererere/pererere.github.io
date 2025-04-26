@@ -1,0 +1,20 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/minipass-\/fetch Directory Reference}
+\hypertarget{dir_d587d5857c53be055d1558cec175270a}{}\label{dir_d587d5857c53be055d1558cec175270a}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/minipass-\/fetch Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/minipass-\/fetch Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+An implementation of window.\+fetch in Node.\+js using Minipass streams
+
+This is a fork (or more precisely, a reimplementation) of \href{http://npm.im/node-fetch}{\texttt{ node-\/fetch}}. All streams have been replaced with \href{http://npm.im/minipass}{\texttt{ minipass streams}}.
+
+The goal of this module is to stay in sync with the API presented by {\ttfamily node-\/fetch}, with the exception of the streaming interface provided.\hypertarget{README.md_autotoc_md14167}{}\doxysubsection{\texorpdfstring{Why}{Why}}\label{README.md_autotoc_md14167}
+Minipass streams are faster and more deterministic in their timing contract than node-\/core streams, making them a better fit for many server-\/side use cases.\hypertarget{README.md_autotoc_md14168}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md14168}
+See \href{http://npm.im/node-fetch}{\texttt{ node-\/fetch}}
+
+Differences from {\ttfamily node-\/fetch} (and, by extension, from the What\+WG Fetch specification)\+:
+
+
+\begin{DoxyItemize}
+\item Returns \href{http://npm.im/minipass}{\texttt{ minipass}} streams instead of node-\/core streams.
+\item Supports the full set of \href{https://nodejs.org/api/https.html\#https_https_request_options_callback}{\texttt{ TLS Options that may be provided to {\ttfamily https.\+request()}}} when making {\ttfamily https} requests. 
+\end{DoxyItemize}

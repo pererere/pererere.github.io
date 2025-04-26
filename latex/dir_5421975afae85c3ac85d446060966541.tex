@@ -1,0 +1,38 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/send/node\+\_\+modules/destroy Directory Reference}
+\hypertarget{dir_5421975afae85c3ac85d446060966541}{}\label{dir_5421975afae85c3ac85d446060966541}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/send/node\_modules/destroy Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/send/node\_modules/destroy Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://npmjs.org/package/destroy}{\texttt{ }} \href{https://travis-ci.org/stream-utils/destroy}{\texttt{ }} \href{https://coveralls.io/r/stream-utils/destroy?branch=master}{\texttt{ }}  \href{https://npmjs.org/package/destroy}{\texttt{ }} \href{https://www.gittip.com/jonathanong/}{\texttt{ }}
+
+Destroy a stream.
+
+This module is meant to ensure a stream gets destroyed, handling different APIs and Node.\+js bugs.\hypertarget{README.md_autotoc_md18668}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md18668}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ destroy\ =\ require('destroy')}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md18669}{}\doxysubsubsection{\texorpdfstring{destroy(stream)}{destroy(stream)}}\label{README.md_autotoc_md18669}
+Destroy the given stream. In most cases, this is identical to a simple {\ttfamily stream.\+destroy()} call. The rules are as follows for a given stream\+:
+
+
+\begin{DoxyEnumerate}
+\item If the {\ttfamily stream} is an instance of {\ttfamily Read\+Stream}, then call {\ttfamily stream.\+destroy()} and add a listener to the {\ttfamily open} event to call {\ttfamily stream.\+close()} if it is fired. This is for a Node.\+js bug that will leak a file descriptor if {\ttfamily .destroy()} is called before {\ttfamily open}.
+\item If the {\ttfamily stream} is not an instance of {\ttfamily Stream}, then nothing happens.
+\item If the {\ttfamily stream} has a {\ttfamily .destroy()} method, then call it.
+\end{DoxyEnumerate}
+
+The function returns the {\ttfamily stream} passed in as the argument.\hypertarget{README.md_autotoc_md18670}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{README.md_autotoc_md18670}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ destroy\ =\ require('destroy')}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ fs\ =\ require('fs')}
+\DoxyCodeLine{var\ stream\ =\ fs.createReadStream('package.json')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ ...\ and\ later}
+\DoxyCodeLine{destroy(stream)}
+
+\end{DoxyCode}
+ 

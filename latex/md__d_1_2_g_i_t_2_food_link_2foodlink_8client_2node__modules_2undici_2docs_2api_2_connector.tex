@@ -1,0 +1,115 @@
+\chapter{Connector}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector}\index{Connector@{Connector}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector_autotoc_md21287}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector_autotoc_md21287}%
+
+
+Undici creates the underlying socket via the connector builder. Normally, this happens automatically and you don\textquotesingle{}t need to care about this, but if you need to perform some additional check over the currently used socket, this is the right place.
+
+If you want to create a custom connector, you must import the {\ttfamily build\+Connector} utility.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector_autotoc_md21288}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily build\+Connector.\+Build\+Options}}{Parameter\+: {\ttfamily build\+Connector.\+Build\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector_autotoc_md21288}
+Every Tls option, see \href{https://nodejs.org/api/tls.html\#tls_tls_connect_options_callback}{\texttt{ here}}. Furthermore, the following options can be passed\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{socket\+Path}} {\ttfamily string \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily null} -\/ An IPC endpoint, either Unix domain socket or Windows named pipe.
+\item {\bfseries{max\+Cached\+Sessions}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ Default\+: {\ttfamily 100} -\/ Maximum number of TLS cached sessions. Use 0 to disable TLS session caching. Default\+: {\ttfamily 100}.
+\item {\bfseries{timeout}} {\ttfamily number \texorpdfstring{$\vert$}{|} null} (optional) -\/ In milliseconds. Default {\ttfamily 10e3}.
+\item {\bfseries{servername}} {\ttfamily string \texorpdfstring{$\vert$}{|} null} (optional)
+\end{DoxyItemize}
+
+Once you call {\ttfamily build\+Connector}, it will return a connector function, which takes the following parameters.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector_autotoc_md21289}{}\doxysubsubsection{\texorpdfstring{Parameter\+: {\ttfamily connector.\+Options}}{Parameter\+: {\ttfamily connector.\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector_autotoc_md21289}
+
+\begin{DoxyItemize}
+\item {\bfseries{hostname}} {\ttfamily string} (required)
+\item {\bfseries{host}} {\ttfamily string} (optional)
+\item {\bfseries{protocol}} {\ttfamily string} (required)
+\item {\bfseries{port}} {\ttfamily string} (required)
+\item {\bfseries{servername}} {\ttfamily string} (optional)
+\item {\bfseries{local\+Address}} {\ttfamily string \texorpdfstring{$\vert$}{|} null} (optional) Local address the socket should connect from.
+\item {\bfseries{http\+Socket}} {\ttfamily Socket} (optional) Establish secure connection on a given socket rather than creating a new socket. It can only be sent on TLS update.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector_autotoc_md21290}{}\doxysubsection{\texorpdfstring{Basic example}{Basic example}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector_autotoc_md21290}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{'use\ strict'}
+\DoxyCodeLine{}
+\DoxyCodeLine{import\ \{\ Client,\ buildConnector\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ connector\ =\ buildConnector(\{\ rejectUnauthorized:\ false\ \})}
+\DoxyCodeLine{const\ client\ =\ new\ Client('https://localhost:3000',\ \{}
+\DoxyCodeLine{\ \ connect\ (opts,\ cb)\ \{}
+\DoxyCodeLine{\ \ \ \ connector(opts,\ (err,\ socket)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ if\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cb(err)}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ else\ if\ (/*\ assertion\ */)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ socket.destroy()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cb(new\ Error('kaboom'))}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cb(null,\ socket)}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \})}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector_autotoc_md21291}{}\doxysubsection{\texorpdfstring{Example\+: validate the CA fingerprint}{Example\+: validate the CA fingerprint}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_connector_autotoc_md21291}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{'use\ strict'}
+\DoxyCodeLine{}
+\DoxyCodeLine{import\ \{\ Client,\ buildConnector\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ caFingerprint\ =\ 'FO:OB:AR'}
+\DoxyCodeLine{const\ connector\ =\ buildConnector(\{\ rejectUnauthorized:\ false\ \})}
+\DoxyCodeLine{const\ client\ =\ new\ Client('https://localhost:3000',\ \{}
+\DoxyCodeLine{\ \ connect\ (opts,\ cb)\ \{}
+\DoxyCodeLine{\ \ \ \ connector(opts,\ (err,\ socket)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ if\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cb(err)}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ else\ if\ (getIssuerCertificate(socket).fingerprint256\ !==\ caFingerprint)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ socket.destroy()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cb(new\ Error('Fingerprint\ does\ not\ match\ or\ malformed\ certificate'))}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cb(null,\ socket)}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \})}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{client.request(\{}
+\DoxyCodeLine{\ \ path:\ '/',}
+\DoxyCodeLine{\ \ method:\ 'GET'}
+\DoxyCodeLine{\},\ (err,\ data)\ =>\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ throw\ err}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ const\ bufs\ =\ []}
+\DoxyCodeLine{\ \ data.body.on('data',\ (buf)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ bufs.push(buf)}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ data.body.on('end',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(Buffer.concat(bufs).toString('utf8'))}
+\DoxyCodeLine{\ \ \ \ client.close()}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{function\ getIssuerCertificate\ (socket)\ \{}
+\DoxyCodeLine{\ \ let\ certificate\ =\ socket.getPeerCertificate(true)}
+\DoxyCodeLine{\ \ while\ (certificate\ \&\&\ Object.keys(certificate).length\ >\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ invalid\ certificate}
+\DoxyCodeLine{\ \ \ \ if\ (certificate.issuerCertificate\ ==\ null)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ return\ null}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ We\ have\ reached\ the\ root\ certificate.}
+\DoxyCodeLine{\ \ \ \ //\ In\ case\ of\ self-\/signed\ certificates,\ \`{}issuerCertificate`\ may\ be\ a\ circular\ reference.}
+\DoxyCodeLine{\ \ \ \ if\ (certificate.fingerprint256\ ===\ certificate.issuerCertificate.fingerprint256)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ break}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ continue\ the\ loop}
+\DoxyCodeLine{\ \ \ \ certificate\ =\ certificate.issuerCertificate}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ return\ certificate}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

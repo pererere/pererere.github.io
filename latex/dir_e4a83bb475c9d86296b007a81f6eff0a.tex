@@ -1,0 +1,50 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/indent-\/string Directory Reference}
+\hypertarget{dir_e4a83bb475c9d86296b007a81f6eff0a}{}\label{dir_e4a83bb475c9d86296b007a81f6eff0a}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/indent-\/string Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/indent-\/string Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Indent each line in a string \end{quote}
+\hypertarget{readme.md_autotoc_md9410}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md9410}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ indent-\/string}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md9411}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md9411}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ indentString\ =\ require('indent-\/string');}
+\DoxyCodeLine{}
+\DoxyCodeLine{indentString('Unicorns\(\backslash\)nRainbows',\ 4);}
+\DoxyCodeLine{//=>\ '\ \ \ \ Unicorns\(\backslash\)n\ \ \ \ Rainbows'}
+\DoxyCodeLine{}
+\DoxyCodeLine{indentString('Unicorns\(\backslash\)nRainbows',\ 4,\ \{indent:\ '♥'\});}
+\DoxyCodeLine{//=>\ '♥♥♥♥Unicorns\(\backslash\)n♥♥♥♥Rainbows'}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md9412}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md9412}
+\hypertarget{readme.md_autotoc_md9413}{}\doxysubsubsection{\texorpdfstring{indent\+String(string, \mbox{[}count\mbox{]}, \mbox{[}options\mbox{]})}{indent\+String(string, \mbox{[}count\mbox{]}, \mbox{[}options\mbox{]})}}\label{readme.md_autotoc_md9413}
+\hypertarget{readme.md_autotoc_md9414}{}\doxysubsubsubsection{\texorpdfstring{string}{string}}\label{readme.md_autotoc_md9414}
+Type\+: {\ttfamily string}
+
+The string to indent.\hypertarget{readme.md_autotoc_md9415}{}\doxysubsubsubsection{\texorpdfstring{count}{count}}\label{readme.md_autotoc_md9415}
+Type\+: {\ttfamily number}~\newline
+ Default\+: {\ttfamily 1}
+
+How many times you want {\ttfamily options.\+indent} repeated.\hypertarget{readme.md_autotoc_md9416}{}\doxysubsubsubsection{\texorpdfstring{options}{options}}\label{readme.md_autotoc_md9416}
+Type\+: {\ttfamily object}\hypertarget{readme.md_autotoc_md9417}{}\doxysubsubsubsubsection{\texorpdfstring{indent}{indent}}\label{readme.md_autotoc_md9417}
+Type\+: {\ttfamily string}~\newline
+ Default\+: `' \textquotesingle{}\`{}
+
+The string to use for the indent.\hypertarget{readme.md_autotoc_md9418}{}\doxysubsubsubsubsection{\texorpdfstring{include\+Empty\+Lines}{include\+Empty\+Lines}}\label{readme.md_autotoc_md9418}
+Type\+: {\ttfamily boolean}~\newline
+ Default\+: {\ttfamily false}
+
+Also indent empty lines.\hypertarget{readme.md_autotoc_md9419}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{readme.md_autotoc_md9419}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/indent-string-cli}{\texttt{ indent-\/string-\/cli}} -\/ CLI for this module
+\item \href{https://github.com/sindresorhus/strip-indent}{\texttt{ strip-\/indent}} -\/ Strip leading whitespace from every line in a string
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md9420}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md9420}
+MIT © \href{https://sindresorhus.com}{\texttt{ Sindre Sorhus}} 

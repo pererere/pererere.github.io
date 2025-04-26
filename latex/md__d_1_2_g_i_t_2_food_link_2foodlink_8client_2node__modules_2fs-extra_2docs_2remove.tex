@@ -1,0 +1,41 @@
+\chapter{remove(path, \mbox{[}callback\mbox{]})}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove}\index{remove(path, \mbox{[}callback\mbox{]})@{remove(path, [callback])}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove_autotoc_md8295}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove_autotoc_md8295}%
+
+
+Removes a file or directory. The directory can have contents. Like {\ttfamily rm -\/rf}.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily path} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily callback} {\ttfamily \texorpdfstring{$<$}{<}Function\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove_autotoc_md8296}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove_autotoc_md8296}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ remove\ file}
+\DoxyCodeLine{fs.remove('/tmp/myfile',\ err\ =>\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ return\ console.error(err)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.log('success!')}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{fs.remove('/home/jprichardson',\ err\ =>\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ return\ console.error(err)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.log('success!')\ //\ I\ just\ deleted\ my\ entire\ HOME\ directory.}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Promise\ Usage}
+\DoxyCodeLine{fs.remove('/tmp/myfile')}
+\DoxyCodeLine{.then(()\ =>\ \{}
+\DoxyCodeLine{\ \ console.log('success!')}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{.catch(err\ =>\ \{}
+\DoxyCodeLine{\ \ console.error(err)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+ 

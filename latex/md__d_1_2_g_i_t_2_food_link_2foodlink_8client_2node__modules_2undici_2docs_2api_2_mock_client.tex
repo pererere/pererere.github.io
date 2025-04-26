@@ -1,0 +1,68 @@
+\chapter{Class\+: Mock\+Client}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client}\index{Class: MockClient@{Class: MockClient}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21408}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21408}%
+
+
+Extends\+: {\ttfamily undici.\+Client}
+
+A mock client class that implements the same api as \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_pool}{Mock\+Pool}{0}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21409}{}\doxysection{\texorpdfstring{{\ttfamily new Mock\+Client(origin, \mbox{[}options\mbox{]})}}{{\ttfamily new Mock\+Client(origin, \mbox{[}options\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21409}
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{origin}} {\ttfamily string} -\/ It should only include the {\bfseries{protocol, hostname, and port}}.
+\item {\bfseries{options}} {\ttfamily Mock\+Client\+Options} -\/ It extends the {\ttfamily Client} options.
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily Mock\+Client}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21410}{}\doxysubsection{\texorpdfstring{Parameter\+: {\ttfamily Mock\+Client\+Options}}{Parameter\+: {\ttfamily Mock\+Client\+Options}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21410}
+Extends\+: {\ttfamily Client\+Options}
+
+
+\begin{DoxyItemize}
+\item {\bfseries{agent}} {\ttfamily Agent} -\/ the agent to associate this Mock\+Client with.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21411}{}\doxysubsection{\texorpdfstring{Example -\/ Basic Mock\+Client instantiation}{Example -\/ Basic Mock\+Client instantiation}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21411}
+We can use Mock\+Agent to instantiate a Mock\+Client ready to be used to intercept specified requests. It will not do anything until registered as the agent to use and any mock request are registered.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ MockAgent\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Connections\ must\ be\ set\ to\ 1\ to\ return\ a\ MockClient\ instance}
+\DoxyCodeLine{const\ mockAgent\ =\ new\ MockAgent(\{\ connections:\ 1\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ mockClient\ =\ mockAgent.get('http://localhost:3000')}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21412}{}\doxysection{\texorpdfstring{Instance Methods}{Instance Methods}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21412}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21413}{}\doxysubsection{\texorpdfstring{{\ttfamily Mock\+Client.\+intercept(options)}}{{\ttfamily Mock\+Client.\+intercept(options)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21413}
+Implements\+: \href{MockPool.md\#mockpoolinterceptoptions}{\texttt{ {\ttfamily Mock\+Pool.\+intercept(options)}}}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21414}{}\doxysubsection{\texorpdfstring{{\ttfamily Mock\+Client.\+close()}}{{\ttfamily Mock\+Client.\+close()}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21414}
+Implements\+: \href{MockPool.md\#mockpoolclose}{\texttt{ {\ttfamily Mock\+Pool.\+close()}}}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21415}{}\doxysubsection{\texorpdfstring{{\ttfamily Mock\+Client.\+dispatch(options, handlers)}}{{\ttfamily Mock\+Client.\+dispatch(options, handlers)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21415}
+Implements \href{Dispatcher.md\#dispatcherdispatchoptions-handler}{\texttt{ {\ttfamily Dispatcher.\+dispatch(options, handlers)}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21416}{}\doxysubsection{\texorpdfstring{{\ttfamily Mock\+Client.\+request(options\mbox{[}, callback\mbox{]})}}{{\ttfamily Mock\+Client.\+request(options\mbox{[}, callback\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21416}
+See \href{Dispatcher.md\#dispatcherrequestoptions-callback}{\texttt{ {\ttfamily Dispatcher.\+request(options \mbox{[}, callback\mbox{]})}}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21417}{}\doxysubsubsection{\texorpdfstring{Example -\/ Mock\+Client request}{Example -\/ Mock\+Client request}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_mock_client_autotoc_md21417}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ MockAgent\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ mockAgent\ =\ new\ MockAgent(\{\ connections:\ 1\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ mockClient\ =\ mockAgent.get('http://localhost:3000')}
+\DoxyCodeLine{mockClient.intercept(\{\ path:\ '/foo'\ \}).reply(200,\ 'foo')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ \{}
+\DoxyCodeLine{\ \ statusCode,}
+\DoxyCodeLine{\ \ body}
+\DoxyCodeLine{\}\ =\ await\ mockClient.request(\{}
+\DoxyCodeLine{\ \ origin:\ 'http://localhost:3000',}
+\DoxyCodeLine{\ \ path:\ '/foo',}
+\DoxyCodeLine{\ \ method:\ 'GET'}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('response\ received',\ statusCode)\ //\ response\ received\ 200}
+\DoxyCodeLine{}
+\DoxyCodeLine{for\ await\ (const\ data\ of\ body)\ \{}
+\DoxyCodeLine{\ \ console.log('data',\ data.toString('utf8'))\ //\ data\ foo}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

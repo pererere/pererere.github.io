@@ -1,0 +1,71 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/vary Directory Reference}
+\hypertarget{dir_f2f2e4fa1a8e39b1202f330921d3d628}{}\label{dir_f2f2e4fa1a8e39b1202f330921d3d628}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/vary Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/vary Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://npmjs.org/package/vary}{\texttt{ }} \href{https://npmjs.org/package/vary}{\texttt{ }} \href{https://nodejs.org/en/download}{\texttt{ }} \href{https://travis-ci.org/jshttp/vary}{\texttt{ }} \href{https://coveralls.io/r/jshttp/vary}{\texttt{ }}
+
+Manipulate the HTTP Vary header\hypertarget{README.md_autotoc_md21709}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md21709}
+This is a \href{https://nodejs.org/en/}{\texttt{ Node.\+js}} module available through the \href{https://www.npmjs.com/}{\texttt{ npm registry}}. Installation is done using the \href{https://docs.npmjs.com/getting-started/installing-npm-packages-locally}{\texttt{ {\ttfamily npm install} command}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ vary}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21710}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md21710}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ vary\ =\ require('vary')}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21711}{}\doxysubsubsection{\texorpdfstring{vary(res, field)}{vary(res, field)}}\label{README.md_autotoc_md21711}
+Adds the given header {\ttfamily field} to the {\ttfamily Vary} response header of {\ttfamily res}. This can be a string of a single field, a string of a valid {\ttfamily Vary} header, or an array of multiple fields.
+
+This will append the header if not already listed, otherwise leaves it listed in the current location.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Append\ "{}Origin"{}\ to\ the\ Vary\ header\ of\ the\ response}
+\DoxyCodeLine{vary(res,\ 'Origin')}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21712}{}\doxysubsubsection{\texorpdfstring{vary.\+append(header, field)}{vary.\+append(header, field)}}\label{README.md_autotoc_md21712}
+Adds the given header {\ttfamily field} to the {\ttfamily Vary} response header string {\ttfamily header}. This can be a string of a single field, a string of a valid {\ttfamily Vary} header, or an array of multiple fields.
+
+This will append the header if not already listed, otherwise leaves it listed in the current location. The new header string is returned.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Get\ header\ string\ appending\ "{}Origin"{}\ to\ "{}Accept,\ User-\/Agent"{}}
+\DoxyCodeLine{vary.append('Accept,\ User-\/Agent',\ 'Origin')}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21713}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{README.md_autotoc_md21713}
+\hypertarget{README.md_autotoc_md21714}{}\doxysubsubsection{\texorpdfstring{Updating the Vary header when content is based on it}{Updating the Vary header when content is based on it}}\label{README.md_autotoc_md21714}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ http\ =\ require('http')}
+\DoxyCodeLine{var\ vary\ =\ require('vary')}
+\DoxyCodeLine{}
+\DoxyCodeLine{http.createServer(function\ onRequest\ (req,\ res)\ \{}
+\DoxyCodeLine{\ \ //\ about\ to\ user-\/agent\ sniff}
+\DoxyCodeLine{\ \ vary(res,\ 'User-\/Agent')}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ var\ ua\ =\ req.headers['user-\/agent']\ ||\ ''}
+\DoxyCodeLine{\ \ var\ isMobile\ =\ /mobi|android|touch|mini/i.test(ua)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ serve\ site,\ depending\ on\ isMobile}
+\DoxyCodeLine{\ \ res.setHeader('Content-\/Type',\ 'text/html')}
+\DoxyCodeLine{\ \ res.end('You\ are\ (probably)\ '\ +\ (isMobile\ ?\ ''\ :\ 'not\ ')\ +\ 'a\ mobile\ user')}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21715}{}\doxysubsection{\texorpdfstring{Testing}{Testing}}\label{README.md_autotoc_md21715}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ test}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21716}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md21716}
+\mbox{[}MIT\mbox{]}(LICENSE) 

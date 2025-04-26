@@ -1,0 +1,37 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/encoding Directory Reference}
+\hypertarget{dir_b8352cedcec95bb63103d33fe7d585f4}{}\label{dir_b8352cedcec95bb63103d33fe7d585f4}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/encoding Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/encoding Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+{\bfseries{encoding}} is a simple wrapper around \href{https://github.com/ashtuchkin/iconv-lite/}{\texttt{ iconv-\/lite}} to convert strings from one encoding to another.
+
+\href{http://travis-ci.org/andris9/Nodemailer}{\texttt{ }} \href{http://badge.fury.io/js/encoding}{\texttt{ }}
+
+Initially {\itshape encoding} was a wrapper around {\itshape node-\/iconv} (main) and {\itshape iconv-\/lite} (fallback) and was used as the encoding layer for Nodemailer/mailparser. Somehow it also ended up as a dependency for a bunch of other project, none of these actually using {\itshape node-\/iconv}. The loading mechanics caused issues for front-\/end projects and Nodemailer/malparser had moved on, so {\itshape node-\/iconv} was removed.\hypertarget{README.md_autotoc_md5894}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md5894}
+Install through npm \begin{DoxyVerb}npm install encoding
+\end{DoxyVerb}
+\hypertarget{README.md_autotoc_md5895}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md5895}
+Require the module \begin{DoxyVerb}var encoding = require("encoding");
+\end{DoxyVerb}
+
+
+Convert with encoding.\+convert() \begin{DoxyVerb}var resultBuffer = encoding.convert(text, toCharset, fromCharset);
+\end{DoxyVerb}
+
+
+Where
+
+
+\begin{DoxyItemize}
+\item {\bfseries{text}} is either a Buffer or a String to be converted
+\item {\bfseries{to\+Charset}} is the characterset to convert the string
+\item {\bfseries{from\+Charset}} ({\itshape optional}, defaults to UTF-\/8) is the source charset
+\end{DoxyItemize}
+
+Output of the conversion is always a Buffer object.
+
+Example \begin{DoxyVerb}var result = encoding.convert("ÕÄÖÜ", "Latin_1");
+console.log(result); //<Buffer d5 c4 d6 dc>
+\end{DoxyVerb}
+\hypertarget{README.md_autotoc_md5896}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md5896}
+{\bfseries{MIT}} 

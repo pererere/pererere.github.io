@@ -1,0 +1,34 @@
+\chapter{Cache\+Storage}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cache_storage}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cache_storage}\index{CacheStorage@{CacheStorage}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cache_storage_autotoc_md21257}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cache_storage_autotoc_md21257}%
+
+
+Undici exposes a W3C spec-\/compliant implementation of \href{https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage}{\texttt{ Cache\+Storage}} and \href{https://developer.mozilla.org/en-US/docs/Web/API/Cache}{\texttt{ Cache}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cache_storage_autotoc_md21258}{}\doxysection{\texorpdfstring{Opening a Cache}{Opening a Cache}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cache_storage_autotoc_md21258}
+Undici exports a top-\/level Cache\+Storage instance. You can open a new Cache, or duplicate a Cache with an existing name, by using {\ttfamily Cache\+Storage.\+prototype.\+open}. If you open a Cache with the same name as an already-\/existing Cache, its list of cached Responses will be shared between both instances.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ caches\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ cache\_1\ =\ await\ caches.open('v1')}
+\DoxyCodeLine{const\ cache\_2\ =\ await\ caches.open('v1')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Although\ .open()\ creates\ a\ new\ instance,}
+\DoxyCodeLine{assert(cache\_1\ !==\ cache\_2)}
+\DoxyCodeLine{//\ The\ same\ Response\ is\ matched\ in\ both.}
+\DoxyCodeLine{assert.deepStrictEqual(await\ cache\_1.match('/req'),\ await\ cache\_2.match('/req'))}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cache_storage_autotoc_md21259}{}\doxysection{\texorpdfstring{Deleting a Cache}{Deleting a Cache}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cache_storage_autotoc_md21259}
+If a Cache is deleted, the cached Responses/\+Requests can still be used.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ response\ =\ await\ cache\_1.match('/req')}
+\DoxyCodeLine{await\ caches.delete('v1')}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ response.text()\ //\ the\ Response's\ body}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,33 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@types/graceful-\/fs Directory Reference}
+\hypertarget{dir_46f32a5324553d8a2a0f76bd7f80c2e0}{}\label{dir_46f32a5324553d8a2a0f76bd7f80c2e0}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@types/graceful-\/fs Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@types/graceful-\/fs Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+{\ttfamily npm install -\/-\/save @types/graceful-\/fs} \end{quote}
+\hypertarget{README.md_autotoc_md1862}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{README.md_autotoc_md1862}
+This package contains type definitions for graceful-\/fs (\href{https://github.com/isaacs/node-graceful-fs}{\texttt{ https\+://github.\+com/isaacs/node-\/graceful-\/fs}}).\hypertarget{README.md_autotoc_md1863}{}\doxysubsection{\texorpdfstring{Details}{Details}}\label{README.md_autotoc_md1863}
+Files were exported from \href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/graceful-fs}{\texttt{ https\+://github.\+com/\+Definitely\+Typed/\+Definitely\+Typed/tree/master/types/graceful-\/fs}}. \hypertarget{README.md_autotoc_md1864}{}\doxysubsubsection{\texorpdfstring{\href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/graceful-fs/index.d.ts}{\texttt{ index.\+d.\+ts}}}{\href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/graceful-fs/index.d.ts}{\texttt{ index.\+d.\+ts}}}}\label{README.md_autotoc_md1864}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{///\ <reference\ types="{}node"{}\ />}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ *\ from\ "{}fs"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Use\ this\ method\ to\ patch\ the\ global\ fs\ module\ (or\ any\ other\ fs-\/like\ module).}
+\DoxyCodeLine{\ *\ NOTE:\ This\ should\ only\ ever\ be\ done\ at\ the\ top-\/level\ application\ layer,\ in\ order\ to\ delay\ on}
+\DoxyCodeLine{\ *\ EMFILE\ errors\ from\ any\ fs-\/using\ dependencies.\ You\ should\ **not**\ do\ this\ in\ a\ library,\ because}
+\DoxyCodeLine{\ *\ it\ can\ cause\ unexpected\ delays\ in\ other\ parts\ of\ the\ program.}
+\DoxyCodeLine{\ *\ @param\ fsModule\ The\ reference\ to\ the\ fs\ module\ or\ an\ fs-\/like\ module.}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{export\ function\ gracefulify<T>(fsModule:\ T):\ T;}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1865}{}\doxysubsubsubsection{\texorpdfstring{Additional Details}{Additional Details}}\label{README.md_autotoc_md1865}
+
+\begin{DoxyItemize}
+\item Last updated\+: Tue, 07 Nov 2023 03\+:09\+:37 GMT
+\item Dependencies\+: \href{https://npmjs.com/package/@types/node}{\texttt{ @types/node}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1866}{}\doxysubsection{\texorpdfstring{Credits}{Credits}}\label{README.md_autotoc_md1866}
+These definitions were written by \href{https://github.com/Bartvds}{\texttt{ Bart van der Schoor}}, and \href{https://github.com/BendingBender}{\texttt{ Bending\+Bender}}. 

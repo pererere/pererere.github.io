@@ -1,0 +1,57 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/socks-\/proxy-\/agent Directory Reference}
+\hypertarget{dir_50ea9c1bf57cb158830ae53dbb87544e}{}\label{dir_50ea9c1bf57cb158830ae53dbb87544e}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/socks-\/proxy-\/agent Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/socks-\/proxy-\/agent Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{README.md_autotoc_md19453}{}\doxysubsubsection{\texorpdfstring{A SOCKS proxy {\ttfamily http.\+Agent} implementation for HTTP and HTTPS}{A SOCKS proxy {\ttfamily http.\+Agent} implementation for HTTP and HTTPS}}\label{README.md_autotoc_md19453}
+This module provides an {\ttfamily http.\+Agent} implementation that connects to a specified SOCKS proxy server, and can be used with the built-\/in {\ttfamily http} and {\ttfamily https} modules.
+
+It can also be used in conjunction with the {\ttfamily ws} module to establish a Web\+Socket connection over a SOCKS proxy. See the "{}\+Examples"{} section below.\hypertarget{README.md_autotoc_md19454}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{README.md_autotoc_md19454}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ https\ from\ 'https';}
+\DoxyCodeLine{import\ \{\ SocksProxyAgent\ \}\ from\ 'socks-\/proxy-\/agent';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ agent\ =\ new\ SocksProxyAgent(}
+\DoxyCodeLine{\ \ \ \ 'socks://your-\/name\%40gmail.com:abcdef12345124@br41.nordvpn.com'}
+\DoxyCodeLine{);}
+\DoxyCodeLine{}
+\DoxyCodeLine{https.get('https://ipinfo.io',\ \{\ agent\ \},\ (res)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(res.headers);}
+\DoxyCodeLine{\ \ \ \ res.pipe(process.stdout);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md19455}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily ws} Web\+Socket connection example}{{\ttfamily ws} Web\+Socket connection example}}\label{README.md_autotoc_md19455}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ WebSocket\ from\ 'ws';}
+\DoxyCodeLine{import\ \{\ SocksProxyAgent\ \}\ from\ 'socks-\/proxy-\/agent';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ agent\ =\ new\ SocksProxyAgent(}
+\DoxyCodeLine{\ \ \ \ 'socks://your-\/name\%40gmail.com:abcdef12345124@br41.nordvpn.com'}
+\DoxyCodeLine{);}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ socket\ =\ new\ WebSocket('ws://echo.websocket.events',\ \{\ agent\ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{socket.on('open',\ function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('"{}open"{}\ event!');}
+\DoxyCodeLine{\ \ \ \ socket.send('hello\ world');}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{socket.on('message',\ function\ (data,\ flags)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('"{}message"{}\ event!\ \%j\ \%j',\ data,\ flags);}
+\DoxyCodeLine{\ \ \ \ socket.close();}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md19456}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md19456}
+(The MIT License)
+
+Copyright (c) 2013 Nathan Rajlich \texorpdfstring{$<$}{<}\href{mailto:nathan@tootallnate.net}{\texttt{ nathan@tootallnate.\+net}}\texorpdfstring{$>$}{>}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \textquotesingle{}Software\textquotesingle{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \textquotesingle{}AS IS\textquotesingle{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 

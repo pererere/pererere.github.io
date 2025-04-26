@@ -1,0 +1,314 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/karma/node\+\_\+modules/tmp Directory Reference}
+\hypertarget{dir_7c22322e8693fc15453f060c6b588563}{}\label{dir_7c22322e8693fc15453f060c6b588563}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/karma/node\_modules/tmp Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/karma/node\_modules/tmp Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+A simple temporary file and directory creator for \href{http://nodejs.org/}{\texttt{ node.\+js.}}
+
+\href{https://travis-ci.org/raszi/node-tmp}{\texttt{ }} \href{https://david-dm.org/raszi/node-tmp}{\texttt{ }} \href{https://badge.fury.io/js/tmp}{\texttt{ }} \href{https://raszi.github.io/node-tmp/}{\texttt{ }} \href{https://snyk.io/test/npm/tmp}{\texttt{ }}\hypertarget{README.md_autotoc_md12425}{}\doxysubsection{\texorpdfstring{About}{About}}\label{README.md_autotoc_md12425}
+This is a \href{https://www.npmjs.com/browse/depended/tmp}{\texttt{ widely used library}} to create temporary files and directories in a \href{http://nodejs.org/}{\texttt{ node.\+js}} environment.
+
+Tmp offers both an asynchronous and a synchronous API. For all API calls, all the parameters are optional. There also exists a promisified version of the API, see \href{https://github.com/benjamingr/tmp-promise}{\texttt{ tmp-\/promise}}.
+
+Tmp uses crypto for determining random file names, or, when using templates, a six letter random identifier. And just in case that you do not have that much entropy left on your system, Tmp will fall back to pseudo random numbers.
+
+You can set whether you want to remove the temporary file on process exit or not.
+
+If you do not want to store your temporary directories and files in the standard OS temporary directory, then you are free to override that as well.\hypertarget{README.md_autotoc_md12426}{}\doxysubsection{\texorpdfstring{An Important Note on Compatibility}{An Important Note on Compatibility}}\label{README.md_autotoc_md12426}
+See the \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma_2node__modules_2tmp_2_c_h_a_n_g_e_l_o_g}{CHANGELOG}{0} for more information.\hypertarget{README.md_autotoc_md12427}{}\doxysubsubsection{\texorpdfstring{Version 0.\+1.\+0}{Version 0.\+1.\+0}}\label{README.md_autotoc_md12427}
+Since version 0.\+1.\+0, all support for node versions \texorpdfstring{$<$}{<} 0.\+10.\+0 has been dropped.
+
+Most importantly, any support for earlier versions of node-\/tmp was also dropped.
+
+If you still require node versions \texorpdfstring{$<$}{<} 0.\+10.\+0, then you must limit your node-\/tmp dependency to versions below 0.\+1.\+0.\hypertarget{README.md_autotoc_md12428}{}\doxysubsubsection{\texorpdfstring{Version 0.\+0.\+33}{Version 0.\+0.\+33}}\label{README.md_autotoc_md12428}
+Since version 0.\+0.\+33, all support for node versions \texorpdfstring{$<$}{<} 0.\+8 has been dropped.
+
+If you still require node version 0.\+8, then you must limit your node-\/tmp dependency to version 0.\+0.\+33.
+
+For node versions \texorpdfstring{$<$}{<} 0.\+8 you must limit your node-\/tmp dependency to versions \texorpdfstring{$<$}{<} 0.\+0.\+33.\hypertarget{README.md_autotoc_md12429}{}\doxysubsection{\texorpdfstring{How to install}{How to install}}\label{README.md_autotoc_md12429}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ tmp}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12430}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md12430}
+Please also check \href{https://raszi.github.io/node-tmp/}{\texttt{ API docs}}.\hypertarget{README.md_autotoc_md12431}{}\doxysubsubsection{\texorpdfstring{Asynchronous file creation}{Asynchronous file creation}}\label{README.md_autotoc_md12431}
+Simple temporary file creation, the file will be closed and unlinked on process exit.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{tmp.file(function\ \_tempFileCreated(err,\ path,\ fd,\ cleanupCallback)\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.log('File:\ ',\ path);}
+\DoxyCodeLine{\ \ console.log('Filedescriptor:\ ',\ fd);}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ //\ If\ we\ don't\ need\ the\ file\ anymore\ we\ could\ manually\ call\ the\ cleanupCallback}
+\DoxyCodeLine{\ \ //\ But\ that\ is\ not\ necessary\ if\ we\ didn't\ pass\ the\ keep\ option\ because\ the\ library}
+\DoxyCodeLine{\ \ //\ will\ clean\ after\ itself.}
+\DoxyCodeLine{\ \ cleanupCallback();}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12432}{}\doxysubsubsection{\texorpdfstring{Synchronous file creation}{Synchronous file creation}}\label{README.md_autotoc_md12432}
+A synchronous version of the above.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ tmpobj\ =\ tmp.fileSync();}
+\DoxyCodeLine{console.log('File:\ ',\ tmpobj.name);}
+\DoxyCodeLine{console.log('Filedescriptor:\ ',\ tmpobj.fd);}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{//\ If\ we\ don't\ need\ the\ file\ anymore\ we\ could\ manually\ call\ the\ removeCallback}
+\DoxyCodeLine{//\ But\ that\ is\ not\ necessary\ if\ we\ didn't\ pass\ the\ keep\ option\ because\ the\ library}
+\DoxyCodeLine{//\ will\ clean\ after\ itself.}
+\DoxyCodeLine{tmpobj.removeCallback();}
+
+\end{DoxyCode}
+
+
+Note that this might throw an exception if either the maximum limit of retries for creating a temporary name fails, or, in case that you do not have the permission to write to the directory where the temporary file should be created in.\hypertarget{README.md_autotoc_md12433}{}\doxysubsubsection{\texorpdfstring{Asynchronous directory creation}{Asynchronous directory creation}}\label{README.md_autotoc_md12433}
+Simple temporary directory creation, it will be removed on process exit.
+
+If the directory still contains items on process exit, then it won\textquotesingle{}t be removed.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{tmp.dir(function\ \_tempDirCreated(err,\ path,\ cleanupCallback)\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.log('Dir:\ ',\ path);}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ //\ Manual\ cleanup}
+\DoxyCodeLine{\ \ cleanupCallback();}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+If you want to cleanup the directory even when there are entries in it, then you can pass the {\ttfamily unsafe\+Cleanup} option when creating it.\hypertarget{README.md_autotoc_md12434}{}\doxysubsubsection{\texorpdfstring{Synchronous directory creation}{Synchronous directory creation}}\label{README.md_autotoc_md12434}
+A synchronous version of the above.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ tmpobj\ =\ tmp.dirSync();}
+\DoxyCodeLine{console.log('Dir:\ ',\ tmpobj.name);}
+\DoxyCodeLine{//\ Manual\ cleanup}
+\DoxyCodeLine{tmpobj.removeCallback();}
+
+\end{DoxyCode}
+
+
+Note that this might throw an exception if either the maximum limit of retries for creating a temporary name fails, or, in case that you do not have the permission to write to the directory where the temporary directory should be created in.\hypertarget{README.md_autotoc_md12435}{}\doxysubsubsection{\texorpdfstring{Asynchronous filename generation}{Asynchronous filename generation}}\label{README.md_autotoc_md12435}
+It is possible with this library to generate a unique filename in the specified directory.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{tmp.tmpName(function\ \_tempNameGenerated(err,\ path)\ \{}
+\DoxyCodeLine{\ \ \ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ console.log('Created\ temporary\ filename:\ ',\ path);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12436}{}\doxysubsubsection{\texorpdfstring{Synchronous filename generation}{Synchronous filename generation}}\label{README.md_autotoc_md12436}
+A synchronous version of the above.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ name\ =\ tmp.tmpNameSync();}
+\DoxyCodeLine{console.log('Created\ temporary\ filename:\ ',\ name);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12437}{}\doxysubsection{\texorpdfstring{Advanced usage}{Advanced usage}}\label{README.md_autotoc_md12437}
+\hypertarget{README.md_autotoc_md12438}{}\doxysubsubsection{\texorpdfstring{Asynchronous file creation}{Asynchronous file creation}}\label{README.md_autotoc_md12438}
+Creates a file with mode {\ttfamily 0644}, prefix will be {\ttfamily prefix-\/} and postfix will be {\ttfamily .txt}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{tmp.file(\{\ mode:\ 0o644,\ prefix:\ 'prefix-\/',\ postfix:\ '.txt'\ \},\ function\ \_tempFileCreated(err,\ path,\ fd)\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.log('File:\ ',\ path);}
+\DoxyCodeLine{\ \ console.log('Filedescriptor:\ ',\ fd);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12439}{}\doxysubsubsection{\texorpdfstring{Synchronous file creation}{Synchronous file creation}}\label{README.md_autotoc_md12439}
+A synchronous version of the above.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ tmpobj\ =\ tmp.fileSync(\{\ mode:\ 0o644,\ prefix:\ 'prefix-\/',\ postfix:\ '.txt'\ \});}
+\DoxyCodeLine{console.log('File:\ ',\ tmpobj.name);}
+\DoxyCodeLine{console.log('Filedescriptor:\ ',\ tmpobj.fd);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12440}{}\doxysubsubsection{\texorpdfstring{Controlling the Descriptor}{Controlling the Descriptor}}\label{README.md_autotoc_md12440}
+As a side effect of creating a unique file {\ttfamily tmp} gets a file descriptor that is returned to the user as the {\ttfamily fd} parameter. The descriptor may be used by the application and is closed when the {\ttfamily remove\+Callback} is invoked.
+
+In some use cases the application does not need the descriptor, needs to close it without removing the file, or needs to remove the file without closing the descriptor. Two options control how the descriptor is managed\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily discard\+Descriptor} -\/ if {\ttfamily true} causes {\ttfamily tmp} to close the descriptor after the file is created. In this case the {\ttfamily fd} parameter is undefined.
+\item {\ttfamily detach\+Descriptor} -\/ if {\ttfamily true} causes {\ttfamily tmp} to return the descriptor in the {\ttfamily fd} parameter, but it is the application\textquotesingle{}s responsibility to close it when it is no longer needed.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{tmp.file(\{\ discardDescriptor:\ true\ \},\ function\ \_tempFileCreated(err,\ path,\ fd,\ cleanupCallback)\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{\ \ //\ fd\ will\ be\ undefined,\ allowing\ application\ to\ use\ fs.createReadStream(path)}
+\DoxyCodeLine{\ \ //\ without\ holding\ an\ unused\ descriptor\ open.}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{tmp.file(\{\ detachDescriptor:\ true\ \},\ function\ \_tempFileCreated(err,\ path,\ fd,\ cleanupCallback)\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ cleanupCallback();}
+\DoxyCodeLine{\ \ //\ Application\ can\ store\ data\ through\ fd\ here;\ the\ space\ used\ will\ automatically}
+\DoxyCodeLine{\ \ //\ be\ reclaimed\ by\ the\ operating\ system\ when\ the\ descriptor\ is\ closed\ or\ program}
+\DoxyCodeLine{\ \ //\ terminates.}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12441}{}\doxysubsubsection{\texorpdfstring{Asynchronous directory creation}{Asynchronous directory creation}}\label{README.md_autotoc_md12441}
+Creates a directory with mode {\ttfamily 0755}, prefix will be {\ttfamily my\+Tmp\+Dir\+\_\+}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{tmp.dir(\{\ mode:\ 0o750,\ prefix:\ 'myTmpDir\_'\ \},\ function\ \_tempDirCreated(err,\ path)\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.log('Dir:\ ',\ path);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12442}{}\doxysubsubsection{\texorpdfstring{Synchronous directory creation}{Synchronous directory creation}}\label{README.md_autotoc_md12442}
+Again, a synchronous version of the above.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ tmpobj\ =\ tmp.dirSync(\{\ mode:\ 0750,\ prefix:\ 'myTmpDir\_'\ \});}
+\DoxyCodeLine{console.log('Dir:\ ',\ tmpobj.name);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12443}{}\doxysubsubsection{\texorpdfstring{mkstemp like, asynchronously}{mkstemp like, asynchronously}}\label{README.md_autotoc_md12443}
+Creates a new temporary directory with mode {\ttfamily 0700} and filename like {\ttfamily /tmp/tmp-\/nk2\+J1u}.
+
+IMPORTANT NOTE\+: template no longer accepts a path. Use the dir option instead if you require tmp to create your temporary filesystem object in a different place than the default {\ttfamily tmp.\+tmpdir}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{tmp.dir(\{\ template:\ 'tmp-\/XXXXXX'\ \},\ function\ \_tempDirCreated(err,\ path)\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.log('Dir:\ ',\ path);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12444}{}\doxysubsubsection{\texorpdfstring{mkstemp like, synchronously}{mkstemp like, synchronously}}\label{README.md_autotoc_md12444}
+This will behave similarly to the asynchronous version.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ tmpobj\ =\ tmp.dirSync(\{\ template:\ 'tmp-\/XXXXXX'\ \});}
+\DoxyCodeLine{console.log('Dir:\ ',\ tmpobj.name);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12445}{}\doxysubsubsection{\texorpdfstring{Asynchronous filename generation}{Asynchronous filename generation}}\label{README.md_autotoc_md12445}
+Using {\ttfamily tmp\+Name()} you can create temporary file names asynchronously. The function accepts all standard options, e.\+g. {\ttfamily prefix}, {\ttfamily postfix}, {\ttfamily dir}, and so on.
+
+You can also leave out the options altogether and just call the function with a callback as first parameter.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ options\ =\ \{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{tmp.tmpName(options,\ function\ \_tempNameGenerated(err,\ path)\ \{}
+\DoxyCodeLine{\ \ \ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ console.log('Created\ temporary\ filename:\ ',\ path);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12446}{}\doxysubsubsection{\texorpdfstring{Synchronous filename generation}{Synchronous filename generation}}\label{README.md_autotoc_md12446}
+The {\ttfamily tmp\+Name\+Sync()} function works similarly to {\ttfamily tmp\+Name()}. Again, you can leave out the options altogether and just invoke the function without any parameters.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{const\ options\ =\ \{\};}
+\DoxyCodeLine{const\ tmpname\ =\ tmp.tmpNameSync(options);}
+\DoxyCodeLine{console.log('Created\ temporary\ filename:\ ',\ tmpname);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12447}{}\doxysubsection{\texorpdfstring{Graceful cleanup}{Graceful cleanup}}\label{README.md_autotoc_md12447}
+If graceful cleanup is set, tmp will remove all controlled temporary objects on process exit, otherwise the temporary objects will remain in place, waiting to be cleaned up on system restart or otherwise scheduled temporary object removal.
+
+To enforce this, you can call the {\ttfamily set\+Graceful\+Cleanup()} method\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ tmp\ =\ require('tmp');}
+\DoxyCodeLine{}
+\DoxyCodeLine{tmp.setGracefulCleanup();}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md12448}{}\doxysubsection{\texorpdfstring{Options}{Options}}\label{README.md_autotoc_md12448}
+All options are optional \+:)
+
+
+\begin{DoxyItemize}
+\item {\ttfamily name}\+: a fixed name that overrides random name generation, the name must be relative and must not contain path segments
+\item {\ttfamily mode}\+: the file mode to create with, falls back to {\ttfamily 0o600} on file creation and {\ttfamily 0o700} on directory creation
+\item {\ttfamily prefix}\+: the optional prefix, defaults to {\ttfamily tmp}
+\item {\ttfamily postfix}\+: the optional postfix
+\item {\ttfamily template}\+: \href{http://www.kernel.org/doc/man-pages/online/pages/man3/mkstemp.3.html}{\texttt{ {\ttfamily mkstemp}}} like filename template, no default, can be either an absolute or a relative path that resolves to a relative path of the system\textquotesingle{}s default temporary directory, must include {\ttfamily XXXXXX} once for random name generation, e.\+g. \textquotesingle{}foo/bar/\+XXXXXX\textquotesingle{}. Absolute paths are also fine as long as they are relative to os.\+tmpdir(). Any directories along the so specified path must exist, otherwise a ENOENT error will be thrown upon access, as tmp will not check the availability of the path, nor will it establish the requested path for you.
+\item {\ttfamily dir}\+: the optional temporary directory that must be relative to the system\textquotesingle{}s default temporary directory. absolute paths are fine as long as they point to a location under the system\textquotesingle{}s default temporary directory. Any directories along the so specified path must exist, otherwise a ENOENT error will be thrown upon access, as tmp will not check the availability of the path, nor will it establish the requested path for you.
+\item {\ttfamily tmpdir}\+: allows you to override the system\textquotesingle{}s root tmp directory
+\item {\ttfamily tries}\+: how many times should the function try to get a unique filename before giving up, default {\ttfamily 3}
+\item {\ttfamily keep}\+: signals that the temporary file or directory should not be deleted on exit, default is {\ttfamily false}
+\begin{DoxyItemize}
+\item In order to clean up, you will have to call the provided {\ttfamily cleanup\+Callback} function manually.
+\end{DoxyItemize}
+\item {\ttfamily unsafe\+Cleanup}\+: recursively removes the created temporary directory, even when it\textquotesingle{}s not empty. default is {\ttfamily false}
+\item {\ttfamily detach\+Descriptor}\+: detaches the file descriptor, caller is responsible for closing the file, tmp will no longer try closing the file during garbage collection
+\item {\ttfamily discard\+Descriptor}\+: discards the file descriptor (closes file, fd is -\/1), tmp will no longer try closing the file during garbage collection 
+\end{DoxyItemize}

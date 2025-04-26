@@ -1,0 +1,79 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/npm-\/run-\/path Directory Reference}
+\hypertarget{dir_121bb9ab9ad090a495341c86be115c29}{}\label{dir_121bb9ab9ad090a495341c86be115c29}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/run-\/path Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/npm-\/run-\/path Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Get your \href{https://en.wikipedia.org/wiki/PATH_(variable)}{\texttt{ PATH}} prepended with locally installed binaries \end{quote}
+
+
+In \href{https://docs.npmjs.com/cli/run-script}{\texttt{ npm run scripts}} you can execute locally installed binaries by name. This enables the same outside npm.\hypertarget{readme.md_autotoc_md15241}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md15241}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ npm-\/run-\/path}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md15242}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md15242}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ childProcess\ =\ require('child\_process');}
+\DoxyCodeLine{const\ npmRunPath\ =\ require('npm-\/run-\/path');}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(process.env.PATH);}
+\DoxyCodeLine{//=>\ '/usr/local/bin'}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(npmRunPath());}
+\DoxyCodeLine{//=>\ '/Users/sindresorhus/dev/foo/node\_modules/.bin:/Users/sindresorhus/dev/node\_modules/.bin:/Users/sindresorhus/node\_modules/.bin:/Users/node\_modules/.bin:/node\_modules/.bin:/usr/local/bin'}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ \`{}foo`\ is\ a\ locally\ installed\ binary}
+\DoxyCodeLine{childProcess.execFileSync('foo',\ \{}
+\DoxyCodeLine{\ \ \ \ env:\ npmRunPath.env()}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md15243}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md15243}
+\hypertarget{readme.md_autotoc_md15244}{}\doxysubsubsection{\texorpdfstring{npm\+Run\+Path(options?)}{npm\+Run\+Path(options?)}}\label{readme.md_autotoc_md15244}
+Returns the augmented path string.\hypertarget{readme.md_autotoc_md15245}{}\doxysubsubsubsection{\texorpdfstring{options}{options}}\label{readme.md_autotoc_md15245}
+Type\+: {\ttfamily object}\hypertarget{readme.md_autotoc_md15246}{}\doxysubsubsubsubsection{\texorpdfstring{cwd}{cwd}}\label{readme.md_autotoc_md15246}
+Type\+: {\ttfamily string}~\newline
+ Default\+: {\ttfamily process.\+cwd()}
+
+Working directory.\hypertarget{readme.md_autotoc_md15247}{}\doxysubsubsubsubsection{\texorpdfstring{path}{path}}\label{readme.md_autotoc_md15247}
+Type\+: {\ttfamily string}~\newline
+ Default\+: \href{https://github.com/sindresorhus/path-key}{\texttt{ {\ttfamily PATH}}}
+
+PATH to be appended.~\newline
+ Set it to an empty string to exclude the default PATH.\hypertarget{readme.md_autotoc_md15248}{}\doxysubsubsubsubsection{\texorpdfstring{exec\+Path}{exec\+Path}}\label{readme.md_autotoc_md15248}
+Type\+: {\ttfamily string}~\newline
+ Default\+: {\ttfamily process.\+exec\+Path}
+
+Path to the current Node.\+js executable. Its directory is pushed to the front of PATH.
+
+This can be either an absolute path or a path relative to the \`{}cwd\`{} option.\hypertarget{readme.md_autotoc_md15249}{}\doxysubsubsection{\texorpdfstring{npm\+Run\+Path.\+env(options?)}{npm\+Run\+Path.\+env(options?)}}\label{readme.md_autotoc_md15249}
+Returns the augmented \href{https://nodejs.org/api/process.html\#process_process_env}{\texttt{ {\ttfamily process.\+env}}} object.\hypertarget{readme.md_autotoc_md15250}{}\doxysubsubsubsection{\texorpdfstring{options}{options}}\label{readme.md_autotoc_md15250}
+Type\+: {\ttfamily object}\hypertarget{readme.md_autotoc_md15251}{}\doxysubsubsubsubsection{\texorpdfstring{cwd}{cwd}}\label{readme.md_autotoc_md15251}
+Type\+: {\ttfamily string}~\newline
+ Default\+: {\ttfamily process.\+cwd()}
+
+Working directory.\hypertarget{readme.md_autotoc_md15252}{}\doxysubsubsubsubsection{\texorpdfstring{env}{env}}\label{readme.md_autotoc_md15252}
+Type\+: {\ttfamily Object}
+
+Accepts an object of environment variables, like {\ttfamily process.\+env}, and modifies the PATH using the correct \href{https://github.com/sindresorhus/path-key}{\texttt{ PATH key}}. Use this if you\textquotesingle{}re modifying the PATH for use in the {\ttfamily child\+\_\+process} options.\hypertarget{readme.md_autotoc_md15253}{}\doxysubsubsubsubsection{\texorpdfstring{exec\+Path}{exec\+Path}}\label{readme.md_autotoc_md15253}
+Type\+: {\ttfamily string}~\newline
+ Default\+: {\ttfamily process.\+exec\+Path}
+
+Path to the Node.\+js executable to use in child processes if that is different from the current one. Its directory is pushed to the front of PATH.
+
+This can be either an absolute path or a path relative to the \`{}cwd\`{} option.\hypertarget{readme.md_autotoc_md15254}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{readme.md_autotoc_md15254}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/npm-run-path-cli}{\texttt{ npm-\/run-\/path-\/cli}} -\/ CLI for this module
+\item \href{https://github.com/sindresorhus/execa}{\texttt{ execa}} -\/ Execute a locally installed binary
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+ {\bfseries{ \href{https://tidelift.com/subscription/pkg/npm-npm-run-path?utm_source=npm-npm-run-path&utm_medium=referral&utm_campaign=readme}{\texttt{ Get professional support for this package with a Tidelift subscription}} }} ~\newline
+ \textsubscript{ Tidelift helps make open source sustainable for maintainers while giving companies~\newline
+assurances about security, maintenance, and licensing for their dependencies. }  

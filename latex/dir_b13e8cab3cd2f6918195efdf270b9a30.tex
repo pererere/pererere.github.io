@@ -1,0 +1,53 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/server Directory Reference}
+\hypertarget{dir_b13e8cab3cd2f6918195efdf270b9a30}{}\label{dir_b13e8cab3cd2f6918195efdf270b9a30}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/server Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/server Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Server example\hypertarget{readme.md_autotoc_md3548}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3548}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/server}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3549}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3549}
+To see the live-\/updating and CSS injecting, simply perform changes to either {\ttfamily index.\+html} or {\ttfamily css/main.\+css}\hypertarget{readme.md_autotoc_md3550}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily app.\+js}\+:}{Preview of {\ttfamily app.\+js}\+:}}\label{readme.md_autotoc_md3550}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Require\ Browsersync}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{var\ browserSync\ =\ require('browser-\/sync');}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Run\ Browsersync\ with\ server\ config}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{browserSync(\{}
+\DoxyCodeLine{\ \ \ \ server:\ "{}app"{},}
+\DoxyCodeLine{\ \ \ \ files:\ ["{}app/*.html"{},\ "{}app/css/*.css"{}]}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+ 

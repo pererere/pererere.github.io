@@ -1,0 +1,520 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/inquirer Directory Reference}
+\hypertarget{dir_f24b3405bbb29019a74656568a93f339}{}\label{dir_f24b3405bbb29019a74656568a93f339}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/inquirer Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/inquirer Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{README.md_autotoc_md9454}{}\doxysubsection{\texorpdfstring{Inquirer.\+js}{Inquirer.\+js}}\label{README.md_autotoc_md9454}
+\href{https://www.npmjs.com/package/inquirer}{\texttt{ }} \href{https://app.fossa.com/projects/git\%2Bgithub.com\%2FSBoudrias\%2FInquirer.js?ref=badge_shield}{\texttt{ }}
+
+A collection of common interactive command line user interfaces.\hypertarget{README.md_autotoc_md9455}{}\doxysubsubsection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{README.md_autotoc_md9455}
+
+\begin{DoxyEnumerate}
+\item \doxylink{README.md_documentation}{Documentation}
+\begin{DoxyEnumerate}
+\item \doxylink{README.md_installation}{Installation}
+\item \doxylink{README.md_examples}{Examples}
+\item \doxylink{README.md_methods}{Methods}
+\item \doxylink{README.md_objects}{Objects}
+\item Question
+\item \doxylink{README.md_answers}{Answers}
+\item \doxylink{README.md_separator}{Separator}
+\item Prompt Types
+\end{DoxyEnumerate}
+\item User Interfaces and Layouts
+\begin{DoxyEnumerate}
+\item Reactive Interface
+\end{DoxyEnumerate}
+\item \doxylink{README.md_support}{Support}
+\item \doxylink{README.md_issues}{Known issues}
+\item \doxylink{README.md_news}{News}
+\item \doxylink{README.md_contributing}{Contributing}
+\item \doxylink{README.md_license}{License}
+\item \doxylink{README.md_plugins}{Plugins}
+\end{DoxyEnumerate}\hypertarget{README.md_autotoc_md9456}{}\doxysubsubsection{\texorpdfstring{Goal and Philosophy}{Goal and Philosophy}}\label{README.md_autotoc_md9456}
+{\bfseries{{\ttfamily Inquirer.\+js}}} strives to be an easily embeddable and beautiful command line interface for \href{https://nodejs.org/}{\texttt{ Node.\+js}} (and perhaps the "{}\+CLI \mbox{[}\+Xanadu\mbox{]}(https\+://en.\+wikipedia.\+org/wiki/\+Citizen\+\_\+\+Kane)"{}).
+
+{\bfseries{{\ttfamily Inquirer.\+js}}} should ease the process of
+
+
+\begin{DoxyItemize}
+\item providing {\itshape error feedback}
+\item {\itshape asking questions}
+\item {\itshape parsing} input
+\item {\itshape validating} answers
+\item managing {\itshape hierarchical prompts}
+\end{DoxyItemize}
+
+\begin{quote}
+{\bfseries{Note\+:}} {\bfseries{{\ttfamily Inquirer.\+js}}} provides the user interface and the inquiry session flow. If you\textquotesingle{}re searching for a full blown command line program utility, then check out \href{https://github.com/visionmedia/commander.js}{\texttt{ commander}}, \href{https://github.com/dthree/vorpal}{\texttt{ vorpal}} or \href{https://github.com/leo/args}{\texttt{ args}}. \end{quote}
+\hypertarget{README.md_autotoc_md9457}{}\doxysubsubsection{\texorpdfstring{\protect\doxylink{README.md_documentation}{Documentation}}{{Documentation}}}\label{README.md_autotoc_md9457}
+\label{README.md_documentation}%
+\Hypertarget{README.md_documentation}%
+\hypertarget{README.md_autotoc_md9458}{}\doxysubsubsubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md9458}
+\label{README.md_installation}%
+\Hypertarget{README.md_installation}%
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/-\/save\ inquirer}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ inquirer\ from\ 'inquirer';}
+\DoxyCodeLine{}
+\DoxyCodeLine{inquirer}
+\DoxyCodeLine{\ \ .prompt([}
+\DoxyCodeLine{\ \ \ \ /*\ Pass\ your\ questions\ in\ here\ */}
+\DoxyCodeLine{\ \ ])}
+\DoxyCodeLine{\ \ .then((answers)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Use\ user\ feedback\ for...\ whatever!!}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ .catch((error)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ if\ (error.isTtyError)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ Prompt\ couldn't\ be\ rendered\ in\ the\ current\ environment}
+\DoxyCodeLine{\ \ \ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ Something\ else\ went\ wrong}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \});}
+
+\end{DoxyCode}
+
+
+Inquirer v9 and higher are native esm modules, this mean you cannot use the commonjs syntax `require(\textquotesingle{}inquirer')\`{} anymore. If you want to learn more about using native esm in Node, I\textquotesingle{}d recommend reading \href{https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c}{\texttt{ the following guide}}. Alternatively, you can rely on an older version until you\textquotesingle{}re ready to upgrade your environment\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/-\/save\ inquirer@\string^8.0.0}
+
+\end{DoxyCode}
+
+
+This will then allow import inquirer with the commonjs {\ttfamily require}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ inquirer\ =\ require('inquirer');}
+
+\end{DoxyCode}
+
+
+\label{README.md_examples}%
+\Hypertarget{README.md_examples}%
+\hypertarget{README.md_autotoc_md9459}{}\doxysubsubsubsection{\texorpdfstring{Examples (Run it and see it)}{Examples (Run it and see it)}}\label{README.md_autotoc_md9459}
+Check out the \href{https://github.com/SBoudrias/Inquirer.js/tree/master/packages/inquirer/examples}{\texttt{ {\ttfamily packages/inquirer/examples/}}} folder for code and interface examples.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{node\ packages/inquirer/examples/pizza.js}
+\DoxyCodeLine{node\ packages/inquirer/examples/checkbox.js}
+\DoxyCodeLine{\#\ etc...}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md9460}{}\doxysubsubsubsection{\texorpdfstring{Methods}{Methods}}\label{README.md_autotoc_md9460}
+\label{README.md_methods}%
+\Hypertarget{README.md_methods}%
+\hypertarget{README.md_autotoc_md9461}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily inquirer.\+prompt(questions, answers) -\/\texorpdfstring{$>$}{>} promise}}{{\ttfamily inquirer.\+prompt(questions, answers) -\/\texorpdfstring{$>$}{>} promise}}}\label{README.md_autotoc_md9461}
+Launch the prompt interface (inquiry session)
+
+
+\begin{DoxyItemize}
+\item {\bfseries{questions}} (Array) containing Question Object (using the reactive interface, you can also pass a {\ttfamily Rx.\+Observable} instance)
+\item {\bfseries{answers}} (object) contains values of already answered questions. Inquirer will avoid asking answers already provided here. Defaults {\ttfamily \{\}}.
+\item returns a {\bfseries{Promise}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md9462}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily inquirer.\+register\+Prompt(name, prompt)}}{{\ttfamily inquirer.\+register\+Prompt(name, prompt)}}}\label{README.md_autotoc_md9462}
+Register prompt plugins under {\ttfamily name}.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{name}} (string) name of the this new prompt. (used for question {\ttfamily type})
+\item {\bfseries{prompt}} (object) the prompt object itself (the plugin)
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md9463}{}\doxysubsubsubsubsection{\texorpdfstring{{\ttfamily inquirer.\+create\+Prompt\+Module() -\/\texorpdfstring{$>$}{>} prompt function}}{{\ttfamily inquirer.\+create\+Prompt\+Module() -\/\texorpdfstring{$>$}{>} prompt function}}}\label{README.md_autotoc_md9463}
+Create a self contained inquirer module. If you don\textquotesingle{}t want to affect other libraries that also rely on inquirer when you overwrite or add new prompt types.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ prompt\ =\ inquirer.createPromptModule();}
+\DoxyCodeLine{}
+\DoxyCodeLine{prompt(questions).then(/*\ ...\ */);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md9464}{}\doxysubsubsubsection{\texorpdfstring{Objects}{Objects}}\label{README.md_autotoc_md9464}
+\label{README.md_objects}%
+\Hypertarget{README.md_objects}%
+\hypertarget{README.md_autotoc_md9465}{}\doxysubsubsubsubsection{\texorpdfstring{Question}{Question}}\label{README.md_autotoc_md9465}
+\label{README.md_questions}%
+\Hypertarget{README.md_questions}%
+ A question object is a {\ttfamily hash} containing question related values\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{type}}\+: (String) Type of the prompt. Defaults\+: {\ttfamily input} -\/ Possible values\+: {\ttfamily input}, {\ttfamily number}, {\ttfamily confirm}, {\ttfamily list}, {\ttfamily rawlist}, {\ttfamily expand}, {\ttfamily checkbox}, {\ttfamily password}, {\ttfamily editor}
+\item {\bfseries{name}}\+: (String) The name to use when storing the answer in the answers hash. If the name contains periods, it will define a path in the answers hash.
+\item {\bfseries{message}}\+: (String\texorpdfstring{$\vert$}{|}\+Function) The question to print. If defined as a function, the first parameter will be the current inquirer session answers. Defaults to the value of {\ttfamily name} (followed by a colon).
+\item {\bfseries{default}}\+: (String\texorpdfstring{$\vert$}{|}\+Number\texorpdfstring{$\vert$}{|}\+Boolean\texorpdfstring{$\vert$}{|}\+Array\texorpdfstring{$\vert$}{|}\+Function) Default value(s) to use if nothing is entered, or a function that returns the default value(s). If defined as a function, the first parameter will be the current inquirer session answers.
+\item {\bfseries{choices}}\+: (Array\texorpdfstring{$\vert$}{|}\+Function) Choices array or a function returning a choices array. If defined as a function, the first parameter will be the current inquirer session answers. Array values can be simple {\ttfamily numbers}, {\ttfamily strings}, or {\ttfamily objects} containing a {\ttfamily name} (to display in list), a {\ttfamily value} (to save in the answers hash), and a {\ttfamily short} (to display after selection) properties. The choices array can also contain \doxylink{README.md_separator}{a \`{}\+Separator\`{}}.
+\item {\bfseries{validate}}\+: (Function) Receive the user input and answers hash. Should return {\ttfamily true} if the value is valid, and an error message ({\ttfamily String}) otherwise. If {\ttfamily false} is returned, a default error message is provided.
+\item {\bfseries{filter}}\+: (Function) Receive the user input and answers hash. Returns the filtered value to be used inside the program. The value returned will be added to the {\itshape Answers} hash.
+\item {\bfseries{transformer}}\+: (Function) Receive the user input, answers hash and option flags, and return a transformed value to display to the user. The transformation only impacts what is shown while editing. It does not modify the answers hash.
+\item {\bfseries{when}}\+: (Function, Boolean) Receive the current user answers hash and should return {\ttfamily true} or {\ttfamily false} depending on whether or not this question should be asked. The value can also be a simple boolean.
+\item {\bfseries{page\+Size}}\+: (Number) Change the number of lines that will be rendered when using {\ttfamily list}, {\ttfamily raw\+List}, {\ttfamily expand} or {\ttfamily checkbox}.
+\item {\bfseries{prefix}}\+: (String) Change the default {\itshape prefix} message.
+\item {\bfseries{suffix}}\+: (String) Change the default {\itshape suffix} message.
+\item {\bfseries{ask\+Answered}}\+: (Boolean) Force to prompt the question if the answer already exists.
+\item {\bfseries{loop}}\+: (Boolean) Enable list looping. Defaults\+: {\ttfamily true}
+\item {\bfseries{wait\+User\+Input}}\+: (Boolean) Flag to enable/disable wait for user input before opening system editor -\/ Defaults\+: {\ttfamily true}
+\end{DoxyItemize}
+
+{\ttfamily default}, {\ttfamily choices}(if defined as functions), {\ttfamily validate}, {\ttfamily filter} and {\ttfamily when} functions can be called asynchronously. Either return a promise or use {\ttfamily this.\+async()} to get a callback you\textquotesingle{}ll call with the final value.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ /*\ Preferred\ way:\ with\ promise\ */}
+\DoxyCodeLine{\ \ filter()\ \{}
+\DoxyCodeLine{\ \ \ \ return\ new\ Promise(/*\ etc...\ */);}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ /*\ Legacy\ way:\ with\ this.async\ */}
+\DoxyCodeLine{\ \ validate:\ function\ (input)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Declare\ function\ as\ asynchronous,\ and\ save\ the\ done\ callback}
+\DoxyCodeLine{\ \ \ \ const\ done\ =\ this.async();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ Do\ async\ stuff}
+\DoxyCodeLine{\ \ \ \ setTimeout(function()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ if\ (typeof\ input\ !==\ 'number')\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ //\ Pass\ the\ return\ value\ in\ the\ done\ callback}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ done('You\ need\ to\ provide\ a\ number');}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ return;}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ //\ Pass\ the\ return\ value\ in\ the\ done\ callback}
+\DoxyCodeLine{\ \ \ \ \ \ done(null,\ true);}
+\DoxyCodeLine{\ \ \ \ \},\ 3000);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md9466}{}\doxysubsubsubsection{\texorpdfstring{Answers}{Answers}}\label{README.md_autotoc_md9466}
+\label{README.md_answers}%
+\Hypertarget{README.md_answers}%
+ A key/value hash containing the client answers in each prompt.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Key}} The {\ttfamily name} property of the {\itshape question} object
+\item {\bfseries{Value}} (Depends on the prompt)
+\begin{DoxyItemize}
+\item {\ttfamily confirm}\+: (Boolean)
+\item {\ttfamily input} \+: User input (filtered if {\ttfamily filter} is defined) (String)
+\item {\ttfamily number}\+: User input (filtered if {\ttfamily filter} is defined) (Number)
+\item {\ttfamily rawlist}, {\ttfamily list} \+: Selected choice value (or name if no value specified) (String)
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md9467}{}\doxysubsubsubsection{\texorpdfstring{Separator}{Separator}}\label{README.md_autotoc_md9467}
+\label{README.md_separator}%
+\Hypertarget{README.md_separator}%
+ A separator can be added to any {\ttfamily choices} array\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ In\ the\ question\ object}
+\DoxyCodeLine{choices:\ [\ "{}Choice\ A"{},\ new\ inquirer.Separator(),\ "{}choice\ B"{}\ ]}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Which'll\ be\ displayed\ this\ way}
+\DoxyCodeLine{[?]\ What\ do\ you\ want\ to\ do?}
+\DoxyCodeLine{\ >\ Order\ a\ pizza}
+\DoxyCodeLine{\ \ \ Make\ a\ reservation}
+\DoxyCodeLine{\ \ \ -\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{\ \ \ Ask\ opening\ hours}
+\DoxyCodeLine{\ \ \ Talk\ to\ the\ receptionist}
+
+\end{DoxyCode}
+
+
+The constructor takes a facultative {\ttfamily String} value that\textquotesingle{}ll be use as the separator. If omitted, the separator will be {\ttfamily -\/-\/-\/-\/-\/-\/-\/-\/}.
+
+Separator instances have a property {\ttfamily type} equal to {\ttfamily separator}. This should allow tools façading Inquirer interface from detecting separator types in lists.
+
+\label{README.md_prompt}%
+\Hypertarget{README.md_prompt}%
+\hypertarget{README.md_autotoc_md9468}{}\doxysubsubsubsection{\texorpdfstring{Prompt types}{Prompt types}}\label{README.md_autotoc_md9468}
+\DoxyHorRuler{0}
+
+
+\begin{quote}
+{\bfseries{Note\+:}}\+: {\itshape allowed options written inside square brackets ({\ttfamily \mbox{[}\mbox{]}}) are optional. Others are required.} \end{quote}
+\hypertarget{README.md_autotoc_md9470}{}\doxysubsubsubsubsection{\texorpdfstring{List -\/ `\{type\+: \textquotesingle{}list'\}\`{}}{List -\/ `\{type\+: \textquotesingle{}list'\}\`{}}}\label{README.md_autotoc_md9470}
+Take {\ttfamily type}, {\ttfamily name}, {\ttfamily message}, {\ttfamily choices}\mbox{[}, {\ttfamily default}, {\ttfamily filter}, {\ttfamily loop}\mbox{]} properties. (Note\+: {\ttfamily default} must be set to the {\ttfamily index} or {\ttfamily value} of one of the entries in {\ttfamily choices})
+
+
+
+\DoxyHorRuler{0}
+\hypertarget{README.md_autotoc_md9472}{}\doxysubsubsubsubsection{\texorpdfstring{Raw List -\/ `\{type\+: \textquotesingle{}rawlist'\}\`{}}{Raw List -\/ `\{type\+: \textquotesingle{}rawlist'\}\`{}}}\label{README.md_autotoc_md9472}
+Take {\ttfamily type}, {\ttfamily name}, {\ttfamily message}, {\ttfamily choices}\mbox{[}, {\ttfamily default}, {\ttfamily filter}, {\ttfamily loop}\mbox{]} properties. (Note\+: {\ttfamily default} must be set to the {\ttfamily index} of one of the entries in {\ttfamily choices})
+
+
+
+\DoxyHorRuler{0}
+\hypertarget{README.md_autotoc_md9474}{}\doxysubsubsubsubsection{\texorpdfstring{Expand -\/ `\{type\+: \textquotesingle{}expand'\}\`{}}{Expand -\/ `\{type\+: \textquotesingle{}expand'\}\`{}}}\label{README.md_autotoc_md9474}
+Take {\ttfamily type}, {\ttfamily name}, {\ttfamily message}, {\ttfamily choices}\mbox{[}, {\ttfamily default}\mbox{]} properties. Note\+: {\ttfamily default} must be the {\ttfamily index} of the desired default selection of the array. If {\ttfamily default} key not provided, then {\ttfamily help} will be used as default choice
+
+Note that the {\ttfamily choices} object will take an extra parameter called {\ttfamily key} for the {\ttfamily expand} prompt. This parameter must be a single (lowercased) character. The {\ttfamily h} option is added by the prompt and shouldn\textquotesingle{}t be defined by the user.
+
+See {\ttfamily examples/expand.\+js} for a running example.
+
+ 
+
+\DoxyHorRuler{0}
+\hypertarget{README.md_autotoc_md9476}{}\doxysubsubsubsubsection{\texorpdfstring{Checkbox -\/ `\{type\+: \textquotesingle{}checkbox'\}\`{}}{Checkbox -\/ `\{type\+: \textquotesingle{}checkbox'\}\`{}}}\label{README.md_autotoc_md9476}
+Take {\ttfamily type}, {\ttfamily name}, {\ttfamily message}, {\ttfamily choices}\mbox{[}, {\ttfamily filter}, {\ttfamily validate}, {\ttfamily default}, {\ttfamily loop}\mbox{]} properties. {\ttfamily default} is expected to be an Array of the checked choices value.
+
+Choices marked as {\ttfamily \{checked\+: true\}} will be checked by default.
+
+Choices whose property {\ttfamily disabled} is truthy will be unselectable. If {\ttfamily disabled} is a string, then the string will be outputted next to the disabled choice, otherwise it\textquotesingle{}ll default to {\ttfamily "{}\+Disabled"{}}. The {\ttfamily disabled} property can also be a synchronous function receiving the current answers as argument and returning a boolean or a string.
+
+
+
+\DoxyHorRuler{0}
+\hypertarget{README.md_autotoc_md9478}{}\doxysubsubsubsubsection{\texorpdfstring{Confirm -\/ `\{type\+: \textquotesingle{}confirm'\}\`{}}{Confirm -\/ `\{type\+: \textquotesingle{}confirm'\}\`{}}}\label{README.md_autotoc_md9478}
+Take {\ttfamily type}, {\ttfamily name}, {\ttfamily message}, \mbox{[}{\ttfamily default}, {\ttfamily transformer}\mbox{]} properties. {\ttfamily default} is expected to be a boolean if used.
+
+
+
+\DoxyHorRuler{0}
+\hypertarget{README.md_autotoc_md9480}{}\doxysubsubsubsubsection{\texorpdfstring{Input -\/ `\{type\+: \textquotesingle{}input'\}\`{}}{Input -\/ `\{type\+: \textquotesingle{}input'\}\`{}}}\label{README.md_autotoc_md9480}
+Take {\ttfamily type}, {\ttfamily name}, {\ttfamily message}\mbox{[}, {\ttfamily default}, {\ttfamily filter}, {\ttfamily validate}, {\ttfamily transformer}\mbox{]} properties.
+
+
+
+\DoxyHorRuler{0}
+\hypertarget{README.md_autotoc_md9482}{}\doxysubsubsubsubsection{\texorpdfstring{Input -\/ `\{type\+: \textquotesingle{}number'\}\`{}}{Input -\/ `\{type\+: \textquotesingle{}number'\}\`{}}}\label{README.md_autotoc_md9482}
+Take {\ttfamily type}, {\ttfamily name}, {\ttfamily message}\mbox{[}, {\ttfamily default}, {\ttfamily filter}, {\ttfamily validate}, {\ttfamily transformer}\mbox{]} properties.
+
+\DoxyHorRuler{0}
+\hypertarget{README.md_autotoc_md9484}{}\doxysubsubsubsubsection{\texorpdfstring{Password -\/ `\{type\+: \textquotesingle{}password'\}\`{}}{Password -\/ `\{type\+: \textquotesingle{}password'\}\`{}}}\label{README.md_autotoc_md9484}
+Take {\ttfamily type}, {\ttfamily name}, {\ttfamily message}, {\ttfamily mask},\mbox{[}, {\ttfamily default}, {\ttfamily filter}, {\ttfamily validate}\mbox{]} properties.
+
+
+
+\DoxyHorRuler{0}
+
+
+Note that {\ttfamily mask} is required to hide the actual user input.\hypertarget{README.md_autotoc_md9486}{}\doxysubsubsubsubsection{\texorpdfstring{Editor -\/ `\{type\+: \textquotesingle{}editor'\}\`{}}{Editor -\/ `\{type\+: \textquotesingle{}editor'\}\`{}}}\label{README.md_autotoc_md9486}
+Take {\ttfamily type}, {\ttfamily name}, {\ttfamily message}\mbox{[}, {\ttfamily default}, {\ttfamily filter}, {\ttfamily validate}, {\ttfamily postfix}, {\ttfamily wait\+User\+Input}\mbox{]} properties
+
+Launches an instance of the users preferred editor on a temporary file. Once the user exits their editor, the contents of the temporary file are read in as the result. The editor to use is determined by reading the \$\+VISUAL or \$\+EDITOR environment variables. If neither of those are present, notepad (on Windows) or vim (Linux or Mac) is used.
+
+The {\ttfamily postfix} property is useful if you want to provide an extension.
+
+\label{README.md_layouts}%
+\Hypertarget{README.md_layouts}%
+\hypertarget{README.md_autotoc_md9487}{}\doxysubsubsubsection{\texorpdfstring{Use in Non-\/\+Interactive Environments}{Use in Non-\/\+Interactive Environments}}\label{README.md_autotoc_md9487}
+{\ttfamily prompt()} requires that it is run in an interactive environment. (I.\+e. \href{https://nodejs.org/docs/latest-v12.x/api/process.html\#process_a_note_on_process_i_o}{\texttt{ One where {\ttfamily process.\+stdin.\+is\+TTY} is {\ttfamily true}}}). If {\ttfamily prompt()} is invoked outside of such an environment, then {\ttfamily prompt()} will return a rejected promise with an error. For convenience, the error will have a {\ttfamily is\+Tty\+Error} property to programmatically indicate the cause.\hypertarget{README.md_autotoc_md9488}{}\doxysubsubsection{\texorpdfstring{User Interfaces and layouts}{User Interfaces and layouts}}\label{README.md_autotoc_md9488}
+Along with the prompts, Inquirer offers some basic text UI.\hypertarget{README.md_autotoc_md9489}{}\doxysubsubsubsubsection{\texorpdfstring{Bottom Bar -\/ {\ttfamily inquirer.\+ui.\+Bottom\+Bar}}{Bottom Bar -\/ {\ttfamily inquirer.\+ui.\+Bottom\+Bar}}}\label{README.md_autotoc_md9489}
+This UI present a fixed text at the bottom of a free text zone. This is useful to keep a message to the bottom of the screen while outputting command outputs on the higher section.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ ui\ =\ new\ inquirer.ui.BottomBar();}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ pipe\ a\ Stream\ to\ the\ log\ zone}
+\DoxyCodeLine{outputStream.pipe(ui.log);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Or\ simply\ write\ output}
+\DoxyCodeLine{ui.log.write('something\ just\ happened.');}
+\DoxyCodeLine{ui.log.write('Almost\ over,\ standby!');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ During\ processing,\ update\ the\ bottom\ bar\ content\ to\ display\ a\ loader}
+\DoxyCodeLine{//\ or\ output\ a\ progress\ bar,\ etc}
+\DoxyCodeLine{ui.updateBottomBar('new\ bottom\ bar\ content');}
+
+\end{DoxyCode}
+
+
+\label{README.md_reactive}%
+\Hypertarget{README.md_reactive}%
+\hypertarget{README.md_autotoc_md9490}{}\doxysubsubsection{\texorpdfstring{Reactive interface}{Reactive interface}}\label{README.md_autotoc_md9490}
+Internally, Inquirer uses the \href{https://github.com/ReactiveX/rxjs}{\texttt{ JS reactive extension}} to handle events and async flows.
+
+This mean you can take advantage of this feature to provide more advanced flows. For example, you can dynamically add questions to be asked\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ prompts\ =\ new\ Rx.Subject();}
+\DoxyCodeLine{inquirer.prompt(prompts);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ At\ some\ point\ in\ the\ future,\ push\ new\ questions}
+\DoxyCodeLine{prompts.next(\{}
+\DoxyCodeLine{\ \ /*\ question...\ */}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{prompts.next(\{}
+\DoxyCodeLine{\ \ /*\ question...\ */}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ When\ you're\ done}
+\DoxyCodeLine{prompts.complete();}
+
+\end{DoxyCode}
+
+
+And using the return value {\ttfamily process} property, you can access more fine grained callbacks\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{inquirer.prompt(prompts).ui.process.subscribe(onEachAnswer,\ onError,\ onComplete);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md9491}{}\doxysubsubsection{\texorpdfstring{Support (OS Terminals)}{Support (OS Terminals)}}\label{README.md_autotoc_md9491}
+\label{README.md_support}%
+\Hypertarget{README.md_support}%
+
+
+You should expect mostly good support for the CLI below. This does not mean we won\textquotesingle{}t look at issues found on other command line -\/ feel free to report any!
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Mac OS}}\+:
+\begin{DoxyItemize}
+\item Terminal.\+app
+\item i\+Term
+\end{DoxyItemize}
+\item {\bfseries{Windows (\doxylink{README.md_issues}{Known issues})}}\+:
+\begin{DoxyItemize}
+\item \href{https://github.com/microsoft/terminal}{\texttt{ Windows Terminal}}
+\item \href{https://conemu.github.io/}{\texttt{ Con\+Emu}}
+\item cmd.\+exe
+\item Powershell
+\item Cygwin
+\end{DoxyItemize}
+\item {\bfseries{Linux (Ubuntu, open\+SUSE, Arch Linux, etc)}}\+:
+\begin{DoxyItemize}
+\item gnome-\/terminal (Terminal GNOME)
+\item konsole
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md9492}{}\doxysubsubsection{\texorpdfstring{Known issues}{Known issues}}\label{README.md_autotoc_md9492}
+\label{README.md_issues}%
+\Hypertarget{README.md_issues}%
+
+
+
+\begin{DoxyItemize}
+\item {\bfseries{nodemon}} -\/ Makes the arrow keys print gibrish on list prompts. Workaround\+: Add {\ttfamily \{ stdin \+: false \}} in the configuration file or pass {\ttfamily -\/-\/no-\/stdin} in the CLI. Please refer to \href{https://github.com/SBoudrias/Inquirer.js/issues/844\#issuecomment-736675867}{\texttt{ this issue}}
+\item {\bfseries{grunt-\/exec}} -\/ Calling a node script that uses Inquirer from grunt-\/exec can cause the program to crash. To fix this, add to your grunt-\/exec config `stdio\+: \textquotesingle{}inherit'\`{}. Please refer to \href{https://github.com/jharding/grunt-exec/issues/85}{\texttt{ this issue}}
+\item {\bfseries{Windows network streams}} -\/ Running Inquirer together with network streams in Windows platform inside some terminals can result in process hang. Workaround\+: run inside another terminal. Please refer to \href{https://github.com/nodejs/node/issues/21771}{\texttt{ this issue}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md9493}{}\doxysubsubsection{\texorpdfstring{News on the march (Release notes)}{News on the march (Release notes)}}\label{README.md_autotoc_md9493}
+\label{README.md_news}%
+\Hypertarget{README.md_news}%
+
+
+Please refer to the \href{https://github.com/SBoudrias/Inquirer.js/releases}{\texttt{ Git\+Hub releases section for the changelog}}\hypertarget{README.md_autotoc_md9494}{}\doxysubsubsection{\texorpdfstring{Contributing}{Contributing}}\label{README.md_autotoc_md9494}
+\label{README.md_contributing}%
+\Hypertarget{README.md_contributing}%
+
+
+{\bfseries{Unit test}} Please add a unit test for every new feature or bug fix. {\ttfamily npm test} to run the test suite.
+
+{\bfseries{Documentation}} Add documentation for every API change. Feel free to send typo fixes and better docs!
+
+We\textquotesingle{}re looking to offer good support for multiple prompts and environments. If you want to help, we\textquotesingle{}d like to keep a list of testers for each terminal/\+OS so we can contact you and get feedback before release. Let us know if you want to be added to the list (just tweet to \href{https://twitter.com/Vaxilart}{\texttt{ @vaxilart}}) or just add your name to \href{https://github.com/SBoudrias/Inquirer.js/wiki/Testers}{\texttt{ the wiki}}\hypertarget{README.md_autotoc_md9495}{}\doxysubsubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md9495}
+\label{README.md_license}%
+\Hypertarget{README.md_license}%
+
+
+Copyright (c) 2023 Simon Boudrias (twitter\+: \href{https://twitter.com/Vaxilart}{\texttt{ @vaxilart}})~\newline
+ Licensed under the MIT license.\hypertarget{README.md_autotoc_md9496}{}\doxysubsubsection{\texorpdfstring{Plugins}{Plugins}}\label{README.md_autotoc_md9496}
+\label{README.md_plugins}%
+\Hypertarget{README.md_plugins}%
+\hypertarget{README.md_autotoc_md9497}{}\doxysubsubsubsection{\texorpdfstring{Prompts}{Prompts}}\label{README.md_autotoc_md9497}
+\href{https://github.com/mokkabonna/inquirer-autocomplete-prompt}{\texttt{ {\bfseries{autocomplete}}}}~\newline
+ Presents a list of options as the user types, compatible with other packages such as fuzzy (for search)~\newline
+ ~\newline
+ 
+
+\href{https://github.com/faressoft/inquirer-checkbox-plus-prompt}{\texttt{ {\bfseries{checkbox-\/plus}}}}~\newline
+ Checkbox list with autocomplete and other additions~\newline
+ ~\newline
+ 
+
+\href{https://github.com/haversnail/inquirer-date-prompt}{\texttt{ {\bfseries{inquirer-\/date-\/prompt}}}}~\newline
+ Customizable date/time selector with localization support~\newline
+ ~\newline
+ 
+
+\href{https://github.com/DerekTBrown/inquirer-datepicker-prompt}{\texttt{ {\bfseries{datetime}}}}~\newline
+ Customizable date/time selector using both number pad and arrow keys~\newline
+ ~\newline
+ 
+
+\href{https://github.com/adam-golab/inquirer-select-line}{\texttt{ {\bfseries{inquirer-\/select-\/line}}}}~\newline
+ Prompt for selecting index in array where add new element~\newline
+ ~\newline
+ 
+
+\href{https://github.com/sullof/inquirer-command-prompt}{\texttt{ {\bfseries{command}}}}~\newline
+ Simple prompt with command history and dynamic autocomplete~\newline
+
+
+\href{https://github.com/adelsz/inquirer-fuzzy-path}{\texttt{ {\bfseries{inquirer-\/fuzzy-\/path}}}}~\newline
+ Prompt for fuzzy file/directory selection.~\newline
+ ~\newline
+ 
+
+\href{https://github.com/tannerntannern/inquirer-emoji}{\texttt{ {\bfseries{inquirer-\/emoji}}}}~\newline
+ Prompt for inputting emojis.~\newline
+ ~\newline
+ 
+
+\href{https://github.com/LitoMore/inquirer-chalk-pipe}{\texttt{ {\bfseries{inquirer-\/chalk-\/pipe}}}}~\newline
+ Prompt for input chalk-\/pipe style strings~\newline
+ ~\newline
+ 
+
+\href{https://github.com/clinyong/inquirer-search-checkbox}{\texttt{ {\bfseries{inquirer-\/search-\/checkbox}}}}~\newline
+ Searchable Inquirer checkbox~\newline
+ 
+
+\href{https://github.com/robin-rpr/inquirer-search-list}{\texttt{ {\bfseries{inquirer-\/search-\/list}}}}~\newline
+ Searchable Inquirer list~\newline
+ ~\newline
+ 
+
+\href{https://github.com/olistic/inquirer-prompt-suggest}{\texttt{ {\bfseries{inquirer-\/prompt-\/suggest}}}}~\newline
+ Inquirer prompt for your less creative users.~\newline
+ ~\newline
+ 
+
+\href{https://github.com/HQarroum/inquirer-s3}{\texttt{ {\bfseries{inquirer-\/s3}}}}~\newline
+ An S3 object selector for Inquirer.~\newline
+ ~\newline
+ 
+
+\href{https://github.com/yaodingyd/inquirer-autosubmit-prompt}{\texttt{ {\bfseries{inquirer-\/autosubmit-\/prompt}}}}~\newline
+ Auto submit based on your current input, saving one extra enter~\newline
+
+
+\href{https://github.com/anc95/inquirer-file-tree-selection}{\texttt{ {\bfseries{inquirer-\/file-\/tree-\/selection-\/prompt}}}}~\newline
+ Inquirer prompt for to select a file or directory in file tree~\newline
+ ~\newline
+ 
+
+\href{https://github.com/insightfuls/inquirer-tree-prompt}{\texttt{ {\bfseries{inquirer-\/tree-\/prompt}}}}~\newline
+ Inquirer prompt to select from a tree~\newline
+ ~\newline
+ 
+
+\href{https://github.com/eduardoboucas/inquirer-table-prompt}{\texttt{ {\bfseries{inquirer-\/table-\/prompt}}}}~\newline
+ A table-\/like prompt for Inquirer.~\newline
+ ~\newline
+ 
+
+\href{https://github.com/lnquy065/inquirer-interrupted-prompt}{\texttt{ {\bfseries{inquirer-\/interrupted-\/prompt}}}}~\newline
+ Turning any existing inquirer and its plugin prompts into prompts that can be interrupted with a custom key.~\newline
+ ~\newline
+ 
+
+\href{https://github.com/leonzalion/inquirer-press-to-continue}{\texttt{ {\bfseries{inquirer-\/press-\/to-\/continue}}}}~\newline
+ A "{}press any key to continue"{} prompt for Inquirer.\+js~\newline
+ ~\newline
+  

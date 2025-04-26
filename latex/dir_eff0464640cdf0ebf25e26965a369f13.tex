@@ -1,0 +1,42 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/compressible Directory Reference}
+\hypertarget{dir_eff0464640cdf0ebf25e26965a369f13}{}\label{dir_eff0464640cdf0ebf25e26965a369f13}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/compressible Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/compressible Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://npmjs.org/package/compressible}{\texttt{ }} \href{https://npmjs.org/package/compressible}{\texttt{ }} \href{https://nodejs.org/en/download}{\texttt{ }} \href{https://travis-ci.org/jshttp/compressible}{\texttt{ }} \href{https://coveralls.io/r/jshttp/compressible?branch=master}{\texttt{ }}
+
+Compressible {\ttfamily Content-\/\+Type} / {\ttfamily mime} checking.\hypertarget{README.md_autotoc_md4231}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md4231}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ compressible}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4232}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md4232}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ compressible\ =\ require('compressible')}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4233}{}\doxysubsubsection{\texorpdfstring{compressible(type)}{compressible(type)}}\label{README.md_autotoc_md4233}
+Checks if the given {\ttfamily Content-\/\+Type} is compressible. The {\ttfamily type} argument is expected to be a value MIME type or {\ttfamily Content-\/\+Type} string, though no validation is performed.
+
+The MIME is looked up in the \href{https://www.npmjs.com/package/mime-db}{\texttt{ {\ttfamily mime-\/db}}} and if there is compressible information in the database entry, that is returned. Otherwise, this module will fallback to {\ttfamily true} for the following types\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily text/\texorpdfstring{$\ast$}{*}}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}/\texorpdfstring{$\ast$}{*}+json}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}/\texorpdfstring{$\ast$}{*}+text}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}/\texorpdfstring{$\ast$}{*}+xml}
+\end{DoxyItemize}
+
+If this module is not sure if a type is specifically compressible or specifically uncompressible, {\ttfamily undefined} is returned.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{compressible('text/html')\ //\ =>\ true}
+\DoxyCodeLine{compressible('image/png')\ //\ =>\ false}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4234}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md4234}
+\mbox{[}MIT\mbox{]}(LICENSE) 

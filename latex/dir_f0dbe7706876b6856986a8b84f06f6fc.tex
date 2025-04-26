@@ -1,0 +1,244 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/flat Directory Reference}
+\hypertarget{dir_f0dbe7706876b6856986a8b84f06f6fc}{}\label{dir_f0dbe7706876b6856986a8b84f06f6fc}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/flat Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/flat Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Take a nested Javascript object and flatten it, or unflatten an object with delimited keys.\hypertarget{README.md_autotoc_md8044}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md8044}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{\$\ npm\ install\ flat}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md8045}{}\doxysubsection{\texorpdfstring{Methods}{Methods}}\label{README.md_autotoc_md8045}
+\hypertarget{README.md_autotoc_md8046}{}\doxysubsubsection{\texorpdfstring{flatten(original, options)}{flatten(original, options)}}\label{README.md_autotoc_md8046}
+Flattens the object -\/ it\textquotesingle{}ll return an object one level deep, regardless of how nested the original object was\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ flatten\ =\ require('flat')}
+\DoxyCodeLine{}
+\DoxyCodeLine{flatten(\{}
+\DoxyCodeLine{\ \ \ \ key1:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ keyA:\ 'valueI'}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ key2:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ keyB:\ 'valueII'}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ key3:\ \{\ a:\ \{\ b:\ \{\ c:\ 2\ \}\ \}\ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ \{}
+\DoxyCodeLine{//\ \ \ 'key1.keyA':\ 'valueI',}
+\DoxyCodeLine{//\ \ \ 'key2.keyB':\ 'valueII',}
+\DoxyCodeLine{//\ \ \ 'key3.a.b.c':\ 2}
+\DoxyCodeLine{//\ \}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md8047}{}\doxysubsubsection{\texorpdfstring{unflatten(original, options)}{unflatten(original, options)}}\label{README.md_autotoc_md8047}
+Flattening is reversible too, you can call {\ttfamily flatten.\+unflatten()} on an object\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ unflatten\ =\ require('flat').unflatten}
+\DoxyCodeLine{}
+\DoxyCodeLine{unflatten(\{}
+\DoxyCodeLine{\ \ \ \ 'three.levels.deep':\ 42,}
+\DoxyCodeLine{\ \ \ \ 'three.levels':\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ nested:\ true}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ \{}
+\DoxyCodeLine{//\ \ \ \ \ three:\ \{}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ levels:\ \{}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ \ \ \ \ deep:\ 42,}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ \ \ \ \ nested:\ true}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{//\ \ \ \ \ \}}
+\DoxyCodeLine{//\ \}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md8048}{}\doxysubsection{\texorpdfstring{Options}{Options}}\label{README.md_autotoc_md8048}
+\hypertarget{README.md_autotoc_md8049}{}\doxysubsubsection{\texorpdfstring{delimiter}{delimiter}}\label{README.md_autotoc_md8049}
+Use a custom delimiter for (un)flattening your objects, instead of {\ttfamily .}.\hypertarget{README.md_autotoc_md8050}{}\doxysubsubsection{\texorpdfstring{safe}{safe}}\label{README.md_autotoc_md8050}
+When enabled, both {\ttfamily flat} and {\ttfamily unflatten} will preserve arrays and their contents. This is disabled by default.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ flatten\ =\ require('flat')}
+\DoxyCodeLine{}
+\DoxyCodeLine{flatten(\{}
+\DoxyCodeLine{\ \ \ \ this:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ contains:\ 'arrays'\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ preserving:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ them:\ 'for\ you'}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\}}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{\},\ \{}
+\DoxyCodeLine{\ \ \ \ safe:\ true}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ \{}
+\DoxyCodeLine{//\ \ \ \ \ 'this':\ [}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ \{\ contains:\ 'arrays'\ \},}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ \{\ preserving:\ \{}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ \ \ \ \ them:\ 'for\ you'}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ \}\}}
+\DoxyCodeLine{//\ \ \ \ \ ]}
+\DoxyCodeLine{//\ \}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md8051}{}\doxysubsubsection{\texorpdfstring{object}{object}}\label{README.md_autotoc_md8051}
+When enabled, arrays will not be created automatically when calling unflatten, like so\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{unflatten(\{}
+\DoxyCodeLine{\ \ \ \ 'hello.you.0':\ 'ipsum',}
+\DoxyCodeLine{\ \ \ \ 'hello.you.1':\ 'lorem',}
+\DoxyCodeLine{\ \ \ \ 'hello.other.world':\ 'foo'}
+\DoxyCodeLine{\},\ \{\ object:\ true\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ hello:\ \{}
+\DoxyCodeLine{//\ \ \ \ \ you:\ \{}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ 0:\ 'ipsum',}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ 1:\ 'lorem',}
+\DoxyCodeLine{//\ \ \ \ \ \},}
+\DoxyCodeLine{//\ \ \ \ \ other:\ \{\ world:\ 'foo'\ \}}
+\DoxyCodeLine{//\ \}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md8052}{}\doxysubsubsection{\texorpdfstring{overwrite}{overwrite}}\label{README.md_autotoc_md8052}
+When enabled, existing keys in the unflattened object may be overwritten if they cannot hold a newly encountered nested value\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{unflatten(\{}
+\DoxyCodeLine{\ \ \ \ 'TRAVIS':\ 'true',}
+\DoxyCodeLine{\ \ \ \ 'TRAVIS.DIR':\ '/home/travis/build/kvz/environmental'}
+\DoxyCodeLine{\},\ \{\ overwrite:\ true\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ TRAVIS:\ \{}
+\DoxyCodeLine{//\ \ \ \ \ DIR:\ '/home/travis/build/kvz/environmental'}
+\DoxyCodeLine{//\ \}}
+
+\end{DoxyCode}
+
+
+Without {\ttfamily overwrite} set to {\ttfamily true}, the {\ttfamily TRAVIS} key would already have been set to a string, thus could not accept the nested {\ttfamily DIR} element.
+
+This only makes sense on ordered arrays, and since we\textquotesingle{}re overwriting data, should be used with care.\hypertarget{README.md_autotoc_md8053}{}\doxysubsubsection{\texorpdfstring{max\+Depth}{max\+Depth}}\label{README.md_autotoc_md8053}
+Maximum number of nested objects to flatten.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ flatten\ =\ require('flat')}
+\DoxyCodeLine{}
+\DoxyCodeLine{flatten(\{}
+\DoxyCodeLine{\ \ \ \ key1:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ keyA:\ 'valueI'}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ key2:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ keyB:\ 'valueII'}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ key3:\ \{\ a:\ \{\ b:\ \{\ c:\ 2\ \}\ \}\ \}}
+\DoxyCodeLine{\},\ \{\ maxDepth:\ 2\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ \{}
+\DoxyCodeLine{//\ \ \ 'key1.keyA':\ 'valueI',}
+\DoxyCodeLine{//\ \ \ 'key2.keyB':\ 'valueII',}
+\DoxyCodeLine{//\ \ \ 'key3.a':\ \{\ b:\ \{\ c:\ 2\ \}\ \}}
+\DoxyCodeLine{//\ \}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md8054}{}\doxysubsubsection{\texorpdfstring{transform\+Key}{transform\+Key}}\label{README.md_autotoc_md8054}
+Transform each part of a flat key before and after flattening.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ flatten\ =\ require('flat')}
+\DoxyCodeLine{var\ unflatten\ =\ require('flat').unflatten}
+\DoxyCodeLine{}
+\DoxyCodeLine{flatten(\{}
+\DoxyCodeLine{\ \ \ \ key1:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ keyA:\ 'valueI'}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ key2:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ keyB:\ 'valueII'}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ key3:\ \{\ a:\ \{\ b:\ \{\ c:\ 2\ \}\ \}\ \}}
+\DoxyCodeLine{\},\ \{}
+\DoxyCodeLine{\ \ \ \ transformKey:\ function(key)\{}
+\DoxyCodeLine{\ \ \ \ \ \ return\ '\_\_'\ +\ key\ +\ '\_\_';}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ \{}
+\DoxyCodeLine{//\ \ \ '\_\_key1\_\_.\_\_keyA\_\_':\ 'valueI',}
+\DoxyCodeLine{//\ \ \ '\_\_key2\_\_.\_\_keyB\_\_':\ 'valueII',}
+\DoxyCodeLine{//\ \ \ '\_\_key3\_\_.\_\_a\_\_.\_\_b\_\_.\_\_c\_\_':\ 2}
+\DoxyCodeLine{//\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{unflatten(\{}
+\DoxyCodeLine{\ \ \ \ \ \ '\_\_key1\_\_.\_\_keyA\_\_':\ 'valueI',}
+\DoxyCodeLine{\ \ \ \ \ \ '\_\_key2\_\_.\_\_keyB\_\_':\ 'valueII',}
+\DoxyCodeLine{\ \ \ \ \ \ '\_\_key3\_\_.\_\_a\_\_.\_\_b\_\_.\_\_c\_\_':\ 2}
+\DoxyCodeLine{\},\ \{}
+\DoxyCodeLine{\ \ \ \ transformKey:\ function(key)\{}
+\DoxyCodeLine{\ \ \ \ \ \ return\ key.substring(2,\ key.length\ -\/\ 2)}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ \{}
+\DoxyCodeLine{//\ \ \ \ \ key1:\ \{}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ keyA:\ 'valueI'}
+\DoxyCodeLine{//\ \ \ \ \ \},}
+\DoxyCodeLine{//\ \ \ \ \ key2:\ \{}
+\DoxyCodeLine{//\ \ \ \ \ \ \ \ \ keyB:\ 'valueII'}
+\DoxyCodeLine{//\ \ \ \ \ \},}
+\DoxyCodeLine{//\ \ \ \ \ key3:\ \{\ a:\ \{\ b:\ \{\ c:\ 2\ \}\ \}\ \}}
+\DoxyCodeLine{//\ \}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md8055}{}\doxysubsection{\texorpdfstring{Command Line Usage}{Command Line Usage}}\label{README.md_autotoc_md8055}
+{\ttfamily flat} is also available as a command line tool. You can run it with \href{https://ghub.io/npx}{\texttt{ {\ttfamily npx}}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npx\ flat\ foo.json}
+
+\end{DoxyCode}
+
+
+Or install the {\ttfamily flat} command globally\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ i\ -\/g\ flat\ \&\&\ flat\ foo.json}
+
+\end{DoxyCode}
+
+
+Accepts a filename as an argument\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{flat\ foo.json}
+
+\end{DoxyCode}
+
+
+Also accepts JSON on stdin\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cat\ foo.json\ |\ flat}
+
+\end{DoxyCode}
+ 

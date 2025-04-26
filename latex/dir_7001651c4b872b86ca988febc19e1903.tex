@@ -1,0 +1,48 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/regenerator-\/transform Directory Reference}
+\hypertarget{dir_7001651c4b872b86ca988febc19e1903}{}\label{dir_7001651c4b872b86ca988febc19e1903}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/regenerator-\/transform Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/regenerator-\/transform Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Transform async/generator functions with \href{https://github.com/facebook/regenerator}{\texttt{ regenerator}}\hypertarget{README.md_autotoc_md17383}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md17383}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ regenerator-\/transform}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17384}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md17384}
+\hypertarget{README.md_autotoc_md17385}{}\doxysubsubsection{\texorpdfstring{Via {\ttfamily .babelrc} (Recommended)}{Via {\ttfamily .babelrc} (Recommended)}}\label{README.md_autotoc_md17385}
+{\bfseries{.babelrc}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ without\ options}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}plugins"{}:\ ["{}regenerator-\/transform"{}]}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{//\ with\ options}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}plugins"{}:\ [}
+\DoxyCodeLine{\ \ \ \ ["{}regenerator-\/transform"{},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ asyncGenerators:\ false,\ //\ true\ by\ default}
+\DoxyCodeLine{\ \ \ \ \ \ generators:\ false,\ //\ true\ by\ default}
+\DoxyCodeLine{\ \ \ \ \ \ async:\ false\ //\ true\ by\ default}
+\DoxyCodeLine{\ \ \ \ \}]}
+\DoxyCodeLine{\ \ ]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17386}{}\doxysubsubsection{\texorpdfstring{Via CLI}{Via CLI}}\label{README.md_autotoc_md17386}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ babel\ -\/-\/plugins\ regenerator-\/transform\ script.js}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17387}{}\doxysubsubsection{\texorpdfstring{Via Node API}{Via Node API}}\label{README.md_autotoc_md17387}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{require("{}@babel/core"{}).transformSync("{}code"{},\ \{}
+\DoxyCodeLine{\ \ plugins:\ ["{}regenerator-\/transform"{}]}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+ 

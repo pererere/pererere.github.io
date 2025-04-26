@@ -1,0 +1,102 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/rfc4648 Directory Reference}
+\hypertarget{dir_a7e97bb0a884515305ba4c8c525d39d3}{}\label{dir_a7e97bb0a884515305ba4c8c525d39d3}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/rfc4648 Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/rfc4648 Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://travis-ci.com/swansontec/rfc4648.js}{\texttt{ }} \href{https://standardjs.com}{\texttt{ }}
+
+This library implements encoding and decoding for the data formats specified in \href{https://tools.ietf.org/html/rfc4648}{\texttt{ rfc4648}}\+:
+
+
+\begin{DoxyItemize}
+\item base64
+\item base64url
+\item base32
+\item base32hex
+\item base16
+\end{DoxyItemize}
+
+Each encoding has a simple API inspired by Javascript\textquotesingle{}s built-\/in {\ttfamily JSON} object\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ base32\ \}\ from\ "{}rfc4648"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{base32.stringify([42,\ 121,\ 160]);\ //\ -\/>\ 'FJ42A==='}
+\DoxyCodeLine{base32.parse("{}FJ42A==="{});\ //\ -\/>\ Uint8Array([42,\ 121,\ 160])}
+
+\end{DoxyCode}
+
+
+The library has tree-\/shaking support, so tools like \href{https://rollupjs.org/}{\texttt{ rollup.\+js}} or \href{https://webpack.js.org/}{\texttt{ Webpack 2+}} can automatically trim away any encodings you don\textquotesingle{}t use.
+
+
+\begin{DoxyItemize}
+\item Zero external dependencies
+\item 100\% test coverage
+\item Built-\/in types for Typescript \& Flow
+\item 0.\+8K minified + gzip (can be even smaller with tree shaking)
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md17737}{}\doxysubsection{\texorpdfstring{API details}{API details}}\label{README.md_autotoc_md17737}
+The library provides the following top-\/level modules\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily base64}
+\item {\ttfamily base64url}
+\item {\ttfamily base32}
+\item {\ttfamily base32hex}
+\item {\ttfamily base16}
+\item {\ttfamily codec}
+\end{DoxyItemize}
+
+Each module exports a {\ttfamily parse} and {\ttfamily stringify} function.\hypertarget{README.md_autotoc_md17738}{}\doxysubsubsection{\texorpdfstring{const string = base\+XX.\+stringify(data, opts)}{const string = base\+XX.\+stringify(data, opts)}}\label{README.md_autotoc_md17738}
+Each {\ttfamily stringify} function takes array-\/like object of bytes and returns a string.
+
+If you pass the option {\ttfamily \{ pad\+: false \}} in the second parameter, the encoder will not output padding characters ({\ttfamily =}).\hypertarget{README.md_autotoc_md17739}{}\doxysubsubsection{\texorpdfstring{const data = base\+XX.\+parse(string, opts)}{const data = base\+XX.\+parse(string, opts)}}\label{README.md_autotoc_md17739}
+Each {\ttfamily parse} function takes a string and returns a {\ttfamily Uint8\+Array} of bytes. If you would like a different return type, such as plain {\ttfamily Array} or a Node.\+js {\ttfamily Buffer}, pass its constructor in the second argument\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{base64.parse("{}AOk="{},\ \{\ out:\ Array\ \});}
+\DoxyCodeLine{base64.parse("{}AOk="{},\ \{\ out:\ Buffer.allocUnsafe\ \});}
+
+\end{DoxyCode}
+
+
+The constructor will be called with {\ttfamily new}, and should accept a single integer for the output length, in bytes.
+
+If you pass the option {\ttfamily \{ loose\+: true \}} in the second parameter, the parser will not validate padding characters ({\ttfamily =})\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{base64.parse("{}AOk"{},\ \{\ loose:\ true\ \});\ //\ No\ error}
+
+\end{DoxyCode}
+
+
+The base32 codec will also fix common typo characters in loose mode\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{base32.parse("{}He1l0=="{},\ \{\ loose:\ true\ \});\ //\ Auto-\/corrects\ as\ 'HELLO==='}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17740}{}\doxysubsubsection{\texorpdfstring{Custom encodings}{Custom encodings}}\label{README.md_autotoc_md17740}
+To define your own encodings, use the {\ttfamily codec} module\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ codec\ =\ require("{}rfc4648"{}).codec;}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ myEncoding\ =\ \{}
+\DoxyCodeLine{\ \ chars:\ "{}01234567"{},}
+\DoxyCodeLine{\ \ bits:\ 3}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{codec.stringify([220,\ 10],\ myEncoding);\ //\ '670050=='}
+\DoxyCodeLine{codec.parse("{}670050"{},\ myEncoding,\ \{\ loose:\ true\ \});\ //\ [\ 220,\ 10\ ]}
+
+\end{DoxyCode}
+
+
+The {\ttfamily encoding} structure should have two members, a {\ttfamily chars} member giving the alphabet and a {\ttfamily bits} member giving the bits per character. The {\ttfamily codec.\+parse} function will extend this with a third member, {\ttfamily codes}, the first time it\textquotesingle{}s called. The {\ttfamily codes} member is a lookup table mapping from characters back to numbers. 

@@ -1,0 +1,48 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/path-\/type Directory Reference}
+\hypertarget{dir_29301cad287ddb3b077e29b601c1ab6c}{}\label{dir_29301cad287ddb3b077e29b601c1ab6c}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/path-\/type Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/path-\/type Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Check if a path is a file, directory, or symlink \end{quote}
+\hypertarget{readme.md_autotoc_md16147}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md16147}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ path-\/type}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md16148}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md16148}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{isFile\}\ =\ require('path-\/type');}
+\DoxyCodeLine{}
+\DoxyCodeLine{(async\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(await\ isFile('package.json'));}
+\DoxyCodeLine{\ \ \ \ //=>\ true}
+\DoxyCodeLine{\})();}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md16149}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md16149}
+\hypertarget{readme.md_autotoc_md16150}{}\doxysubsubsection{\texorpdfstring{is\+File(path)}{is\+File(path)}}\label{readme.md_autotoc_md16150}
+Check whether the passed {\ttfamily path} is a file.
+
+Returns a {\ttfamily Promise\texorpdfstring{$<$}{<}boolean\texorpdfstring{$>$}{>}}.\hypertarget{readme.md_autotoc_md16151}{}\doxysubsubsubsection{\texorpdfstring{path}{path}}\label{readme.md_autotoc_md16151}
+Type\+: {\ttfamily string}
+
+The path to check.\hypertarget{readme.md_autotoc_md16152}{}\doxysubsubsection{\texorpdfstring{is\+Directory(path)}{is\+Directory(path)}}\label{readme.md_autotoc_md16152}
+Check whether the passed {\ttfamily path} is a directory.
+
+Returns a {\ttfamily Promise\texorpdfstring{$<$}{<}boolean\texorpdfstring{$>$}{>}}.\hypertarget{readme.md_autotoc_md16153}{}\doxysubsubsection{\texorpdfstring{is\+Symlink(path)}{is\+Symlink(path)}}\label{readme.md_autotoc_md16153}
+Check whether the passed {\ttfamily path} is a symlink.
+
+Returns a {\ttfamily Promise\texorpdfstring{$<$}{<}boolean\texorpdfstring{$>$}{>}}.\hypertarget{readme.md_autotoc_md16154}{}\doxysubsubsection{\texorpdfstring{is\+File\+Sync(path)}{is\+File\+Sync(path)}}\label{readme.md_autotoc_md16154}
+Synchronously check whether the passed {\ttfamily path} is a file.
+
+Returns a {\ttfamily boolean}.\hypertarget{readme.md_autotoc_md16155}{}\doxysubsubsection{\texorpdfstring{is\+Directory\+Sync(path)}{is\+Directory\+Sync(path)}}\label{readme.md_autotoc_md16155}
+Synchronously check whether the passed {\ttfamily path} is a directory.
+
+Returns a {\ttfamily boolean}.\hypertarget{readme.md_autotoc_md16156}{}\doxysubsubsection{\texorpdfstring{is\+Symlink\+Sync(path)}{is\+Symlink\+Sync(path)}}\label{readme.md_autotoc_md16156}
+Synchronously check whether the passed {\ttfamily path} is a symlink.
+
+Returns a {\ttfamily boolean}.\hypertarget{readme.md_autotoc_md16157}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md16157}
+MIT © \href{https://sindresorhus.com}{\texttt{ Sindre Sorhus}} 

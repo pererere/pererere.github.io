@@ -1,0 +1,137 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/copy-\/anything Directory Reference}
+\hypertarget{dir_b110583cc26c1c685023e3c3071ee257}{}\label{dir_b110583cc26c1c685023e3c3071ee257}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/copy-\/anything Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/copy-\/anything Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.com/package/copy-anything}{\texttt{ }} \href{https://www.npmjs.com/package/copy-anything}{\texttt{ }}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ i\ copy-\/anything}
+
+\end{DoxyCode}
+
+
+An optimised way to copy\textquotesingle{}ing (cloning) an object or array. A small and simple integration.\hypertarget{README.md_autotoc_md4832}{}\doxysubsection{\texorpdfstring{Motivation}{Motivation}}\label{README.md_autotoc_md4832}
+I created this package because I tried a lot of similar packages that do copy\textquotesingle{}ing/cloning. But all had its quirks, and {\itshape all of them break things they are not supposed to break}... 😞
+
+I was looking for\+:
+
+
+\begin{DoxyItemize}
+\item a simple copy/clone function
+\item has to be fast!
+\item props must lose any reference to original object
+\item works with arrays and objects in arrays!
+\item supports symbols
+\item can copy non-\/enumerable props as well
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}does not break special class instances\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}　‼️
+\end{DoxyItemize}
+
+This last one is crucial! So many libraries use custom classes that create objects with special prototypes, and such objects all break when trying to copy them inproperly. So we gotta be careful!
+
+copy-\/anything will copy objects and nested properties, but only as long as they\textquotesingle{}re "{}plain objects"{}. As soon as a sub-\/prop is not a "{}plain object"{} and has a special prototype, it will copy that instance over "{}as is"{}. ♻️\hypertarget{README.md_autotoc_md4833}{}\doxysubsection{\texorpdfstring{Meet the family}{Meet the family}}\label{README.md_autotoc_md4833}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/mesqueeb/copy-anything}{\texttt{ copy-\/anything 🎭}}
+\item \href{https://github.com/mesqueeb/merge-anything}{\texttt{ merge-\/anything 🥡}}
+\item \href{https://github.com/mesqueeb/filter-anything}{\texttt{ filter-\/anything ⚔️}}
+\item \href{https://github.com/mesqueeb/find-and-replace-anything}{\texttt{ find-\/and-\/replace-\/anything 🎣}}
+\item \href{https://github.com/mesqueeb/compare-anything}{\texttt{ compare-\/anything 🛰}}
+\item \href{https://github.com/mesqueeb/flatten-anything}{\texttt{ flatten-\/anything 🏏}}
+\item \href{https://github.com/mesqueeb/is-what}{\texttt{ is-\/what 🙉}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md4834}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md4834}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ copy\ \}\ from\ 'copy-\/anything'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ original\ =\ \{\ name:\ 'Ditto',\ type:\ \{\ water:\ true\ \}\ \}}
+\DoxyCodeLine{const\ copy\ =\ copy(original)}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ now\ if\ we\ change\ a\ nested\ prop\ like\ the\ type}
+\DoxyCodeLine{copy.type.water\ =\ false}
+\DoxyCodeLine{//\ or\ add\ a\ new\ nested\ prop}
+\DoxyCodeLine{copy.type.fire\ =\ true}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ then\ the\ original\ object\ will\ still\ be\ the\ same:}
+\DoxyCodeLine{(original.type.water\ ===\ true)\ //\ true}
+\DoxyCodeLine{(original.type.fire\ ===\ undefined)\ //\ true}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+Please note, by default copy-\/anything does not copy non-\/enumerable props. If you need to copy those, see the instructions further down below. \end{quote}
+\hypertarget{README.md_autotoc_md4835}{}\doxysubsection{\texorpdfstring{Works with arrays}{Works with arrays}}\label{README.md_autotoc_md4835}
+It will also clone arrays, {\bfseries{as well as objects inside arrays!}} 😉
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ original\ =\ [\{\ name:\ 'Squirtle'\ \}]}
+\DoxyCodeLine{const\ copy\ =\ copy(original)}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ now\ if\ we\ change\ a\ prop\ in\ the\ array}
+\DoxyCodeLine{copy[0].name\ =\ 'Wartortle'}
+\DoxyCodeLine{//\ or\ add\ a\ new\ item\ to\ the\ array}
+\DoxyCodeLine{copy.push(\{\ name:\ 'Charmander'\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ then\ the\ original\ array\ will\ still\ be\ the\ same:}
+\DoxyCodeLine{(original[0].name\ ===\ 'Squirtle')\ //\ true}
+\DoxyCodeLine{(original[1]\ ===\ undefined)\ //\ true}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4836}{}\doxysubsection{\texorpdfstring{Non-\/enumerable}{Non-\/enumerable}}\label{README.md_autotoc_md4836}
+By default, copy-\/anything only copies enumerable properties. If you also want to copy non-\/enumerable properties you can do so by passing that as an option.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ original\ =\ \{\ name:\ 'Bulbasaur'\ \}}
+\DoxyCodeLine{//\ bulbasaur's\ ID\ is\ non-\/enumerable}
+\DoxyCodeLine{Object.defineProperty(original,\ 'id',\ \{}
+\DoxyCodeLine{\ \ value:\ '001',}
+\DoxyCodeLine{\ \ writable:\ true,}
+\DoxyCodeLine{\ \ enumerable:\ false,}
+\DoxyCodeLine{\ \ configurable:\ true,}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{const\ copy1\ =\ copy(original)}
+\DoxyCodeLine{(copy1.id\ ===\ undefined)\ //\ true}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ copy2\ =\ copy(original,\ \{\ nonenumerable:\ true\ \})}
+\DoxyCodeLine{(copy2.id\ ===\ '001')\ //\ true}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4837}{}\doxysubsection{\texorpdfstring{Limit to specific props}{Limit to specific props}}\label{README.md_autotoc_md4837}
+You can limit to specific props.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ original\ =\ \{\ name:\ 'Flareon',\ type:\ ['fire'],\ id:\ '136'\ \}}
+\DoxyCodeLine{const\ copy\ =\ copy(original,\ \{\ props:\ ['name']\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{(copy)\ //\ will\ look\ like:\ \`{}\{\ name:\ 'Flareon'\ \}`}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+Please note, if the props you have specified are non-\/enumerable, you will also need to pass {\ttfamily \{nonenumerable\+: true\}}. \end{quote}
+\hypertarget{README.md_autotoc_md4838}{}\doxysubsection{\texorpdfstring{Source code}{Source code}}\label{README.md_autotoc_md4838}
+The source code is literally just these lines. Most of the magic comes from the is\+Plain\+Object function from the \href{https://github.com/mesqueeb/is-what}{\texttt{ is-\/what library}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ isPlainObject\ \}\ from\ 'is-\/what'}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ function\ copy\ (target)\ \{}
+\DoxyCodeLine{\ \ if\ (isArray(target))\ return\ target.map(i\ =>\ copy(i))}
+\DoxyCodeLine{\ \ if\ (!isPlainObject(target))\ return\ target}
+\DoxyCodeLine{\ \ return\ Object.keys(target)}
+\DoxyCodeLine{\ \ \ \ .reduce((carry,\ key)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ const\ val\ =\ target[key]}
+\DoxyCodeLine{\ \ \ \ \ \ carry[key]\ =\ copy(val)}
+\DoxyCodeLine{\ \ \ \ \ \ return\ carry}
+\DoxyCodeLine{\ \ \ \ \},\ \{\})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

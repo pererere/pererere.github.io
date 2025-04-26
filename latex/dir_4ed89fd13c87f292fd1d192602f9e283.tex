@@ -1,0 +1,439 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/undici Directory Reference}
+\hypertarget{dir_4ed89fd13c87f292fd1d192602f9e283}{}\label{dir_4ed89fd13c87f292fd1d192602f9e283}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/undici Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/undici Directory Reference}}
+\doxysubsubsection*{Directories}
+\begin{DoxyCompactItemize}
+\item 
+directory \mbox{\hyperlink{dir_0023fd2e4c5d2eddfa41f832bb8a0e5f}{types}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\href{https://github.com/nodejs/undici/actions/workflows/nodejs.yml}{\texttt{ }} \href{http://standardjs.com/}{\texttt{ }} \href{https://badge.fury.io/js/undici}{\texttt{ }} \href{https://codecov.io/gh/nodejs/undici}{\texttt{ }}
+
+An HTTP/1.\+1 client, written from scratch for Node.\+js.
+
+\begin{quote}
+Undici means eleven in Italian. 1.\+1 -\/\texorpdfstring{$>$}{>} 11 -\/\texorpdfstring{$>$}{>} Eleven -\/\texorpdfstring{$>$}{>} Undici. It is also a Stranger Things reference. \end{quote}
+
+
+Have a question about using Undici? Open a \href{https://github.com/nodejs/undici/discussions/new}{\texttt{ Q\&A Discussion}} or join our official Open\+JS \href{https://openjs-foundation.slack.com/archives/C01QF9Q31QD}{\texttt{ Slack}} channel.\hypertarget{README.md_autotoc_md21501}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md21501}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ i\ undici}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21502}{}\doxysubsection{\texorpdfstring{Benchmarks}{Benchmarks}}\label{README.md_autotoc_md21502}
+The benchmark is a simple {\ttfamily hello world} \href{benchmarks/benchmark.js}{\texttt{ example}} using a number of unix sockets (connections) with a pipelining depth of 10 running on Node 20.\+6.\+0.\hypertarget{README.md_autotoc_md21503}{}\doxysubsubsection{\texorpdfstring{Connections 1}{Connections 1}}\label{README.md_autotoc_md21503}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tests   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Samples   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Result   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tolerance   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Difference with slowest    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tests   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Samples   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Result   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tolerance   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Difference with slowest    }\\\cline{1-5}
+\endhead
+http -\/ no keepalive   &15   &5.\+32 req/sec   &± 2.\+61 \%   &-\/    \\\cline{1-5}
+http -\/ keepalive   &10   &5.\+35 req/sec   &± 2.\+47 \%   &+ 0.\+44 \%    \\\cline{1-5}
+undici -\/ fetch   &15   &41.\+85 req/sec   &± 2.\+49 \%   &+ 686.\+04 \%    \\\cline{1-5}
+undici -\/ pipeline   &40   &50.\+36 req/sec   &± 2.\+77 \%   &+ 845.\+92 \%    \\\cline{1-5}
+undici -\/ stream   &15   &60.\+58 req/sec   &± 2.\+75 \%   &+ 1037.\+72 \%    \\\cline{1-5}
+undici -\/ request   &10   &61.\+19 req/sec   &± 2.\+60 \%   &+ 1049.\+24 \%    \\\cline{1-5}
+undici -\/ dispatch   &20   &64.\+84 req/sec   &± 2.\+81 \%   &+ 1117.\+81 \%   \\\cline{1-5}
+\end{longtabu}
+\hypertarget{README.md_autotoc_md21504}{}\doxysubsubsection{\texorpdfstring{Connections 50}{Connections 50}}\label{README.md_autotoc_md21504}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tests   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Samples   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Result   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tolerance   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Difference with slowest    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tests   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Samples   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Result   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tolerance   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Difference with slowest    }\\\cline{1-5}
+\endhead
+undici -\/ fetch   &30   &2107.\+19 req/sec   &± 2.\+69 \%   &-\/    \\\cline{1-5}
+http -\/ no keepalive   &10   &2698.\+90 req/sec   &± 2.\+68 \%   &+ 28.\+08 \%    \\\cline{1-5}
+http -\/ keepalive   &10   &4639.\+49 req/sec   &± 2.\+55 \%   &+ 120.\+17 \%    \\\cline{1-5}
+undici -\/ pipeline   &40   &6123.\+33 req/sec   &± 2.\+97 \%   &+ 190.\+59 \%    \\\cline{1-5}
+undici -\/ stream   &50   &9426.\+51 req/sec   &± 2.\+92 \%   &+ 347.\+35 \%    \\\cline{1-5}
+undici -\/ request   &10   &10162.\+88 req/sec   &± 2.\+13 \%   &+ 382.\+29 \%    \\\cline{1-5}
+undici -\/ dispatch   &50   &11191.\+11 req/sec   &± 2.\+98 \%   &+ 431.\+09 \%   \\\cline{1-5}
+\end{longtabu}
+\hypertarget{README.md_autotoc_md21505}{}\doxysubsection{\texorpdfstring{Quick Start}{Quick Start}}\label{README.md_autotoc_md21505}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ request\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ \{}
+\DoxyCodeLine{\ \ statusCode,}
+\DoxyCodeLine{\ \ headers,}
+\DoxyCodeLine{\ \ trailers,}
+\DoxyCodeLine{\ \ body}
+\DoxyCodeLine{\}\ =\ await\ request('http://localhost:3000/foo')}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('response\ received',\ statusCode)}
+\DoxyCodeLine{console.log('headers',\ headers)}
+\DoxyCodeLine{}
+\DoxyCodeLine{for\ await\ (const\ data\ of\ body)\ \{}
+\DoxyCodeLine{\ \ console.log('data',\ data)}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('trailers',\ trailers)}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21506}{}\doxysubsection{\texorpdfstring{Body Mixins}{Body Mixins}}\label{README.md_autotoc_md21506}
+The {\ttfamily body} mixins are the most common way to format the request/response body. Mixins include\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://fetch.spec.whatwg.org/\#dom-body-formdata}{\texttt{ {\ttfamily .form\+Data()}}}
+\item \href{https://fetch.spec.whatwg.org/\#dom-body-json}{\texttt{ {\ttfamily .json()}}}
+\item \href{https://fetch.spec.whatwg.org/\#dom-body-text}{\texttt{ {\ttfamily .text()}}}
+\end{DoxyItemize}
+
+Example usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ request\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ \{}
+\DoxyCodeLine{\ \ statusCode,}
+\DoxyCodeLine{\ \ headers,}
+\DoxyCodeLine{\ \ trailers,}
+\DoxyCodeLine{\ \ body}
+\DoxyCodeLine{\}\ =\ await\ request('http://localhost:3000/foo')}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('response\ received',\ statusCode)}
+\DoxyCodeLine{console.log('headers',\ headers)}
+\DoxyCodeLine{console.log('data',\ await\ body.json())}
+\DoxyCodeLine{console.log('trailers',\ trailers)}
+
+\end{DoxyCode}
+
+
+{\itshape Note\+: Once a mixin has been called then the body cannot be reused, thus calling additional mixins on {\ttfamily .body}, e.\+g. {\ttfamily .body.\+json(); .body.\+text()} will result in an error {\ttfamily Type\+Error\+: unusable} being thrown and returned through the {\ttfamily Promise} rejection.}
+
+Should you need to access the {\ttfamily body} in plain-\/text after using a mixin, the best practice is to use the {\ttfamily .text()} mixin first and then manually parse the text to the desired format.
+
+For more information about their behavior, please reference the body mixin from the \href{https://fetch.spec.whatwg.org/\#body-mixin}{\texttt{ Fetch Standard}}.\hypertarget{README.md_autotoc_md21507}{}\doxysubsection{\texorpdfstring{Common API Methods}{Common API Methods}}\label{README.md_autotoc_md21507}
+This section documents our most commonly used API methods. Additional APIs are documented in their own files within the \href{./docs/}{\texttt{ docs}} folder and are accessible via the navigation list on the left side of the docs site.\hypertarget{README.md_autotoc_md21508}{}\doxysubsubsection{\texorpdfstring{{\ttfamily undici.\+request(\mbox{[}url, options\mbox{]})\+: Promise}}{{\ttfamily undici.\+request(\mbox{[}url, options\mbox{]})\+: Promise}}}\label{README.md_autotoc_md21508}
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{url}} {\ttfamily string \texorpdfstring{$\vert$}{|} URL \texorpdfstring{$\vert$}{|} Url\+Object}
+\item {\bfseries{options}} \href{./docs/api/Dispatcher.md\#parameter-requestoptions}{\texttt{ {\ttfamily Request\+Options}}}
+\begin{DoxyItemize}
+\item {\bfseries{dispatcher}} {\ttfamily Dispatcher} -\/ Default\+: get\+Global\+Dispatcher
+\item {\bfseries{method}} {\ttfamily String} -\/ Default\+: {\ttfamily PUT} if {\ttfamily options.\+body}, otherwise {\ttfamily GET}
+\item {\bfseries{max\+Redirections}} {\ttfamily Integer} -\/ Default\+: {\ttfamily 0}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Returns a promise with the result of the {\ttfamily Dispatcher.\+request} method.
+
+Calls {\ttfamily options.\+dispatcher.\+request(options)}.
+
+See \href{./docs/api/Dispatcher.md\#dispatcherrequestoptions-callback}{\texttt{ Dispatcher.\+request}} for more details.\hypertarget{README.md_autotoc_md21509}{}\doxysubsubsection{\texorpdfstring{{\ttfamily undici.\+stream(\mbox{[}url, options, \mbox{]}factory)\+: Promise}}{{\ttfamily undici.\+stream(\mbox{[}url, options, \mbox{]}factory)\+: Promise}}}\label{README.md_autotoc_md21509}
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{url}} {\ttfamily string \texorpdfstring{$\vert$}{|} URL \texorpdfstring{$\vert$}{|} Url\+Object}
+\item {\bfseries{options}} \href{./docs/api/Dispatcher.md\#parameter-streamoptions}{\texttt{ {\ttfamily Stream\+Options}}}
+\begin{DoxyItemize}
+\item {\bfseries{dispatcher}} {\ttfamily Dispatcher} -\/ Default\+: get\+Global\+Dispatcher
+\item {\bfseries{method}} {\ttfamily String} -\/ Default\+: {\ttfamily PUT} if {\ttfamily options.\+body}, otherwise {\ttfamily GET}
+\item {\bfseries{max\+Redirections}} {\ttfamily Integer} -\/ Default\+: {\ttfamily 0}
+\end{DoxyItemize}
+\item {\bfseries{factory}} {\ttfamily Dispatcher.\+stream.\+factory}
+\end{DoxyItemize}
+
+Returns a promise with the result of the {\ttfamily Dispatcher.\+stream} method.
+
+Calls {\ttfamily options.\+dispatcher.\+stream(options, factory)}.
+
+See \href{docs/api/Dispatcher.md\#dispatcherstreamoptions-factory-callback}{\texttt{ Dispatcher.\+stream}} for more details.\hypertarget{README.md_autotoc_md21510}{}\doxysubsubsection{\texorpdfstring{{\ttfamily undici.\+pipeline(\mbox{[}url, options, \mbox{]}handler)\+: Duplex}}{{\ttfamily undici.\+pipeline(\mbox{[}url, options, \mbox{]}handler)\+: Duplex}}}\label{README.md_autotoc_md21510}
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{url}} {\ttfamily string \texorpdfstring{$\vert$}{|} URL \texorpdfstring{$\vert$}{|} Url\+Object}
+\item {\bfseries{options}} \href{docs/api/Dispatcher.md\#parameter-pipelineoptions}{\texttt{ {\ttfamily Pipeline\+Options}}}
+\begin{DoxyItemize}
+\item {\bfseries{dispatcher}} {\ttfamily Dispatcher} -\/ Default\+: get\+Global\+Dispatcher
+\item {\bfseries{method}} {\ttfamily String} -\/ Default\+: {\ttfamily PUT} if {\ttfamily options.\+body}, otherwise {\ttfamily GET}
+\item {\bfseries{max\+Redirections}} {\ttfamily Integer} -\/ Default\+: {\ttfamily 0}
+\end{DoxyItemize}
+\item {\bfseries{handler}} {\ttfamily Dispatcher.\+pipeline.\+handler}
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily stream.\+Duplex}
+
+Calls {\ttfamily options.\+dispatch.\+pipeline(options, handler)}.
+
+See \href{docs/api/Dispatcher.md\#dispatcherpipelineoptions-handler}{\texttt{ Dispatcher.\+pipeline}} for more details.\hypertarget{README.md_autotoc_md21511}{}\doxysubsubsection{\texorpdfstring{{\ttfamily undici.\+connect(\mbox{[}url, options\mbox{]})\+: Promise}}{{\ttfamily undici.\+connect(\mbox{[}url, options\mbox{]})\+: Promise}}}\label{README.md_autotoc_md21511}
+Starts two-\/way communications with the requested resource using \href{https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT}{\texttt{ HTTP CONNECT}}.
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{url}} {\ttfamily string \texorpdfstring{$\vert$}{|} URL \texorpdfstring{$\vert$}{|} Url\+Object}
+\item {\bfseries{options}} \href{docs/api/Dispatcher.md\#parameter-connectoptions}{\texttt{ {\ttfamily Connect\+Options}}}
+\begin{DoxyItemize}
+\item {\bfseries{dispatcher}} {\ttfamily Dispatcher} -\/ Default\+: get\+Global\+Dispatcher
+\item {\bfseries{max\+Redirections}} {\ttfamily Integer} -\/ Default\+: {\ttfamily 0}
+\end{DoxyItemize}
+\item {\bfseries{callback}} {\ttfamily (err\+: Error \texorpdfstring{$\vert$}{|} null, data\+: Connect\+Data \texorpdfstring{$\vert$}{|} null) =\texorpdfstring{$>$}{>} void} (optional)
+\end{DoxyItemize}
+
+Returns a promise with the result of the {\ttfamily Dispatcher.\+connect} method.
+
+Calls {\ttfamily options.\+dispatch.\+connect(options)}.
+
+See \href{docs/api/Dispatcher.md\#dispatcherconnectoptions-callback}{\texttt{ Dispatcher.\+connect}} for more details.\hypertarget{README.md_autotoc_md21512}{}\doxysubsubsection{\texorpdfstring{{\ttfamily undici.\+fetch(input\mbox{[}, init\mbox{]})\+: Promise}}{{\ttfamily undici.\+fetch(input\mbox{[}, init\mbox{]})\+: Promise}}}\label{README.md_autotoc_md21512}
+Implements \href{https://fetch.spec.whatwg.org/\#fetch-method}{\texttt{ fetch}}.
+
+
+\begin{DoxyItemize}
+\item \href{https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch}{\texttt{ https\+://developer.\+mozilla.\+org/en-\/\+US/docs/\+Web/\+API/\+Window\+Or\+Worker\+Global\+Scope/fetch}}
+\item \href{https://fetch.spec.whatwg.org/\#fetch-method}{\texttt{ https\+://fetch.\+spec.\+whatwg.\+org/\#fetch-\/method}}
+\end{DoxyItemize}
+
+Only supported on Node 16.\+8+.
+
+Basic usage example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ fetch\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ res\ =\ await\ fetch('https://example.com')}
+\DoxyCodeLine{const\ json\ =\ await\ res.json()}
+\DoxyCodeLine{console.log(json)}
+
+\end{DoxyCode}
+
+
+You can pass an optional dispatcher to {\ttfamily fetch} as\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ fetch,\ Agent\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ res\ =\ await\ fetch('https://example.com',\ \{}
+\DoxyCodeLine{\ \ //\ Mocks\ are\ also\ supported}
+\DoxyCodeLine{\ \ dispatcher:\ new\ Agent(\{}
+\DoxyCodeLine{\ \ \ \ keepAliveTimeout:\ 10,}
+\DoxyCodeLine{\ \ \ \ keepAliveMaxTimeout:\ 10}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{const\ json\ =\ await\ res.json()}
+\DoxyCodeLine{console.log(json)}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21513}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily request.\+body}}{{\ttfamily request.\+body}}}\label{README.md_autotoc_md21513}
+A body can be of the following types\+:
+
+
+\begin{DoxyItemize}
+\item Array\+Buffer
+\item Array\+Buffer\+View
+\item Async\+Iterables
+\item Blob
+\item Iterables
+\item String
+\item URLSearch\+Params
+\item Form\+Data
+\end{DoxyItemize}
+
+In this implementation of fetch, {\ttfamily request.\+body} now accepts {\ttfamily Async Iterables}. It is not present in the \href{https://fetch.spec.whatwg.org}{\texttt{ Fetch Standard.}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ fetch\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ data\ =\ \{}
+\DoxyCodeLine{\ \ async\ *[Symbol.asyncIterator]()\ \{}
+\DoxyCodeLine{\ \ \ \ yield\ 'hello'}
+\DoxyCodeLine{\ \ \ \ yield\ 'world'}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{await\ fetch('https://example.com',\ \{\ body:\ data,\ method:\ 'POST',\ duplex:\ 'half'\ \})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21514}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily request.\+duplex}}{{\ttfamily request.\+duplex}}}\label{README.md_autotoc_md21514}
+
+\begin{DoxyItemize}
+\item half
+\end{DoxyItemize}
+
+In this implementation of fetch, {\ttfamily request.\+duplex} must be set if {\ttfamily request.\+body} is {\ttfamily Readable\+Stream} or {\ttfamily Async Iterables}. And fetch requests are currently always be full duplex. More detail refer to \href{https://fetch.spec.whatwg.org/\#dom-requestinit-duplex}{\texttt{ Fetch Standard.}}\hypertarget{README.md_autotoc_md21515}{}\doxysubsubsubsection{\texorpdfstring{{\ttfamily response.\+body}}{{\ttfamily response.\+body}}}\label{README.md_autotoc_md21515}
+Nodejs has two kinds of streams\+: \href{https://nodejs.org/dist/latest-v16.x/docs/api/webstreams.html}{\texttt{ web streams}}, which follow the API of the WHATWG web standard found in browsers, and an older Node-\/specific \href{https://nodejs.org/api/stream.html}{\texttt{ streams API}}. {\ttfamily response.\+body} returns a readable web stream. If you would prefer to work with a Node stream you can convert a web stream using {\ttfamily .from\+Web()}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ fetch\ \}\ from\ 'undici'}
+\DoxyCodeLine{import\ \{\ Readable\ \}\ from\ 'node:stream'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ response\ =\ await\ fetch('https://example.com')}
+\DoxyCodeLine{const\ readableWebStream\ =\ response.body}
+\DoxyCodeLine{const\ readableNodeStream\ =\ Readable.fromWeb(readableWebStream)}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21516}{}\doxysubsubsubsection{\texorpdfstring{Specification Compliance}{Specification Compliance}}\label{README.md_autotoc_md21516}
+This section documents parts of the \href{https://fetch.spec.whatwg.org}{\texttt{ Fetch Standard}} that Undici does not support or does not fully implement.\hypertarget{README.md_autotoc_md21517}{}\doxysubsubsubsubsection{\texorpdfstring{Garbage Collection}{Garbage Collection}}\label{README.md_autotoc_md21517}
+
+\begin{DoxyItemize}
+\item \href{https://fetch.spec.whatwg.org/\#garbage-collection}{\texttt{ https\+://fetch.\+spec.\+whatwg.\+org/\#garbage-\/collection}}
+\end{DoxyItemize}
+
+The \href{https://fetch.spec.whatwg.org}{\texttt{ Fetch Standard}} allows users to skip consuming the response body by relying on \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management\#garbage_collection}{\texttt{ garbage collection}} to release connection resources. Undici does not do the same. Therefore, it is important to always either consume or cancel the response body.
+
+Garbage collection in Node is less aggressive and deterministic (due to the lack of clear idle periods that browsers have through the rendering refresh rate) which means that leaving the release of connection resources to the garbage collector can lead to excessive connection usage, reduced performance (due to less connection re-\/use), and even stalls or deadlocks when running out of connections.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Do}
+\DoxyCodeLine{const\ headers\ =\ await\ fetch(url)}
+\DoxyCodeLine{\ \ .then(async\ res\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ for\ await\ (const\ chunk\ of\ res.body)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ force\ consumption\ of\ body}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ return\ res.headers}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Do\ not}
+\DoxyCodeLine{const\ headers\ =\ await\ fetch(url)}
+\DoxyCodeLine{\ \ .then(res\ =>\ res.headers)}
+
+\end{DoxyCode}
+
+
+However, if you want to get only headers, it might be better to use {\ttfamily HEAD} request method. Usage of this method will obviate the need for consumption or cancelling of the response body. See \href{https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD}{\texttt{ MDN -\/ HTTP -\/ HTTP request methods -\/ HEAD}} for more details.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ headers\ =\ await\ fetch(url,\ \{\ method:\ 'HEAD'\ \})}
+\DoxyCodeLine{\ \ .then(res\ =>\ res.headers)}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21518}{}\doxysubsubsubsubsection{\texorpdfstring{Forbidden and Safelisted Header Names}{Forbidden and Safelisted Header Names}}\label{README.md_autotoc_md21518}
+
+\begin{DoxyItemize}
+\item \href{https://fetch.spec.whatwg.org/\#cors-safelisted-response-header-name}{\texttt{ https\+://fetch.\+spec.\+whatwg.\+org/\#cors-\/safelisted-\/response-\/header-\/name}}
+\item \href{https://fetch.spec.whatwg.org/\#forbidden-header-name}{\texttt{ https\+://fetch.\+spec.\+whatwg.\+org/\#forbidden-\/header-\/name}}
+\item \href{https://fetch.spec.whatwg.org/\#forbidden-response-header-name}{\texttt{ https\+://fetch.\+spec.\+whatwg.\+org/\#forbidden-\/response-\/header-\/name}}
+\item \href{https://github.com/wintercg/fetch/issues/6}{\texttt{ https\+://github.\+com/wintercg/fetch/issues/6}}
+\end{DoxyItemize}
+
+The \href{https://fetch.spec.whatwg.org}{\texttt{ Fetch Standard}} requires implementations to exclude certain headers from requests and responses. In browser environments, some headers are forbidden so the user agent remains in full control over them. In Undici, these constraints are removed to give more control to the user.\hypertarget{README.md_autotoc_md21519}{}\doxysubsubsection{\texorpdfstring{{\ttfamily undici.\+upgrade(\mbox{[}url, options\mbox{]})\+: Promise}}{{\ttfamily undici.\+upgrade(\mbox{[}url, options\mbox{]})\+: Promise}}}\label{README.md_autotoc_md21519}
+Upgrade to a different protocol. See \href{https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism}{\texttt{ MDN -\/ HTTP -\/ Protocol upgrade mechanism}} for more details.
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{url}} {\ttfamily string \texorpdfstring{$\vert$}{|} URL \texorpdfstring{$\vert$}{|} Url\+Object}
+\item {\bfseries{options}} \href{docs/api/Dispatcher.md\#parameter-upgradeoptions}{\texttt{ {\ttfamily Upgrade\+Options}}}
+\begin{DoxyItemize}
+\item {\bfseries{dispatcher}} {\ttfamily Dispatcher} -\/ Default\+: get\+Global\+Dispatcher
+\item {\bfseries{max\+Redirections}} {\ttfamily Integer} -\/ Default\+: {\ttfamily 0}
+\end{DoxyItemize}
+\item {\bfseries{callback}} {\ttfamily (error\+: Error \texorpdfstring{$\vert$}{|} null, data\+: Upgrade\+Data) =\texorpdfstring{$>$}{>} void} (optional)
+\end{DoxyItemize}
+
+Returns a promise with the result of the {\ttfamily Dispatcher.\+upgrade} method.
+
+Calls {\ttfamily options.\+dispatcher.\+upgrade(options)}.
+
+See \href{docs/api/Dispatcher.md\#dispatcherupgradeoptions-callback}{\texttt{ Dispatcher.\+upgrade}} for more details.\hypertarget{README.md_autotoc_md21520}{}\doxysubsubsection{\texorpdfstring{{\ttfamily undici.\+set\+Global\+Dispatcher(dispatcher)}}{{\ttfamily undici.\+set\+Global\+Dispatcher(dispatcher)}}}\label{README.md_autotoc_md21520}
+
+\begin{DoxyItemize}
+\item dispatcher {\ttfamily Dispatcher}
+\end{DoxyItemize}
+
+Sets the global dispatcher used by Common API Methods.\hypertarget{README.md_autotoc_md21521}{}\doxysubsubsection{\texorpdfstring{{\ttfamily undici.\+get\+Global\+Dispatcher()}}{{\ttfamily undici.\+get\+Global\+Dispatcher()}}}\label{README.md_autotoc_md21521}
+Gets the global dispatcher used by Common API Methods.
+
+Returns\+: {\ttfamily Dispatcher}\hypertarget{README.md_autotoc_md21522}{}\doxysubsubsection{\texorpdfstring{{\ttfamily undici.\+set\+Global\+Origin(origin)}}{{\ttfamily undici.\+set\+Global\+Origin(origin)}}}\label{README.md_autotoc_md21522}
+
+\begin{DoxyItemize}
+\item origin {\ttfamily string \texorpdfstring{$\vert$}{|} URL \texorpdfstring{$\vert$}{|} undefined}
+\end{DoxyItemize}
+
+Sets the global origin used in {\ttfamily fetch}.
+
+If {\ttfamily undefined} is passed, the global origin will be reset. This will cause {\ttfamily Response.\+redirect}, {\ttfamily new Request()}, and {\ttfamily fetch} to throw an error when a relative path is passed.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{setGlobalOrigin('http://localhost:3000')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ response\ =\ await\ fetch('/api/ping')}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(response.url)\ //\ http://localhost:3000/api/ping}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21523}{}\doxysubsubsection{\texorpdfstring{{\ttfamily undici.\+get\+Global\+Origin()}}{{\ttfamily undici.\+get\+Global\+Origin()}}}\label{README.md_autotoc_md21523}
+Gets the global origin used in {\ttfamily fetch}.
+
+Returns\+: {\ttfamily URL}\hypertarget{README.md_autotoc_md21524}{}\doxysubsubsection{\texorpdfstring{{\ttfamily Url\+Object}}{{\ttfamily Url\+Object}}}\label{README.md_autotoc_md21524}
+
+\begin{DoxyItemize}
+\item {\bfseries{port}} {\ttfamily string \texorpdfstring{$\vert$}{|} number} (optional)
+\item {\bfseries{path}} {\ttfamily string} (optional)
+\item {\bfseries{pathname}} {\ttfamily string} (optional)
+\item {\bfseries{hostname}} {\ttfamily string} (optional)
+\item {\bfseries{origin}} {\ttfamily string} (optional)
+\item {\bfseries{protocol}} {\ttfamily string} (optional)
+\item {\bfseries{search}} {\ttfamily string} (optional)
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md21525}{}\doxysubsection{\texorpdfstring{Specification Compliance}{Specification Compliance}}\label{README.md_autotoc_md21525}
+This section documents parts of the HTTP/1.\+1 specification that Undici does not support or does not fully implement.\hypertarget{README.md_autotoc_md21526}{}\doxysubsubsection{\texorpdfstring{Expect}{Expect}}\label{README.md_autotoc_md21526}
+Undici does not support the {\ttfamily Expect} request header field. The request body is always immediately sent and the {\ttfamily 100 Continue} response will be ignored.
+
+Refs\+: \href{https://tools.ietf.org/html/rfc7231\#section-5.1.1}{\texttt{ https\+://tools.\+ietf.\+org/html/rfc7231\#section-\/5.\+1.\+1}}\hypertarget{README.md_autotoc_md21527}{}\doxysubsubsection{\texorpdfstring{Pipelining}{Pipelining}}\label{README.md_autotoc_md21527}
+Undici will only use pipelining if configured with a {\ttfamily pipelining} factor greater than {\ttfamily 1}.
+
+Undici always assumes that connections are persistent and will immediately pipeline requests, without checking whether the connection is persistent. Hence, automatic fallback to HTTP/1.\+0 or HTTP/1.\+1 without pipelining is not supported.
+
+Undici will immediately pipeline when retrying requests after a failed connection. However, Undici will not retry the first remaining requests in the prior pipeline and instead error the corresponding callback/promise/stream.
+
+Undici will abort all running requests in the pipeline when any of them are aborted.
+
+
+\begin{DoxyItemize}
+\item Refs\+: \href{https://tools.ietf.org/html/rfc2616\#section-8.1.2.2}{\texttt{ https\+://tools.\+ietf.\+org/html/rfc2616\#section-\/8.\+1.\+2.\+2}}
+\item Refs\+: \href{https://tools.ietf.org/html/rfc7230\#section-6.3.2}{\texttt{ https\+://tools.\+ietf.\+org/html/rfc7230\#section-\/6.\+3.\+2}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md21528}{}\doxysubsubsection{\texorpdfstring{Manual Redirect}{Manual Redirect}}\label{README.md_autotoc_md21528}
+Since it is not possible to manually follow an HTTP redirect on the server-\/side, Undici returns the actual response instead of an {\ttfamily opaqueredirect} filtered one when invoked with a {\ttfamily manual} redirect. This aligns {\ttfamily fetch()} with the other implementations in Deno and Cloudflare Workers.
+
+Refs\+: \href{https://fetch.spec.whatwg.org/\#atomic-http-redirect-handling}{\texttt{ https\+://fetch.\+spec.\+whatwg.\+org/\#atomic-\/http-\/redirect-\/handling}}\hypertarget{README.md_autotoc_md21529}{}\doxysubsection{\texorpdfstring{Workarounds}{Workarounds}}\label{README.md_autotoc_md21529}
+\hypertarget{README.md_autotoc_md21530}{}\doxysubsubsection{\texorpdfstring{Network address family autoselection.}{Network address family autoselection.}}\label{README.md_autotoc_md21530}
+If you experience problem when connecting to a remote server that is resolved by your DNS servers to a IPv6 (AAAA record) first, there are chances that your local router or ISP might have problem connecting to IPv6 networks. In that case undici will throw an error with code {\ttfamily UND\+\_\+\+ERR\+\_\+\+CONNECT\+\_\+\+TIMEOUT}.
+
+If the target server resolves to both a IPv6 and IPv4 (A records) address and you are using a compatible Node version (18.\+3.\+0 and above), you can fix the problem by providing the {\ttfamily auto\+Select\+Family} option (support by both {\ttfamily undici.\+request} and {\ttfamily undici.\+Agent}) which will enable the family autoselection algorithm when establishing the connection.\hypertarget{README.md_autotoc_md21531}{}\doxysubsection{\texorpdfstring{Collaborators}{Collaborators}}\label{README.md_autotoc_md21531}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/dnlup}{\texttt{ {\bfseries{Daniele Belardi}}}}, \href{https://www.npmjs.com/~dnlup}{\texttt{ https\+://www.\+npmjs.\+com/\texorpdfstring{$\sim$}{\string~}dnlup}}
+\item \href{https://github.com/ethan-arrowood}{\texttt{ {\bfseries{Ethan Arrowood}}}}, \href{https://www.npmjs.com/~ethan_arrowood}{\texttt{ https\+://www.\+npmjs.\+com/\texorpdfstring{$\sim$}{\string~}ethan\+\_\+arrowood}}
+\item \href{https://github.com/mcollina}{\texttt{ {\bfseries{Matteo Collina}}}}, \href{https://www.npmjs.com/~matteo.collina}{\texttt{ https\+://www.\+npmjs.\+com/\texorpdfstring{$\sim$}{\string~}matteo.\+collina}}
+\item \href{https://github.com/KhafraDev}{\texttt{ {\bfseries{Matthew Aitken}}}}, \href{https://www.npmjs.com/~khaf}{\texttt{ https\+://www.\+npmjs.\+com/\texorpdfstring{$\sim$}{\string~}khaf}}
+\item \href{https://github.com/ronag}{\texttt{ {\bfseries{Robert Nagy}}}}, \href{https://www.npmjs.com/~ronag}{\texttt{ https\+://www.\+npmjs.\+com/\texorpdfstring{$\sim$}{\string~}ronag}}
+\item \href{https://github.com/szmarczak}{\texttt{ {\bfseries{Szymon Marczak}}}}, \href{https://www.npmjs.com/~szmarczak}{\texttt{ https\+://www.\+npmjs.\+com/\texorpdfstring{$\sim$}{\string~}szmarczak}}
+\item \href{https://github.com/delvedor}{\texttt{ {\bfseries{Tomas Della Vedova}}}}, \href{https://www.npmjs.com/~delvedor}{\texttt{ https\+://www.\+npmjs.\+com/\texorpdfstring{$\sim$}{\string~}delvedor}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md21532}{}\doxysubsubsection{\texorpdfstring{Releasers}{Releasers}}\label{README.md_autotoc_md21532}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/ethan-arrowood}{\texttt{ {\bfseries{Ethan Arrowood}}}}, \href{https://www.npmjs.com/~ethan_arrowood}{\texttt{ https\+://www.\+npmjs.\+com/\texorpdfstring{$\sim$}{\string~}ethan\+\_\+arrowood}}
+\item \href{https://github.com/mcollina}{\texttt{ {\bfseries{Matteo Collina}}}}, \href{https://www.npmjs.com/~matteo.collina}{\texttt{ https\+://www.\+npmjs.\+com/\texorpdfstring{$\sim$}{\string~}matteo.\+collina}}
+\item \href{https://github.com/ronag}{\texttt{ {\bfseries{Robert Nagy}}}}, \href{https://www.npmjs.com/~ronag}{\texttt{ https\+://www.\+npmjs.\+com/\texorpdfstring{$\sim$}{\string~}ronag}}
+\item \href{https://github.com/KhafraDev}{\texttt{ {\bfseries{Matthew Aitken}}}}, \href{https://www.npmjs.com/~khaf}{\texttt{ https\+://www.\+npmjs.\+com/\texorpdfstring{$\sim$}{\string~}khaf}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md21533}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md21533}
+MIT 

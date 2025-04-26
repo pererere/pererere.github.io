@@ -1,0 +1,28 @@
+\chapter{output\+Json\+Sync(file, object, \mbox{[}options\mbox{]})}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_json-sync}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_json-sync}\index{outputJsonSync(file, object, \mbox{[}options\mbox{]})@{outputJsonSync(file, object, [options])}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_json-sync_autotoc_md8280}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_json-sync_autotoc_md8280}%
+
+
+Almost the same as \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2write_json-sync}{{\ttfamily write\+Json\+Sync}}{0}, except that if the directory does not exist, it\textquotesingle{}s created. {\ttfamily options} are what you\textquotesingle{}d pass to \href{https://github.com/jprichardson/node-jsonfile\#writefilesyncfilename-obj-options}{\texttt{ {\ttfamily json\+File.\+write\+File\+Sync()}}}.
+
+{\bfseries{Alias\+:}} {\ttfamily output\+JSONSync()}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily file} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily object} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}
+\item {\ttfamily options} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_json-sync_autotoc_md8281}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2output_json-sync_autotoc_md8281}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ file\ =\ '/tmp/this/path/does/not/exist/file.json'}
+\DoxyCodeLine{fs.outputJsonSync(file,\ \{name:\ 'JP'\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ data\ =\ fs.readJsonSync(file)}
+\DoxyCodeLine{console.log(data.name)\ //\ =>\ JP}
+
+\end{DoxyCode}
+ 

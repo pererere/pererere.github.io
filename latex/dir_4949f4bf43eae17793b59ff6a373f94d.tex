@@ -1,0 +1,25 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@yarnpkg/lockfile Directory Reference}
+\hypertarget{dir_4949f4bf43eae17793b59ff6a373f94d}{}\label{dir_4949f4bf43eae17793b59ff6a373f94d}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@yarnpkg/lockfile Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@yarnpkg/lockfile Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Parse and/or write {\ttfamily yarn.\+lock} files\hypertarget{README.md_autotoc_md2029}{}\doxysubsection{\texorpdfstring{Usage Examples}{Usage Examples}}\label{README.md_autotoc_md2029}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs');}
+\DoxyCodeLine{const\ lockfile\ =\ require('@yarnpkg/lockfile');}
+\DoxyCodeLine{//\ or\ (es6)}
+\DoxyCodeLine{import\ fs\ from\ 'fs';}
+\DoxyCodeLine{import\ *\ as\ lockfile\ from\ '@yarnpkg/lockfile';}
+\DoxyCodeLine{}
+\DoxyCodeLine{let\ file\ =\ fs.readFileSync('yarn.lock',\ 'utf8');}
+\DoxyCodeLine{let\ json\ =\ lockfile.parse(file);}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(json);}
+\DoxyCodeLine{}
+\DoxyCodeLine{let\ fileAgain\ =\ lockfile.stringify(json);}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(fileAgain);}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,23 @@
+\chapter{empty\+Dir\+Sync(dir)}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir-sync}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir-sync}\index{emptyDirSync(dir)@{emptyDirSync(dir)}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir-sync_autotoc_md8252}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir-sync_autotoc_md8252}%
+
+
+Ensures that a directory is empty. Deletes directory contents if the directory is not empty. If the directory does not exist, it is created. The directory itself is not deleted.
+
+{\bfseries{Alias\+:}} {\ttfamily emptydir\+Sync()}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily dir} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir-sync_autotoc_md8253}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2empty_dir-sync_autotoc_md8253}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ assume\ this\ directory\ has\ a\ lot\ of\ files\ and\ folders}
+\DoxyCodeLine{fs.emptyDirSync('/tmp/some/dir')}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,120 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/jwt-\/decode Directory Reference}
+\hypertarget{dir_3c0197a4d4a9c4a3e776e2760e2b6de4}{}\label{dir_3c0197a4d4a9c4a3e776e2760e2b6de4}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/jwt-\/decode Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/jwt-\/decode Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+!\mbox{[}Browser library that helps decoding JWT tokens which are Base64\+Url encoded\mbox{]}(\href{https://cdn.auth0.com/website/sdks/banners/jwt-decode-banner.png}{\texttt{ https\+://cdn.\+auth0.\+com/website/sdks/banners/jwt-\/decode-\/banner.\+png}})
+
+{\bfseries{IMPORTANT\+:}} This library doesn\textquotesingle{}t validate the token, any well-\/formed JWT can be decoded. You should validate the token in your server-\/side logic by using something like \href{https://github.com/auth0/express-jwt}{\texttt{ express-\/jwt}}, \href{https://github.com/stiang/koa-jwt}{\texttt{ koa-\/jwt}}, \href{https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer}{\texttt{ Microsoft.\+Asp\+Net\+Core.\+Authentication.\+Jwt\+Bearer}}, etc.
+
+  \href{https://opensource.org/licenses/MIT}{\texttt{ }} \href{https://circleci.com/gh/auth0/jwt-decode}{\texttt{ }}
+
+\+:books\+: \doxylink{README.md_documentation}{Documentation} -\/ \+:rocket\+: Getting Started -\/ \+:speech\+\_\+balloon\+: Feedback\hypertarget{README.md_autotoc_md11157}{}\doxysubsubsection{\texorpdfstring{Documentation}{Documentation}}\label{README.md_autotoc_md11157}
+
+\begin{DoxyItemize}
+\item \href{https://www.auth0.com/docs}{\texttt{ Docs site}} -\/ explore our docs site and learn more about Auth0.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md11158}{}\doxysubsubsection{\texorpdfstring{Getting started}{Getting started}}\label{README.md_autotoc_md11158}
+\hypertarget{README.md_autotoc_md11159}{}\doxysubsubsubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md11159}
+Install with NPM or Yarn.
+
+Run {\ttfamily npm install jwt-\/decode} or {\ttfamily yarn add jwt-\/decode} to install the library.\hypertarget{README.md_autotoc_md11160}{}\doxysubsubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md11160}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ jwtDecode\ \}\ from\ "{}jwt-\/decode"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ token\ =\ "{}eyJ0eXAiO...///\ jwt\ token"{};}
+\DoxyCodeLine{const\ decoded\ =\ jwtDecode(token);}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(decoded);}
+\DoxyCodeLine{}
+\DoxyCodeLine{/*\ prints:}
+\DoxyCodeLine{\ *\ \{\ }
+\DoxyCodeLine{\ *\ \ \ foo:\ "{}bar"{},}
+\DoxyCodeLine{\ *\ \ \ exp:\ 1393286893,}
+\DoxyCodeLine{\ *\ \ \ iat:\ 1393268893\ \ }
+\DoxyCodeLine{\ *\ \}}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ decode\ header\ by\ passing\ in\ options\ (useful\ for\ when\ you\ need\ \`{}kid`\ to\ verify\ a\ JWT):}
+\DoxyCodeLine{const\ decodedHeader\ =\ jwtDecode(token,\ \{\ header:\ true\ \});}
+\DoxyCodeLine{console.log(decodedHeader);}
+\DoxyCodeLine{}
+\DoxyCodeLine{/*\ prints:}
+\DoxyCodeLine{\ *\ \{\ }
+\DoxyCodeLine{\ *\ \ \ typ:\ "{}JWT"{},}
+\DoxyCodeLine{\ *\ \ \ alg:\ "{}HS256"{}\ }
+\DoxyCodeLine{\ *\ \}}
+\DoxyCodeLine{\ */}
+
+\end{DoxyCode}
+
+
+{\bfseries{Note\+:}} A falsy or malformed token will throw an {\ttfamily Invalid\+Token\+Error} error; see below for more information on specific errors.\hypertarget{README.md_autotoc_md11161}{}\doxysubsubsection{\texorpdfstring{Errors}{Errors}}\label{README.md_autotoc_md11161}
+This library works with valid JSON web tokens. The basic format of these token is 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[part1].[part2].[part3]}
+
+\end{DoxyCode}
+ All parts are supposed to be valid base64 (url) encoded json. Depending on the {\ttfamily \{ header\+: \texorpdfstring{$<$}{<}option\texorpdfstring{$>$}{>} \}} option it will decode part 1 (only if header\+: true is specified) or part 2 (default)
+
+Not adhering to the format will result in a {\ttfamily Invalid\+Token\+Error} with one of the following messages\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Invalid token specified\+: must be a string} =\texorpdfstring{$>$}{>} the token passed was not a string, this library only works on strings.
+\item {\ttfamily Invalid token specified\+: missing part \#} =\texorpdfstring{$>$}{>} this probably means you are missing a dot ({\ttfamily .}) in the token
+\item {\ttfamily Invalid token specified\+: invalid base64 for part \#} =\texorpdfstring{$>$}{>} the part could not be base64 decoded (the message should contain the error the base64 decoder gave)
+\item {\ttfamily Invalid token specified\+: invalid json for part \#} =\texorpdfstring{$>$}{>} the part was correctly base64 decoded, however, the decoded value was not valid JSON (the message should contain the error the JSON parser gave)
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md11162}{}\doxysubsubsubsubsection{\texorpdfstring{Use with Type\+Script}{Use with Type\+Script}}\label{README.md_autotoc_md11162}
+The return type of the {\ttfamily jwt\+Decode} function is determined by the {\ttfamily header} property of the object passed as the second argument. If omitted (or set to false), it\textquotesingle{}ll use {\ttfamily Jwt\+Payload}, when true it will use {\ttfamily Jwt\+Header}. If needed, you can specify what the expected return type should be by passing a type argument to the {\ttfamily jwt\+Decode} function.
+
+You can extend both {\ttfamily Jwt\+Header} and {\ttfamily Jwt\+Payload} to include non-\/standard claims or properties.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ jwtDecode\ \}\ from\ "{}jwt-\/decode"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ token\ =\ "{}eyJhsw5c"{};}
+\DoxyCodeLine{const\ decoded\ =\ jwtDecode<JwtPayload>(token);\ //\ Returns\ with\ the\ JwtPayload\ type}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11163}{}\doxysubsubsubsubsection{\texorpdfstring{Use as a Common\+JS package}{Use as a Common\+JS package}}\label{README.md_autotoc_md11163}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ jwtDecode\ \}\ =\ require('jwt-\/decode');}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11164}{}\doxysubsubsubsubsection{\texorpdfstring{Include with a script tag}{Include with a script tag}}\label{README.md_autotoc_md11164}
+Copy the file {\ttfamily jwt-\/decode.\+js} from the root of the {\ttfamily build/esm} folder to your project somewhere, then import {\ttfamily jwt\+Decode} from it inside a script tag that\textquotesingle{}s marked with {\ttfamily type="{}module"{}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<script\ type="{}module"{}>}
+\DoxyCodeLine{\ \ import\ \{\ jwtDecode\ \}\ from\ "{}/path/to/jwt-\/decode.js"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ const\ token\ =\ "{}eyJhsw5c"{};}
+\DoxyCodeLine{\ \ const\ decoded\ =\ jwtDecode(token);}
+\DoxyCodeLine{</script>}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11165}{}\doxysubsubsection{\texorpdfstring{Feedback}{Feedback}}\label{README.md_autotoc_md11165}
+\hypertarget{README.md_autotoc_md11166}{}\doxysubsubsubsection{\texorpdfstring{Contributing}{Contributing}}\label{README.md_autotoc_md11166}
+We appreciate feedback and contribution to this repo! Before you get started, please see the following\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md}{\texttt{ Auth0\textquotesingle{}s general contribution guidelines}}
+\item \href{https://github.com/auth0/open-source-template/blob/master/CODE-OF-CONDUCT.md}{\texttt{ Auth0\textquotesingle{}s code of conduct guidelines}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md11167}{}\doxysubsubsubsection{\texorpdfstring{Raise an issue}{Raise an issue}}\label{README.md_autotoc_md11167}
+To provide feedback or report a bug, please \href{https://github.com/auth0/jwt-decode/issues}{\texttt{ raise an issue on our issue tracker}}.\hypertarget{README.md_autotoc_md11168}{}\doxysubsubsubsection{\texorpdfstring{Vulnerability Reporting}{Vulnerability Reporting}}\label{README.md_autotoc_md11168}
+Please do not report security vulnerabilities on the public Git\+Hub issue tracker. The \href{https://auth0.com/responsible-disclosure-policy}{\texttt{ Responsible Disclosure Program}} details the procedure for disclosing security issues.
+
+\DoxyHorRuler{0}
+
+
+$<$picture$>$ $<$source media="{}(prefers-\/color-\/scheme\+: light)"{} srcset="{}https\+://cdn.\+auth0.\+com/website/sdks/logos/auth0\+\_\+light\+\_\+mode.\+png"{}   width="{}150"{}$>$ $<$source media="{}(prefers-\/color-\/scheme\+: dark)"{} srcset="{}https\+://cdn.\+auth0.\+com/website/sdks/logos/auth0\+\_\+dark\+\_\+mode.\+png"{} width="{}150"{}$>$  $<$/picture$>$ 
+
+Auth0 is an easy to implement, adaptable authentication and authorization platform. To learn more checkout \href{https://auth0.com/why-auth0}{\texttt{ Why Auth0?}}
+
+This project is licensed under the MIT license. See the \href{./LICENSE}{\texttt{ LICENSE}} file for more info.

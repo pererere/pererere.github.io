@@ -1,0 +1,80 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/run-\/script-\/os Directory Reference}
+\hypertarget{dir_0799d98b1a56d8626ff54cd673c2177c}{}\label{dir_0799d98b1a56d8626ff54cd673c2177c}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/run-\/script-\/os Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/run-\/script-\/os Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+You will be able to use OS specific operations in npm scripts.\hypertarget{README.md_autotoc_md17865}{}\doxysubsection{\texorpdfstring{Who would want this?}{Who would want this?}}\label{README.md_autotoc_md17865}
+If you have experienced the pain of trying to make npm scripts usable across different operating system, this package is for you! Looking at you {\ttfamily rm} and {\ttfamily del}!\hypertarget{README.md_autotoc_md17866}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md17866}
+{\ttfamily npm install -\/-\/save-\/dev run-\/script-\/os}\hypertarget{README.md_autotoc_md17867}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md17867}
+Set {\ttfamily run-\/script-\/os} (or {\ttfamily run-\/os}) as the value of the npm script field that you want different functionality per OS. In the example below, we set {\ttfamily test}, but it can be any npm script. It also uses {\ttfamily pre} and {\ttfamily post} commands (explained more below).
+
+Then create OS specific scripts. In the example below, you can see\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily test\+:win32}
+\item {\ttfamily test\+:linux\+:darwin}
+\item {\ttfamily test\+:default}
+\end{DoxyItemize}
+
+Those can have OS specific logic.
+
+{\ttfamily package.\+json} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ ...}
+\DoxyCodeLine{\ \ "{}scripts"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ "{}test"{}:\ "{}run-\/script-\/os"{},}
+\DoxyCodeLine{\ \ \ \ "{}test:win32"{}:\ "{}echo\ 'del\ whatever\ you\ want\ in\ Windows\ 32/64'"{},}
+\DoxyCodeLine{\ \ \ \ "{}test:darwin:linux"{}:\ "{}echo\ 'You\ can\ combine\ OS\ tags\ and\ rm\ all\ the\ things!'"{},}
+\DoxyCodeLine{\ \ \ \ "{}test:default"{}:\ "{}echo\ 'This\ will\ run\ on\ any\ platform\ that\ does\ not\ have\ its\ own\ script'"{}}
+\DoxyCodeLine{\ \ \ \ ...}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ ...}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Windows Output\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{>\ npm\ test}
+\DoxyCodeLine{del\ whatever\ you\ want\ in\ Windows\ 32/64}
+
+\end{DoxyCode}
+
+
+{\bfseries{mac\+OS and Linux Output\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{>\ npm\ test}
+\DoxyCodeLine{You\ can\ combine\ OS\ tags\ and\ rm\ all\ the\ things!}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17868}{}\doxysubsubsection{\texorpdfstring{Aliases}{Aliases}}\label{README.md_autotoc_md17868}
+You can use the following aliases\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \+:windows} -\/ Alias for win32
+\item {\ttfamily \+:macos} -\/ Alias for darwin
+\item {\ttfamily \+:nix} -\/ This will run on anything considered to be a \texorpdfstring{$\ast$}{*}nix OS (aix, darwin, freebsd, linux, openbsd, sunos, android)
+\item {\ttfamily \+:default} -\/ This will run if no platform-\/specific scripts are found
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md17869}{}\doxysubsubsection{\texorpdfstring{Override detection settings for linux-\/based shells on Windows}{Override detection settings for linux-\/based shells on Windows}}\label{README.md_autotoc_md17869}
+By default, run-\/script-\/os will detect cygwin/git bash as Windows. If you would rather your platform be detected as Linux under these environments\+:
+
+Set environment variable\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RUN\_OS\_WINBASH\_IS\_LINUX=true}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17870}{}\doxysubsubsection{\texorpdfstring{NPM Scripts Order}{NPM Scripts Order}}\label{README.md_autotoc_md17870}
+When you call a script like {\ttfamily npm test}, npm will first call {\ttfamily pretest} if it exists. It will then call {\ttfamily test}, which, if you are using {\ttfamily run-\/script-\/os}, it will then call {\ttfamily npm run test\+:YOUR OS}, which in turn will call {\ttfamily pretest\+:YOUR OS} before actually running {\ttfamily test\+:YOUR OS}. Then {\ttfamily posttest\+:YOUR OS} will run, and then after that {\ttfamily posttest} will finally execute.
+
+There is an example showing {\ttfamily pre} and {\ttfamily post} commands found in the \href{https://github.com/charlesguse/run-script-os/blob/master/package.json}{\texttt{ {\ttfamily package.\+json} of this repository}}.
+
+OS Options\+: {\ttfamily darwin}, {\ttfamily freebsd}, {\ttfamily linux}, {\ttfamily sunos}, {\ttfamily win32}
+
+More information can be found in \href{https://nodejs.org/api/process.html\#process_process_platform}{\texttt{ Node\textquotesingle{}s {\ttfamily process.\+platform}}} and \href{https://nodejs.org/api/os.html\#os_os_platform}{\texttt{ Node\textquotesingle{}s {\ttfamily os.\+platform()}}}. 

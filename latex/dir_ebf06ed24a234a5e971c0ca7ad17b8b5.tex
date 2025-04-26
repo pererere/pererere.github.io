@@ -1,0 +1,52 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/hdr-\/histogram-\/percentiles-\/obj Directory Reference}
+\hypertarget{dir_ebf06ed24a234a5e971c0ca7ad17b8b5}{}\label{dir_ebf06ed24a234a5e971c0ca7ad17b8b5}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/hdr-\/histogram-\/percentiles-\/obj Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/hdr-\/histogram-\/percentiles-\/obj Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{readme.md_autotoc_md8615}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md8615}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/-\/save\ hdr-\/histogram-\/percentiles-\/obj}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md8616}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md8616}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ histPercentileObj\ =\ require('hdr-\/histogram-\/percentiles-\/obj')}
+\DoxyCodeLine{const\ Histogram\ =\ require('hdr-\/histogram-\/js')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ histogram\ =\ hdr.build(\{}
+\DoxyCodeLine{\ \ lowestDiscernibleValue:\ 1,}
+\DoxyCodeLine{\ \ highestTrackableValue:\ 100}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{const\ total\ =\ 0}
+\DoxyCodeLine{//\ record\ some\ histogram\ data...}
+\DoxyCodeLine{//\ total++...}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ result\ =\ histPercentileObj.histAsObj(histogram,\ total)}
+\DoxyCodeLine{const\ resultWithPercentiles\ =\ histPercentileObj.addPercentiles(histogram,\ histPercentileObj.histAsObj(histogram,\ total))}
+\DoxyCodeLine{histPercentileObj.percentiles.forEach((p)\ =>\ \{}
+\DoxyCodeLine{\ \ const\ key\ =\ \`{}p\$\{p\}`.replace('.',\ '\_')}
+\DoxyCodeLine{\ \ console.log(`\$\{p\}\%`,\ resultWithPercentiles[key])}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md8617}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md8617}
+hdr-\/histogram-\/percentiles-\/obj has two utility functions to use\hypertarget{readme.md_autotoc_md8618}{}\doxysubsubsection{\texorpdfstring{hist\+As\+Obj(histogram, total)}{hist\+As\+Obj(histogram, total)}}\label{readme.md_autotoc_md8618}
+
+\begin{DoxyItemize}
+\item {\ttfamily histogram}\+: A hdr-\/histogram-\/js object you want to get some values from in a js object
+\item {\ttfamily total}\+: the total amount recorded by the histogram, optional
+\end{DoxyItemize}
+
+Returns a json object with the {\ttfamily min}, {\ttfamily max}, {\ttfamily average} (mean) and {\ttfamily stddev}\hypertarget{readme.md_autotoc_md8619}{}\doxysubsubsection{\texorpdfstring{add\+Percentiles(histogram, hist\+As\+Obj\+Result)}{add\+Percentiles(histogram, hist\+As\+Obj\+Result)}}\label{readme.md_autotoc_md8619}
+
+\begin{DoxyItemize}
+\item {\ttfamily histogram}\+: A hdr-\/histogram-\/js object you want to retrieve the percentiles from
+\item {\ttfamily hist\+As\+Obj\+Result}\+: the result returned when {\ttfamily hist\+As\+Obj} is called on some hdr-\/histogram-\/js object
+\end{DoxyItemize}
+
+Returns the hist\+As\+Obj\+Result with the percentiles properties added. Percentile properties are named {\ttfamily p\+NN\+\_\+\+DD}, for the {\ttfamily NN.\+DD\%} percentile. Eg., the 99th percentile is {\ttfamily p99}, while the 99.\+99th percentile is {\ttfamily p99\+\_\+99}.\hypertarget{readme.md_autotoc_md8620}{}\doxysubsubsection{\texorpdfstring{percentiles}{percentiles}}\label{readme.md_autotoc_md8620}
+An array listing the percentiles that hdr-\/histogram-\/percentiles-\/obj adds, as numbers.\hypertarget{readme.md_autotoc_md8621}{}\doxysubsection{\texorpdfstring{Sponsor}{Sponsor}}\label{readme.md_autotoc_md8621}
+Kindly sponsored by \href{www.nearform.com}{\texttt{ near\+Form}}\hypertarget{readme.md_autotoc_md8622}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md8622}
+\href{./LICENSE}{\texttt{ MIT}} 

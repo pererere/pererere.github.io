@@ -1,0 +1,892 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/axios Directory Reference}
+\hypertarget{dir_e20f125c943f4b119cee7c693f3de5af}{}\label{dir_e20f125c943f4b119cee7c693f3de5af}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/axios Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/axios Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.org/package/axios}{\texttt{ }} \href{https://cdnjs.com/libraries/axios}{\texttt{ }}  \href{https://gitpod.io/\#https://github.com/axios/axios}{\texttt{ }} \href{https://coveralls.io/r/mzabriskie/axios}{\texttt{ }} \href{https://packagephobia.now.sh/result?p=axios}{\texttt{ }} \href{http://npm-stat.com/charts.html?package=axios}{\texttt{ }} \href{https://gitter.im/mzabriskie/axios}{\texttt{ }} \href{https://www.codetriage.com/axios/axios}{\texttt{ }}
+
+Promise based HTTP client for the browser and node.\+js
+
+\begin{quote}
+New axios docs website\+: \href{https://axios-http.com/}{\texttt{ click here}} \end{quote}
+\hypertarget{README.md_autotoc_md2691}{}\doxysubsection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{README.md_autotoc_md2691}
+
+\begin{DoxyItemize}
+\item Features
+\item Browser Support
+\item Installing
+\item Example
+\item Axios API
+\item Request method aliases
+\item Concurrency (Deprecated)
+\item Creating an instance
+\item Instance methods
+\item Request Config
+\item Response Schema
+\item Config Defaults
+\begin{DoxyItemize}
+\item Global axios defaults
+\item Custom instance defaults
+\item Config order of precedence
+\end{DoxyItemize}
+\item Interceptors
+\item Handling Errors
+\item Cancellation
+\item Using application/x-\/www-\/form-\/urlencoded format
+\begin{DoxyItemize}
+\item Browser
+\item Node.js
+\begin{DoxyItemize}
+\item Query string
+\item Form data
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item Semver
+\item Promises
+\item Type\+Script
+\item Resources
+\item Credits
+\item \doxylink{README.md_license}{License}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md2692}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{README.md_autotoc_md2692}
+
+\begin{DoxyItemize}
+\item Make \href{https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest}{\texttt{ XMLHttp\+Requests}} from the browser
+\item Make \href{http://nodejs.org/api/http.html}{\texttt{ http}} requests from node.\+js
+\item Supports the \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise}{\texttt{ Promise}} API
+\item Intercept request and response
+\item Transform request and response data
+\item Cancel requests
+\item Automatic transforms for JSON data
+\item Client side support for protecting against \href{http://en.wikipedia.org/wiki/Cross-site_request_forgery}{\texttt{ XSRF}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md2693}{}\doxysubsection{\texorpdfstring{Browser Support}{Browser Support}}\label{README.md_autotoc_md2693}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{     }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{     }\\\cline{1-6}
+\endhead
+Latest ✔   &Latest ✔   &Latest ✔   &Latest ✔   &Latest ✔   &11 ✔   \\\cline{1-6}
+\end{longtabu}
+
+
+\href{https://saucelabs.com/u/axios}{\texttt{ }}\hypertarget{README.md_autotoc_md2694}{}\doxysubsection{\texorpdfstring{Installing}{Installing}}\label{README.md_autotoc_md2694}
+Using npm\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ axios}
+
+\end{DoxyCode}
+
+
+Using bower\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ bower\ install\ axios}
+
+\end{DoxyCode}
+
+
+Using yarn\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ yarn\ add\ axios}
+
+\end{DoxyCode}
+
+
+Using js\+Delivr CDN\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<script\ src="{}https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"{}></script>}
+
+\end{DoxyCode}
+
+
+Using unpkg CDN\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<script\ src="{}https://unpkg.com/axios/dist/axios.min.js"{}></script>}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2695}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{README.md_autotoc_md2695}
+\hypertarget{README.md_autotoc_md2696}{}\doxysubsubsection{\texorpdfstring{note\+: Common\+JS usage}{note\+: Common\+JS usage}}\label{README.md_autotoc_md2696}
+In order to gain the Type\+Script typings (for intellisense / autocomplete) while using Common\+JS imports with {\ttfamily require()} use the following approach\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ axios\ =\ require('axios').default;}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ axios.<method>\ will\ now\ provide\ autocomplete\ and\ parameter\ typings}
+
+\end{DoxyCode}
+
+
+Performing a {\ttfamily GET} request
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ axios\ =\ require('axios');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Make\ a\ request\ for\ a\ user\ with\ a\ given\ ID}
+\DoxyCodeLine{axios.get('/user?ID=12345')}
+\DoxyCodeLine{\ \ .then(function\ (response)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ handle\ success}
+\DoxyCodeLine{\ \ \ \ console.log(response);}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ .catch(function\ (error)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ handle\ error}
+\DoxyCodeLine{\ \ \ \ console.log(error);}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ .then(function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ //\ always\ executed}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Optionally\ the\ request\ above\ could\ also\ be\ done\ as}
+\DoxyCodeLine{axios.get('/user',\ \{}
+\DoxyCodeLine{\ \ \ \ params:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ID:\ 12345}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ .then(function\ (response)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(response);}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ .catch(function\ (error)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(error);}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ .then(function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ //\ always\ executed}
+\DoxyCodeLine{\ \ \});\ \ }
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Want\ to\ use\ async/await?\ Add\ the\ \`{}async`\ keyword\ to\ your\ outer\ function/method.}
+\DoxyCodeLine{async\ function\ getUser()\ \{}
+\DoxyCodeLine{\ \ try\ \{}
+\DoxyCodeLine{\ \ \ \ const\ response\ =\ await\ axios.get('/user?ID=12345');}
+\DoxyCodeLine{\ \ \ \ console.log(response);}
+\DoxyCodeLine{\ \ \}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ \ \ console.error(error);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+{\bfseries{NOTE\+:}} {\ttfamily async/await} is part of ECMAScript 2017 and is not supported in Internet Explorer and older browsers, so use with caution. \end{quote}
+
+
+Performing a {\ttfamily POST} request
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{axios.post('/user',\ \{}
+\DoxyCodeLine{\ \ \ \ firstName:\ 'Fred',}
+\DoxyCodeLine{\ \ \ \ lastName:\ 'Flintstone'}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ .then(function\ (response)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(response);}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\ \ .catch(function\ (error)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(error);}
+\DoxyCodeLine{\ \ \});}
+
+\end{DoxyCode}
+
+
+Performing multiple concurrent requests
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{function\ getUserAccount()\ \{}
+\DoxyCodeLine{\ \ return\ axios.get('/user/12345');}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{function\ getUserPermissions()\ \{}
+\DoxyCodeLine{\ \ return\ axios.get('/user/12345/permissions');}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Promise.all([getUserAccount(),\ getUserPermissions()])}
+\DoxyCodeLine{\ \ .then(function\ (results)\ \{}
+\DoxyCodeLine{\ \ \ \ const\ acct\ =\ results[0];}
+\DoxyCodeLine{\ \ \ \ const\ perm\ =\ results[1];}
+\DoxyCodeLine{\ \ \});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2697}{}\doxysubsection{\texorpdfstring{axios API}{axios API}}\label{README.md_autotoc_md2697}
+Requests can be made by passing the relevant config to {\ttfamily axios}.\hypertarget{README.md_autotoc_md2698}{}\doxysubsubsubsubsection{\texorpdfstring{axios(config)}{axios(config)}}\label{README.md_autotoc_md2698}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Send\ a\ POST\ request}
+\DoxyCodeLine{axios(\{}
+\DoxyCodeLine{\ \ method:\ 'post',}
+\DoxyCodeLine{\ \ url:\ '/user/12345',}
+\DoxyCodeLine{\ \ data:\ \{}
+\DoxyCodeLine{\ \ \ \ firstName:\ 'Fred',}
+\DoxyCodeLine{\ \ \ \ lastName:\ 'Flintstone'}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ GET\ request\ for\ remote\ image\ in\ node.js}
+\DoxyCodeLine{axios(\{}
+\DoxyCodeLine{\ \ method:\ 'get',}
+\DoxyCodeLine{\ \ url:\ 'http://bit.ly/2mTM3nY',}
+\DoxyCodeLine{\ \ responseType:\ 'stream'}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{\ \ .then(function\ (response)\ \{}
+\DoxyCodeLine{\ \ \ \ response.data.pipe(fs.createWriteStream('ada\_lovelace.jpg'))}
+\DoxyCodeLine{\ \ \});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2699}{}\doxysubsubsubsubsection{\texorpdfstring{axios(url\mbox{[}, config\mbox{]})}{axios(url\mbox{[}, config\mbox{]})}}\label{README.md_autotoc_md2699}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Send\ a\ GET\ request\ (default\ method)}
+\DoxyCodeLine{axios('/user/12345');}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2700}{}\doxysubsubsection{\texorpdfstring{Request method aliases}{Request method aliases}}\label{README.md_autotoc_md2700}
+For convenience aliases have been provided for all supported request methods.\hypertarget{README.md_autotoc_md2701}{}\doxysubsubsubsubsection{\texorpdfstring{axios.\+request(config)}{axios.\+request(config)}}\label{README.md_autotoc_md2701}
+\hypertarget{README.md_autotoc_md2702}{}\doxysubsubsubsubsection{\texorpdfstring{axios.\+get(url\mbox{[}, config\mbox{]})}{axios.\+get(url\mbox{[}, config\mbox{]})}}\label{README.md_autotoc_md2702}
+\hypertarget{README.md_autotoc_md2703}{}\doxysubsubsubsubsection{\texorpdfstring{axios.\+delete(url\mbox{[}, config\mbox{]})}{axios.\+delete(url\mbox{[}, config\mbox{]})}}\label{README.md_autotoc_md2703}
+\hypertarget{README.md_autotoc_md2704}{}\doxysubsubsubsubsection{\texorpdfstring{axios.\+head(url\mbox{[}, config\mbox{]})}{axios.\+head(url\mbox{[}, config\mbox{]})}}\label{README.md_autotoc_md2704}
+\hypertarget{README.md_autotoc_md2705}{}\doxysubsubsubsubsection{\texorpdfstring{axios.\+options(url\mbox{[}, config\mbox{]})}{axios.\+options(url\mbox{[}, config\mbox{]})}}\label{README.md_autotoc_md2705}
+\hypertarget{README.md_autotoc_md2706}{}\doxysubsubsubsubsection{\texorpdfstring{axios.\+post(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}{axios.\+post(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}}\label{README.md_autotoc_md2706}
+\hypertarget{README.md_autotoc_md2707}{}\doxysubsubsubsubsection{\texorpdfstring{axios.\+put(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}{axios.\+put(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}}\label{README.md_autotoc_md2707}
+\hypertarget{README.md_autotoc_md2708}{}\doxysubsubsubsubsection{\texorpdfstring{axios.\+patch(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}{axios.\+patch(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}}\label{README.md_autotoc_md2708}
+\hypertarget{README.md_autotoc_md2709}{}\doxysubsubsubsubsubsection{\texorpdfstring{NOTE}{NOTE}}\label{README.md_autotoc_md2709}
+When using the alias methods {\ttfamily url}, {\ttfamily method}, and {\ttfamily data} properties don\textquotesingle{}t need to be specified in config.\hypertarget{README.md_autotoc_md2710}{}\doxysubsubsection{\texorpdfstring{Concurrency (Deprecated)}{Concurrency (Deprecated)}}\label{README.md_autotoc_md2710}
+Please use {\ttfamily Promise.\+all} to replace the below functions.
+
+Helper functions for dealing with concurrent requests.
+
+axios.\+all(iterable) axios.\+spread(callback)\hypertarget{README.md_autotoc_md2711}{}\doxysubsubsection{\texorpdfstring{Creating an instance}{Creating an instance}}\label{README.md_autotoc_md2711}
+You can create a new instance of axios with a custom config.\hypertarget{README.md_autotoc_md2712}{}\doxysubsubsubsubsection{\texorpdfstring{axios.\+create(\mbox{[}config\mbox{]})}{axios.\+create(\mbox{[}config\mbox{]})}}\label{README.md_autotoc_md2712}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ instance\ =\ axios.create(\{}
+\DoxyCodeLine{\ \ baseURL:\ 'https://some-\/domain.com/api/',}
+\DoxyCodeLine{\ \ timeout:\ 1000,}
+\DoxyCodeLine{\ \ headers:\ \{'X-\/Custom-\/Header':\ 'foobar'\}}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2713}{}\doxysubsubsection{\texorpdfstring{Instance methods}{Instance methods}}\label{README.md_autotoc_md2713}
+The available instance methods are listed below. The specified config will be merged with the instance config.\hypertarget{README.md_autotoc_md2714}{}\doxysubsubsubsubsection{\texorpdfstring{axios\#request(config)}{axios\#request(config)}}\label{README.md_autotoc_md2714}
+\hypertarget{README.md_autotoc_md2715}{}\doxysubsubsubsubsection{\texorpdfstring{axios\#get(url\mbox{[}, config\mbox{]})}{axios\#get(url\mbox{[}, config\mbox{]})}}\label{README.md_autotoc_md2715}
+\hypertarget{README.md_autotoc_md2716}{}\doxysubsubsubsubsection{\texorpdfstring{axios\#delete(url\mbox{[}, config\mbox{]})}{axios\#delete(url\mbox{[}, config\mbox{]})}}\label{README.md_autotoc_md2716}
+\hypertarget{README.md_autotoc_md2717}{}\doxysubsubsubsubsection{\texorpdfstring{axios\#head(url\mbox{[}, config\mbox{]})}{axios\#head(url\mbox{[}, config\mbox{]})}}\label{README.md_autotoc_md2717}
+\hypertarget{README.md_autotoc_md2718}{}\doxysubsubsubsubsection{\texorpdfstring{axios\#options(url\mbox{[}, config\mbox{]})}{axios\#options(url\mbox{[}, config\mbox{]})}}\label{README.md_autotoc_md2718}
+\hypertarget{README.md_autotoc_md2719}{}\doxysubsubsubsubsection{\texorpdfstring{axios\#post(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}{axios\#post(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}}\label{README.md_autotoc_md2719}
+\hypertarget{README.md_autotoc_md2720}{}\doxysubsubsubsubsection{\texorpdfstring{axios\#put(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}{axios\#put(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}}\label{README.md_autotoc_md2720}
+\hypertarget{README.md_autotoc_md2721}{}\doxysubsubsubsubsection{\texorpdfstring{axios\#patch(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}{axios\#patch(url\mbox{[}, data\mbox{[}, config\mbox{]}\mbox{]})}}\label{README.md_autotoc_md2721}
+\hypertarget{README.md_autotoc_md2722}{}\doxysubsubsubsubsection{\texorpdfstring{axios\#get\+Uri(\mbox{[}config\mbox{]})}{axios\#get\+Uri(\mbox{[}config\mbox{]})}}\label{README.md_autotoc_md2722}
+\hypertarget{README.md_autotoc_md2723}{}\doxysubsection{\texorpdfstring{Request Config}{Request Config}}\label{README.md_autotoc_md2723}
+These are the available config options for making requests. Only the {\ttfamily url} is required. Requests will default to {\ttfamily GET} if {\ttfamily method} is not specified.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ //\ \`{}url`\ is\ the\ server\ URL\ that\ will\ be\ used\ for\ the\ request}
+\DoxyCodeLine{\ \ url:\ '/user',}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}method`\ is\ the\ request\ method\ to\ be\ used\ when\ making\ the\ request}
+\DoxyCodeLine{\ \ method:\ 'get',\ //\ default}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}baseURL`\ will\ be\ prepended\ to\ \`{}url`\ unless\ \`{}url`\ is\ absolute.}
+\DoxyCodeLine{\ \ //\ It\ can\ be\ convenient\ to\ set\ \`{}baseURL`\ for\ an\ instance\ of\ axios\ to\ pass\ relative\ URLs}
+\DoxyCodeLine{\ \ //\ to\ methods\ of\ that\ instance.}
+\DoxyCodeLine{\ \ baseURL:\ 'https://some-\/domain.com/api/',}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}transformRequest`\ allows\ changes\ to\ the\ request\ data\ before\ it\ is\ sent\ to\ the\ server}
+\DoxyCodeLine{\ \ //\ This\ is\ only\ applicable\ for\ request\ methods\ 'PUT',\ 'POST',\ 'PATCH'\ and\ 'DELETE'}
+\DoxyCodeLine{\ \ //\ The\ last\ function\ in\ the\ array\ must\ return\ a\ string\ or\ an\ instance\ of\ Buffer,\ ArrayBuffer,}
+\DoxyCodeLine{\ \ //\ FormData\ or\ Stream}
+\DoxyCodeLine{\ \ //\ You\ may\ modify\ the\ headers\ object.}
+\DoxyCodeLine{\ \ transformRequest:\ [function\ (data,\ headers)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Do\ whatever\ you\ want\ to\ transform\ the\ data}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ return\ data;}
+\DoxyCodeLine{\ \ \}],}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}transformResponse`\ allows\ changes\ to\ the\ response\ data\ to\ be\ made\ before}
+\DoxyCodeLine{\ \ //\ it\ is\ passed\ to\ then/catch}
+\DoxyCodeLine{\ \ transformResponse:\ [function\ (data)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Do\ whatever\ you\ want\ to\ transform\ the\ data}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ return\ data;}
+\DoxyCodeLine{\ \ \}],}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}headers`\ are\ custom\ headers\ to\ be\ sent}
+\DoxyCodeLine{\ \ headers:\ \{'X-\/Requested-\/With':\ 'XMLHttpRequest'\},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}params`\ are\ the\ URL\ parameters\ to\ be\ sent\ with\ the\ request}
+\DoxyCodeLine{\ \ //\ Must\ be\ a\ plain\ object\ or\ a\ URLSearchParams\ object}
+\DoxyCodeLine{\ \ params:\ \{}
+\DoxyCodeLine{\ \ \ \ ID:\ 12345}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}paramsSerializer`\ is\ an\ optional\ function\ in\ charge\ of\ serializing\ \`{}params`}
+\DoxyCodeLine{\ \ //\ (e.g.\ https://www.npmjs.com/package/qs,\ http://api.jquery.com/jquery.param/)}
+\DoxyCodeLine{\ \ paramsSerializer:\ function\ (params)\ \{}
+\DoxyCodeLine{\ \ \ \ return\ Qs.stringify(params,\ \{arrayFormat:\ 'brackets'\})}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}data`\ is\ the\ data\ to\ be\ sent\ as\ the\ request\ body}
+\DoxyCodeLine{\ \ //\ Only\ applicable\ for\ request\ methods\ 'PUT',\ 'POST',\ 'DELETE\ ,\ and\ 'PATCH'}
+\DoxyCodeLine{\ \ //\ When\ no\ \`{}transformRequest`\ is\ set,\ must\ be\ of\ one\ of\ the\ following\ types:}
+\DoxyCodeLine{\ \ //\ -\/\ string,\ plain\ object,\ ArrayBuffer,\ ArrayBufferView,\ URLSearchParams}
+\DoxyCodeLine{\ \ //\ -\/\ Browser\ only:\ FormData,\ File,\ Blob}
+\DoxyCodeLine{\ \ //\ -\/\ Node\ only:\ Stream,\ Buffer}
+\DoxyCodeLine{\ \ data:\ \{}
+\DoxyCodeLine{\ \ \ \ firstName:\ 'Fred'}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ //\ syntax\ alternative\ to\ send\ data\ into\ the\ body}
+\DoxyCodeLine{\ \ //\ method\ post}
+\DoxyCodeLine{\ \ //\ only\ the\ value\ is\ sent,\ not\ the\ key}
+\DoxyCodeLine{\ \ data:\ 'Country=Brasil\&City=Belo\ Horizonte',}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}timeout`\ specifies\ the\ number\ of\ milliseconds\ before\ the\ request\ times\ out.}
+\DoxyCodeLine{\ \ //\ If\ the\ request\ takes\ longer\ than\ \`{}timeout`,\ the\ request\ will\ be\ aborted.}
+\DoxyCodeLine{\ \ timeout:\ 1000,\ //\ default\ is\ \`{}0`\ (no\ timeout)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}withCredentials`\ indicates\ whether\ or\ not\ cross-\/site\ Access-\/Control\ requests}
+\DoxyCodeLine{\ \ //\ should\ be\ made\ using\ credentials}
+\DoxyCodeLine{\ \ withCredentials:\ false,\ //\ default}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}adapter`\ allows\ custom\ handling\ of\ requests\ which\ makes\ testing\ easier.}
+\DoxyCodeLine{\ \ //\ Return\ a\ promise\ and\ supply\ a\ valid\ response\ (see\ lib/adapters/README.md).}
+\DoxyCodeLine{\ \ adapter:\ function\ (config)\ \{}
+\DoxyCodeLine{\ \ \ \ /*\ ...\ */}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}auth`\ indicates\ that\ HTTP\ Basic\ auth\ should\ be\ used,\ and\ supplies\ credentials.}
+\DoxyCodeLine{\ \ //\ This\ will\ set\ an\ \`{}Authorization`\ header,\ overwriting\ any\ existing}
+\DoxyCodeLine{\ \ //\ \`{}Authorization`\ custom\ headers\ you\ have\ set\ using\ \`{}headers`.}
+\DoxyCodeLine{\ \ //\ Please\ note\ that\ only\ HTTP\ Basic\ auth\ is\ configurable\ through\ this\ parameter.}
+\DoxyCodeLine{\ \ //\ For\ Bearer\ tokens\ and\ such,\ use\ \`{}Authorization`\ custom\ headers\ instead.}
+\DoxyCodeLine{\ \ auth:\ \{}
+\DoxyCodeLine{\ \ \ \ username:\ 'janedoe',}
+\DoxyCodeLine{\ \ \ \ password:\ 's00pers3cret'}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}responseType`\ indicates\ the\ type\ of\ data\ that\ the\ server\ will\ respond\ with}
+\DoxyCodeLine{\ \ //\ options\ are:\ 'arraybuffer',\ 'document',\ 'json',\ 'text',\ 'stream'}
+\DoxyCodeLine{\ \ //\ \ \ browser\ only:\ 'blob'}
+\DoxyCodeLine{\ \ responseType:\ 'json',\ //\ default}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}responseEncoding`\ indicates\ encoding\ to\ use\ for\ decoding\ responses\ (Node.js\ only)}
+\DoxyCodeLine{\ \ //\ Note:\ Ignored\ for\ \`{}responseType`\ of\ 'stream'\ or\ client-\/side\ requests}
+\DoxyCodeLine{\ \ responseEncoding:\ 'utf8',\ //\ default}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}xsrfCookieName`\ is\ the\ name\ of\ the\ cookie\ to\ use\ as\ a\ value\ for\ xsrf\ token}
+\DoxyCodeLine{\ \ xsrfCookieName:\ 'XSRF-\/TOKEN',\ //\ default}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}xsrfHeaderName`\ is\ the\ name\ of\ the\ http\ header\ that\ carries\ the\ xsrf\ token\ value}
+\DoxyCodeLine{\ \ xsrfHeaderName:\ 'X-\/XSRF-\/TOKEN',\ //\ default}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}onUploadProgress`\ allows\ handling\ of\ progress\ events\ for\ uploads}
+\DoxyCodeLine{\ \ //\ browser\ only}
+\DoxyCodeLine{\ \ onUploadProgress:\ function\ (progressEvent)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Do\ whatever\ you\ want\ with\ the\ native\ progress\ event}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}onDownloadProgress`\ allows\ handling\ of\ progress\ events\ for\ downloads}
+\DoxyCodeLine{\ \ //\ browser\ only}
+\DoxyCodeLine{\ \ onDownloadProgress:\ function\ (progressEvent)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Do\ whatever\ you\ want\ with\ the\ native\ progress\ event}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}maxContentLength`\ defines\ the\ max\ size\ of\ the\ http\ response\ content\ in\ bytes\ allowed\ in\ node.js}
+\DoxyCodeLine{\ \ maxContentLength:\ 2000,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}maxBodyLength`\ (Node\ only\ option)\ defines\ the\ max\ size\ of\ the\ http\ request\ content\ in\ bytes\ allowed}
+\DoxyCodeLine{\ \ maxBodyLength:\ 2000,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}validateStatus`\ defines\ whether\ to\ resolve\ or\ reject\ the\ promise\ for\ a\ given}
+\DoxyCodeLine{\ \ //\ HTTP\ response\ status\ code.\ If\ \`{}validateStatus`\ returns\ \`{}true`\ (or\ is\ set\ to\ \`{}null`}
+\DoxyCodeLine{\ \ //\ or\ \`{}undefined`),\ the\ promise\ will\ be\ resolved;\ otherwise,\ the\ promise\ will\ be}
+\DoxyCodeLine{\ \ //\ rejected.}
+\DoxyCodeLine{\ \ validateStatus:\ function\ (status)\ \{}
+\DoxyCodeLine{\ \ \ \ return\ status\ >=\ 200\ \&\&\ status\ <\ 300;\ //\ default}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}maxRedirects`\ defines\ the\ maximum\ number\ of\ redirects\ to\ follow\ in\ node.js.}
+\DoxyCodeLine{\ \ //\ If\ set\ to\ 0,\ no\ redirects\ will\ be\ followed.}
+\DoxyCodeLine{\ \ maxRedirects:\ 5,\ //\ default}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}socketPath`\ defines\ a\ UNIX\ Socket\ to\ be\ used\ in\ node.js.}
+\DoxyCodeLine{\ \ //\ e.g.\ '/var/run/docker.sock'\ to\ send\ requests\ to\ the\ docker\ daemon.}
+\DoxyCodeLine{\ \ //\ Only\ either\ \`{}socketPath`\ or\ \`{}proxy`\ can\ be\ specified.}
+\DoxyCodeLine{\ \ //\ If\ both\ are\ specified,\ \`{}socketPath`\ is\ used.}
+\DoxyCodeLine{\ \ socketPath:\ null,\ //\ default}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}httpAgent`\ and\ \`{}httpsAgent`\ define\ a\ custom\ agent\ to\ be\ used\ when\ performing\ http}
+\DoxyCodeLine{\ \ //\ and\ https\ requests,\ respectively,\ in\ node.js.\ This\ allows\ options\ to\ be\ added\ like}
+\DoxyCodeLine{\ \ //\ \`{}keepAlive`\ that\ are\ not\ enabled\ by\ default.}
+\DoxyCodeLine{\ \ httpAgent:\ new\ http.Agent(\{\ keepAlive:\ true\ \}),}
+\DoxyCodeLine{\ \ httpsAgent:\ new\ https.Agent(\{\ keepAlive:\ true\ \}),}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}proxy`\ defines\ the\ hostname,\ port,\ and\ protocol\ of\ the\ proxy\ server.}
+\DoxyCodeLine{\ \ //\ You\ can\ also\ define\ your\ proxy\ using\ the\ conventional\ \`{}http\_proxy`\ and}
+\DoxyCodeLine{\ \ //\ \`{}https\_proxy`\ environment\ variables.\ If\ you\ are\ using\ environment\ variables}
+\DoxyCodeLine{\ \ //\ for\ your\ proxy\ configuration,\ you\ can\ also\ define\ a\ \`{}no\_proxy`\ environment}
+\DoxyCodeLine{\ \ //\ variable\ as\ a\ comma-\/separated\ list\ of\ domains\ that\ should\ not\ be\ proxied.}
+\DoxyCodeLine{\ \ //\ Use\ \`{}false`\ to\ disable\ proxies,\ ignoring\ environment\ variables.}
+\DoxyCodeLine{\ \ //\ \`{}auth`\ indicates\ that\ HTTP\ Basic\ auth\ should\ be\ used\ to\ connect\ to\ the\ proxy,\ and}
+\DoxyCodeLine{\ \ //\ supplies\ credentials.}
+\DoxyCodeLine{\ \ //\ This\ will\ set\ an\ \`{}Proxy-\/Authorization`\ header,\ overwriting\ any\ existing}
+\DoxyCodeLine{\ \ //\ \`{}Proxy-\/Authorization`\ custom\ headers\ you\ have\ set\ using\ \`{}headers`.}
+\DoxyCodeLine{\ \ //\ If\ the\ proxy\ server\ uses\ HTTPS,\ then\ you\ must\ set\ the\ protocol\ to\ \`{}https`.\ }
+\DoxyCodeLine{\ \ proxy:\ \{}
+\DoxyCodeLine{\ \ \ \ protocol:\ 'https',}
+\DoxyCodeLine{\ \ \ \ host:\ '127.0.0.1',}
+\DoxyCodeLine{\ \ \ \ port:\ 9000,}
+\DoxyCodeLine{\ \ \ \ auth:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ username:\ 'mikeymike',}
+\DoxyCodeLine{\ \ \ \ \ \ password:\ 'rapunz3l'}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}cancelToken`\ specifies\ a\ cancel\ token\ that\ can\ be\ used\ to\ cancel\ the\ request}
+\DoxyCodeLine{\ \ //\ (see\ Cancellation\ section\ below\ for\ details)}
+\DoxyCodeLine{\ \ cancelToken:\ new\ CancelToken(function\ (cancel)\ \{}
+\DoxyCodeLine{\ \ \}),}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}decompress`\ indicates\ whether\ or\ not\ the\ response\ body\ should\ be\ decompressed\ }
+\DoxyCodeLine{\ \ //\ automatically.\ If\ set\ to\ \`{}true`\ will\ also\ remove\ the\ 'content-\/encoding'\ header\ }
+\DoxyCodeLine{\ \ //\ from\ the\ responses\ objects\ of\ all\ decompressed\ responses}
+\DoxyCodeLine{\ \ //\ -\/\ Node\ only\ (XHR\ cannot\ turn\ off\ decompression)}
+\DoxyCodeLine{\ \ decompress:\ true,\ //\ default}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ transitional\ options\ for\ backward\ compatibility\ that\ may\ be\ removed\ in\ the\ newer\ versions}
+\DoxyCodeLine{\ \ transitional:\ \{}
+\DoxyCodeLine{\ \ \ \ //\ silent\ JSON\ parsing\ mode}
+\DoxyCodeLine{\ \ \ \ //\ \`{}true`\ \ -\/\ ignore\ JSON\ parsing\ errors\ and\ set\ response.data\ to\ null\ if\ parsing\ failed\ (old\ behaviour)}
+\DoxyCodeLine{\ \ \ \ //\ \`{}false`\ -\/\ throw\ SyntaxError\ if\ JSON\ parsing\ failed\ (Note:\ responseType\ must\ be\ set\ to\ 'json')}
+\DoxyCodeLine{\ \ \ \ silentJSONParsing:\ true,\ //\ default\ value\ for\ the\ current\ Axios\ version}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ try\ to\ parse\ the\ response\ string\ as\ JSON\ even\ if\ \`{}responseType`\ is\ not\ 'json'}
+\DoxyCodeLine{\ \ \ \ forcedJSONParsing:\ true,}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ //\ throw\ ETIMEDOUT\ error\ instead\ of\ generic\ ECONNABORTED\ on\ request\ timeouts}
+\DoxyCodeLine{\ \ \ \ clarifyTimeoutError:\ false,}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2724}{}\doxysubsection{\texorpdfstring{Response Schema}{Response Schema}}\label{README.md_autotoc_md2724}
+The response for a request contains the following information.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ //\ \`{}data`\ is\ the\ response\ that\ was\ provided\ by\ the\ server}
+\DoxyCodeLine{\ \ data:\ \{\},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}status`\ is\ the\ HTTP\ status\ code\ from\ the\ server\ response}
+\DoxyCodeLine{\ \ status:\ 200,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}statusText`\ is\ the\ HTTP\ status\ message\ from\ the\ server\ response}
+\DoxyCodeLine{\ \ statusText:\ 'OK',}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}headers`\ the\ HTTP\ headers\ that\ the\ server\ responded\ with}
+\DoxyCodeLine{\ \ //\ All\ header\ names\ are\ lower\ cased\ and\ can\ be\ accessed\ using\ the\ bracket\ notation.}
+\DoxyCodeLine{\ \ //\ Example:\ \`{}response.headers['content-\/type']`}
+\DoxyCodeLine{\ \ headers:\ \{\},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}config`\ is\ the\ config\ that\ was\ provided\ to\ \`{}axios`\ for\ the\ request}
+\DoxyCodeLine{\ \ config:\ \{\},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ \`{}request`\ is\ the\ request\ that\ generated\ this\ response}
+\DoxyCodeLine{\ \ //\ It\ is\ the\ last\ ClientRequest\ instance\ in\ node.js\ (in\ redirects)}
+\DoxyCodeLine{\ \ //\ and\ an\ XMLHttpRequest\ instance\ in\ the\ browser}
+\DoxyCodeLine{\ \ request:\ \{\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+When using {\ttfamily then}, you will receive the response as follows\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{axios.get('/user/12345')}
+\DoxyCodeLine{\ \ .then(function\ (response)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(response.data);}
+\DoxyCodeLine{\ \ \ \ console.log(response.status);}
+\DoxyCodeLine{\ \ \ \ console.log(response.statusText);}
+\DoxyCodeLine{\ \ \ \ console.log(response.headers);}
+\DoxyCodeLine{\ \ \ \ console.log(response.config);}
+\DoxyCodeLine{\ \ \});}
+
+\end{DoxyCode}
+
+
+When using {\ttfamily catch}, or passing a \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then}{\texttt{ rejection callback}} as second parameter of {\ttfamily then}, the response will be available through the {\ttfamily error} object as explained in the Handling Errors section.\hypertarget{README.md_autotoc_md2725}{}\doxysubsection{\texorpdfstring{Config Defaults}{Config Defaults}}\label{README.md_autotoc_md2725}
+You can specify config defaults that will be applied to every request.\hypertarget{README.md_autotoc_md2726}{}\doxysubsubsection{\texorpdfstring{Global axios defaults}{Global axios defaults}}\label{README.md_autotoc_md2726}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{axios.defaults.baseURL\ =\ 'https://api.example.com';}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Important:\ If\ axios\ is\ used\ with\ multiple\ domains,\ the\ AUTH\_TOKEN\ will\ be\ sent\ to\ all\ of\ them.}
+\DoxyCodeLine{//\ See\ below\ for\ an\ example\ using\ Custom\ instance\ defaults\ instead.}
+\DoxyCodeLine{axios.defaults.headers.common['Authorization']\ =\ AUTH\_TOKEN;}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.defaults.headers.post['Content-\/Type']\ =\ 'application/x-\/www-\/form-\/urlencoded';}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2727}{}\doxysubsubsection{\texorpdfstring{Custom instance defaults}{Custom instance defaults}}\label{README.md_autotoc_md2727}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Set\ config\ defaults\ when\ creating\ the\ instance}
+\DoxyCodeLine{const\ instance\ =\ axios.create(\{}
+\DoxyCodeLine{\ \ baseURL:\ 'https://api.example.com'}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Alter\ defaults\ after\ instance\ has\ been\ created}
+\DoxyCodeLine{instance.defaults.headers.common['Authorization']\ =\ AUTH\_TOKEN;}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2728}{}\doxysubsubsection{\texorpdfstring{Config order of precedence}{Config order of precedence}}\label{README.md_autotoc_md2728}
+Config will be merged with an order of precedence. The order is library defaults found in \href{https://github.com/axios/axios/blob/master/lib/defaults.js\#L28}{\texttt{ lib/defaults.\+js}}, then {\ttfamily defaults} property of the instance, and finally {\ttfamily config} argument for the request. The latter will take precedence over the former. Here\textquotesingle{}s an example.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Create\ an\ instance\ using\ the\ config\ defaults\ provided\ by\ the\ library}
+\DoxyCodeLine{//\ At\ this\ point\ the\ timeout\ config\ value\ is\ \`{}0`\ as\ is\ the\ default\ for\ the\ library}
+\DoxyCodeLine{const\ instance\ =\ axios.create();}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Override\ timeout\ default\ for\ the\ library}
+\DoxyCodeLine{//\ Now\ all\ requests\ using\ this\ instance\ will\ wait\ 2.5\ seconds\ before\ timing\ out}
+\DoxyCodeLine{instance.defaults.timeout\ =\ 2500;}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Override\ timeout\ for\ this\ request\ as\ it's\ known\ to\ take\ a\ long\ time}
+\DoxyCodeLine{instance.get('/longRequest',\ \{}
+\DoxyCodeLine{\ \ timeout:\ 5000}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2729}{}\doxysubsection{\texorpdfstring{Interceptors}{Interceptors}}\label{README.md_autotoc_md2729}
+You can intercept requests or responses before they are handled by {\ttfamily then} or {\ttfamily catch}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Add\ a\ request\ interceptor}
+\DoxyCodeLine{axios.interceptors.request.use(function\ (config)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Do\ something\ before\ request\ is\ sent}
+\DoxyCodeLine{\ \ \ \ return\ config;}
+\DoxyCodeLine{\ \ \},\ function\ (error)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Do\ something\ with\ request\ error}
+\DoxyCodeLine{\ \ \ \ return\ Promise.reject(error);}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Add\ a\ response\ interceptor}
+\DoxyCodeLine{axios.interceptors.response.use(function\ (response)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Any\ status\ code\ that\ lie\ within\ the\ range\ of\ 2xx\ cause\ this\ function\ to\ trigger}
+\DoxyCodeLine{\ \ \ \ //\ Do\ something\ with\ response\ data}
+\DoxyCodeLine{\ \ \ \ return\ response;}
+\DoxyCodeLine{\ \ \},\ function\ (error)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ Any\ status\ codes\ that\ falls\ outside\ the\ range\ of\ 2xx\ cause\ this\ function\ to\ trigger}
+\DoxyCodeLine{\ \ \ \ //\ Do\ something\ with\ response\ error}
+\DoxyCodeLine{\ \ \ \ return\ Promise.reject(error);}
+\DoxyCodeLine{\ \ \});}
+
+\end{DoxyCode}
+
+
+If you need to remove an interceptor later you can.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ myInterceptor\ =\ axios.interceptors.request.use(function\ ()\ \{/*...*/\});}
+\DoxyCodeLine{axios.interceptors.request.eject(myInterceptor);}
+
+\end{DoxyCode}
+
+
+You can add interceptors to a custom instance of axios.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ instance\ =\ axios.create();}
+\DoxyCodeLine{instance.interceptors.request.use(function\ ()\ \{/*...*/\});}
+
+\end{DoxyCode}
+
+
+When you add request interceptors, they are presumed to be asynchronous by default. This can cause a delay in the execution of your axios request when the main thread is blocked (a promise is created under the hood for the interceptor and your request gets put on the bottom of the call stack). If your request interceptors are synchronous you can add a flag to the options object that will tell axios to run the code synchronously and avoid any delays in request execution.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{axios.interceptors.request.use(function\ (config)\ \{}
+\DoxyCodeLine{\ \ config.headers.test\ =\ 'I\ am\ only\ a\ header!';}
+\DoxyCodeLine{\ \ return\ config;}
+\DoxyCodeLine{\},\ null,\ \{\ synchronous:\ true\ \});}
+
+\end{DoxyCode}
+
+
+If you want to execute a particular interceptor based on a runtime check, you can add a {\ttfamily run\+When} function to the options object. The interceptor will not be executed {\bfseries{if and only if}} the return of {\ttfamily run\+When} is {\ttfamily false}. The function will be called with the config object (don\textquotesingle{}t forget that you can bind your own arguments to it as well.) This can be handy when you have an asynchronous request interceptor that only needs to run at certain times.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{function\ onGetCall(config)\ \{}
+\DoxyCodeLine{\ \ return\ config.method\ ===\ 'get';}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{axios.interceptors.request.use(function\ (config)\ \{}
+\DoxyCodeLine{\ \ config.headers.test\ =\ 'special\ get\ headers';}
+\DoxyCodeLine{\ \ return\ config;}
+\DoxyCodeLine{\},\ null,\ \{\ runWhen:\ onGetCall\ \});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2730}{}\doxysubsection{\texorpdfstring{Handling Errors}{Handling Errors}}\label{README.md_autotoc_md2730}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{axios.get('/user/12345')}
+\DoxyCodeLine{\ \ .catch(function\ (error)\ \{}
+\DoxyCodeLine{\ \ \ \ if\ (error.response)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ The\ request\ was\ made\ and\ the\ server\ responded\ with\ a\ status\ code}
+\DoxyCodeLine{\ \ \ \ \ \ //\ that\ falls\ out\ of\ the\ range\ of\ 2xx}
+\DoxyCodeLine{\ \ \ \ \ \ console.log(error.response.data);}
+\DoxyCodeLine{\ \ \ \ \ \ console.log(error.response.status);}
+\DoxyCodeLine{\ \ \ \ \ \ console.log(error.response.headers);}
+\DoxyCodeLine{\ \ \ \ \}\ else\ if\ (error.request)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ The\ request\ was\ made\ but\ no\ response\ was\ received}
+\DoxyCodeLine{\ \ \ \ \ \ //\ \`{}error.request`\ is\ an\ instance\ of\ XMLHttpRequest\ in\ the\ browser\ and\ an\ instance\ of}
+\DoxyCodeLine{\ \ \ \ \ \ //\ http.ClientRequest\ in\ node.js}
+\DoxyCodeLine{\ \ \ \ \ \ console.log(error.request);}
+\DoxyCodeLine{\ \ \ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ Something\ happened\ in\ setting\ up\ the\ request\ that\ triggered\ an\ Error}
+\DoxyCodeLine{\ \ \ \ \ \ console.log('Error',\ error.message);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ console.log(error.config);}
+\DoxyCodeLine{\ \ \});}
+
+\end{DoxyCode}
+
+
+Using the {\ttfamily validate\+Status} config option, you can define HTTP code(s) that should throw an error.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{axios.get('/user/12345',\ \{}
+\DoxyCodeLine{\ \ validateStatus:\ function\ (status)\ \{}
+\DoxyCodeLine{\ \ \ \ return\ status\ <\ 500;\ //\ Resolve\ only\ if\ the\ status\ code\ is\ less\ than\ 500}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+Using {\ttfamily to\+JSON} you get an object with more information about the HTTP error.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{axios.get('/user/12345')}
+\DoxyCodeLine{\ \ .catch(function\ (error)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(error.toJSON());}
+\DoxyCodeLine{\ \ \});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2731}{}\doxysubsection{\texorpdfstring{Cancellation}{Cancellation}}\label{README.md_autotoc_md2731}
+You can cancel a request using a {\itshape cancel token}.
+
+\begin{quote}
+The axios cancel token API is based on the withdrawn \href{https://github.com/tc39/proposal-cancelable-promises}{\texttt{ cancelable promises proposal}}. \end{quote}
+
+
+You can create a cancel token using the {\ttfamily Cancel\+Token.\+source} factory as shown below\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ CancelToken\ =\ axios.CancelToken;}
+\DoxyCodeLine{const\ source\ =\ CancelToken.source();}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.get('/user/12345',\ \{}
+\DoxyCodeLine{\ \ cancelToken:\ source.token}
+\DoxyCodeLine{\}).catch(function\ (thrown)\ \{}
+\DoxyCodeLine{\ \ if\ (axios.isCancel(thrown))\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('Request\ canceled',\ thrown.message);}
+\DoxyCodeLine{\ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ //\ handle\ error}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.post('/user/12345',\ \{}
+\DoxyCodeLine{\ \ name:\ 'new\ name'}
+\DoxyCodeLine{\},\ \{}
+\DoxyCodeLine{\ \ cancelToken:\ source.token}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ cancel\ the\ request\ (the\ message\ parameter\ is\ optional)}
+\DoxyCodeLine{source.cancel('Operation\ canceled\ by\ the\ user.');}
+
+\end{DoxyCode}
+
+
+You can also create a cancel token by passing an executor function to the {\ttfamily Cancel\+Token} constructor\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ CancelToken\ =\ axios.CancelToken;}
+\DoxyCodeLine{let\ cancel;}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.get('/user/12345',\ \{}
+\DoxyCodeLine{\ \ cancelToken:\ new\ CancelToken(function\ executor(c)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ An\ executor\ function\ receives\ a\ cancel\ function\ as\ a\ parameter}
+\DoxyCodeLine{\ \ \ \ cancel\ =\ c;}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ cancel\ the\ request}
+\DoxyCodeLine{cancel();}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+Note\+: you can cancel several requests with the same cancel token. If a cancellation token is already cancelled at the moment of starting an Axios request, then the request is cancelled immediately, without any attempts to make real request. \end{quote}
+\hypertarget{README.md_autotoc_md2732}{}\doxysubsection{\texorpdfstring{Using application/x-\/www-\/form-\/urlencoded format}{Using application/x-\/www-\/form-\/urlencoded format}}\label{README.md_autotoc_md2732}
+By default, axios serializes Java\+Script objects to {\ttfamily JSON}. To send data in the {\ttfamily application/x-\/www-\/form-\/urlencoded} format instead, you can use one of the following options.\hypertarget{README.md_autotoc_md2733}{}\doxysubsubsection{\texorpdfstring{Browser}{Browser}}\label{README.md_autotoc_md2733}
+In a browser, you can use the \href{https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams}{\texttt{ {\ttfamily URLSearch\+Params}}} API as follows\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ params\ =\ new\ URLSearchParams();}
+\DoxyCodeLine{params.append('param1',\ 'value1');}
+\DoxyCodeLine{params.append('param2',\ 'value2');}
+\DoxyCodeLine{axios.post('/foo',\ params);}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+Note that {\ttfamily URLSearch\+Params} is not supported by all browsers (see \href{http://www.caniuse.com/\#feat=urlsearchparams}{\texttt{ caniuse.\+com}}), but there is a \href{https://github.com/WebReflection/url-search-params}{\texttt{ polyfill}} available (make sure to polyfill the global environment). \end{quote}
+
+
+Alternatively, you can encode data using the \href{https://github.com/ljharb/qs}{\texttt{ {\ttfamily qs}}} library\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ qs\ =\ require('qs');}
+\DoxyCodeLine{axios.post('/foo',\ qs.stringify(\{\ 'bar':\ 123\ \}));}
+
+\end{DoxyCode}
+
+
+Or in another way (ES6),
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ qs\ from\ 'qs';}
+\DoxyCodeLine{const\ data\ =\ \{\ 'bar':\ 123\ \};}
+\DoxyCodeLine{const\ options\ =\ \{}
+\DoxyCodeLine{\ \ method:\ 'POST',}
+\DoxyCodeLine{\ \ headers:\ \{\ 'content-\/type':\ 'application/x-\/www-\/form-\/urlencoded'\ \},}
+\DoxyCodeLine{\ \ data:\ qs.stringify(data),}
+\DoxyCodeLine{\ \ url,}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{axios(options);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2734}{}\doxysubsubsection{\texorpdfstring{Node.\+js}{Node.\+js}}\label{README.md_autotoc_md2734}
+\hypertarget{README.md_autotoc_md2735}{}\doxysubsubsubsection{\texorpdfstring{Query string}{Query string}}\label{README.md_autotoc_md2735}
+In node.\+js, you can use the \href{https://nodejs.org/api/querystring.html}{\texttt{ {\ttfamily querystring}}} module as follows\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ querystring\ =\ require('querystring');}
+\DoxyCodeLine{axios.post('http://something.com/',\ querystring.stringify(\{\ foo:\ 'bar'\ \}));}
+
+\end{DoxyCode}
+
+
+or \href{https://nodejs.org/api/url.html\#url_class_urlsearchparams}{\texttt{ \textquotesingle{}URLSearch\+Params\textquotesingle{}}} from \href{https://nodejs.org/api/url.html}{\texttt{ \textquotesingle{}url module\textquotesingle{}}} as follows\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ url\ =\ require('url');}
+\DoxyCodeLine{const\ params\ =\ new\ url.URLSearchParams(\{\ foo:\ 'bar'\ \});}
+\DoxyCodeLine{axios.post('http://something.com/',\ params.toString());}
+
+\end{DoxyCode}
+
+
+You can also use the \href{https://github.com/ljharb/qs}{\texttt{ {\ttfamily qs}}} library.\hypertarget{README.md_autotoc_md2736}{}\doxysubsubsubsubsubsection{\texorpdfstring{NOTE}{NOTE}}\label{README.md_autotoc_md2736}
+The {\ttfamily qs} library is preferable if you need to stringify nested objects, as the {\ttfamily querystring} method has known issues with that use case (\href{https://github.com/nodejs/node-v0.x-archive/issues/1665}{\texttt{ https\+://github.\+com/nodejs/node-\/v0.\+x-\/archive/issues/1665}}).\hypertarget{README.md_autotoc_md2737}{}\doxysubsubsubsection{\texorpdfstring{Form data}{Form data}}\label{README.md_autotoc_md2737}
+In node.\+js, you can use the \href{https://github.com/form-data/form-data}{\texttt{ {\ttfamily form-\/data}}} library as follows\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ FormData\ =\ require('form-\/data');}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{const\ form\ =\ new\ FormData();}
+\DoxyCodeLine{form.append('my\_field',\ 'my\ value');}
+\DoxyCodeLine{form.append('my\_buffer',\ new\ Buffer(10));}
+\DoxyCodeLine{form.append('my\_file',\ fs.createReadStream('/foo/bar.jpg'));}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.post('https://example.com',\ form,\ \{\ headers:\ form.getHeaders()\ \})}
+
+\end{DoxyCode}
+
+
+Alternatively, use an interceptor\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{axios.interceptors.request.use(config\ =>\ \{}
+\DoxyCodeLine{\ \ if\ (config.data\ instanceof\ FormData)\ \{}
+\DoxyCodeLine{\ \ \ \ Object.assign(config.headers,\ config.data.getHeaders());}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ return\ config;}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2738}{}\doxysubsection{\texorpdfstring{Semver}{Semver}}\label{README.md_autotoc_md2738}
+Until axios reaches a {\ttfamily 1.\+0} release, breaking changes will be released with a new minor version. For example {\ttfamily 0.\+5.\+1}, and {\ttfamily 0.\+5.\+4} will have the same API, but {\ttfamily 0.\+6.\+0} will have breaking changes.\hypertarget{README.md_autotoc_md2739}{}\doxysubsection{\texorpdfstring{Promises}{Promises}}\label{README.md_autotoc_md2739}
+axios depends on a native ES6 Promise implementation to be \href{http://caniuse.com/promises}{\texttt{ supported}}. If your environment doesn\textquotesingle{}t support ES6 Promises, you can \href{https://github.com/jakearchibald/es6-promise}{\texttt{ polyfill}}.\hypertarget{README.md_autotoc_md2740}{}\doxysubsection{\texorpdfstring{Type\+Script}{Type\+Script}}\label{README.md_autotoc_md2740}
+axios includes \href{http://typescriptlang.org}{\texttt{ Type\+Script}} definitions and a type guard for axios errors.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{let\ user:\ User\ =\ null;}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ const\ \{\ data\ \}\ =\ await\ axios.get('/user?ID=12345');}
+\DoxyCodeLine{\ \ user\ =\ data.userDetails;}
+\DoxyCodeLine{\}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ if\ (axios.isAxiosError(error))\ \{}
+\DoxyCodeLine{\ \ \ \ handleAxiosError(error);}
+\DoxyCodeLine{\ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ handleUnexpectedError(error);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2741}{}\doxysubsection{\texorpdfstring{Online one-\/click setup}{Online one-\/click setup}}\label{README.md_autotoc_md2741}
+You can use Gitpod an online IDE(which is free for Open Source) for contributing or running the examples online.
+
+\href{https://gitpod.io/\#https://github.com/axios/axios/blob/master/examples/server.js}{\texttt{ }}\hypertarget{README.md_autotoc_md2742}{}\doxysubsection{\texorpdfstring{Resources}{Resources}}\label{README.md_autotoc_md2742}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/axios/axios/blob/master/CHANGELOG.md}{\texttt{ Changelog}}
+\item \href{https://github.com/axios/axios/blob/master/UPGRADE_GUIDE.md}{\texttt{ Upgrade Guide}}
+\item \href{https://github.com/axios/axios/blob/master/ECOSYSTEM.md}{\texttt{ Ecosystem}}
+\item \href{https://github.com/axios/axios/blob/master/CONTRIBUTING.md}{\texttt{ Contributing Guide}}
+\item \href{https://github.com/axios/axios/blob/master/CODE_OF_CONDUCT.md}{\texttt{ Code of Conduct}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md2743}{}\doxysubsection{\texorpdfstring{Credits}{Credits}}\label{README.md_autotoc_md2743}
+axios is heavily inspired by the \href{https://docs.angularjs.org/api/ng/service/$http}{\texttt{ \$http service}} provided in \href{https://angularjs.org/}{\texttt{ Angular}}. Ultimately axios is an effort to provide a standalone {\ttfamily \$http}-\/like service for use outside of Angular.\hypertarget{README.md_autotoc_md2744}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md2744}
+\mbox{[}MIT\mbox{]}(LICENSE) 

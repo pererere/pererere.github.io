@@ -1,0 +1,24 @@
+\chapter{ensure\+File\+Sync(file)}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_file-sync}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_file-sync}\index{ensureFileSync(file)@{ensureFileSync(file)}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_file-sync_autotoc_md8260}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_file-sync_autotoc_md8260}%
+
+
+Ensures that the file exists. If the file that is requested to be created is in directories that do not exist, these directories are created. If the file already exists, it is {\bfseries{NOT MODIFIED}}.
+
+{\bfseries{Alias\+:}} {\ttfamily create\+File\+Sync()}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily file} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_file-sync_autotoc_md8261}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_file-sync_autotoc_md8261}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ file\ =\ '/tmp/this/path/does/not/exist/file.txt'}
+\DoxyCodeLine{fs.ensureFileSync(file)}
+\DoxyCodeLine{//\ file\ has\ now\ been\ created,\ including\ the\ directory\ it\ is\ to\ be\ placed\ in}
+
+\end{DoxyCode}
+ 

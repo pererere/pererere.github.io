@@ -1,0 +1,100 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@webassemblyjs/wasm-\/edit Directory Reference}
+\hypertarget{dir_7c1c82c317499fa7c08b10300822decf}{}\label{dir_7c1c82c317499fa7c08b10300822decf}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@webassemblyjs/wasm-\/edit Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@webassemblyjs/wasm-\/edit Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Rewrite a WASM binary \end{quote}
+
+
+Replace in-\/place an AST node in the binary.\hypertarget{README.md_autotoc_md2002}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md2002}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn\ add\ @webassemblyjs/wasm-\/edit}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2003}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md2003}
+Update\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ edit\ \}\ from\ "{}@webassemblyjs/wasm-\/edit"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ binary\ =\ [/*...*/];}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ visitors\ =\ \{}
+\DoxyCodeLine{\ \ ModuleImport(\{\ node\ \})\ \{}
+\DoxyCodeLine{\ \ \ \ node.module\ =\ "{}foo"{};}
+\DoxyCodeLine{\ \ \ \ node.name\ =\ "{}bar"{};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ newBinary\ =\ edit(binary,\ visitors);}
+
+\end{DoxyCode}
+
+
+Replace\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ edit\ \}\ from\ "{}@webassemblyjs/wasm-\/edit"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ binary\ =\ [/*...*/];}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ visitors\ =\ \{}
+\DoxyCodeLine{\ \ Instr(path)\ \{}
+\DoxyCodeLine{\ \ \ \ const\ newNode\ =\ t.callInstruction(t.indexLiteral(0));}
+\DoxyCodeLine{\ \ \ \ path.replaceWith(newNode);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ newBinary\ =\ edit(binary,\ visitors);}
+
+\end{DoxyCode}
+
+
+Remove\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ edit\ \}\ from\ "{}@webassemblyjs/wasm-\/edit"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ binary\ =\ [/*...*/];}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ visitors\ =\ \{}
+\DoxyCodeLine{\ \ ModuleExport(\{\ node\ \})\ \{}
+\DoxyCodeLine{\ \ \ \ path.remove()}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ newBinary\ =\ edit(binary,\ visitors);}
+
+\end{DoxyCode}
+
+
+Insert\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ add\ \}\ from\ "{}@webassemblyjs/wasm-\/edit"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ binary\ =\ [/*...*/];}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ newBinary\ =\ add(actualBinary,\ [}
+\DoxyCodeLine{\ \ t.moduleImport("{}env"{},\ "{}mem"{},\ t.memory(t.limit(1)))}
+\DoxyCodeLine{]);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2004}{}\doxysubsection{\texorpdfstring{Providing the AST}{Providing the AST}}\label{README.md_autotoc_md2004}
+Providing an AST allows you to handle the decoding yourself, here is the API\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{addWithAST(Program,\ ArrayBuffer,\ Array<Node>):\ ArrayBuffer;}
+\DoxyCodeLine{editWithAST(Program,\ ArrayBuffer,\ visitors):\ ArrayBuffer;}
+
+\end{DoxyCode}
+
+
+Note that the AST will be updated in-\/place. 

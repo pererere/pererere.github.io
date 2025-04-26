@@ -1,0 +1,62 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/clean-\/stack Directory Reference}
+\hypertarget{dir_3eb91039328a966939d647b747428e49}{}\label{dir_3eb91039328a966939d647b747428e49}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/clean-\/stack Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/clean-\/stack Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Clean up error stack traces \end{quote}
+
+
+Removes the mostly unhelpful internal Node.\+js entries.
+
+Also works in Electron.\hypertarget{readme.md_autotoc_md3984}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md3984}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ clean-\/stack}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3985}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md3985}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ cleanStack\ =\ require('clean-\/stack');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ error\ =\ new\ Error('Missing\ unicorn');}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(error.stack);}
+\DoxyCodeLine{/*}
+\DoxyCodeLine{Error:\ Missing\ unicorn}
+\DoxyCodeLine{\ \ \ \ at\ Object.<anonymous>\ (/Users/sindresorhus/dev/clean-\/stack/unicorn.js:2:15)}
+\DoxyCodeLine{\ \ \ \ at\ Module.\_compile\ (module.js:409:26)}
+\DoxyCodeLine{\ \ \ \ at\ Object.Module.\_extensions..js\ (module.js:416:10)}
+\DoxyCodeLine{\ \ \ \ at\ Module.load\ (module.js:343:32)}
+\DoxyCodeLine{\ \ \ \ at\ Function.Module.\_load\ (module.js:300:12)}
+\DoxyCodeLine{\ \ \ \ at\ Function.Module.runMain\ (module.js:441:10)}
+\DoxyCodeLine{\ \ \ \ at\ startup\ (node.js:139:18)}
+\DoxyCodeLine{*/}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(cleanStack(error.stack));}
+\DoxyCodeLine{/*}
+\DoxyCodeLine{Error:\ Missing\ unicorn}
+\DoxyCodeLine{\ \ \ \ at\ Object.<anonymous>\ (/Users/sindresorhus/dev/clean-\/stack/unicorn.js:2:15)}
+\DoxyCodeLine{*/}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3986}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md3986}
+\hypertarget{readme.md_autotoc_md3987}{}\doxysubsubsection{\texorpdfstring{clean\+Stack(stack, \mbox{[}options\mbox{]})}{clean\+Stack(stack, \mbox{[}options\mbox{]})}}\label{readme.md_autotoc_md3987}
+\hypertarget{readme.md_autotoc_md3988}{}\doxysubsubsubsection{\texorpdfstring{stack}{stack}}\label{readme.md_autotoc_md3988}
+Type\+: {\ttfamily string}
+
+The {\ttfamily stack} property of an {\ttfamily Error}.\hypertarget{readme.md_autotoc_md3989}{}\doxysubsubsubsection{\texorpdfstring{options}{options}}\label{readme.md_autotoc_md3989}
+Type\+: {\ttfamily Object}\hypertarget{readme.md_autotoc_md3990}{}\doxysubsubsubsubsection{\texorpdfstring{pretty}{pretty}}\label{readme.md_autotoc_md3990}
+Type\+: {\ttfamily boolean}~\newline
+ Default\+: {\ttfamily false}
+
+Prettify the file paths in the stack\+:
+
+{\ttfamily /\+Users/sindresorhus/dev/clean-\/stack/unicorn.js\+:2\+:15} → {\ttfamily \texorpdfstring{$\sim$}{\string~}/dev/clean-\/stack/unicorn.js\+:2\+:15}\hypertarget{readme.md_autotoc_md3991}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{readme.md_autotoc_md3991}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/extract-stack}{\texttt{ extrack-\/stack}} -\/ Extract the actual stack of an error
+\item \href{https://github.com/tapjs/stack-utils}{\texttt{ stack-\/utils}} -\/ Captures and cleans stack traces
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md3992}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md3992}
+MIT © \href{https://sindresorhus.com}{\texttt{ Sindre Sorhus}} 

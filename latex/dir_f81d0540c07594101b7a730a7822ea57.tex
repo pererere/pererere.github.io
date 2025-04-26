@@ -1,0 +1,79 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@jridgewell/source-\/map Directory Reference}
+\hypertarget{dir_f81d0540c07594101b7a730a7822ea57}{}\label{dir_f81d0540c07594101b7a730a7822ea57}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@jridgewell/source-\/map Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@jridgewell/source-\/map Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Packages {\ttfamily @jridgewell/trace-\/mapping} and {\ttfamily @jridgewell/gen-\/mapping} into the familiar source-\/map API \end{quote}
+
+
+This isn\textquotesingle{}t the full API, but it\textquotesingle{}s the core functionality. This wraps \href{https://github.com/jridgewell/trace-mapping/}{\texttt{ @jridgewell/trace-\/mapping}} and \href{https://github.com/jridgewell/gen-mapping/}{\texttt{ @jridgewell/gen-\/mapping}} implementations.\hypertarget{README.md_autotoc_md1276}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md1276}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ @jridgewell/source-\/map}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1277}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md1277}
+TODO\hypertarget{README.md_autotoc_md1278}{}\doxysubsubsection{\texorpdfstring{Source\+Map\+Consumer}{Source\+Map\+Consumer}}\label{README.md_autotoc_md1278}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ SourceMapConsumer\ \}\ from\ '@jridgewell/source-\/map';}
+\DoxyCodeLine{const\ smc\ =\ new\ SourceMapConsumer(\{}
+\DoxyCodeLine{\ \ version:\ 3,}
+\DoxyCodeLine{\ \ names:\ ['foo'],}
+\DoxyCodeLine{\ \ sources:\ ['input.js'],}
+\DoxyCodeLine{\ \ mappings:\ 'AAAAA',}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1279}{}\doxysubsubsubsection{\texorpdfstring{Source\+Map\+Consumer.\+prototype.\+original\+Position\+For(generated\+Position)}{Source\+Map\+Consumer.\+prototype.\+original\+Position\+For(generated\+Position)}}\label{README.md_autotoc_md1279}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ smc\ =\ new\ SourceMapConsumer(map);}
+\DoxyCodeLine{smc.originalPositionFor(\{\ line:\ 1,\ column:\ 0\ \});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1280}{}\doxysubsubsection{\texorpdfstring{Source\+Map\+Generator}{Source\+Map\+Generator}}\label{README.md_autotoc_md1280}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ SourceMapGenerator\ \}\ from\ '@jridgewell/source-\/map';}
+\DoxyCodeLine{const\ smg\ =\ new\ SourceMapGenerator(\{}
+\DoxyCodeLine{\ \ file:\ 'output.js',}
+\DoxyCodeLine{\ \ sourceRoot:\ 'https://example.com/',}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1281}{}\doxysubsubsubsection{\texorpdfstring{Source\+Map\+Generator.\+prototype.\+add\+Mapping(mapping)}{Source\+Map\+Generator.\+prototype.\+add\+Mapping(mapping)}}\label{README.md_autotoc_md1281}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ smg\ =\ new\ SourceMapGenerator();}
+\DoxyCodeLine{smg.addMapping(\{}
+\DoxyCodeLine{\ \ generated:\ \{\ line:\ 1,\ column:\ 0\ \},}
+\DoxyCodeLine{\ \ source:\ 'input.js',}
+\DoxyCodeLine{\ \ original:\ \{\ line:\ 1,\ column:\ 0\ \},}
+\DoxyCodeLine{\ \ name:\ 'foo',}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1282}{}\doxysubsubsubsection{\texorpdfstring{Source\+Map\+Generator.\+prototype.\+set\+Source\+Content(source\+File, source\+Content)}{Source\+Map\+Generator.\+prototype.\+set\+Source\+Content(source\+File, source\+Content)}}\label{README.md_autotoc_md1282}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ smg\ =\ new\ SourceMapGenerator();}
+\DoxyCodeLine{smg.setSourceContent('input.js',\ 'foobar');}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1283}{}\doxysubsubsubsection{\texorpdfstring{Source\+Map\+Generator.\+prototype.\+to\+JSON()}{Source\+Map\+Generator.\+prototype.\+to\+JSON()}}\label{README.md_autotoc_md1283}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ smg\ =\ new\ SourceMapGenerator();}
+\DoxyCodeLine{smg.toJSON();\ //\ \{\ version:\ 3,\ names:\ [],\ sources:\ [],\ mappings:\ ''\ \}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1284}{}\doxysubsubsubsection{\texorpdfstring{Source\+Map\+Generator.\+prototype.\+to\+Decoded\+Map()}{Source\+Map\+Generator.\+prototype.\+to\+Decoded\+Map()}}\label{README.md_autotoc_md1284}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ smg\ =\ new\ SourceMapGenerator();}
+\DoxyCodeLine{smg.toDecodedMap();\ //\ \{\ version:\ 3,\ names:\ [],\ sources:\ [],\ mappings:\ []\ \}}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,201 @@
+\doxysection{Food\+Link.\+Server.\+Controllers.\+Recipes\+Controller Class Reference}
+\hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller}{}\label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller}\index{FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}}
+
+
+Controller responsible for managing recipes.  
+
+
+Inheritance diagram for Food\+Link.\+Server.\+Controllers.\+Recipes\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a2e3fbbb8cec78489d8d15bb205cdcaa6}{Recipes\+Controller}} (\mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}} context, User\+Manager$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_application_user}{Application\+User}} $>$ user\+Manager, \mbox{\hyperlink{interface_food_link_1_1_server_1_1_services_1_1_i_pixabay_service}{IPixabay\+Service}} pixabay\+Service)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller}{Recipes\+Controller} class. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ IEnumerable$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}} $>$ $>$ $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a4874953314b821effee81ddfa7b13fe9}{Get\+Recipes}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all recipes. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ IEnumerable$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}} $>$ $>$ $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_af9e39f9b5e0e6c2baaf5140e0eaf021b}{Get\+Recipes\+Search}} (\mbox{[}From\+Query\mbox{]} string title="{}"{}, \mbox{[}From\+Query\mbox{]} bool order\+Recent=false)
+\begin{DoxyCompactList}\small\item\em Searches for recipes based on title and optional sorting by recent creation date. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}} $>$ $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a137ca70975cb7baceb670e0226fd362b}{Get\+Recipe}} (int id)
+\begin{DoxyCompactList}\small\item\em Retrieves a specific recipe by its ID. \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}} $>$ $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_ab886263a688f4971c10bc6dbfc2096d3}{Post\+Recipe}} (\mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}} recipe)
+\begin{DoxyCompactList}\small\item\em Creates a new recipe. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_abac610ec5e8ef8e046c9f70eabaae510}{Delete\+Recipe}} (int id)
+\begin{DoxyCompactList}\small\item\em Deletes a recipe by its ID. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a5bfce4ef2ea94ddf26d36b3201ac98f6}{Put\+Recipe}} (int id, \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}} recipe)
+\begin{DoxyCompactList}\small\item\em Updates an existing recipe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a73a8705105d6881359c474cdc4880947}{Recipe\+Exists}} (int id)
+\begin{DoxyCompactList}\small\item\em Checks if a recipe exists by its ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a61217be4dbd3cbb419256e4ad8903f85}\label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a61217be4dbd3cbb419256e4ad8903f85} 
+readonly \mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}} {\bfseries \+\_\+context}
+\item 
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_acb8b3e0ec92fda5ee80ae71ccd2c0651}\label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_acb8b3e0ec92fda5ee80ae71ccd2c0651} 
+readonly User\+Manager$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_application_user}{Application\+User}} $>$ {\bfseries \+\_\+user\+Manager}
+\item 
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_ac49464a69f774324fe8ad447a48e8a53}\label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_ac49464a69f774324fe8ad447a48e8a53} 
+readonly \mbox{\hyperlink{interface_food_link_1_1_server_1_1_services_1_1_i_pixabay_service}{IPixabay\+Service}} {\bfseries \+\_\+pixabay\+Service}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller responsible for managing recipes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a2e3fbbb8cec78489d8d15bb205cdcaa6}\index{FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}!RecipesController@{RecipesController}}
+\index{RecipesController@{RecipesController}!FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}}
+\doxysubsubsection{\texorpdfstring{RecipesController()}{RecipesController()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a2e3fbbb8cec78489d8d15bb205cdcaa6} 
+Food\+Link.\+Server.\+Controllers.\+Recipes\+Controller.\+Recipes\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}}}]{context}{, }\item[{User\+Manager$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_application_user}{Application\+User}} $>$}]{user\+Manager}{, }\item[{\mbox{\hyperlink{interface_food_link_1_1_server_1_1_services_1_1_i_pixabay_service}{IPixabay\+Service}}}]{pixabay\+Service}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller}{Recipes\+Controller} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The database context for accessing recipe data.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_abac610ec5e8ef8e046c9f70eabaae510}\index{FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}!DeleteRecipe@{DeleteRecipe}}
+\index{DeleteRecipe@{DeleteRecipe}!FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}}
+\doxysubsubsection{\texorpdfstring{DeleteRecipe()}{DeleteRecipe()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_abac610ec5e8ef8e046c9f70eabaae510} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+Recipes\+Controller.\+Delete\+Recipe (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Deletes a recipe by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the recipe to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result indicating the result of the deletion.
+\end{DoxyReturn}
+$<$response code="{}204"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe} deleted successfully.$<$/response$>$ $<$response code="{}404"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe} not found.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a137ca70975cb7baceb670e0226fd362b}\index{FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}!GetRecipe@{GetRecipe}}
+\index{GetRecipe@{GetRecipe}!FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}}
+\doxysubsubsection{\texorpdfstring{GetRecipe()}{GetRecipe()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a137ca70975cb7baceb670e0226fd362b} 
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}} $>$ $>$ Food\+Link.\+Server.\+Controllers.\+Recipes\+Controller.\+Get\+Recipe (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a specific recipe by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the recipe to retrieve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Action\+Result$<$\+T$>$ containing the requested recipe.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe} retrieved successfully.$<$/response$>$ $<$response code="{}404"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe} not found.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a4874953314b821effee81ddfa7b13fe9}\index{FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}!GetRecipes@{GetRecipes}}
+\index{GetRecipes@{GetRecipes}!FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}}
+\doxysubsubsection{\texorpdfstring{GetRecipes()}{GetRecipes()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a4874953314b821effee81ddfa7b13fe9} 
+async Task$<$ Action\+Result$<$ IEnumerable$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}} $>$ $>$ $>$ Food\+Link.\+Server.\+Controllers.\+Recipes\+Controller.\+Get\+Recipes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves all recipes. 
+
+\begin{DoxyReturn}{Returns}
+An Action\+Result$<$\+T$>$ containing a list of all recipes.
+\end{DoxyReturn}
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_af9e39f9b5e0e6c2baaf5140e0eaf021b}\index{FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}!GetRecipesSearch@{GetRecipesSearch}}
+\index{GetRecipesSearch@{GetRecipesSearch}!FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}}
+\doxysubsubsection{\texorpdfstring{GetRecipesSearch()}{GetRecipesSearch()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_af9e39f9b5e0e6c2baaf5140e0eaf021b} 
+async Task$<$ Action\+Result$<$ IEnumerable$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}} $>$ $>$ $>$ Food\+Link.\+Server.\+Controllers.\+Recipes\+Controller.\+Get\+Recipes\+Search (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Query\mbox{]} string}]{title}{ = {\ttfamily "{}"{}}, }\item[{\mbox{[}\+From\+Query\mbox{]} bool}]{order\+Recent}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Searches for recipes based on title and optional sorting by recent creation date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The title or partial title to search for (optional, defaults to empty string).\\
+\hline
+{\em order\+Recent} & If true, sorts recipes by most recent first; defaults to false.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Action\+Result$<$\+T$>$ containing a filtered list of recipes.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$Recipes retrieved successfully based on search criteria.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_ab886263a688f4971c10bc6dbfc2096d3}\index{FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}!PostRecipe@{PostRecipe}}
+\index{PostRecipe@{PostRecipe}!FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}}
+\doxysubsubsection{\texorpdfstring{PostRecipe()}{PostRecipe()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_ab886263a688f4971c10bc6dbfc2096d3} 
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}} $>$ $>$ Food\+Link.\+Server.\+Controllers.\+Recipes\+Controller.\+Post\+Recipe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}}}]{recipe}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new recipe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em recipe} & The recipe object to be created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Action\+Result$<$\+T$>$ containing the created recipe or an error message.
+\end{DoxyReturn}
+$<$response code="{}201"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe} created successfully, returns the created recipe.$<$/response$>$ $<$response code="{}400"{}$>$User ID is required or user not found.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a5bfce4ef2ea94ddf26d36b3201ac98f6}\index{FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}!PutRecipe@{PutRecipe}}
+\index{PutRecipe@{PutRecipe}!FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}}
+\doxysubsubsection{\texorpdfstring{PutRecipe()}{PutRecipe()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a5bfce4ef2ea94ddf26d36b3201ac98f6} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+Recipes\+Controller.\+Put\+Recipe (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{\mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe}}}]{recipe}{}\end{DoxyParamCaption})}
+
+
+
+Updates an existing recipe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the recipe to update.\\
+\hline
+{\em recipe} & The updated recipe data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result indicating the result of the update.
+\end{DoxyReturn}
+$<$response code="{}204"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe} updated successfully.$<$/response$>$ $<$response code="{}400"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe} ID mismatch.$<$/response$>$ $<$response code="{}404"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe} not found.$<$/response$>$ $<$response code="{}500"{}$>$Error updating the recipe due to concurrency or server issues.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a73a8705105d6881359c474cdc4880947}\index{FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}!RecipeExists@{RecipeExists}}
+\index{RecipeExists@{RecipeExists}!FoodLink.Server.Controllers.RecipesController@{FoodLink.Server.Controllers.RecipesController}}
+\doxysubsubsection{\texorpdfstring{RecipeExists()}{RecipeExists()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipes_controller_a73a8705105d6881359c474cdc4880947} 
+bool Food\+Link.\+Server.\+Controllers.\+Recipes\+Controller.\+Recipe\+Exists (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks if a recipe exists by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the recipe to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean indicating whether the recipe exists\+: true if it does, false otherwise.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/\+Food\+Link.\+Server/\+Controllers/Recipes\+Controller.\+cs\end{DoxyCompactItemize}

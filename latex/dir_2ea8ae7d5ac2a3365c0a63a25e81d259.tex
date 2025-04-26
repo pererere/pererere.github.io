@@ -1,0 +1,56 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/eazy-\/logger Directory Reference}
+\hypertarget{dir_2ea8ae7d5ac2a3365c0a63a25e81d259}{}\label{dir_2ea8ae7d5ac2a3365c0a63a25e81d259}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/eazy-\/logger Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/eazy-\/logger Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://github.com/shakyShane/tfunk}{\texttt{ t\+Funk}} + \href{http://nodejs.org/docs/latest/api/console.html\#console_console_log_data}{\texttt{ String Substitution}}
+
+\hypertarget{README.md_autotoc_md5791}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md5791}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ eazy-\/logger\ -\/-\/save}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5792}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md5792}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ logger\ \ =\ require("{}eazy-\/logger"{}).Logger(\{}
+\DoxyCodeLine{\ \ \ \ prefix:\ "{}\{blue:[\}\{magenta:easy-\/logger\}\{blue:]\ \}"{},}
+\DoxyCodeLine{\ \ \ \ useLevelPrefixes:\ true}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Standard\ loggers\ +\ prefixes}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{logger.debug("{}Debugging\ Msg"{});}
+\DoxyCodeLine{logger.info("{}Info\ statement"{});}
+\DoxyCodeLine{logger.warn("{}A\ little\ warning\ with\ string\ \%s"{},\ "{}substitution"{});}
+\DoxyCodeLine{logger.error("{}an\ error\ occurred\ in\ file:\ \{red:\%s\}"{},\ "{}/users/awesomedev/file.js"{});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Use\ string\ substitution\ +\ colours}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{logger.log("{}error"{},\ "{}Use\ \{green:built-\/in\}\ \%s"{},\ "{}String\ substitution"{});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Set\ an\ option\ for\ the\ next\ log\ statement\ only}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{logger.setOnce("{}useLevelPrefixes"{},\ true).warn("{}Use\ \{green:built-\/in\}\ \%s"{},\ "{}String\ substitution"{});}
+
+\end{DoxyCode}
+ 

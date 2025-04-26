@@ -1,0 +1,158 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/resolve-\/url-\/loader Directory Reference}
+\hypertarget{dir_3ff7e38c1bd01aad8cae8a2e79015fbc}{}\label{dir_3ff7e38c1bd01aad8cae8a2e79015fbc}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/resolve-\/url-\/loader Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/resolve-\/url-\/loader Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.com/package/resolve-url-loader}{\texttt{ }}
+
+This {\bfseries{webpack loader}} allows you to have a distributed set SCSS files and assets co-\/located with those SCSS files.\hypertarget{README.md_autotoc_md17601}{}\doxysubsection{\texorpdfstring{Do you organise your SCSS and assets by feature?}{Do you organise your SCSS and assets by feature?}}\label{README.md_autotoc_md17601}
+Where are your assets?
+
+
+\begin{DoxyItemize}
+\item ✅ I want my assets all over the place, next to my SCSS files.
+\item ❌ My assets are in a single directory.
+\end{DoxyItemize}
+
+How complicated is your SASS?
+
+
+\begin{DoxyItemize}
+\item ✅ I have a deep SASS composition with partials importing other partials.
+\item ✅ My asset paths are constructed by functions or {\ttfamily @mixin}s.
+\item ❌ I have a single SCSS file. The asset paths are just explicit in that.
+\end{DoxyItemize}
+
+What asset paths are you using?
+
+
+\begin{DoxyItemize}
+\item ✅ Fully relative {\ttfamily url(./foo.png)} or {\ttfamily url(foo.\+png)}
+\item ❌ Root relative {\ttfamily url(/foo.png)}
+\item ❌ Relative to some package or webpack root {\ttfamily url(\texorpdfstring{$\sim$}{\string~}stuff/foo.png})
+\item ❌ Relative to some variable which is your single asset directory {\ttfamily url(\$variable/foo.\+png)}
+\end{DoxyItemize}
+
+What webpack errors are you getting?
+
+
+\begin{DoxyItemize}
+\item ✅ Webpack can\textquotesingle{}t find the relative asset {\ttfamily foo.\+png} 😞
+\item ❌ Webpack says it doesn\textquotesingle{}t have a loader for {\ttfamily fully/resolved/path/foo.\+png} 😕
+\end{DoxyItemize}
+
+If you can tick at least 1 item in {\bfseries{all of these questions}} then use this loader. It will allow webpack to find assets with {\bfseries{fully relative paths}}.
+
+If for any question you can\textquotesingle{}t tick {\itshape any} items then webpack should be able to already find your assets. You don\textquotesingle{}t need this loader. 🤷
+
+Once webpack resolves your assets (even if it complains about loading them) then this loading is working correctly. 👍\hypertarget{README.md_autotoc_md17602}{}\doxysubsection{\texorpdfstring{What\textquotesingle{}s the problem with SASS?}{What\textquotesingle{}s the problem with SASS?}}\label{README.md_autotoc_md17602}
+When you use {\bfseries{fully relative paths}} in {\ttfamily url()} statements then Webpack expects to find those assets next to the root SCSS file, regardless of where you specify the {\ttfamily url()}.
+
+To illustrate here are 3 simple examples of SASS and Webpack {\itshape without} {\ttfamily resolve-\/url-\/loader}.
+
+\href{docs/basic-problem.svg}{\texttt{ }}
+
+The first 2 cases are trivial and work fine. The asset is specified in the root SCSS file and Webpack finds it.
+
+But any practical SASS composition will have nested SCSS files, as in the 3rd case. Here Webpack cannot find the asset.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Module\ not\ found:\ Can't\ resolve\ './cool.png'\ in\ '/absolute/path/.../my-\/project/src/styles.scss'}
+
+\end{DoxyCode}
+
+
+The path we present to Webpack really needs to be {\ttfamily ./subdir/cool.png} but we don\textquotesingle{}t want to write that in our SCSS. 😒
+
+Luckily we can use {\ttfamily resolve-\/url-\/loader} to do the {\bfseries{url re-\/writing}} and make it work. 😊🎉
+
+With functions and mixins and multiple nesting it gets more complicated. Read more detail in \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2resolve-url-loader_2docs_2how-it-works}{how the loader works}{0}. 🤓\hypertarget{README.md_autotoc_md17603}{}\doxysubsection{\texorpdfstring{Getting started}{Getting started}}\label{README.md_autotoc_md17603}
+\begin{quote}
+{\bfseries{Upgrading?}} the \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2resolve-url-loader_2_c_h_a_n_g_e_l_o_g}{changelog}{0} shows how to migrate your webpack config. \end{quote}
+\hypertarget{README.md_autotoc_md17604}{}\doxysubsubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md17604}
+via npm
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ resolve-\/url-\/loader\ -\/-\/save-\/dev}
+
+\end{DoxyCode}
+
+
+via yarn
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn\ add\ resolve-\/url-\/loader\ -\/-\/dev}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17605}{}\doxysubsubsection{\texorpdfstring{Configure Webpack}{Configure Webpack}}\label{README.md_autotoc_md17605}
+The typical use case is {\ttfamily resolve-\/url-\/loader} between {\ttfamily sass-\/loader} and {\ttfamily css-\/loader}.
+
+{\bfseries{⚠️ IMPORTANT}}
+\begin{DoxyItemize}
+\item {\bfseries{source-\/maps required}} for loaders preceding {\ttfamily resolve-\/url-\/loader} (regardless of {\ttfamily devtool}).
+\item Always use {\bfseries{full loader package name}} (don\textquotesingle{}t omit {\ttfamily -\/loader}) otherwise you can get errors that are hard to debug.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{rules:\ [}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ test:\ /\(\backslash\).scss\$/,}
+\DoxyCodeLine{\ \ \ \ use:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ loader:\ 'css-\/loader',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ options:\ \{...\}}
+\DoxyCodeLine{\ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ loader:\ 'resolve-\/url-\/loader',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ options:\ \{...\}}
+\DoxyCodeLine{\ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ loader:\ 'sass-\/loader',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ sourceMap:\ true,\ //\ <-\/-\/\ !!IMPORTANT!!}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ ...}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17606}{}\doxysubsection{\texorpdfstring{Options}{Options}}\label{README.md_autotoc_md17606}
+The loader should work without options but use these as required.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ option   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ default   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ description    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ option   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ default   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ description    }\\\cline{1-5}
+\endhead
+{\ttfamily source\+Map}   &boolean   &{\ttfamily false}   &&Generate an outgoing source-\/map.    \\\cline{1-5}
+{\ttfamily remove\+CR}   &boolean   &{\ttfamily true} Windows OS~\newline
+{\ttfamily false} otherwise   &&Convert orphan CR to whitespace.~\newline
+See known issues below.    \\\cline{1-5}
+{\ttfamily debug}   &boolean   &{\ttfamily false}   &&Display debug information.    \\\cline{1-5}
+{\ttfamily silent}   &boolean   &{\ttfamily false}   &&Do {\bfseries{not}} display warnings or deprecation messages.    \\\cline{1-5}
+{\ttfamily root}   &string   &{\itshape unset}   &&Similar to the (now defunct) option in {\ttfamily css-\/loader}.~\newline
+This string, possibly empty, is prepended to absolute URIs.~\newline
+Absolute URIs are only processed if this option is set.    \\\cline{1-5}
+{\ttfamily join}   &function   &{\itshape inbuilt}   &advanced   &Custom join function.~\newline
+Use custom javascript to fix asset paths on a per-\/case basis.~\newline
+Refer to the \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2resolve-url-loader_2docs_2advanced-features}{advanced features}{0} docs.   \\\cline{1-5}
+\end{longtabu}
+\hypertarget{README.md_autotoc_md17607}{}\doxysubsection{\texorpdfstring{Limitations}{Limitations}}\label{README.md_autotoc_md17607}
+\hypertarget{README.md_autotoc_md17608}{}\doxysubsubsection{\texorpdfstring{Compatibility}{Compatibility}}\label{README.md_autotoc_md17608}
+Tested {\ttfamily mac\+OS} and {\ttfamily Windows}.
+
+All {\ttfamily webpack@4}-\/{\ttfamily webpack@5} with contemporaneous loaders/plugins using {\ttfamily node@12}.
+
+Refer to {\ttfamily test} directory for full webpack configurations as used in automated tests.\hypertarget{README.md_autotoc_md17609}{}\doxysubsubsection{\texorpdfstring{Known issues}{Known issues}}\label{README.md_autotoc_md17609}
+Read the \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2resolve-url-loader_2docs_2troubleshooting}{troubleshooting}{0} docs before raising an issue. 

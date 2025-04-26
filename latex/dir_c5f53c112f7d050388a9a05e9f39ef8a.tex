@@ -1,0 +1,78 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/camelcase Directory Reference}
+\hypertarget{dir_c5f53c112f7d050388a9a05e9f39ef8a}{}\label{dir_c5f53c112f7d050388a9a05e9f39ef8a}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/camelcase Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/camelcase Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Convert a dash/dot/underscore/space separated string to camel\+Case or Pascal\+Case\+: {\ttfamily foo-\/bar} → {\ttfamily foo\+Bar} \end{quote}
+
+
+\DoxyHorRuler{0}
+
+
+ {\bfseries{ \href{https://tidelift.com/subscription/pkg/npm-camelcase?utm_source=npm-camelcase&utm_medium=referral&utm_campaign=readme}{\texttt{ Get professional support for \textquotesingle{}camelcase\textquotesingle{} with a Tidelift subscription}} }} ~\newline
+ \textsubscript{ Tidelift helps make open source sustainable for maintainers while giving companies~\newline
+assurances about security, maintenance, and licensing for their dependencies. } 
+
+\DoxyHorRuler{0}
+\hypertarget{readme.md_autotoc_md3900}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md3900}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ camelcase}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3901}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md3901}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ camelCase\ =\ require('camelcase');}
+\DoxyCodeLine{}
+\DoxyCodeLine{camelCase('foo-\/bar');}
+\DoxyCodeLine{//=>\ 'fooBar'}
+\DoxyCodeLine{}
+\DoxyCodeLine{camelCase('foo\_bar');}
+\DoxyCodeLine{//=>\ 'fooBar'}
+\DoxyCodeLine{}
+\DoxyCodeLine{camelCase('Foo-\/Bar');}
+\DoxyCodeLine{//=>\ 'fooBar'}
+\DoxyCodeLine{}
+\DoxyCodeLine{camelCase('Foo-\/Bar',\ \{pascalCase:\ true\});}
+\DoxyCodeLine{//=>\ 'FooBar'}
+\DoxyCodeLine{}
+\DoxyCodeLine{camelCase('-\/-\/foo.bar',\ \{pascalCase:\ false\});}
+\DoxyCodeLine{//=>\ 'fooBar'}
+\DoxyCodeLine{}
+\DoxyCodeLine{camelCase('foo\ bar');}
+\DoxyCodeLine{//=>\ 'fooBar'}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(process.argv[3]);}
+\DoxyCodeLine{//=>\ '-\/-\/foo-\/bar'}
+\DoxyCodeLine{camelCase(process.argv[3]);}
+\DoxyCodeLine{//=>\ 'fooBar'}
+\DoxyCodeLine{}
+\DoxyCodeLine{camelCase(['foo',\ 'bar']);}
+\DoxyCodeLine{//=>\ 'fooBar'}
+\DoxyCodeLine{}
+\DoxyCodeLine{camelCase(['\_\_foo\_\_',\ '-\/-\/bar'],\ \{pascalCase:\ true\});}
+\DoxyCodeLine{//=>\ 'FooBar'}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3902}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md3902}
+\hypertarget{readme.md_autotoc_md3903}{}\doxysubsubsection{\texorpdfstring{camel\+Case(input, \mbox{[}options\mbox{]})}{camel\+Case(input, \mbox{[}options\mbox{]})}}\label{readme.md_autotoc_md3903}
+\hypertarget{readme.md_autotoc_md3904}{}\doxysubsubsubsection{\texorpdfstring{input}{input}}\label{readme.md_autotoc_md3904}
+Type\+: {\ttfamily string} {\ttfamily string\mbox{[}\mbox{]}}
+
+String to convert to camel case.\hypertarget{readme.md_autotoc_md3905}{}\doxysubsubsubsection{\texorpdfstring{options}{options}}\label{readme.md_autotoc_md3905}
+Type\+: {\ttfamily Object}\hypertarget{readme.md_autotoc_md3906}{}\doxysubsubsubsubsection{\texorpdfstring{pascal\+Case}{pascal\+Case}}\label{readme.md_autotoc_md3906}
+Type\+: {\ttfamily boolean}~\newline
+ Default\+: {\ttfamily false}
+
+Uppercase the first character\+: {\ttfamily foo-\/bar} → {\ttfamily Foo\+Bar}\hypertarget{readme.md_autotoc_md3907}{}\doxysubsection{\texorpdfstring{Security}{Security}}\label{readme.md_autotoc_md3907}
+To report a security vulnerability, please use the \href{https://tidelift.com/security}{\texttt{ Tidelift security contact}}. Tidelift will coordinate the fix and disclosure.\hypertarget{readme.md_autotoc_md3908}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{readme.md_autotoc_md3908}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/decamelize}{\texttt{ decamelize}} -\/ The inverse of this module
+\item \href{https://github.com/SamVerschueren/uppercamelcase}{\texttt{ uppercamelcase}} -\/ Like this module, but to Pascal\+Case instead of camel\+Case
+\item \href{https://github.com/sindresorhus/titleize}{\texttt{ titleize}} -\/ Capitalize every word in string
+\item \href{https://github.com/sindresorhus/humanize-string}{\texttt{ humanize-\/string}} -\/ Convert a camelized/dasherized/underscored string into a humanized one
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md3909}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md3909}
+MIT © \href{https://sindresorhus.com}{\texttt{ Sindre Sorhus}} 

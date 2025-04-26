@@ -1,0 +1,37 @@
+\chapter{ensure\+Symlink(srcpath, dstpath, \mbox{[}type, callback\mbox{]})}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_symlink}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_symlink}\index{ensureSymlink(srcpath, dstpath, \mbox{[}type, callback\mbox{]})@{ensureSymlink(srcpath, dstpath, [type, callback])}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_symlink_autotoc_md8270}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_symlink_autotoc_md8270}%
+
+
+Ensures that the symlink exists. If the directory structure does not exist, it is created.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily srcpath} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily dstpath} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily type} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily callback} {\ttfamily \texorpdfstring{$<$}{<}Function\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_symlink_autotoc_md8271}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2ensure_symlink_autotoc_md8271}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ srcpath\ =\ '/tmp/file.txt'}
+\DoxyCodeLine{const\ dstpath\ =\ '/tmp/this/path/does/not/exist/file.txt'}
+\DoxyCodeLine{fs.ensureSymlink(srcpath,\ dstpath,\ err\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(err)\ //\ =>\ null}
+\DoxyCodeLine{\ \ //\ symlink\ has\ now\ been\ created,\ including\ the\ directory\ it\ is\ to\ be\ placed\ in}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ With\ Promises:}
+\DoxyCodeLine{fs.ensureSymlink(srcpath,\ dstpath)}
+\DoxyCodeLine{.then(()\ =>\ \{}
+\DoxyCodeLine{\ \ console.log('success!')}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{.catch(err\ =>\ \{}
+\DoxyCodeLine{\ \ console.error(err)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+ 

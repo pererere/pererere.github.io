@@ -1,0 +1,265 @@
+\chapter{Configuration}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration}\index{Configuration@{Configuration}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11313}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11313}%
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11314}{}\doxysubsection{\texorpdfstring{{\ttfamily type}}{{\ttfamily type}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11314}
+{\bfseries{Type\+:}} String
+
+{\bfseries{Description\+:}} Specify a reporter type.
+
+{\bfseries{Possible Values\+:}}
+\begin{DoxyItemize}
+\item {\ttfamily html} (default)
+\item {\ttfamily lcov} (lcov and html)
+\item {\ttfamily lcovonly}
+\item {\ttfamily text}
+\item {\ttfamily text-\/summary}
+\item {\ttfamily cobertura} (xml format supported by Jenkins)
+\item {\ttfamily teamcity} (code coverage System Messages for Team\+City)
+\item {\ttfamily json} (json format supported by \href{https://github.com/daniellmb/grunt-istanbul-coverage}{\texttt{ {\ttfamily grunt-\/istanbul-\/coverage}}})
+\item {\ttfamily json-\/summary}
+\item {\ttfamily in-\/memory} (supported since v0.\+5.\+4)
+\item {\ttfamily none} (Does nothing. Use to specify that no reporting is needed)
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11315}{}\doxysubsection{\texorpdfstring{{\ttfamily dir}}{{\ttfamily dir}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11315}
+{\bfseries{Type\+:}} String
+
+{\bfseries{Description\+:}} This will be used to output coverage reports. When you set a relative path, the directory is resolved against the {\ttfamily base\+Path}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11316}{}\doxysubsection{\texorpdfstring{{\ttfamily subdir}}{{\ttfamily subdir}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11316}
+{\bfseries{Type\+:}} String
+
+{\bfseries{Description}}\+: This will be used in complement of the {\ttfamily coverage\+Reporter.\+dir} option to generate the full output directory path. By default, the output directory is set to {\ttfamily ./config.dir/\+BROWSER\+\_\+\+NAME/}, this option allows you to custom the second part. You can either pass a {\ttfamily string} or a {\ttfamily function} which will be called with the browser name passed as the only argument.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{coverageReporter:\ \{}
+\DoxyCodeLine{\ \ dir:\ 'coverage',}
+\DoxyCodeLine{\ \ subdir:\ '.'}
+\DoxyCodeLine{\ \ //\ Would\ output\ the\ results\ into:\ .'/coverage/'}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{coverageReporter:\ \{}
+\DoxyCodeLine{\ \ dir:\ 'coverage',}
+\DoxyCodeLine{\ \ subdir:\ 'report'}
+\DoxyCodeLine{\ \ //\ Would\ output\ the\ results\ into:\ .'/coverage/report/'}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{coverageReporter:\ \{}
+\DoxyCodeLine{\ \ dir:\ 'coverage',}
+\DoxyCodeLine{\ \ subdir:\ function(browser)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ normalization\ process\ to\ keep\ a\ consistent\ browser\ name\ across\ different}
+\DoxyCodeLine{\ \ \ \ //\ OS}
+\DoxyCodeLine{\ \ \ \ return\ browser.toLowerCase().split(/[\ /-\/]/)[0];}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ //\ Would\ output\ the\ results\ into:\ './coverage/firefox/'}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11317}{}\doxysubsection{\texorpdfstring{{\ttfamily file}}{{\ttfamily file}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11317}
+{\bfseries{Type\+:}} String
+
+{\bfseries{Description\+:}} If you use one of these reporters, {\ttfamily cobertura}, {\ttfamily lcovonly}, {\ttfamily teamcity}, {\ttfamily text} or {\ttfamily text-\/summary},you may set the {\ttfamily file} option to specify the output file.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{coverageReporter:\ \{}
+\DoxyCodeLine{\ \ type\ :\ 'text',}
+\DoxyCodeLine{\ \ dir\ :\ 'coverage/',}
+\DoxyCodeLine{\ \ file\ :\ 'coverage.txt'}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11318}{}\doxysubsection{\texorpdfstring{{\ttfamily check}}{{\ttfamily check}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11318}
+{\bfseries{Type\+:}} Object
+
+{\bfseries{Description\+:}} This will be used to configure minimum threshold enforcement for coverage results. If the thresholds are not met, karma will return failure. Thresholds, when specified as a positive number are taken to be the minimum percentage required. When a threshold is specified as a negative number it represents the maximum number of uncovered entities allowed.
+
+For example, {\ttfamily statements\+: 90} implies minimum statement coverage is 90\%. {\ttfamily statements\+: -\/10} implies that no more than 10 uncovered statements are allowed.
+
+{\ttfamily global} applies to all files together and {\ttfamily each} on a per-\/file basis. A list of files or patterns can be excluded from enforcement via the {\ttfamily excludes} property. On a per-\/file or pattern basis, per-\/file thresholds can be overridden via the {\ttfamily overrides} property.
+
+{\ttfamily emit\+Warning} allows to log exceeding coverage threshold into console as warning and not fail tests.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{coverageReporter:\ \{}
+\DoxyCodeLine{\ \ check:\ \{}
+\DoxyCodeLine{\ \ \ \ emitWarning:\ false,}
+\DoxyCodeLine{\ \ \ \ global:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ statements:\ 50,}
+\DoxyCodeLine{\ \ \ \ \ \ branches:\ 50,}
+\DoxyCodeLine{\ \ \ \ \ \ functions:\ 50,}
+\DoxyCodeLine{\ \ \ \ \ \ lines:\ 50,}
+\DoxyCodeLine{\ \ \ \ \ \ excludes:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 'foo/bar/**/*.js'}
+\DoxyCodeLine{\ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ each:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ statements:\ 50,}
+\DoxyCodeLine{\ \ \ \ \ \ branches:\ 50,}
+\DoxyCodeLine{\ \ \ \ \ \ functions:\ 50,}
+\DoxyCodeLine{\ \ \ \ \ \ lines:\ 50,}
+\DoxyCodeLine{\ \ \ \ \ \ excludes:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 'other/directory/**/*.js'}
+\DoxyCodeLine{\ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ overrides:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 'baz/component/**/*.js':\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ statements:\ 98}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11319}{}\doxysubsection{\texorpdfstring{{\ttfamily watermarks}}{{\ttfamily watermarks}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11319}
+{\bfseries{Type\+:}} Object
+
+{\bfseries{Description\+:}} This will be used to set the coverage threshold colors. The first number is the threshold between Red and Yellow. The second number is the threshold between Yellow and Green.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{coverageReporter:\ \{}
+\DoxyCodeLine{\ \ watermarks:\ \{}
+\DoxyCodeLine{\ \ \ \ statements:\ [\ 50,\ 75\ ],}
+\DoxyCodeLine{\ \ \ \ functions:\ [\ 50,\ 75\ ],}
+\DoxyCodeLine{\ \ \ \ branches:\ [\ 50,\ 75\ ],}
+\DoxyCodeLine{\ \ \ \ lines:\ [\ 50,\ 75\ ]}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11320}{}\doxysubsection{\texorpdfstring{{\ttfamily include\+All\+Sources}}{{\ttfamily include\+All\+Sources}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11320}
+{\bfseries{Type\+:}} Boolean
+
+{\bfseries{Description\+:}} You can opt to include all sources files, as indicated by the coverage preprocessor, in your code coverage data, even if there are no tests covering them. (Default {\ttfamily false})
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{coverageReporter:\ \{}
+\DoxyCodeLine{\ \ type\ :\ 'text',}
+\DoxyCodeLine{\ \ dir\ :\ 'coverage/',}
+\DoxyCodeLine{\ \ file\ :\ 'coverage.txt',}
+\DoxyCodeLine{\ \ includeAllSources:\ true}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11321}{}\doxysubsection{\texorpdfstring{{\ttfamily source\+Store}}{{\ttfamily source\+Store}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11321}
+{\bfseries{Type\+:}} istanbul.\+Store
+
+{\bfseries{Description\+:}} You can opt to specify a source store allowing for external coverage collectors access to the instrumented code.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{coverageReporter:\ \{}
+\DoxyCodeLine{\ \ type\ :\ 'text',}
+\DoxyCodeLine{\ \ dir\ :\ 'coverage/',}
+\DoxyCodeLine{\ \ file\ :\ 'coverage.txt',}
+\DoxyCodeLine{\ \ sourceStore\ :\ require('istanbul').Store.create('fslookup')}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11322}{}\doxysubsection{\texorpdfstring{{\ttfamily reporters}}{{\ttfamily reporters}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11322}
+{\bfseries{Type\+:}} Array of Objects
+
+{\bfseries{Description\+:}} You can use multiple reporters, by providing array of options.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{coverageReporter:\ \{}
+\DoxyCodeLine{\ \ reporters:[}
+\DoxyCodeLine{\ \ \ \ \{type:\ 'html',\ dir:'coverage/'\},}
+\DoxyCodeLine{\ \ \ \ \{type:\ 'teamcity'\},}
+\DoxyCodeLine{\ \ \ \ \{type:\ 'text-\/summary'\}}
+\DoxyCodeLine{\ \ ],}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11323}{}\doxysubsection{\texorpdfstring{{\ttfamily instrumenter}}{{\ttfamily instrumenter}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11323}
+{\bfseries{Type\+:}} Object
+
+{\bfseries{Description\+:}} Karma-\/coverage can infers the instrumenter regarding of the file extension. It is possible to override this behavior and point out an instrumenter for the files matching a specific pattern. To do so, you need to declare an object under with the keys represents the pattern to match, and the instrumenter to apply. The matching will be done using \href{https://github.com/isaacs/minimatch}{\texttt{ minimatch}}. If two patterns match, the last one will take the precedence.
+
+For example you can use \href{https://github.com/Constellation/ibrik}{\texttt{ Ibrik}} (an \href{https://github.com/gotwarlost/istanbul}{\texttt{ Istanbul}} analog for Coffee\+Script files) with\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{coverageReporter:\ \{}
+\DoxyCodeLine{\ \ instrumenters:\ \{\ ibrik\ :\ require('ibrik')\ \},}
+\DoxyCodeLine{\ \ instrumenter:\ \{}
+\DoxyCodeLine{\ \ \ \ '**/*.coffee':\ 'ibrik'}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ //\ ...}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+You can pass options additional options to specific instrumenter with\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ to5Options\ =\ \{\ experimental:\ true\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ [...]}
+\DoxyCodeLine{}
+\DoxyCodeLine{coverageReporter:\ \{}
+\DoxyCodeLine{\ \ instrumenters:\ \{\ isparta\ :\ require('isparta')\ \},}
+\DoxyCodeLine{\ \ instrumenter:\ \{}
+\DoxyCodeLine{\ \ \ \ '**/*.js':\ 'isparta'}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ instrumenterOptions:\ \{}
+\DoxyCodeLine{\ \ \ \ isparta:\ \{\ to5\ :\ to5Options\ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11324}{}\doxysubsection{\texorpdfstring{{\ttfamily use\+JSExtension\+For\+Coffee\+Script}}{{\ttfamily use\+JSExtension\+For\+Coffee\+Script}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11324}
+{\bfseries{Type\+:}} boolean
+
+{\bfseries{Description\+:}} If set to {\ttfamily true}, then Coffee\+Script files instrumented with \href{https://github.com/Constellation/ibrik}{\texttt{ Ibrik}} will use the {\ttfamily .js} extension for the transpiled source (without this option, the Java\+Script files will keep the original {\ttfamily .coffee} extension). This option is required if you use a module loader such as \href{http://requirejs.org/}{\texttt{ Require\+JS}} that expects files to use a {\ttfamily .js} extension.
+
+Example of using Require\+JS with Coffee\+Script\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{coverageReporter:}
+\DoxyCodeLine{\ \ useJSExtensionForCoffeeScript:\ true}
+\DoxyCodeLine{\ \ instrumenters:}
+\DoxyCodeLine{\ \ \ \ ibrik\ :\ require('ibrik')}
+\DoxyCodeLine{\ \ instrumenter:}
+\DoxyCodeLine{\ \ \ \ '**/*.coffee':\ 'ibrik'}
+\DoxyCodeLine{\#\ ...}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11325}{}\doxysubsection{\texorpdfstring{`reporter\mbox{[}type=\textquotesingle{}in-\/memory'\mbox{]}\`{}}{`reporter\mbox{[}type=\textquotesingle{}in-\/memory'\mbox{]}\`{}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration_autotoc_md11325}
+This is a different kind of reporter. Instead of writing a report physicaly to disk, it raises an event {\ttfamily coverage\+\_\+complete}. This event can only be caught when using karma via the \href{http://karma-runner.github.io/0.13/dev/public-api.html}{\texttt{ public api}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ Server\ =\ require('karma').Server}
+\DoxyCodeLine{var\ server\ =\ new\ Server(\{files:\ [/*...*/],\ port:\ 9876,\ coverageReporter:\ \{\ type:\ 'in-\/memory'\ \},\ preprocessors:\ \{\ '**/*.js':\ 'coverage'\ \},\ reporters:\ ['coverage']\ \},\ function(exitCode)\ \{}
+\DoxyCodeLine{\ \ console.log('Karma\ has\ exited\ with\ '\ +\ exitCode)}
+\DoxyCodeLine{\ \ process.exit(exitCode)}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{server.on('coverage\_complete',\ function\ (browser,\ coverageReport)\ \{}
+\DoxyCodeLine{\ \ console.log('Covrage\ report:\ ',\ coverageReport)}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{server.start();}
+\DoxyCodeLine{}
+\DoxyCodeLine{karma.runner.run(\{port:\ 9876\});}
+
+\end{DoxyCode}
+
+
+The coverage report will be a merged result in json format. 

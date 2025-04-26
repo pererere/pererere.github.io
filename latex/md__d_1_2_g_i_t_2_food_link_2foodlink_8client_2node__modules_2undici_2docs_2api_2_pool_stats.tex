@@ -1,0 +1,20 @@
+\chapter{Class\+: Pool\+Stats}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats}\index{Class: PoolStats@{Class: PoolStats}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21467}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21467}%
+
+
+Aggregate stats for a \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool}{Pool}{0} or \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_balanced_pool}{Balanced\+Pool}{0}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21468}{}\doxysection{\texorpdfstring{{\ttfamily new Pool\+Stats(pool)}}{{\ttfamily new Pool\+Stats(pool)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21468}
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{pool}} {\ttfamily Pool} -\/ Pool or Balanced\+Pool from which to return stats.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21469}{}\doxysection{\texorpdfstring{Instance Properties}{Instance Properties}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21469}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21470}{}\doxysubsection{\texorpdfstring{{\ttfamily Pool\+Stats.\+connected}}{{\ttfamily Pool\+Stats.\+connected}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21470}
+Number of open socket connections in this pool.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21471}{}\doxysubsection{\texorpdfstring{{\ttfamily Pool\+Stats.\+free}}{{\ttfamily Pool\+Stats.\+free}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21471}
+Number of open socket connections in this pool that do not have an active request.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21472}{}\doxysubsection{\texorpdfstring{{\ttfamily Pool\+Stats.\+pending}}{{\ttfamily Pool\+Stats.\+pending}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21472}
+Number of pending requests across all clients in this pool.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21473}{}\doxysubsection{\texorpdfstring{{\ttfamily Pool\+Stats.\+queued}}{{\ttfamily Pool\+Stats.\+queued}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21473}
+Number of queued requests across all clients in this pool.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21474}{}\doxysubsection{\texorpdfstring{{\ttfamily Pool\+Stats.\+running}}{{\ttfamily Pool\+Stats.\+running}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21474}
+Number of currently active requests across all clients in this pool.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21475}{}\doxysubsection{\texorpdfstring{{\ttfamily Pool\+Stats.\+size}}{{\ttfamily Pool\+Stats.\+size}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_pool_stats_autotoc_md21475}
+Number of active, pending, or queued requests across all clients in this pool. 

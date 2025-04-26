@@ -1,0 +1,110 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/karma-\/coverage Directory Reference}
+\hypertarget{dir_f90425760465f5f999dd0489c629f8ac}{}\label{dir_f90425760465f5f999dd0489c629f8ac}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/karma-\/coverage Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/karma-\/coverage Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://github.com/karma-runner/karma-coverage}{\texttt{ }} \href{https://www.npmjs.com/package/karma-coverage}{\texttt{ }} \href{https://www.npmjs.com/package/karma-coverage}{\texttt{ }}
+
+\href{https://travis-ci.org/karma-runner/karma-coverage}{\texttt{ }} \href{https://david-dm.org/karma-runner/karma-coverage}{\texttt{ }} \href{https://david-dm.org/karma-runner/karma-coverage\#info=devDependencies}{\texttt{ }}
+
+\begin{quote}
+Generate code coverage using \href{https://istanbul.js.org}{\texttt{ Istanbul}}. \end{quote}
+\hypertarget{README.md_autotoc_md11327}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md11327}
+The easiest way is to install {\ttfamily karma-\/coverage} as a {\ttfamily dev\+Dependency}, by running
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ karma\ karma-\/coverage\ -\/-\/save-\/dev}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11328}{}\doxysubsection{\texorpdfstring{Configuration}{Configuration}}\label{README.md_autotoc_md11328}
+For configuration details see \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration}{docs/configuration}{0}.\hypertarget{README.md_autotoc_md11329}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{README.md_autotoc_md11329}
+\hypertarget{README.md_autotoc_md11330}{}\doxysubsubsection{\texorpdfstring{Basic}{Basic}}\label{README.md_autotoc_md11330}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ karma.conf.js}
+\DoxyCodeLine{module.exports\ =\ function(config)\ \{}
+\DoxyCodeLine{\ \ config.set(\{}
+\DoxyCodeLine{\ \ \ \ files:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ 'src/**/*.js',}
+\DoxyCodeLine{\ \ \ \ \ \ 'test/**/*.js'}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ coverage\ reporter\ generates\ the\ coverage}
+\DoxyCodeLine{\ \ \ \ reporters:\ ['progress',\ 'coverage'],}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ preprocessors:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ source\ files,\ that\ you\ wanna\ generate\ coverage\ for}
+\DoxyCodeLine{\ \ \ \ \ \ //\ do\ not\ include\ tests\ or\ libraries}
+\DoxyCodeLine{\ \ \ \ \ \ //\ (these\ files\ will\ be\ instrumented\ by\ Istanbul)}
+\DoxyCodeLine{\ \ \ \ \ \ 'src/**/*.js':\ ['coverage']}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ optionally,\ configure\ the\ reporter}
+\DoxyCodeLine{\ \ \ \ coverageReporter:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ type\ :\ 'html',}
+\DoxyCodeLine{\ \ \ \ \ \ dir\ :\ 'coverage/'}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ \hypertarget{README.md_autotoc_md11331}{}\doxysubsubsection{\texorpdfstring{Coffee\+Script}{Coffee\+Script}}\label{README.md_autotoc_md11331}
+For an example on how to use with \href{http://coffeescript.org/}{\texttt{ Coffee\+Script}} see \href{examples/coffee}{\texttt{ examples/coffee}}. For an example of how to use with Coffee\+Script and the Require\+JS module loader, see \href{examples/coffee-requirejs}{\texttt{ examples/coffee-\/requirejs}} (and also see the {\ttfamily use\+JSExtension\+For\+Coffee\+Script} option in \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2karma-coverage_2docs_2configuration}{docs/configuration.md}{0}).\hypertarget{README.md_autotoc_md11332}{}\doxysubsubsection{\texorpdfstring{Advanced, multiple reporters}{Advanced, multiple reporters}}\label{README.md_autotoc_md11332}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ karma.conf.js}
+\DoxyCodeLine{module.exports\ =\ function(config)\ \{}
+\DoxyCodeLine{\ \ config.set(\{}
+\DoxyCodeLine{\ \ \ \ files:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ 'src/**/*.js',}
+\DoxyCodeLine{\ \ \ \ \ \ 'test/**/*.js'}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ reporters:\ ['progress',\ 'coverage'],}
+\DoxyCodeLine{\ \ \ \ preprocessors:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ 'src/**/*.js':\ ['coverage']}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ coverageReporter:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ //\ specify\ a\ common\ output\ directory}
+\DoxyCodeLine{\ \ \ \ \ \ dir:\ 'build/reports/coverage',}
+\DoxyCodeLine{\ \ \ \ \ \ reporters:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ //\ reporters\ not\ supporting\ the\ \`{}file`\ property}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ type:\ 'html',\ subdir:\ 'report-\/html'\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ type:\ 'lcov',\ subdir:\ 'report-\/lcov'\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ //\ reporters\ supporting\ the\ \`{}file`\ property,\ use\ \`{}subdir`\ to\ directly}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ //\ output\ them\ in\ the\ \`{}dir`\ directory}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ type:\ 'cobertura',\ subdir:\ '.',\ file:\ 'cobertura.txt'\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ type:\ 'lcovonly',\ subdir:\ '.',\ file:\ 'report-\/lcovonly.txt'\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ type:\ 'teamcity',\ subdir:\ '.',\ file:\ 'teamcity.txt'\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ type:\ 'text',\ subdir:\ '.',\ file:\ 'text.txt'\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ type:\ 'text-\/summary',\ subdir:\ '.',\ file:\ 'text-\/summary.txt'\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11333}{}\doxysubsubsection{\texorpdfstring{FAQ}{FAQ}}\label{README.md_autotoc_md11333}
+\hypertarget{README.md_autotoc_md11334}{}\doxysubsubsubsection{\texorpdfstring{Don\textquotesingle{}t minify instrumenter output}{Don\textquotesingle{}t minify instrumenter output}}\label{README.md_autotoc_md11334}
+When using the istanbul instrumenter (default), you can disable code compaction by adding the following to your configuration.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ karma.conf.js}
+\DoxyCodeLine{module.exports\ =\ function(config)\ \{}
+\DoxyCodeLine{\ \ config.set(\{}
+\DoxyCodeLine{\ \ \ \ coverageReporter:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ instrumenterOptions:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ istanbul:\ \{\ noCompact:\ true\ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+
+
+For more information on Karma see the \href{https://karma-runner.github.io}{\texttt{ homepage}}. 

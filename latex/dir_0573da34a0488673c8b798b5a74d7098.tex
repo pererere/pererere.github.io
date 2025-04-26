@@ -1,0 +1,285 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@discoveryjs/json-\/ext Directory Reference}
+\hypertarget{dir_0573da34a0488673c8b798b5a74d7098}{}\label{dir_0573da34a0488673c8b798b5a74d7098}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@discoveryjs/json-\/ext Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@discoveryjs/json-\/ext Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.com/package/@discoveryjs/json-ext}{\texttt{ }} \href{https://github.com/discoveryjs/json-ext/actions/workflows/ci.yml}{\texttt{ }} \href{https://coveralls.io/github/discoveryjs/json-ext?}{\texttt{ }} \href{https://www.npmjs.com/package/@discoveryjs/json-ext}{\texttt{ }}
+
+A set of utilities that extend the use of JSON. Designed to be fast and memory efficient
+
+Features\+:
+
+
+\begin{DoxyItemize}
+\item[\DoxyChecked] {\ttfamily parse\+Chunked()} – Parse JSON that comes by chunks (e.\+g. FS readable stream or fetch response stream)
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] {\ttfamily stringify\+Stream()} – Stringify stream (Node.\+js)
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] {\ttfamily stringify\+Info()} – Get estimated size and other facts of JSON.\+stringify() without converting a value to string
+\item[\DoxyUnchecked] {\bfseries{TBD}} Support for circular references
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] {\bfseries{TBD}} Binary representation \href{https://github.com/discoveryjs/json-ext/tree/binary}{\texttt{ branch}}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] {\bfseries{TBD}} WHATWG \href{https://streams.spec.whatwg.org/}{\texttt{ Streams}} support
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md493}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md493}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ @discoveryjs/json-\/ext}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md494}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md494}
+
+\begin{DoxyItemize}
+\item parse\+Chunked(chunk\+Emitter)
+\item stringify\+Stream(value\mbox{[}, replacer\mbox{[}, space\mbox{]}\mbox{]})
+\item stringify\+Info(value\mbox{[}, replacer\mbox{[}, space\mbox{[}, options\mbox{]}\mbox{]}\mbox{]})
+\begin{DoxyItemize}
+\item \doxylink{README.md_options}{Options}
+\begin{DoxyItemize}
+\item async
+\item continue\+On\+Circular
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item version
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md495}{}\doxysubsubsection{\texorpdfstring{parse\+Chunked(chunk\+Emitter)}{parse\+Chunked(chunk\+Emitter)}}\label{README.md_autotoc_md495}
+Works the same as \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse}{\texttt{ {\ttfamily JSON.\+parse()}}} but takes {\ttfamily chunk\+Emitter} instead of string and returns \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise}{\texttt{ Promise}}.
+
+\begin{quote}
+NOTE\+: {\ttfamily reviver} parameter is not supported yet, but will be added in next releases. NOTE\+: WHATWG streams aren\textquotesingle{}t supported yet \end{quote}
+
+
+When to use\+:
+\begin{DoxyItemize}
+\item It\textquotesingle{}s required to avoid freezing the main thread during big JSON parsing, since this process can be distributed in time
+\item Huge JSON needs to be parsed (e.\+g. \texorpdfstring{$>$}{>}500MB on Node.\+js)
+\item Needed to reduce memory pressure. {\ttfamily JSON.\+parse()} needs to receive the entire JSON before parsing it. With {\ttfamily parse\+Chunked()} you may parse JSON as first bytes of it comes. This approach helps to avoid storing a huge string in the memory at a single time point and following GC.
+\end{DoxyItemize}
+
+\href{https://github.com/discoveryjs/json-ext/tree/master/benchmarks\#parse-chunked}{\texttt{ Benchmark}}
+
+Usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ parseChunked\ \}\ =\ require('@discoveryjs/json-\/ext');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ as\ a\ regular\ Promise}
+\DoxyCodeLine{parseChunked(chunkEmitter)}
+\DoxyCodeLine{\ \ \ \ .then(data\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ /*\ data\ is\ parsed\ JSON\ */}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ using\ await\ (keep\ in\ mind\ that\ not\ every\ runtime\ has\ a\ support\ for\ top\ level\ await)}
+\DoxyCodeLine{const\ data\ =\ await\ parseChunked(chunkEmitter);}
+
+\end{DoxyCode}
+
+
+Parameter {\ttfamily chunk\+Emitter} can be\+:
+\begin{DoxyItemize}
+\item \href{https://nodejs.org/dist/latest-v14.x/docs/api/stream.html\#stream_readable_streams}{\texttt{ {\ttfamily Readable\+Stream}}} (Node.\+js only) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs');}
+\DoxyCodeLine{const\ \{\ parseChunked\ \}\ =\ require('@discoveryjs/json-\/ext');}
+\DoxyCodeLine{}
+\DoxyCodeLine{parseChunked(fs.createReadStream('path/to/file.json'))}
+
+\end{DoxyCode}
+
+\item Generator, async generator or function that returns iterable (chunks). Chunk might be a {\ttfamily string}, {\ttfamily Uint8\+Array} or {\ttfamily Buffer} (Node.\+js only)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ parseChunked\ \}\ =\ require('@discoveryjs/json-\/ext');}
+\DoxyCodeLine{const\ encoder\ =\ new\ TextEncoder();}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ generator}
+\DoxyCodeLine{parseChunked(function*()\ \{}
+\DoxyCodeLine{\ \ \ \ yield\ '\{\ "{}hello"{}:';}
+\DoxyCodeLine{\ \ \ \ yield\ Buffer.from('\ "{}wor');\ \ \ \ //\ Node.js\ only}
+\DoxyCodeLine{\ \ \ \ yield\ encoder.encode('ld"{}\ \}');\ //\ returns\ Uint8Array(5)\ [\ 108,\ 100,\ 34,\ 32,\ 125\ ]}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ async\ generator}
+\DoxyCodeLine{parseChunked(async\ function*()\ \{}
+\DoxyCodeLine{\ \ \ \ for\ await\ (const\ chunk\ of\ someAsyncSource)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ yield\ chunk;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ function\ that\ returns\ iterable}
+\DoxyCodeLine{parseChunked(()\ =>\ ['\{\ "{}hello"{}:',\ '\ "{}world"{}\}'])}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+Using with \href{https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API}{\texttt{ fetch()}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{async\ function\ loadData(url)\ \{}
+\DoxyCodeLine{\ \ \ \ const\ response\ =\ await\ fetch(url);}
+\DoxyCodeLine{\ \ \ \ const\ reader\ =\ response.body.getReader();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ return\ parseChunked(async\ function*()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ while\ (true)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ const\ \{\ done,\ value\ \}\ =\ await\ reader.read();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ if\ (done)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ yield\ value;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{loadData('https://example.com/data.json')}
+\DoxyCodeLine{\ \ \ \ .then(data\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ /*\ data\ is\ parsed\ JSON\ */}
+\DoxyCodeLine{\ \ \ \ \})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md496}{}\doxysubsubsection{\texorpdfstring{stringify\+Stream(value\mbox{[}, replacer\mbox{[}, space\mbox{]}\mbox{]})}{stringify\+Stream(value\mbox{[}, replacer\mbox{[}, space\mbox{]}\mbox{]})}}\label{README.md_autotoc_md496}
+Works the same as \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify}{\texttt{ {\ttfamily JSON.\+stringify()}}}, but returns an instance of \href{https://nodejs.org/dist/latest-v14.x/docs/api/stream.html\#stream_readable_streams}{\texttt{ {\ttfamily Readable\+Stream}}} instead of string.
+
+\begin{quote}
+NOTE\+: WHATWG Streams aren\textquotesingle{}t supported yet, so function available for Node.\+js only for now \end{quote}
+
+
+Departs from JSON.\+stringify()\+:
+\begin{DoxyItemize}
+\item Outputs {\ttfamily null} when {\ttfamily JSON.\+stringify()} returns {\ttfamily undefined} (since streams may not emit {\ttfamily undefined})
+\item A promise is resolving and the resulting value is stringifying as a regular one
+\item A stream in non-\/object mode is piping to output as is
+\item A stream in object mode is piping to output as an array of objects
+\end{DoxyItemize}
+
+When to use\+:
+\begin{DoxyItemize}
+\item Huge JSON needs to be generated (e.\+g. \texorpdfstring{$>$}{>}500MB on Node.\+js)
+\item Needed to reduce memory pressure. {\ttfamily JSON.\+stringify()} needs to generate the entire JSON before send or write it to somewhere. With {\ttfamily stringify\+Stream()} you may send a result to somewhere as first bytes of the result appears. This approach helps to avoid storing a huge string in the memory at a single time point.
+\item The object being serialized contains Promises or Streams (see Usage for examples)
+\end{DoxyItemize}
+
+\href{https://github.com/discoveryjs/json-ext/tree/master/benchmarks\#stream-stringifying}{\texttt{ Benchmark}}
+
+Usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ stringifyStream\ \}\ =\ require('@discoveryjs/json-\/ext');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ handle\ events}
+\DoxyCodeLine{stringifyStream(data)}
+\DoxyCodeLine{\ \ \ \ .on('data',\ chunk\ =>\ console.log(chunk))}
+\DoxyCodeLine{\ \ \ \ .on('error',\ error\ =>\ consold.error(error))}
+\DoxyCodeLine{\ \ \ \ .on('finish',\ ()\ =>\ console.log('DONE!'));}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ pipe\ into\ a\ stream}
+\DoxyCodeLine{stringifyStream(data)}
+\DoxyCodeLine{\ \ \ \ .pipe(writableStream);}
+
+\end{DoxyCode}
+
+
+Using Promise or Readable\+Stream in serializing object\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs');}
+\DoxyCodeLine{const\ \{\ stringifyStream\ \}\ =\ require('@discoveryjs/json-\/ext');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ output\ will\ be}
+\DoxyCodeLine{//\ \{"{}name"{}:"{}example"{},"{}willSerializeResolvedValue"{}:42,"{}fromFile"{}:[1,\ 2,\ 3],"{}at"{}:\{"{}any"{}:\{"{}level"{}:"{}promise!"{}\}\}\}}
+\DoxyCodeLine{stringifyStream(\{}
+\DoxyCodeLine{\ \ \ \ name:\ 'example',}
+\DoxyCodeLine{\ \ \ \ willSerializeResolvedValue:\ Promise.resolve(42),}
+\DoxyCodeLine{\ \ \ \ fromFile:\ fs.createReadStream('path/to/file.json'),\ //\ support\ file\ content\ is\ "{}[1,\ 2,\ 3]"{},\ it'll\ be\ inserted\ as\ it}
+\DoxyCodeLine{\ \ \ \ at:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ any:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ level:\ new\ Promise(resolve\ =>\ setTimeout(()\ =>\ resolve('promise!'),\ 100))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ in\ case\ several\ async\ requests\ are\ used\ in\ object,\ it's\ prefered}
+\DoxyCodeLine{//\ to\ put\ fastest\ requests\ first,\ because\ in\ this\ case}
+\DoxyCodeLine{stringifyStream(\{}
+\DoxyCodeLine{\ \ \ \ foo:\ fetch('http://example.com/request\_takes\_2s').then(req\ =>\ req.json()),}
+\DoxyCodeLine{\ \ \ \ bar:\ fetch('http://example.com/request\_takes\_5s').then(req\ =>\ req.json())}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+Using with \href{https://nodejs.org/dist/latest-v14.x/docs/api/stream.html\#stream_writable_streams}{\texttt{ {\ttfamily Writable\+Stream}}} (Node.\+js only)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs');}
+\DoxyCodeLine{const\ \{\ stringifyStream\ \}\ =\ require('@discoveryjs/json-\/ext');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ pipe\ into\ a\ console}
+\DoxyCodeLine{stringifyStream(data)}
+\DoxyCodeLine{\ \ \ \ .pipe(process.stdout);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ pipe\ into\ a\ file}
+\DoxyCodeLine{stringifyStream(data)}
+\DoxyCodeLine{\ \ \ \ .pipe(fs.createWriteStream('path/to/file.json'));}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ wrapping\ into\ a\ Promise}
+\DoxyCodeLine{new\ Promise((resolve,\ reject)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ stringifyStream(data)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .on('error',\ reject)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(stream)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .on('error',\ reject)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .on('finish',\ resolve);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md497}{}\doxysubsubsection{\texorpdfstring{stringify\+Info(value\mbox{[}, replacer\mbox{[}, space\mbox{[}, options\mbox{]}\mbox{]}\mbox{]})}{stringify\+Info(value\mbox{[}, replacer\mbox{[}, space\mbox{[}, options\mbox{]}\mbox{]}\mbox{]})}}\label{README.md_autotoc_md497}
+{\ttfamily value}, {\ttfamily replacer} and {\ttfamily space} arguments are the same as for {\ttfamily JSON.\+stringify()}.
+
+Result is an object\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ minLength:\ Number,\ \ //\ minimal\ bytes\ when\ values\ is\ stringified}
+\DoxyCodeLine{\ \ \ \ circular:\ [...],\ \ \ \ //\ list\ of\ circular\ references}
+\DoxyCodeLine{\ \ \ \ duplicate:\ [...],\ \ \ //\ list\ of\ objects\ that\ occur\ more\ than\ once}
+\DoxyCodeLine{\ \ \ \ async:\ [...]\ \ \ \ \ \ \ \ //\ list\ of\ async\ values,\ i.e.\ promises\ and\ streams}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ stringifyInfo\ \}\ =\ require('@discoveryjs/json-\/ext');}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(}
+\DoxyCodeLine{\ \ \ \ stringifyInfo(\{\ test:\ true\ \}).minLength}
+\DoxyCodeLine{);}
+\DoxyCodeLine{//\ >\ 13}
+\DoxyCodeLine{//\ that\ equals\ '\{"{}test"{}:true\}'.length}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md498}{}\doxysubsubsubsection{\texorpdfstring{Options}{Options}}\label{README.md_autotoc_md498}
+\hypertarget{README.md_autotoc_md499}{}\doxysubsubsubsubsection{\texorpdfstring{async}{async}}\label{README.md_autotoc_md499}
+Type\+: {\ttfamily Boolean} ~\newline
+ Default\+: {\ttfamily false}
+
+Collect async values (promises and streams) or not.\hypertarget{README.md_autotoc_md500}{}\doxysubsubsubsubsection{\texorpdfstring{continue\+On\+Circular}{continue\+On\+Circular}}\label{README.md_autotoc_md500}
+Type\+: {\ttfamily Boolean} ~\newline
+ Default\+: {\ttfamily false}
+
+Stop collecting info for a value or not whenever circular reference is found. Setting option to {\ttfamily true} allows to find all circular references.\hypertarget{README.md_autotoc_md501}{}\doxysubsubsection{\texorpdfstring{version}{version}}\label{README.md_autotoc_md501}
+The version of library, e.\+g. {\ttfamily "{}0.\+3.\+1"{}}.\hypertarget{README.md_autotoc_md502}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md502}
+MIT 

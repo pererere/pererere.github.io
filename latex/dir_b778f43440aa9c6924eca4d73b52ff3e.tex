@@ -1,0 +1,69 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/common-\/path-\/prefix Directory Reference}
+\hypertarget{dir_b778f43440aa9c6924eca4d73b52ff3e}{}\label{dir_b778f43440aa9c6924eca4d73b52ff3e}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/common-\/path-\/prefix Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/common-\/path-\/prefix Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Computes the longest prefix string that is common to each path, excluding the base component. Tested with Node.\+js 8 and above.\hypertarget{README.md_autotoc_md4210}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md4210}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ common-\/path-\/prefix}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md4211}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md4211}
+The module has one default export, the {\ttfamily common\+Path\+Prefix} function\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ commonPathPrefix\ =\ require('common-\/path-\/prefix')}
+
+\end{DoxyCode}
+
+
+Call {\ttfamily common\+Path\+Prefix()} with an array of paths (strings) and an optional separator character\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ paths\ =\ ['templates/main.handlebars',\ 'templates/\_partial.handlebars']}
+\DoxyCodeLine{}
+\DoxyCodeLine{commonPathPrefix(paths,\ '/')\ //\ returns\ 'templates/'}
+
+\end{DoxyCode}
+
+
+If the separator is not provided the first {\ttfamily /} or {\ttfamily \textbackslash{}} found in any of the paths is used. Otherwise the platform-\/default value is used\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{commonPathPrefix(['templates/main.handlebars',\ 'templates/\_partial.handlebars'])\ //\ returns\ 'templates/'}
+\DoxyCodeLine{commonPathPrefix(['templates\(\backslash\)\(\backslash\)main.handlebars',\ 'templates\(\backslash\)\(\backslash\)\_partial.handlebars'])\ //\ returns\ 'templates\(\backslash\)\(\backslash\)'}
+
+\end{DoxyCode}
+
+
+You can provide any separator, for example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{commonPathPrefix(['foo\$bar',\ 'foo\$baz'],\ '\$')\ //\ returns\ 'foo\$''}
+
+\end{DoxyCode}
+
+
+An empty string is returned if no common prefix exists\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{commonPathPrefix(['foo/bar',\ 'baz/qux'])\ //\ returns\ ''}
+\DoxyCodeLine{commonPathPrefix(['foo/bar'])\ //\ returns\ ''}
+
+\end{DoxyCode}
+
+
+Note that the following {\itshape does} have a common prefix\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{commonPathPrefix(['/foo/bar',\ '/baz/qux'])\ //\ returns\ '/'}
+
+\end{DoxyCode}
+ 

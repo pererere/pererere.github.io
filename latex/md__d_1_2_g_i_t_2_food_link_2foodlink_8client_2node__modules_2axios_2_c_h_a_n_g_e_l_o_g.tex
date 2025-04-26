@@ -1,0 +1,865 @@
+\chapter{Changelog}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g}\index{Changelog@{Changelog}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2637}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2637}%
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2638}{}\doxysubsection{\texorpdfstring{0.\+21.\+4 (September 6, 2021)}{0.\+21.\+4 (September 6, 2021)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2638}
+Fixes and Functionality\+:
+\begin{DoxyItemize}
+\item Fixing JSON transform when data is stringified. Providing backward compatibility and complying to the JSON RFC standard (\href{https://github.com/axios/axios/pull/4020}{\texttt{ \#4020}})
+\end{DoxyItemize}
+
+Huge thanks to everyone who contributed to this release via code (authors listed below) or via reviews and triaging on Git\+Hub\+:
+
+
+\begin{DoxyItemize}
+\item \href{mailto:jasonsaayman@gmail.com}{\texttt{ Jay}}
+\item \href{https://github.com/gfortaine}{\texttt{ Guillaume Fortaine}}
+\item \href{https://github.com/kawanet}{\texttt{ Yusuke Kawasaki}}
+\item \href{https://github.com/DigitalBrainJS}{\texttt{ Dmitriy Mozgovoy}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2639}{}\doxysubsection{\texorpdfstring{0.\+21.\+3 (September 4, 2021)}{0.\+21.\+3 (September 4, 2021)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2639}
+Fixes and Functionality\+:
+\begin{DoxyItemize}
+\item Fixing response interceptor not being called when request interceptor is attached (\href{https://github.com/axios/axios/pull/4013}{\texttt{ \#4013}})
+\end{DoxyItemize}
+
+Huge thanks to everyone who contributed to this release via code (authors listed below) or via reviews and triaging on Git\+Hub\+:
+
+
+\begin{DoxyItemize}
+\item \href{mailto:jasonsaayman@gmail.com}{\texttt{ Jay}}
+\item \href{https://github.com/nerdbeere}{\texttt{ Julian Hollmann}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2640}{}\doxysubsection{\texorpdfstring{0.\+21.\+2 (September 4, 2021)}{0.\+21.\+2 (September 4, 2021)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2640}
+Fixes and Functionality\+:
+
+
+\begin{DoxyItemize}
+\item Updating axios requests to be delayed by pre-\/emptive promise creation (\href{https://github.com/axios/axios/pull/2702}{\texttt{ \#2702}})
+\item Adding "{}synchronous"{} and "{}run\+When"{} options to interceptors api (\href{https://github.com/axios/axios/pull/2702}{\texttt{ \#2702}})
+\item Updating of transform\+Response (\href{https://github.com/axios/axios/pull/3377}{\texttt{ \#3377}})
+\item Adding ability to omit User-\/\+Agent header (\href{https://github.com/axios/axios/pull/3703}{\texttt{ \#3703}})
+\item Adding multiple JSON improvements (\href{https://github.com/axios/axios/pull/3688}{\texttt{ \#3688}}, \href{https://github.com/axios/axios/pull/3763}{\texttt{ \#3763}})
+\item Fixing quadratic runtime and extra memory usage when setting a max\+Content\+Length (\href{https://github.com/axios/axios/pull/3738}{\texttt{ \#3738}})
+\item Adding parse\+Int to config.\+timeout (\href{https://github.com/axios/axios/pull/3781}{\texttt{ \#3781}})
+\item Adding custom return type support to interceptor (\href{https://github.com/axios/axios/pull/3783}{\texttt{ \#3783}})
+\item Adding security fix for Re\+DoS vulnerability (\href{https://github.com/axios/axios/pull/3980}{\texttt{ \#3980}})
+\end{DoxyItemize}
+
+Internal and Tests\+:
+
+
+\begin{DoxyItemize}
+\item Updating build dev dependancies (\href{https://github.com/axios/axios/pull/3401}{\texttt{ \#3401}})
+\item Fixing builds running on Travis CI (\href{https://github.com/axios/axios/pull/3538}{\texttt{ \#3538}})
+\item Updating follow rediect version (\href{https://github.com/axios/axios/pull/3694}{\texttt{ \#3694}}, \href{https://github.com/axios/axios/pull/3771}{\texttt{ \#3771}})
+\item Updating karma sauce launcher to fix failing sauce tests (\href{https://github.com/axios/axios/pull/3712}{\texttt{ \#3712}}, \href{https://github.com/axios/axios/pull/3717}{\texttt{ \#3717}})
+\item Updating content-\/type header for application/json to not contain charset field, according do RFC 8259 (\href{https://github.com/axios/axios/pull/2154}{\texttt{ \#2154}})
+\item Fixing tests by bumping karma-\/sauce-\/launcher version (\href{https://github.com/axios/axios/pull/3813}{\texttt{ \#3813}})
+\item Changing testing process from Travis CI to Git\+Hub Actions (\href{https://github.com/axios/axios/pull/3938}{\texttt{ \#3938}})
+\end{DoxyItemize}
+
+Documentation\+:
+
+
+\begin{DoxyItemize}
+\item Updating documentation around the use of {\ttfamily AUTH\+\_\+\+TOKEN} with multiple domain endpoints (\href{https://github.com/axios/axios/pull/3539}{\texttt{ \#3539}})
+\item Remove duplication of item in changelog (\href{https://github.com/axios/axios/pull/3523}{\texttt{ \#3523}})
+\item Fixing gramatical errors (\href{https://github.com/axios/axios/pull/2642}{\texttt{ \#2642}})
+\item Fixing spelling error (\href{https://github.com/axios/axios/pull/3567}{\texttt{ \#3567}})
+\item Moving gitpod metion (\href{https://github.com/axios/axios/pull/2637}{\texttt{ \#2637}})
+\item Adding new axios documentation website link (\href{https://github.com/axios/axios/pull/3681}{\texttt{ \#3681}}, \href{https://github.com/axios/axios/pull/3707}{\texttt{ \#3707}})
+\item Updating documentation around dispatching requests (\href{https://github.com/axios/axios/pull/3772}{\texttt{ \#3772}})
+\item Adding documentation for the type guard is\+Axios\+Error (\href{https://github.com/axios/axios/pull/3767}{\texttt{ \#3767}})
+\item Adding explanation of cancel token (\href{https://github.com/axios/axios/pull/3803}{\texttt{ \#3803}})
+\item Updating CI status badge (\href{https://github.com/axios/axios/pull/3953}{\texttt{ \#3953}})
+\item Fixing errors with JSON documentation (\href{https://github.com/axios/axios/pull/3936}{\texttt{ \#3936}})
+\item Fixing README typo under Request Config (\href{https://github.com/axios/axios/pull/3825}{\texttt{ \#3825}})
+\item Adding axios-\/multi-\/api to the ecosystem file (\href{https://github.com/axios/axios/pull/3817}{\texttt{ \#3817}})
+\item Adding SECURITY.\+md to properly disclose security vulnerabilities (\href{https://github.com/axios/axios/pull/3981}{\texttt{ \#3981}})
+\end{DoxyItemize}
+
+Huge thanks to everyone who contributed to this release via code (authors listed below) or via reviews and triaging on Git\+Hub\+:
+
+
+\begin{DoxyItemize}
+\item \href{mailto:jasonsaayman@gmail.com}{\texttt{ Jay}}
+\item \href{https://github.com/SashaKoro}{\texttt{ Sasha Korotkov}}
+\item \href{https://github.com/timemachine3030}{\texttt{ Daniel Lopretto}}
+\item \href{https://github.com/MikeBishop}{\texttt{ Mike Bishop}}
+\item \href{https://github.com/DigitalBrainJS}{\texttt{ Dmitriy Mozgovoy}}
+\item \href{https://github.com/bimbiltu}{\texttt{ Mark}}
+\item \href{https://github.com/piiih}{\texttt{ Philipe Gouveia Paixão}}
+\item \href{https://github.com/hippo2cat}{\texttt{ hippo}}
+\item \href{https://github.com/ready-research}{\texttt{ ready-\/research}}
+\item \href{https://github.com/chinesedfan}{\texttt{ Xianming Zhong}}
+\item \href{https://github.com/OJezu}{\texttt{ Christopher Chrapka}}
+\item \href{https://github.com/anglinb}{\texttt{ Brian Anglin}}
+\item \href{https://github.com/koh110}{\texttt{ Kohta Ito}}
+\item \href{https://github.com/aliclark}{\texttt{ Ali Clark}}
+\item \href{https://github.com/caikan}{\texttt{ caikan}}
+\item \href{https://github.com/elinagorshkova}{\texttt{ Elina Gorshkova}}
+\item \href{https://github.com/paveg}{\texttt{ Ryota Ikezawa}}
+\item \href{https://github.com/nisarhassan12}{\texttt{ Nisar Hassan Naqvi}}
+\item \href{https://github.com/codemaster138}{\texttt{ Jake}}
+\item \href{https://github.com/wafuwafu13}{\texttt{ Tagawa\+Hirotaka}}
+\item \href{https://github.com/johachi}{\texttt{ Johannes Jarbratt}}
+\item \href{https://github.com/MoSattler}{\texttt{ Mo Sattler}}
+\item \href{https://github.com/ThatGuySam}{\texttt{ Sam Carlton}}
+\item \href{https://github.com/MattCCC}{\texttt{ Matt Czapliński}}
+\item \href{https://github.com/zidingz}{\texttt{ Ziding Zhang}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2641}{}\doxysubsection{\texorpdfstring{0.\+21.\+1 (December 21, 2020)}{0.\+21.\+1 (December 21, 2020)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2641}
+Fixes and Functionality\+:
+
+
+\begin{DoxyItemize}
+\item Hotfix\+: Prevent SSRF (\href{https://github.com/axios/axios/pull/3410}{\texttt{ \#3410}})
+\item Protocol not parsed when setting proxy config from env vars (\href{https://github.com/axios/axios/pull/3070}{\texttt{ \#3070}})
+\item Updating axios in types to be lower case (\href{https://github.com/axios/axios/pull/2797}{\texttt{ \#2797}})
+\item Adding a type guard for {\ttfamily Axios\+Error} (\href{https://github.com/axios/axios/pull/2949}{\texttt{ \#2949}})
+\end{DoxyItemize}
+
+Internal and Tests\+:
+
+
+\begin{DoxyItemize}
+\item Remove the skipping of the {\ttfamily socket} http test (\href{https://github.com/axios/axios/pull/3364}{\texttt{ \#3364}})
+\item Use different socket for Win32 test (\href{https://github.com/axios/axios/pull/3375}{\texttt{ \#3375}})
+\end{DoxyItemize}
+
+Huge thanks to everyone who contributed to this release via code (authors listed below) or via reviews and triaging on Git\+Hub\+:
+
+
+\begin{DoxyItemize}
+\item Daniel Lopretto \href{mailto:timemachine3030@users.noreply.github.com}{\texttt{ timemachine3030@users.\+noreply.\+github.\+com}}
+\item Jason Kwok \href{mailto:JasonHK@users.noreply.github.com}{\texttt{ Jason\+HK@users.\+noreply.\+github.\+com}}
+\item Jay \href{mailto:jasonsaayman@gmail.com}{\texttt{ jasonsaayman@gmail.\+com}}
+\item Jonathan Foster \href{mailto:jonathan@jonathanfoster.io}{\texttt{ jonathan@jonathanfoster.\+io}}
+\item Remco Haszing \href{mailto:remcohaszing@gmail.com}{\texttt{ remcohaszing@gmail.\+com}}
+\item Xianming Zhong \href{mailto:chinesedfan@qq.com}{\texttt{ chinesedfan@qq.\+com}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2642}{}\doxysubsection{\texorpdfstring{0.\+21.\+0 (October 23, 2020)}{0.\+21.\+0 (October 23, 2020)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2642}
+Fixes and Functionality\+:
+
+
+\begin{DoxyItemize}
+\item Fixing request\+Headers.\+Authorization (\href{https://github.com/axios/axios/pull/3287}{\texttt{ \#3287}})
+\item Fixing node types (\href{https://github.com/axios/axios/pull/3237}{\texttt{ \#3237}})
+\item Fixing axios.\+delete ignores config.\+data (\href{https://github.com/axios/axios/pull/3282}{\texttt{ \#3282}})
+\item Revert "{}\+Fixing overwrite Blob/\+File type as Content-\/\+Type in browser. (\#1773)"{} (\href{https://github.com/axios/axios/pull/3289}{\texttt{ \#3289}})
+\item Fixing an issue that type \textquotesingle{}null\textquotesingle{} and \textquotesingle{}undefined\textquotesingle{} is not assignable to validate\+Status when typescript strict option is enabled (\href{https://github.com/axios/axios/pull/3200}{\texttt{ \#3200}})
+\end{DoxyItemize}
+
+Internal and Tests\+:
+
+
+\begin{DoxyItemize}
+\item Lock travis to not use node v15 (\href{https://github.com/axios/axios/pull/3361}{\texttt{ \#3361}})
+\end{DoxyItemize}
+
+Documentation\+:
+
+
+\begin{DoxyItemize}
+\item Fixing simple typo, existant -\/\texorpdfstring{$>$}{>} existent (\href{https://github.com/axios/axios/pull/3252}{\texttt{ \#3252}})
+\item Fixing typos (\href{https://github.com/axios/axios/pull/3309}{\texttt{ \#3309}})
+\end{DoxyItemize}
+
+Huge thanks to everyone who contributed to this release via code (authors listed below) or via reviews and triaging on Git\+Hub\+:
+
+
+\begin{DoxyItemize}
+\item Allan Cruz \href{mailto:57270969+Allanbcruz@users.noreply.github.com}{\texttt{ 57270969+\+Allanbcruz@users.\+noreply.\+github.\+com}}
+\item George Cheng \href{mailto:Gerhut@GMail.com}{\texttt{ Gerhut@\+GMail.\+com}}
+\item Jay \href{mailto:jasonsaayman@gmail.com}{\texttt{ jasonsaayman@gmail.\+com}}
+\item Kevin Kirsche \href{mailto:Kev.Kirsche+GitHub@gmail.com}{\texttt{ Kev.\+Kirsche+\+Git\+Hub@gmail.\+com}}
+\item Remco Haszing \href{mailto:remcohaszing@gmail.com}{\texttt{ remcohaszing@gmail.\+com}}
+\item Taemin Shin \href{mailto:cprayer13@gmail.com}{\texttt{ cprayer13@gmail.\+com}}
+\item Tim Gates \href{mailto:tim.gates@iress.com}{\texttt{ tim.\+gates@iress.\+com}}
+\item Xianming Zhong \href{mailto:chinesedfan@qq.com}{\texttt{ chinesedfan@qq.\+com}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2643}{}\doxysubsection{\texorpdfstring{0.\+20.\+0 (August 20, 2020)}{0.\+20.\+0 (August 20, 2020)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2643}
+Release of 0.\+20.\+0-\/pre as a full release with no other changes.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2644}{}\doxysubsection{\texorpdfstring{0.\+20.\+0-\/pre (July 15, 2020)}{0.\+20.\+0-\/pre (July 15, 2020)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2644}
+Fixes and Functionality\+:
+
+
+\begin{DoxyItemize}
+\item Fixing response with utf-\/8 BOM can not parse to json (\href{https://github.com/axios/axios/pull/2419}{\texttt{ \#2419}})
+\begin{DoxyItemize}
+\item fix\+: remove byte order marker (UTF-\/8 BOM) when transform response
+\item fix\+: remove BOM only utf-\/8
+\item test\+: utf-\/8 BOM
+\item fix\+: incorrect param name
+\end{DoxyItemize}
+\item Refactor merge\+Config without utils.\+deep\+Merge (\href{https://github.com/axios/axios/pull/2844}{\texttt{ \#2844}})
+\begin{DoxyItemize}
+\item Adding failing test
+\item Fixing \#2587 default custom config persisting
+\item Adding Concat keys and filter duplicates
+\item Fixed value from CPE
+\item update for review feedbacks
+\item no deep\+Merge
+\item only merge between plain objects
+\item fix rename
+\item always merge config by merge\+Config
+\item extract function merge\+Deep\+Properties
+\item refactor merge\+Config with all keys, and add special logic for validate\+Status
+\item add test for resetting headers
+\item add lots of tests and fix a bug
+\item should not inherit {\ttfamily data}
+\item use simple to\+String
+\end{DoxyItemize}
+\item Fixing overwrite Blob/\+File type as Content-\/\+Type in browser. (\href{https://github.com/axios/axios/pull/1773}{\texttt{ \#1773}})
+\item Fixing an issue that type \textquotesingle{}null\textquotesingle{} is not assignable to validate\+Status (\href{https://github.com/axios/axios/pull/2773}{\texttt{ \#2773}})
+\item Fixing special char encoding (\href{https://github.com/axios/axios/pull/1671}{\texttt{ \#1671}})
+\begin{DoxyItemize}
+\item removing @ character from replacement list since it is a reserved character
+\item Updating build\+URL test to not include the @ character
+\item Removing console logs
+\end{DoxyItemize}
+\item Fixing password encoding with special characters in basic authentication (\href{https://github.com/axios/axios/pull/1492}{\texttt{ \#1492}})
+\begin{DoxyItemize}
+\item Fixing password encoding with special characters in basic authentication
+\item Adding test to check if password with non-\/\+Latin1 characters pass
+\end{DoxyItemize}
+\item Fixing \textquotesingle{}Network Error\textquotesingle{} in react native android (\href{https://github.com/axios/axios/pull/1487}{\texttt{ \#1487}}) There is a bug in react native Android platform when using get method. It will trigger a \textquotesingle{}Network Error\textquotesingle{} when passing the request\+Data which is an empty string to request.\+send function. So if the request\+Data is an empty string we can set it to null as well to fix the bug.
+\item Fixing Cookie Helper with Async Components (\href{https://github.com/axios/axios/pull/1105}{\texttt{ \#1105}}) (\href{https://github.com/axios/axios/pull/1107}{\texttt{ \#1107}})
+\item Fixing \textquotesingle{}progress\+Event\textquotesingle{} type (\href{https://github.com/axios/axios/pull/2851}{\texttt{ \#2851}})
+\begin{DoxyItemize}
+\item Fix \textquotesingle{}progress\+Event\textquotesingle{} type
+\item Update axios.\+ts
+\end{DoxyItemize}
+\item Fixing getting local files (\href{file://}{\texttt{ file\+://}}) failed (\href{https://github.com/axios/axios/pull/2470}{\texttt{ \#2470}})
+\begin{DoxyItemize}
+\item fix issue \#2416, \#2396
+\item fix Eslint warn
+\item Modify judgment conditions
+\item add unit test
+\item update unit test
+\item update unit test
+\end{DoxyItemize}
+\item Allow PURGE method in typings (\href{https://github.com/axios/axios/pull/2191}{\texttt{ \#2191}})
+\item Adding option to disable automatic decompression (\href{https://github.com/axios/axios/pull/2661}{\texttt{ \#2661}})
+\begin{DoxyItemize}
+\item Adding ability to disable auto decompression
+\item Updating decompress documentation in README
+\item Fixing test\textbackslash{}unit\textbackslash{}adapters\textbackslash{}http.\+js lint errors
+\item Adding test for disabling auto decompression
+\item Removing changes that fixed lint errors in tests
+\item Removing formatting change to unit test
+\end{DoxyItemize}
+\item Add independent {\ttfamily max\+Body\+Length} option (\href{https://github.com/axios/axios/pull/2781}{\texttt{ \#2781}})
+\begin{DoxyItemize}
+\item Add independent option to set the maximum size of the request body
+\item Remove max\+Body\+Length check
+\item Update README
+\item Assert for error code and message
+\end{DoxyItemize}
+\item Adding response\+Encoding to merge\+Config (\href{https://github.com/axios/axios/pull/1745}{\texttt{ \#1745}})
+\item Compatible with follow-\/redirect aborts the request (\href{https://github.com/axios/axios/pull/2689}{\texttt{ \#2689}})
+\begin{DoxyItemize}
+\item Compatible with follow-\/redirect aborts the request
+\item Use the error code
+\end{DoxyItemize}
+\item Fix merging of params (\href{https://github.com/axios/axios/pull/2656}{\texttt{ \#2656}})
+\begin{DoxyItemize}
+\item Name function to avoid ESLint func-\/names warning
+\item Switch params config to merge list and update tests
+\item Restore testing of both false and null
+\item Restore test cases for keys without defaults
+\item Include test for non-\/object values that aren\textquotesingle{}t false-\/y.
+\end{DoxyItemize}
+\item Revert {\ttfamily finally} as {\ttfamily then} (\href{https://github.com/axios/axios/pull/2683}{\texttt{ \#2683}})
+\end{DoxyItemize}
+
+Internal and Tests\+:
+
+
+\begin{DoxyItemize}
+\item Fix stale bot config (\href{https://github.com/axios/axios/pull/3049}{\texttt{ \#3049}})
+\begin{DoxyItemize}
+\item fix stale bot config
+\item fix multiple lines
+\end{DoxyItemize}
+\item Add days and change name to work (\href{https://github.com/axios/axios/pull/3035}{\texttt{ \#3035}})
+\item Update close-\/issues.\+yml (\href{https://github.com/axios/axios/pull/3031}{\texttt{ \#3031}})
+\begin{DoxyItemize}
+\item Update close-\/issues.\+yml Update close message to read better 😄
+\item Fix use of quotations Use single quotes as per other .yml files
+\item Remove user name form message
+\end{DoxyItemize}
+\item Add Git\+Hub actions to close stale issues/prs (\href{https://github.com/axios/axios/pull/3029}{\texttt{ \#3029}})
+\begin{DoxyItemize}
+\item prepare stale actions
+\item update messages
+\item Add exempt labels and lighten up comments
+\end{DoxyItemize}
+\item Add Git\+Hub actions to close invalid issues (\href{https://github.com/axios/axios/pull/3022}{\texttt{ \#3022}})
+\begin{DoxyItemize}
+\item add close actions
+\item fix with checkout
+\item update issue templates
+\item add reminder
+\item update close message
+\end{DoxyItemize}
+\item Add test with Node.\+js 12 (\href{https://github.com/axios/axios/pull/2860}{\texttt{ \#2860}})
+\begin{DoxyItemize}
+\item test with Node.\+js 12
+\item test with latest
+\end{DoxyItemize}
+\item Adding console log on sandbox server startup (\href{https://github.com/axios/axios/pull/2210}{\texttt{ \#2210}})
+\begin{DoxyItemize}
+\item Adding console log on sandbox server startup
+\item Update server.\+js Add server error handling
+\item Update server.\+js Better error message, remove retry.
+\end{DoxyItemize}
+\item Adding tests for method {\ttfamily options} type definitions (\href{https://github.com/axios/axios/pull/1996}{\texttt{ \#1996}}) Update tests.
+\item Add test for redirecting with too large response (\href{https://github.com/axios/axios/pull/2695}{\texttt{ \#2695}})
+\item Fixing unit test failure in Windows OS (\href{https://github.com/axios/axios/pull/2601}{\texttt{ \#2601}})
+\item Fixing issue for HEAD method and gzipped response (\href{https://github.com/axios/axios/pull/2666}{\texttt{ \#2666}})
+\item Fix tests in browsers (\href{https://github.com/axios/axios/pull/2748}{\texttt{ \#2748}})
+\item chore\+: add {\ttfamily jsdelivr} and {\ttfamily unpkg} support (\href{https://github.com/axios/axios/pull/2443}{\texttt{ \#2443}})
+\end{DoxyItemize}
+
+Documentation\+:
+
+
+\begin{DoxyItemize}
+\item Adding support for URLSearch\+Params in node (\href{https://github.com/axios/axios/pull/1900}{\texttt{ \#1900}})
+\begin{DoxyItemize}
+\item Adding support for URLSearch\+Params in node
+\item Remove un-\/needed code
+\item Update utils.\+js
+\item Make changes as suggested
+\end{DoxyItemize}
+\item Adding table of content (preview) (\href{https://github.com/axios/axios/pull/3050}{\texttt{ \#3050}})
+\begin{DoxyItemize}
+\item add toc (preview)
+\item remove toc in toc Signed-\/off-\/by\+: Moni \href{mailto:usmoni@gmail.com}{\texttt{ usmoni@gmail.\+com}}
+\item fix sublinks
+\item fix indentation
+\item remove redundant table links
+\item update caps and indent
+\item remove axios
+\end{DoxyItemize}
+\item Replace \textquotesingle{}blacklist\textquotesingle{} with \textquotesingle{}blocklist\textquotesingle{} (\href{https://github.com/axios/axios/pull/3006}{\texttt{ \#3006}})
+\item docs()\+: Detailed config options environment. (\href{https://github.com/axios/axios/pull/2088}{\texttt{ \#2088}})
+\begin{DoxyItemize}
+\item docs()\+: Detailed config options environment.
+\item Update README.\+md
+\end{DoxyItemize}
+\item Include axios-\/data-\/unpacker in ECOSYSTEM.\+md (\href{https://github.com/axios/axios/pull/2080}{\texttt{ \#2080}})
+\item Allow opening examples in Gitpod (\href{https://github.com/axios/axios/pull/1958}{\texttt{ \#1958}})
+\item Remove axios.\+all() and axios.\+spread() from Readme.\+md (\href{https://github.com/axios/axios/pull/2727}{\texttt{ \#2727}})
+\begin{DoxyItemize}
+\item remove axios.\+all(), axios.\+spread()
+\item replace example
+\item axios.\+all() -\/\texorpdfstring{$>$}{>} Promise.\+all()
+\item axios.\+spread(function (acct, perms)) -\/\texorpdfstring{$>$}{>} function (acct, perms)
+\item add deprecated mark
+\end{DoxyItemize}
+\item Update README.\+md (\href{https://github.com/axios/axios/pull/2887}{\texttt{ \#2887}}) Small change to the data attribute doc of the config. A request body can also be set for DELETE methods but this wasn\textquotesingle{}t mentioned in the documentation (it only mentioned POST, PUT and PATCH). Took my some 10-\/20 minutes until I realized that I don\textquotesingle{}t need to manipulate the request body with transform\+Request in the case of DELETE.
+\item Include swagger-\/taxos-\/codegen in ECOSYSTEM.\+md (\href{https://github.com/axios/axios/pull/2162}{\texttt{ \#2162}})
+\item Add CDNJS version badge in README.\+md (\href{https://github.com/axios/axios/pull/878}{\texttt{ \#878}}) This badge will show the version on CDNJS!
+\item Documentation update to clear up ambiguity in code examples (\href{https://github.com/axios/axios/pull/2928}{\texttt{ \#2928}})
+\begin{DoxyItemize}
+\item Made an adjustment to the documentation to clear up any ambiguity around the use of "{}fs"{}. This should help clear up that the code examples with "{}fs"{} cannot be used on the client side.
+\end{DoxyItemize}
+\item Update README.\+md about validate\+Status (\href{https://github.com/axios/axios/pull/2912}{\texttt{ \#2912}}) Rewrote the comment from "{}\+Reject only if the status code is greater than or equal to 500"{} to "{}\+Resolve only if the status code is less than 500"{}
+\item Updating documentation for usage form-\/data (\href{https://github.com/axios/axios/pull/2805}{\texttt{ \#2805}}) Closes \#2049
+\item Fixing CHANGELOG.\+md issue link (\href{https://github.com/axios/axios/pull/2784}{\texttt{ \#2784}})
+\item Include axios-\/hooks in ECOSYSTEM.\+md (\href{https://github.com/axios/axios/pull/2003}{\texttt{ \#2003}})
+\item Added Response header access instructions (\href{https://github.com/axios/axios/pull/1901}{\texttt{ \#1901}})
+\begin{DoxyItemize}
+\item Added Response header access instructions
+\item Added note about using bracket notation
+\end{DoxyItemize}
+\item Add {\ttfamily on\+Upload\+Progress} and {\ttfamily on\+Download\+Progress} are browser only (\href{https://github.com/axios/axios/pull/2763}{\texttt{ \#2763}}) Saw in \#928 and \#1966 that {\ttfamily on\+Upload\+Progress} and {\ttfamily on\+Download\+Progress} only work in the browser and was missing that from the README.
+\item Update \textquotesingle{} sign to \`{} in proxy spec (\href{https://github.com/axios/axios/pull/2778}{\texttt{ \#2778}})
+\item Adding js\+Delivr link in README (\href{https://github.com/axios/axios/pull/1110}{\texttt{ \#1110}})
+\begin{DoxyItemize}
+\item Adding js\+Delivr link
+\item Add SRI
+\item Remove SRI
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Huge thanks to everyone who contributed to this release via code (authors listed below) or via reviews and triaging on Git\+Hub\+:
+
+
+\begin{DoxyItemize}
+\item Alan Wang \href{mailto:wp_scut@163.com}{\texttt{ wp\+\_\+scut@163.\+com}}
+\item Alexandru Ungureanu \href{mailto:khakcarot@gmail.com}{\texttt{ khakcarot@gmail.\+com}}
+\item Anubhav Srivastava \href{mailto:anubhav.srivastava00@gmail.com}{\texttt{ anubhav.\+srivastava00@gmail.\+com}}
+\item Benny Neugebauer \href{mailto:bn@bennyn.de}{\texttt{ bn@bennyn.\+de}}
+\item Cr \href{mailto:631807682@qq.com}{\texttt{ 631807682@qq.\+com}}
+\item David \href{mailto:cygnidavid@gmail.com}{\texttt{ cygnidavid@gmail.\+com}}
+\item David Ko \href{mailto:david.ko@pvtmethod.com}{\texttt{ david.\+ko@pvtmethod.\+com}}
+\item David Tanner \href{mailto:david.tanner@lifeomic.com}{\texttt{ david.\+tanner@lifeomic.\+com}}
+\item Emily Morehouse \href{mailto:emilyemorehouse@gmail.com}{\texttt{ emilyemorehouse@gmail.\+com}}
+\item Felipe Martins \href{mailto:felipewmartins@gmail.com}{\texttt{ felipewmartins@gmail.\+com}}
+\item Fonger \href{mailto:5862369+Fonger@users.noreply.github.com}{\texttt{ 5862369+\+Fonger@users.\+noreply.\+github.\+com}}
+\item Frostack \href{mailto:soulburn007@gmail.com}{\texttt{ soulburn007@gmail.\+com}}
+\item George Cheng \href{mailto:Gerhut@GMail.com}{\texttt{ Gerhut@\+GMail.\+com}}
+\item grumblerchester \href{mailto:grumblerchester@users.noreply.github.com}{\texttt{ grumblerchester@users.\+noreply.\+github.\+com}}
+\item Gustavo López \href{mailto:gualopezb@gmail.com}{\texttt{ gualopezb@gmail.\+com}}
+\item hexaez \href{mailto:45806662+hexaez@users.noreply.github.com}{\texttt{ 45806662+hexaez@users.\+noreply.\+github.\+com}}
+\item huangzuizui \href{mailto:huangzuizui@gmail.com}{\texttt{ huangzuizui@gmail.\+com}}
+\item Ian Wijma \href{mailto:ian@wij.ma}{\texttt{ ian@wij.\+ma}}
+\item Jay \href{mailto:jasonsaayman@gmail.com}{\texttt{ jasonsaayman@gmail.\+com}}
+\item jeffjing \href{mailto:zgayjjf@qq.com}{\texttt{ zgayjjf@qq.\+com}}
+\item jennynju \href{mailto:46782518+jennynju@users.noreply.github.com}{\texttt{ 46782518+jennynju@users.\+noreply.\+github.\+com}}
+\item Jimmy Liao \href{mailto:52391190+jimmy-liao-gogoro@users.noreply.github.com}{\texttt{ 52391190+jimmy-\/liao-\/gogoro@users.\+noreply.\+github.\+com}}
+\item Jonathan Sharpe \href{mailto:j.r.sharpe@gmail.com}{\texttt{ j.\+r.\+sharpe@gmail.\+com}}
+\item Joun\+Qin \href{mailto:admin@1stg.me}{\texttt{ admin@1stg.\+me}}
+\item Justin Beckwith \href{mailto:justin.beckwith@gmail.com}{\texttt{ justin.\+beckwith@gmail.\+com}}
+\item Kamil Posiadała \href{mailto:3dcreator.pl@gmail.com}{\texttt{ 3dcreator.\+pl@gmail.\+com}}
+\item Lukas Drgon \href{mailto:lukas.drgon@gmail.com}{\texttt{ lukas.\+drgon@gmail.\+com}}
+\item marcinx \href{mailto:mail@marcinx.com}{\texttt{ mail@marcinx.\+com}}
+\item Martti Laine \href{mailto:martti@codeclown.net}{\texttt{ martti@codeclown.\+net}}
+\item Michał Zarach \href{mailto:michal.m.zarach@gmail.com}{\texttt{ michal.\+m.\+zarach@gmail.\+com}}
+\item Moni \href{mailto:usmoni@gmail.com}{\texttt{ usmoni@gmail.\+com}}
+\item Motonori Iwata \href{mailto:121048+iwata@users.noreply.github.com}{\texttt{ 121048+iwata@users.\+noreply.\+github.\+com}}
+\item Nikita Galkin \href{mailto:nikita@galk.in}{\texttt{ nikita@galk.\+in}}
+\item Petr Mares \href{mailto:petr@mares.tw}{\texttt{ petr@mares.\+tw}}
+\item Philippe Recto \href{mailto:precto1285@gmal.com}{\texttt{ precto1285@gmal.\+com}}
+\item Remco Haszing \href{mailto:remcohaszing@gmail.com}{\texttt{ remcohaszing@gmail.\+com}}
+\item rockcs1992 \href{mailto:chengshi1219@gmail.com}{\texttt{ chengshi1219@gmail.\+com}}
+\item Ryan Bown \href{mailto:rbown@niftee.com.au}{\texttt{ rbown@niftee.\+com.\+au}}
+\item Samina Fu \href{mailto:sufuf3@gmail.com}{\texttt{ sufuf3@gmail.\+com}}
+\item Simone Busoli \href{mailto:simone.busoli@gmail.com}{\texttt{ simone.\+busoli@gmail.\+com}}
+\item Spencer von der Ohe \href{mailto:s.vonderohe40@gmail.com}{\texttt{ s.\+vonderohe40@gmail.\+com}}
+\item Sven Efftinge \href{mailto:sven.efftinge@typefox.io}{\texttt{ sven.\+efftinge@typefox.\+io}}
+\item Taegyeoung Oh \href{mailto:otk1090@naver.com}{\texttt{ otk1090@naver.\+com}}
+\item Taemin Shin \href{mailto:cprayer13@gmail.com}{\texttt{ cprayer13@gmail.\+com}}
+\item Thibault Ehrhart \href{mailto:1208424+ehrhart@users.noreply.github.com}{\texttt{ 1208424+ehrhart@users.\+noreply.\+github.\+com}}
+\item Xianming Zhong \href{mailto:chinesedfan@qq.com}{\texttt{ chinesedfan@qq.\+com}}
+\item Yasu Flores \href{mailto:carlosyasu91@gmail.com}{\texttt{ carlosyasu91@gmail.\+com}}
+\item Zac Delventhal \href{mailto:delventhalz@gmail.com}{\texttt{ delventhalz@gmail.\+com}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2645}{}\doxysubsection{\texorpdfstring{0.\+19.\+2 (Jan 20, 2020)}{0.\+19.\+2 (Jan 20, 2020)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2645}
+
+\begin{DoxyItemize}
+\item Remove unnecessary XSS check (\href{https://github.com/axios/axios/pull/2679}{\texttt{ \#2679}}) (see (\href{https://github.com/axios/axios/issues/2646}{\texttt{ \#2646}}) for discussion)
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2646}{}\doxysubsection{\texorpdfstring{0.\+19.\+1 (Jan 7, 2020)}{0.\+19.\+1 (Jan 7, 2020)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2646}
+Fixes and Functionality\+:
+
+
+\begin{DoxyItemize}
+\item Fixing invalid agent issue (\href{https://github.com/axios/axios/pull/1904}{\texttt{ \#1904}})
+\item Fix ignore set with\+Credentials false (\href{https://github.com/axios/axios/pull/2582}{\texttt{ \#2582}})
+\item Delete useless default to hash (\href{https://github.com/axios/axios/pull/2458}{\texttt{ \#2458}})
+\item Fix HTTP/\+HTTPs agents passing to follow-\/redirect (\href{https://github.com/axios/axios/pull/1904}{\texttt{ \#1904}})
+\item Fix ignore set with\+Credentials false (\href{https://github.com/axios/axios/pull/2582}{\texttt{ \#2582}})
+\item Fix CI build failure (\href{https://github.com/axios/axios/pull/2570}{\texttt{ \#2570}})
+\item Remove dependency on is-\/buffer from package.\+json (\href{https://github.com/axios/axios/pull/1816}{\texttt{ \#1816}})
+\item Adding options typings (\href{https://github.com/axios/axios/pull/2341}{\texttt{ \#2341}})
+\item Adding Typescript HTTP method definition for LINK and UNLINK. (\href{https://github.com/axios/axios/pull/2444}{\texttt{ \#2444}})
+\item Update dist with newest changes, fixes Custom Attributes issue
+\item Change syntax to see if build passes (\href{https://github.com/axios/axios/pull/2488}{\texttt{ \#2488}})
+\item Update Webpack + deps, remove now unnecessary polyfills (\href{https://github.com/axios/axios/pull/2410}{\texttt{ \#2410}})
+\item Fix to prevent XSS, throw an error when the URL contains a JS script (\href{https://github.com/axios/axios/pull/2464}{\texttt{ \#2464}})
+\item Add custom timeout error copy in config (\href{https://github.com/axios/axios/pull/2275}{\texttt{ \#2275}})
+\item Add error to\+JSON example (\href{https://github.com/axios/axios/pull/2466}{\texttt{ \#2466}})
+\item Fixing Vulnerability A Fortify Scan finds a critical Cross-\/\+Site Scrip… (\href{https://github.com/axios/axios/pull/2451}{\texttt{ \#2451}})
+\item Fixing subdomain handling on no\+\_\+proxy (\href{https://github.com/axios/axios/pull/2442}{\texttt{ \#2442}})
+\item Make redirection from HTTP to HTTPS work (\href{https://github.com/axios/axios/pull/2426}{\texttt{ \#2426}}) and (\href{https://github.com/axios/axios/pull/2547}{\texttt{ \#2547}})
+\item Add to\+JSON property to Axios\+Error type (\href{https://github.com/axios/axios/pull/2427}{\texttt{ \#2427}})
+\item Fixing socket hang up error on node side for slow response. (\href{https://github.com/axios/axios/pull/1752}{\texttt{ \#1752}})
+\item Alternative syntax to send data into the body (\href{https://github.com/axios/axios/pull/2317}{\texttt{ \#2317}})
+\item Fixing custom config options (\href{https://github.com/axios/axios/pull/2207}{\texttt{ \#2207}})
+\item Fixing set {\ttfamily config.\+method} after merge\+Config for Axios.\+prototype.\+request (\href{https://github.com/axios/axios/pull/2383}{\texttt{ \#2383}})
+\item Axios create url bug (\href{https://github.com/axios/axios/pull/2290}{\texttt{ \#2290}})
+\item Do not modify config.\+url when using a relative base\+URL (resolves \href{https://github.com/axios/axios/issues/1098}{\texttt{ \#1628}}) (\href{https://github.com/axios/axios/pull/2391}{\texttt{ \#2391}})
+\end{DoxyItemize}
+
+Internal\+:
+
+
+\begin{DoxyItemize}
+\item Revert "{}\+Update Webpack + deps, remove now unnecessary polyfills"{} (\href{https://github.com/axios/axios/pull/2479}{\texttt{ \#2479}})
+\item Order of if/else blocks is causing unit tests mocking XHR. (\href{https://github.com/axios/axios/pull/2201}{\texttt{ \#2201}})
+\item Add license badge (\href{https://github.com/axios/axios/pull/2446}{\texttt{ \#2446}})
+\item Fix travis CI build \href{https://github.com/axios/axios/pull/2386}{\texttt{ \#2386}}
+\item Fix cancellation error on build master. \#2290 \#2207 (\href{https://github.com/axios/axios/pull/2407}{\texttt{ \#2407}})
+\end{DoxyItemize}
+
+Documentation\+:
+
+
+\begin{DoxyItemize}
+\item Fixing typo in CHANGELOG.\+md\+: s/\+Functionallity/\+Functionality (\href{https://github.com/axios/axios/pull/2639}{\texttt{ \#2639}})
+\item Fix badge, use master branch (\href{https://github.com/axios/axios/pull/2538}{\texttt{ \#2538}})
+\item Fix typo in changelog \href{https://github.com/axios/axios/pull/2193}{\texttt{ \#2193}}
+\item Document fix (\href{https://github.com/axios/axios/pull/2514}{\texttt{ \#2514}})
+\item Update docs with no\+\_\+proxy change, issue \#2484 (\href{https://github.com/axios/axios/pull/2513}{\texttt{ \#2513}})
+\item Fixing missing words in docs template (\href{https://github.com/axios/axios/pull/2259}{\texttt{ \#2259}})
+\item 🐛\+Fix request finally documentation in README (\href{https://github.com/axios/axios/pull/2189}{\texttt{ \#2189}})
+\item updating spelling and adding link to docs (\href{https://github.com/axios/axios/pull/2212}{\texttt{ \#2212}})
+\item docs\+: minor tweak (\href{https://github.com/axios/axios/pull/2404}{\texttt{ \#2404}})
+\item Update response interceptor docs (\href{https://github.com/axios/axios/pull/2399}{\texttt{ \#2399}})
+\item Update README.\+md (\href{https://github.com/axios/axios/pull/2504}{\texttt{ \#2504}})
+\item Fix word \textquotesingle{}sintaxe\textquotesingle{} to \textquotesingle{}syntax\textquotesingle{} in README.\+md (\href{https://github.com/axios/axios/pull/2432}{\texttt{ \#2432}})
+\item updating README\+: notes on Common\+JS autocomplete (\href{https://github.com/axios/axios/pull/2256}{\texttt{ \#2256}})
+\item Fix grammar in README.\+md (\href{https://github.com/axios/axios/pull/2271}{\texttt{ \#2271}})
+\item Doc fixes, minor examples cleanup (\href{https://github.com/axios/axios/pull/2198}{\texttt{ \#2198}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2647}{}\doxysubsection{\texorpdfstring{0.\+19.\+0 (May 30, 2019)}{0.\+19.\+0 (May 30, 2019)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2647}
+Fixes and Functionality\+:
+
+
+\begin{DoxyItemize}
+\item Added support for no\+\_\+proxy env variable (\href{https://github.com/axios/axios/pull/1693/files}{\texttt{ \#1693}}) -\/ Chance Dickson
+\item Unzip response body only for statuses != 204 (\href{https://github.com/axios/axios/pull/1129}{\texttt{ \#1129}}) -\/ drawski
+\item Destroy stream on exceeding max\+Content\+Length (fixes \href{https://github.com/axios/axios/issues/1098}{\texttt{ \#1098}}) (\href{https://github.com/axios/axios/pull/1485}{\texttt{ \#1485}}) -\/ Gadzhi Gadzhiev
+\item Makes Axios error generic to use Axios\+Response (\href{https://github.com/axios/axios/pull/1738}{\texttt{ \#1738}}) -\/ Suman Lama
+\item Fixing Mocha tests by locking follow-\/redirects version to 1.\+5.\+10 (\href{https://github.com/axios/axios/pull/1993}{\texttt{ \#1993}}) -\/ grumblerchester
+\item Allow uppercase methods in typings. (\href{https://github.com/axios/axios/pull/1781}{\texttt{ \#1781}}) -\/ Ken Powers
+\item Fixing building url with hash mark (\href{https://github.com/axios/axios/pull/1771}{\texttt{ \#1771}}) -\/ Anatoly Ryabov
+\item This commit fix building url with hash map (fragment identifier) when parameters are present\+: they must not be added after {\ttfamily \#}, because client cut everything after {\ttfamily \#}
+\item Preserve HTTP method when following redirect (\href{https://github.com/axios/axios/pull/1758}{\texttt{ \#1758}}) -\/ Rikki Gibson
+\item Add {\ttfamily get\+Uri} signature to Type\+Script definition. (\href{https://github.com/axios/axios/pull/1736}{\texttt{ \#1736}}) -\/ Alexander Trauzzi
+\item Adding is\+Axios\+Error flag to errors thrown by axios (\href{https://github.com/axios/axios/pull/1419}{\texttt{ \#1419}}) -\/ Ayush Gupta
+\end{DoxyItemize}
+
+Internal\+:
+
+
+\begin{DoxyItemize}
+\item Fixing .eslintrc without extension (\href{https://github.com/axios/axios/pull/1789}{\texttt{ \#1789}}) -\/ Manoel
+\item Fix failing Sauce\+Labs tests by updating configuration -\/ Emily Morehouse
+\item Add issue templates -\/ Emily Morehouse
+\end{DoxyItemize}
+
+Documentation\+:
+
+
+\begin{DoxyItemize}
+\item Consistent coding style in README (\href{https://github.com/axios/axios/pull/1787}{\texttt{ \#1787}}) -\/ Ali Servet Donmez
+\item Add information about auth parameter to README (\href{https://github.com/axios/axios/pull/2166}{\texttt{ \#2166}}) -\/ xlaguna
+\item Add DELETE to list of methods that allow data as a config option (\href{https://github.com/axios/axios/pull/2169}{\texttt{ \#2169}}) -\/ Daniela Borges Matos de Carvalho
+\item Update ECOSYSTEM.\+md -\/ Add Axios Endpoints (\href{https://github.com/axios/axios/pull/2176}{\texttt{ \#2176}}) -\/ Renan
+\item Add r2curl in ECOSYSTEM (\href{https://github.com/axios/axios/pull/2141}{\texttt{ \#2141}}) -\/ 유용우 / CX
+\item Update README.\+md -\/ Add instructions for installing with yarn (\href{https://github.com/axios/axios/pull/2036}{\texttt{ \#2036}}) -\/ Victor Hermes
+\item Fixing spacing for README.\+md (\href{https://github.com/axios/axios/pull/2066}{\texttt{ \#2066}}) -\/ Josh Mc\+Carty
+\item Update README.\+md. -\/ Change {\ttfamily .then} to {\ttfamily .finally} in example code (\href{https://github.com/axios/axios/pull/2090}{\texttt{ \#2090}}) -\/ Omar Cai
+\item Clarify what values response\+Type can have in Node (\href{https://github.com/axios/axios/pull/2121}{\texttt{ \#2121}}) -\/ Tyler Breisacher
+\item docs(\+ECOSYSTEM)\+: add axios-\/api-\/versioning (\href{https://github.com/axios/axios/pull/2020}{\texttt{ \#2020}}) -\/ Weffe
+\item It seems that `response\+Type\+: \textquotesingle{}blob'\`{} doesn\textquotesingle{}t actually work in Node (when I tried using it, response.\+data was a string, not a Blob, since Node doesn\textquotesingle{}t have Blobs), so this clarifies that this option should only be used in the browser
+\item Update README.\+md. -\/ Add Querystring library note (\href{https://github.com/axios/axios/pull/1896}{\texttt{ \#1896}}) -\/ Dmitriy Eroshenko
+\item Add react-\/hooks-\/axios to Libraries section of ECOSYSTEM.\+md (\href{https://github.com/axios/axios/pull/1925}{\texttt{ \#1925}}) -\/ Cody Chan
+\item Clarify in README that default timeout is 0 (no timeout) (\href{https://github.com/axios/axios/pull/1750}{\texttt{ \#1750}}) -\/ Ben Standefer
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2648}{}\doxysubsection{\texorpdfstring{0.\+19.\+0-\/beta.\+1 (Aug 9, 2018)}{0.\+19.\+0-\/beta.\+1 (Aug 9, 2018)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2648}
+{\bfseries{NOTE\+:}} This is a beta version of this release. There may be functionality that is broken in certain browsers, though we suspect that builds are hanging and not erroring. See \href{https://saucelabs.com/u/axios}{\texttt{ https\+://saucelabs.\+com/u/axios}} for the most up-\/to-\/date information.
+
+New Functionality\+:
+
+
+\begin{DoxyItemize}
+\item Add get\+Uri method (\href{https://github.com/axios/axios/issues/1712}{\texttt{ \#1712}})
+\item Add support for no\+\_\+proxy env variable (\href{https://github.com/axios/axios/issues/1693}{\texttt{ \#1693}})
+\item Add to\+JSON to decorated Axios errors to facilitate serialization (\href{https://github.com/axios/axios/issues/1625}{\texttt{ \#1625}})
+\item Add second then on axios call (\href{https://github.com/axios/axios/issues/1623}{\texttt{ \#1623}})
+\item Typings\+: allow custom return types
+\item Add option to specify character set in responses (with http adapter)
+\end{DoxyItemize}
+
+Fixes\+:
+
+
+\begin{DoxyItemize}
+\item Fix Keep defaults local to instance (\href{https://github.com/axios/axios/issues/385}{\texttt{ \#385}})
+\item Correctly catch exception in http test (\href{https://github.com/axios/axios/issues/1475}{\texttt{ \#1475}})
+\item Fix accept header normalization (\href{https://github.com/axios/axios/issues/1698}{\texttt{ \#1698}})
+\item Fix http adapter to allow HTTPS connections via HTTP (\href{https://github.com/axios/axios/issues/959}{\texttt{ \#959}})
+\item Fix Removes usage of deprecated Buffer constructor. (\href{https://github.com/axios/axios/issues/1555}{\texttt{ \#1555}}, \href{https://github.com/axios/axios/issues/1622}{\texttt{ \#1622}})
+\item Fix defaults to use http\+Adapter if available (\href{https://github.com/axios/axios/issues/1285}{\texttt{ \#1285}})
+\begin{DoxyItemize}
+\item Fixing defaults to use http\+Adapter if available
+\item Use a safer, cross-\/platform method to detect the Node environment
+\end{DoxyItemize}
+\item Fix Reject promise if request is cancelled by the browser (\href{https://github.com/axios/axios/issues/537}{\texttt{ \#537}})
+\item \mbox{[}Typescript\mbox{]} Fix missing type parameters on delete/head methods
+\item \mbox{[}NS\mbox{]}\+: Send {\ttfamily false} flag is\+Standard\+Browser\+Env for Nativescript
+\item Fix missing type parameters on delete/head
+\item Fix Default method for an instance always overwritten by get
+\item Fix type error when socket\+Path option in Axios\+Request\+Config
+\item Capture errors on request data streams
+\item Decorate resolve and reject to clear timeout in all cases
+\end{DoxyItemize}
+
+Huge thanks to everyone who contributed to this release via code (authors listed below) or via reviews and triaging on Git\+Hub\+:
+
+
+\begin{DoxyItemize}
+\item Andrew Scott \href{mailto:ascott18@gmail.com}{\texttt{ ascott18@gmail.\+com}}
+\item Anthony Gauthier \href{mailto:antho325@hotmail.com}{\texttt{ antho325@hotmail.\+com}}
+\item arpit \href{mailto:arpit2438735@gmail.com}{\texttt{ arpit2438735@gmail.\+com}}
+\item ascott18
+\item Benedikt Rötsch \href{mailto:axe312ger@users.noreply.github.com}{\texttt{ axe312ger@users.\+noreply.\+github.\+com}}
+\item Chance Dickson \href{mailto:me@chancedickson.com}{\texttt{ me@chancedickson.\+com}}
+\item Dave Stewart \href{mailto:info@davestewart.co.uk}{\texttt{ info@davestewart.\+co.\+uk}}
+\item Deric Cain \href{mailto:deric.cain@gmail.com}{\texttt{ deric.\+cain@gmail.\+com}}
+\item Guillaume Briday \href{mailto:guillaumebriday@gmail.com}{\texttt{ guillaumebriday@gmail.\+com}}
+\item Jacob Wejendorp \href{mailto:jacob@wejendorp.dk}{\texttt{ jacob@wejendorp.\+dk}}
+\item Jim Lynch \href{mailto:mrdotjim@gmail.com}{\texttt{ mrdotjim@gmail.\+com}}
+\item johntron
+\item Justin Beckwith \href{mailto:beckwith@google.com}{\texttt{ beckwith@google.\+com}}
+\item Justin Beckwith \href{mailto:justin.beckwith@gmail.com}{\texttt{ justin.\+beckwith@gmail.\+com}}
+\item Khaled Garbaya \href{mailto:khaledgarbaya@gmail.com}{\texttt{ khaledgarbaya@gmail.\+com}}
+\item Lim Jing Rong \href{mailto:jjingrong@users.noreply.github.com}{\texttt{ jjingrong@users.\+noreply.\+github.\+com}}
+\item Mark van den Broek \href{mailto:mvdnbrk@gmail.com}{\texttt{ mvdnbrk@gmail.\+com}}
+\item Martti Laine \href{mailto:martti@codeclown.net}{\texttt{ martti@codeclown.\+net}}
+\item mattridley
+\item mattridley \href{mailto:matt.r@joinblink.com}{\texttt{ matt.\+r@joinblink.\+com}}
+\item Nicolas Del Valle \href{mailto:nicolas.delvalle@gmail.com}{\texttt{ nicolas.\+delvalle@gmail.\+com}}
+\item Nilegfx
+\item pbarbiero
+\item Rikki Gibson \href{mailto:rikkigibson@gmail.com}{\texttt{ rikkigibson@gmail.\+com}}
+\item Sako Hartounian \href{mailto:sakohartounian@yahoo.com}{\texttt{ sakohartounian@yahoo.\+com}}
+\item Shane Fitzpatrick \href{mailto:fitzpasd@gmail.com}{\texttt{ fitzpasd@gmail.\+com}}
+\item Stephan Schneider \href{mailto:stephanschndr@gmail.com}{\texttt{ stephanschndr@gmail.\+com}}
+\item Steven \href{mailto:steven@ceriously.com}{\texttt{ steven@ceriously.\+com}}
+\item Tim Garthwaite \href{mailto:tim.garthwaite@jibo.com}{\texttt{ tim.\+garthwaite@jibo.\+com}}
+\item Tim Johns \href{mailto:timjohns@yahoo.com}{\texttt{ timjohns@yahoo.\+com}}
+\item Yutaro Miyazaki \href{mailto:yutaro@studio-rubbish.com}{\texttt{ yutaro@studio-\/rubbish.\+com}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2649}{}\doxysubsection{\texorpdfstring{0.\+18.\+0 (Feb 19, 2018)}{0.\+18.\+0 (Feb 19, 2018)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2649}
+
+\begin{DoxyItemize}
+\item Adding support for UNIX Sockets when running with Node.\+js (\href{https://github.com/axios/axios/pull/1070}{\texttt{ \#1070}})
+\item Fixing typings (\href{https://github.com/axios/axios/pull/1177}{\texttt{ \#1177}})\+:
+\begin{DoxyItemize}
+\item Axios\+Request\+Config.\+proxy\+: allows type false
+\item Axios\+Proxy\+Config\+: added auth field
+\end{DoxyItemize}
+\item Adding function signature in Axios\+Instance interface so Axios\+Instance can be invoked (\href{https://github.com/axios/axios/pull/1192}{\texttt{ \#1192}}, \href{https://github.com/axios/axios/pull/1254}{\texttt{ \#1254}})
+\item Allowing max\+Content\+Length to pass through to redirected calls as max\+Body\+Length in follow-\/redirects config (\href{https://github.com/axios/axios/pull/1287}{\texttt{ \#1287}})
+\item Fixing configuration when using an instance -\/ method can now be set (\href{https://github.com/axios/axios/pull/1342}{\texttt{ \#1342}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2650}{}\doxysubsection{\texorpdfstring{0.\+17.\+1 (Nov 11, 2017)}{0.\+17.\+1 (Nov 11, 2017)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2650}
+
+\begin{DoxyItemize}
+\item Fixing issue with web workers (\href{https://github.com/axios/axios/pull/1160}{\texttt{ \#1160}})
+\item Allowing overriding transport (\href{https://github.com/axios/axios/pull/1080}{\texttt{ \#1080}})
+\item Updating Type\+Script typings (\href{https://github.com/axios/axios/pull/1165}{\texttt{ \#1165}}, \href{https://github.com/axios/axios/pull/1125}{\texttt{ \#1125}}, \href{https://github.com/axios/axios/pull/1131}{\texttt{ \#1131}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2651}{}\doxysubsection{\texorpdfstring{0.\+17.\+0 (Oct 21, 2017)}{0.\+17.\+0 (Oct 21, 2017)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2651}
+
+\begin{DoxyItemize}
+\item {\bfseries{BREAKING}} Fixing issue with {\ttfamily base\+URL} and interceptors (\href{https://github.com/axios/axios/pull/950}{\texttt{ \#950}})
+\item {\bfseries{BREAKING}} Improving handing of duplicate headers (\href{https://github.com/axios/axios/pull/874}{\texttt{ \#874}})
+\item Adding support for disabling proxies (\href{https://github.com/axios/axios/pull/691}{\texttt{ \#691}})
+\item Updating Type\+Script typings with generic type parameters (\href{https://github.com/axios/axios/pull/1061}{\texttt{ \#1061}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2652}{}\doxysubsection{\texorpdfstring{0.\+16.\+2 (Jun 3, 2017)}{0.\+16.\+2 (Jun 3, 2017)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2652}
+
+\begin{DoxyItemize}
+\item Fixing issue with including {\ttfamily buffer} in bundle (\href{https://github.com/axios/axios/pull/887}{\texttt{ \#887}})
+\item Including underlying request in errors (\href{https://github.com/axios/axios/pull/830}{\texttt{ \#830}})
+\item Convert {\ttfamily method} to lowercase (\href{https://github.com/axios/axios/pull/930}{\texttt{ \#930}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2653}{}\doxysubsection{\texorpdfstring{0.\+16.\+1 (Apr 8, 2017)}{0.\+16.\+1 (Apr 8, 2017)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2653}
+
+\begin{DoxyItemize}
+\item Improving HTTP adapter to return last request in case of redirects (\href{https://github.com/axios/axios/pull/828}{\texttt{ \#828}})
+\item Updating {\ttfamily follow-\/redirects} dependency (\href{https://github.com/axios/axios/pull/829}{\texttt{ \#829}})
+\item Adding support for passing {\ttfamily Buffer} in node (\href{https://github.com/axios/axios/pull/773}{\texttt{ \#773}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2654}{}\doxysubsection{\texorpdfstring{0.\+16.\+0 (Mar 31, 2017)}{0.\+16.\+0 (Mar 31, 2017)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2654}
+
+\begin{DoxyItemize}
+\item {\bfseries{BREAKING}} Removing {\ttfamily Promise} from axios typings in favor of built-\/in type declarations (\href{https://github.com/axios/axios/issues/480}{\texttt{ \#480}})
+\item Adding {\ttfamily options} shortcut method (\href{https://github.com/axios/axios/pull/461}{\texttt{ \#461}})
+\item Fixing issue with using `response\+Type\+: \textquotesingle{}json'{\ttfamily in browsers incompatible with XHR Level 2 (\mbox{[}\#654\mbox{]}(\href{https://github.com/axios/axios/pull/654}{\texttt{ https\+://github.\+com/axios/axios/pull/654}}))}
+\item {\ttfamily Improving React Native detection (\mbox{[}\#731\mbox{]}(\href{https://github.com/axios/axios/pull/731}{\texttt{ https\+://github.\+com/axios/axios/pull/731}}))}
+\item {\ttfamily Fixing}combine\+URLs{\ttfamily to support empty}relative\+URL{\ttfamily (\mbox{[}\#581\mbox{]}(\href{https://github.com/axios/axios/pull/581}{\texttt{ https\+://github.\+com/axios/axios/pull/581}}))}
+\item {\ttfamily Removing}PROTECTION\+\_\+\+PREFIX\`{} support (\href{https://github.com/axios/axios/pull/561}{\texttt{ \#561}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2655}{}\doxysubsection{\texorpdfstring{0.\+15.\+3 (Nov 27, 2016)}{0.\+15.\+3 (Nov 27, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2655}
+
+\begin{DoxyItemize}
+\item Fixing issue with custom instances and global defaults (\href{https://github.com/axios/axios/issues/443}{\texttt{ \#443}})
+\item Renaming {\ttfamily axios.\+d.\+ts} to {\ttfamily index.\+d.\+ts} (\href{https://github.com/axios/axios/issues/519}{\texttt{ \#519}})
+\item Adding {\ttfamily get}, {\ttfamily head}, and {\ttfamily delete} to {\ttfamily defaults.\+headers} (\href{https://github.com/axios/axios/issues/509}{\texttt{ \#509}})
+\item Fixing issue with {\ttfamily btoa} and IE (\href{https://github.com/axios/axios/issues/507}{\texttt{ \#507}})
+\item Adding support for proxy authentication (\href{https://github.com/axios/axios/pull/483}{\texttt{ \#483}})
+\item Improving HTTP adapter to use {\ttfamily http} protocol by default (\href{https://github.com/axios/axios/pull/493}{\texttt{ \#493}})
+\item Fixing proxy issues (\href{https://github.com/axios/axios/pull/491}{\texttt{ \#491}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2656}{}\doxysubsection{\texorpdfstring{0.\+15.\+2 (Oct 17, 2016)}{0.\+15.\+2 (Oct 17, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2656}
+
+\begin{DoxyItemize}
+\item Fixing issue with calling {\ttfamily cancel} after response has been received (\href{https://github.com/axios/axios/issues/482}{\texttt{ \#482}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2657}{}\doxysubsection{\texorpdfstring{0.\+15.\+1 (Oct 14, 2016)}{0.\+15.\+1 (Oct 14, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2657}
+
+\begin{DoxyItemize}
+\item Fixing issue with UMD (\href{https://github.com/axios/axios/issues/485}{\texttt{ \#485}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2658}{}\doxysubsection{\texorpdfstring{0.\+15.\+0 (Oct 10, 2016)}{0.\+15.\+0 (Oct 10, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2658}
+
+\begin{DoxyItemize}
+\item Adding cancellation support (\href{https://github.com/axios/axios/pull/452}{\texttt{ \#452}})
+\item Moving default adapter to global defaults (\href{https://github.com/axios/axios/pull/437}{\texttt{ \#437}})
+\item Fixing issue with {\ttfamily file} URI scheme (\href{https://github.com/axios/axios/pull/440}{\texttt{ \#440}})
+\item Fixing issue with {\ttfamily params} objects that have no prototype (\href{https://github.com/axios/axios/pull/445}{\texttt{ \#445}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2659}{}\doxysubsection{\texorpdfstring{0.\+14.\+0 (Aug 27, 2016)}{0.\+14.\+0 (Aug 27, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2659}
+
+\begin{DoxyItemize}
+\item {\bfseries{BREAKING}} Updating Type\+Script definitions (\href{https://github.com/axios/axios/pull/419}{\texttt{ \#419}})
+\item {\bfseries{BREAKING}} Replacing {\ttfamily agent} option with {\ttfamily http\+Agent} and {\ttfamily https\+Agent} (\href{https://github.com/axios/axios/pull/387}{\texttt{ \#387}})
+\item {\bfseries{BREAKING}} Splitting {\ttfamily progress} event handlers into {\ttfamily on\+Upload\+Progress} and {\ttfamily on\+Download\+Progress} (\href{https://github.com/axios/axios/pull/423}{\texttt{ \#423}})
+\item Adding support for {\ttfamily http\+\_\+proxy} and {\ttfamily https\+\_\+proxy} environment variables (\href{https://github.com/axios/axios/pull/366}{\texttt{ \#366}})
+\item Fixing issue with {\ttfamily auth} config option and {\ttfamily Authorization} header (\href{https://github.com/axios/axios/pull/397}{\texttt{ \#397}})
+\item Don\textquotesingle{}t set XSRF header if {\ttfamily xsrf\+Cookie\+Name} is {\ttfamily null} (\href{https://github.com/axios/axios/pull/406}{\texttt{ \#406}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2660}{}\doxysubsection{\texorpdfstring{0.\+13.\+1 (Jul 16, 2016)}{0.\+13.\+1 (Jul 16, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2660}
+
+\begin{DoxyItemize}
+\item Fixing issue with response data not being transformed on error (\href{https://github.com/axios/axios/issues/378}{\texttt{ \#378}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2661}{}\doxysubsection{\texorpdfstring{0.\+13.\+0 (Jul 13, 2016)}{0.\+13.\+0 (Jul 13, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2661}
+
+\begin{DoxyItemize}
+\item {\bfseries{BREAKING}} Improved error handling (\href{https://github.com/axios/axios/pull/345}{\texttt{ \#345}})
+\item {\bfseries{BREAKING}} Response transformer now invoked in dispatcher not adapter (\href{https://github.com/axios/axios/commit/10eb23865101f9347570552c04e9d6211376e25e}{\texttt{ 10eb238}})
+\item {\bfseries{BREAKING}} Request adapters now return a {\ttfamily Promise} (\href{https://github.com/axios/axios/commit/157efd5615890301824e3121cc6c9d2f9b21f94a}{\texttt{ 157efd5}})
+\item Fixing issue with {\ttfamily with\+Credentials} not being overwritten (\href{https://github.com/axios/axios/issues/343}{\texttt{ \#343}})
+\item Fixing regression with request transformer being called before request interceptor (\href{https://github.com/axios/axios/issues/352}{\texttt{ \#352}})
+\item Fixing custom instance defaults (\href{https://github.com/axios/axios/issues/341}{\texttt{ \#341}})
+\item Fixing instances created from {\ttfamily axios.\+create} to have same API as default axios (\href{https://github.com/axios/axios/issues/217}{\texttt{ \#217}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2662}{}\doxysubsection{\texorpdfstring{0.\+12.\+0 (May 31, 2016)}{0.\+12.\+0 (May 31, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2662}
+
+\begin{DoxyItemize}
+\item Adding support for {\ttfamily URLSearch\+Params} (\href{https://github.com/axios/axios/pull/317}{\texttt{ \#317}})
+\item Adding {\ttfamily max\+Redirects} option (\href{https://github.com/axios/axios/pull/307}{\texttt{ \#307}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2663}{}\doxysubsection{\texorpdfstring{0.\+11.\+1 (May 17, 2016)}{0.\+11.\+1 (May 17, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2663}
+
+\begin{DoxyItemize}
+\item Fixing IE CORS support (\href{https://github.com/axios/axios/pull/313}{\texttt{ \#313}})
+\item Fixing detection of {\ttfamily Form\+Data} (\href{https://github.com/axios/axios/pull/325}{\texttt{ \#325}})
+\item Adding {\ttfamily Axios} class to exports (\href{https://github.com/axios/axios/pull/321}{\texttt{ \#321}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2664}{}\doxysubsection{\texorpdfstring{0.\+11.\+0 (Apr 26, 2016)}{0.\+11.\+0 (Apr 26, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2664}
+
+\begin{DoxyItemize}
+\item Adding support for Stream with HTTP adapter (\href{https://github.com/axios/axios/pull/296}{\texttt{ \#296}})
+\item Adding support for custom HTTP status code error ranges (\href{https://github.com/axios/axios/pull/308}{\texttt{ \#308}})
+\item Fixing issue with Array\+Buffer (\href{https://github.com/axios/axios/pull/299}{\texttt{ \#299}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2665}{}\doxysubsection{\texorpdfstring{0.\+10.\+0 (Apr 20, 2016)}{0.\+10.\+0 (Apr 20, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2665}
+
+\begin{DoxyItemize}
+\item Fixing issue with some requests sending {\ttfamily undefined} instead of {\ttfamily null} (\href{https://github.com/axios/axios/pull/250}{\texttt{ \#250}})
+\item Fixing basic auth for HTTP adapter (\href{https://github.com/axios/axios/pull/252}{\texttt{ \#252}})
+\item Fixing request timeout for XHR adapter (\href{https://github.com/axios/axios/pull/227}{\texttt{ \#227}})
+\item Fixing IE8 support by using {\ttfamily onreadystatechange} instead of {\ttfamily onload} (\href{https://github.com/axios/axios/pull/249}{\texttt{ \#249}})
+\item Fixing IE9 cross domain requests (\href{https://github.com/axios/axios/pull/251}{\texttt{ \#251}})
+\item Adding {\ttfamily max\+Content\+Length} option (\href{https://github.com/axios/axios/pull/275}{\texttt{ \#275}})
+\item Fixing XHR support for Web\+Worker environment (\href{https://github.com/axios/axios/pull/279}{\texttt{ \#279}})
+\item Adding request instance to response (\href{https://github.com/axios/axios/pull/200}{\texttt{ \#200}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2666}{}\doxysubsection{\texorpdfstring{0.\+9.\+1 (Jan 24, 2016)}{0.\+9.\+1 (Jan 24, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2666}
+
+\begin{DoxyItemize}
+\item Improving handling of request timeout in node (\href{https://github.com/axios/axios/issues/124}{\texttt{ \#124}})
+\item Fixing network errors not rejecting (\href{https://github.com/axios/axios/pull/205}{\texttt{ \#205}})
+\item Fixing issue with IE rejecting on HTTP 204 (\href{https://github.com/axios/axios/issues/201}{\texttt{ \#201}})
+\item Fixing host/port when following redirects (\href{https://github.com/axios/axios/pull/198}{\texttt{ \#198}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2667}{}\doxysubsection{\texorpdfstring{0.\+9.\+0 (Jan 18, 2016)}{0.\+9.\+0 (Jan 18, 2016)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2667}
+
+\begin{DoxyItemize}
+\item Adding support for custom adapters
+\item Fixing Content-\/\+Type header being removed when data is false (\href{https://github.com/axios/axios/pull/195}{\texttt{ \#195}})
+\item Improving XDomain\+Request implementation (\href{https://github.com/axios/axios/pull/185}{\texttt{ \#185}})
+\item Improving config merging and order of precedence (\href{https://github.com/axios/axios/pull/183}{\texttt{ \#183}})
+\item Fixing XDomain\+Request support for only \texorpdfstring{$<$}{<}= IE9 (\href{https://github.com/axios/axios/pull/182}{\texttt{ \#182}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2668}{}\doxysubsection{\texorpdfstring{0.\+8.\+1 (Dec 14, 2015)}{0.\+8.\+1 (Dec 14, 2015)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2668}
+
+\begin{DoxyItemize}
+\item Adding support for passing XSRF token for cross domain requests when using {\ttfamily with\+Credentials} (\href{https://github.com/axios/axios/pull/168}{\texttt{ \#168}})
+\item Fixing error with format of basic auth header (\href{https://github.com/axios/axios/pull/173}{\texttt{ \#178}})
+\item Fixing error with JSON payloads throwing {\ttfamily Invalid\+State\+Error} in some cases (\href{https://github.com/axios/axios/pull/174}{\texttt{ \#174}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2669}{}\doxysubsection{\texorpdfstring{0.\+8.\+0 (Dec 11, 2015)}{0.\+8.\+0 (Dec 11, 2015)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2669}
+
+\begin{DoxyItemize}
+\item Adding support for creating instances of axios (\href{https://github.com/axios/axios/pull/123}{\texttt{ \#123}})
+\item Fixing http adapter to use {\ttfamily Buffer} instead of {\ttfamily String} in case of `response\+Type === \textquotesingle{}arraybuffer'{\ttfamily (\mbox{[}\#128\mbox{]}(\href{https://github.com/axios/axios/pull/128}{\texttt{ https\+://github.\+com/axios/axios/pull/128}}))}
+\item {\ttfamily Adding support for using custom parameter serializer with}params\+Serializer{\ttfamily option (\mbox{[}\#121\mbox{]}(\href{https://github.com/axios/axios/pull/121}{\texttt{ https\+://github.\+com/axios/axios/pull/121}}))}
+\item {\ttfamily Fixing issue in IE8 caused by}for\+Each{\ttfamily on}arguments{\ttfamily (\mbox{[}\#127\mbox{]}(\href{https://github.com/axios/axios/pull/127}{\texttt{ https\+://github.\+com/axios/axios/pull/127}}))}
+\item {\ttfamily Adding support for following redirects in node (\mbox{[}\#146\mbox{]}(\href{https://github.com/axios/axios/pull/146}{\texttt{ https\+://github.\+com/axios/axios/pull/146}}))}
+\item {\ttfamily Adding support for transparent decompression if}content-\/encoding\`{} is set (\href{https://github.com/axios/axios/pull/149}{\texttt{ \#149}})
+\item Adding support for transparent XDomain\+Request to handle cross domain requests in IE9 (\href{https://github.com/axios/axios/pull/140}{\texttt{ \#140}})
+\item Adding support for HTTP basic auth via Authorization header (\href{https://github.com/axios/axios/pull/167}{\texttt{ \#167}})
+\item Adding support for base\+URL option (\href{https://github.com/axios/axios/pull/160}{\texttt{ \#160}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2670}{}\doxysubsection{\texorpdfstring{0.\+7.\+0 (Sep 29, 2015)}{0.\+7.\+0 (Sep 29, 2015)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2670}
+
+\begin{DoxyItemize}
+\item Fixing issue with minified bundle in IE8 (\href{https://github.com/axios/axios/pull/87}{\texttt{ \#87}})
+\item Adding support for passing agent in node (\href{https://github.com/axios/axios/pull/102}{\texttt{ \#102}})
+\item Adding support for returning result from {\ttfamily axios.\+spread} for chaining (\href{https://github.com/axios/axios/pull/106}{\texttt{ \#106}})
+\item Fixing typescript definition (\href{https://github.com/axios/axios/pull/105}{\texttt{ \#105}})
+\item Fixing default timeout config for node (\href{https://github.com/axios/axios/pull/112}{\texttt{ \#112}})
+\item Adding support for use in web workers, and react-\/native (\href{https://github.com/axios/axios/issue/70}{\texttt{ \#70}}), (\href{https://github.com/axios/axios/pull/98}{\texttt{ \#98}})
+\item Adding support for fetch like API {\ttfamily axios(url\mbox{[}, config\mbox{]})} (\href{https://github.com/axios/axios/issues/116}{\texttt{ \#116}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2671}{}\doxysubsection{\texorpdfstring{0.\+6.\+0 (Sep 21, 2015)}{0.\+6.\+0 (Sep 21, 2015)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2671}
+
+\begin{DoxyItemize}
+\item Removing deprecated success/error aliases
+\item Fixing issue with array params not being properly encoded (\href{https://github.com/axios/axios/pull/49}{\texttt{ \#49}})
+\item Fixing issue with User-\/\+Agent getting overridden (\href{https://github.com/axios/axios/issues/69}{\texttt{ \#69}})
+\item Adding support for timeout config (\href{https://github.com/axios/axios/issues/56}{\texttt{ \#56}})
+\item Removing es6-\/promise dependency
+\item Fixing issue preventing {\ttfamily length} to be used as a parameter (\href{https://github.com/axios/axios/pull/91}{\texttt{ \#91}})
+\item Fixing issue with IE8 (\href{https://github.com/axios/axios/pull/85}{\texttt{ \#85}})
+\item Converting build to UMD
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2672}{}\doxysubsection{\texorpdfstring{0.\+5.\+4 (Apr 08, 2015)}{0.\+5.\+4 (Apr 08, 2015)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2672}
+
+\begin{DoxyItemize}
+\item Fixing issue with Form\+Data not being sent (\href{https://github.com/axios/axios/issues/53}{\texttt{ \#53}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2673}{}\doxysubsection{\texorpdfstring{0.\+5.\+3 (Apr 07, 2015)}{0.\+5.\+3 (Apr 07, 2015)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2673}
+
+\begin{DoxyItemize}
+\item Using JSON.\+parse unconditionally when transforming response string (\href{https://github.com/axios/axios/issues/55}{\texttt{ \#55}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2674}{}\doxysubsection{\texorpdfstring{0.\+5.\+2 (Mar 13, 2015)}{0.\+5.\+2 (Mar 13, 2015)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2674}
+
+\begin{DoxyItemize}
+\item Adding support for {\ttfamily status\+Text} in response (\href{https://github.com/axios/axios/issues/46}{\texttt{ \#46}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2675}{}\doxysubsection{\texorpdfstring{0.\+5.\+1 (Mar 10, 2015)}{0.\+5.\+1 (Mar 10, 2015)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2675}
+
+\begin{DoxyItemize}
+\item Fixing issue using strict mode (\href{https://github.com/axios/axios/issues/45}{\texttt{ \#45}})
+\item Fixing issue with standalone build (\href{https://github.com/axios/axios/issues/47}{\texttt{ \#47}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2676}{}\doxysubsection{\texorpdfstring{0.\+5.\+0 (Jan 23, 2015)}{0.\+5.\+0 (Jan 23, 2015)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2676}
+
+\begin{DoxyItemize}
+\item Adding support for intercepetors (\href{https://github.com/axios/axios/issues/14}{\texttt{ \#14}})
+\item Updating es6-\/promise dependency
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2677}{}\doxysubsection{\texorpdfstring{0.\+4.\+2 (Dec 10, 2014)}{0.\+4.\+2 (Dec 10, 2014)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2677}
+
+\begin{DoxyItemize}
+\item Fixing issue with {\ttfamily Content-\/\+Type} when using {\ttfamily Form\+Data} (\href{https://github.com/axios/axios/issues/22}{\texttt{ \#22}})
+\item Adding support for Type\+Script (\href{https://github.com/axios/axios/issues/25}{\texttt{ \#25}})
+\item Fixing issue with standalone build (\href{https://github.com/axios/axios/issues/29}{\texttt{ \#29}})
+\item Fixing issue with verbs needing to be capitalized in some browsers (\href{https://github.com/axios/axios/issues/30}{\texttt{ \#30}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2678}{}\doxysubsection{\texorpdfstring{0.\+4.\+1 (Oct 15, 2014)}{0.\+4.\+1 (Oct 15, 2014)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2678}
+
+\begin{DoxyItemize}
+\item Adding error handling to request for node.\+js (\href{https://github.com/axios/axios/issues/18}{\texttt{ \#18}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2679}{}\doxysubsection{\texorpdfstring{0.\+4.\+0 (Oct 03, 2014)}{0.\+4.\+0 (Oct 03, 2014)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2679}
+
+\begin{DoxyItemize}
+\item Adding support for {\ttfamily Array\+Buffer} and {\ttfamily Array\+Buffer\+View} (\href{https://github.com/axios/axios/issues/10}{\texttt{ \#10}})
+\item Adding support for utf-\/8 for node.\+js (\href{https://github.com/axios/axios/issues/13}{\texttt{ \#13}})
+\item Adding support for SSL for node.\+js (\href{https://github.com/axios/axios/issues/12}{\texttt{ \#12}})
+\item Fixing incorrect {\ttfamily Content-\/\+Type} header (\href{https://github.com/axios/axios/issues/9}{\texttt{ \#9}})
+\item Adding standalone build without bundled es6-\/promise (\href{https://github.com/axios/axios/issues/11}{\texttt{ \#11}})
+\item Deprecating {\ttfamily success}/{\ttfamily error} in favor of {\ttfamily then}/{\ttfamily catch}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2680}{}\doxysubsection{\texorpdfstring{0.\+3.\+1 (Sep 16, 2014)}{0.\+3.\+1 (Sep 16, 2014)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2680}
+
+\begin{DoxyItemize}
+\item Fixing missing post body when using node.\+js (\href{https://github.com/axios/axios/issues/3}{\texttt{ \#3}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2681}{}\doxysubsection{\texorpdfstring{0.\+3.\+0 (Sep 16, 2014)}{0.\+3.\+0 (Sep 16, 2014)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2681}
+
+\begin{DoxyItemize}
+\item Fixing {\ttfamily success} and {\ttfamily error} to properly receive response data as individual arguments (\href{https://github.com/axios/axios/issues/8}{\texttt{ \#8}})
+\item Updating {\ttfamily then} and {\ttfamily catch} to receive response data as a single object (\href{https://github.com/axios/axios/issues/6}{\texttt{ \#6}})
+\item Fixing issue with {\ttfamily all} not working (\href{https://github.com/axios/axios/issues/7}{\texttt{ \#7}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2682}{}\doxysubsection{\texorpdfstring{0.\+2.\+2 (Sep 14, 2014)}{0.\+2.\+2 (Sep 14, 2014)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2682}
+
+\begin{DoxyItemize}
+\item Fixing bundling with browserify (\href{https://github.com/axios/axios/issues/4}{\texttt{ \#4}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2683}{}\doxysubsection{\texorpdfstring{0.\+2.\+1 (Sep 12, 2014)}{0.\+2.\+1 (Sep 12, 2014)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2683}
+
+\begin{DoxyItemize}
+\item Fixing build problem causing ridiculous file sizes
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2684}{}\doxysubsection{\texorpdfstring{0.\+2.\+0 (Sep 12, 2014)}{0.\+2.\+0 (Sep 12, 2014)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2684}
+
+\begin{DoxyItemize}
+\item Adding support for {\ttfamily all} and {\ttfamily spread}
+\item Adding support for node.\+js (\href{https://github.com/axios/axios/issues/1}{\texttt{ \#1}})
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2685}{}\doxysubsection{\texorpdfstring{0.\+1.\+0 (Aug 29, 2014)}{0.\+1.\+0 (Aug 29, 2014)}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2axios_2_c_h_a_n_g_e_l_o_g_autotoc_md2685}
+
+\begin{DoxyItemize}
+\item Initial release 
+\end{DoxyItemize}

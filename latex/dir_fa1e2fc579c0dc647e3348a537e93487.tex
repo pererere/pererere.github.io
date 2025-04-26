@@ -1,0 +1,110 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/eslint/node\+\_\+modules/find-\/up Directory Reference}
+\hypertarget{dir_fa1e2fc579c0dc647e3348a537e93487}{}\label{dir_fa1e2fc579c0dc647e3348a537e93487}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/eslint/node\_modules/find-\/up Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/eslint/node\_modules/find-\/up Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Find a file or directory by walking up parent directories \end{quote}
+\hypertarget{readme.md_autotoc_md6344}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md6344}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ find-\/up}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md6345}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md6345}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/}
+\DoxyCodeLine{└──\ Users}
+\DoxyCodeLine{\ \ \ \ └──\ sindresorhus}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ├──\ unicorn.png}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ └──\ foo}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ └──\ bar}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ├──\ baz}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ └──\ example.js}
+
+\end{DoxyCode}
+
+
+{\ttfamily example.\+js}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ path\ =\ require('path');}
+\DoxyCodeLine{const\ findUp\ =\ require('find-\/up');}
+\DoxyCodeLine{}
+\DoxyCodeLine{(async\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(await\ findUp('unicorn.png'));}
+\DoxyCodeLine{\ \ \ \ //=>\ '/Users/sindresorhus/unicorn.png'}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ console.log(await\ findUp(['rainbow.png',\ 'unicorn.png']));}
+\DoxyCodeLine{\ \ \ \ //=>\ '/Users/sindresorhus/unicorn.png'}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ console.log(await\ findUp(async\ directory\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ const\ hasUnicorns\ =\ await\ findUp.exists(path.join(directory,\ 'unicorn.png'));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ return\ hasUnicorns\ \&\&\ directory;}
+\DoxyCodeLine{\ \ \ \ \},\ \{type:\ 'directory'\}));}
+\DoxyCodeLine{\ \ \ \ //=>\ '/Users/sindresorhus'}
+\DoxyCodeLine{\})();}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md6346}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md6346}
+\hypertarget{readme.md_autotoc_md6347}{}\doxysubsubsection{\texorpdfstring{find\+Up(name, options?)}{find\+Up(name, options?)}}\label{readme.md_autotoc_md6347}
+\hypertarget{readme.md_autotoc_md6348}{}\doxysubsubsection{\texorpdfstring{find\+Up(matcher, options?)}{find\+Up(matcher, options?)}}\label{readme.md_autotoc_md6348}
+Returns a {\ttfamily Promise} for either the path or {\ttfamily undefined} if it couldn\textquotesingle{}t be found.\hypertarget{readme.md_autotoc_md6349}{}\doxysubsubsection{\texorpdfstring{find\+Up(\mbox{[}...name\mbox{]}, options?)}{find\+Up(\mbox{[}...name\mbox{]}, options?)}}\label{readme.md_autotoc_md6349}
+Returns a {\ttfamily Promise} for either the first path found (by respecting the order of the array) or {\ttfamily undefined} if none could be found.\hypertarget{readme.md_autotoc_md6350}{}\doxysubsubsection{\texorpdfstring{find\+Up.\+sync(name, options?)}{find\+Up.\+sync(name, options?)}}\label{readme.md_autotoc_md6350}
+\hypertarget{readme.md_autotoc_md6351}{}\doxysubsubsection{\texorpdfstring{find\+Up.\+sync(matcher, options?)}{find\+Up.\+sync(matcher, options?)}}\label{readme.md_autotoc_md6351}
+Returns a path or {\ttfamily undefined} if it couldn\textquotesingle{}t be found.\hypertarget{readme.md_autotoc_md6352}{}\doxysubsubsection{\texorpdfstring{find\+Up.\+sync(\mbox{[}...name\mbox{]}, options?)}{find\+Up.\+sync(\mbox{[}...name\mbox{]}, options?)}}\label{readme.md_autotoc_md6352}
+Returns the first path found (by respecting the order of the array) or {\ttfamily undefined} if none could be found.\hypertarget{readme.md_autotoc_md6353}{}\doxysubsubsubsection{\texorpdfstring{name}{name}}\label{readme.md_autotoc_md6353}
+Type\+: {\ttfamily string}
+
+Name of the file or directory to find.\hypertarget{readme.md_autotoc_md6354}{}\doxysubsubsubsection{\texorpdfstring{matcher}{matcher}}\label{readme.md_autotoc_md6354}
+Type\+: {\ttfamily Function}
+
+A function that will be called with each directory until it returns a {\ttfamily string} with the path, which stops the search, or the root directory has been reached and nothing was found. Useful if you want to match files with certain patterns, set of permissions, or other advanced use-\/cases.
+
+When using async mode, the {\ttfamily matcher} may optionally be an async or promise-\/returning function that returns the path.\hypertarget{readme.md_autotoc_md6355}{}\doxysubsubsubsection{\texorpdfstring{options}{options}}\label{readme.md_autotoc_md6355}
+Type\+: {\ttfamily object}\hypertarget{readme.md_autotoc_md6356}{}\doxysubsubsubsubsection{\texorpdfstring{cwd}{cwd}}\label{readme.md_autotoc_md6356}
+Type\+: {\ttfamily string}\textbackslash{} Default\+: {\ttfamily process.\+cwd()}
+
+Directory to start from.\hypertarget{readme.md_autotoc_md6357}{}\doxysubsubsubsubsection{\texorpdfstring{type}{type}}\label{readme.md_autotoc_md6357}
+Type\+: {\ttfamily string}\textbackslash{} Default\+: `\textquotesingle{}file'{\ttfamily \textbackslash{} Values\+:}\textquotesingle{}file\textquotesingle{}\textquotesingle{}directory\textquotesingle{}\`{}
+
+The type of paths that can match.\hypertarget{readme.md_autotoc_md6358}{}\doxysubsubsubsubsection{\texorpdfstring{allow\+Symlinks}{allow\+Symlinks}}\label{readme.md_autotoc_md6358}
+Type\+: {\ttfamily boolean}\textbackslash{} Default\+: {\ttfamily true}
+
+Allow symbolic links to match if they point to the chosen path type.\hypertarget{readme.md_autotoc_md6359}{}\doxysubsubsection{\texorpdfstring{find\+Up.\+exists(path)}{find\+Up.\+exists(path)}}\label{readme.md_autotoc_md6359}
+Returns a {\ttfamily Promise\texorpdfstring{$<$}{<}boolean\texorpdfstring{$>$}{>}} of whether the path exists.\hypertarget{readme.md_autotoc_md6360}{}\doxysubsubsection{\texorpdfstring{find\+Up.\+sync.\+exists(path)}{find\+Up.\+sync.\+exists(path)}}\label{readme.md_autotoc_md6360}
+Returns a {\ttfamily boolean} of whether the path exists.\hypertarget{readme.md_autotoc_md6361}{}\doxysubsubsubsection{\texorpdfstring{path}{path}}\label{readme.md_autotoc_md6361}
+Type\+: {\ttfamily string}
+
+Path to a file or directory.\hypertarget{readme.md_autotoc_md6362}{}\doxysubsubsection{\texorpdfstring{find\+Up.\+stop}{find\+Up.\+stop}}\label{readme.md_autotoc_md6362}
+A \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol}{\texttt{ {\ttfamily Symbol}}} that can be returned by a {\ttfamily matcher} function to stop the search and cause {\ttfamily find\+Up} to immediately return {\ttfamily undefined}. Useful as a performance optimization in case the current working directory is deeply nested in the filesystem.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ path\ =\ require('path');}
+\DoxyCodeLine{const\ findUp\ =\ require('find-\/up');}
+\DoxyCodeLine{}
+\DoxyCodeLine{(async\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ await\ findUp(directory\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ return\ path.basename(directory)\ ===\ 'work'\ ?\ findUp.stop\ :\ 'logo.png';}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\})();}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md6363}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{readme.md_autotoc_md6363}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/find-up-cli}{\texttt{ find-\/up-\/cli}} -\/ CLI for this module
+\item \href{https://github.com/sindresorhus/pkg-up}{\texttt{ pkg-\/up}} -\/ Find the closest package.\+json file
+\item \href{https://github.com/sindresorhus/pkg-dir}{\texttt{ pkg-\/dir}} -\/ Find the root directory of an npm package
+\item \href{https://github.com/sindresorhus/resolve-from}{\texttt{ resolve-\/from}} -\/ Resolve the path of a module like {\ttfamily require.\+resolve()} but from a given path
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+ {\bfseries{ \href{https://tidelift.com/subscription/pkg/npm-find-up?utm_source=npm-find-up&utm_medium=referral&utm_campaign=readme}{\texttt{ Get professional support for \textquotesingle{}find-\/up\textquotesingle{} with a Tidelift subscription}} }} ~\newline
+ \textsubscript{ Tidelift helps make open source sustainable for maintainers while giving companies~\newline
+assurances about security, maintenance, and licensing for their dependencies. }  

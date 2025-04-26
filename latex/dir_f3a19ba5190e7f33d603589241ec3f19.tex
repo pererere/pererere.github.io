@@ -1,0 +1,97 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/find-\/cache-\/dir Directory Reference}
+\hypertarget{dir_f3a19ba5190e7f33d603589241ec3f19}{}\label{dir_f3a19ba5190e7f33d603589241ec3f19}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/find-\/cache-\/dir Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/find-\/cache-\/dir Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Finds the common standard cache directory \end{quote}
+
+
+The \href{https://github.com/istanbuljs/nyc}{\texttt{ {\ttfamily nyc}}} and \href{https://ava.li}{\texttt{ {\ttfamily AVA}}} projects decided to standardize on a common directory structure for storing cache information\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ nyc}
+\DoxyCodeLine{./node\_modules/.cache/nyc}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ ava}
+\DoxyCodeLine{./node\_modules/.cache/ava}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ your-\/module}
+\DoxyCodeLine{./node\_modules/.cache/your-\/module}
+
+\end{DoxyCode}
+
+
+This module makes it easy to correctly locate the cache directory according to this shared spec. If this pattern becomes ubiquitous, clearing the cache for multiple dependencies becomes easy and consistent\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{rm\ -\/rf\ ./node\_modules/.cache}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md7976}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md7976}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ find-\/cache-\/dir}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md7977}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md7977}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ findCacheDirectory\ from\ 'find-\/cache-\/dir';}
+\DoxyCodeLine{}
+\DoxyCodeLine{findCacheDirectory(\{name:\ 'unicorns'\});}
+\DoxyCodeLine{//=>\ '/user/path/node-\/modules/.cache/unicorns'}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md7978}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md7978}
+\hypertarget{readme.md_autotoc_md7979}{}\doxysubsubsection{\texorpdfstring{find\+Cache\+Directory(options?)}{find\+Cache\+Directory(options?)}}\label{readme.md_autotoc_md7979}
+Finds the cache directory using the supplied options. The algorithm checks for the {\ttfamily CACHE\+\_\+\+DIR} environmental variable and uses it if it is not set to {\ttfamily true}, {\ttfamily false}, {\ttfamily 1} or {\ttfamily 0}. If one is not found, it tries to find a {\ttfamily package.\+json} file, searching every parent directory of the {\ttfamily cwd} specified (or implied from other options). It returns a {\ttfamily string} containing the absolute path to the cache directory, or {\ttfamily undefined} if {\ttfamily package.\+json} was never found or if the {\ttfamily node\+\_\+modules} directory is unwritable.\hypertarget{readme.md_autotoc_md7980}{}\doxysubsubsubsection{\texorpdfstring{options}{options}}\label{readme.md_autotoc_md7980}
+Type\+: {\ttfamily object}\hypertarget{readme.md_autotoc_md7981}{}\doxysubsubsubsubsection{\texorpdfstring{name}{name}}\label{readme.md_autotoc_md7981}
+{\itshape Required}\textbackslash{} Type\+: {\ttfamily string}
+
+Should be the same as your project name in {\ttfamily package.\+json}.\hypertarget{readme.md_autotoc_md7982}{}\doxysubsubsubsubsection{\texorpdfstring{files}{files}}\label{readme.md_autotoc_md7982}
+Type\+: {\ttfamily string\mbox{[}\mbox{]} \texorpdfstring{$\vert$}{|} string}
+
+An array of files that will be searched for a common parent directory. This common parent directory will be used in lieu of the {\ttfamily cwd} option below.\hypertarget{readme.md_autotoc_md7983}{}\doxysubsubsubsubsection{\texorpdfstring{cwd}{cwd}}\label{readme.md_autotoc_md7983}
+Type\+: {\ttfamily string}\textbackslash{} Default {\ttfamily process.\+cwd()}
+
+Directory to start searching for a {\ttfamily package.\+json} from.\hypertarget{readme.md_autotoc_md7984}{}\doxysubsubsubsubsection{\texorpdfstring{create}{create}}\label{readme.md_autotoc_md7984}
+Type\+: {\ttfamily boolean}\textbackslash{} Default {\ttfamily false}
+
+If {\ttfamily true}, the directory will be created synchronously before returning.\hypertarget{readme.md_autotoc_md7985}{}\doxysubsubsubsubsection{\texorpdfstring{thunk}{thunk}}\label{readme.md_autotoc_md7985}
+Type\+: {\ttfamily boolean}\textbackslash{} Default {\ttfamily false}
+
+If {\ttfamily true}, this modifies the return type to be a function that is a thunk for {\ttfamily path.\+join(the\+Found\+Cache\+Directory)}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ thunk\ =\ findCacheDir(\{name:\ 'foo',\ thunk:\ true\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{thunk();}
+\DoxyCodeLine{//=>\ '/some/path/node\_modules/.cache/foo'}
+\DoxyCodeLine{}
+\DoxyCodeLine{thunk('bar.js')}
+\DoxyCodeLine{//=>\ '/some/path/node\_modules/.cache/foo/bar.js'}
+\DoxyCodeLine{}
+\DoxyCodeLine{thunk('baz',\ 'quz.js')}
+\DoxyCodeLine{//=>\ '/some/path/node\_modules/.cache/foo/baz/quz.js'}
+
+\end{DoxyCode}
+
+
+This is helpful for actually putting actual files in the cache!\hypertarget{readme.md_autotoc_md7986}{}\doxysubsection{\texorpdfstring{Tips}{Tips}}\label{readme.md_autotoc_md7986}
+
+\begin{DoxyItemize}
+\item To test modules using {\ttfamily find-\/cache-\/dir}, set the {\ttfamily CACHE\+\_\+\+DIR} environment variable to temporarily override the directory that is resolved.
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md7987}{}\doxysubsection{\texorpdfstring{Adopters}{Adopters}}\label{readme.md_autotoc_md7987}
+
+\begin{DoxyItemize}
+\item \href{https://avajs.dev}{\texttt{ {\ttfamily ava}}}
+\item \href{https://github.com/istanbuljs/nyc}{\texttt{ {\ttfamily nyc}}}
+\item \href{https://github.com/storybookjs/storybook}{\texttt{ {\ttfamily storybook}}}
+\item \href{https://github.com/babel/babel-loader}{\texttt{ {\ttfamily babel-\/loader}}}
+\item \href{https://github.com/MoOx/eslint-loader}{\texttt{ {\ttfamily eslint-\/loader}}}
+\item \href{https://www.npmjs.com/browse/depended/find-cache-dir}{\texttt{ More…}} 
+\end{DoxyItemize}

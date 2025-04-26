@@ -1,0 +1,75 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/symbol-\/observable Directory Reference}
+\hypertarget{dir_5621ed0e1a735e40f11207d377a02f4f}{}\label{dir_5621ed0e1a735e40f11207d377a02f4f}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/symbol-\/observable Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/symbol-\/observable Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+\href{https://github.com/zenparsing/es-observable}{\texttt{ {\ttfamily Symbol.\+observable}}} \href{https://ponyfill.com}{\texttt{ pony/polyfill}} \end{quote}
+
+
+This will polyfill {\ttfamily Symbol.\+observable} if {\ttfamily Symbol} exists, but will not polyfill {\ttfamily Symbol} if it doesn\textquotesingle{}t exist. Meant to be used as a "{}ponyfill"{}, meaning you\textquotesingle{}re meant to use the module\textquotesingle{}s exported symbol value as described below. This is all done to ensure that everyone is using the same version of the symbol (or string depending on the environment), as per the nature of symbols in Java\+Script.\hypertarget{README.md_autotoc_md20196}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md20196}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ -\/-\/save\ symbol-\/observable}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md20197}{}\doxysubsection{\texorpdfstring{Basic Usage}{Basic Usage}}\label{README.md_autotoc_md20197}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ symbolObservable\ =\ require('symbol-\/observable').default;}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(symbolObservable);}
+\DoxyCodeLine{//=>\ Symbol(observable)}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ Symbol\_observable\ from\ 'symbol-\/observable';}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(Symbol\_observable);}
+\DoxyCodeLine{//=>\ Symbol(observable)}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md20198}{}\doxysubsection{\texorpdfstring{Making an object "{}observable"{}\+:}{Making an object "{}observable"{}\+:}}\label{README.md_autotoc_md20198}
+You can do something like what you see below to make any object "{}observable"{} by libraries like Rx\+JS, XStream and Most.\+js.
+
+Things to know\+:
+
+
+\begin{DoxyEnumerate}
+\item It\textquotesingle{}s best if you just use one of the above libraries.
+\item If you\textquotesingle{}re not, but sure you never {\ttfamily next}, {\ttfamily error} or {\ttfamily complete} on your observer after {\ttfamily error} or {\ttfamily complete} was called.
+\item Likewise, make sure you don\textquotesingle{}t {\ttfamily next}, {\ttfamily error} or {\ttfamily complete} after {\ttfamily unsubscribe} is called on the returned object.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ Symbol\_observable\ from\ 'symbol-\/observable';}
+\DoxyCodeLine{}
+\DoxyCodeLine{someObject[Symbol\_observable]\ =\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ return\ \{}
+\DoxyCodeLine{\ \ \ \ subscribe(observer)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ const\ handler\ =\ e\ =>\ observer.next(e);}
+\DoxyCodeLine{\ \ \ \ \ \ someObject.addEventListener('data',\ handler);}
+\DoxyCodeLine{\ \ \ \ \ \ return\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ unsubscribe()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ someObject.removeEventListener('data',\ handler);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ [Symbol\_observable]()\ \{\ return\ this\ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Often, it\textquotesingle{}s not very hard, but it can get tricky in some cases.\hypertarget{README.md_autotoc_md20199}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{README.md_autotoc_md20199}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/is-observable}{\texttt{ is-\/observable}} -\/ Check if a value is an Observable
+\item \href{https://github.com/sindresorhus/observable-to-promise}{\texttt{ observable-\/to-\/promise}} -\/ Convert an Observable to a Promise
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md20200}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md20200}
+MIT © \href{https://sindresorhus.com}{\texttt{ Sindre Sorhus}} and \href{https://github.com/benlesh}{\texttt{ Ben Lesh}} 

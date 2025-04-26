@@ -1,0 +1,54 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/default-\/gateway Directory Reference}
+\hypertarget{dir_beb474315e67b864321c74e641c4b3c8}{}\label{dir_beb474315e67b864321c74e641c4b3c8}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/default-\/gateway Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/default-\/gateway Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.org/package/default-gateway}{\texttt{ }} \href{https://www.npmjs.org/package/default-gateway}{\texttt{ }}
+
+Obtains the machine\textquotesingle{}s default gateway through {\ttfamily exec} calls to OS routing interfaces.
+
+
+\begin{DoxyItemize}
+\item On Linux and Android, the {\ttfamily ip} command must be available (usually provided by the {\ttfamily iproute2} package).
+\item On Windows, {\ttfamily wmic} must be available.
+\item On IBM i, the {\ttfamily db2util} command must be available (provided by the {\ttfamily db2util} package).
+\item On Unix (and mac\+OS), the {\ttfamily netstat} command must be available.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md5520}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md5520}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ i\ default-\/gateway}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5521}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{README.md_autotoc_md5521}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ defaultGateway\ =\ require('default-\/gateway');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ \{gateway,\ interface\}\ =\ await\ defaultGateway.v4();}
+\DoxyCodeLine{//\ gateway\ =\ '1.2.3.4',\ interface\ =\ 'en1'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ \{gateway,\ interface\}\ =\ await\ defaultGateway.v6();}
+\DoxyCodeLine{//\ gateway\ =\ '2001:db8::1',\ interface\ =\ 'en2'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ \{gateway,\ interface\}\ =\ defaultGateway.v4.sync();}
+\DoxyCodeLine{//\ gateway\ =\ '1.2.3.4',\ interface\ =\ 'en1'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ \{gateway,\ interface\}\ =\ defaultGateway.v6.sync();}
+\DoxyCodeLine{//\ gateway\ =\ '2001:db8::1',\ interface\ =\ 'en2'}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5522}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md5522}
+\hypertarget{README.md_autotoc_md5523}{}\doxysubsubsection{\texorpdfstring{default\+Gateway.\+v4()}{default\+Gateway.\+v4()}}\label{README.md_autotoc_md5523}
+\hypertarget{README.md_autotoc_md5524}{}\doxysubsubsection{\texorpdfstring{default\+Gateway.\+v6()}{default\+Gateway.\+v6()}}\label{README.md_autotoc_md5524}
+\hypertarget{README.md_autotoc_md5525}{}\doxysubsubsection{\texorpdfstring{default\+Gateway.\+v4.\+sync()}{default\+Gateway.\+v4.\+sync()}}\label{README.md_autotoc_md5525}
+\hypertarget{README.md_autotoc_md5526}{}\doxysubsubsection{\texorpdfstring{default\+Gateway.\+v6.\+sync()}{default\+Gateway.\+v6.\+sync()}}\label{README.md_autotoc_md5526}
+Returns\+: {\ttfamily result} {\itshape Object}
+\begin{DoxyItemize}
+\item {\ttfamily gateway}\+: The IP address of the default gateway.
+\item {\ttfamily interface}\+: The name of the interface. On Windows, this is the network adapter name.
+\end{DoxyItemize}
+
+The {\ttfamily .v\{4,6\}()} methods return a Promise while the {\ttfamily .v\{4,6\}.sync()} variants will return the result synchronously.
+
+The {\ttfamily gateway} property will always be defined on success, while {\ttfamily interface} can be {\ttfamily null} if it cannot be determined. All methods reject/throw on unexpected conditions.\hypertarget{README.md_autotoc_md5527}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md5527}
+© \href{https://github.com/silverwind}{\texttt{ silverwind}}, distributed under BSD licence 

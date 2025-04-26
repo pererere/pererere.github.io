@@ -1,0 +1,49 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/postcss-\/selector-\/parser Directory Reference}
+\hypertarget{dir_d56dd5642b8d166e16f279f2ae421b3d}{}\label{dir_d56dd5642b8d166e16f279f2ae421b3d}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/postcss-\/selector-\/parser Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/postcss-\/selector-\/parser Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Selector parser with built in methods for working with selector strings. \end{quote}
+\hypertarget{README.md_autotoc_md16762}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md16762}
+With \href{https://npmjs.com/package/postcss-selector-parser}{\texttt{ npm}} do\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ postcss-\/selector-\/parser}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16763}{}\doxysubsection{\texorpdfstring{Quick Start}{Quick Start}}\label{README.md_autotoc_md16763}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ parser\ =\ require('postcss-\/selector-\/parser');}
+\DoxyCodeLine{const\ transform\ =\ selectors\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ selectors.walk(selector\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ //\ do\ something\ with\ the\ selector}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.log(String(selector))}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ transformed\ =\ parser(transform).processSync('h1,\ h2,\ h3');}
+
+\end{DoxyCode}
+
+
+To normalize selector whitespace\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ parser\ =\ require('postcss-\/selector-\/parser');}
+\DoxyCodeLine{const\ normalized\ =\ parser().processSync('h1,\ h2,\ h3',\ \{lossless:\ false\});}
+\DoxyCodeLine{//\ -\/>\ h1,h2,h3}
+
+\end{DoxyCode}
+
+
+Async support is provided through {\ttfamily parser.\+process} and will resolve a Promise with the resulting selector string.\hypertarget{README.md_autotoc_md16764}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md16764}
+Please see \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2postcss-selector-parser_2_a_p_i}{API.md}{0}.\hypertarget{README.md_autotoc_md16765}{}\doxysubsection{\texorpdfstring{Credits}{Credits}}\label{README.md_autotoc_md16765}
+
+\begin{DoxyItemize}
+\item Huge thanks to Andrey Sitnik (@ai) for work on Post\+CSS which helped accelerate this module\textquotesingle{}s development.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md16766}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md16766}
+MIT 

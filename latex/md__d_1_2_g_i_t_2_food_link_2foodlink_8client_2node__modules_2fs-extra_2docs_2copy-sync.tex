@@ -1,0 +1,49 @@
+\chapter{copy\+Sync(src, dest, \mbox{[}options\mbox{]})}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2copy-sync}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2copy-sync}\index{copySync(src, dest, \mbox{[}options\mbox{]})@{copySync(src, dest, [options])}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2copy-sync_autotoc_md8248}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2copy-sync_autotoc_md8248}%
+
+
+Copy a file or directory. The directory can have contents. Like {\ttfamily cp -\/r}.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily src} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily dest} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily options} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item {\ttfamily overwrite} {\ttfamily \texorpdfstring{$<$}{<}boolean\texorpdfstring{$>$}{>}}\+: overwrite existing file or directory, default is {\ttfamily true}. {\itshape Note that the copy operation will silently fail if you set this to {\ttfamily false} and the destination exists.} Use the {\ttfamily error\+On\+Exist} option to change this behavior.
+\item {\ttfamily error\+On\+Exist} {\ttfamily \texorpdfstring{$<$}{<}boolean\texorpdfstring{$>$}{>}}\+: when {\ttfamily overwrite} is {\ttfamily false} and the destination exists, throw an error. Default is {\ttfamily false}.
+\item {\ttfamily dereference} {\ttfamily \texorpdfstring{$<$}{<}boolean\texorpdfstring{$>$}{>}}\+: dereference symlinks, default is {\ttfamily false}.
+\item {\ttfamily preserve\+Timestamps} {\ttfamily \texorpdfstring{$<$}{<}boolean\texorpdfstring{$>$}{>}}\+: will set last modification and access times to the ones of the original source files, default is {\ttfamily false}.
+\item {\ttfamily filter} {\ttfamily \texorpdfstring{$<$}{<}Function\texorpdfstring{$>$}{>}}\+: Function to filter copied files. Return {\ttfamily true} to include, {\ttfamily false} to exclude. This can also be a Reg\+Exp, however this is deprecated (See \href{https://github.com/jprichardson/node-fs-extra/issues/239}{\texttt{ issue \#239}} for background).
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2copy-sync_autotoc_md8249}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2copy-sync_autotoc_md8249}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ copy\ file}
+\DoxyCodeLine{fs.copySync('/tmp/myfile',\ '/tmp/mynewfile')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ copy\ directory,\ even\ if\ it\ has\ subdirectories\ or\ files}
+\DoxyCodeLine{fs.copySync('/tmp/mydir',\ '/tmp/mynewdir')}
+
+\end{DoxyCode}
+
+
+{\bfseries{Using filter function}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ filterFunc\ =\ (src,\ dest)\ =>\ \{}
+\DoxyCodeLine{\ \ //\ your\ logic\ here}
+\DoxyCodeLine{\ \ //\ it\ will\ be\ copied\ if\ return\ true}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{fs.copySync('/tmp/mydir',\ '/tmp/mynewdir',\ \{\ filter:\ filterFunc\ \})}
+
+\end{DoxyCode}
+ 

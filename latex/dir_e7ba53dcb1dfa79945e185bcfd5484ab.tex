@@ -1,0 +1,69 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/strip-\/json-\/comments Directory Reference}
+\hypertarget{dir_e7ba53dcb1dfa79945e185bcfd5484ab}{}\label{dir_e7ba53dcb1dfa79945e185bcfd5484ab}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/strip-\/json-\/comments Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/strip-\/json-\/comments Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Strip comments from JSON. Lets you use comments in your JSON files! \end{quote}
+
+
+This is now possible\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ //\ Rainbows}
+\DoxyCodeLine{\ \ \ \ "{}unicorn"{}:\ /*\ ❤\ */\ "{}cake"{}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+It will replace single-\/line comments {\ttfamily //} and multi-\/line comments {\ttfamily /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}/} with whitespace. This allows JSON error positions to remain as close as possible to the original source.
+
+Also available as a \href{https://github.com/sindresorhus/gulp-strip-json-comments}{\texttt{ Gulp}}/\href{https://github.com/sindresorhus/grunt-strip-json-comments}{\texttt{ Grunt}}/\href{https://github.com/sindresorhus/broccoli-strip-json-comments}{\texttt{ Broccoli}} plugin.\hypertarget{readme.md_autotoc_md20136}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md20136}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ strip-\/json-\/comments}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md20137}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md20137}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ json\ =\ \`{}\{}
+\DoxyCodeLine{\ \ \ \ //\ Rainbows}
+\DoxyCodeLine{\ \ \ \ "{}unicorn"{}:\ /*\ ❤\ */\ "{}cake"{}}
+\DoxyCodeLine{\}`;}
+\DoxyCodeLine{}
+\DoxyCodeLine{JSON.parse(stripJsonComments(json));}
+\DoxyCodeLine{//=>\ \{unicorn:\ 'cake'\}}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md20138}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md20138}
+\hypertarget{readme.md_autotoc_md20139}{}\doxysubsubsection{\texorpdfstring{strip\+Json\+Comments(json\+String, options?)}{strip\+Json\+Comments(json\+String, options?)}}\label{readme.md_autotoc_md20139}
+\hypertarget{readme.md_autotoc_md20140}{}\doxysubsubsubsection{\texorpdfstring{json\+String}{json\+String}}\label{readme.md_autotoc_md20140}
+Type\+: {\ttfamily string}
+
+Accepts a string with JSON and returns a string without comments.\hypertarget{readme.md_autotoc_md20141}{}\doxysubsubsubsection{\texorpdfstring{options}{options}}\label{readme.md_autotoc_md20141}
+Type\+: {\ttfamily object}\hypertarget{readme.md_autotoc_md20142}{}\doxysubsubsubsubsection{\texorpdfstring{whitespace}{whitespace}}\label{readme.md_autotoc_md20142}
+Type\+: {\ttfamily boolean}\textbackslash{} Default\+: {\ttfamily true}
+
+Replace comments with whitespace instead of stripping them entirely.\hypertarget{readme.md_autotoc_md20143}{}\doxysubsection{\texorpdfstring{Benchmark}{Benchmark}}\label{readme.md_autotoc_md20143}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ run\ bench}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md20144}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{readme.md_autotoc_md20144}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/strip-json-comments-cli}{\texttt{ strip-\/json-\/comments-\/cli}} -\/ CLI for this module
+\item \href{https://github.com/sindresorhus/strip-css-comments}{\texttt{ strip-\/css-\/comments}} -\/ Strip comments from CSS
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+ {\bfseries{ \href{https://tidelift.com/subscription/pkg/npm-strip-json-comments?utm_source=npm-strip-json-comments&utm_medium=referral&utm_campaign=readme}{\texttt{ Get professional support for this package with a Tidelift subscription}} }} ~\newline
+ \textsubscript{ Tidelift helps make open source sustainable for maintainers while giving companies~\newline
+assurances about security, maintenance, and licensing for their dependencies. }  

@@ -1,0 +1,51 @@
+\doxysection{Food\+Link.\+Server.\+Services.\+IPixabay\+Service Interface Reference}
+\hypertarget{interface_food_link_1_1_server_1_1_services_1_1_i_pixabay_service}{}\label{interface_food_link_1_1_server_1_1_services_1_1_i_pixabay_service}\index{FoodLink.Server.Services.IPixabayService@{FoodLink.Server.Services.IPixabayService}}
+
+
+Interface for Pixabay service to get image URLs.  
+
+
+Inheritance diagram for Food\+Link.\+Server.\+Services.\+IPixabay\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_food_link_1_1_server_1_1_services_1_1_i_pixabay_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ string?$>$ \mbox{\hyperlink{interface_food_link_1_1_server_1_1_services_1_1_i_pixabay_service_aed7a967c61b907de6c8e52b4a73fc456}{Get\+Image\+Url\+Async}} (string search\+Query)
+\begin{DoxyCompactList}\small\item\em Asynchronously gets an image URL for a given search query. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for Pixabay service to get image URLs. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_food_link_1_1_server_1_1_services_1_1_i_pixabay_service_aed7a967c61b907de6c8e52b4a73fc456}\index{FoodLink.Server.Services.IPixabayService@{FoodLink.Server.Services.IPixabayService}!GetImageUrlAsync@{GetImageUrlAsync}}
+\index{GetImageUrlAsync@{GetImageUrlAsync}!FoodLink.Server.Services.IPixabayService@{FoodLink.Server.Services.IPixabayService}}
+\doxysubsubsection{\texorpdfstring{GetImageUrlAsync()}{GetImageUrlAsync()}}
+{\footnotesize\ttfamily \label{interface_food_link_1_1_server_1_1_services_1_1_i_pixabay_service_aed7a967c61b907de6c8e52b4a73fc456} 
+Task$<$ string?$>$ Food\+Link.\+Server.\+Services.\+IPixabay\+Service.\+Get\+Image\+Url\+Async (\begin{DoxyParamCaption}\item[{string}]{search\+Query}{}\end{DoxyParamCaption})}
+
+
+
+Asynchronously gets an image URL for a given search query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em search\+Query} & The search query for the image.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation, containing the image URL as a string, or null if no image is found.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_food_link_1_1_server_1_1_services_1_1_pixabay_service_ac05b3d22b008f7307f5a22699c90f437}{Food\+Link.\+Server.\+Services.\+Pixabay\+Service}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/\+Food\+Link.\+Server/\+Services/Pixabay\+Service.\+cs\end{DoxyCompactItemize}

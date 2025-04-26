@@ -1,0 +1,64 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/jest-\/editor-\/support Directory Reference}
+\hypertarget{dir_b4ec9995015dffec9afd857a9559df46}{}\label{dir_b4ec9995015dffec9afd857a9559df46}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/jest-\/editor-\/support Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/jest-\/editor-\/support Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://github.com/jest-community/jest-editor-support/actions}{\texttt{ }} \href{https://coveralls.io/github/jest-community/jest-editor-support?branch=master}{\texttt{ }} \href{https://badge.fury.io/js/jest-editor-support}{\texttt{ }}
+
+The engine that allows editors to build on top of Jest.\hypertarget{README.md_autotoc_md10339}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md10339}
+This is only useful if you are interested in building an editor integration for Jest.\hypertarget{README.md_autotoc_md10340}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md10340}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{parse(\ \ \ }
+\DoxyCodeLine{\ \ filePath:\ string,\ \ \ }
+\DoxyCodeLine{\ \ serializedData?:\ string,\ \ \ }
+\DoxyCodeLine{\ \ options?:\ JESParserOptions}
+\DoxyCodeLine{);}
+\DoxyCodeLine{}
+\DoxyCodeLine{JESParserOptions\ =\ }
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ plugins?:\ JESParserPluginOptions;}
+\DoxyCodeLine{\ \ \ \ strictMode?:\ boolean;}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{JESParserPluginOptions\ =\ }
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ decorators?:\ 'legacy'\ |\ \{}
+\DoxyCodeLine{\ \ \ \ decoratorsBeforeExport?:\ boolean;}
+\DoxyCodeLine{\ \ \ \ allowCallParenthesized?:\ boolean;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Parse is a static Jest parser which uses Babel 7 and supports js,jsx,mjs,ts,tsx files. ~\newline
+
+
+\href{https://github.com/babel/babel/blob/928b9f8c9518284eac6d0598633f2ec373fc6d0c/packages/babel-parser/typings/babel-parser.d.ts\#L97}{\texttt{ Supported ECMAScript proposals}}
+
+
+\begin{DoxyItemize}
+\item file\+Path = Path to the file you want to parse.
+\item serialized\+Data = Serialized data, will be used instead of the file\+Path if available (optional).
+\item options\+:
+\begin{DoxyItemize}
+\item strict\+Mode = If this option is activated the parser throws an exception if the filetype is not detected, defaults to false.
+\item plugin\+Options = allow override for selected \href{https://babeljs.io/docs/en/babel-parser\#plugins}{\texttt{ plugins}} options. Currently only support {\ttfamily decorators}.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+examples\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{parse('test.spec.ts');}
+\DoxyCodeLine{parse('parameterDecorators.spec.ts',\ undefined,\ \{plugins:\ \{decorators:\ 'legacy'\}\})}
+\DoxyCodeLine{parse('parameterDecorators.spec.ts',\ undefined,\ }
+\DoxyCodeLine{\ \ \{plugins:\ }
+\DoxyCodeLine{\ \ \ \ \{decorators:\ }
+\DoxyCodeLine{\ \ \ \ \ \ \{decoratorsBeforeExport:\ false\}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md10341}{}\doxysubsection{\texorpdfstring{Note}{Note}}\label{README.md_autotoc_md10341}
+Since version {\ttfamily 18.\+2.\+0} Type\+Script is now a peer dependency. If you don\textquotesingle{}t need to handle {\ttfamily .tsx} files then you can safely ignore the warning during installation. 

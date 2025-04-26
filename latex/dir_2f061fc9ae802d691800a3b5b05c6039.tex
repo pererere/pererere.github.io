@@ -1,0 +1,36 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/ora/node\+\_\+modules/is-\/unicode-\/supported Directory Reference}
+\hypertarget{dir_2f061fc9ae802d691800a3b5b05c6039}{}\label{dir_2f061fc9ae802d691800a3b5b05c6039}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/ora/node\_modules/is-\/unicode-\/supported Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/ora/node\_modules/is-\/unicode-\/supported Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Detect whether the terminal supports Unicode \end{quote}
+
+
+This can be useful to decide whether to use Unicode characters or fallback ASCII characters in command-\/line output.
+
+Note that the check is quite naive. It just assumes all non-\/\+Windows terminals support Unicode and hard-\/codes which Windows terminals that do support Unicode. However, I have been using this logic in some popular packages for years without problems.\hypertarget{readme.md_autotoc_md15726}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md15726}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ is-\/unicode-\/supported}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md15727}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md15727}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ isUnicodeSupported\ =\ require('is-\/unicode-\/supported');}
+\DoxyCodeLine{}
+\DoxyCodeLine{isUnicodeSupported();}
+\DoxyCodeLine{//=>\ true}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md15728}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md15728}
+\hypertarget{readme.md_autotoc_md15729}{}\doxysubsubsection{\texorpdfstring{is\+Unicode\+Supported()}{is\+Unicode\+Supported()}}\label{readme.md_autotoc_md15729}
+Returns a {\ttfamily boolean} for whether the terminal supports Unicode.\hypertarget{readme.md_autotoc_md15730}{}\doxysubsection{\texorpdfstring{Related}{Related}}\label{readme.md_autotoc_md15730}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/is-interactive}{\texttt{ is-\/interactive}} -\/ Check if stdout or stderr is interactive
+\item \href{https://github.com/chalk/supports-color}{\texttt{ supports-\/color}} -\/ Detect whether a terminal supports color
+\item \href{https://github.com/sindresorhus/figures}{\texttt{ figures}} -\/ Unicode symbols with Windows fallbacks
+\item \href{https://github.com/sindresorhus/log-symbols}{\texttt{ log-\/symbols}} -\/ Colored symbols for various log levels 
+\end{DoxyItemize}

@@ -1,0 +1,31 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/immutable/contrib/cursor Directory Reference}
+\hypertarget{dir_83fe88865c119c9db645bb4d256d667b}{}\label{dir_83fe88865c119c9db645bb4d256d667b}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/immutable/contrib/cursor Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/immutable/contrib/cursor Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Cursors allow you to hold a reference to a path in a nested immutable data structure, allowing you to pass smaller sections of a larger nested collection to portions of your application while maintaining a central point aware of changes to the entire data structure\+: an {\ttfamily on\+Change} function which is called whenever a cursor or sub-\/cursor calls {\ttfamily update}.
+
+This is particularly useful when used in conjuction with component-\/based UI libraries like \href{http://facebook.github.io/react/}{\texttt{ React}} or to simulate "{}state"{} throughout an application while maintaining a single flow of logic.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ Immutable\ =\ require('immutable');}
+\DoxyCodeLine{var\ Cursor\ =\ require('immutable/contrib/cursor');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ data\ =\ Immutable.fromJS(\{\ a:\ \{\ b:\ \{\ c:\ 1\ \}\ \}\ \});}
+\DoxyCodeLine{var\ cursor\ =\ Cursor.from(data,\ ['a',\ 'b'],\ newData\ =>\ \{}
+\DoxyCodeLine{\ \ data\ =\ newData;}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ ...\ elsewhere\ ...}
+\DoxyCodeLine{}
+\DoxyCodeLine{cursor.get('c');\ //\ 1}
+\DoxyCodeLine{cursor\ =\ cursor.update('c',\ x\ =>\ x\ +\ 1);}
+\DoxyCodeLine{cursor.get('c');\ //\ 2}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ ...\ back\ to\ data\ ...}
+\DoxyCodeLine{}
+\DoxyCodeLine{data.getIn(['a',\ 'b',\ 'c']);\ //\ 2}
+
+\end{DoxyCode}
+ 

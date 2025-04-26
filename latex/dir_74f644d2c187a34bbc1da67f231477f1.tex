@@ -1,0 +1,32 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@webassemblyjs/wasm-\/parser Directory Reference}
+\hypertarget{dir_74f644d2c187a34bbc1da67f231477f1}{}\label{dir_74f644d2c187a34bbc1da67f231477f1}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@webassemblyjs/wasm-\/parser Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@webassemblyjs/wasm-\/parser Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Web\+Assembly binary format parser \end{quote}
+\hypertarget{README.md_autotoc_md2006}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md2006}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn\ add\ @webassemblyjs/wasm-\/parser}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2007}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md2007}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ decode\ \}\ from\ "{}@webassemblyjs/wasm-\/parser"{};}
+\DoxyCodeLine{import\ \{\ readFileSync\ \}\ from\ "{}fs"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ binary\ =\ readFileSync("{}/path/to/module.wasm"{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ decoderOpts\ =\ \{\};}
+\DoxyCodeLine{const\ ast\ =\ decode(binary,\ decoderOpts);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2008}{}\doxysubsubsection{\texorpdfstring{Decoder options}{Decoder options}}\label{README.md_autotoc_md2008}
+
+\begin{DoxyItemize}
+\item {\ttfamily dump}\+: print dump information while decoding (default {\ttfamily false})
+\item {\ttfamily ignore\+Code\+Section}\+: ignore the code section (default {\ttfamily false})
+\item {\ttfamily ignore\+Data\+Section}\+: ignore the data section (default {\ttfamily false}) 
+\end{DoxyItemize}

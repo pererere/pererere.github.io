@@ -1,0 +1,79 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/image-\/size Directory Reference}
+\hypertarget{dir_fdd99abd6a1a2d6d4839371e6cfc9866}{}\label{dir_fdd99abd6a1a2d6d4839371e6cfc9866}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/image-\/size Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/image-\/size Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.com/package/image-size}{\texttt{ }} \href{https://travis-ci.org/image-size/image-size}{\texttt{ }} \href{http://npm-stat.com/charts.html?package=image-size&author=&from=&to=}{\texttt{ }} \href{https://coveralls.io/github/image-size/image-size?branch=master}{\texttt{ }} \href{https://david-dm.org/image-size/image-size\#info=devDependencies}{\texttt{ }}
+
+A \href{https://nodejs.org/en/}{\texttt{ Node}} module to get dimensions of any image file\hypertarget{Readme.md_autotoc_md9353}{}\doxysubsection{\texorpdfstring{Supported formats}{Supported formats}}\label{Readme.md_autotoc_md9353}
+
+\begin{DoxyItemize}
+\item BMP
+\item GIF
+\item JPEG
+\item PNG
+\item PSD
+\item TIFF
+\item WebP
+\item SVG
+\item DDS
+\end{DoxyItemize}\hypertarget{Readme.md_autotoc_md9354}{}\doxysubsubsection{\texorpdfstring{Upcoming}{Upcoming}}\label{Readme.md_autotoc_md9354}
+
+\begin{DoxyItemize}
+\item SWF
+\end{DoxyItemize}\hypertarget{Readme.md_autotoc_md9355}{}\doxysubsection{\texorpdfstring{Programmatic Usage}{Programmatic Usage}}\label{Readme.md_autotoc_md9355}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ image-\/size\ -\/-\/save}
+
+\end{DoxyCode}
+\hypertarget{Readme.md_autotoc_md9356}{}\doxysubsubsection{\texorpdfstring{Synchronous}{Synchronous}}\label{Readme.md_autotoc_md9356}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ sizeOf\ =\ require('image-\/size');}
+\DoxyCodeLine{var\ dimensions\ =\ sizeOf('images/funny-\/cats.png');}
+\DoxyCodeLine{console.log(dimensions.width,\ dimensions.height);}
+
+\end{DoxyCode}
+\hypertarget{Readme.md_autotoc_md9357}{}\doxysubsubsection{\texorpdfstring{Asynchronous}{Asynchronous}}\label{Readme.md_autotoc_md9357}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ sizeOf\ =\ require('image-\/size');}
+\DoxyCodeLine{sizeOf('images/funny-\/cats.png',\ function\ (err,\ dimensions)\ \{}
+\DoxyCodeLine{\ \ console.log(dimensions.width,\ dimensions.height);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+ NOTE\+: The asynchronous version doesn\textquotesingle{}t work if the input is a Buffer. Use synchronous version instead.\hypertarget{Readme.md_autotoc_md9358}{}\doxysubsubsection{\texorpdfstring{Using a URL}{Using a URL}}\label{Readme.md_autotoc_md9358}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ url\ =\ require('url');}
+\DoxyCodeLine{var\ http\ =\ require('http');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ sizeOf\ =\ require('image-\/size');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ imgUrl\ =\ 'http://my-\/amazing-\/website.com/image.jpeg';}
+\DoxyCodeLine{var\ options\ =\ url.parse(imgUrl);}
+\DoxyCodeLine{}
+\DoxyCodeLine{http.get(options,\ function\ (response)\ \{}
+\DoxyCodeLine{\ \ var\ chunks\ =\ [];}
+\DoxyCodeLine{\ \ response.on('data',\ function\ (chunk)\ \{}
+\DoxyCodeLine{\ \ \ \ chunks.push(chunk);}
+\DoxyCodeLine{\ \ \}).on('end',\ function()\ \{}
+\DoxyCodeLine{\ \ \ \ var\ buffer\ =\ Buffer.concat(chunks);}
+\DoxyCodeLine{\ \ \ \ console.log(sizeOf(buffer));}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+You can optionally check the buffer lengths \& stop downloading the image after a few kilobytes. {\bfseries{You don\textquotesingle{}t need to download the entire image}}\hypertarget{Readme.md_autotoc_md9359}{}\doxysubsection{\texorpdfstring{Command-\/\+Line Usage (CLI)}{Command-\/\+Line Usage (CLI)}}\label{Readme.md_autotoc_md9359}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ image-\/size\ -\/-\/global}
+\DoxyCodeLine{image-\/size\ image1\ [image2]\ [image3]\ ...}
+
+\end{DoxyCode}
+\hypertarget{Readme.md_autotoc_md9360}{}\doxysubsection{\texorpdfstring{Credits}{Credits}}\label{Readme.md_autotoc_md9360}
+not a direct port, but an attempt to have something like \href{https://github.com/dabble/imagesize/blob/master/lib/image_size.rb}{\texttt{ dabble\textquotesingle{}s imagesize}} as a node module.\hypertarget{Readme.md_autotoc_md9361}{}\doxysubsection{\texorpdfstring{Contributors}{Contributors}}\label{Readme.md_autotoc_md9361}

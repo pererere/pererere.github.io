@@ -1,0 +1,205 @@
+\chapter{Diagnostics Channel Support}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel}\index{Diagnostics Channel Support@{Diagnostics Channel Support}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21302}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21302}%
+
+
+Stability\+: Experimental.
+
+Undici supports the \href{https://nodejs.org/api/diagnostics_channel.html}{\texttt{ {\ttfamily diagnostics\+\_\+channel}}} (currently available only on Node.\+js v16+). It is the preferred way to instrument Undici and retrieve internal information.
+
+The channels available are the following.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21303}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:request\+:create}}{{\ttfamily undici\+:request\+:create}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21303}
+This message is published when a new outgoing request is created.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:request:create').subscribe((\{\ request\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ console.log('origin',\ request.origin)}
+\DoxyCodeLine{\ \ console.log('completed',\ request.completed)}
+\DoxyCodeLine{\ \ console.log('method',\ request.method)}
+\DoxyCodeLine{\ \ console.log('path',\ request.path)}
+\DoxyCodeLine{\ \ console.log('headers')\ //\ raw\ text,\ e.g:\ 'bar:\ bar\(\backslash\)r\(\backslash\)n'}
+\DoxyCodeLine{\ \ request.addHeader('hello',\ 'world')}
+\DoxyCodeLine{\ \ console.log('headers',\ request.headers)\ //\ e.g.\ 'bar:\ bar\(\backslash\)r\(\backslash\)nhello:\ world\(\backslash\)r\(\backslash\)n'}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+Note\+: a request is only loosely completed to a given socket.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21304}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:request\+:body\+Sent}}{{\ttfamily undici\+:request\+:body\+Sent}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21304}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:request:bodySent').subscribe((\{\ request\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ //\ request\ is\ the\ same\ object\ undici:request:create}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21305}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:request\+:headers}}{{\ttfamily undici\+:request\+:headers}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21305}
+This message is published after the response headers have been received, i.\+e. the response has been completed.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:request:headers').subscribe((\{\ request,\ response\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ //\ request\ is\ the\ same\ object\ undici:request:create}
+\DoxyCodeLine{\ \ console.log('statusCode',\ response.statusCode)}
+\DoxyCodeLine{\ \ console.log(response.statusText)}
+\DoxyCodeLine{\ \ //\ response.headers\ are\ buffers.}
+\DoxyCodeLine{\ \ console.log(response.headers.map((x)\ =>\ x.toString()))}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21306}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:request\+:trailers}}{{\ttfamily undici\+:request\+:trailers}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21306}
+This message is published after the response body and trailers have been received, i.\+e. the response has been completed.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:request:trailers').subscribe((\{\ request,\ trailers\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ //\ request\ is\ the\ same\ object\ undici:request:create}
+\DoxyCodeLine{\ \ console.log('completed',\ request.completed)}
+\DoxyCodeLine{\ \ //\ trailers\ are\ buffers.}
+\DoxyCodeLine{\ \ console.log(trailers.map((x)\ =>\ x.toString()))}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21307}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:request\+:error}}{{\ttfamily undici\+:request\+:error}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21307}
+This message is published if the request is going to error, but it has not errored yet.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:request:error').subscribe((\{\ request,\ error\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ //\ request\ is\ the\ same\ object\ undici:request:create}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21308}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:client\+:send\+Headers}}{{\ttfamily undici\+:client\+:send\+Headers}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21308}
+This message is published right before the first byte of the request is written to the socket.
+
+{\itshape Note}\+: It will publish the exact headers that will be sent to the server in raw format.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:client:sendHeaders').subscribe((\{\ request,\ headers,\ socket\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ //\ request\ is\ the\ same\ object\ undici:request:create}
+\DoxyCodeLine{\ \ console.log(`Full\ headers\ list\ \$\{headers.split('\(\backslash\)r\(\backslash\)n')\}`);}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21309}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:client\+:before\+Connect}}{{\ttfamily undici\+:client\+:before\+Connect}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21309}
+This message is published before creating a new connection for {\bfseries{any}} request. You can not assume that this event is related to any specific request.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:client:beforeConnect').subscribe((\{\ connectParams,\ connector\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ //\ const\ \{\ host,\ hostname,\ protocol,\ port,\ servername\ \}\ =\ connectParams}
+\DoxyCodeLine{\ \ //\ connector\ is\ a\ function\ that\ creates\ the\ socket}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21310}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:client\+:connected}}{{\ttfamily undici\+:client\+:connected}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21310}
+This message is published after a connection is established.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:client:connected').subscribe((\{\ socket,\ connectParams,\ connector\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ //\ const\ \{\ host,\ hostname,\ protocol,\ port,\ servername\ \}\ =\ connectParams}
+\DoxyCodeLine{\ //\ connector\ is\ a\ function\ that\ creates\ the\ socket}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21311}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:client\+:connect\+Error}}{{\ttfamily undici\+:client\+:connect\+Error}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21311}
+This message is published if it did not succeed to create new connection
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:client:connectError').subscribe((\{\ error,\ socket,\ connectParams,\ connector\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ //\ const\ \{\ host,\ hostname,\ protocol,\ port,\ servername\ \}\ =\ connectParams}
+\DoxyCodeLine{\ \ //\ connector\ is\ a\ function\ that\ creates\ the\ socket}
+\DoxyCodeLine{\ \ console.log(`Connect\ failed\ with\ \$\{error.message\}`)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21312}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:websocket\+:open}}{{\ttfamily undici\+:websocket\+:open}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21312}
+This message is published after the client has successfully connected to a server.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:websocket:open').subscribe((\{\ address,\ protocol,\ extensions\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(address)\ //\ address,\ family,\ and\ port}
+\DoxyCodeLine{\ \ console.log(protocol)\ //\ negotiated\ subprotocols}
+\DoxyCodeLine{\ \ console.log(extensions)\ //\ negotiated\ extensions}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21313}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:websocket\+:close}}{{\ttfamily undici\+:websocket\+:close}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21313}
+This message is published after the connection has closed.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:websocket:close').subscribe((\{\ websocket,\ code,\ reason\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(websocket)\ //\ the\ WebSocket\ object}
+\DoxyCodeLine{\ \ console.log(code)\ //\ the\ closing\ status\ code}
+\DoxyCodeLine{\ \ console.log(reason)\ //\ the\ closing\ reason}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21314}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:websocket\+:socket\+\_\+error}}{{\ttfamily undici\+:websocket\+:socket\+\_\+error}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21314}
+This message is published if the socket experiences an error.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:websocket:socket\_error').subscribe((error)\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(error)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21315}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:websocket\+:ping}}{{\ttfamily undici\+:websocket\+:ping}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21315}
+This message is published after the client receives a ping frame, if the connection is not closing.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:websocket:ping').subscribe((\{\ payload\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ //\ a\ Buffer\ or\ undefined,\ containing\ the\ optional\ application\ data\ of\ the\ frame}
+\DoxyCodeLine{\ \ console.log(payload)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21316}{}\doxysection{\texorpdfstring{{\ttfamily undici\+:websocket\+:pong}}{{\ttfamily undici\+:websocket\+:pong}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_diagnostics_channel_autotoc_md21316}
+This message is published after the client receives a pong frame.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ diagnosticsChannel\ from\ 'diagnostics\_channel'}
+\DoxyCodeLine{}
+\DoxyCodeLine{diagnosticsChannel.channel('undici:websocket:pong').subscribe((\{\ payload\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ //\ a\ Buffer\ or\ undefined,\ containing\ the\ optional\ application\ data\ of\ the\ frame}
+\DoxyCodeLine{\ \ console.log(payload)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+ 

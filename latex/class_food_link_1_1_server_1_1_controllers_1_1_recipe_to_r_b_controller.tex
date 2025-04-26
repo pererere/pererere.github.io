@@ -1,0 +1,115 @@
+\doxysection{Food\+Link.\+Server.\+Controllers.\+Recipe\+To\+RBController Class Reference}
+\hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller}{}\label{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller}\index{FoodLink.Server.Controllers.RecipeToRBController@{FoodLink.Server.Controllers.RecipeToRBController}}
+
+
+Controller responsible for managing associations between recipes and recipe books.  
+
+
+Inheritance diagram for Food\+Link.\+Server.\+Controllers.\+Recipe\+To\+RBController\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a926fca8454088d4cc2a07ad74d888ced}{Recipe\+To\+RBController}} (\mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}} context)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller}{Recipe\+To\+RBController} class. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a9db71cced6d86b5e6ff75a5eb0f0c7da}{Add\+Recipe\+To\+Book}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe_to_r_b}{Recipe\+To\+RB}} recipe\+To\+RB)
+\begin{DoxyCompactList}\small\item\em Associates a recipe with a recipe book. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a21bc5e325f3578404d50b6a0479d476c}{Get\+Recipes\+By\+Recipe\+Book}} (int id)
+\begin{DoxyCompactList}\small\item\em Retrieves all recipes associated with a specific recipe book. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a137ddb3af516d9697476cce4691e5714}{Remove\+Recipe\+From\+Book}} (int id\+Recipe, int id\+Recipe\+Book)
+\begin{DoxyCompactList}\small\item\em Removes a recipe from a recipe book. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a66d3dbd3f28dc030e60a2d3b01d8d3d2}\label{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a66d3dbd3f28dc030e60a2d3b01d8d3d2} 
+readonly \mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}} {\bfseries \+\_\+context}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller responsible for managing associations between recipes and recipe books. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a926fca8454088d4cc2a07ad74d888ced}\index{FoodLink.Server.Controllers.RecipeToRBController@{FoodLink.Server.Controllers.RecipeToRBController}!RecipeToRBController@{RecipeToRBController}}
+\index{RecipeToRBController@{RecipeToRBController}!FoodLink.Server.Controllers.RecipeToRBController@{FoodLink.Server.Controllers.RecipeToRBController}}
+\doxysubsubsection{\texorpdfstring{RecipeToRBController()}{RecipeToRBController()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a926fca8454088d4cc2a07ad74d888ced} 
+Food\+Link.\+Server.\+Controllers.\+Recipe\+To\+RBController.\+Recipe\+To\+RBController (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_food_link_1_1_server_1_1_data_1_1_food_link_context}{Food\+Link\+Context}}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \doxylink{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller}{Recipe\+To\+RBController} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The database context for accessing recipe-\/to-\/recipe-\/book associations.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a9db71cced6d86b5e6ff75a5eb0f0c7da}\index{FoodLink.Server.Controllers.RecipeToRBController@{FoodLink.Server.Controllers.RecipeToRBController}!AddRecipeToBook@{AddRecipeToBook}}
+\index{AddRecipeToBook@{AddRecipeToBook}!FoodLink.Server.Controllers.RecipeToRBController@{FoodLink.Server.Controllers.RecipeToRBController}}
+\doxysubsubsection{\texorpdfstring{AddRecipeToBook()}{AddRecipeToBook()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a9db71cced6d86b5e6ff75a5eb0f0c7da} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+Recipe\+To\+RBController.\+Add\+Recipe\+To\+Book (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_food_link_1_1_server_1_1_models_1_1_recipe_to_r_b}{Recipe\+To\+RB}}}]{recipe\+To\+RB}{}\end{DoxyParamCaption})}
+
+
+
+Associates a recipe with a recipe book. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em recipe\+To\+RB} & The association data containing recipe ID and recipe book ID.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result containing the created association or an error message.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe} associated with the recipe book successfully, returns the association data.$<$/response$>$ $<$response code="{}400"{}$>$Invalid data or recipe already in the recipe book.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a21bc5e325f3578404d50b6a0479d476c}\index{FoodLink.Server.Controllers.RecipeToRBController@{FoodLink.Server.Controllers.RecipeToRBController}!GetRecipesByRecipeBook@{GetRecipesByRecipeBook}}
+\index{GetRecipesByRecipeBook@{GetRecipesByRecipeBook}!FoodLink.Server.Controllers.RecipeToRBController@{FoodLink.Server.Controllers.RecipeToRBController}}
+\doxysubsubsection{\texorpdfstring{GetRecipesByRecipeBook()}{GetRecipesByRecipeBook()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a21bc5e325f3578404d50b6a0479d476c} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+Recipe\+To\+RBController.\+Get\+Recipes\+By\+Recipe\+Book (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves all recipes associated with a specific recipe book. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the recipe book.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result containing a list of recipes in the recipe book or an error message.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$Recipes retrieved successfully, returns the list of recipes.$<$/response$>$ $<$response code="{}404"{}$>$No recipes found for this recipe book.$<$/response$>$ \Hypertarget{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a137ddb3af516d9697476cce4691e5714}\index{FoodLink.Server.Controllers.RecipeToRBController@{FoodLink.Server.Controllers.RecipeToRBController}!RemoveRecipeFromBook@{RemoveRecipeFromBook}}
+\index{RemoveRecipeFromBook@{RemoveRecipeFromBook}!FoodLink.Server.Controllers.RecipeToRBController@{FoodLink.Server.Controllers.RecipeToRBController}}
+\doxysubsubsection{\texorpdfstring{RemoveRecipeFromBook()}{RemoveRecipeFromBook()}}
+{\footnotesize\ttfamily \label{class_food_link_1_1_server_1_1_controllers_1_1_recipe_to_r_b_controller_a137ddb3af516d9697476cce4691e5714} 
+async Task$<$ IAction\+Result $>$ Food\+Link.\+Server.\+Controllers.\+Recipe\+To\+RBController.\+Remove\+Recipe\+From\+Book (\begin{DoxyParamCaption}\item[{int}]{id\+Recipe}{, }\item[{int}]{id\+Recipe\+Book}{}\end{DoxyParamCaption})}
+
+
+
+Removes a recipe from a recipe book. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Recipe} & The ID of the recipe to remove.\\
+\hline
+{\em id\+Recipe\+Book} & The ID of the recipe book.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An IAction\+Result containing a success message or an error if the association is not found.
+\end{DoxyReturn}
+$<$response code="{}200"{}$>$\doxylink{class_food_link_1_1_server_1_1_models_1_1_recipe}{Recipe} removed successfully, returns a confirmation message.$<$/response$>$ $<$response code="{}404"{}$>$Association between recipe and recipe book not found.$<$/response$>$ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/\+Food\+Link.\+Server/\+Controllers/Recipe\+To\+RBController.\+cs\end{DoxyCompactItemize}

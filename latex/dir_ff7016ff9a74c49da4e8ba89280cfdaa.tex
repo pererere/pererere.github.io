@@ -1,0 +1,81 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/wildcard Directory Reference}
+\hypertarget{dir_ff7016ff9a74c49da4e8ba89280cfdaa}{}\label{dir_ff7016ff9a74c49da4e8ba89280cfdaa}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/wildcard Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/wildcard Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Very simple wildcard matching, which is designed to provide the same functionality that is found in the \href{https://github.com/adobe-webplatform/eve}{\texttt{ eve}} eventing library.
+
+\href{https://nodei.co/npm/wildcard/}{\texttt{ }}
+
+\href{https://github.com/dominictarr/stability\#stable}{\texttt{ }}\hypertarget{README.md_autotoc_md22489}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md22489}
+It works with strings\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ wildcard\ =\ require('wildcard');}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(wildcard('foo.*',\ 'foo.bar'));}
+\DoxyCodeLine{//\ -\/-\/>\ true}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(wildcard('foo.*',\ 'foo'));}
+\DoxyCodeLine{//\ -\/-\/>\ true}
+
+\end{DoxyCode}
+
+
+Arrays\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ wildcard\ =\ require('wildcard');}
+\DoxyCodeLine{var\ testdata\ =\ [}
+\DoxyCodeLine{\ \ 'a.b.c',}
+\DoxyCodeLine{\ \ 'a.b',}
+\DoxyCodeLine{\ \ 'a',}
+\DoxyCodeLine{\ \ 'a.b.d'}
+\DoxyCodeLine{];}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(wildcard('a.b.*',\ testdata));}
+\DoxyCodeLine{//\ -\/-\/>\ ['a.b.c',\ 'a.b',\ 'a.b.d']}
+
+\end{DoxyCode}
+
+
+Objects (matching against keys)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ wildcard\ =\ require('wildcard');}
+\DoxyCodeLine{var\ testdata\ =\ \{}
+\DoxyCodeLine{\ \ 'a.b.c'\ :\ \{\},}
+\DoxyCodeLine{\ \ 'a.b'\ \ \ :\ \{\},}
+\DoxyCodeLine{\ \ 'a'\ \ \ \ \ :\ \{\},}
+\DoxyCodeLine{\ \ 'a.b.d'\ :\ \{\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(wildcard('a.*.c',\ testdata));}
+\DoxyCodeLine{//\ -\/-\/>\ \{\ 'a.b.c':\ \{\}\ \}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md22490}{}\doxysubsection{\texorpdfstring{Alternative Implementations}{Alternative Implementations}}\label{README.md_autotoc_md22490}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/isaacs/node-glob}{\texttt{ https\+://github.\+com/isaacs/node-\/glob}}
+\end{DoxyItemize}
+
+Great for full file-\/based wildcard matching.
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sindresorhus/matcher}{\texttt{ https\+://github.\+com/sindresorhus/matcher}}
+\end{DoxyItemize}
+
+A well cared for and loved JS wildcard matcher.\hypertarget{README.md_autotoc_md22491}{}\doxysubsection{\texorpdfstring{License(s)}{License(s)}}\label{README.md_autotoc_md22491}
+\hypertarget{README.md_autotoc_md22492}{}\doxysubsubsection{\texorpdfstring{MIT}{MIT}}\label{README.md_autotoc_md22492}
+Copyright (c) 2023 Damon Oehlman \texorpdfstring{$<$}{<}\&\#x6d;\&\#x61;\&\#105;\&\#108;\&\#116;\&\#x6f;\&\#x3a;\&\#x64;\&\#x61;\&\#109;\&\#111;\&\#110;\&\#46;\&\#111;\&\#101;\&\#x68;\&\#108;\&\#x6d;\&\#97;\&\#x6e;\&\#x40;\&\#x67;\&\#x6d;\&\#x61;\&\#x69;\&\#x6c;\&\#x2e;\&\#x63;\&\#111;\&\#109;\texorpdfstring{$>$}{>}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \textquotesingle{}Software\textquotesingle{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \textquotesingle{}AS IS\textquotesingle{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 

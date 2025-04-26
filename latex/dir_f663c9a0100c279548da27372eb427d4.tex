@@ -1,0 +1,59 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/proc-\/log Directory Reference}
+\hypertarget{dir_f663c9a0100c279548da27372eb427d4}{}\label{dir_f663c9a0100c279548da27372eb427d4}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/proc-\/log Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/proc-\/log Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Emits \textquotesingle{}log\textquotesingle{} events on the process object which a log output listener can consume and print to the terminal.
+
+This is used by various modules within the npm CLI stack in order to send log events that can be consumed by a listener on the process object.\hypertarget{README.md_autotoc_md16850}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md16850}
+
+\begin{DoxyItemize}
+\item {\ttfamily log.\+error(...\+args)} calls `process.\+emit(\textquotesingle{}log', \textquotesingle{}error\textquotesingle{}, ...args){\ttfamily  The highest log level. For printing extremely serious errors that indicate something went wrong. \texorpdfstring{$\ast$}{*}}log.\+warn(...\+args){\ttfamily calls}process.\+emit(\textquotesingle{}log\textquotesingle{}, \textquotesingle{}warn\textquotesingle{}, ...args){\ttfamily  A fairly high log level. Things that the user needs to be aware of, but which won\textquotesingle{}t necessarily cause improper functioning of the system. \texorpdfstring{$\ast$}{*}}log.\+notice(...\+args){\ttfamily calls}process.\+emit(\textquotesingle{}log\textquotesingle{}, \textquotesingle{}notice\textquotesingle{}, ...args){\ttfamily  Notices which are important, but not necessarily dangerous or a cause for excess concern. \texorpdfstring{$\ast$}{*}}log.\+info(...\+args){\ttfamily calls}process.\+emit(\textquotesingle{}log\textquotesingle{}, \textquotesingle{}info\textquotesingle{}, ...args){\ttfamily  Informative messages that may benefit the user, but aren\textquotesingle{}t particularly important. \texorpdfstring{$\ast$}{*}}log.\+verbose(...\+args){\ttfamily calls}process.\+emit(\textquotesingle{}log\textquotesingle{}, \textquotesingle{}verbose\textquotesingle{}, ...args){\ttfamily  Noisy output that is more detail that most users will care about. \texorpdfstring{$\ast$}{*}}log.\+silly(...\+args){\ttfamily calls}process.\+emit(\textquotesingle{}log\textquotesingle{}, \textquotesingle{}silly\textquotesingle{}, ...args){\ttfamily  Extremely noisy excessive logging messages that are typically only useful for debugging. \texorpdfstring{$\ast$}{*}}log.\+http(...\+args){\ttfamily calls}process.\+emit(\textquotesingle{}log\textquotesingle{}, \textquotesingle{}http\textquotesingle{}, ...args){\ttfamily  Information about HTTP requests made and/or completed. \texorpdfstring{$\ast$}{*}}log.\+pause(){\ttfamily calls}process.\+emit(\textquotesingle{}log\textquotesingle{}, \textquotesingle{}pause\textquotesingle{}){\ttfamily Used to tell the consumer to stop printing messages. \texorpdfstring{$\ast$}{*}}log.\+resume(){\ttfamily calls}process.\+emit(\textquotesingle{}log\textquotesingle{}, \textquotesingle{}resume\textquotesingle{}){\ttfamily  Used to tell the consumer that it is ok to print messages again. \texorpdfstring{$\ast$}{*}}log.\+LEVELS\`{} an array of strings of all log method names
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md16851}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{README.md_autotoc_md16851}
+Every method calls `process.\+emit(\textquotesingle{}log', level, ...other\+Args){\ttfamily internally. So in order to consume those events you need to do}process.\+on(\textquotesingle{}log\textquotesingle{}, fn)\`{}.\hypertarget{README.md_autotoc_md16852}{}\doxysubsubsection{\texorpdfstring{Colorize based on level}{Colorize based on level}}\label{README.md_autotoc_md16852}
+Here\textquotesingle{}s an example of how to consume {\ttfamily proc-\/log} events and colorize them based on level\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ chalk\ =\ require('chalk')}
+\DoxyCodeLine{}
+\DoxyCodeLine{process.on('log',\ (level,\ ...args)\ =>\ \{}
+\DoxyCodeLine{\ \ if\ (level\ ===\ 'error')\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(chalk.red(level),\ ...args)}
+\DoxyCodeLine{\ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(chalk.blue(level),\ ...args)}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16853}{}\doxysubsubsection{\texorpdfstring{Pause and resume}{Pause and resume}}\label{README.md_autotoc_md16853}
+{\ttfamily pause} and {\ttfamily resume} are included so you have the ability to tell your consumer that you want to pause or resume your display of logs. In the npm CLI we use this to buffer all logs on init until we know the correct loglevel to display. But we also setup a second handler that writes everything to a file even if paused.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{let\ paused\ =\ true}
+\DoxyCodeLine{const\ buffer\ =\ []}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ this\ handler\ will\ buffer\ and\ replay\ logs\ only}
+\DoxyCodeLine{//\ after\ \`{}procLog.resume()`\ is\ called}
+\DoxyCodeLine{process.on('log',\ (level,\ ...args)\ =>\ \{}
+\DoxyCodeLine{\ \ if\ (level\ ===\ 'resume')\ \{}
+\DoxyCodeLine{\ \ \ \ buffer.forEach((item)\ =>\ console.log(...item))}
+\DoxyCodeLine{\ \ \ \ paused\ =\ false}
+\DoxyCodeLine{\ \ \ \ return}
+\DoxyCodeLine{\ \ \} }
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ if\ (paused)\ \{}
+\DoxyCodeLine{\ \ \ \ buffer.push([level,\ ...args])}
+\DoxyCodeLine{\ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(level,\ ...args)}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ this\ handler\ will\ write\ everything\ to\ a\ file}
+\DoxyCodeLine{process.on('log',\ (...args)\ =>\ \{}
+\DoxyCodeLine{\ \ fs.appendFileSync('debug.log',\ args.join('\ '))}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+ 

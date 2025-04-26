@@ -1,0 +1,98 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/gulp.task.\+sequence Directory Reference}
+\hypertarget{dir_5205a7f0afd09dbb91aaabce06477307}{}\label{dir_5205a7f0afd09dbb91aaabce06477307}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/gulp.task.sequence Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/gulp.task.sequence Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Gulp, SASS + Slow running tasks\hypertarget{readme.md_autotoc_md3527}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3527}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/gulp.task.sequence}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3528}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3528}
+This example highlights a common problem where you don\textquotesingle{}t want to reload the browser until a 2 or more slow-\/running tasks have completed. The solution is to create the intermediate task that ensures {\ttfamily browser\+Sync.\+reload} is not called until both slow tasks are complete.\hypertarget{readme.md_autotoc_md3529}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily gulpfile.\+js}\+:}{Preview of {\ttfamily gulpfile.\+js}\+:}}\label{readme.md_autotoc_md3529}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ gulp\ \ \ \ \ \ \ \ =\ require('gulp');}
+\DoxyCodeLine{var\ browserSync\ =\ require('browser-\/sync');}
+\DoxyCodeLine{var\ sass\ \ \ \ \ \ \ \ =\ require('gulp-\/sass');}
+\DoxyCodeLine{var\ reload\ \ \ \ \ \ =\ browserSync.reload;}
+\DoxyCodeLine{var\ through\ \ \ \ \ =\ require("{}through2"{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ A\ slow\ task}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('slow1',\ function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ return\ gulp.src('./app/*.html')}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(slowStream());}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Another\ Slow\ task}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('slow2',\ function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ return\ gulp.src('./app/*.html')}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(slowStream());}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Separate\ task\ for\ the\ reaction\ to\ a\ file\ change}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('html-\/watch',\ ['slow1',\ 'slow2'],\ reload);}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Sass\ task\ for\ live\ injecting\ into\ all\ browsers}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('sass',\ function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ return\ gulp.src('./app/scss/*.scss')}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(sass())}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(gulp.dest('./app/css'))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(reload(\{stream:\ true\}));}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Serve\ and\ watch\ the\ html\ files\ for\ changes}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('default',\ function\ ()\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ browserSync(\{server:\ './app'\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ gulp.watch('./app/scss/*.scss',\ ['sass']);}
+\DoxyCodeLine{\ \ \ \ gulp.watch('./app/*.html',\ \ \ \ \ \ ['html-\/watch']);}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Simulate\ a\ slow\ task}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{function\ slowStream\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ return\ through.obj(function\ (file,\ enc,\ cb)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ this.push(file);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ setTimeout(cb,\ 2000);}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

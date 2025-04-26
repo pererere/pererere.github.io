@@ -1,0 +1,166 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@angular-\/devkit/core Directory Reference}
+\hypertarget{dir_eeaf74f9fd954c56dcf23bd52e4c6b2b}{}\label{dir_eeaf74f9fd954c56dcf23bd52e4c6b2b}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@angular-\/devkit/core Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@angular-\/devkit/core Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Shared utilities for Angular Dev\+Kit. \end{quote}
+\hypertarget{README.md_autotoc_md34}{}\doxysubsection{\texorpdfstring{Exception}{Exception}}\label{README.md_autotoc_md34}
+\hypertarget{README.md_autotoc_md35}{}\doxysubsection{\texorpdfstring{Json}{Json}}\label{README.md_autotoc_md35}
+\hypertarget{README.md_autotoc_md36}{}\doxysubsubsection{\texorpdfstring{Schema}{Schema}}\label{README.md_autotoc_md36}
+\hypertarget{README.md_autotoc_md37}{}\doxysubsubsubsection{\texorpdfstring{Schema\+Validator\+Result}{Schema\+Validator\+Result}}\label{README.md_autotoc_md37}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ interface\ SchemaValidatorResult\ \{}
+\DoxyCodeLine{\ \ success:\ boolean;}
+\DoxyCodeLine{\ \ errors?:\ string[];}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md38}{}\doxysubsubsubsection{\texorpdfstring{Schema\+Validator}{Schema\+Validator}}\label{README.md_autotoc_md38}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ interface\ SchemaValidator\ \{}
+\DoxyCodeLine{\ \ (data:\ any):\ Observable<SchemaValidatorResult>;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md39}{}\doxysubsubsubsection{\texorpdfstring{Schema\+Formatter}{Schema\+Formatter}}\label{README.md_autotoc_md39}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ interface\ SchemaFormatter\ \{}
+\DoxyCodeLine{\ \ readonly\ async:\ boolean;}
+\DoxyCodeLine{\ \ validate(data:\ any):\ boolean\ |\ Observable<boolean>;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md40}{}\doxysubsubsubsection{\texorpdfstring{Schema\+Registry}{Schema\+Registry}}\label{README.md_autotoc_md40}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ interface\ SchemaRegistry\ \{}
+\DoxyCodeLine{\ \ compile(schema:\ Object):\ Observable<SchemaValidator>;}
+\DoxyCodeLine{\ \ addFormat(name:\ string,\ formatter:\ SchemaFormatter):\ void;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md41}{}\doxysubsubsubsection{\texorpdfstring{Core\+Schema\+Registry}{Core\+Schema\+Registry}}\label{README.md_autotoc_md41}
+{\ttfamily Schema\+Registry} implementation using \href{https://github.com/epoberezkin/ajv}{\texttt{ https\+://github.\+com/epoberezkin/ajv}}. Constructor accepts object containing {\ttfamily Schema\+Formatter} that will be added automatically.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ class\ CoreSchemaRegistry\ implements\ SchemaRegistry\ \{}
+\DoxyCodeLine{\ \ constructor(formats:\ \{\ [name:\ string]:\ SchemaFormatter\}\ =\ \{\})\ \{\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md42}{}\doxysubsection{\texorpdfstring{Logger}{Logger}}\label{README.md_autotoc_md42}
+\hypertarget{README.md_autotoc_md43}{}\doxysubsection{\texorpdfstring{Utils}{Utils}}\label{README.md_autotoc_md43}
+\hypertarget{README.md_autotoc_md44}{}\doxysubsection{\texorpdfstring{Virtual FS}{Virtual FS}}\label{README.md_autotoc_md44}
+\hypertarget{README.md_autotoc_md45}{}\doxysubsection{\texorpdfstring{Workspaces}{Workspaces}}\label{README.md_autotoc_md45}
+The {\ttfamily workspaces} namespace provides an API for interacting with the workspace file formats. It provides an abstraction of the underlying storage format of the workspace and provides support for both reading and writing. Currently, the only supported format is the JSON-\/based format used by the Angular CLI. For this format, the API provides internal change tracking of values which enables fine-\/grained updates to the underlying storage of the workspace. This allows for the retention of existing formatting and comments.
+
+A workspace is defined via the following object model. Definition collection objects are specialized Javascript {\ttfamily Map} objects with an additional {\ttfamily add} method to simplify addition and provide more localized error checking of the newly added values.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ interface\ WorkspaceDefinition\ \{}
+\DoxyCodeLine{\ \ readonly\ extensions:\ Record<string,\ JsonValue\ |\ undefined>;}
+\DoxyCodeLine{\ \ readonly\ projects:\ ProjectDefinitionCollection;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ interface\ ProjectDefinition\ \{}
+\DoxyCodeLine{\ \ readonly\ extensions:\ Record<string,\ JsonValue\ |\ undefined>;}
+\DoxyCodeLine{\ \ readonly\ targets:\ TargetDefinitionCollection;}
+\DoxyCodeLine{\ \ root:\ string;}
+\DoxyCodeLine{\ \ prefix?:\ string;}
+\DoxyCodeLine{\ \ sourceRoot?:\ string;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ interface\ TargetDefinition\ \{}
+\DoxyCodeLine{\ \ options?:\ Record<string,\ JsonValue\ |\ undefined>;}
+\DoxyCodeLine{\ \ configurations?:\ Record<string,\ Record<string,\ JsonValue\ |\ undefined>\ |\ undefined>;}
+\DoxyCodeLine{\ \ builder:\ string;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The API is asynchronous and has two main functions to facilitate reading, creation, and modifying a workspace\+: {\ttfamily read\+Workspace} and {\ttfamily write\+Workspace}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ enum\ WorkspaceFormat\ \{}
+\DoxyCodeLine{\ \ JSON,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ function\ readWorkspace(}
+\DoxyCodeLine{\ \ path:\ string,}
+\DoxyCodeLine{\ \ host:\ WorkspaceHost,}
+\DoxyCodeLine{\ \ format?:\ WorkspaceFormat,}
+\DoxyCodeLine{):\ Promise<\{\ workspace:\ WorkspaceDefinition\ \}>;}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ function\ writeWorkspace(}
+\DoxyCodeLine{\ \ workspace:\ WorkspaceDefinition,}
+\DoxyCodeLine{\ \ host:\ WorkspaceHost,}
+\DoxyCodeLine{\ \ path?:\ string,}
+\DoxyCodeLine{\ \ format?:\ WorkspaceFormat,}
+\DoxyCodeLine{):\ Promise<void>;}
+
+\end{DoxyCode}
+
+
+A {\ttfamily Workspace\+Host} abstracts the underlying data access methods from the functions. It provides methods to read, write, and analyze paths. A utility function is provided to create an instance of a {\ttfamily Workspace\+Host} from the Angular Dev\+Kit\textquotesingle{}s virtual filesystem host abstraction.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ interface\ WorkspaceHost\ \{}
+\DoxyCodeLine{\ \ readFile(path:\ string):\ Promise<string>;}
+\DoxyCodeLine{\ \ writeFile(path:\ string,\ data:\ string):\ Promise<void>;}
+\DoxyCodeLine{\ \ isDirectory(path:\ string):\ Promise<boolean>;}
+\DoxyCodeLine{\ \ isFile(path:\ string):\ Promise<boolean>;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ function\ createWorkspaceHost(host:\ virtualFs.Host):\ WorkspaceHost;}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md46}{}\doxysubsubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{README.md_autotoc_md46}
+To demonstrate the usage of the API, the following code will show how to add a option property to a build target for an application.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ NodeJsSyncHost\ \}\ from\ '@angular-\/devkit/core/node';}
+\DoxyCodeLine{import\ \{\ workspaces\ \}\ from\ '@angular-\/devkit/core';}
+\DoxyCodeLine{}
+\DoxyCodeLine{async\ function\ demonstrate()\ \{}
+\DoxyCodeLine{\ \ const\ host\ =\ workspaces.createWorkspaceHost(new\ NodeJsSyncHost());}
+\DoxyCodeLine{\ \ const\ \{\ workspace\ \}\ =\ await\ workspaces.readWorkspace('path/to/workspace/directory/',\ host);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ const\ project\ =\ workspace.projects.get('my-\/app');}
+\DoxyCodeLine{\ \ if\ (!project)\ \{}
+\DoxyCodeLine{\ \ \ \ throw\ new\ Error('my-\/app\ does\ not\ exist');}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ const\ buildTarget\ =\ project.targets.get('build');}
+\DoxyCodeLine{\ \ if\ (!buildTarget)\ \{}
+\DoxyCodeLine{\ \ \ \ throw\ new\ Error('build\ target\ does\ not\ exist');}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ buildTarget.options.optimization\ =\ true;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ await\ workspaces.writeWorkspace(workspace,\ host);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{demonstrate();}
+
+\end{DoxyCode}
+ 

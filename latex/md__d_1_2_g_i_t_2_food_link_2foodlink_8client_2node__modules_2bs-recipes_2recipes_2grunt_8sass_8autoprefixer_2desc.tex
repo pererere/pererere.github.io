@@ -1,0 +1,18 @@
+\chapter{desc}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2bs-recipes_2recipes_2grunt_8sass_8autoprefixer_2desc}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2bs-recipes_2recipes_2grunt_8sass_8autoprefixer_2desc}\index{desc@{desc}}
+This example shows how you can chain potentially slow-\/running tasks, but still achieve CSS Injection. The trick, as seen below, is to use the {\ttfamily bs\+Reload} task that now comes bundled with {\ttfamily grunt-\/browser-\/sync} since {\ttfamily 2.\+1.\+0}
+
+Don\textquotesingle{}t forget the {\ttfamily spawn\+: false} option for the watch task -\/ it\textquotesingle{}s a requirement that allows Browsersync to work correctly
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{watch:\ \{}
+\DoxyCodeLine{\ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ spawn:\ false\ //\ Important,\ don't\ remove\ this!}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ files:\ 'app/**/*.scss',}
+\DoxyCodeLine{\ \ \ \ tasks:\ ['sass',\ 'autoprefixer',\ 'bsReload:css']}
+\DoxyCodeLine{\},}
+
+\end{DoxyCode}
+ 

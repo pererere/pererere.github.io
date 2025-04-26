@@ -1,0 +1,36 @@
+\chapter{move\+Sync(src, dest, \mbox{[}options\mbox{]})}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2move-sync}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2move-sync}\index{moveSync(src, dest, \mbox{[}options\mbox{]})@{moveSync(src, dest, [options])}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2move-sync_autotoc_md8272}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2move-sync_autotoc_md8272}%
+
+
+Moves a file or directory, even across devices.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily src} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily dest} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\item {\ttfamily options} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item {\ttfamily overwrite} {\ttfamily \texorpdfstring{$<$}{<}boolean\texorpdfstring{$>$}{>}}\+: overwrite existing file or directory, default is {\ttfamily false}.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2move-sync_autotoc_md8273}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2move-sync_autotoc_md8273}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{fs.moveSync('/tmp/somefile',\ '/tmp/does/not/exist/yet/somefile')}
+
+\end{DoxyCode}
+
+
+{\bfseries{Using {\ttfamily overwrite} option}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{fs.moveSync('/tmp/somedir',\ '/tmp/may/already/existed/somedir',\ \{\ overwrite:\ true\ \})}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,40 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/call-\/bind-\/apply-\/helpers Directory Reference}
+\hypertarget{dir_aac6f884bec405d5d25ce612b53409bc}{}\label{dir_aac6f884bec405d5d25ce612b53409bc}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/call-\/bind-\/apply-\/helpers Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/call-\/bind-\/apply-\/helpers Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://github.com/ljharb/call-bind-apply-helpers/actions}{\texttt{ }} \href{https://app.codecov.io/gh/ljharb/call-bind-apply-helpers/}{\texttt{ }} \href{https://david-dm.org/ljharb/call-bind-apply-helpers}{\texttt{ }} \href{https://david-dm.org/ljharb/call-bind-apply-helpers\#info=devDependencies}{\texttt{ }} \mbox{[}\mbox{]}\mbox{[}license-\/url\mbox{]} \href{https://npm-stat.com/charts.html?package=call-bind-apply-helpers}{\texttt{ }}
+
+\href{https://npmjs.org/package/call-bind-apply-helpers}{\texttt{ }}
+
+Helper functions around Function call/apply/bind, for use in {\ttfamily call-\/bind}.
+
+The only packages that should likely ever use this package directly are {\ttfamily call-\/bind} and {\ttfamily get-\/intrinsic}. Please use {\ttfamily call-\/bind} unless you have a very good reason not to.\hypertarget{README.md_autotoc_md3860}{}\doxysubsection{\texorpdfstring{Getting started}{Getting started}}\label{README.md_autotoc_md3860}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/-\/save\ call-\/bind-\/apply-\/helpers}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md3861}{}\doxysubsection{\texorpdfstring{Usage/\+Examples}{Usage/\+Examples}}\label{README.md_autotoc_md3861}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ assert\ =\ require('assert');}
+\DoxyCodeLine{const\ callBindBasic\ =\ require('call-\/bind-\/apply-\/helpers');}
+\DoxyCodeLine{}
+\DoxyCodeLine{function\ f(a,\ b)\ \{}
+\DoxyCodeLine{\ \ \ \ assert.equal(this,\ 1);}
+\DoxyCodeLine{\ \ \ \ assert.equal(a,\ 2);}
+\DoxyCodeLine{\ \ \ \ assert.equal(b,\ 3);}
+\DoxyCodeLine{\ \ \ \ assert.equal(arguments.length,\ 2);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ fBound\ =\ callBindBasic([f,\ 1]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{delete\ Function.prototype.call;}
+\DoxyCodeLine{delete\ Function.prototype.bind;}
+\DoxyCodeLine{}
+\DoxyCodeLine{fBound(2,\ 3);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md3862}{}\doxysubsection{\texorpdfstring{Tests}{Tests}}\label{README.md_autotoc_md3862}
+Clone the repo, {\ttfamily npm install}, and run {\ttfamily npm test} 

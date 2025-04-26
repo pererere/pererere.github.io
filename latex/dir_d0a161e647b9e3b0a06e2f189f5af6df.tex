@@ -1,0 +1,84 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/middleware.css.\+injection Directory Reference}
+\hypertarget{dir_d0a161e647b9e3b0a06e2f189f5af6df}{}\label{dir_d0a161e647b9e3b0a06e2f189f5af6df}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/middleware.css.injection Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/middleware.css.injection Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Middleware + CSS example\hypertarget{readme.md_autotoc_md3533}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3533}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/middleware.css.injection}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3534}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3534}
+
+\begin{DoxyItemize}
+\item Perform changes to {\ttfamily app/css/main.\+less} to see live css injection
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md3535}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily app.\+js}\+:}{Preview of {\ttfamily app.\+js}\+:}}\label{readme.md_autotoc_md3535}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Require\ Browsersync}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{var\ browserSync\ =\ require("{}browser-\/sync"{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Run\ the\ middleware\ on\ files\ that\ contain\ .less}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{function\ lessMiddleware\ (req,\ res,\ next)\ \{}
+\DoxyCodeLine{\ \ \ \ var\ parsed\ =\ require("{}url"{}).parse(req.url);}
+\DoxyCodeLine{\ \ \ \ if\ (parsed.pathname.match(/\(\backslash\).less\$/))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ return\ less(parsed.pathname).then(function\ (o)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ res.setHeader('Content-\/Type',\ 'text/css');}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ res.end(o.css);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ next();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Compile\ less}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{function\ less(src)\ \{}
+\DoxyCodeLine{\ \ \ \ var\ f\ =\ require('fs').readFileSync('app'\ +\ src).toString();}
+\DoxyCodeLine{\ \ \ \ return\ require('less').render(f);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Run\ Browsersync\ with\ less\ middleware}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{browserSync(\{}
+\DoxyCodeLine{\ \ \ \ files:\ "{}app/css/*.less"{},}
+\DoxyCodeLine{\ \ \ \ server:\ "{}app"{},}
+\DoxyCodeLine{\ \ \ \ injectFileTypes:\ ["{}less"{}],}
+\DoxyCodeLine{\ \ \ \ /**}
+\DoxyCodeLine{\ \ \ \ \ *\ Catch\ all\ requests,\ if\ any\ are\ for\ .less\ files,\ recompile\ on\ the\ fly\ and}
+\DoxyCodeLine{\ \ \ \ \ *\ send\ back\ a\ CSS\ response}
+\DoxyCodeLine{\ \ \ \ \ */}
+\DoxyCodeLine{\ \ \ \ middleware:\ lessMiddleware}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+ 

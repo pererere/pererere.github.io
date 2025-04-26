@@ -1,0 +1,92 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/postcss-\/modules-\/extract-\/imports Directory Reference}
+\hypertarget{dir_02634853d10ac0c26332c5e3ad2f55b5}{}\label{dir_02634853d10ac0c26332c5e3ad2f55b5}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/postcss-\/modules-\/extract-\/imports Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/postcss-\/modules-\/extract-\/imports Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://travis-ci.org/css-modules/postcss-modules-extract-imports}{\texttt{ }}
+
+Transforms\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{:local(.continueButton)\ \{}
+\DoxyCodeLine{\ \ composes:\ button\ from\ "{}library/button.css"{};}
+\DoxyCodeLine{\ \ color:\ green;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+into\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{:import("{}library/button.css"{})\ \{}
+\DoxyCodeLine{\ \ button:\ \_\_tmp\_487387465fczSDGHSABb;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{:local(.continueButton)\ \{}
+\DoxyCodeLine{\ \ composes:\ \_\_tmp\_487387465fczSDGHSABb;}
+\DoxyCodeLine{\ \ color:\ green;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16589}{}\doxysubsection{\texorpdfstring{Specification}{Specification}}\label{README.md_autotoc_md16589}
+
+\begin{DoxyItemize}
+\item Only a certain whitelist of properties are inspected. Currently, that whitelist is `\mbox{[}\textquotesingle{}composes'\mbox{]}\`{} alone.
+\item An extend-\/import has the following format\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composes:\ className\ [...\ className]\ from\ "{}path/to/file.css"{};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16590}{}\doxysubsection{\texorpdfstring{Options}{Options}}\label{README.md_autotoc_md16590}
+
+\begin{DoxyItemize}
+\item {\ttfamily fail\+On\+Wrong\+Order} {\ttfamily bool} generates exception for unpredictable imports order.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{.aa\ \{}
+\DoxyCodeLine{\ \ composes:\ b\ from\ "{}./b.css"{};}
+\DoxyCodeLine{\ \ composes:\ c\ from\ "{}./c.css"{};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.bb\ \{}
+\DoxyCodeLine{\ \ /*\ "{}b.css"{}\ should\ be\ before\ "{}c.css"{}\ in\ this\ case\ */}
+\DoxyCodeLine{\ \ composes:\ c\ from\ "{}./c.css"{};}
+\DoxyCodeLine{\ \ composes:\ b\ from\ "{}./b.css"{};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16591}{}\doxysubsection{\texorpdfstring{Building}{Building}}\label{README.md_autotoc_md16591}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install}
+\DoxyCodeLine{npm\ test}
+
+\end{DoxyCode}
+
+
+\href{https://travis-ci.org/css-modules/postcss-modules-extract-imports}{\texttt{ }}
+
+
+\begin{DoxyItemize}
+\item Lines\+: \href{https://coveralls.io/r/css-modules/postcss-modules-extract-imports?branch=master}{\texttt{ }}
+\item Statements\+: \href{http://codecov.io/github/css-modules/postcss-modules-extract-imports?branch=master}{\texttt{ }}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md16592}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md16592}
+ISC\hypertarget{README.md_autotoc_md16593}{}\doxysubsection{\texorpdfstring{With thanks}{With thanks}}\label{README.md_autotoc_md16593}
+
+\begin{DoxyItemize}
+\item Mark Dalgleish
+\item Tobias Koppers
+\item Guy Bedford
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+Glen Maddern, 2015. 

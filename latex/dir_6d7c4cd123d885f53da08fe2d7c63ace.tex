@@ -1,0 +1,63 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/postcss-\/modules-\/local-\/by-\/default Directory Reference}
+\hypertarget{dir_6d7c4cd123d885f53da08fe2d7c63ace}{}\label{dir_6d7c4cd123d885f53da08fe2d7c63ace}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/postcss-\/modules-\/local-\/by-\/default Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/postcss-\/modules-\/local-\/by-\/default Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}!\mbox{[}Build Status\mbox{]}\mbox{[}ci-\/img\mbox{]}\mbox{]}\mbox{[}ci\mbox{]} \mbox{[}!\mbox{[}codecov\mbox{]}\mbox{[}codecov-\/img\mbox{]}\mbox{]}\mbox{[}codecov\mbox{]} \mbox{[}!\mbox{[}npm\mbox{]}\mbox{[}npm-\/img\mbox{]}\mbox{]}\mbox{[}npm\mbox{]}\hypertarget{README.md_autotoc_md16595}{}\doxysubsection{\texorpdfstring{CSS Modules\+: Local by Default}{CSS Modules\+: Local by Default}}\label{README.md_autotoc_md16595}
+Transformation examples\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{.foo\ \{\ ...\ \}\ /*\ =>\ */\ :local(.foo)\ \{\ ...\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.foo\ .bar\ \{\ ...\ \}\ /*\ =>\ */\ :local(.foo)\ :local(.bar)\ \{\ ...\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{/*\ Shorthand\ global\ selector\ */}
+\DoxyCodeLine{}
+\DoxyCodeLine{:global\ .foo\ .bar\ \{\ ...\ \}\ /*\ =>\ */\ .foo\ .bar\ \{\ ...\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.foo\ :global\ .bar\ \{\ ...\ \}\ /*\ =>\ */\ :local(.foo)\ .bar\ \{\ ...\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{/*\ Targeted\ global\ selector\ */}
+\DoxyCodeLine{}
+\DoxyCodeLine{:global(.foo)\ .bar\ \{\ ...\ \}\ /*\ =>\ */\ .foo\ :local(.bar)\ \{\ ...\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.foo:global(.bar)\ \{\ ...\ \}\ /*\ =>\ */\ :local(.foo).bar\ \{\ ...\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.foo\ :global(.bar)\ .baz\ \{\ ...\ \}\ /*\ =>\ */\ :local(.foo)\ .bar\ :local(.baz)\ \{\ ...\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{.foo:global(.bar)\ .baz\ \{\ ...\ \}\ /*\ =>\ */\ :local(.foo).bar\ :local(.baz)\ \{\ ...\ \}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16596}{}\doxysubsubsection{\texorpdfstring{Building}{Building}}\label{README.md_autotoc_md16596}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+\DoxyCodeLine{\$\ npm\ test}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Build\+: \href{https://travis-ci.org/css-modules/postcss-modules-local-by-default}{\texttt{ }}
+\item Lines\+: \href{https://coveralls.io/r/css-modules/postcss-modules-local-by-default?branch=master}{\texttt{ }}
+\item Statements\+: \href{https://codecov.io/github/css-modules/postcss-modules-local-by-default?branch=master}{\texttt{ }}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md16597}{}\doxysubsubsection{\texorpdfstring{Development}{Development}}\label{README.md_autotoc_md16597}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ yarn\ test:watch}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16598}{}\doxysubsubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md16598}
+MIT\hypertarget{README.md_autotoc_md16599}{}\doxysubsubsection{\texorpdfstring{With thanks}{With thanks}}\label{README.md_autotoc_md16599}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sokra}{\texttt{ Tobias Koppers}}
+\item \href{https://github.com/geelen}{\texttt{ Glen Maddern}}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+Mark Dalgleish, 2015. 

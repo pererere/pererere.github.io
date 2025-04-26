@@ -1,0 +1,68 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/promise-\/retry Directory Reference}
+\hypertarget{dir_81fdb3334d695ff0f31ea00b6e53a134}{}\label{dir_81fdb3334d695ff0f31ea00b6e53a134}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/promise-\/retry Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/promise-\/retry Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://npmjs.org/package/promise-retry}{\texttt{ }} \href{https://npmjs.org/package/promise-retry}{\texttt{ }} \href{https://travis-ci.org/IndigoUnited/node-promise-retry}{\texttt{ }} \href{https://david-dm.org/IndigoUnited/node-promise-retry}{\texttt{ }} \href{https://david-dm.org/IndigoUnited/node-promise-retry?type=dev}{\texttt{ }} \href{https://greenkeeper.io/}{\texttt{ }}
+
+Retries a function that returns a promise, leveraging the power of the \href{https://github.com/tim-kos/node-retry}{\texttt{ retry}} module to the promises world.
+
+There\textquotesingle{}s already some modules that are able to retry functions that return promises but they were rather difficult to use or do not offer an easy way to do conditional retries.\hypertarget{README.md_autotoc_md16860}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md16860}
+{\ttfamily \$ npm install promise-\/retry}\hypertarget{README.md_autotoc_md16861}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md16861}
+\hypertarget{README.md_autotoc_md16862}{}\doxysubsubsection{\texorpdfstring{promise\+Retry(fn, \mbox{[}options\mbox{]})}{promise\+Retry(fn, \mbox{[}options\mbox{]})}}\label{README.md_autotoc_md16862}
+Calls {\ttfamily fn} until the returned promise ends up fulfilled or rejected with an error different than a {\ttfamily retry} error. ~\newline
+ The {\ttfamily options} argument is an object which maps to the \href{https://github.com/tim-kos/node-retry}{\texttt{ retry}} module options\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily retries}\+: The maximum amount of times to retry the operation. Default is {\ttfamily 10}.
+\item {\ttfamily factor}\+: The exponential factor to use. Default is {\ttfamily 2}.
+\item {\ttfamily min\+Timeout}\+: The number of milliseconds before starting the first retry. Default is {\ttfamily 1000}.
+\item {\ttfamily max\+Timeout}\+: The maximum number of milliseconds between two retries. Default is {\ttfamily Infinity}.
+\item {\ttfamily randomize}\+: Randomizes the timeouts by multiplying with a factor between {\ttfamily 1} to {\ttfamily 2}. Default is {\ttfamily false}.
+\end{DoxyItemize}
+
+The {\ttfamily fn} function will receive a {\ttfamily retry} function as its first argument that should be called with an error whenever you want to retry {\ttfamily fn}. The {\ttfamily retry} function will always throw an error. ~\newline
+ If there are retries left, it will throw a special {\ttfamily retry} error that will be handled internally to call {\ttfamily fn} again. If there are no retries left, it will throw the actual error passed to it.
+
+If you prefer, you can pass the options first using the alternative function signature {\ttfamily promise\+Retry(\mbox{[}options\mbox{]}, fn)}.\hypertarget{README.md_autotoc_md16863}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{README.md_autotoc_md16863}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ promiseRetry\ =\ require('promise-\/retry');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Simple\ example}
+\DoxyCodeLine{promiseRetry(function\ (retry,\ number)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('attempt\ number',\ number);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ return\ doSomething()}
+\DoxyCodeLine{\ \ \ \ .catch(retry);}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{.then(function\ (value)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ ..}
+\DoxyCodeLine{\},\ function\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ ..}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Conditional\ example}
+\DoxyCodeLine{promiseRetry(function\ (retry,\ number)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('attempt\ number',\ number);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ return\ doSomething()}
+\DoxyCodeLine{\ \ \ \ .catch(function\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (err.code\ ===\ 'ETIMEDOUT')\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ retry(err);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ throw\ err;}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{.then(function\ (value)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ ..}
+\DoxyCodeLine{\},\ function\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ ..}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md16864}{}\doxysubsection{\texorpdfstring{Tests}{Tests}}\label{README.md_autotoc_md16864}
+{\ttfamily \$ npm test}\hypertarget{README.md_autotoc_md16865}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md16865}
+Released under the \href{http://www.opensource.org/licenses/mit-license.php}{\texttt{ MIT License}}. 

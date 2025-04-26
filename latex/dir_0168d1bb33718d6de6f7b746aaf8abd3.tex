@@ -1,0 +1,113 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/karma-\/jasmine Directory Reference}
+\hypertarget{dir_0168d1bb33718d6de6f7b746aaf8abd3}{}\label{dir_0168d1bb33718d6de6f7b746aaf8abd3}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/karma-\/jasmine Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/karma-\/jasmine Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://www.npmjs.com/package/karma-jasmine}{\texttt{ }} \href{https://www.npmjs.com/package/karma-jasmine}{\texttt{ }} \href{https://github.com/karma-runner/karma-jasmine/actions/workflows/release.yml?query=branch\%3Amaster}{\texttt{ }} \href{https://github.com/karma-runner/karma-jasmine}{\texttt{ }} \href{https://github.com/semantic-release/semantic-release}{\texttt{ }}
+
+\begin{quote}
+Adapter for the \href{https://jasmine.github.io/}{\texttt{ Jasmine}} testing framework. \end{quote}
+\hypertarget{README.md_autotoc_md11349}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md11349}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ karma-\/jasmine\ -\/-\/save-\/dev}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11350}{}\doxysubsection{\texorpdfstring{Configuration}{Configuration}}\label{README.md_autotoc_md11350}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ karma.conf.js}
+\DoxyCodeLine{module.exports\ =\ function(config)\ \{}
+\DoxyCodeLine{\ \ config.set(\{}
+\DoxyCodeLine{\ \ \ \ frameworks:\ ['jasmine'],}
+\DoxyCodeLine{\ \ \ \ files:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ '*.js'}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+If you want to run only some tests whose name match a given pattern you can do this in the following way
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ karma\ start\ \&}
+\DoxyCodeLine{\$\ karma\ run\ -\/-\/\ -\/-\/grep=<pattern>}
+
+\end{DoxyCode}
+
+
+where pattern is either a string (e.\+g {\ttfamily -\/-\/grep=\#slow} runs tests containing "{}\#slow"{}) or a Regex (e.\+g {\ttfamily -\/-\/grep=/\texorpdfstring{$^\wedge$}{\string^}(?!.\texorpdfstring{$\ast$}{*}\#slow).\texorpdfstring{$\ast$}{*}\$/} runs tests {\itshape not} containing "{}\#slow"{}).
+
+You can also pass it to {\ttfamily karma.\+config.\+js}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ function(config)\ \{}
+\DoxyCodeLine{\ \ config.set(\{}
+\DoxyCodeLine{\ \ \ \ //\ ...}
+\DoxyCodeLine{\ \ \ \ client:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ args:\ ['-\/-\/grep',\ '<pattern>'],}
+\DoxyCodeLine{\ \ \ \ \ \ //\ ...}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+If you want to pass configuration options directly to jasmine you can do this in the following way
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{module.exports\ =\ function(config)\ \{}
+\DoxyCodeLine{\ \ config.set(\{}
+\DoxyCodeLine{\ \ \ \ client:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ jasmine:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ random:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ seed:\ '4321',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ oneFailurePerSpec:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ failFast:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ timeoutInterval:\ 1000}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md11351}{}\doxysubsection{\texorpdfstring{Debug by URL}{Debug by URL}}\label{README.md_autotoc_md11351}
+Failing tests print a debug URL with {\ttfamily ?spec=}. Use it with {\ttfamily -\/-\/no\+\_\+single\+\_\+run} and paste it into your browser to focus on a single failing test.\hypertarget{README.md_autotoc_md11352}{}\doxysubsection{\texorpdfstring{Sharding}{Sharding}}\label{README.md_autotoc_md11352}
+By setting {\ttfamily config.\+client.\+shard\+Index} and {\ttfamily config.\+client.\+total\+Shards}, you can run a subset of the full set of specs. Complete sharding support needs to be done in the process that calls karma, and would need to support test result integration across shards.\hypertarget{README.md_autotoc_md11353}{}\doxysubsection{\texorpdfstring{Custom spec filter}{Custom spec filter}}\label{README.md_autotoc_md11353}
+Providing a \href{https://jasmine.github.io/api/edge/Configuration\#specFilter}{\texttt{ custom spec filter}} is also supported.
+
+Example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Users\ are\ able\ to\ set\ a\ custom\ specFilter\ themselves}
+\DoxyCodeLine{}
+\DoxyCodeLine{jasmine.getEnv().configure(\{}
+\DoxyCodeLine{\ \ specFilter:\ function\ (spec)\ \{}
+\DoxyCodeLine{\ \ \ \ return\ spec.getFullName()\ ===\ 'spec\ that\ succeeds'}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{describe('spec',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ it('that\ fails',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ fail('This\ spec\ should\ not\ run!')}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ it('that\ succeeds',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ expect(1).toBe(1)}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+
+
+For more information on Karma see the \href{https://karma-runner.github.io/}{\texttt{ homepage}}. 

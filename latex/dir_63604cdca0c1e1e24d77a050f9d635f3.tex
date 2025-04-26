@@ -1,0 +1,56 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/dir-\/glob Directory Reference}
+\hypertarget{dir_63604cdca0c1e1e24d77a050f9d635f3}{}\label{dir_63604cdca0c1e1e24d77a050f9d635f3}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/dir-\/glob Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/dir-\/glob Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+Convert directories to glob compatible strings \end{quote}
+\hypertarget{readme.md_autotoc_md5612}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{readme.md_autotoc_md5612}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ dir-\/glob}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md5613}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md5613}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ dirGlob\ =\ require('dir-\/glob');}
+\DoxyCodeLine{}
+\DoxyCodeLine{(async\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(await\ dirGlob(['index.js',\ 'test.js',\ 'fixtures']));}
+\DoxyCodeLine{\ \ \ \ //=>\ ['index.js',\ 'test.js',\ 'fixtures/**']}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ console.log(await\ dirGlob(['index.js',\ 'inner\_folder'],\ \{cwd:\ 'fixtures'\}));}
+\DoxyCodeLine{\ \ \ \ //=>\ ['index.js',\ 'inner\_folder/**']}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ console.log(await\ dirGlob(['lib/**',\ 'fixtures'],\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ files:\ ['test',\ 'unicorn']}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ extensions:\ ['js']}
+\DoxyCodeLine{\ \ \ \ \}));}
+\DoxyCodeLine{\ \ \ \ //=>\ ['lib/**',\ 'fixtures/**/test.js',\ 'fixtures/**/unicorn.js']}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ console.log(await\ dirGlob(['lib/**',\ 'fixtures'],\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ files:\ ['test',\ 'unicorn',\ '*.jsx'],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ extensions:\ ['js',\ 'png']}
+\DoxyCodeLine{\ \ \ \ \}));}
+\DoxyCodeLine{\ \ \ \ //=>\ ['lib/**',\ 'fixtures/**/test.\{js,png\}',\ 'fixtures/**/unicorn.\{js,png\}',\ 'fixtures/**/*.jsx']}
+\DoxyCodeLine{\})();}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md5614}{}\doxysubsection{\texorpdfstring{API}{API}}\label{readme.md_autotoc_md5614}
+\hypertarget{readme.md_autotoc_md5615}{}\doxysubsubsection{\texorpdfstring{dir\+Glob(input, options?)}{dir\+Glob(input, options?)}}\label{readme.md_autotoc_md5615}
+Returns a {\ttfamily Promise\texorpdfstring{$<$}{<}string\mbox{[}\mbox{]}\texorpdfstring{$>$}{>}} with globs.\hypertarget{readme.md_autotoc_md5616}{}\doxysubsubsection{\texorpdfstring{dir\+Glob.\+sync(input, options?)}{dir\+Glob.\+sync(input, options?)}}\label{readme.md_autotoc_md5616}
+Returns a {\ttfamily string\mbox{[}\mbox{]}} with globs.\hypertarget{readme.md_autotoc_md5617}{}\doxysubsubsubsection{\texorpdfstring{input}{input}}\label{readme.md_autotoc_md5617}
+Type\+: {\ttfamily string \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]}}
+
+Paths.\hypertarget{readme.md_autotoc_md5618}{}\doxysubsubsubsection{\texorpdfstring{options}{options}}\label{readme.md_autotoc_md5618}
+Type\+: {\ttfamily object}\hypertarget{readme.md_autotoc_md5619}{}\doxysubsubsubsubsection{\texorpdfstring{extensions}{extensions}}\label{readme.md_autotoc_md5619}
+Type\+: {\ttfamily string\mbox{[}\mbox{]}}
+
+Append extensions to the end of your globs.\hypertarget{readme.md_autotoc_md5620}{}\doxysubsubsubsubsection{\texorpdfstring{files}{files}}\label{readme.md_autotoc_md5620}
+Type\+: {\ttfamily string\mbox{[}\mbox{]}}
+
+Only glob for certain files.\hypertarget{readme.md_autotoc_md5621}{}\doxysubsubsubsubsection{\texorpdfstring{cwd}{cwd}}\label{readme.md_autotoc_md5621}
+Type\+: {\ttfamily string\mbox{[}\mbox{]}}
+
+Test in specific directory. 

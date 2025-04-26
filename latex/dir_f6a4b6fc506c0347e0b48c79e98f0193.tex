@@ -1,0 +1,54 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@sigstore/tuf Directory Reference}
+\hypertarget{dir_f6a4b6fc506c0347e0b48c79e98f0193}{}\label{dir_f6a4b6fc506c0347e0b48c79e98f0193}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@sigstore/tuf Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@sigstore/tuf Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+A Java\+Script library for securely retrieving targets from the Sigstore \href{https://theupdateframework.io/}{\texttt{ TUF}} repository.\hypertarget{README.md_autotoc_md1737}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{README.md_autotoc_md1737}
+
+\begin{DoxyItemize}
+\item Embeds the trutsted root metadata file necessary to bootstrap interaction with the Sigstore TUF repository.
+\item Automatically initializes the local TUF cache for storing metadata and target files.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1738}{}\doxysubsection{\texorpdfstring{Prerequisites}{Prerequisites}}\label{README.md_autotoc_md1738}
+
+\begin{DoxyItemize}
+\item Node.\+js version \texorpdfstring{$>$}{>}= 14.\+17.\+0
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1739}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md1739}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ @sigstore/tuf}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1740}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md1740}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ initTUF\ \}\ =\ require('@sigstore/tuf');}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ initTUF\ \}\ from\ '@sigstore/tuf';}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1741}{}\doxysubsubsection{\texorpdfstring{init\+TUF(\mbox{[}options\mbox{]})}{init\+TUF(\mbox{[}options\mbox{]})}}\label{README.md_autotoc_md1741}
+Returns a TUF client which can be used to retrieve any target from the Sigstore TUF repository. The local TUF cache will be initialized and the TUF metadata files downloaded from the \href{https://sigstore-tuf-root.storage.googleapis.com/}{\texttt{ remote repository}} as part of the initialization process.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily options} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item {\ttfamily mirror\+URL} {\ttfamily \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>}}\+: Base URL for the Sigstore TUF repository. Defaults to `\textquotesingle{}\href{https://tuf-repo-cdn.sigstore.dev&rsquo;}{\texttt{ https\+://tuf-\/repo-\/cdn.\+sigstore.\+dev'}}{\ttfamily  -\/}cache\+Path$<$string$>${\ttfamily \+: Absolute path to the directory to be used for caching downloaded TUF metadata and targets. Defaults to a directory named "{}sigstore-\/js"{} within the platform-\/specific application data directory. -\/}root\+Path$<$string$>${\ttfamily \+: Path to the initial trust root for the TUF repository. Defaults to the \mbox{[}embedded root\mbox{]}(./store/public-\/good-\/instance-\/root.json). -\/}forceboolean{\ttfamily \+: Force re-\/initialization of the TUF cache even if it already exists. Defaults to}false\`{}.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+The {\ttfamily TUF} client object returned from {\ttfamily init\+TUF} has a single {\ttfamily get\+Target} function which takes the name of a target in the Sigstore TUF repository and returns the content of that target.\hypertarget{README.md_autotoc_md1742}{}\doxysubsubsection{\texorpdfstring{get\+Trusted\+Root(\mbox{[}options\mbox{]})}{get\+Trusted\+Root(\mbox{[}options\mbox{]})}}\label{README.md_autotoc_md1742}
+Retrieves the most recent version of the "{}trusted\+\_\+root.\+json"{} target from the Sigstore TUF repository. The format of "{}trusted\+\_\+root.\+json"{} file is described by the \href{https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_trustroot.proto}{\texttt{ Trusted\+Root}} protobuf and contains the complete set of trusted verification materials for the Sigstore public-\/good instance.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily options} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item {\ttfamily mirror\+URL} {\ttfamily \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>}}\+: Base URL for the Sigstore TUF repository. Defaults to `\textquotesingle{}\href{https://tuf-repo-cdn.sigstore.dev&rsquo;}{\texttt{ https\+://tuf-\/repo-\/cdn.\+sigstore.\+dev'}}{\ttfamily  -\/}cache\+Path$<$string$>${\ttfamily \+: Absolute path to the directory to be used for caching downloaded TUF metadata and targets. Defaults to a directory named "{}sigstore-\/js"{} within the platform-\/specific application data directory. -\/}root\+Path$<$string$>${\ttfamily \+: Path to the initial trust root for the TUF repository. Defaults to the \mbox{[}embedded root\mbox{]}(./store/public-\/good-\/instance-\/root.json). -\/}forceboolean{\ttfamily \+: Force re-\/initialization of the TUF cache even if it already exists. Defaults to}false\`{}. 
+\end{DoxyItemize}
+\end{DoxyItemize}

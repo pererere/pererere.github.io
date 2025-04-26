@@ -1,0 +1,72 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/streamroller Directory Reference}
+\hypertarget{dir_4be0bf1127f71118c837e557a169bce3}{}\label{dir_4be0bf1127f71118c837e557a169bce3}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/streamroller Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/streamroller Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://nodei.co/npm/streamroller/}{\texttt{ }}
+
+node.\+js file streams that roll over when they reach a maximum size, or a date/time.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ streamroller}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md20102}{}\doxysubsection{\texorpdfstring{usage}{usage}}\label{README.md_autotoc_md20102}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ rollers\ =\ require('streamroller');}
+\DoxyCodeLine{var\ stream\ =\ new\ rollers.RollingFileStream('myfile',\ 1024,\ 3);}
+\DoxyCodeLine{stream.write("{}stuff"{});}
+\DoxyCodeLine{stream.end();}
+
+\end{DoxyCode}
+
+
+The streams behave the same as standard node.\+js streams, except that when certain conditions are met they will rename the current file to a backup and start writing to a new file.\hypertarget{README.md_autotoc_md20103}{}\doxysubsubsection{\texorpdfstring{new Rolling\+File\+Stream(filename \mbox{[}, max\+Size, num\+Backups, options\mbox{]})}{new Rolling\+File\+Stream(filename \mbox{[}, max\+Size, num\+Backups, options\mbox{]})}}\label{README.md_autotoc_md20103}
+
+\begin{DoxyItemize}
+\item {\ttfamily filename} \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>}
+\item {\ttfamily max\+Size} \texorpdfstring{$<$}{<}integer\texorpdfstring{$>$}{>} -\/ defaults to {\ttfamily 0} -\/ the size in bytes to trigger a rollover. If not specified or 0, then no log rolling will happen.
+\item {\ttfamily num\+Backups} \texorpdfstring{$<$}{<}integer\texorpdfstring{$>$}{>} -\/ defaults to {\ttfamily 1} -\/ the number of old files to keep (excluding the hot file)
+\item {\ttfamily options} \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}
+\begin{DoxyItemize}
+\item {\ttfamily encoding} \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>} -\/ defaults to `\textquotesingle{}utf8'{\ttfamily  \texorpdfstring{$\ast$}{*}}mode{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}integer\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}0o600{\ttfamily (see \mbox{[}node.\+js file modes\mbox{]}(\href{https://nodejs.org/dist/latest-v12.x/docs/api/fs.html}{\texttt{ https\+://nodejs.\+org/dist/latest-\/v12.\+x/docs/api/fs.\+html}}\#fs\+\_\+file\+\_\+modes)) \texorpdfstring{$\ast$}{*}}flags{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}string\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}\textquotesingle{}a\textquotesingle{}{\ttfamily (see \mbox{[}node.\+js file flags\mbox{]}(\href{https://nodejs.org/dist/latest-v12.x/docs/api/fs.html}{\texttt{ https\+://nodejs.\+org/dist/latest-\/v12.\+x/docs/api/fs.\+html}}\#fs\+\_\+file\+\_\+system\+\_\+flags)) \texorpdfstring{$\ast$}{*}}compress{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}boolean\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}false{\ttfamily -\/ compress the backup files using gzip (backup files will have}.gz{\ttfamily extension) \texorpdfstring{$\ast$}{*}}keep\+File\+Ext{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}boolean\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}false{\ttfamily -\/ preserve the file extension when rotating log files (}file.\+log{\ttfamily becomes}file.\+1.\+log{\ttfamily instead of}file.\+log.\+1{\ttfamily ). \texorpdfstring{$\ast$}{*}}file\+Name\+Sep{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}string\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}\textquotesingle{}.\textquotesingle{}{\ttfamily -\/ the filename separator when rolling. e.\+g.\+: abc.\+log}.{\ttfamily 1 or abc}.\`{}1.log (keep\+File\+Ext)
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+This returns a {\ttfamily Writable\+Stream}. When the current file being written to (given by {\ttfamily filename}) gets up to or larger than {\ttfamily max\+Size}, then the current file will be renamed to {\ttfamily filename.\+1} and a new file will start being written to. Up to {\ttfamily num\+Backups} of old files are maintained, so if {\ttfamily num\+Backups} is 3 then there will be 4 files\+: 
+\begin{DoxyPre}
+     filename
+     filename.1
+     filename.2
+     filename.3
+\end{DoxyPre}
+ When filename size \texorpdfstring{$>$}{>}= max\+Size then\+: 
+\begin{DoxyPre}
+     filename -\/> filename.1
+     filename.1 -\/> filename.2
+     filename.2 -\/> filename.3
+     filename.3 gets overwritten
+     filename is a new file
+\end{DoxyPre}
+\hypertarget{README.md_autotoc_md20104}{}\doxysubsubsection{\texorpdfstring{new Date\+Rolling\+File\+Stream(filename \mbox{[}, pattern, options\mbox{]})}{new Date\+Rolling\+File\+Stream(filename \mbox{[}, pattern, options\mbox{]})}}\label{README.md_autotoc_md20104}
+
+\begin{DoxyItemize}
+\item {\ttfamily filename} \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>}
+\item {\ttfamily pattern} \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>} -\/ defaults to {\ttfamily yyyy-\/\+MM-\/dd} -\/ the date pattern to trigger rolling (see below)
+\item {\ttfamily options} \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}
+\begin{DoxyItemize}
+\item {\ttfamily encoding} \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>} -\/ defaults to `\textquotesingle{}utf8'{\ttfamily  \texorpdfstring{$\ast$}{*}}mode{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}integer\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}0o600{\ttfamily (see \mbox{[}node.\+js file modes\mbox{]}(\href{https://nodejs.org/dist/latest-v12.x/docs/api/fs.html}{\texttt{ https\+://nodejs.\+org/dist/latest-\/v12.\+x/docs/api/fs.\+html}}\#fs\+\_\+file\+\_\+modes)) \texorpdfstring{$\ast$}{*}}flags{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}string\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}\textquotesingle{}a\textquotesingle{}{\ttfamily (see \mbox{[}node.\+js file flags\mbox{]}(\href{https://nodejs.org/dist/latest-v12.x/docs/api/fs.html}{\texttt{ https\+://nodejs.\+org/dist/latest-\/v12.\+x/docs/api/fs.\+html}}\#fs\+\_\+file\+\_\+system\+\_\+flags)) \texorpdfstring{$\ast$}{*}}compress{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}boolean\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}false{\ttfamily -\/ compress the backup files using gzip (backup files will have}.gz{\ttfamily extension) \texorpdfstring{$\ast$}{*}}keep\+File\+Ext{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}boolean\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}false{\ttfamily -\/ preserve the file extension when rotating log files (}file.\+log{\ttfamily becomes}file.\+2017-\/05-\/30.\+log{\ttfamily instead of}file.\+log.\+2017-\/05-\/30{\ttfamily ). \texorpdfstring{$\ast$}{*}}file\+Name\+Sep{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}string\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}\textquotesingle{}.\textquotesingle{}{\ttfamily -\/ the filename separator when rolling. e.\+g.\+: abc.\+log}.{\ttfamily 2013-\/08-\/30 or abc}.{\ttfamily 2013-\/08-\/30.\+log (keep\+File\+Ext) \texorpdfstring{$\ast$}{*}}always\+Include\+Pattern{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}boolean\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}false{\ttfamily -\/ extend the initial file with the pattern}
+\item {\ttfamily \texorpdfstring{$<$}{<}strike\texorpdfstring{$>$}{>}}days\+To\+Keep{\ttfamily \texorpdfstring{$<$}{<}/strike\texorpdfstring{$>$}{>}}num\+Backups{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}integer\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}1{\ttfamily -\/ the number of old files that matches the pattern to keep (excluding the hot file) \texorpdfstring{$\ast$}{*}}max\+Size{\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}integer\textbackslash{}\texorpdfstring{$>$}{>} -\/ defaults to}0\`{} -\/ the size in bytes to trigger a rollover. If not specified or 0, then no log rolling will happen.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+This returns a {\ttfamily Writable\+Stream}. When the current time, formatted as {\ttfamily pattern}, changes then the current file will be renamed to {\ttfamily filename.\+formatted\+Date} where {\ttfamily formatted\+Date} is the result of processing the date through the pattern, and a new file will begin to be written. Streamroller uses \href{http://github.com/nomiddlename/date-format}{\texttt{ date-\/format}} to format dates, and the {\ttfamily pattern} should use the date-\/format format. e.\+g. with a {\ttfamily pattern} of {\ttfamily "{}yyyy-\/\+MM-\/dd"{}}, and assuming today is August 29, 2013 then writing to the stream today will just write to {\ttfamily filename}. At midnight (or more precisely, at the next file write after midnight), {\ttfamily filename} will be renamed to {\ttfamily filename.\+2013-\/08-\/29} and a new {\ttfamily filename} will be created. If {\ttfamily options.\+always\+Include\+Pattern} is true, then the initial file will be {\ttfamily filename.\+2013-\/08-\/29} and no renaming will occur at midnight, but a new file will be written to with the name {\ttfamily filename.\+2013-\/08-\/30}. If {\ttfamily max\+Size} is populated, when the current file being written to (given by {\ttfamily filename}) gets up to or larger than {\ttfamily max\+Size}, then the current file will be renamed to {\ttfamily filename.\+pattern.\+1} and a new file will start being written to. Up to {\ttfamily num\+Backups} of old files are maintained, so if {\ttfamily num\+Backups} is 3 then there will be 4 files\+: 
+\begin{DoxyPre}
+     filename
+     filename.20220131.1
+     filename.20220131.2
+     filename.20220131.3
+\end{DoxyPre}
+ 

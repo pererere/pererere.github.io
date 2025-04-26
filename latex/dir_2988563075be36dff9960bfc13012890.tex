@@ -1,0 +1,105 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/gulp.pug Directory Reference}
+\hypertarget{dir_2988563075be36dff9960bfc13012890}{}\label{dir_2988563075be36dff9960bfc13012890}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/gulp.pug Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/gulp.pug Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Gulp, SASS + Pug Templates\hypertarget{readme.md_autotoc_md3515}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3515}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/gulp.pug}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3516}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3516}
+This is an upgraded version of \href{https://github.com/Browsersync/recipes/tree/master/recipes/gulp.jade}{\texttt{ gulp.\+jade recipe}} from \href{https://github.com/browsersync/browser-sync}{\texttt{ Browser\+Sync}} .
+
+Some useful links\+:
+
+
+\begin{DoxyItemize}
+\item template engine \+: \href{https://pugjs.org/api/reference.html}{\texttt{ pug documentation}} (was\+: Jade)
+\begin{DoxyItemize}
+\item and its integration with gulp\+: \href{https://www.npmjs.com/package/gulp-pug}{\texttt{ gulp-\/pug}}
+\end{DoxyItemize}
+\item css preprocessing \+: \href{https://www.npmjs.com/package/node-sass}{\texttt{ node-\/sass}}
+\begin{DoxyItemize}
+\item and its integration with gulp\+: \href{https://www.npmjs.com/package/gulp-pug}{\texttt{ gulp-\/sass}}
+\end{DoxyItemize}
+\item and of course \href{https://github.com/gulpjs/gulp/blob/master/docs/README.md}{\texttt{ gulp}}
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md3517}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily gulpfile.\+js}\+:}{Preview of {\ttfamily gulpfile.\+js}\+:}}\label{readme.md_autotoc_md3517}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ gulp\ \ \ \ \ \ \ \ =\ require('gulp');}
+\DoxyCodeLine{var\ browserSync\ =\ require('browser-\/sync');}
+\DoxyCodeLine{var\ sass\ \ \ \ \ \ \ \ =\ require('gulp-\/sass');}
+\DoxyCodeLine{var\ pug\ \ \ \ \ \ \ \ \ =\ require('gulp-\/pug');}
+\DoxyCodeLine{var\ reload\ \ \ \ \ \ =\ browserSync.reload;}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Compile\ pug\ files\ into\ HTML}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('templates',\ function()\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ var\ YOUR\_LOCALS\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ "{}message"{}:\ "{}This\ app\ is\ powered\ by\ gulp.pug\ recipe\ for\ BrowserSync"{}}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ return\ gulp.src('./app/*.pug')}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(pug(\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ locals:\ YOUR\_LOCALS}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(gulp.dest('./dist/'));}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Important!!}
+\DoxyCodeLine{\ *\ Separate\ task\ for\ the\ reaction\ to\ \`{}.pug`\ files}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('pug-\/watch',\ ['templates'],\ reload);}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Sass\ task\ for\ live\ injecting\ into\ all\ browsers}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('sass',\ function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ return\ gulp.src('./app/scss/*.scss')}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(sass()).on('error',\ sass.logError)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(gulp.dest('./dist/css'))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(reload(\{stream:\ true\}));}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Serve\ and\ watch\ the\ scss/pug\ files\ for\ changes}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('default',\ ['sass',\ 'templates'],\ function\ ()\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ browserSync(\{server:\ './dist'\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ gulp.watch('./app/scss/*.scss',\ ['sass']);}
+\DoxyCodeLine{\ \ \ \ gulp.watch('./app/*.pug',\ \ \ \ \ \ \ ['pug-\/watch']);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,60 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@socket.\+io/component-\/emitter Directory Reference}
+\hypertarget{dir_723d1e1f0b42746afaecb4f933fb09b3}{}\label{dir_723d1e1f0b42746afaecb4f933fb09b3}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@socket.io/component-\/emitter Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@socket.io/component-\/emitter Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Event emitter component.\hypertarget{Readme.md_autotoc_md1744}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{Readme.md_autotoc_md1744}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ component\ install\ component/emitter}
+
+\end{DoxyCode}
+\hypertarget{Readme.md_autotoc_md1745}{}\doxysubsection{\texorpdfstring{API}{API}}\label{Readme.md_autotoc_md1745}
+\hypertarget{Readme.md_autotoc_md1746}{}\doxysubsubsection{\texorpdfstring{Emitter(obj)}{Emitter(obj)}}\label{Readme.md_autotoc_md1746}
+The {\ttfamily Emitter} may also be used as a mixin. For example a "{}plain"{} object may become an emitter, or you may extend an existing prototype.
+
+As an {\ttfamily Emitter} instance\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ Emitter\ =\ require('emitter');}
+\DoxyCodeLine{var\ emitter\ =\ new\ Emitter;}
+\DoxyCodeLine{emitter.emit('something');}
+
+\end{DoxyCode}
+
+
+As a mixin\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ Emitter\ =\ require('emitter');}
+\DoxyCodeLine{var\ user\ =\ \{\ name:\ 'tobi'\ \};}
+\DoxyCodeLine{Emitter(user);}
+\DoxyCodeLine{}
+\DoxyCodeLine{user.emit('im\ a\ user');}
+
+\end{DoxyCode}
+
+
+As a prototype mixin\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ Emitter\ =\ require('emitter');}
+\DoxyCodeLine{Emitter(User.prototype);}
+
+\end{DoxyCode}
+\hypertarget{Readme.md_autotoc_md1747}{}\doxysubsubsection{\texorpdfstring{Emitter\#on(event, fn)}{Emitter\#on(event, fn)}}\label{Readme.md_autotoc_md1747}
+Register an {\ttfamily event} handler {\ttfamily fn}.\hypertarget{Readme.md_autotoc_md1748}{}\doxysubsubsection{\texorpdfstring{Emitter\#once(event, fn)}{Emitter\#once(event, fn)}}\label{Readme.md_autotoc_md1748}
+Register a single-\/shot {\ttfamily event} handler {\ttfamily fn}, removed immediately after it is invoked the first time.\hypertarget{Readme.md_autotoc_md1749}{}\doxysubsubsection{\texorpdfstring{Emitter\#off(event, fn)}{Emitter\#off(event, fn)}}\label{Readme.md_autotoc_md1749}
+
+\begin{DoxyItemize}
+\item Pass {\ttfamily event} and {\ttfamily fn} to remove a listener.
+\item Pass {\ttfamily event} to remove all listeners on that event.
+\item Pass nothing to remove all listeners on all events.
+\end{DoxyItemize}\hypertarget{Readme.md_autotoc_md1750}{}\doxysubsubsection{\texorpdfstring{Emitter\#emit(event, ...)}{Emitter\#emit(event, ...)}}\label{Readme.md_autotoc_md1750}
+Emit an {\ttfamily event} with variable option args.\hypertarget{Readme.md_autotoc_md1751}{}\doxysubsubsection{\texorpdfstring{Emitter\#listeners(event)}{Emitter\#listeners(event)}}\label{Readme.md_autotoc_md1751}
+Return an array of callbacks, or an empty array.\hypertarget{Readme.md_autotoc_md1752}{}\doxysubsubsection{\texorpdfstring{Emitter\#has\+Listeners(event)}{Emitter\#has\+Listeners(event)}}\label{Readme.md_autotoc_md1752}
+Check if this emitter has {\ttfamily event} handlers.\hypertarget{Readme.md_autotoc_md1753}{}\doxysubsection{\texorpdfstring{License}{License}}\label{Readme.md_autotoc_md1753}
+MIT 

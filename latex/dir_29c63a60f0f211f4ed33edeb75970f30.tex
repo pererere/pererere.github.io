@@ -1,0 +1,92 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@types/eslint-\/scope Directory Reference}
+\hypertarget{dir_29c63a60f0f211f4ed33edeb75970f30}{}\label{dir_29c63a60f0f211f4ed33edeb75970f30}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@types/eslint-\/scope Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@types/eslint-\/scope Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+{\ttfamily npm install -\/-\/save @types/eslint-\/scope} \end{quote}
+\hypertarget{README.md_autotoc_md1836}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{README.md_autotoc_md1836}
+This package contains type definitions for eslint-\/scope (\href{https://github.com/eslint/eslint-scope}{\texttt{ https\+://github.\+com/eslint/eslint-\/scope}}).\hypertarget{README.md_autotoc_md1837}{}\doxysubsection{\texorpdfstring{Details}{Details}}\label{README.md_autotoc_md1837}
+Files were exported from \href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/eslint-scope}{\texttt{ https\+://github.\+com/\+Definitely\+Typed/\+Definitely\+Typed/tree/master/types/eslint-\/scope}}. \hypertarget{README.md_autotoc_md1838}{}\doxysubsubsection{\texorpdfstring{\href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/eslint-scope/index.d.ts}{\texttt{ index.\+d.\+ts}}}{\href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/eslint-scope/index.d.ts}{\texttt{ index.\+d.\+ts}}}}\label{README.md_autotoc_md1838}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ *\ as\ eslint\ from\ "{}eslint"{};}
+\DoxyCodeLine{import\ *\ as\ estree\ from\ "{}estree"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ const\ version:\ string;}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ class\ ScopeManager\ implements\ eslint.Scope.ScopeManager\ \{}
+\DoxyCodeLine{\ \ \ \ scopes:\ Scope[];}
+\DoxyCodeLine{\ \ \ \ globalScope:\ Scope;}
+\DoxyCodeLine{\ \ \ \ acquire(node:\ \{\},\ inner?:\ boolean):\ Scope\ |\ null;}
+\DoxyCodeLine{\ \ \ \ getDeclaredVariables(node:\ \{\}):\ Variable[];}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ class\ Scope\ implements\ eslint.Scope.Scope\ \{}
+\DoxyCodeLine{\ \ \ \ type:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ |\ "{}block"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ |\ "{}catch"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ |\ "{}class"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ |\ "{}for"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ |\ "{}function"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ |\ "{}function-\/expression-\/name"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ |\ "{}global"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ |\ "{}module"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ |\ "{}switch"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ |\ "{}with"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ |\ "{}TDZ"{};}
+\DoxyCodeLine{\ \ \ \ isStrict:\ boolean;}
+\DoxyCodeLine{\ \ \ \ upper:\ Scope\ |\ null;}
+\DoxyCodeLine{\ \ \ \ childScopes:\ Scope[];}
+\DoxyCodeLine{\ \ \ \ variableScope:\ Scope;}
+\DoxyCodeLine{\ \ \ \ block:\ estree.Node;}
+\DoxyCodeLine{\ \ \ \ variables:\ Variable[];}
+\DoxyCodeLine{\ \ \ \ set:\ Map<string,\ Variable>;}
+\DoxyCodeLine{\ \ \ \ references:\ Reference[];}
+\DoxyCodeLine{\ \ \ \ through:\ Reference[];}
+\DoxyCodeLine{\ \ \ \ functionExpressionScope:\ boolean;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ class\ Variable\ implements\ eslint.Scope.Variable\ \{}
+\DoxyCodeLine{\ \ \ \ name:\ string;}
+\DoxyCodeLine{\ \ \ \ scope:\ Scope;}
+\DoxyCodeLine{\ \ \ \ identifiers:\ estree.Identifier[];}
+\DoxyCodeLine{\ \ \ \ references:\ Reference[];}
+\DoxyCodeLine{\ \ \ \ defs:\ eslint.Scope.Definition[];}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ class\ Reference\ implements\ eslint.Scope.Reference\ \{}
+\DoxyCodeLine{\ \ \ \ identifier:\ estree.Identifier;}
+\DoxyCodeLine{\ \ \ \ from:\ Scope;}
+\DoxyCodeLine{\ \ \ \ resolved:\ Variable\ |\ null;}
+\DoxyCodeLine{\ \ \ \ writeExpr:\ estree.Node\ |\ null;}
+\DoxyCodeLine{\ \ \ \ init:\ boolean;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ isWrite():\ boolean;}
+\DoxyCodeLine{\ \ \ \ isRead():\ boolean;}
+\DoxyCodeLine{\ \ \ \ isWriteOnly():\ boolean;}
+\DoxyCodeLine{\ \ \ \ isReadOnly():\ boolean;}
+\DoxyCodeLine{\ \ \ \ isReadWrite():\ boolean;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ interface\ AnalysisOptions\ \{}
+\DoxyCodeLine{\ \ \ \ optimistic?:\ boolean;}
+\DoxyCodeLine{\ \ \ \ directive?:\ boolean;}
+\DoxyCodeLine{\ \ \ \ ignoreEval?:\ boolean;}
+\DoxyCodeLine{\ \ \ \ nodejsScope?:\ boolean;}
+\DoxyCodeLine{\ \ \ \ impliedStrict?:\ boolean;}
+\DoxyCodeLine{\ \ \ \ fallback?:\ string\ |\ ((node:\ \{\})\ =>\ string[]);}
+\DoxyCodeLine{\ \ \ \ sourceType?:\ "{}script"{}\ |\ "{}module"{};}
+\DoxyCodeLine{\ \ \ \ ecmaVersion?:\ number;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ function\ analyze(ast:\ \{\},\ options?:\ AnalysisOptions):\ ScopeManager;}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1839}{}\doxysubsubsubsection{\texorpdfstring{Additional Details}{Additional Details}}\label{README.md_autotoc_md1839}
+
+\begin{DoxyItemize}
+\item Last updated\+: Mon, 06 Nov 2023 22\+:41\+:05 GMT
+\item Dependencies\+: \href{https://npmjs.com/package/@types/eslint}{\texttt{ @types/eslint}}, \href{https://npmjs.com/package/@types/estree}{\texttt{ @types/estree}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1840}{}\doxysubsection{\texorpdfstring{Credits}{Credits}}\label{README.md_autotoc_md1840}
+These definitions were written by \href{https://github.com/mysticatea}{\texttt{ Toru Nagashima}}. 

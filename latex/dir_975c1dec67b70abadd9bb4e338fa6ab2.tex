@@ -1,0 +1,54 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/eslint-\/scope Directory Reference}
+\hypertarget{dir_975c1dec67b70abadd9bb4e338fa6ab2}{}\label{dir_975c1dec67b70abadd9bb4e338fa6ab2}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/eslint-\/scope Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/eslint-\/scope Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+ESLint Scope is the \href{http://www.ecma-international.org/publications/standards/Ecma-262.htm}{\texttt{ ECMAScript}} scope analyzer used in ESLint. It is a fork of \href{http://github.com/estools/escope}{\texttt{ escope}}.\hypertarget{README.md_autotoc_md6130}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md6130}
+Install\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ i\ eslint-\/scope\ -\/-\/save}
+
+\end{DoxyCode}
+
+
+Example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ eslintScope\ =\ require('eslint-\/scope');}
+\DoxyCodeLine{var\ espree\ =\ require('espree');}
+\DoxyCodeLine{var\ estraverse\ =\ require('estraverse');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ ast\ =\ espree.parse(code);}
+\DoxyCodeLine{var\ scopeManager\ =\ eslintScope.analyze(ast);}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ currentScope\ =\ scopeManager.acquire(ast);\ \ \ //\ global\ scope}
+\DoxyCodeLine{}
+\DoxyCodeLine{estraverse.traverse(ast,\ \{}
+\DoxyCodeLine{\ \ \ \ enter:\ function(node,\ parent)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ //\ do\ stuff}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (/Function/.test(node.type))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ currentScope\ =\ scopeManager.acquire(node);\ \ //\ get\ current\ function\ scope}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ leave:\ function(node,\ parent)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (/Function/.test(node.type))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ currentScope\ =\ currentScope.upper;\ \ //\ set\ to\ parent\ scope}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ //\ do\ stuff}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md6131}{}\doxysubsection{\texorpdfstring{Contributing}{Contributing}}\label{README.md_autotoc_md6131}
+Issues and pull requests will be triaged and responded to as quickly as possible. We operate under the \href{http://eslint.org/docs/developer-guide/contributing}{\texttt{ ESLint Contributor Guidelines}}, so please be sure to read them before contributing. If you\textquotesingle{}re not sure where to dig in, check out the \href{https://github.com/eslint/eslint-scope/issues}{\texttt{ issues}}.\hypertarget{README.md_autotoc_md6132}{}\doxysubsection{\texorpdfstring{Build Commands}{Build Commands}}\label{README.md_autotoc_md6132}
+
+\begin{DoxyItemize}
+\item {\ttfamily npm test} -\/ run all linting and tests
+\item {\ttfamily npm run lint} -\/ run all linting
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md6133}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md6133}
+ESLint Scope is licensed under a permissive BSD 2-\/clause license. 

@@ -1,0 +1,54 @@
+\chapter{ent}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme}\index{ent@{ent}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme_autotoc_md6002}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme_autotoc_md6002}%
+
+
+Encode and decode HTML entities
+
+\href{http://ci.testling.com/substack/node-ent}{\texttt{ }}
+
+\href{http://travis-ci.org/substack/node-ent}{\texttt{ }}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme_autotoc_md6003}{}\doxysection{\texorpdfstring{example}{example}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme_autotoc_md6003}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{var\ ent\ =\ require('ent');}
+\DoxyCodeLine{console.log(ent.encode('<span>©moo</span>'))}
+\DoxyCodeLine{console.log(ent.decode('\&pi;\ \&amp;\ \&rho;'));}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\&\#60;span\&\#62;\&\#169;moo\&\#60;/span\&\#62;}
+\DoxyCodeLine{π\ \&\ ρ}
+
+\end{DoxyCode}
+
+
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme_autotoc_md6004}{}\doxysection{\texorpdfstring{methods}{methods}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme_autotoc_md6004}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ js}
+\DoxyCodeLine{var\ ent\ =\ require('ent');}
+\DoxyCodeLine{var\ encode\ =\ require('ent/encode');}
+\DoxyCodeLine{var\ decode\ =\ require('ent/decode');}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme_autotoc_md6005}{}\doxysubsection{\texorpdfstring{encode(str, opts=\{\})}{encode(str, opts=\{\})}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme_autotoc_md6005}
+Escape unsafe characters in {\ttfamily str} with html entities.
+
+By default, entities are encoded with numeric decimal codes.
+
+If {\ttfamily opts.\+numeric} is false or {\ttfamily opts.\+named} is true, encoding will used named codes like {\ttfamily \&pi;}.
+
+If {\ttfamily opts.\+special} is set to an Object, the key names will be forced to be encoded (defaults to forcing\+: `\texorpdfstring{$<$}{<}\texorpdfstring{$>$}{>}'"{}\&\`{}). For example\+:  @icode js console.\+log(encode(\textquotesingle{}hello\textquotesingle{}, \{ special\+: \{ l\+: true \} \})); @endicode   @icode  he\&\#108;\&\#108;o @endicode   @subsection autotoc\+\_\+md6006 decode(str)  \+Convert html entities in $<$tt$>$str$<$/tt$>$ back to raw text.  @section autotoc\+\_\+md6007 credits  \+HTML entity tables shamelessly lifted from perl\textquotesingle{}s $<$a href="{}\href{http://cpansearch.perl.org/src/GAAS/HTML-Parser-3.68/lib/HTML/Entities.pm}{\texttt{ http\+://cpansearch.\+perl.\+org/src/\+GAAS/\+HTML-\/\+Parser-\/3.\+68/lib/\+HTML/\+Entities.\+pm}}"{} $>$\+HTML\+::\+Entities$<$/a$>$  @section autotoc\+\_\+md6008 install  \+With $<$a href="{}\href{https://npmjs.org}{\texttt{ https\+://npmjs.\+org}}"{} \texorpdfstring{$>$}{>}npm do\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ ent}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme_autotoc_md6009}{}\doxysection{\texorpdfstring{license}{license}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2ent_2readme_autotoc_md6009}
+MIT 

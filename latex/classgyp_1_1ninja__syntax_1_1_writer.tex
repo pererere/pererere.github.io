@@ -1,0 +1,76 @@
+\doxysection{gyp.\+ninja\+\_\+syntax.\+Writer Class Reference}
+\hypertarget{classgyp_1_1ninja__syntax_1_1_writer}{}\label{classgyp_1_1ninja__syntax_1_1_writer}\index{gyp.ninja\_syntax.Writer@{gyp.ninja\_syntax.Writer}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_a44c6e88048ff3f26ada110e30b02a86a}\label{classgyp_1_1ninja__syntax_1_1_writer_a44c6e88048ff3f26ada110e30b02a86a} 
+{\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, output, width=78)
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_a95fde7f0f9d9df08d7c2f789f259eabc}\label{classgyp_1_1ninja__syntax_1_1_writer_a95fde7f0f9d9df08d7c2f789f259eabc} 
+{\bfseries newline} (self)
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_aba4a7f548817b87e5add7629ba241206}\label{classgyp_1_1ninja__syntax_1_1_writer_aba4a7f548817b87e5add7629ba241206} 
+{\bfseries comment} (self, text)
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_a5697473d0ad1340ecc54e3a7d7fb5ad2}\label{classgyp_1_1ninja__syntax_1_1_writer_a5697473d0ad1340ecc54e3a7d7fb5ad2} 
+{\bfseries variable} (self, key, value, indent=0)
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_a2f60514d1f29cc56e466abb93e8809c5}\label{classgyp_1_1ninja__syntax_1_1_writer_a2f60514d1f29cc56e466abb93e8809c5} 
+{\bfseries pool} (self, name, depth)
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_a6438d7e043e83b1f16c8190bf16efb3c}\label{classgyp_1_1ninja__syntax_1_1_writer_a6438d7e043e83b1f16c8190bf16efb3c} 
+{\bfseries rule} (self, name, command, description=None, depfile=None, generator=False, pool=None, restat=False, rspfile=None, rspfile\+\_\+content=None, deps=None)
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_ad6a3dd8f65f2dd380794fe375c53e67c}\label{classgyp_1_1ninja__syntax_1_1_writer_ad6a3dd8f65f2dd380794fe375c53e67c} 
+{\bfseries build} (self, outputs, rule, inputs=None, implicit=None, order\+\_\+only=None, variables=None)
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_af4f9f34cb736c812ea72d9119d73501c}\label{classgyp_1_1ninja__syntax_1_1_writer_af4f9f34cb736c812ea72d9119d73501c} 
+{\bfseries include} (self, path)
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_ad30ec61ffcc3723418dc0a770302910c}\label{classgyp_1_1ninja__syntax_1_1_writer_ad30ec61ffcc3723418dc0a770302910c} 
+{\bfseries subninja} (self, path)
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_a6d5bf4b7fb1584d1c2d311f2cc9eb068}\label{classgyp_1_1ninja__syntax_1_1_writer_a6d5bf4b7fb1584d1c2d311f2cc9eb068} 
+{\bfseries default} (self, paths)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_a37ee1d18ac8bcdc7a42d4de1b0c872c5}\label{classgyp_1_1ninja__syntax_1_1_writer_a37ee1d18ac8bcdc7a42d4de1b0c872c5} 
+{\bfseries output} = output
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_a436056a1345671920d292dbcc156d5ef}\label{classgyp_1_1ninja__syntax_1_1_writer_a436056a1345671920d292dbcc156d5ef} 
+{\bfseries width} = width
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgyp_1_1ninja__syntax_1_1_writer_a7e611fe9a3304cc50f2517119c79146d}{\+\_\+count\+\_\+dollars\+\_\+before\+\_\+index}} (self, s, i)
+\item 
+\mbox{\hyperlink{classgyp_1_1ninja__syntax_1_1_writer_a9c0a7c5009a22df73059b9bb24dd8479}{\+\_\+line}} (self, text, indent=0)
+\item 
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_a2ccf252e90607cf4f8549ef291cd0f78}\label{classgyp_1_1ninja__syntax_1_1_writer_a2ccf252e90607cf4f8549ef291cd0f78} 
+{\bfseries \+\_\+as\+\_\+list} (self, input)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_a7e611fe9a3304cc50f2517119c79146d}\index{gyp.ninja\_syntax.Writer@{gyp.ninja\_syntax.Writer}!\_count\_dollars\_before\_index@{\_count\_dollars\_before\_index}}
+\index{\_count\_dollars\_before\_index@{\_count\_dollars\_before\_index}!gyp.ninja\_syntax.Writer@{gyp.ninja\_syntax.Writer}}
+\doxysubsubsection{\texorpdfstring{\_count\_dollars\_before\_index()}{\_count\_dollars\_before\_index()}}
+{\footnotesize\ttfamily \label{classgyp_1_1ninja__syntax_1_1_writer_a7e611fe9a3304cc50f2517119c79146d} 
+gyp.\+ninja\+\_\+syntax.\+Writer.\+\_\+count\+\_\+dollars\+\_\+before\+\_\+index (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{s}{, }\item[{}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyVerb}Returns the number of '$' characters right in front of s[i].\end{DoxyVerb}
+ \Hypertarget{classgyp_1_1ninja__syntax_1_1_writer_a9c0a7c5009a22df73059b9bb24dd8479}\index{gyp.ninja\_syntax.Writer@{gyp.ninja\_syntax.Writer}!\_line@{\_line}}
+\index{\_line@{\_line}!gyp.ninja\_syntax.Writer@{gyp.ninja\_syntax.Writer}}
+\doxysubsubsection{\texorpdfstring{\_line()}{\_line()}}
+{\footnotesize\ttfamily \label{classgyp_1_1ninja__syntax_1_1_writer_a9c0a7c5009a22df73059b9bb24dd8479} 
+gyp.\+ninja\+\_\+syntax.\+Writer.\+\_\+line (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{text}{, }\item[{}]{indent}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyVerb}Write 'text' word-wrapped at self.width characters.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/foodlink.\+client/node\+\_\+modules/node-\/gyp/gyp/pylib/gyp/ninja\+\_\+syntax.\+py\end{DoxyCompactItemize}

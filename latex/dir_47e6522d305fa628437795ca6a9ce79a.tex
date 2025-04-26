@@ -1,0 +1,105 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/sigstore Directory Reference}
+\hypertarget{dir_47e6522d305fa628437795ca6a9ce79a}{}\label{dir_47e6522d305fa628437795ca6a9ce79a}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/sigstore Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/sigstore Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+A Java\+Script library for generating and verifying Sigstore signatures. One of the intended uses is to sign and verify npm packages but it can be used to sign and verify any file.\hypertarget{README.md_autotoc_md19225}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{README.md_autotoc_md19225}
+
+\begin{DoxyItemize}
+\item Support for signing using an Open\+ID Connect identity
+\item Support for publishing signatures to a \href{https://github.com/sigstore/rekor}{\texttt{ Rekor}} instance
+\item Support for verifying Sigstore bundles
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md19226}{}\doxysubsection{\texorpdfstring{Prerequisites}{Prerequisites}}\label{README.md_autotoc_md19226}
+
+\begin{DoxyItemize}
+\item Node.\+js version \texorpdfstring{$>$}{>}= 16.\+14.\+0
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md19227}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md19227}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ sigstore}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md19228}{}\doxysubsection{\texorpdfstring{Compatibility}{Compatibility}}\label{README.md_autotoc_md19228}
+The following table documents which combinations of Sigstore bundle versions and Rekor types can be verified by different versions of the {\ttfamily sigstore} library. It also lists which {\ttfamily sigstore} versions were shipped with different {\ttfamily npm} CLI versions.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{11}{|X[-1]}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily sigstore} }}&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+0 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+1 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+2 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+3 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+4 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+5 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+6 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+7 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+8  }\\\cline{1-11}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\multicolumn{2}{|l|}{\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily sigstore} }}&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+0 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+1 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+2 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+3 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+4 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+5 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+6 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+7 }&\cellcolor{\tableheadbgcolor}\textbf{ 1.\+8  }\\\cline{1-11}
+\endhead
+\multicolumn{2}{|l|}{\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily npm} }}&\cellcolor{\tableheadbgcolor}\textbf{ 9.\+5.\+0 }&\cellcolor{\tableheadbgcolor}\textbf{ 9.\+6.\+2 }&\cellcolor{\tableheadbgcolor}\textbf{ 9.\+6.\+3 }&\cellcolor{\tableheadbgcolor}\textbf{ 9.\+6.\+5 }&\cellcolor{\tableheadbgcolor}\textbf{ 9.\+6.\+6 }&\cellcolor{\tableheadbgcolor}\textbf{ 9.\+6.\+7 }&\cellcolor{\tableheadbgcolor}\textbf{ 9.\+7.\+2 }&\cellcolor{\tableheadbgcolor}\textbf{ 9.\+8.\+0 }&\cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-11}
+\cellcolor{\tableheadbgcolor}\textbf{ Bundle Version }&\cellcolor{\tableheadbgcolor}\textbf{ Rekor Type }&\multicolumn{9}{l|}{\cellcolor{\tableheadbgcolor}\textbf{ }}\\\cline{1-11}
+\multirow{3}{*}{0.\+1 }&hashedrekord &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+:  \\\cline{2-11}
+&intoto &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+:  \\\cline{2-11}
+&dsse &\+:x\+: &\+:x\+: &\+:x\+: &\+:x\+: &\+:x\+: &\+:x\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+:  \\\cline{1-11}
+\multirow{3}{*}{0.\+2 }&hashedrekord &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+:  \\\cline{2-11}
+&intoto &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+:  \\\cline{2-11}
+&dsse &\+:x\+: &\+:x\+: &\+:x\+: &\+:x\+: &\+:x\+: &\+:x\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+: &\+:white\+\_\+check\+\_\+mark\+:   \\\cline{1-11}
+\end{longtabu}
+\hypertarget{README.md_autotoc_md19229}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md19229}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ attest,\ verify\ \}\ =\ require('sigstore');}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ attest,\ verify\ \}\ from\ 'sigstore';}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md19230}{}\doxysubsubsection{\texorpdfstring{sign(payload\mbox{[}, options\mbox{]})}{sign(payload\mbox{[}, options\mbox{]})}}\label{README.md_autotoc_md19230}
+Generates a Sigstore signature for the supplied payload. Returns a \href{https://github.com/sigstore/protobuf-specs/blob/9b722b68a717778ba4f11543afa4ef93205ab502/protos/sigstore_bundle.proto\#L63-L84}{\texttt{ Sigstore bundle}} containing the signature and the verification material necessary to verify the signature.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily payload} {\ttfamily \texorpdfstring{$<$}{<}Buffer\texorpdfstring{$>$}{>}}\+: The bytes of the artifact to be signed.
+\item {\ttfamily options} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item {\ttfamily fulcio\+URL} {\ttfamily \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>}}\+: The base URL of the Fulcio instance to use for retrieving the signing certificate. Defaults to `\textquotesingle{}\href{https://fulcio.sigstore.dev&rsquo;}{\texttt{ https\+://fulcio.\+sigstore.\+dev'}}{\ttfamily . -\/}rekor\+URL$<$string$>${\ttfamily \+: The base URL of the Rekor instance to use when adding the signature to the transparency log. Defaults to}\textquotesingle{}\href{https://rekor.sigstore.dev'}{\texttt{ https\+://rekor.\+sigstore.\+dev\textquotesingle{}}}{\ttfamily . -\/}tsa\+Server\+URL$<$string$>${\ttfamily \+: The base URL of the Timestamp Authority instance to use when requesting a signed timestamp. If omitted, no timestamp will be requested. -\/}tlog\+Upload$<$boolean$>${\ttfamily \+: Flag indicating whether or not the signature should be recorded on the Rekor transparency log. Defaults to}true{\ttfamily . -\/}identity\+Token$<$string$>${\ttfamily \+: The OIDC token identifying the signer. If no explicit token is supplied, an attempt will be made to retrieve one from the environment. This config cannot be used with}identity\+Provider{\ttfamily . -\/}identity\+Provider$<$\+Identity\+Provider$>${\ttfamily \+: Object which implements}get\+Token\+: () =\texorpdfstring{$>$}{>} Promise$<$string$>${\ttfamily . The supplied provider will be used to retrieve an OIDC token. If no provider is supplied, an attempt will be made to retrieve an OIDC token from the environment. This config cannot be used with}identity\+Token\`{}.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md19231}{}\doxysubsubsection{\texorpdfstring{attest(payload, payload\+Type\mbox{[}, options\mbox{]})}{attest(payload, payload\+Type\mbox{[}, options\mbox{]})}}\label{README.md_autotoc_md19231}
+Generates a Sigstore signature for the supplied in-\/toto statement. Returns a \href{https://github.com/sigstore/protobuf-specs/blob/9b722b68a717778ba4f11543afa4ef93205ab502/protos/sigstore_bundle.proto\#L63-L84}{\texttt{ Sigstore bundle}} containing the \href{https://github.com/secure-systems-lab/dsse}{\texttt{ DSSE}}-\/wrapped statement and signature as well as the verification material necessary to verify the signature.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily payload} {\ttfamily \texorpdfstring{$<$}{<}Buffer\texorpdfstring{$>$}{>}}\+: The bytes of the statement to be signed.
+\item {\ttfamily payload\+Type} {\ttfamily \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>}}\+: MIME or content type describing the statement to be signed.
+\item {\ttfamily options} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item {\ttfamily fulcio\+URL} {\ttfamily \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>}}\+: The base URL of the Fulcio instance to use for retrieving the signing certificate. Defaults to `\textquotesingle{}\href{https://fulcio.sigstore.dev&rsquo;}{\texttt{ https\+://fulcio.\+sigstore.\+dev'}}{\ttfamily . -\/}rekor\+URL$<$string$>${\ttfamily \+: The base URL of the Rekor instance to use when adding the signature to the transparency log. Defaults to}\textquotesingle{}\href{https://rekor.sigstore.dev'}{\texttt{ https\+://rekor.\+sigstore.\+dev\textquotesingle{}}}{\ttfamily . -\/}tsa\+Server\+URL$<$string$>${\ttfamily \+: The base URL of the Timestamp Authority instance to use when requesting a signed timestamp. If omitted, no timestamp will be requested. -\/}tlog\+Upload$<$boolean$>${\ttfamily \+: Flag indicating whether or not the signed statement should be recorded on the Rekor transparency log. Defaults to}true{\ttfamily . -\/}identity\+Token$<$string$>${\ttfamily \+: The OIDC token identifying the signer. If no explicit token is supplied, an attempt will be made to retrieve one from the environment. This config cannot be used with}identity\+Provider{\ttfamily . -\/}identity\+Provider$<$\+Identity\+Provider$>${\ttfamily \+: Object which implements}get\+Token\+: () =\texorpdfstring{$>$}{>} Promise$<$string$>${\ttfamily . The supplied provider will be used to retrieve an OIDC token. If no provider is supplied, an attempt will be made to retrieve an OIDC token from the environment. This config cannot be used with}identity\+Token\`{}.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md19232}{}\doxysubsubsection{\texorpdfstring{verify(bundle\mbox{[}, payload\mbox{]}\mbox{[}, options\mbox{]})}{verify(bundle\mbox{[}, payload\mbox{]}\mbox{[}, options\mbox{]})}}\label{README.md_autotoc_md19232}
+Verifies the signature in the supplied bundle.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily bundle} {\ttfamily \texorpdfstring{$<$}{<}Bundle\texorpdfstring{$>$}{>}}\+: The Sigstore bundle containing the signature to be verified and the verification material necessary to verify the signature.
+\item {\ttfamily payload} {\ttfamily \texorpdfstring{$<$}{<}Buffer\texorpdfstring{$>$}{>}}\+: The bytes of the artifact over which the signature was created. Only necessary when the {\ttfamily sign} function was used to generate the signature since the Bundle does not contain any information about the artifact which was signed. Not required when the {\ttfamily attest} function was used to generate the Bundle.
+\item {\ttfamily options} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item {\ttfamily ct\+Log\+Threshold} {\ttfamily \texorpdfstring{$<$}{<}number\texorpdfstring{$>$}{>}}\+: The number of certificate transparency logs on which the signing certificate must appear. Defaults to {\ttfamily 1}.
+\item {\ttfamily tlog\+Threshold} {\ttfamily \texorpdfstring{$<$}{<}number\texorpdfstring{$>$}{>}}\+: The number of transparency logs on which the signature must appear. Defaults to {\ttfamily 1}.
+\item {\ttfamily certificate\+Issuer} {\ttfamily \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>}}\+: Value that must appear in the signing certificate\textquotesingle{}s issuer extension (OID 1.\+3.\+6.\+1.\+4.\+1.\+57264.\+1.\+1). Not verified if no value is supplied.
+\item {\ttfamily certificate\+Identity\+Email} {\ttfamily \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>}}\+: Email address which must appear in the signing certificate\textquotesingle{}s Subject Alternative Name (SAN) extension. Must be specified in conjunction with the {\ttfamily certificate\+Issuer} option. Takes precedence over the {\ttfamily certificate\+Identity\+URI} option. Not verified if no value is supplied.
+\item {\ttfamily certificate\+Identity\+URI} {\ttfamily \texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>}}\+: URI which must appear in the signing certificate\textquotesingle{}s Subject Alternative Name (SAN) extension. Must be specified in conjunction with the {\ttfamily certificate\+Issuer} option. Ignored if the {\ttfamily certificate\+Identity\+Email} option is set. Not verified if no value is supplied.
+\item {\ttfamily certificate\+OIDs} {\ttfamily \texorpdfstring{$<$}{<}Object\texorpdfstring{$>$}{>}}\+: A collection of OID/value pairs which must be present in the certificate\textquotesingle{}s extension list. Not verified if no value is supplied.
+\item {\ttfamily key\+Selector} {\ttfamily \texorpdfstring{$<$}{<}Function\texorpdfstring{$>$}{>}}\+: Callback invoked to retrieve the public key (as either {\ttfamily string} or {\ttfamily Buffer}) necessary to verify the bundle signature. Not used when the signature was generated from a Fulcio-\/issued signing certificate.
+\begin{DoxyItemize}
+\item {\ttfamily hint} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}\+: The hint from the bundle used to identify the the signing key.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md19233}{}\doxysubsection{\texorpdfstring{Credential Sources}{Credential Sources}}\label{README.md_autotoc_md19233}
+\hypertarget{README.md_autotoc_md19234}{}\doxysubsubsection{\texorpdfstring{Git\+Hub Actions}{Git\+Hub Actions}}\label{README.md_autotoc_md19234}
+If sigstore-\/js detects that it is being executed on Git\+Hub Actions, it will use {\ttfamily ACTIONS\+\_\+\+ID\+\_\+\+TOKEN\+\_\+\+REQUEST\+\_\+\+URL} and {\ttfamily ACTIONS\+\_\+\+ID\+\_\+\+TOKEN\+\_\+\+REQUEST\+\_\+\+TOKEN} environment variables to request an OIDC token with the correct scope.
+
+Note\+: the {\ttfamily id\+\_\+token\+: write} permission must be granted to the Git\+Hub Action Job.
+
+See \href{https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect}{\texttt{ https\+://docs.\+github.\+com/en/actions/deployment/security-\/hardening-\/your-\/deployments/about-\/security-\/hardening-\/with-\/openid-\/connect}} for more details.\hypertarget{README.md_autotoc_md19235}{}\doxysubsubsection{\texorpdfstring{Environment Variables}{Environment Variables}}\label{README.md_autotoc_md19235}
+If the {\ttfamily SIGSTORE\+\_\+\+ID\+\_\+\+TOKEN} environment variable is set, it will use this to authenticate to Fulcio. It is the callers responsibility to make sure that this token has the correct scopes. 

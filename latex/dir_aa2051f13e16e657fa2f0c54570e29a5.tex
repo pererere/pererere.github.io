@@ -1,0 +1,206 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/angular-\/auth-\/oidc-\/client Directory Reference}
+\hypertarget{dir_aa2051f13e16e657fa2f0c54570e29a5}{}\label{dir_aa2051f13e16e657fa2f0c54570e29a5}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/angular-\/auth-\/oidc-\/client Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/angular-\/auth-\/oidc-\/client Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+ \href{https://www.npmjs.com/package/angular-auth-oidc-client}{\texttt{ }} \href{https://www.npmjs.com/package/angular-auth-oidc-client}{\texttt{ }} \href{https://www.npmjs.com/package/angular-auth-oidc-client}{\texttt{ }} \href{https://github.com/prettier/prettier}{\texttt{ }} \href{https://coveralls.io/github/damienbod/angular-auth-oidc-client?branch=main}{\texttt{ }}
+
+
+
+\href{https://angular-auth-oidc-client.com/}{\texttt{ }} 
+
+Secure your Angular app using the latest standards for Open\+ID Connect \& OAuth2. Provides support for token refresh, all modern OIDC Identity Providers and more.\hypertarget{README.md_autotoc_md2394}{}\doxysubsection{\texorpdfstring{Acknowledgements}{Acknowledgements}}\label{README.md_autotoc_md2394}
+This library is \href{http://openid.net/certification/\#RPs}{\texttt{ certified}} by Open\+ID Foundation. (RP Implicit and Config RP)
+
+\href{http://openid.net/certification/\#RPs}{\texttt{ }} \hypertarget{README.md_autotoc_md2395}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{README.md_autotoc_md2395}
+
+\begin{DoxyItemize}
+\item \href{https://angular-auth-oidc-client.com/docs/samples/}{\texttt{ Code samples}} for most of the common use cases
+\item Supports schematics via {\ttfamily ng add} support
+\item Supports all modern OIDC identity providers
+\item Supports Open\+ID Connect Code Flow with PKCE
+\item Supports Code Flow PKCE with Refresh tokens
+\item \href{http://openid.net/specs/openid-connect-implicit-1_0.html}{\texttt{ Supports Open\+ID Connect Implicit Flow}}
+\item \href{http://openid.net/specs/openid-connect-session-1_0.html}{\texttt{ Supports Open\+ID Connect Session Management 1.\+0}}
+\item \href{https://tools.ietf.org/html/rfc7009}{\texttt{ Supports RFC7009 -\/ OAuth 2.\+0 Token Revocation}}
+\item \href{https://tools.ietf.org/html/rfc7636}{\texttt{ Supports RFC7636 -\/ Proof Key for Code Exchange (PKCE)}}
+\item \href{https://tools.ietf.org/html/draft-ietf-oauth-par-06}{\texttt{ Supports OAuth 2.\+0 Pushed authorisation requests (PAR) draft}}
+\item Semantic releases
+\item Github actions
+\item Modern coding guidelines with prettier, husky
+\item Up to date documentation
+\item Implements OIDC validation as specified, complete client side validation for REQUIRED features
+\item Supports authentication using redirect or popup
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md2396}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md2396}
+\hypertarget{README.md_autotoc_md2397}{}\doxysubsubsection{\texorpdfstring{Ng Add}{Ng Add}}\label{README.md_autotoc_md2397}
+You can use the schematics and {\ttfamily ng add} the library.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ng\ add\ angular-\/auth-\/oidc-\/client}
+
+\end{DoxyCode}
+
+
+And answer the questions. A module will be created which encapsulates your configuration.
+
+\hypertarget{README.md_autotoc_md2398}{}\doxysubsubsection{\texorpdfstring{Npm / Yarn}{Npm / Yarn}}\label{README.md_autotoc_md2398}
+Navigate to the level of your {\ttfamily package.\+json} and type
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ angular-\/auth-\/oidc-\/client}
+
+\end{DoxyCode}
+
+
+or with yarn
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn\ add\ angular-\/auth-\/oidc-\/client}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2399}{}\doxysubsection{\texorpdfstring{Documentation}{Documentation}}\label{README.md_autotoc_md2399}
+\href{https://angular-auth-oidc-client.com/}{\texttt{ Read the docs here}}\hypertarget{README.md_autotoc_md2400}{}\doxysubsection{\texorpdfstring{Samples}{Samples}}\label{README.md_autotoc_md2400}
+\href{https://angular-auth-oidc-client.com/docs/samples/}{\texttt{ Explore the Samples here}}\hypertarget{README.md_autotoc_md2401}{}\doxysubsection{\texorpdfstring{Quickstart}{Quickstart}}\label{README.md_autotoc_md2401}
+For the example of the Code Flow. For further examples please check the \href{https://angular-auth-oidc-client.com/docs/samples/}{\texttt{ Samples}} Section.
+
+\begin{quote}
+If you have done the installation with the schematics, these modules and files should be available already! \end{quote}
+\hypertarget{README.md_autotoc_md2402}{}\doxysubsubsection{\texorpdfstring{Configuration}{Configuration}}\label{README.md_autotoc_md2402}
+Import the {\ttfamily Auth\+Module} in your module.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ NgModule\ \}\ from\ '@angular/core';}
+\DoxyCodeLine{import\ \{\ AuthModule,\ LogLevel\ \}\ from\ 'angular-\/auth-\/oidc-\/client';}
+\DoxyCodeLine{//\ ...}
+\DoxyCodeLine{}
+\DoxyCodeLine{@NgModule(\{}
+\DoxyCodeLine{\ \ //\ ...}
+\DoxyCodeLine{\ \ imports:\ [}
+\DoxyCodeLine{\ \ \ \ //\ ...}
+\DoxyCodeLine{\ \ \ \ AuthModule.forRoot(\{}
+\DoxyCodeLine{\ \ \ \ \ \ config:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ authority:\ '<your\ authority\ address\ here>',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ redirectUrl:\ window.location.origin,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ postLogoutRedirectUri:\ window.location.origin,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ clientId:\ '<your\ clientId>',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ scope:\ 'openid\ profile\ email\ offline\_access',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ responseType:\ 'code',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ silentRenew:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ useRefreshToken:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ logLevel:\ LogLevel.Debug,}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \}),}
+\DoxyCodeLine{\ \ ],}
+\DoxyCodeLine{\ \ //\ ...}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{export\ class\ AppModule\ \{\}}
+
+\end{DoxyCode}
+
+
+And call the method {\ttfamily check\+Auth()} from your {\ttfamily app.\+component.\+ts}. The method {\ttfamily check\+Auth()} is needed to process the redirect from your Security Token Service and set the correct states. This method must be used to ensure the correct functioning of the library.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ Component,\ OnInit\ \}\ from\ '@angular/core';}
+\DoxyCodeLine{import\ \{\ OidcSecurityService\ \}\ from\ 'angular-\/auth-\/oidc-\/client';}
+\DoxyCodeLine{}
+\DoxyCodeLine{@Component(\{}
+\DoxyCodeLine{\ \ /*...*/}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{export\ class\ AppComponent\ implements\ OnInit\ \{}
+\DoxyCodeLine{\ \ constructor(public\ oidcSecurityService:\ OidcSecurityService)\ \{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ ngOnInit()\ \{}
+\DoxyCodeLine{\ \ \ \ this.oidcSecurityService}
+\DoxyCodeLine{\ \ \ \ \ \ .checkAuth()}
+\DoxyCodeLine{\ \ \ \ \ \ .subscribe((loginResponse:\ LoginResponse)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ const\ \{\ isAuthenticated,\ userData,\ accessToken,\ idToken,\ configId\ \}\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ loginResponse;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ /*...*/}
+\DoxyCodeLine{\ \ \ \ \ \ \});}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ login()\ \{}
+\DoxyCodeLine{\ \ \ \ this.oidcSecurityService.authorize();}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ logout()\ \{}
+\DoxyCodeLine{\ \ \ \ this.oidcSecurityService}
+\DoxyCodeLine{\ \ \ \ \ \ .logoff()}
+\DoxyCodeLine{\ \ \ \ \ \ .subscribe((result)\ =>\ console.log(result));}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2403}{}\doxysubsubsection{\texorpdfstring{Using the access token}{Using the access token}}\label{README.md_autotoc_md2403}
+You can get the access token by calling the method {\ttfamily get\+Access\+Token()} on the {\ttfamily Oidc\+Security\+Service}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ token\ =\ this.oidcSecurityService.getAccessToken().subscribe(...);}
+
+\end{DoxyCode}
+
+
+And then you can use it in the Http\+Headers
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ HttpHeaders\ \}\ from\ '@angular/common/http';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ token\ =\ this.oidcSecurityServices.getAccessToken().subscribe((token)\ =>\ \{}
+\DoxyCodeLine{\ \ const\ httpOptions\ =\ \{}
+\DoxyCodeLine{\ \ \ \ headers:\ new\ HttpHeaders(\{}
+\DoxyCodeLine{\ \ \ \ \ \ Authorization:\ 'Bearer\ '\ +\ token,}
+\DoxyCodeLine{\ \ \ \ \}),}
+\DoxyCodeLine{\ \ \};}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+You can use the built in interceptor to add the accesstokens to your request
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{AuthModule.forRoot(\{}
+\DoxyCodeLine{\ \ config:\ \{}
+\DoxyCodeLine{\ \ \ \ //\ ...}
+\DoxyCodeLine{\ \ \ \ secureRoutes:\ ['https://my-\/secure-\/url.com/',\ 'https://my-\/second-\/secure-\/url.com/'],}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\}),}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{providers:\ [}
+\DoxyCodeLine{\ \ \ \{\ provide:\ HTTP\_INTERCEPTORS,\ useClass:\ AuthInterceptor,\ multi:\ true\ \},}
+\DoxyCodeLine{\ ],}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2404}{}\doxysubsection{\texorpdfstring{Versions}{Versions}}\label{README.md_autotoc_md2404}
+Current Version is Version 16.\+x
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/damienbod/angular-auth-oidc-client/tree/version-15}{\texttt{ Info about Version 15}}
+\item \href{https://github.com/damienbod/angular-auth-oidc-client/tree/version-14}{\texttt{ Info about Version 14}}
+\item \href{https://github.com/damienbod/angular-auth-oidc-client/tree/version-13}{\texttt{ Info about Version 13}}
+\item \href{https://github.com/damienbod/angular-auth-oidc-client/tree/version-12}{\texttt{ Info about Version 12}}
+\item \href{https://github.com/damienbod/angular-auth-oidc-client/tree/version-11}{\texttt{ Info about Version 11}}
+\item \href{https://github.com/damienbod/angular-auth-oidc-client/tree/version-10}{\texttt{ Info about Version 10}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md2405}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md2405}
+\href{https://choosealicense.com/licenses/mit/}{\texttt{ MIT}}\hypertarget{README.md_autotoc_md2406}{}\doxysubsection{\texorpdfstring{Authors}{Authors}}\label{README.md_autotoc_md2406}
+
+\begin{DoxyItemize}
+\item \href{https://www.github.com/damienbod}{\texttt{ @\+Damien\+Bod}}
+\item \href{https://www.github.com/FabianGosebrink}{\texttt{ @\+Fabian\+Gosebrink}} 
+\end{DoxyItemize}

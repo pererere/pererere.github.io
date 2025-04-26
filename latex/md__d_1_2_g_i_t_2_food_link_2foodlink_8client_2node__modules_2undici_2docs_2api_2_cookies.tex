@@ -1,0 +1,116 @@
+\chapter{Cookie Handling}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies}\index{Cookie Handling@{Cookie Handling}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21296}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21296}%
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21297}{}\doxysection{\texorpdfstring{{\ttfamily Cookie} interface}{{\ttfamily Cookie} interface}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21297}
+
+\begin{DoxyItemize}
+\item {\bfseries{name}} {\ttfamily string}
+\item {\bfseries{value}} {\ttfamily string}
+\item {\bfseries{expires}} {\ttfamily Date\texorpdfstring{$\vert$}{|}number} (optional)
+\item {\bfseries{max\+Age}} {\ttfamily number} (optional)
+\item {\bfseries{domain}} {\ttfamily string} (optional)
+\item {\bfseries{path}} {\ttfamily string} (optional)
+\item {\bfseries{secure}} {\ttfamily boolean} (optional)
+\item {\bfseries{http\+Only}} {\ttfamily boolean} (optional)
+\item {\bfseries{same\+Site}} `\textquotesingle{}String'\texorpdfstring{$\vert$}{|}\textquotesingle{}Lax\textquotesingle{}\texorpdfstring{$\vert$}{|}\textquotesingle{}None\textquotesingle{}{\ttfamily (optional)}
+\item {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}unparsed\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}string\mbox{[}\mbox{]}\`{} (optional) Left over attributes that weren\textquotesingle{}t parsed.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21298}{}\doxysection{\texorpdfstring{{\ttfamily delete\+Cookie(headers, name\mbox{[}, attributes\mbox{]})}}{{\ttfamily delete\+Cookie(headers, name\mbox{[}, attributes\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21298}
+Sets the expiry time of the cookie to the unix epoch, causing browsers to delete it when received.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ deleteCookie,\ Headers\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ headers\ =\ new\ Headers()}
+\DoxyCodeLine{deleteCookie(headers,\ 'name')}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(headers.get('set-\/cookie'))\ //\ name=;\ Expires=Thu,\ 01\ Jan\ 1970\ 00:00:00\ GMT}
+
+\end{DoxyCode}
+
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{headers}} {\ttfamily Headers}
+\item {\bfseries{name}} {\ttfamily string}
+\item {\bfseries{attributes}} {\ttfamily \{ path?\+: string, domain?\+: string \}} (optional)
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily void}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21299}{}\doxysection{\texorpdfstring{{\ttfamily get\+Cookies(headers)}}{{\ttfamily get\+Cookies(headers)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21299}
+Parses the {\ttfamily Cookie} header and returns a list of attributes and values.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ getCookies,\ Headers\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ headers\ =\ new\ Headers(\{}
+\DoxyCodeLine{\ \ cookie:\ 'get=cookies;\ and=attributes'}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(getCookies(headers))\ //\ \{\ get:\ 'cookies',\ and:\ 'attributes'\ \}}
+
+\end{DoxyCode}
+
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{headers}} {\ttfamily Headers}
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily Record\texorpdfstring{$<$}{<}string, string\texorpdfstring{$>$}{>}}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21300}{}\doxysection{\texorpdfstring{{\ttfamily get\+Set\+Cookies(headers)}}{{\ttfamily get\+Set\+Cookies(headers)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21300}
+Parses all {\ttfamily Set-\/\+Cookie} headers.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ getSetCookies,\ Headers\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ headers\ =\ new\ Headers(\{\ 'set-\/cookie':\ 'undici=getSetCookies;\ Secure'\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(getSetCookies(headers))}
+\DoxyCodeLine{//\ [}
+\DoxyCodeLine{//\ \ \ \{}
+\DoxyCodeLine{//\ \ \ \ \ name:\ 'undici',}
+\DoxyCodeLine{//\ \ \ \ \ value:\ 'getSetCookies',}
+\DoxyCodeLine{//\ \ \ \ \ secure:\ true}
+\DoxyCodeLine{//\ \ \ \}}
+\DoxyCodeLine{//\ ]}
+
+\end{DoxyCode}
+
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{headers}} {\ttfamily Headers}
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily Cookie\mbox{[}\mbox{]}}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21301}{}\doxysection{\texorpdfstring{{\ttfamily set\+Cookie(headers, cookie)}}{{\ttfamily set\+Cookie(headers, cookie)}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_cookies_autotoc_md21301}
+Appends a cookie to the {\ttfamily Set-\/\+Cookie} header.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ setCookie,\ Headers\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ headers\ =\ new\ Headers()}
+\DoxyCodeLine{setCookie(headers,\ \{\ name:\ 'undici',\ value:\ 'setCookie'\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(headers.get('Set-\/Cookie'))\ //\ undici=setCookie}
+
+\end{DoxyCode}
+
+
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{headers}} {\ttfamily Headers}
+\item {\bfseries{cookie}} {\ttfamily Cookie}
+\end{DoxyItemize}
+
+Returns\+: {\ttfamily void} 

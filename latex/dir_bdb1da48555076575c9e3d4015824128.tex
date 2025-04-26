@@ -1,0 +1,49 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@npmcli/run-\/script/node\+\_\+modules/which Directory Reference}
+\hypertarget{dir_bdb1da48555076575c9e3d4015824128}{}\label{dir_bdb1da48555076575c9e3d4015824128}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@npmcli/run-\/script/node\_modules/which Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@npmcli/run-\/script/node\_modules/which Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Like the unix {\ttfamily which} utility.
+
+Finds the first instance of a specified executable in the PATH environment variable. Does not cache the results, so {\ttfamily hash -\/r} is not needed when the PATH changes.\hypertarget{README.md_autotoc_md1634}{}\doxysubsection{\texorpdfstring{USAGE}{USAGE}}\label{README.md_autotoc_md1634}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ which\ =\ require('which')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ async\ usage}
+\DoxyCodeLine{//\ rejects\ if\ not\ found}
+\DoxyCodeLine{const\ resolved\ =\ await\ which('node')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ if\ nothrow\ option\ is\ used,\ returns\ null\ if\ not\ found}
+\DoxyCodeLine{const\ resolvedOrNull\ =\ await\ which('node',\ \{\ nothrow:\ true\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ sync\ usage}
+\DoxyCodeLine{//\ throws\ if\ not\ found}
+\DoxyCodeLine{const\ resolved\ =\ which.sync('node')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ if\ nothrow\ option\ is\ used,\ returns\ null\ if\ not\ found}
+\DoxyCodeLine{const\ resolvedOrNull\ =\ which.sync('node',\ \{\ nothrow:\ true\ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Pass\ options\ to\ override\ the\ PATH\ and\ PATHEXT\ environment\ vars.}
+\DoxyCodeLine{await\ which('node',\ \{\ path:\ someOtherPath,\ pathExt:\ somePathExt\ \})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1635}{}\doxysubsection{\texorpdfstring{CLI USAGE}{CLI USAGE}}\label{README.md_autotoc_md1635}
+Just like the BSD {\ttfamily which(1)} binary but using {\ttfamily node-\/which}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{usage:\ node-\/which\ [-\/as]\ program\ ...}
+
+\end{DoxyCode}
+
+
+You can learn more about why the binary is {\ttfamily node-\/which} and not {\ttfamily which} \href{https://github.com/npm/node-which/pull/67}{\texttt{ here}}\hypertarget{README.md_autotoc_md1636}{}\doxysubsection{\texorpdfstring{OPTIONS}{OPTIONS}}\label{README.md_autotoc_md1636}
+You may pass an options object as the second argument.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily path}\+: Use instead of the {\ttfamily PATH} environment variable.
+\item {\ttfamily path\+Ext}\+: Use instead of the {\ttfamily PATHEXT} environment variable.
+\item {\ttfamily all}\+: Return all matches, instead of just the first one. Note that this means the function returns an array of strings instead of a single string. 
+\end{DoxyItemize}

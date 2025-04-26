@@ -1,0 +1,63 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/agent-\/base Directory Reference}
+\hypertarget{dir_b7b0ead1494a81ffce44ac8ec1e9ba94}{}\label{dir_b7b0ead1494a81ffce44ac8ec1e9ba94}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/agent-\/base Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/agent-\/base Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{README.md_autotoc_md2332}{}\doxysubsubsection{\texorpdfstring{Turn a function into an \href{https://nodejs.org/api/http.html\#http_class_http_agent}{\texttt{ {\ttfamily http.\+Agent}}} instance}{Turn a function into an \href{https://nodejs.org/api/http.html\#http_class_http_agent}{\texttt{ {\ttfamily http.\+Agent}}} instance}}\label{README.md_autotoc_md2332}
+This module is a thin wrapper around the base {\ttfamily http.\+Agent} class.
+
+It provides an abstract class that must define a {\ttfamily connect()} function, which is responsible for creating the underlying socket that the HTTP client requests will use.
+
+The {\ttfamily connect()} function may return an arbitrary {\ttfamily Duplex} stream, or another {\ttfamily http.\+Agent} instance to delegate the request to, and may be asynchronous (by defining an {\ttfamily async} function).
+
+Instances of this agent can be used with the {\ttfamily http} and {\ttfamily https} modules. To differentiate, the options parameter in the {\ttfamily connect()} function includes a {\ttfamily secure\+Endpoint} property, which can be checked to determine what type of socket should be returned.\hypertarget{README.md_autotoc_md2333}{}\doxysubsubsubsection{\texorpdfstring{Some subclasses\+:}{Some subclasses\+:}}\label{README.md_autotoc_md2333}
+Here are some more interesting uses of {\ttfamily agent-\/base}. Send a pull request to list yours!
+
+
+\begin{DoxyItemize}
+\item \href{../http-proxy-agent}{\texttt{ {\ttfamily http-\/proxy-\/agent}}}\+: An HTTP(s) proxy {\ttfamily http.\+Agent} implementation for HTTP endpoints
+\item \href{../https-proxy-agent}{\texttt{ {\ttfamily https-\/proxy-\/agent}}}\+: An HTTP(s) proxy {\ttfamily http.\+Agent} implementation for HTTPS endpoints
+\item \href{../pac-proxy-agent}{\texttt{ {\ttfamily pac-\/proxy-\/agent}}}\+: A PAC file proxy {\ttfamily http.\+Agent} implementation for HTTP and HTTPS
+\item \href{../socks-proxy-agent}{\texttt{ {\ttfamily socks-\/proxy-\/agent}}}\+: A SOCKS proxy {\ttfamily http.\+Agent} implementation for HTTP and HTTPS
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md2334}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{README.md_autotoc_md2334}
+Here\textquotesingle{}s a minimal example that creates a new {\ttfamily net.\+Socket} or {\ttfamily tls.\+Socket} based on the {\ttfamily secure\+Endpoint} property. This agent can be used with both the {\ttfamily http} and {\ttfamily https} modules.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ *\ as\ net\ from\ 'net';}
+\DoxyCodeLine{import\ *\ as\ tls\ from\ 'tls';}
+\DoxyCodeLine{import\ *\ as\ http\ from\ 'http';}
+\DoxyCodeLine{import\ \{\ Agent\ \}\ from\ 'agent-\/base';}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ MyAgent\ extends\ Agent\ \{}
+\DoxyCodeLine{\ \ connect(req,\ opts)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ \`{}secureEndpoint`\ is\ true\ when\ using\ the\ "{}https"{}\ module}
+\DoxyCodeLine{\ \ \ \ if\ (opts.secureEndpoint)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ return\ tls.connect(opts);}
+\DoxyCodeLine{\ \ \ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ return\ net.connect(opts);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Keep\ alive\ enabled\ means\ that\ \`{}connect()`\ will\ only\ be}
+\DoxyCodeLine{//\ invoked\ when\ a\ new\ connection\ needs\ to\ be\ created}
+\DoxyCodeLine{const\ agent\ =\ new\ MyAgent(\{\ keepAlive:\ true\ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Pass\ the\ \`{}agent`\ option\ when\ creating\ the\ HTTP\ request}
+\DoxyCodeLine{http.get('http://nodejs.org/api/',\ \{\ agent\ \},\ (res)\ =>\ \{}
+\DoxyCodeLine{\ \ console.log('"{}response"{}\ event!',\ res.headers);}
+\DoxyCodeLine{\ \ res.pipe(process.stdout);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2335}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md2335}
+(The MIT License)
+
+Copyright (c) 2013 Nathan Rajlich \texorpdfstring{$<$}{<}\href{mailto:nathan@tootallnate.net}{\texttt{ nathan@tootallnate.\+net}}\texorpdfstring{$>$}{>}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \textquotesingle{}Software\textquotesingle{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \textquotesingle{}AS IS\textquotesingle{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 

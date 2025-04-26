@@ -1,0 +1,177 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/mime Directory Reference}
+\hypertarget{dir_c00c7de51972b3f958f49a1acccaa8a0}{}\label{dir_c00c7de51972b3f958f49a1acccaa8a0}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/mime Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/mime Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{README.md_autotoc_md14006}{}\doxysubsection{\texorpdfstring{Mime}{Mime}}\label{README.md_autotoc_md14006}
+A comprehensive, compact MIME type module.
+
+\href{https://travis-ci.org/broofa/mime}{\texttt{ }}\hypertarget{README.md_autotoc_md14007}{}\doxysubsubsection{\texorpdfstring{Version 2 Notes}{Version 2 Notes}}\label{README.md_autotoc_md14007}
+Version 2 is a breaking change from 1.\+x as the semver implies. Specifically\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily lookup()} renamed to {\ttfamily get\+Type()}
+\item {\ttfamily extension()} renamed to {\ttfamily get\+Extension()}
+\item {\ttfamily charset()} and {\ttfamily load()} methods have been removed
+\end{DoxyItemize}
+
+If you prefer the legacy version of this module please {\ttfamily npm install mime@\texorpdfstring{$^\wedge$}{\string^}1}. Version 1 docs may be found \href{https://github.com/broofa/mime/tree/v1.4.0}{\texttt{ here}}.\hypertarget{README.md_autotoc_md14008}{}\doxysubsubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md14008}
+\hypertarget{README.md_autotoc_md14009}{}\doxysubsubsubsection{\texorpdfstring{NPM}{NPM}}\label{README.md_autotoc_md14009}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ mime}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14010}{}\doxysubsubsubsection{\texorpdfstring{Browser}{Browser}}\label{README.md_autotoc_md14010}
+It is recommended that you use a bundler such as \href{https://webpack.github.io/}{\texttt{ webpack}} or \href{http://browserify.org/}{\texttt{ browserify}} to package your code. However, browser-\/ready versions are available via wzrd.\+in. E.\+g. For the full version\+: \begin{DoxyVerb}<script src="https://wzrd.in/standalone/mime@latest"></script>
+<script>
+mime.getType(...); // etc.
+</script>
+\end{DoxyVerb}
+
+
+Or, for the {\ttfamily mime/lite} version\+: \begin{DoxyVerb}<script src="https://wzrd.in/standalone/mime%2flite@latest"></script>
+<script>
+mimelite.getType(...); // (Note `mimelite` here)
+</script>
+\end{DoxyVerb}
+\hypertarget{README.md_autotoc_md14011}{}\doxysubsubsection{\texorpdfstring{Quick Start}{Quick Start}}\label{README.md_autotoc_md14011}
+For the full version (800+ MIME types, 1,000+ extensions)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ mime\ =\ require('mime');}
+\DoxyCodeLine{}
+\DoxyCodeLine{mime.getType('txt');\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ ⇨\ 'text/plain'}
+\DoxyCodeLine{mime.getExtension('text/plain');\ \ \ \ \ \ \ \ //\ ⇨\ 'txt'}
+
+\end{DoxyCode}
+
+
+See Mime API below for API details.\hypertarget{README.md_autotoc_md14012}{}\doxysubsubsection{\texorpdfstring{Lite Version}{Lite Version}}\label{README.md_autotoc_md14012}
+There is also a "{}lite"{} version of this module that omits vendor-\/specific ({\ttfamily \texorpdfstring{$\ast$}{*}/vnd.\texorpdfstring{$\ast$}{*}}) and experimental ({\ttfamily \texorpdfstring{$\ast$}{*}/x-\/\texorpdfstring{$\ast$}{*}}) types. It weighs in at \texorpdfstring{$\sim$}{\string~}2.5KB, compared to 8KB for the full version. To load the lite version\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ mime\ =\ require('mime/lite');}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14013}{}\doxysubsubsection{\texorpdfstring{Mime .vs. mime-\/types .vs. mime-\/db modules}{Mime .vs. mime-\/types .vs. mime-\/db modules}}\label{README.md_autotoc_md14013}
+For those of you wondering about the difference between these \mbox{[}popular\mbox{]} NPM modules, here\textquotesingle{}s a brief rundown ...
+
+\href{https://github.com/jshttp/mime-db}{\texttt{ {\ttfamily mime-\/db}}} is "{}the source of truth"{} for MIME type information. It is not an API. Rather, it is a canonical dataset of mime type definitions pulled from IANA, Apache, NGINX, and custom mappings submitted by the Node.\+js community.
+
+\href{https://github.com/jshttp/mime-types}{\texttt{ {\ttfamily mime-\/types}}} is a thin wrapper around mime-\/db that provides an API drop-\/in compatible(ish) with {\ttfamily mime @ \texorpdfstring{$<$}{<} v1.\+3.\+6} API.
+
+{\ttfamily mime} is, as of v2, a self-\/contained module bundled with a pre-\/optimized version of the {\ttfamily mime-\/db} dataset. It provides a simplified API with the following characteristics\+:
+
+
+\begin{DoxyItemize}
+\item Intelligently resolved type conflicts (See \href{https://github.com/broofa/mime-score}{\texttt{ mime-\/score}} for details)
+\item Method naming consistent with industry best-\/practices
+\item Compact footprint. E.\+g. The minified+compressed sizes of the various modules\+:
+\end{DoxyItemize}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Module   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Size    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Module   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Size    }\\\cline{1-2}
+\endhead
+{\ttfamily mime-\/db}   &18 KB    \\\cline{1-2}
+{\ttfamily mime-\/types}   &same as mime-\/db    \\\cline{1-2}
+{\ttfamily mime}   &8 KB    \\\cline{1-2}
+{\ttfamily mime/lite}   &2 KB   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{README.md_autotoc_md14014}{}\doxysubsubsection{\texorpdfstring{Mime API}{Mime API}}\label{README.md_autotoc_md14014}
+Both `require(\textquotesingle{}mime'){\ttfamily and}require(\textquotesingle{}mime/lite\textquotesingle{})\`{} return instances of the MIME class, documented below.
+
+Note\+: Inputs to this API are case-\/insensitive. Outputs (returned values) will be lowercase.\hypertarget{README.md_autotoc_md14015}{}\doxysubsubsubsection{\texorpdfstring{new Mime(type\+Map, ... more maps)}{new Mime(type\+Map, ... more maps)}}\label{README.md_autotoc_md14015}
+Most users of this module will not need to create Mime instances directly. However if you would like to create custom mappings, you may do so as follows ...
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Require\ Mime\ class}
+\DoxyCodeLine{const\ Mime\ =\ require('mime/Mime');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Define\ mime\ type\ -\/>\ extensions\ map}
+\DoxyCodeLine{const\ typeMap\ =\ \{}
+\DoxyCodeLine{\ \ 'text/abc':\ ['abc',\ 'alpha',\ 'bet'],}
+\DoxyCodeLine{\ \ 'text/def':\ ['leppard']}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Create\ and\ use\ Mime\ instance}
+\DoxyCodeLine{const\ myMime\ =\ new\ Mime(typeMap);}
+\DoxyCodeLine{myMime.getType('abc');\ \ \ \ \ \ \ \ \ \ \ \ //\ ⇨\ 'text/abc'}
+\DoxyCodeLine{myMime.getExtension('text/def');\ \ //\ ⇨\ 'leppard'}
+
+\end{DoxyCode}
+
+
+If more than one map argument is provided, each map is {\ttfamily define()}ed (see below), in order.\hypertarget{README.md_autotoc_md14016}{}\doxysubsubsubsection{\texorpdfstring{mime.\+get\+Type(path\+Or\+Extension)}{mime.\+get\+Type(path\+Or\+Extension)}}\label{README.md_autotoc_md14016}
+Get mime type for the given path or extension. E.\+g.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mime.getType('js');\ \ \ \ \ \ \ \ \ \ \ \ \ //\ ⇨\ 'application/javascript'}
+\DoxyCodeLine{mime.getType('json');\ \ \ \ \ \ \ \ \ \ \ //\ ⇨\ 'application/json'}
+\DoxyCodeLine{}
+\DoxyCodeLine{mime.getType('txt');\ \ \ \ \ \ \ \ \ \ \ \ //\ ⇨\ 'text/plain'}
+\DoxyCodeLine{mime.getType('dir/text.txt');\ \ \ //\ ⇨\ 'text/plain'}
+\DoxyCodeLine{mime.getType('dir\(\backslash\)\(\backslash\)text.txt');\ \ //\ ⇨\ 'text/plain'}
+\DoxyCodeLine{mime.getType('.text.txt');\ \ \ \ \ \ //\ ⇨\ 'text/plain'}
+\DoxyCodeLine{mime.getType('.txt');\ \ \ \ \ \ \ \ \ \ \ //\ ⇨\ 'text/plain'}
+
+\end{DoxyCode}
+
+
+{\ttfamily null} is returned in cases where an extension is not detected or recognized
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mime.getType('foo/txt');\ \ \ \ \ \ \ \ //\ ⇨\ null}
+\DoxyCodeLine{mime.getType('bogus\_type');\ \ \ \ \ //\ ⇨\ null}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14017}{}\doxysubsubsubsection{\texorpdfstring{mime.\+get\+Extension(type)}{mime.\+get\+Extension(type)}}\label{README.md_autotoc_md14017}
+Get extension for the given mime type. Charset options (often included in Content-\/\+Type headers) are ignored.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mime.getExtension('text/plain');\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ ⇨\ 'txt'}
+\DoxyCodeLine{mime.getExtension('application/json');\ \ \ \ \ \ \ \ \ //\ ⇨\ 'json'}
+\DoxyCodeLine{mime.getExtension('text/html;\ charset=utf8');\ \ //\ ⇨\ 'html'}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14018}{}\doxysubsubsubsection{\texorpdfstring{mime.\+define(type\+Map\mbox{[}, force = false\mbox{]})}{mime.\+define(type\+Map\mbox{[}, force = false\mbox{]})}}\label{README.md_autotoc_md14018}
+Define \mbox{[}more\mbox{]} type mappings.
+
+{\ttfamily type\+Map} is a map of type -\/\texorpdfstring{$>$}{>} extensions, as documented in {\ttfamily new Mime}, above.
+
+By default this method will throw an error if you try to map a type to an extension that is already assigned to another type. Passing {\ttfamily true} for the {\ttfamily force} argument will suppress this behavior (overriding any previous mapping).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mime.define(\{'text/x-\/abc':\ ['abc',\ 'abcd']\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{mime.getType('abcd');\ \ \ \ \ \ \ \ \ \ \ \ //\ ⇨\ 'text/x-\/abc'}
+\DoxyCodeLine{mime.getExtension('text/x-\/abc')\ \ //\ ⇨\ 'abc'}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md14019}{}\doxysubsubsection{\texorpdfstring{Command Line}{Command Line}}\label{README.md_autotoc_md14019}
+\begin{DoxyVerb}mime [path_or_extension]
+\end{DoxyVerb}
+
+
+E.\+g. \begin{DoxyVerb}> mime scripts/jquery.js
+application/javascript
+\end{DoxyVerb}
+
+
+\DoxyHorRuler{0}
+ Markdown generated from src/\+README\+\_\+js.md by \href{https://github.com/broofa/runmd}{\texttt{ }} 

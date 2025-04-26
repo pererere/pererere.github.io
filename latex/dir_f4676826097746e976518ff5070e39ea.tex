@@ -1,0 +1,77 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@types/qs Directory Reference}
+\hypertarget{dir_f4676826097746e976518ff5070e39ea}{}\label{dir_f4676826097746e976518ff5070e39ea}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@types/qs Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@types/qs Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+{\ttfamily npm install -\/-\/save @types/qs} \end{quote}
+\hypertarget{README.md_autotoc_md1924}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{README.md_autotoc_md1924}
+This package contains type definitions for qs (\href{https://github.com/ljharb/qs}{\texttt{ https\+://github.\+com/ljharb/qs}}).\hypertarget{README.md_autotoc_md1925}{}\doxysubsection{\texorpdfstring{Details}{Details}}\label{README.md_autotoc_md1925}
+Files were exported from \href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qs}{\texttt{ https\+://github.\+com/\+Definitely\+Typed/\+Definitely\+Typed/tree/master/types/qs}}. \hypertarget{README.md_autotoc_md1926}{}\doxysubsubsection{\texorpdfstring{\href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qs/index.d.ts}{\texttt{ index.\+d.\+ts}}}{\href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qs/index.d.ts}{\texttt{ index.\+d.\+ts}}}}\label{README.md_autotoc_md1926}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{export\ =\ QueryString;}
+\DoxyCodeLine{export\ as\ namespace\ qs;}
+\DoxyCodeLine{}
+\DoxyCodeLine{declare\ namespace\ QueryString\ \{}
+\DoxyCodeLine{\ \ \ \ type\ defaultEncoder\ =\ (str:\ any,\ defaultEncoder?:\ any,\ charset?:\ string)\ =>\ string;}
+\DoxyCodeLine{\ \ \ \ type\ defaultDecoder\ =\ (str:\ string,\ decoder?:\ any,\ charset?:\ string)\ =>\ string;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ interface\ IStringifyOptions\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ delimiter?:\ string\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ strictNullHandling?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ skipNulls?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ encode?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ encoder?:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ |\ ((str:\ any,\ defaultEncoder:\ defaultEncoder,\ charset:\ string,\ type:\ "{}key"{}\ |\ "{}value"{})\ =>\ string)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ filter?:\ Array<string\ |\ number>\ |\ ((prefix:\ string,\ value:\ any)\ =>\ any)\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ arrayFormat?:\ "{}indices"{}\ |\ "{}brackets"{}\ |\ "{}repeat"{}\ |\ "{}comma"{}\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ indices?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ sort?:\ ((a:\ any,\ b:\ any)\ =>\ number)\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ serializeDate?:\ ((d:\ Date)\ =>\ string)\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ format?:\ "{}RFC1738"{}\ |\ "{}RFC3986"{}\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ encodeValuesOnly?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ addQueryPrefix?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ allowDots?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ charset?:\ "{}utf-\/8"{}\ |\ "{}iso-\/8859-\/1"{}\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ charsetSentinel?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ interface\ IParseOptions\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ comma?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ delimiter?:\ string\ |\ RegExp\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ depth?:\ number\ |\ false\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ decoder?:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ |\ ((str:\ string,\ defaultDecoder:\ defaultDecoder,\ charset:\ string,\ type:\ "{}key"{}\ |\ "{}value"{})\ =>\ any)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ arrayLimit?:\ number\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ parseArrays?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ allowDots?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ plainObjects?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ allowPrototypes?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ parameterLimit?:\ number\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ strictNullHandling?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ignoreQueryPrefix?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ charset?:\ "{}utf-\/8"{}\ |\ "{}iso-\/8859-\/1"{}\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ charsetSentinel?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ interpretNumericEntities?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ interface\ ParsedQs\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ [key:\ string]:\ undefined\ |\ string\ |\ string[]\ |\ ParsedQs\ |\ ParsedQs[];}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ function\ stringify(obj:\ any,\ options?:\ IStringifyOptions):\ string;}
+\DoxyCodeLine{\ \ \ \ function\ parse(str:\ string,\ options?:\ IParseOptions\ \&\ \{\ decoder?:\ never\ |\ undefined\ \}):\ ParsedQs;}
+\DoxyCodeLine{\ \ \ \ function\ parse(str:\ string\ |\ Record<string,\ string>,\ options?:\ IParseOptions):\ \{\ [key:\ string]:\ unknown\ \};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1927}{}\doxysubsubsubsection{\texorpdfstring{Additional Details}{Additional Details}}\label{README.md_autotoc_md1927}
+
+\begin{DoxyItemize}
+\item Last updated\+: Tue, 07 Nov 2023 09\+:09\+:39 GMT
+\item Dependencies\+: none
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1928}{}\doxysubsection{\texorpdfstring{Credits}{Credits}}\label{README.md_autotoc_md1928}
+These definitions were written by \href{https://github.com/RWander}{\texttt{ Roman Korneev}}, \href{https://github.com/leonyu}{\texttt{ Leon Yu}}, \href{https://github.com/tehbelinda}{\texttt{ Belinda Teh}}, \href{https://github.com/zyml}{\texttt{ Melvin Lee}}, \href{https://github.com/artursvonda}{\texttt{ Arturs Vonda}}, \href{https://github.com/CarlosBonetti}{\texttt{ Carlos Bonetti}}, \href{https://github.com/dpsmith3}{\texttt{ Dan Smith}}, \href{https://github.com/hperrin}{\texttt{ Hunter Perrin}}, and \href{https://github.com/ljharb}{\texttt{ Jordan Harband}}. 

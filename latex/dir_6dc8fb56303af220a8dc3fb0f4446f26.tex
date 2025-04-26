@@ -1,0 +1,57 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/server.middleware Directory Reference}
+\hypertarget{dir_6dc8fb56303af220a8dc3fb0f4446f26}{}\label{dir_6dc8fb56303af220a8dc3fb0f4446f26}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/server.middleware Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/server.middleware Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Server + Logging + History API fallback middlewares Example\hypertarget{readme.md_autotoc_md3545}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3545}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/server.middleware}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3546}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3546}
+This example adds the \href{https://www.npmjs.com/package/connect-logger}{\texttt{ connect-\/logger}} middleware
+
+\hypertarget{readme.md_autotoc_md3547}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily app.\+js}\+:}{Preview of {\ttfamily app.\+js}\+:}}\label{readme.md_autotoc_md3547}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Require\ Browsersync}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{var\ browserSync\ =\ require('browser-\/sync').create();}
+\DoxyCodeLine{var\ historyApiFallback\ =\ require('connect-\/history-\/api-\/fallback')}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Run\ Browsersync\ with\ server\ config}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{browserSync.init(\{}
+\DoxyCodeLine{\ \ \ \ server:\ "{}app"{},}
+\DoxyCodeLine{\ \ \ \ files:\ ["{}app/*.html"{},\ "{}app/css/*.css"{}],}
+\DoxyCodeLine{\ \ \ \ middleware:\ [require("{}connect-\/logger"{})(),\ historyApiFallback()]}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+ 

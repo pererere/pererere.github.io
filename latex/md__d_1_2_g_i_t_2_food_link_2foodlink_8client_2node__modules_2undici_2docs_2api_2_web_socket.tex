@@ -1,0 +1,52 @@
+\chapter{Class\+: Web\+Socket}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_web_socket}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_web_socket}\index{Class: WebSocket@{Class: WebSocket}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_web_socket_autotoc_md21487}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_web_socket_autotoc_md21487}%
+
+
+\begin{quote}
+⚠️ Warning\+: the Web\+Socket API is experimental. \end{quote}
+
+
+Extends\+: \href{https://developer.mozilla.org/en-US/docs/Web/API/EventTarget}{\texttt{ {\ttfamily Event\+Target}}}
+
+The Web\+Socket object provides a way to manage a Web\+Socket connection to a server, allowing bidirectional communication. The API follows the \href{https://developer.mozilla.org/en-US/docs/Web/API/WebSocket}{\texttt{ Web\+Socket spec}} and \href{https://datatracker.ietf.org/doc/html/rfc6455}{\texttt{ RFC 6455}}.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_web_socket_autotoc_md21488}{}\doxysection{\texorpdfstring{{\ttfamily new Web\+Socket(url\mbox{[}, protocol\mbox{]})}}{{\ttfamily new Web\+Socket(url\mbox{[}, protocol\mbox{]})}}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_web_socket_autotoc_md21488}
+Arguments\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{url}} {\ttfamily URL \texorpdfstring{$\vert$}{|} string} -\/ The url\textquotesingle{}s protocol {\itshape must} be {\ttfamily ws} or {\ttfamily wss}.
+\item {\bfseries{protocol}} {\ttfamily string \texorpdfstring{$\vert$}{|} string\mbox{[}\mbox{]} \texorpdfstring{$\vert$}{|} Web\+Socket\+Init} (optional) -\/ Subprotocol(s) to request the server use, or a \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_dispatcher}{{\ttfamily Dispatcher}}{0}.
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_web_socket_autotoc_md21489}{}\doxysubsection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_web_socket_autotoc_md21489}
+This example will not work in browsers or other platforms that don\textquotesingle{}t allow passing an object.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ WebSocket,\ ProxyAgent\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ proxyAgent\ =\ new\ ProxyAgent('my.proxy.server')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ ws\ =\ new\ WebSocket('wss://echo.websocket.events',\ \{}
+\DoxyCodeLine{\ \ dispatcher:\ proxyAgent,}
+\DoxyCodeLine{\ \ protocols:\ ['echo',\ 'chat']}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+If you do not need a custom Dispatcher, it\textquotesingle{}s recommended to use the following pattern\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ WebSocket\ \}\ from\ 'undici'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ ws\ =\ new\ WebSocket('wss://echo.websocket.events',\ ['echo',\ 'chat'])}
+
+\end{DoxyCode}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_web_socket_autotoc_md21490}{}\doxysection{\texorpdfstring{Read More}{Read More}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2api_2_web_socket_autotoc_md21490}
+
+\begin{DoxyItemize}
+\item \href{https://developer.mozilla.org/en-US/docs/Web/API/WebSocket}{\texttt{ MDN -\/ Web\+Socket}}
+\item \href{https://www.rfc-editor.org/rfc/rfc6455}{\texttt{ The Web\+Socket Specification}}
+\item \href{https://websockets.spec.whatwg.org/}{\texttt{ The WHATWG Web\+Socket Specification}} 
+\end{DoxyItemize}

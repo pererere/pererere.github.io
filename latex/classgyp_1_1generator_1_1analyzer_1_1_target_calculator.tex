@@ -1,0 +1,89 @@
+\doxysection{gyp.\+generator.\+analyzer.\+Target\+Calculator Class Reference}
+\hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator}{}\label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator}\index{gyp.generator.analyzer.TargetCalculator@{gyp.generator.analyzer.TargetCalculator}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a022a5c7be9f50b065e891d012700d56e}\label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a022a5c7be9f50b065e891d012700d56e} 
+{\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, files, additional\+\_\+compile\+\_\+target\+\_\+names, test\+\_\+target\+\_\+names, data, target\+\_\+list, target\+\_\+dicts, toplevel\+\_\+dir, build\+\_\+files)
+\item 
+\mbox{\hyperlink{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_ad8661a92b29ff342aca20c97581266b1}{is\+\_\+build\+\_\+impacted}} (self)
+\item 
+\mbox{\hyperlink{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a7766f7a977afc1c9b14ad359d7593247}{find\+\_\+matching\+\_\+test\+\_\+target\+\_\+names}} (self)
+\item 
+\mbox{\hyperlink{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a28e627c2ffb2f85f38fd1a10e9dd15ea}{find\+\_\+matching\+\_\+compile\+\_\+target\+\_\+names}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_aa30408fef14af0a8992f61e8e7d8d0e4}\label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_aa30408fef14af0a8992f61e8e7d8d0e4} 
+{\bfseries invalid\+\_\+targets}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_ae49ad7bb5d66548e53fae33ee533a49b}\label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_ae49ad7bb5d66548e53fae33ee533a49b} 
+{\bfseries \+\_\+supplied\+\_\+target\+\_\+names} (self)
+\item 
+\mbox{\hyperlink{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_ab4908bb56a38361e1010b3b2c0869d9f}{\+\_\+supplied\+\_\+target\+\_\+names\+\_\+no\+\_\+all}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a2b2ce9670cffcadc166a3662f884a86a}\label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a2b2ce9670cffcadc166a3662f884a86a} 
+{\bfseries \+\_\+additional\+\_\+compile\+\_\+target\+\_\+names} = set(additional\+\_\+compile\+\_\+target\+\_\+names)
+\item 
+\Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_ae22aa315c48766b95a31896597db0dbc}\label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_ae22aa315c48766b95a31896597db0dbc} 
+{\bfseries \+\_\+test\+\_\+target\+\_\+names} = set(test\+\_\+target\+\_\+names)
+\item 
+\Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a9ed45193c080043d57253e8ed7837b4e}\label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a9ed45193c080043d57253e8ed7837b4e} 
+{\bfseries \+\_\+name\+\_\+to\+\_\+target}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_aaf6160e01859a39ae8dc92d733f5a5e2}\label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_aaf6160e01859a39ae8dc92d733f5a5e2} 
+{\bfseries \+\_\+changed\+\_\+targets}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a369b4a2e87d287f8c8286e97acd49fa4}\label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a369b4a2e87d287f8c8286e97acd49fa4} 
+{\bfseries \+\_\+root\+\_\+targets}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_af4cd148e3e47206dc6d877d0c75e7295}\label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_af4cd148e3e47206dc6d877d0c75e7295} 
+{\bfseries \+\_\+unqualified\+\_\+mapping}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Calculates the matching test_targets and matching compile_targets.\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_ab4908bb56a38361e1010b3b2c0869d9f}\index{gyp.generator.analyzer.TargetCalculator@{gyp.generator.analyzer.TargetCalculator}!\_supplied\_target\_names\_no\_all@{\_supplied\_target\_names\_no\_all}}
+\index{\_supplied\_target\_names\_no\_all@{\_supplied\_target\_names\_no\_all}!gyp.generator.analyzer.TargetCalculator@{gyp.generator.analyzer.TargetCalculator}}
+\doxysubsubsection{\texorpdfstring{\_supplied\_target\_names\_no\_all()}{\_supplied\_target\_names\_no\_all()}}
+{\footnotesize\ttfamily \label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_ab4908bb56a38361e1010b3b2c0869d9f} 
+gyp.\+generator.\+analyzer.\+Target\+Calculator.\+\_\+supplied\+\_\+target\+\_\+names\+\_\+no\+\_\+all (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyVerb}Returns the supplied test targets without 'all'.\end{DoxyVerb}
+ \Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a28e627c2ffb2f85f38fd1a10e9dd15ea}\index{gyp.generator.analyzer.TargetCalculator@{gyp.generator.analyzer.TargetCalculator}!find\_matching\_compile\_target\_names@{find\_matching\_compile\_target\_names}}
+\index{find\_matching\_compile\_target\_names@{find\_matching\_compile\_target\_names}!gyp.generator.analyzer.TargetCalculator@{gyp.generator.analyzer.TargetCalculator}}
+\doxysubsubsection{\texorpdfstring{find\_matching\_compile\_target\_names()}{find\_matching\_compile\_target\_names()}}
+{\footnotesize\ttfamily \label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a28e627c2ffb2f85f38fd1a10e9dd15ea} 
+gyp.\+generator.\+analyzer.\+Target\+Calculator.\+find\+\_\+matching\+\_\+compile\+\_\+target\+\_\+names (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the set of output compile targets.\end{DoxyVerb}
+ \Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a7766f7a977afc1c9b14ad359d7593247}\index{gyp.generator.analyzer.TargetCalculator@{gyp.generator.analyzer.TargetCalculator}!find\_matching\_test\_target\_names@{find\_matching\_test\_target\_names}}
+\index{find\_matching\_test\_target\_names@{find\_matching\_test\_target\_names}!gyp.generator.analyzer.TargetCalculator@{gyp.generator.analyzer.TargetCalculator}}
+\doxysubsubsection{\texorpdfstring{find\_matching\_test\_target\_names()}{find\_matching\_test\_target\_names()}}
+{\footnotesize\ttfamily \label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_a7766f7a977afc1c9b14ad359d7593247} 
+gyp.\+generator.\+analyzer.\+Target\+Calculator.\+find\+\_\+matching\+\_\+test\+\_\+target\+\_\+names (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the set of output test targets.\end{DoxyVerb}
+ \Hypertarget{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_ad8661a92b29ff342aca20c97581266b1}\index{gyp.generator.analyzer.TargetCalculator@{gyp.generator.analyzer.TargetCalculator}!is\_build\_impacted@{is\_build\_impacted}}
+\index{is\_build\_impacted@{is\_build\_impacted}!gyp.generator.analyzer.TargetCalculator@{gyp.generator.analyzer.TargetCalculator}}
+\doxysubsubsection{\texorpdfstring{is\_build\_impacted()}{is\_build\_impacted()}}
+{\footnotesize\ttfamily \label{classgyp_1_1generator_1_1analyzer_1_1_target_calculator_ad8661a92b29ff342aca20c97581266b1} 
+gyp.\+generator.\+analyzer.\+Target\+Calculator.\+is\+\_\+build\+\_\+impacted (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns true if the supplied files impact the build at all.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/foodlink.\+client/node\+\_\+modules/node-\/gyp/gyp/pylib/gyp/generator/analyzer.\+py\end{DoxyCompactItemize}

@@ -1,0 +1,812 @@
+\chapter{API}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i}\index{API@{API}}
+typed-\/assert\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21025}{}\doxysection{\texorpdfstring{typed-\/assert}{typed-\/assert}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21025}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21026}{}\doxysubsection{\texorpdfstring{Table of contents}{Table of contents}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21026}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21027}{}\doxysubsubsection{\texorpdfstring{Type aliases}{Type aliases}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21027}
+
+\begin{DoxyItemize}
+\item \href{API.md\#assert}{\texttt{ Assert}}
+\item \href{API.md\#check}{\texttt{ Check}}
+\item \href{API.md\#subtype}{\texttt{ Sub\+Type}}
+\item \href{API.md\#weakassert}{\texttt{ Weak\+Assert}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21028}{}\doxysubsubsection{\texorpdfstring{Functions}{Functions}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21028}
+
+\begin{DoxyItemize}
+\item \href{API.md\#assert}{\texttt{ assert}}
+\item \href{API.md\#check}{\texttt{ check}}
+\item \href{API.md\#defaultassert}{\texttt{ default\+Assert}}
+\item \href{API.md\#isarray}{\texttt{ is\+Array}}
+\item \href{API.md\#isarrayoftype}{\texttt{ is\+Array\+Of\+Type}}
+\item \href{API.md\#isboolean}{\texttt{ is\+Boolean}}
+\item \href{API.md\#isdate}{\texttt{ is\+Date}}
+\item \href{API.md\#isexactly}{\texttt{ is\+Exactly}}
+\item \href{API.md\#isinstanceof}{\texttt{ is\+Instance\+Of}}
+\item \href{API.md\#isnever}{\texttt{ is\+Never}}
+\item \href{API.md\#isnotnull}{\texttt{ is\+Not\+Null}}
+\item \href{API.md\#isnotundefined}{\texttt{ is\+Not\+Undefined}}
+\item \href{API.md\#isnotvoid}{\texttt{ is\+Not\+Void}}
+\item \href{API.md\#isnumber}{\texttt{ is\+Number}}
+\item \href{API.md\#isoneof}{\texttt{ is\+One\+Of}}
+\item \href{API.md\#isoneoftype}{\texttt{ is\+One\+Of\+Type}}
+\item \href{API.md\#isoptionoftype}{\texttt{ is\+Option\+Of\+Type}}
+\item \href{API.md\#ispromise}{\texttt{ is\+Promise}}
+\item \href{API.md\#isrecord}{\texttt{ is\+Record}}
+\item \href{API.md\#isrecordoftype}{\texttt{ is\+Record\+Of\+Type}}
+\item \href{API.md\#isrecordwithkeys}{\texttt{ is\+Record\+With\+Keys}}
+\item \href{API.md\#isstring}{\texttt{ is\+String}}
+\item \href{API.md\#isunknown}{\texttt{ is\+Unknown}}
+\item \href{API.md\#safejsonparse}{\texttt{ safe\+Json\+Parse}}
+\item \href{API.md\#setbaseassert}{\texttt{ set\+Base\+Assert}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21029}{}\doxysubsection{\texorpdfstring{Type aliases}{Type aliases}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21029}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21030}{}\doxysubsubsection{\texorpdfstring{Assert}{Assert}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21030}
+Ƭ {\bfseries{Assert}}\texorpdfstring{$<$}{<}{\ttfamily Input}, {\ttfamily Output}\texorpdfstring{$>$}{>}\+: ({\ttfamily input}\+: {\ttfamily Input}, {\ttfamily message?}\+: {\ttfamily string}) =\texorpdfstring{$>$}{>} asserts input is Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21031}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21031}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily Input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily Output}   &{\ttfamily Input}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21032}{}\doxysubsubsubsection{\texorpdfstring{Type declaration}{Type declaration}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21032}
+▸ ({\ttfamily input}, {\ttfamily message?})\+: asserts input is Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21033}{}\doxysubsubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21033}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily Input}    \\\cline{1-2}
+{\ttfamily message?}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21034}{}\doxysubsubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21034}
+asserts input is Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21035}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21035}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L7}{\texttt{ index.\+ts\+:7}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21036}{}\doxysubsubsection{\texorpdfstring{Check}{Check}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21036}
+Ƭ {\bfseries{Check}}\texorpdfstring{$<$}{<}{\ttfamily Input}, {\ttfamily Output}\texorpdfstring{$>$}{>}\+: ({\ttfamily input}\+: {\ttfamily Input}) =\texorpdfstring{$>$}{>} input is Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21037}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21037}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily Input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily Output}   &{\ttfamily Input}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21038}{}\doxysubsubsubsection{\texorpdfstring{Type declaration}{Type declaration}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21038}
+▸ ({\ttfamily input})\+: input is Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21039}{}\doxysubsubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21039}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily Input}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21040}{}\doxysubsubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21040}
+input is Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21041}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21041}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L12}{\texttt{ index.\+ts\+:12}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21042}{}\doxysubsubsection{\texorpdfstring{Sub\+Type}{Sub\+Type}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21042}
+Ƭ {\bfseries{Sub\+Type}}\texorpdfstring{$<$}{<}{\ttfamily Input}, {\ttfamily Output}\texorpdfstring{$>$}{>}\+: {\ttfamily Output} extends {\ttfamily Input} ? {\ttfamily Output} \+: {\ttfamily never}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21043}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21043}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily Input}    \\\cline{1-1}
+{\ttfamily Output}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21044}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21044}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L5}{\texttt{ index.\+ts\+:5}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21045}{}\doxysubsubsection{\texorpdfstring{Weak\+Assert}{Weak\+Assert}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21045}
+Ƭ {\bfseries{Weak\+Assert}}\+: ({\ttfamily input}\+: {\ttfamily unknown}, {\ttfamily message?}\+: {\ttfamily string}) =\texorpdfstring{$>$}{>} {\ttfamily void}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21046}{}\doxysubsubsubsection{\texorpdfstring{Type declaration}{Type declaration}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21046}
+▸ ({\ttfamily input}, {\ttfamily message?})\+: {\ttfamily void}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21047}{}\doxysubsubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21047}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily message?}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21048}{}\doxysubsubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21048}
+{\ttfamily void}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21049}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21049}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L3}{\texttt{ index.\+ts\+:3}}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21050}{}\doxysubsection{\texorpdfstring{Functions}{Functions}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21050}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21051}{}\doxysubsubsection{\texorpdfstring{assert}{assert}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21051}
+▸ {\ttfamily Const} {\bfseries{assert}}({\ttfamily input}, {\ttfamily message?})\+: asserts input is true\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21052}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21052}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily boolean}    \\\cline{1-2}
+{\ttfamily message?}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21053}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21053}
+asserts input is true\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21054}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21054}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L24}{\texttt{ index.\+ts\+:24}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21055}{}\doxysubsubsection{\texorpdfstring{check}{check}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21055}
+▸ {\bfseries{check}}\texorpdfstring{$<$}{<}{\ttfamily Input}, {\ttfamily Output}\texorpdfstring{$>$}{>}({\ttfamily assertT})\+: \href{API.md\#check}{\texttt{ {\ttfamily Check}}}\texorpdfstring{$<$}{<}{\ttfamily Input}, {\ttfamily Output}\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21056}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21056}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily Input}    \\\cline{1-1}
+{\ttfamily Output}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21057}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21057}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily assertT}   &\href{API.md\#assert}{\texttt{ {\ttfamily Assert}}}\texorpdfstring{$<$}{<}{\ttfamily Input}, {\ttfamily Output}\texorpdfstring{$>$}{>}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21058}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21058}
+\href{API.md\#check}{\texttt{ {\ttfamily Check}}}\texorpdfstring{$<$}{<}{\ttfamily Input}, {\ttfamily Output}\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21059}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21059}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L209}{\texttt{ index.\+ts\+:209}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21060}{}\doxysubsubsection{\texorpdfstring{default\+Assert}{default\+Assert}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21060}
+▸ {\ttfamily Const} {\bfseries{default\+Assert}}({\ttfamily input}, {\ttfamily message?})\+: {\ttfamily void}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21061}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21061}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily message?}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21062}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21062}
+{\ttfamily void}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21063}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21063}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L16}{\texttt{ index.\+ts\+:16}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21064}{}\doxysubsubsection{\texorpdfstring{is\+Array}{is\+Array}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21064}
+▸ {\bfseries{is\+Array}}({\ttfamily input}, {\ttfamily message?})\+: asserts input is unknown\mbox{[}\mbox{]}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21065}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21065}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21066}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21066}
+asserts input is unknown\mbox{[}\mbox{]}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21067}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21067}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L128}{\texttt{ index.\+ts\+:128}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21068}{}\doxysubsubsection{\texorpdfstring{is\+Array\+Of\+Type}{is\+Array\+Of\+Type}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21068}
+▸ {\bfseries{is\+Array\+Of\+Type}}\texorpdfstring{$<$}{<}{\ttfamily T}\texorpdfstring{$>$}{>}({\ttfamily input}, {\ttfamily assertT}, {\ttfamily message?}, {\ttfamily item\+Message?})\+: asserts input is T\mbox{[}\mbox{]}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21069}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21069}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily T}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21070}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21070}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily assertT}   &\href{API.md\#assert}{\texttt{ {\ttfamily Assert}}}\texorpdfstring{$<$}{<}{\ttfamily unknown}, {\ttfamily T}\texorpdfstring{$>$}{>}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}    \\\cline{1-2}
+{\ttfamily item\+Message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21071}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21071}
+asserts input is T\mbox{[}\mbox{]}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21072}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21072}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L147}{\texttt{ index.\+ts\+:147}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21073}{}\doxysubsubsection{\texorpdfstring{is\+Boolean}{is\+Boolean}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21073}
+▸ {\bfseries{is\+Boolean}}({\ttfamily input}, {\ttfamily message?})\+: asserts input is boolean\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21074}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21074}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21075}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21075}
+asserts input is boolean\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21076}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21076}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L76}{\texttt{ index.\+ts\+:76}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21077}{}\doxysubsubsection{\texorpdfstring{is\+Date}{is\+Date}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21077}
+▸ {\bfseries{is\+Date}}({\ttfamily input}, {\ttfamily message?})\+: asserts input is Date\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21078}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21078}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21079}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21079}
+asserts input is Date\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21080}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21080}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L97}{\texttt{ index.\+ts\+:97}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21081}{}\doxysubsubsection{\texorpdfstring{is\+Exactly}{is\+Exactly}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21081}
+▸ {\bfseries{is\+Exactly}}\texorpdfstring{$<$}{<}{\ttfamily Input}, {\ttfamily Output}\texorpdfstring{$>$}{>}({\ttfamily input}, {\ttfamily value}, {\ttfamily message?})\+: asserts input is Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21082}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21082}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily Input}    \\\cline{1-1}
+{\ttfamily Output}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21083}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21083}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily Input}    \\\cline{1-2}
+{\ttfamily value}   &{\ttfamily Output}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21084}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21084}
+asserts input is Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21085}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21085}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L68}{\texttt{ index.\+ts\+:68}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21086}{}\doxysubsubsection{\texorpdfstring{is\+Instance\+Of}{is\+Instance\+Of}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21086}
+▸ {\bfseries{is\+Instance\+Of}}\texorpdfstring{$<$}{<}{\ttfamily T}\texorpdfstring{$>$}{>}({\ttfamily input}, {\ttfamily constructor}, {\ttfamily message?})\+: asserts input is T\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21087}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21087}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily T}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21088}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21088}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily constructor}   &(...{\ttfamily args}\+: {\ttfamily any}\mbox{[}\mbox{]}) =\texorpdfstring{$>$}{>} {\ttfamily T}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21089}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21089}
+asserts input is T\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21090}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21090}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L193}{\texttt{ index.\+ts\+:193}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21091}{}\doxysubsubsection{\texorpdfstring{is\+Never}{is\+Never}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21091}
+▸ {\bfseries{is\+Never}}({\ttfamily \+\_\+input}, {\ttfamily message?})\+: {\ttfamily never}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21092}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21092}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily \+\_\+input}   &{\ttfamily never}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21093}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21093}
+{\ttfamily never}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21094}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21094}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L40}{\texttt{ index.\+ts\+:40}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21095}{}\doxysubsubsection{\texorpdfstring{is\+Not\+Null}{is\+Not\+Null}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21095}
+▸ {\bfseries{is\+Not\+Null}}\texorpdfstring{$<$}{<}{\ttfamily T}\texorpdfstring{$>$}{>}({\ttfamily input}, {\ttfamily message?})\+: asserts input is T\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21096}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21096}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily T}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21097}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21097}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily null} $|$ {\ttfamily T}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21098}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21098}
+asserts input is T\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21099}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21099}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L47}{\texttt{ index.\+ts\+:47}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21100}{}\doxysubsubsection{\texorpdfstring{is\+Not\+Undefined}{is\+Not\+Undefined}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21100}
+▸ {\bfseries{is\+Not\+Undefined}}\texorpdfstring{$<$}{<}{\ttfamily T}\texorpdfstring{$>$}{>}({\ttfamily input}, {\ttfamily message?})\+: asserts input is T\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21101}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21101}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily T}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21102}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21102}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily undefined} $|$ {\ttfamily T}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21103}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21103}
+asserts input is T\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21104}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21104}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L54}{\texttt{ index.\+ts\+:54}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21105}{}\doxysubsubsection{\texorpdfstring{is\+Not\+Void}{is\+Not\+Void}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21105}
+▸ {\bfseries{is\+Not\+Void}}\texorpdfstring{$<$}{<}{\ttfamily T}\texorpdfstring{$>$}{>}({\ttfamily input}, {\ttfamily message?})\+: asserts input is Exclude\texorpdfstring{$<$}{<}T, undefined $|$ null $|$ void\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21106}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21106}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily T}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21107}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21107}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily T}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21108}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21108}
+asserts input is Exclude\texorpdfstring{$<$}{<}T, undefined $|$ null $|$ void\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21109}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21109}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L61}{\texttt{ index.\+ts\+:61}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21110}{}\doxysubsubsection{\texorpdfstring{is\+Number}{is\+Number}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21110}
+▸ {\bfseries{is\+Number}}({\ttfamily input}, {\ttfamily message?})\+: asserts input is number\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21111}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21111}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21112}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21112}
+asserts input is number\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21113}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21113}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L83}{\texttt{ index.\+ts\+:83}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21114}{}\doxysubsubsection{\texorpdfstring{is\+One\+Of}{is\+One\+Of}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21114}
+▸ {\bfseries{is\+One\+Of}}\texorpdfstring{$<$}{<}{\ttfamily Input}, {\ttfamily Output}\texorpdfstring{$>$}{>}({\ttfamily input}, {\ttfamily values}, {\ttfamily message?})\+: asserts input is Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21115}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21115}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily Input}    \\\cline{1-1}
+{\ttfamily Output}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21116}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21116}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily Input}    \\\cline{1-2}
+{\ttfamily values}   &readonly {\ttfamily Output}\mbox{[}\mbox{]}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21117}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21117}
+asserts input is Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21118}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21118}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L170}{\texttt{ index.\+ts\+:170}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21119}{}\doxysubsubsection{\texorpdfstring{is\+One\+Of\+Type}{is\+One\+Of\+Type}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21119}
+▸ {\bfseries{is\+One\+Of\+Type}}\texorpdfstring{$<$}{<}{\ttfamily T}\texorpdfstring{$>$}{>}({\ttfamily input}, {\ttfamily assertT}, {\ttfamily message?}, {\ttfamily item\+Message?})\+: asserts input is T\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21120}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21120}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily T}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21121}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21121}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily assertT}   &\href{API.md\#assert}{\texttt{ {\ttfamily Assert}}}\texorpdfstring{$<$}{<}{\ttfamily unknown}, {\ttfamily T}\texorpdfstring{$>$}{>}\mbox{[}\mbox{]}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}    \\\cline{1-2}
+{\ttfamily item\+Message?}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21122}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21122}
+asserts input is T\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21123}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21123}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L178}{\texttt{ index.\+ts\+:178}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21124}{}\doxysubsubsection{\texorpdfstring{is\+Option\+Of\+Type}{is\+Option\+Of\+Type}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21124}
+▸ {\bfseries{is\+Option\+Of\+Type}}\texorpdfstring{$<$}{<}{\ttfamily Input}, {\ttfamily Output}\texorpdfstring{$>$}{>}({\ttfamily input}, {\ttfamily assertT}, {\ttfamily message?})\+: asserts input is Sub\+Type\texorpdfstring{$<$}{<}Input, undefined\texorpdfstring{$>$}{>} $|$ Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21125}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21125}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily Input}    \\\cline{1-1}
+{\ttfamily Output}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21126}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21126}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily undefined} $|$ {\ttfamily Input}    \\\cline{1-2}
+{\ttfamily assertT}   &\href{API.md\#assert}{\texttt{ {\ttfamily Assert}}}\texorpdfstring{$<$}{<}{\ttfamily Input}, {\ttfamily Output}\texorpdfstring{$>$}{>}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21127}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21127}
+asserts input is Sub\+Type\texorpdfstring{$<$}{<}Input, undefined\texorpdfstring{$>$}{>} $|$ Sub\+Type\texorpdfstring{$<$}{<}Input, Output\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21128}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21128}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L159}{\texttt{ index.\+ts\+:159}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21129}{}\doxysubsubsection{\texorpdfstring{is\+Promise}{is\+Promise}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21129}
+▸ {\bfseries{is\+Promise}}({\ttfamily input}, {\ttfamily message?})\+: asserts input is Promise\texorpdfstring{$<$}{<}unknown\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21130}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21130}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21131}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21131}
+asserts input is Promise\texorpdfstring{$<$}{<}unknown\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21132}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21132}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L202}{\texttt{ index.\+ts\+:202}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21133}{}\doxysubsubsection{\texorpdfstring{is\+Record}{is\+Record}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21133}
+▸ {\bfseries{is\+Record}}({\ttfamily input}, {\ttfamily message?})\+: asserts input is Record\texorpdfstring{$<$}{<}string, unknown\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21134}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21134}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21135}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21135}
+asserts input is Record\texorpdfstring{$<$}{<}string, unknown\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21136}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21136}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L104}{\texttt{ index.\+ts\+:104}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21137}{}\doxysubsubsection{\texorpdfstring{is\+Record\+Of\+Type}{is\+Record\+Of\+Type}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21137}
+▸ {\bfseries{is\+Record\+Of\+Type}}\texorpdfstring{$<$}{<}{\ttfamily T}\texorpdfstring{$>$}{>}({\ttfamily input}, {\ttfamily assertT}, {\ttfamily message?}, {\ttfamily item\+Message?})\+: asserts input is Record\texorpdfstring{$<$}{<}string, T\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21138}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21138}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name    }\\\cline{1-1}
+\endhead
+{\ttfamily T}   \\\cline{1-1}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21139}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21139}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily assertT}   &\href{API.md\#assert}{\texttt{ {\ttfamily Assert}}}\texorpdfstring{$<$}{<}{\ttfamily unknown}, {\ttfamily T}\texorpdfstring{$>$}{>}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}    \\\cline{1-2}
+{\ttfamily item\+Message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21140}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21140}
+asserts input is Record\texorpdfstring{$<$}{<}string, T\texorpdfstring{$>$}{>}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21141}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21141}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L135}{\texttt{ index.\+ts\+:135}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21142}{}\doxysubsubsection{\texorpdfstring{is\+Record\+With\+Keys}{is\+Record\+With\+Keys}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21142}
+▸ {\bfseries{is\+Record\+With\+Keys}}\texorpdfstring{$<$}{<}{\ttfamily K}\texorpdfstring{$>$}{>}({\ttfamily input}, {\ttfamily keys}, {\ttfamily message?})\+: asserts input is \{ readonly \mbox{[}Key in string\mbox{]}\+: unknown \}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21143}{}\doxysubsubsubsection{\texorpdfstring{Type parameters}{Type parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21143}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily K}   &extends {\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21144}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21144}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily keys}   &{\ttfamily K}\mbox{[}\mbox{]}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21145}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21145}
+asserts input is \{ readonly \mbox{[}Key in string\mbox{]}\+: unknown \}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21146}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21146}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L115}{\texttt{ index.\+ts\+:115}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21147}{}\doxysubsubsection{\texorpdfstring{is\+String}{is\+String}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21147}
+▸ {\bfseries{is\+String}}({\ttfamily input}, {\ttfamily message?})\+: asserts input is string\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21148}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21148}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily input}   &{\ttfamily unknown}    \\\cline{1-2}
+{\ttfamily message}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21149}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21149}
+asserts input is string\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21150}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21150}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L90}{\texttt{ index.\+ts\+:90}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21151}{}\doxysubsubsection{\texorpdfstring{is\+Unknown}{is\+Unknown}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21151}
+▸ {\bfseries{is\+Unknown}}({\ttfamily \+\_\+input})\+: \+\_\+input is unknown\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21152}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21152}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily \+\_\+input}   &{\ttfamily unknown}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21153}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21153}
+\+\_\+input is unknown\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21154}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21154}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L36}{\texttt{ index.\+ts\+:36}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21155}{}\doxysubsubsection{\texorpdfstring{safe\+Json\+Parse}{safe\+Json\+Parse}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21155}
+▸ {\ttfamily Const} {\bfseries{safe\+Json\+Parse}}({\ttfamily json})\+: {\ttfamily unknown}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21156}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21156}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily json}   &{\ttfamily string}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21157}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21157}
+{\ttfamily unknown}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21158}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21158}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L33}{\texttt{ index.\+ts\+:33}}
+
+\DoxyHorRuler{0}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21159}{}\doxysubsubsection{\texorpdfstring{set\+Base\+Assert}{set\+Base\+Assert}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21159}
+▸ {\bfseries{set\+Base\+Assert}}({\ttfamily assert?})\+: {\ttfamily void}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21160}{}\doxysubsubsubsection{\texorpdfstring{Parameters}{Parameters}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21160}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Name   }&\cellcolor{\tableheadbgcolor}\textbf{ Type    }\\\cline{1-2}
+\endhead
+{\ttfamily assert?}   &\href{API.md\#weakassert}{\texttt{ {\ttfamily Weak\+Assert}}}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21161}{}\doxysubsubsubsection{\texorpdfstring{Returns}{Returns}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21161}
+{\ttfamily void}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21162}{}\doxysubsubsubsection{\texorpdfstring{Defined in}{Defined in}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2typed-assert_2_a_p_i_autotoc_md21162}
+\href{https://github.com/elierotenberg/typed-assert/blob/master/src/index.ts\#L27}{\texttt{ index.\+ts\+:27}} 

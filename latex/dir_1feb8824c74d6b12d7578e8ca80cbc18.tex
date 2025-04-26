@@ -1,0 +1,33 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/express/node\+\_\+modules/array-\/flatten Directory Reference}
+\hypertarget{dir_1feb8824c74d6b12d7578e8ca80cbc18}{}\label{dir_1feb8824c74d6b12d7578e8ca80cbc18}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/express/node\_modules/array-\/flatten Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/express/node\_modules/array-\/flatten Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://npmjs.org/package/array-flatten}{\texttt{ }} \href{https://npmjs.org/package/array-flatten}{\texttt{ }} \href{https://travis-ci.org/blakeembrey/array-flatten}{\texttt{ }} \href{https://coveralls.io/r/blakeembrey/array-flatten?branch=master}{\texttt{ }}
+
+\begin{quote}
+Flatten an array of nested arrays into a single flat array. Accepts an optional depth. \end{quote}
+\hypertarget{README.md_autotoc_md7166}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md7166}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ array-\/flatten\ -\/-\/save}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md7167}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md7167}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ flatten\ =\ require('array-\/flatten')}
+\DoxyCodeLine{}
+\DoxyCodeLine{flatten([1,\ [2,\ [3,\ [4,\ [5],\ 6],\ 7],\ 8],\ 9])}
+\DoxyCodeLine{//=>\ [1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9]}
+\DoxyCodeLine{}
+\DoxyCodeLine{flatten([1,\ [2,\ [3,\ [4,\ [5],\ 6],\ 7],\ 8],\ 9],\ 2)}
+\DoxyCodeLine{//=>\ [1,\ 2,\ 3,\ [4,\ [5],\ 6],\ 7,\ 8,\ 9]}
+\DoxyCodeLine{}
+\DoxyCodeLine{(function\ ()\ \{}
+\DoxyCodeLine{\ \ flatten(arguments)\ //=>\ [1,\ 2,\ 3]}
+\DoxyCodeLine{\})(1,\ [2,\ 3])}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md7168}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md7168}
+MIT 

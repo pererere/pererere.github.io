@@ -1,0 +1,40 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@npmcli/agent Directory Reference}
+\hypertarget{dir_42ca380b1fcd6f22340248d9d9aea4e7}{}\label{dir_42ca380b1fcd6f22340248d9d9aea4e7}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@npmcli/agent Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@npmcli/agent Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+A pair of Agent implementations for nodejs that provide consistent keep-\/alives, granular timeouts, dns caching, and proxy support.\hypertarget{README.md_autotoc_md1505}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md1505}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ getAgent,\ HttpAgent\ \}\ =\ require('@npmcli/agent')}
+\DoxyCodeLine{const\ fetch\ =\ require('minipass-\/fetch')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ main\ =\ async\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ //\ if\ you\ know\ what\ agent\ you\ need,\ you\ can\ create\ one\ directly}
+\DoxyCodeLine{\ \ \ \ const\ agent\ =\ new\ HttpAgent(agentOptions)}
+\DoxyCodeLine{\ \ \ \ //\ or\ you\ can\ use\ the\ getAgent\ helper,\ it\ will\ determine\ and\ create\ an\ Agent}
+\DoxyCodeLine{\ \ \ \ //\ instance\ for\ you\ as\ well\ as\ reuse\ that\ agent\ for\ new\ requests\ as\ appropriate}
+\DoxyCodeLine{\ \ \ \ const\ agent\ =\ getAgent('https://registry.npmjs.org/npm',\ agentOptions)}
+\DoxyCodeLine{\ \ \ \ //\ minipass-\/fetch\ is\ just\ an\ example,\ this\ will\ work\ for\ any\ http\ client\ that}
+\DoxyCodeLine{\ \ \ \ //\ supports\ node's\ Agents}
+\DoxyCodeLine{\ \ \ \ const\ res\ =\ await\ fetch('https://registry.npmjs.org/npm',\ \{\ agent\ \})}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{main()}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1506}{}\doxysubsubsection{\texorpdfstring{Options}{Options}}\label{README.md_autotoc_md1506}
+All options supported by the node Agent implementations are supported here, see \href{https://nodejs.org/api/http.html\#new-agentoptions}{\texttt{ the docs}} for those.
+
+Options that have been added by this module include\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily family}\+: what tcp family to use, can be {\ttfamily 4} for IPv4, {\ttfamily 6} for IPv6 or {\ttfamily 0} for both.
+\item {\ttfamily proxy}\+: a URL to a supported proxy, currently supports {\ttfamily HTTP CONNECT} based http/https proxies as well as socks4 and 5.
+\item {\ttfamily dns}\+: configuration for the built-\/in dns cache
+\begin{DoxyItemize}
+\item {\ttfamily ttl}\+: how long (in milliseconds) to keep cached dns entries, defaults to {\ttfamily 5 \texorpdfstring{$\ast$}{*} 60 \texorpdfstring{$\ast$}{*} 100 (5 minutes)}
+\item {\ttfamily lookup}\+: optional function to override how dns lookups are performed, defaults to `require(\textquotesingle{}dns').lookup{\ttfamily  -\/}timeouts{\ttfamily \+: a set of granular timeouts, all default to}0{\ttfamily  -\/}connection{\ttfamily \+: time between initiating connection and actually connecting -\/}idle{\ttfamily \+: time between data packets (if a top level}timeout{\ttfamily is provided, it will be copied here) -\/}response{\ttfamily \+: time between sending a request and receiving a response -\/}transfer\`{}\+: time between starting to receive a request and consuming the response fully 
+\end{DoxyItemize}
+\end{DoxyItemize}

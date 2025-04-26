@@ -1,0 +1,41 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/defaults Directory Reference}
+\hypertarget{dir_62b64fb7b7591cbfbcb762d08ac0c25d}{}\label{dir_62b64fb7b7591cbfbcb762d08ac0c25d}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/defaults Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/defaults Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+A simple one level options merge utility \end{quote}
+\hypertarget{README.md_autotoc_md5529}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md5529}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ defaults}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5530}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md5530}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ defaults\ =\ require('defaults');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ handle\ =\ (options,\ fn)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ options\ =\ defaults(options,\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ timeout:\ 100}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ setTimeout(()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ fn(options);}
+\DoxyCodeLine{\ \ \ \ \},\ options.timeout);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{handle(\{timeout:\ 1000\},\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ //\ We're\ here\ 1000\ ms\ later}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{handle(\{timeout:\ 10000\},\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ //\ We're\ here\ 10s\ later}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5531}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{README.md_autotoc_md5531}
+this module exports a function that takes 2 arguments\+: {\ttfamily options} and {\ttfamily defaults}. When called, it overrides all of {\ttfamily undefined} properties in {\ttfamily options} with the clones of properties defined in {\ttfamily defaults}
+
+Sidecases\+: if called with a falsy {\ttfamily options} value, options will be initialized to a new object before being merged onto. 

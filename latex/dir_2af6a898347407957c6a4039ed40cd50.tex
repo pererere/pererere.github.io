@@ -1,0 +1,84 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/grunt.html.\+injection Directory Reference}
+\hypertarget{dir_2af6a898347407957c6a4039ed40cd50}{}\label{dir_2af6a898347407957c6a4039ed40cd50}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/grunt.html.injection Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/grunt.html.injection Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Grunt, SASS, HTML/\+CSS injection example\hypertarget{readme.md_autotoc_md3503}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3503}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/grunt.html.injection}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3504}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3504}
+To see the live HTML injecting, along with CSS injection, simply perform changes to either {\ttfamily index.\+html} or {\ttfamily css/main.\+css}\hypertarget{readme.md_autotoc_md3505}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily Gruntfile.\+js}\+:}{Preview of {\ttfamily Gruntfile.\+js}\+:}}\label{readme.md_autotoc_md3505}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ This\ shows\ a\ full\ config\ file!}
+\DoxyCodeLine{module.exports\ =\ function\ (grunt)\ \{}
+\DoxyCodeLine{\ \ \ \ grunt.initConfig(\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ watch:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ files:\ 'app/scss/**/*.scss',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ tasks:\ ['bsReload:css']}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ sass:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dev:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ files:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 'app/css/main.css':\ 'app/scss/main.scss'}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ browserSync:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dev:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ watchTask:\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ server:\ './app',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plugins:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ module:\ "{}bs-\/html-\/injector"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ options:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ files:\ "{}./app/*.html"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ bsReload:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ css:\ "{}main.css"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ load\ npm\ tasks}
+\DoxyCodeLine{\ \ \ \ grunt.loadNpmTasks('grunt-\/contrib-\/sass');}
+\DoxyCodeLine{\ \ \ \ grunt.loadNpmTasks('grunt-\/contrib-\/watch');}
+\DoxyCodeLine{\ \ \ \ grunt.loadNpmTasks('grunt-\/browser-\/sync');}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ define\ default\ task}
+\DoxyCodeLine{\ \ \ \ grunt.registerTask('default',\ ['browserSync',\ 'watch']);}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ 

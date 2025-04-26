@@ -1,0 +1,102 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/express/node\+\_\+modules/encodeurl Directory Reference}
+\hypertarget{dir_aa231b246a4ec282630f2a2c9b8907b9}{}\label{dir_aa231b246a4ec282630f2a2c9b8907b9}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/express/node\_modules/encodeurl Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/express/node\_modules/encodeurl Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Encode a URL to a percent-\/encoded form, excluding already-\/encoded sequences.\hypertarget{README.md_autotoc_md7233}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md7233}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ encodeurl}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md7234}{}\doxysubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md7234}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ encodeUrl\ =\ require('encodeurl')}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md7235}{}\doxysubsubsection{\texorpdfstring{encode\+Url(url)}{encode\+Url(url)}}\label{README.md_autotoc_md7235}
+Encode a URL to a percent-\/encoded form, excluding already-\/encoded sequences.
+
+This function accepts a URL and encodes all the non-\/\+URL code points (as UTF-\/8 byte sequences). It will not encode the "{}\%"{} character unless it is not part of a valid sequence ({\ttfamily \%20} will be left as-\/is, but {\ttfamily foo} will be encoded as {\ttfamily \%25foo}).
+
+This encode is meant to be "{}safe"{} and does not throw errors. It will try as hard as it can to properly encode the given URL, including replacing any raw, unpaired surrogate pairs with the Unicode replacement character prior to encoding.\hypertarget{README.md_autotoc_md7236}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{README.md_autotoc_md7236}
+\hypertarget{README.md_autotoc_md7237}{}\doxysubsubsection{\texorpdfstring{Encode a URL containing user-\/controlled data}{Encode a URL containing user-\/controlled data}}\label{README.md_autotoc_md7237}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ encodeUrl\ =\ require('encodeurl')}
+\DoxyCodeLine{var\ escapeHtml\ =\ require('escape-\/html')}
+\DoxyCodeLine{}
+\DoxyCodeLine{http.createServer(function\ onRequest\ (req,\ res)\ \{}
+\DoxyCodeLine{\ \ //\ get\ encoded\ form\ of\ inbound\ url}
+\DoxyCodeLine{\ \ var\ url\ =\ encodeUrl(req.url)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ create\ html\ message}
+\DoxyCodeLine{\ \ var\ body\ =\ '<p>Location\ '\ +\ escapeHtml(url)\ +\ '\ not\ found</p>'}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ send\ a\ 404}
+\DoxyCodeLine{\ \ res.statusCode\ =\ 404}
+\DoxyCodeLine{\ \ res.setHeader('Content-\/Type',\ 'text/html;\ charset=UTF-\/8')}
+\DoxyCodeLine{\ \ res.setHeader('Content-\/Length',\ String(Buffer.byteLength(body,\ 'utf-\/8')))}
+\DoxyCodeLine{\ \ res.end(body,\ 'utf-\/8')}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md7238}{}\doxysubsubsection{\texorpdfstring{Encode a URL for use in a header field}{Encode a URL for use in a header field}}\label{README.md_autotoc_md7238}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ encodeUrl\ =\ require('encodeurl')}
+\DoxyCodeLine{var\ escapeHtml\ =\ require('escape-\/html')}
+\DoxyCodeLine{var\ url\ =\ require('url')}
+\DoxyCodeLine{}
+\DoxyCodeLine{http.createServer(function\ onRequest\ (req,\ res)\ \{}
+\DoxyCodeLine{\ \ //\ parse\ inbound\ url}
+\DoxyCodeLine{\ \ var\ href\ =\ url.parse(req)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ set\ new\ host\ for\ redirect}
+\DoxyCodeLine{\ \ href.host\ =\ 'localhost'}
+\DoxyCodeLine{\ \ href.protocol\ =\ 'https:'}
+\DoxyCodeLine{\ \ href.slashes\ =\ true}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ create\ location\ header}
+\DoxyCodeLine{\ \ var\ location\ =\ encodeUrl(url.format(href))}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ create\ html\ message}
+\DoxyCodeLine{\ \ var\ body\ =\ '<p>Redirecting\ to\ new\ site:\ '\ +\ escapeHtml(location)\ +\ '</p>'}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ send\ a\ 301}
+\DoxyCodeLine{\ \ res.statusCode\ =\ 301}
+\DoxyCodeLine{\ \ res.setHeader('Content-\/Type',\ 'text/html;\ charset=UTF-\/8')}
+\DoxyCodeLine{\ \ res.setHeader('Content-\/Length',\ String(Buffer.byteLength(body,\ 'utf-\/8')))}
+\DoxyCodeLine{\ \ res.setHeader('Location',\ location)}
+\DoxyCodeLine{\ \ res.end(body,\ 'utf-\/8')}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md7239}{}\doxysubsection{\texorpdfstring{Similarities}{Similarities}}\label{README.md_autotoc_md7239}
+This function is {\itshape similar} to the intrinsic function {\ttfamily encode\+URI}. However, it will not encode\+:
+
+
+\begin{DoxyItemize}
+\item The {\ttfamily \textbackslash{}}, {\ttfamily \texorpdfstring{$^\wedge$}{\string^}}, or {\ttfamily \texorpdfstring{$\vert$}{|}} characters
+\item The {\ttfamily \%} character when it\textquotesingle{}s part of a valid sequence
+\item {\ttfamily \mbox{[}} and {\ttfamily \mbox{]}} (for IPv6 hostnames)
+\item Replaces raw, unpaired surrogate pairs with the Unicode replacement character
+\end{DoxyItemize}
+
+As a result, the encoding aligns closely with the behavior in the \href{https://url.spec.whatwg.org/}{\texttt{ WHATWG URL specification}}. However, this package only encodes strings and does not do any URL parsing or formatting.
+
+It is expected that any output from {\ttfamily new URL(url)} will not change when used with this package, as the output has already been encoded. Additionally, if we were to encode before {\ttfamily new URL(url)}, we do not expect the before and after encoded formats to be parsed any differently.\hypertarget{README.md_autotoc_md7240}{}\doxysubsection{\texorpdfstring{Testing}{Testing}}\label{README.md_autotoc_md7240}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ test}
+\DoxyCodeLine{\$\ npm\ run\ lint}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md7241}{}\doxysubsection{\texorpdfstring{References}{References}}\label{README.md_autotoc_md7241}
+
+\begin{DoxyItemize}
+\item \href{https://tools.ietf.org/html/rfc3986}{\texttt{ RFC 3986\+: Uniform Resource Identifier (URI)\+: Generic Syntax}}
+\item \href{https://url.spec.whatwg.org/}{\texttt{ WHATWG URL Living Standard}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md7242}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md7242}
+\mbox{[}MIT\mbox{]}(LICENSE) 

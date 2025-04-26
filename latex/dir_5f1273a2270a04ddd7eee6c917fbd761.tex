@@ -1,0 +1,374 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/rx Directory Reference}
+\hypertarget{dir_5f1273a2270a04ddd7eee6c917fbd761}{}\label{dir_5f1273a2270a04ddd7eee6c917fbd761}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/rx Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/rx Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\mbox{[}!\mbox{[}Build Status\mbox{]}(\href{https://travis-ci.org/Reactive-Extensions/RxJS.svg}{\texttt{ https\+://travis-\/ci.\+org/\+Reactive-\/\+Extensions/\+Rx\+JS.\+svg}})\mbox{]}(\href{https://travis-ci.org/Reactive-Extensions/RxJS}{\texttt{ https\+://travis-\/ci.\+org/\+Reactive-\/\+Extensions/\+Rx\+JS}}) \href{https://github.com/Reactive-Extensions/RxJS}{\texttt{ }} \href{https://www.npmjs.com/package/rx}{\texttt{ }} \href{https://www.npmjs.com/package/rx}{\texttt{ }} \href{http://bower.io/search/?q=rxjs}{\texttt{ }} \href{http://www.nuget.org/packages/RxJS-All/}{\texttt{ }} \href{https://gitter.im/Reactive-Extensions/RxJS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge}{\texttt{ }}
+
+{\bfseries{The Need to go Reactive}} \texorpdfstring{$\vert$}{|} {\bfseries{About the Reactive Extensions}} \texorpdfstring{$\vert$}{|} {\bfseries{Batteries Included}} \texorpdfstring{$\vert$}{|} {\bfseries{Why Rx\+JS?}} \texorpdfstring{$\vert$}{|} {\bfseries{Dive In!}} \texorpdfstring{$\vert$}{|} {\bfseries{Resources}} \texorpdfstring{$\vert$}{|} {\bfseries{Getting Started}} \texorpdfstring{$\vert$}{|} {\bfseries{What about my libraries?}} \texorpdfstring{$\vert$}{|} {\bfseries{Compatibility}} \texorpdfstring{$\vert$}{|} {\bfseries{\doxylink{README.md_contributing}{Contributing}}} \texorpdfstring{$\vert$}{|} {\bfseries{\doxylink{README.md_license}{License}}}\hypertarget{readme.md_autotoc_md17881}{}\doxysubsection{\texorpdfstring{The Reactive Extensions for Java\+Script (Rx\+JS) \textsuperscript{4.\+0}...}{The Reactive Extensions for Java\+Script (Rx\+JS) \textsuperscript{4.\+0}...}}\label{readme.md_autotoc_md17881}
+{\itshape ...is a set of libraries to compose asynchronous and event-\/based programs using observable collections and \href{http://blogs.msdn.com/b/ie/archive/2010/12/13/ecmascript-5-part-2-array-extras.aspx}{\texttt{ Array\#extras}} style composition in Java\+Script}
+
+The project is actively developed by \href{https://microsoft.com/}{\texttt{ Microsoft}}, in collaboration with a community of open source developers.\hypertarget{readme.md_autotoc_md17882}{}\doxysubsubsection{\texorpdfstring{The Need to go Reactive}{The Need to go Reactive}}\label{readme.md_autotoc_md17882}
+Applications, especially on the web have changed over the years from being a simple static page, to DHTML with animations, to the Ajax revolution. Each time, we\textquotesingle{}re adding more complexity, more data, and asynchronous behavior to our applications. How do we manage it all? How do we scale it? By moving towards "{}\+Reactive Architectures"{} which are event-\/driven, resilient and responsive. With the Reactive Extensions, you have all the tools you need to help build these systems.\hypertarget{readme.md_autotoc_md17883}{}\doxysubsubsection{\texorpdfstring{About the Reactive Extensions}{About the Reactive Extensions}}\label{readme.md_autotoc_md17883}
+The Reactive Extensions for Java\+Script (Rx\+JS) is a set of libraries for composing asynchronous and event-\/based programs using observable sequences and fluent query operators that many of you already know by \href{http://blogs.msdn.com/b/ie/archive/2010/12/13/ecmascript-5-part-2-array-extras.aspx}{\texttt{ Array\#extras}} in Java\+Script. Using Rx\+JS, developers represent asynchronous data streams with Observables, query asynchronous data streams using our many operators, and parameterize the concurrency in the asynchronous data streams using Schedulers. Simply put, Rx\+JS = Observables + Operators + Schedulers.
+
+Whether you are authoring a web-\/based application in Java\+Script or a server-\/side application in Node.\+js, you have to deal with asynchronous and event-\/based programming. Although some patterns are emerging such as the Promise pattern, handling exceptions, cancellation, and synchronization is difficult and error-\/prone.
+
+Using Rx\+JS, you can represent multiple asynchronous data streams (that come from diverse sources, e.\+g., stock quote, tweets, computer events, web service requests, etc.), and subscribe to the event stream using the Observer object. The Observable notifies the subscribed Observer instance whenever an event occurs.
+
+Because observable sequences are data streams, you can query them using standard query operators implemented by the Observable type. Thus you can filter, project, aggregate, compose and perform time-\/based operations on multiple events easily by using these operators. In addition, there are a number of other reactive stream specific operators that allow powerful queries to be written. Cancellation, exceptions, and synchronization are also handled gracefully by using the methods on the Observable object.
+
+But the best news of all is that you already know how to program like this. Take for example the following Java\+Script code, where we get some stock data and then manipulate and iterate the results.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/*\ Get\ stock\ data\ somehow\ */}
+\DoxyCodeLine{const\ source\ =\ getAsyncStockData();}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ subscription\ =\ source}
+\DoxyCodeLine{\ \ .filter(quote\ =>\ quote.price\ >\ 30)}
+\DoxyCodeLine{\ \ .map(quote\ =>\ quote.price)}
+\DoxyCodeLine{\ \ .forEach(price\ =>\ console.log(`Prices\ higher\ than\ \$30:\ \$\{price\}`);}
+
+\end{DoxyCode}
+
+
+Now what if this data were to come as some sort of event, for example a stream, such as a Web\+Socket? Then we could pretty much write the same query to iterate our data, with very little change.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/*\ Get\ stock\ data\ somehow\ */}
+\DoxyCodeLine{const\ source\ =\ getAsyncStockData();}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ subscription\ =\ source}
+\DoxyCodeLine{\ \ .filter(quote\ =>\ quote.price\ >\ 30)}
+\DoxyCodeLine{\ \ .map(quote\ =>\ quote.price)}
+\DoxyCodeLine{\ \ .subscribe(}
+\DoxyCodeLine{\ \ \ \ price\ =>\ console.log(`Prices\ higher\ than\ \$30:\ \$\{price\}`),}
+\DoxyCodeLine{\ \ \ \ err\ =>\ console.log(`Something\ went\ wrong:\ \$\{err.message\}`);}
+\DoxyCodeLine{\ \ );}
+\DoxyCodeLine{}
+\DoxyCodeLine{/*\ When\ we're\ done\ */}
+\DoxyCodeLine{subscription.dispose();}
+
+\end{DoxyCode}
+
+
+The only difference is that we can handle the errors inline with our subscription. And when we\textquotesingle{}re no longer interested in receiving the data as it comes streaming in, we call {\ttfamily dispose} on our subscription. Note the use of {\ttfamily subscribe} instead of {\ttfamily for\+Each}. We could also use {\ttfamily for\+Each} which is an alias for {\ttfamily subscribe} but we highly suggest you use {\ttfamily subscribe}.\hypertarget{readme.md_autotoc_md17884}{}\doxysubsubsection{\texorpdfstring{Batteries Included}{Batteries Included}}\label{readme.md_autotoc_md17884}
+Sure, there are a lot of libraries to get started with Rx\+JS. Confused on where to get started? Start out with the complete set of operators with {\ttfamily rx.all.js}, then you can reduce it to the number of operators that you really need, and perhaps stick with something as small as {\ttfamily rx.lite.js}. If you\textquotesingle{}re an implementor of Rx\+JS, then you can start out with {\ttfamily rx.core.js}.
+
+This set of libraries include\+:\hypertarget{readme.md_autotoc_md17885}{}\doxysubsubsubsection{\texorpdfstring{The complete library\+:}{The complete library\+:}}\label{readme.md_autotoc_md17885}
+
+\begin{DoxyItemize}
+\item {\ttfamily rx.all.js}
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md17886}{}\doxysubsubsubsection{\texorpdfstring{Main Libraries\+:}{Main Libraries\+:}}\label{readme.md_autotoc_md17886}
+
+\begin{DoxyItemize}
+\item {\ttfamily rx.js}
+\item {\ttfamily rx.aggregates.js}
+\item {\ttfamily rx.async.js}
+\item {\ttfamily rx.binding.js}
+\item {\ttfamily rx.coincidence.js}
+\item {\ttfamily rx.experimental.js}
+\item {\ttfamily rx.joinpatterns.js}
+\item {\ttfamily rx.testing.js}
+\item {\ttfamily rx.time.js}
+\item {\ttfamily rx.virtualtime.js}
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md17887}{}\doxysubsubsubsection{\texorpdfstring{Lite Libraries\+:}{Lite Libraries\+:}}\label{readme.md_autotoc_md17887}
+
+\begin{DoxyItemize}
+\item {\ttfamily rx.lite.js}
+\item {\ttfamily rx.lite.extras.js}
+\item {\ttfamily rx.lite.aggregates.js}
+\item {\ttfamily rx.lite.async.js}
+\item {\ttfamily rx.lite.coincidence.js}
+\item {\ttfamily rx.lite.experimental.js}
+\item {\ttfamily rx.lite.joinpatterns.js}
+\item {\ttfamily rx.lite.testing.js}
+\item {\ttfamily rx.lite.time.js}
+\item {\ttfamily rx.lite.virtualtime.js}
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md17888}{}\doxysubsubsubsection{\texorpdfstring{Core Libraries\+:}{Core Libraries\+:}}\label{readme.md_autotoc_md17888}
+
+\begin{DoxyItemize}
+\item {\ttfamily rx.core.js}
+\item {\ttfamily rx.core.binding.js}
+\item {\ttfamily rx.core.testing.js}
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md17889}{}\doxysubsubsection{\texorpdfstring{Why Rx\+JS?}{Why Rx\+JS?}}\label{readme.md_autotoc_md17889}
+One question you may ask yourself is why Rx\+JS? What about Promises? Promises are good for solving asynchronous operations such as querying a service with an XMLHttp\+Request, where the expected behavior is one value and then completion. Reactive Extensions for Java\+Script unify both the world of Promises, callbacks as well as evented data such as DOM Input, Web Workers, and Web Sockets. Unifying these concepts enables rich composition.
+
+To give you an idea about rich composition, we can create an autocompletion service which takes user input from a text input and then throttles queries a service (to avoid flooding the service with calls for every key stroke).
+
+First, we\textquotesingle{}ll reference the Java\+Script files, including j\+Query, although Rx\+JS has no dependencies on j\+Query... 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<script\ src="{}https://code.jquery.com/jquery.js"{}></script>}
+\DoxyCodeLine{<script\ src="{}rx.lite.js"{}></script>}
+
+\end{DoxyCode}
+ Next, we\textquotesingle{}ll get the user input from an input, listening to the keyup event by using the {\ttfamily Rx.\+Observable.\+from\+Event} method. This will either use the event binding from \href{http://jquery.com}{\texttt{ j\+Query}}, \href{http://zeptojs.com/}{\texttt{ Zepto}}, \href{https://angularjs.org/}{\texttt{ Angular\+JS}}, \href{http://backbonejs.org/}{\texttt{ Backbone.\+js}} and \href{http://emberjs.com/}{\texttt{ Ember.\+js}} if available, and if not, falls back to the native event binding. This gives you consistent ways of thinking of events depending on your framework, so there are no surprises.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \$input\ =\ \$('\#input');}
+\DoxyCodeLine{const\ \$results\ =\ \$('\#results');}
+\DoxyCodeLine{}
+\DoxyCodeLine{/*\ Only\ get\ the\ value\ from\ each\ key\ up\ */}
+\DoxyCodeLine{var\ keyups\ =\ Rx.Observable.fromEvent(\$input,\ 'keyup')}
+\DoxyCodeLine{\ \ .pluck('target',\ 'value')}
+\DoxyCodeLine{\ \ .filter(text\ =>\ text.length\ >\ 2\ );}
+\DoxyCodeLine{}
+\DoxyCodeLine{/*\ Now\ debounce\ the\ input\ for\ 500ms\ */}
+\DoxyCodeLine{var\ debounced\ =\ keyups}
+\DoxyCodeLine{\ \ .debounce(500\ /*\ ms\ */);}
+\DoxyCodeLine{}
+\DoxyCodeLine{/*\ Now\ get\ only\ distinct\ values,\ so\ we\ eliminate\ the\ arrows\ and\ other\ control\ characters\ */}
+\DoxyCodeLine{var\ distinct\ =\ debounced}
+\DoxyCodeLine{\ \ .distinctUntilChanged();}
+
+\end{DoxyCode}
+
+
+Now, let\textquotesingle{}s query Wikipedia! In Rx\+JS, we can instantly bind to any \href{https://github.com/promises-aplus/promises-spec}{\texttt{ Promises A+}} implementation through the {\ttfamily Rx.\+Observable.\+from\+Promise} method. Or, directly return it and Rx\+JS will wrap it for you.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{function\ searchWikipedia\ (term)\ \{}
+\DoxyCodeLine{\ \ return\ \$.ajax(\{}
+\DoxyCodeLine{\ \ \ \ url:\ 'https://en.wikipedia.org/w/api.php',}
+\DoxyCodeLine{\ \ \ \ dataType:\ 'jsonp',}
+\DoxyCodeLine{\ \ \ \ data:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ action:\ 'opensearch',}
+\DoxyCodeLine{\ \ \ \ \ \ format:\ 'json',}
+\DoxyCodeLine{\ \ \ \ \ \ search:\ term}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}).promise();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Once that is created, we can tie together the distinct throttled input and query the service. In this case, we\textquotesingle{}ll call {\ttfamily flat\+Map\+Latest} to get the value and ensure we\textquotesingle{}re not introducing any out of order sequence calls.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ suggestions\ =\ distinct}
+\DoxyCodeLine{\ \ .flatMapLatest(searchWikipedia);}
+
+\end{DoxyCode}
+
+
+Finally, we call the {\ttfamily subscribe} method on our observable sequence to start pulling data.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{suggestions.subscribe(}
+\DoxyCodeLine{\ \ data\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \$results}
+\DoxyCodeLine{\ \ \ \ \ \ .empty()}
+\DoxyCodeLine{\ \ \ \ \ \ .append(\$.map(data[1],\ value\ =>\ \ \$('<li>').text(value)))}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ error=>\ \{}
+\DoxyCodeLine{\ \ \ \ \$results}
+\DoxyCodeLine{\ \ \ \ \ \ .empty()}
+\DoxyCodeLine{\ \ \ \ \ \ .append(\$('<li>'))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .text('Error:'\ +\ error);}
+\DoxyCodeLine{\ \ \});}
+
+\end{DoxyCode}
+
+
+And there you have it!\hypertarget{readme.md_autotoc_md17890}{}\doxysubsubsection{\texorpdfstring{Dive In!}{Dive In!}}\label{readme.md_autotoc_md17890}
+Please check out\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/Reactive-Extensions/RxJS/tree/master/code-of-conduct.md}{\texttt{ Our Code of Conduct}}
+\item \href{https://github.com/Reactive-Extensions/RxJS/tree/master/doc}{\texttt{ The full documentation}}
+\item \href{https://github.com/Reactive-Extensions/RxJS/tree/master/examples}{\texttt{ Our many great examples}}
+\item \href{https://github.com/Reactive-Extensions/RxJS/tree/master/doc/designguidelines}{\texttt{ Our design guidelines}}
+\item \href{https://github.com/Reactive-Extensions/RxJS/tree/master/contributing.md}{\texttt{ Our contribution guidelines}}
+\item \href{https://github.com/Reactive-Extensions/RxJS/tree/master/tests}{\texttt{ Our complete Unit Tests}}
+\item \href{https://github.com/Reactive-Extensions/RxJS/wiki/Recipes}{\texttt{ Our recipes}}
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md17891}{}\doxysubsubsection{\texorpdfstring{Resources}{Resources}}\label{readme.md_autotoc_md17891}
+
+\begin{DoxyItemize}
+\item Contact us
+\begin{DoxyItemize}
+\item \href{https://twitter.com/ReactiveX}{\texttt{ Twitter @\+ReactiveX}}
+\item \href{https://gitter.im/Reactive-Extensions/RxJS}{\texttt{ Gitter.\+im}}
+\item \href{http://stackoverflow.com/questions/tagged/rxjs}{\texttt{ Stack\+Overflow rxjs}}
+\end{DoxyItemize}
+\item Tutorials
+\begin{DoxyItemize}
+\item \href{https://gist.github.com/staltz/868e7e9bc2a7b8c1f754}{\texttt{ The introduction to Reactive Programming you\textquotesingle{}ve been missing}}
+\item \href{https://medium.com/@andrestaltz/2-minute-introduction-to-rx-24c8ca793877}{\texttt{ 2 minute introduction to Rx}}
+\item \href{https://github.com/jhusain/learnrx}{\texttt{ Learn Rx\+JS -\/ @jhusain}}
+\item \href{https://github.com/Reactive-Extensions/RxJSKoans}{\texttt{ Rx\+JS Koans}}
+\item \href{https://github.com/Reactive-Extensions/BuildStuffWorkshop}{\texttt{ Rx\+JS Workshop from Build\+Stuff 2014}}
+\item \href{http://rxworkshop.codeplex.com/}{\texttt{ Rx Workshop}}
+\item \href{http://aaronstacy.com/writings/reactive-programming-and-mvc/}{\texttt{ Reactive Programming and MVC}}
+\item \href{https://egghead.io/technologies/rx}{\texttt{ Rx\+JS lessons -\/ egghead.\+io}}
+\item \href{https://github.com/staltz/rxjs-training}{\texttt{ Rx\+JS Training -\/ @andrestaltz}}
+\end{DoxyItemize}
+\item Reference Material
+\begin{DoxyItemize}
+\item \href{http://rxmarbles.com/}{\texttt{ Rx Marbles}}
+\item \href{http://xgrommx.github.io/rx-book//}{\texttt{ Rx\+JS Git\+Book}}
+\item \href{http://introtorx.com/}{\texttt{ Intro to Rx}}
+\item \href{http://rxwiki.wikidot.com/101samples}{\texttt{ 101 Rx Samples Wiki}}
+\item \href{https://github.com/Reactive-Extensions/RxJS/tree/master/doc/designguidelines}{\texttt{ Rx\+JS Design Guidelines}}
+\item \href{http://jaredforsyth.com/2015/03/06/visualizing-reactive-streams-hot-and-cold/}{\texttt{ Visualizing Reactive Streams}}
+\item \href{http://queue.acm.org/detail.cfm?id=2169076}{\texttt{ Your Mouse is a Database}}
+\end{DoxyItemize}
+\item Essential tools
+\begin{DoxyItemize}
+\item \href{http://jaredforsyth.com/rxvision/}{\texttt{ Rx\+Vision}}
+\item \href{https://github.com/grisendo/Percussion}{\texttt{ Percussion}}
+\end{DoxyItemize}
+\item Books
+\begin{DoxyItemize}
+\item \href{http://xgrommx.github.io/rx-book/}{\texttt{ Rx\+JS}}
+\item \href{http://www.amazon.com/Introduction-to-Rx-ebook/dp/B008GM3YPM/}{\texttt{ Intro to Rx}}
+\item \href{http://www.amazon.com/Programming-Reactive-Extensions-Jesse-Liberty/dp/1430237473/}{\texttt{ Programming Reactive Extensions and LINQ}}
+\item \href{https://pragprog.com/book/smreactjs/reactive-programming-with-rxjs}{\texttt{ Reactive Programming with Rx\+JS}}
+\end{DoxyItemize}
+\item Community Examples
+\item Presentations
+\item Videos and Podcasts
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md17892}{}\doxysubsubsection{\texorpdfstring{Getting Started}{Getting Started}}\label{readme.md_autotoc_md17892}
+There are a number of ways to get started with Rx\+JS. The files are available on \href{http://cdnjs.com/libraries/rxjs/}{\texttt{ cdnjs}} and \href{http://www.jsdelivr.com/\#!rxjs}{\texttt{ js\+Delivr}}.\hypertarget{readme.md_autotoc_md17893}{}\doxysubsubsubsection{\texorpdfstring{Download the Source}{Download the Source}}\label{readme.md_autotoc_md17893}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/Reactive-\/Extensions/rxjs.git}
+\DoxyCodeLine{cd\ ./rxjs}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17894}{}\doxysubsubsubsection{\texorpdfstring{Installing with \href{https://www.npmjs.com/}{\texttt{ NPM}}}{Installing with \href{https://www.npmjs.com/}{\texttt{ NPM}}}}\label{readme.md_autotoc_md17894}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \`{}}
+\DoxyCodeLine{\$\ npm\ install\ rx}
+\DoxyCodeLine{\$\ npm\ install\ -\/g\ rx}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17895}{}\doxysubsubsubsection{\texorpdfstring{Using with Node.\+js and Ringo.\+js}{Using with Node.\+js and Ringo.\+js}}\label{readme.md_autotoc_md17895}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ Rx\ =\ require('rx');}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17896}{}\doxysubsubsubsection{\texorpdfstring{Installing with \href{http://bower.io/}{\texttt{ Bower}}}{Installing with \href{http://bower.io/}{\texttt{ Bower}}}}\label{readme.md_autotoc_md17896}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ bower\ install\ rxjs}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17897}{}\doxysubsubsubsection{\texorpdfstring{Installing with \href{http://jamjs.org/}{\texttt{ Jam}}}{Installing with \href{http://jamjs.org/}{\texttt{ Jam}}}}\label{readme.md_autotoc_md17897}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ jam\ install\ rx}
+
+\end{DoxyCode}
+ \hypertarget{readme.md_autotoc_md17898}{}\doxysubsubsubsection{\texorpdfstring{Installing All of Rx\+JS via \href{http://www.nuget.org/}{\texttt{ Nu\+Get}}}{Installing All of Rx\+JS via \href{http://www.nuget.org/}{\texttt{ Nu\+Get}}}}\label{readme.md_autotoc_md17898}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ Install-\/Package\ RxJS-\/All}
+
+\end{DoxyCode}
+ \hypertarget{readme.md_autotoc_md17899}{}\doxysubsubsubsection{\texorpdfstring{Install individual packages via \href{http://www.nuget.org/}{\texttt{ Nu\+Get}}\+:}{Install individual packages via \href{http://www.nuget.org/}{\texttt{ Nu\+Get}}\+:}}\label{readme.md_autotoc_md17899}
+\begin{DoxyVerb}Install-Package RxJS-All
+Install-Package RxJS-Lite
+Install-Package RxJS-Main
+Install-Package RxJS-Aggregates
+Install-Package RxJS-Async
+Install-Package RxJS-BackPressure
+Install-Package RxJS-Binding
+Install-Package RxJS-Coincidence
+Install-Package RxJS-Experimental
+Install-Package RxJS-JoinPatterns
+Install-Package RxJS-Testing
+Install-Package RxJS-Time
+\end{DoxyVerb}
+\hypertarget{readme.md_autotoc_md17900}{}\doxysubsubsubsection{\texorpdfstring{In a Browser\+:}{In a Browser\+:}}\label{readme.md_autotoc_md17900}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<!-\/-\/\ Just\ the\ core\ RxJS\ -\/-\/>}
+\DoxyCodeLine{<script\ src="{}rx.js"{}></script>}
+\DoxyCodeLine{}
+\DoxyCodeLine{<!-\/-\/\ Or\ all\ of\ RxJS\ minus\ testing\ -\/-\/>}
+\DoxyCodeLine{<script\ src="{}rx.all.js"{}></script>}
+\DoxyCodeLine{}
+\DoxyCodeLine{<!-\/-\/\ Or\ keeping\ it\ lite\ -\/-\/>}
+\DoxyCodeLine{<script\ src="{}rx.lite.js"{}></script>}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17901}{}\doxysubsubsubsection{\texorpdfstring{Along with a number of our extras for Rx\+JS\+:}{Along with a number of our extras for Rx\+JS\+:}}\label{readme.md_autotoc_md17901}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<script\ src="{}rx.aggregates.js"{}></script>}
+\DoxyCodeLine{<script\ src="{}rx.async.js"{}></script>}
+\DoxyCodeLine{<script\ src="{}rx.backpressure.js"{}></script>}
+\DoxyCodeLine{<script\ src="{}rx.binding.js"{}></script>}
+\DoxyCodeLine{<script\ src="{}rx.coincidencejs"{}></script>}
+\DoxyCodeLine{<script\ src="{}rx.experimental.js"{}></script>}
+\DoxyCodeLine{<script\ src="{}rx.joinpatterns.js"{}></script>}
+\DoxyCodeLine{<script\ src="{}rx.time.js"{}></script>}
+\DoxyCodeLine{<script\ src="{}rx.virtualtime.js"{}></script>}
+\DoxyCodeLine{<script\ src="{}rx.testing.js"{}></script>}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17902}{}\doxysubsubsubsection{\texorpdfstring{Using Rx\+JS with an AMD loader such as Require.\+js}{Using Rx\+JS with an AMD loader such as Require.\+js}}\label{readme.md_autotoc_md17902}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{require(\{}
+\DoxyCodeLine{\ \ 'paths':\ \{}
+\DoxyCodeLine{\ \ \ \ 'rx':\ 'path/to/rx-\/lite.js'}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\},}
+\DoxyCodeLine{['rx'],\ (Rx)\ =>\ \{}
+\DoxyCodeLine{\ \ const\ obs\ =\ Rx.Observable.of(42);}
+\DoxyCodeLine{\ \ obs.forEach(x\ =>\ console.log(x));}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md17903}{}\doxysubsubsection{\texorpdfstring{What about my libraries?}{What about my libraries?}}\label{readme.md_autotoc_md17903}
+The Reactive Extensions for Java\+Script have no external dependencies on any library, so they\textquotesingle{}ll work well with just about any library. We provide bridges and support for various libraries including\+:
+\begin{DoxyItemize}
+\item \href{https://www.npmjs.com/package/rx-node}{\texttt{ Node.\+js}}
+\item \href{http://facebook.github.io/react/}{\texttt{ React}}
+\begin{DoxyItemize}
+\item \href{https://github.com/fdecampredon/rx-react}{\texttt{ Rx-\/\+React}}
+\item \href{https://github.com/AlexMost/RxReact}{\texttt{ Rx\+React}}
+\item \href{https://github.com/pH200/cycle-react}{\texttt{ cycle-\/react}}
+\end{DoxyItemize}
+\item \href{http://facebook.github.io/flux/}{\texttt{ Flux}}
+\begin{DoxyItemize}
+\item \href{https://github.com/fdecampredon/rx-flux}{\texttt{ Rx-\/\+Flux}}
+\item \href{https://github.com/codesuki/reactive-flux}{\texttt{ Reactive\+Flux}}
+\item \href{https://github.com/ThunderCatsJS/thundercats}{\texttt{ Thundercats.\+js}}
+\item \href{https://github.com/qwtel/flurx}{\texttt{ Flurx}}
+\item \href{https://github.com/winsonwq/RR}{\texttt{ RR}}
+\end{DoxyItemize}
+\item \href{http://emberjs.com/}{\texttt{ Ember}}
+\begin{DoxyItemize}
+\item \href{https://github.com/blesh/RxEmber}{\texttt{ Rx\+Ember}}
+\end{DoxyItemize}
+\item \href{https://github.com/Reactive-Extensions/rx.angular.js}{\texttt{ Angular\+JS}}
+\item \href{https://github.com/Reactive-Extensions/RxJS-DOM}{\texttt{ HTML DOM}}
+\item \href{https://github.com/Reactive-Extensions/RxJS-jQuery}{\texttt{ j\+Query (1.\+4+)}}
+\item \href{https://github.com/Reactive-Extensions/RxJS-MooTools}{\texttt{ Moo\+Tools}}
+\item \href{https://github.com/Reactive-Extensions/RxJS-Dojo}{\texttt{ Dojo 1.\+7+}}
+\item \href{https://github.com/Reactive-Extensions/RxJS-ExtJS}{\texttt{ Ext\+JS}}
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md17904}{}\doxysubsubsection{\texorpdfstring{Compatibility}{Compatibility}}\label{readme.md_autotoc_md17904}
+Rx\+JS has been thoroughly tested against all major browsers and supports IE6+, Chrome 4+, Fire\+Fox 1+, and Node.\+js v0.\+4+.\hypertarget{readme.md_autotoc_md17905}{}\doxysubsubsection{\texorpdfstring{Contributing}{Contributing}}\label{readme.md_autotoc_md17905}
+There are lots of ways to contribute to the project, and we appreciate our \href{https://github.com/Reactive-Extensions/RxJS/wiki/Contributors}{\texttt{ contributors}}. If you wish to contribute, check out our \href{(https://github.com/Reactive-Extensions/RxJS/tree/master/doc/contributing)}{\texttt{ style guide}}.
+
+You can contribute by reviewing and sending feedback on code checkins, suggesting and trying out new features as they are implemented, submit bugs and help us verify fixes as they are checked in, as well as submit code fixes or code contributions of your own. Note that all code submissions will be rigorously reviewed and tested by the Rx Team, and only those that meet an extremely high bar for both quality and design/roadmap appropriateness will be merged into the source.
+
+First-\/time contributors must sign a \href{https://cla.microsoft.com/}{\texttt{ Contribution License Agreement}}. If your Pull Request has the label \href{https://github.com/Reactive-Extensions/RxJS/labels/cla-required}{\texttt{ cla-\/required}}, this is an indication that you haven\textquotesingle{}t yet signed such an agreement.\hypertarget{readme.md_autotoc_md17906}{}\doxysubsubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md17906}
+Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. Microsoft Open Technologies would like to thank its contributors, a list of whom are at \href{https://github.com/Reactive-Extensions/RxJS/wiki/Contributors}{\texttt{ https\+://github.\+com/\+Reactive-\/\+Extensions/\+Rx\+JS/wiki/\+Contributors}}.
+
+Licensed under the Apache License, Version 2.\+0 (the "{}\+License"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+\href{http://www.apache.org/licenses/LICENSE-2.0}{\texttt{ http\+://www.\+apache.\+org/licenses/\+LICENSE-\/2.\+0}}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "{}\+AS IS"{} BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 

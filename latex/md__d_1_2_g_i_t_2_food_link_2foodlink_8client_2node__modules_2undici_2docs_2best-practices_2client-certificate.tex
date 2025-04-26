@@ -1,0 +1,68 @@
+\chapter{Client certificate}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2client-certificate}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2client-certificate}\index{Client certificate@{Client certificate}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2client-certificate_autotoc_md21491}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2client-certificate_autotoc_md21491}%
+
+
+Client certificate authentication can be configured with the {\ttfamily Client}, the required options are passed along through the {\ttfamily connect} option.
+
+The client certificates must be signed by a trusted CA. The Node.\+js default is to trust the well-\/known CAs curated by Mozilla.
+
+Setting the server option {\ttfamily request\+Cert\+: true} tells the server to request the client certificate.
+
+The server option {\ttfamily reject\+Unauthorized\+: false} allows us to handle any invalid certificate errors in client code. The {\ttfamily authorized} property on the socket of the incoming request will show if the client certificate was valid. The {\ttfamily authorization\+Error} property will give the reason if the certificate was not valid.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2client-certificate_autotoc_md21492}{}\doxysubsection{\texorpdfstring{Client Certificate Authentication}{Client Certificate Authentication}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2undici_2docs_2best-practices_2client-certificate_autotoc_md21492}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ readFileSync\ \}\ =\ require('fs')}
+\DoxyCodeLine{const\ \{\ join\ \}\ =\ require('path')}
+\DoxyCodeLine{const\ \{\ createServer\ \}\ =\ require('https')}
+\DoxyCodeLine{const\ \{\ Client\ \}\ =\ require('undici')}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ serverOptions\ =\ \{}
+\DoxyCodeLine{\ \ ca:\ [}
+\DoxyCodeLine{\ \ \ \ readFileSync(join(\_\_dirname,\ 'client-\/ca-\/crt.pem'),\ 'utf8')}
+\DoxyCodeLine{\ \ ],}
+\DoxyCodeLine{\ \ key:\ readFileSync(join(\_\_dirname,\ 'server-\/key.pem'),\ 'utf8'),}
+\DoxyCodeLine{\ \ cert:\ readFileSync(join(\_\_dirname,\ 'server-\/crt.pem'),\ 'utf8'),}
+\DoxyCodeLine{\ \ requestCert:\ true,}
+\DoxyCodeLine{\ \ rejectUnauthorized:\ false}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ server\ =\ createServer(serverOptions,\ (req,\ res)\ =>\ \{}
+\DoxyCodeLine{\ \ //\ true\ if\ client\ cert\ is\ valid}
+\DoxyCodeLine{\ \ if(req.client.authorized\ ===\ true)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log('valid')}
+\DoxyCodeLine{\ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ console.error(req.client.authorizationError)}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ res.end()}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{server.listen(0,\ function\ ()\ \{}
+\DoxyCodeLine{\ \ const\ tls\ =\ \{}
+\DoxyCodeLine{\ \ \ \ ca:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ readFileSync(join(\_\_dirname,\ 'server-\/ca-\/crt.pem'),\ 'utf8')}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ key:\ readFileSync(join(\_\_dirname,\ 'client-\/key.pem'),\ 'utf8'),}
+\DoxyCodeLine{\ \ \ \ cert:\ readFileSync(join(\_\_dirname,\ 'client-\/crt.pem'),\ 'utf8'),}
+\DoxyCodeLine{\ \ \ \ rejectUnauthorized:\ false,}
+\DoxyCodeLine{\ \ \ \ servername:\ 'agent1'}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ const\ client\ =\ new\ Client(`https://localhost:\$\{server.address().port\}`,\ \{}
+\DoxyCodeLine{\ \ \ \ connect:\ tls}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ client.request(\{}
+\DoxyCodeLine{\ \ \ \ path:\ '/',}
+\DoxyCodeLine{\ \ \ \ method:\ 'GET'}
+\DoxyCodeLine{\ \ \},\ (err,\ \{\ body\ \})\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ body.on('data',\ (buf)\ =>\ \{\})}
+\DoxyCodeLine{\ \ \ \ body.on('end',\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ client.close()}
+\DoxyCodeLine{\ \ \ \ \ \ server.close()}
+\DoxyCodeLine{\ \ \ \ \})}
+\DoxyCodeLine{\ \ \})}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+ 

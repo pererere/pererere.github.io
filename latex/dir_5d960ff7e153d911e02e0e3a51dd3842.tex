@@ -1,0 +1,28 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/parse-\/node-\/version Directory Reference}
+\hypertarget{dir_5d960ff7e153d911e02e0e3a51dd3842}{}\label{dir_5d960ff7e153d911e02e0e3a51dd3842}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/parse-\/node-\/version Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/parse-\/node-\/version Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+
+
+\href{http://gulpjs.com}{\texttt{  }} \hypertarget{README.md_autotoc_md15960}{}\doxysubsection{\texorpdfstring{parse-\/node-\/version}{parse-\/node-\/version}}\label{README.md_autotoc_md15960}
+\href{https://www.npmjs.com/package/parse-node-version}{\texttt{ }} \href{https://www.npmjs.com/package/parse-node-version}{\texttt{ }} \href{https://travis-ci.org/gulpjs/parse-node-version}{\texttt{ }} \href{https://ci.appveyor.com/project/gulpjs/parse-node-version}{\texttt{ }} \href{https://coveralls.io/r/gulpjs/parse-node-version}{\texttt{ }} \href{https://gitter.im/gulpjs/gulp}{\texttt{ }}
+
+Turn node\textquotesingle{}s process.\+version into something useful.\hypertarget{README.md_autotoc_md15961}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md15961}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ nodeVersion\ =\ require('parse-\/node-\/version')(process.version);}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(}
+\DoxyCodeLine{\ \ nodeVersion.major,}
+\DoxyCodeLine{\ \ nodeVersion.minor,}
+\DoxyCodeLine{\ \ nodeVersion.patch,}
+\DoxyCodeLine{\ \ nodeVersion.pre,}
+\DoxyCodeLine{\ \ nodeVersion.build}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md15962}{}\doxysubsubsection{\texorpdfstring{API}{API}}\label{README.md_autotoc_md15962}
+\hypertarget{README.md_autotoc_md15963}{}\doxysubsubsubsection{\texorpdfstring{parse\+Version(node\+Version\+String)}{parse\+Version(node\+Version\+String)}}\label{README.md_autotoc_md15963}
+Takes a node version string (usually {\ttfamily process.\+version}) and returns an object with the {\ttfamily major}/{\ttfamily minor}/{\ttfamily patch} (which will all be numbers) and {\ttfamily pre}/{\ttfamily build} keys (which will always be a string). If the version doesn\textquotesingle{}t contain any pre-\/release or build information, the properties will be returned as empty string.\hypertarget{README.md_autotoc_md15964}{}\doxysubsubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md15964}
+MIT 

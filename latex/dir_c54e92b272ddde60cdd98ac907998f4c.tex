@@ -1,0 +1,101 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/run-\/async Directory Reference}
+\hypertarget{dir_c54e92b272ddde60cdd98ac907998f4c}{}\label{dir_c54e92b272ddde60cdd98ac907998f4c}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/run-\/async Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/run-\/async Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{http://badge.fury.io/js/run-async}{\texttt{ }} \href{http://travis-ci.org/SBoudrias/run-async}{\texttt{ }} \href{https://david-dm.org/SBoudrias/run-async}{\texttt{ }}
+
+Utility method to run a function either synchronously or asynchronously using a series of common patterns. This is useful for library author accepting sync or async functions as parameter. {\ttfamily run\+Async} will always run them as an async method, and normalize the multiple signature.\hypertarget{README.md_autotoc_md17846}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md17846}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/-\/save\ run-\/async}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17847}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md17847}
+Here\textquotesingle{}s a simple example print the function results and three options a user can provide a function.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ runAsync\ =\ require('run-\/async');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ printAfter\ =\ function\ (func)\ \{}
+\DoxyCodeLine{\ \ var\ cb\ =\ function\ (err,\ returnValue)\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(returnValue);}
+\DoxyCodeLine{\ \ \};}
+\DoxyCodeLine{\ \ runAsync(func,\ cb)(/*\ arguments\ for\ func\ */);}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17848}{}\doxysubsubsubsubsection{\texorpdfstring{Using {\ttfamily this.\+async}}{Using {\ttfamily this.\+async}}}\label{README.md_autotoc_md17848}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{printAfter(function\ ()\ \{}
+\DoxyCodeLine{\ \ var\ done\ =\ this.async();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ setTimeout(function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ done(null,\ 'done\ running\ with\ callback');}
+\DoxyCodeLine{\ \ \},\ 10);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17849}{}\doxysubsubsubsubsection{\texorpdfstring{Returning a promise}{Returning a promise}}\label{README.md_autotoc_md17849}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{printAfter(function\ ()\ \{}
+\DoxyCodeLine{\ \ return\ new\ Promise(function\ (resolve,\ reject)\ \{}
+\DoxyCodeLine{\ \ \ \ resolve('done\ running\ with\ promises');}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17850}{}\doxysubsubsubsubsection{\texorpdfstring{Synchronous function}{Synchronous function}}\label{README.md_autotoc_md17850}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{printAfter(function\ ()\ \{}
+\DoxyCodeLine{\ \ return\ 'done\ running\ sync\ function';}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17851}{}\doxysubsubsubsubsection{\texorpdfstring{Custom done factory}{Custom done factory}}\label{README.md_autotoc_md17851}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ runAsync\ =\ require('run-\/async');}
+\DoxyCodeLine{}
+\DoxyCodeLine{runAsync(function()\ \{}
+\DoxyCodeLine{\ \ var\ callback\ =\ this.customAsync();}
+\DoxyCodeLine{\ \ callback(null,\ a\ +\ b);}
+\DoxyCodeLine{\},\ 'customAsync')(1,\ 2)}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17852}{}\doxysubsubsubsubsection{\texorpdfstring{Passing context to async method}{Passing context to async method}}\label{README.md_autotoc_md17852}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ runAsync\ =\ require('run-\/async');}
+\DoxyCodeLine{}
+\DoxyCodeLine{runAsync(function()\ \{}
+\DoxyCodeLine{\ \ assert(this.isBound);}
+\DoxyCodeLine{\ \ var\ callback\ =\ this.async();}
+\DoxyCodeLine{\ \ callback(null,\ a\ +\ b);}
+\DoxyCodeLine{\}).call(\{\ isBound:\ true\ \},\ 1,\ 2)}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17853}{}\doxysubsubsubsection{\texorpdfstring{run\+Async.\+cb}{run\+Async.\+cb}}\label{README.md_autotoc_md17853}
+{\ttfamily run\+Async.\+cb} supports all the function types that {\ttfamily run\+Async} does and additionally a traditional {\bfseries{callback as the last argument}} signature\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ runAsync\ =\ require('run-\/async');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ IMPORTANT:\ The\ wrapped\ function\ must\ have\ a\ fixed\ number\ of\ parameters.}
+\DoxyCodeLine{runAsync.cb(function(a,\ b,\ cb)\ \{}
+\DoxyCodeLine{\ \ cb(null,\ a\ +\ b);}
+\DoxyCodeLine{\},\ function(err,\ result)\ \{}
+\DoxyCodeLine{\ \ console.log(result)}
+\DoxyCodeLine{\})(1,\ 2)}
+
+\end{DoxyCode}
+
+
+If your version of node support Promises natively (node \texorpdfstring{$>$}{>}= 0.\+12), {\ttfamily run\+Async} will return a promise. Example\+: {\ttfamily run\+Async(func)(arg1, arg2).then(cb)}\hypertarget{README.md_autotoc_md17854}{}\doxysubsection{\texorpdfstring{Licence}{Licence}}\label{README.md_autotoc_md17854}
+Copyright (c) 2014 Simon Boudrias (twitter\+: @vaxilart) ~\newline
+ Licensed under the MIT license. 

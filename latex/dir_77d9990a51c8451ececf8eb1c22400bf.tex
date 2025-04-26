@@ -1,0 +1,14 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/base64id Directory Reference}
+\hypertarget{dir_77d9990a51c8451ececf8eb1c22400bf}{}\label{dir_77d9990a51c8451ececf8eb1c22400bf}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/base64id Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/base64id Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Node.\+js module that generates a base64 id.
+
+Uses crypto.\+random\+Bytes when available, falls back to unsafe methods for node.\+js \texorpdfstring{$<$}{<}= 0.\+4.
+
+To increase performance, random bytes are buffered to minimize the number of synchronous calls to crypto.\+random\+Bytes.\hypertarget{README.md_autotoc_md2926}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md2926}
+\$ npm install base64id\hypertarget{README.md_autotoc_md2927}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md2927}
+var base64id = require(\textquotesingle{}base64id\textquotesingle{});
+
+var id = base64id.\+generate\+Id(); 

@@ -1,0 +1,23 @@
+\chapter{remove\+Sync(path)}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove-sync}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove-sync}\index{removeSync(path)@{removeSync(path)}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove-sync_autotoc_md8293}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove-sync_autotoc_md8293}%
+
+
+Removes a file or directory. The directory can have contents. Like {\ttfamily rm -\/rf}.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily path} {\ttfamily \texorpdfstring{$<$}{<}String\texorpdfstring{$>$}{>}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove-sync_autotoc_md8294}{}\doxysection{\texorpdfstring{Example\+:}{Example\+:}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2fs-extra_2docs_2remove-sync_autotoc_md8294}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fs\ =\ require('fs-\/extra')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ remove\ file}
+\DoxyCodeLine{fs.removeSync('/tmp/myfile')}
+\DoxyCodeLine{}
+\DoxyCodeLine{fs.removeSync('/home/jprichardson')\ //\ I\ just\ deleted\ my\ entire\ HOME\ directory.}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,87 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/read-\/package-\/json Directory Reference}
+\hypertarget{dir_ca0faa81cc11697091eba1e4b02369ae}{}\label{dir_ca0faa81cc11697091eba1e4b02369ae}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/read-\/package-\/json Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/read-\/package-\/json Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+This is the thing that npm uses to read package.\+json files. It validates some stuff, and loads some default things.
+
+It keeps a cache of the files you\textquotesingle{}ve read, so that you don\textquotesingle{}t end up reading the same package.\+json file multiple times.
+
+Note that if you just want to see what\textquotesingle{}s literally in the package.\+json file, you can usually do `var data = require(\textquotesingle{}some-\/module/package.\+json')\`{}.
+
+This module is basically only needed by npm, but it\textquotesingle{}s handy to see what npm will see when it looks at your package.\hypertarget{README.md_autotoc_md17250}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md17250}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ readJson\ =\ require('read-\/package-\/json')}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ readJson(filename,\ [logFunction=noop],\ [strict=false],\ cb)}
+\DoxyCodeLine{readJson('/path/to/package.json',\ console.error,\ false,\ function\ (er,\ data)\ \{}
+\DoxyCodeLine{\ \ if\ (er)\ \{}
+\DoxyCodeLine{\ \ \ \ console.error("{}There\ was\ an\ error\ reading\ the\ file"{})}
+\DoxyCodeLine{\ \ \ \ return}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ console.error('the\ package\ data\ is',\ data)}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md17251}{}\doxysubsection{\texorpdfstring{read\+Json(file, \mbox{[}log\+Fn = noop\mbox{]}, \mbox{[}strict = false\mbox{]}, cb)}{read\+Json(file, \mbox{[}log\+Fn = noop\mbox{]}, \mbox{[}strict = false\mbox{]}, cb)}}\label{README.md_autotoc_md17251}
+
+\begin{DoxyItemize}
+\item {\ttfamily file} \{String\} The path to the package.\+json file
+\item {\ttfamily log\+Fn} \{Function\} Function to handle logging. Defaults to a noop.
+\item {\ttfamily strict} \{Boolean\} True to enforce Sem\+Ver 2.\+0 version strings, and other strict requirements.
+\item {\ttfamily cb} \{Function\} Gets called with {\ttfamily (er, data)}, as is The Node Way.
+\end{DoxyItemize}
+
+Reads the JSON file and does the things.\hypertarget{README.md_autotoc_md17252}{}\doxysubsection{\texorpdfstring{{\ttfamily package.\+json} Fields}{{\ttfamily package.\+json} Fields}}\label{README.md_autotoc_md17252}
+See {\ttfamily man 5 package.\+json} or {\ttfamily npm help json}.\hypertarget{README.md_autotoc_md17253}{}\doxysubsection{\texorpdfstring{read\+Json.\+log}{read\+Json.\+log}}\label{README.md_autotoc_md17253}
+By default this is a reference to the {\ttfamily npmlog} module. But if that module can\textquotesingle{}t be found, then it\textquotesingle{}ll be set to just a dummy thing that does nothing.
+
+Replace with your own {\ttfamily \{log,warn,error\}} object for fun loggy time.\hypertarget{README.md_autotoc_md17254}{}\doxysubsection{\texorpdfstring{read\+Json.\+extras(file, data, cb)}{read\+Json.\+extras(file, data, cb)}}\label{README.md_autotoc_md17254}
+Run all the extra stuff relative to the file, with the parsed data.
+
+Modifies the data as it does stuff. Calls the cb when it\textquotesingle{}s done.\hypertarget{README.md_autotoc_md17255}{}\doxysubsection{\texorpdfstring{read\+Json.\+extra\+Set = \mbox{[}fn, fn, ...\mbox{]}}{read\+Json.\+extra\+Set = \mbox{[}fn, fn, ...\mbox{]}}}\label{README.md_autotoc_md17255}
+Array of functions that are called by {\ttfamily extras}. Each one receives the arguments {\ttfamily fn(file, data, cb)} and is expected to call {\ttfamily cb(er, data)} when done or when an error occurs.
+
+Order is indeterminate, so each function should be completely independent.
+
+Mix and match!\hypertarget{README.md_autotoc_md17256}{}\doxysubsection{\texorpdfstring{Other Relevant Files Besides {\ttfamily package.\+json}}{Other Relevant Files Besides {\ttfamily package.\+json}}}\label{README.md_autotoc_md17256}
+Some other files have an effect on the resulting data object, in the following ways\+:\hypertarget{README.md_autotoc_md17257}{}\doxysubsubsection{\texorpdfstring{{\ttfamily README?(.\texorpdfstring{$\ast$}{*})}}{{\ttfamily README?(.\texorpdfstring{$\ast$}{*})}}}\label{README.md_autotoc_md17257}
+If there is a {\ttfamily README} or {\ttfamily README.\texorpdfstring{$\ast$}{*}} file present, then npm will attach a {\ttfamily readme} field to the data with the contents of this file.
+
+Owing to the fact that roughly 100\% of existing node modules have Markdown README files, it will generally be assumed to be Markdown, regardless of the extension. Please plan accordingly.\hypertarget{README.md_autotoc_md17258}{}\doxysubsubsection{\texorpdfstring{{\ttfamily server.\+js}}{{\ttfamily server.\+js}}}\label{README.md_autotoc_md17258}
+If there is a {\ttfamily server.\+js} file, and there is not already a {\ttfamily scripts.\+start} field, then {\ttfamily scripts.\+start} will be set to {\ttfamily node server.\+js}.\hypertarget{README.md_autotoc_md17259}{}\doxysubsubsection{\texorpdfstring{{\ttfamily AUTHORS}}{{\ttfamily AUTHORS}}}\label{README.md_autotoc_md17259}
+If there is not already a {\ttfamily contributors} field, then the {\ttfamily contributors} field will be set to the contents of the {\ttfamily AUTHORS} file, split by lines, and parsed.\hypertarget{README.md_autotoc_md17260}{}\doxysubsubsection{\texorpdfstring{{\ttfamily bindings.\+gyp}}{{\ttfamily bindings.\+gyp}}}\label{README.md_autotoc_md17260}
+If a bindings.\+gyp file exists, and there is not already a {\ttfamily scripts.\+install} field, then the {\ttfamily scripts.\+install} field will be set to {\ttfamily node-\/gyp rebuild}.\hypertarget{README.md_autotoc_md17261}{}\doxysubsubsection{\texorpdfstring{{\ttfamily index.\+js}}{{\ttfamily index.\+js}}}\label{README.md_autotoc_md17261}
+If the json file does not exist, but there is a {\ttfamily index.\+js} file present instead, and that file has a package comment, then it will try to parse the package comment, and use that as the data instead.
+
+A package comment looks like this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**package}
+\DoxyCodeLine{\ *\ \{\ "{}name"{}:\ "{}my-\/bare-\/module"{}}
+\DoxyCodeLine{\ *\ ,\ "{}version"{}:\ "{}1.2.3"{}}
+\DoxyCodeLine{\ *\ ,\ "{}description"{}:\ "{}etc...."{}\ \}}
+\DoxyCodeLine{\ **/}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ or...}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**package}
+\DoxyCodeLine{\{\ "{}name"{}:\ "{}my-\/bare-\/module"{}}
+\DoxyCodeLine{,\ "{}version"{}:\ "{}1.2.3"{}}
+\DoxyCodeLine{,\ "{}description"{}:\ "{}etc...."{}\ \}}
+\DoxyCodeLine{**/}
+
+\end{DoxyCode}
+
+
+The important thing is that it starts with {\ttfamily /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}package}, and ends with {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}/}. If the package.\+json file exists, then the index.\+js is not parsed.\hypertarget{README.md_autotoc_md17262}{}\doxysubsubsection{\texorpdfstring{{\ttfamily \{directories.\+man\}/\texorpdfstring{$\ast$}{*}.\mbox{[}0-\/9\mbox{]}}}{{\ttfamily \{directories.\+man\}/\texorpdfstring{$\ast$}{*}.\mbox{[}0-\/9\mbox{]}}}}\label{README.md_autotoc_md17262}
+If there is not already a {\ttfamily man} field defined as an array of files or a single file, and there is a {\ttfamily directories.\+man} field defined, then that directory will be searched for manpages.
+
+Any valid manpages found in that directory will be assigned to the {\ttfamily man} array, and installed in the appropriate man directory at package install time, when installed globally on a Unix system.\hypertarget{README.md_autotoc_md17263}{}\doxysubsubsection{\texorpdfstring{{\ttfamily \{directories.\+bin\}/\texorpdfstring{$\ast$}{*}}}{{\ttfamily \{directories.\+bin\}/\texorpdfstring{$\ast$}{*}}}}\label{README.md_autotoc_md17263}
+If there is not already a {\ttfamily bin} field defined as a string filename or a hash of {\ttfamily \texorpdfstring{$<$}{<}name\texorpdfstring{$>$}{>} \+: \texorpdfstring{$<$}{<}filename\texorpdfstring{$>$}{>}} pairs, then the {\ttfamily directories.\+bin} directory will be searched and all the files within it will be linked as executables at install time.
+
+When installing locally, npm links bins into {\ttfamily node\+\_\+modules/.bin}, which is in the {\ttfamily PATH} environ when npm runs scripts. When installing globally, they are linked into {\ttfamily \{prefix\}/bin}, which is presumably in the {\ttfamily PATH} environment variable.\hypertarget{README.md_autotoc_md17264}{}\doxysubsubsection{\texorpdfstring{{\ttfamily types} field}{{\ttfamily types} field}}\label{README.md_autotoc_md17264}
+If you do not have a {\ttfamily types} field, then it will check if a corresponding {\ttfamily \texorpdfstring{$\ast$}{*}.d.\+ts} file exists for your package entry file and add it to the {\ttfamily package.\+json}. 

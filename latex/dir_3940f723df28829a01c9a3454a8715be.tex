@@ -1,0 +1,83 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/webpack.preact-\/hot-\/loader Directory Reference}
+\hypertarget{dir_3940f723df28829a01c9a3454a8715be}{}\label{dir_3940f723df28829a01c9a3454a8715be}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/webpack.preact-\/hot-\/loader Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/webpack.preact-\/hot-\/loader Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Webpack + Preact Hot Loader\hypertarget{readme.md_autotoc_md3557}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3557}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/webpack.preact-\/hot-\/loader}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3558}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3558}
+To see {\ttfamily preact-\/hot-\/loader} in action, edit {\ttfamily js/\+Hello\+World.\+jsx}\hypertarget{readme.md_autotoc_md3559}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily app.\+js}\+:}{Preview of {\ttfamily app.\+js}\+:}}\label{readme.md_autotoc_md3559}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Require\ Browsersync\ along\ with\ webpack\ and\ middleware\ for\ it}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{var\ browserSync\ \ \ \ \ \ \ \ \ \ =\ require('browser-\/sync').create();}
+\DoxyCodeLine{var\ webpack\ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ require('webpack');}
+\DoxyCodeLine{var\ webpackDevMiddleware\ =\ require('webpack-\/dev-\/middleware');}
+\DoxyCodeLine{var\ webpackHotMiddleware\ =\ require('webpack-\/hot-\/middleware');}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Require\ ./webpack.config.js\ and\ make\ a\ bundler\ from\ it}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{var\ webpackConfig\ =\ require('./webpack.config.dev');}
+\DoxyCodeLine{var\ bundler\ =\ webpack(webpackConfig);}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{browserSync.init(\{}
+\DoxyCodeLine{\ \ \ \ server:\ 'app',}
+\DoxyCodeLine{\ \ \ \ middleware:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ webpackDevMiddleware(bundler,\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ //\ IMPORTANT:\ dev\ middleware\ can't\ access\ config,\ so\ we\ should}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ //\ provide\ publicPath\ by\ ourselves}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ publicPath:\ webpackConfig.output.publicPath,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ //\ pretty\ colored\ output}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ stats:\ \{colors:\ true\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ //\ for\ other\ settings\ see}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ //\ http://webpack.github.io/docs/webpack-\/dev-\/middleware.html}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}),}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ //\ bundler\ should\ be\ the\ same\ as\ above}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ webpackHotMiddleware(bundler)}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ //\ no\ need\ to\ watch\ '*.js'\ here,\ webpack\ will\ take\ care\ of\ it\ for\ us,}
+\DoxyCodeLine{\ \ \ \ //\ including\ full\ page\ reloads\ if\ HMR\ won't\ work}
+\DoxyCodeLine{\ \ \ \ files:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 'app/css/*.css',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 'app/*.html'}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+ 

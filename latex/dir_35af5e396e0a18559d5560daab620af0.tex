@@ -1,0 +1,37 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/license-\/webpack-\/plugin Directory Reference}
+\hypertarget{dir_35af5e396e0a18559d5560daab620af0}{}\label{dir_35af5e396e0a18559d5560daab620af0}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/license-\/webpack-\/plugin Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/license-\/webpack-\/plugin Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://travis-ci.org/xz64/license-webpack-plugin}{\texttt{ }}
+
+Manage third-\/party license compliance in your webpack build.\hypertarget{README.md_autotoc_md13065}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md13065}
+{\ttfamily npm install license-\/webpack-\/plugin -\/-\/save-\/dev}\hypertarget{README.md_autotoc_md13066}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md13066}
+To use the plugin, simply add it to the plugins section in the webpack config.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ LicenseWebpackPlugin\ =\ require('license-\/webpack-\/plugin').LicenseWebpackPlugin;}
+\DoxyCodeLine{}
+\DoxyCodeLine{module.exports\ =\ \{}
+\DoxyCodeLine{\ \ plugins:\ [}
+\DoxyCodeLine{\ \ \ \ new\ LicenseWebpackPlugin()}
+\DoxyCodeLine{\ \ ]}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+The default behavior will add a license notice file to each chunk of the webpack build. In addition, it will add a banner indicating the path to the license notice file in any Javascript assets. Third party libraries imported via external tools like SASS {\ttfamily @import} may not appear in the output (since webpack does not process {\ttfamily @import}). If this issue happens, please specify additional modules that the plugin should scan.
+
+To configure the plugin, check the \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_d_o_c_u_m_e_n_t_a_t_i_o_n}{documentation}{0}.\hypertarget{README.md_autotoc_md13067}{}\doxysubsection{\texorpdfstring{Build Instructions}{Build Instructions}}\label{README.md_autotoc_md13067}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn}
+\DoxyCodeLine{yarn\ build}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md13068}{}\doxysubsection{\texorpdfstring{Migration Guides}{Migration Guides}}\label{README.md_autotoc_md13068}
+Migration guides for breaking changes are documented \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_m_i_g_r_a_t_i_o_n}{here}{0}.\hypertarget{README.md_autotoc_md13069}{}\doxysubsection{\texorpdfstring{Changelog}{Changelog}}\label{README.md_autotoc_md13069}
+The changelog can be found \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2license-webpack-plugin_2_c_h_a_n_g_e_l_o_g}{here}{0}.\hypertarget{README.md_autotoc_md13070}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md13070}
+\href{https://opensource.org/licenses/ISC}{\texttt{ ISC}} 

@@ -1,0 +1,84 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/date-\/format Directory Reference}
+\hypertarget{dir_2309ba5417cdb7247f0e1377387d47ee}{}\label{dir_2309ba5417cdb7247f0e1377387d47ee}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/date-\/format Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/date-\/format Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://nodei.co/npm/date-format/}{\texttt{ }}
+
+node.\+js formatting of Date objects as strings. Probably exactly the same as some other library out there.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ date-\/format}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md5485}{}\doxysubsection{\texorpdfstring{usage}{usage}}\label{README.md_autotoc_md5485}
+\hypertarget{README.md_autotoc_md5486}{}\doxysubsubsection{\texorpdfstring{Formatting dates as strings}{Formatting dates as strings}}\label{README.md_autotoc_md5486}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ format\ =\ require('date-\/format');}
+\DoxyCodeLine{format.asString();\ //\ defaults\ to\ ISO8601\ format\ and\ current\ date}
+\DoxyCodeLine{format.asString(new\ Date());\ //\ defaults\ to\ ISO8601\ format}
+\DoxyCodeLine{format.asString('hh:mm:ss.SSS',\ new\ Date());\ //\ just\ the\ time}
+\DoxyCodeLine{format.asString(format.ISO8601\_WITH\_TZ\_OFFSET\_FORMAT,\ new\ Date());\ //\ in\ ISO8601\ with\ timezone}
+
+\end{DoxyCode}
+
+
+or
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ format\ =\ require('date-\/format');}
+\DoxyCodeLine{format();\ //\ defaults\ to\ ISO8601\ format\ and\ current\ date}
+\DoxyCodeLine{format(new\ Date());\ //\ defaults\ to\ ISO8601\ format}
+\DoxyCodeLine{format('hh:mm:ss.SSS',\ new\ Date());\ //\ just\ the\ time}
+\DoxyCodeLine{format(format.ISO8601\_WITH\_TZ\_OFFSET\_FORMAT,\ new\ Date());\ //\ in\ ISO8601\ with\ timezone}
+
+\end{DoxyCode}
+
+
+{\bfseries{output\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2017-\/03-\/14T14:10:20.391}
+\DoxyCodeLine{2017-\/03-\/14T14:10:20.391}
+\DoxyCodeLine{14:10:20.391}
+\DoxyCodeLine{2017-\/03-\/14T14:10:20.391+11:00}
+
+\end{DoxyCode}
+
+
+Format string can be anything, but the following letters will be replaced (and leading zeroes added if necessary)\+:
+\begin{DoxyItemize}
+\item dd -\/ {\ttfamily date.\+get\+Date()}
+\item MM -\/ {\ttfamily date.\+get\+Month() + 1}
+\item yy -\/ {\ttfamily date.\+get\+Full\+Year().to\+String().substring(2, 4)}
+\item yyyy -\/ {\ttfamily date.\+get\+Full\+Year()}
+\item hh -\/ {\ttfamily date.\+get\+Hours()}
+\item mm -\/ {\ttfamily date.\+get\+Minutes()}
+\item ss -\/ {\ttfamily date.\+get\+Seconds()}
+\item SSS -\/ {\ttfamily date.\+get\+Milliseconds()}
+\item O -\/ timezone offset in ±hh\+:mm format (note that time will still be local if displaying offset)
+\end{DoxyItemize}
+
+Built-\/in formats\+:
+\begin{DoxyItemize}
+\item {\ttfamily format.\+ISO8601\+\_\+\+FORMAT} -\/ {\ttfamily 2017-\/03-\/14T14\+:10\+:20.\+391} (local time used)
+\item {\ttfamily format.\+ISO8601\+\_\+\+WITH\+\_\+\+TZ\+\_\+\+OFFSET\+\_\+\+FORMAT} -\/ {\ttfamily 2017-\/03-\/14T14\+:10\+:20.\+391+11\+:00} (local + TZ used)
+\item {\ttfamily format.\+DATETIME\+\_\+\+FORMAT} -\/ {\ttfamily 14 03 2017 14\+:10\+:20.\+391} (local time used)
+\item {\ttfamily format.\+ABSOLUTETIME\+\_\+\+FORMAT} -\/ {\ttfamily 14\+:10\+:20.\+391} (local time used)
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md5487}{}\doxysubsubsection{\texorpdfstring{Parsing strings as dates}{Parsing strings as dates}}\label{README.md_autotoc_md5487}
+The date format library has limited ability to parse strings into dates. It can convert strings created using date format patterns (as above), but if you\textquotesingle{}re looking for anything more sophisticated than that you should probably look for a better library (\href{https://momentjs.com}{\texttt{ momentjs}} does pretty much everything).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ format\ =\ require('date-\/format');}
+\DoxyCodeLine{//\ pass\ in\ the\ format\ of\ the\ string\ as\ first\ argument}
+\DoxyCodeLine{format.parse(format.ISO8601\_FORMAT,\ '2017-\/03-\/14T14:10:20.391');}
+\DoxyCodeLine{format.parse(format.ISO8601\_WITH\_TZ\_OFFSET\_FORMAT,\ '2017-\/03-\/14T14:10:20.391+1100');}
+\DoxyCodeLine{format.parse(format.ISO8601\_WITH\_TZ\_OFFSET\_FORMAT,\ '2017-\/03-\/14T14:10:20.391+11:00');}
+\DoxyCodeLine{format.parse(format.ISO8601\_WITH\_TZ\_OFFSET\_FORMAT,\ '2017-\/03-\/14T03:10:20.391Z');}
+\DoxyCodeLine{//\ returns\ Date}
+
+\end{DoxyCode}
+ 

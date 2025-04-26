@@ -1,0 +1,27 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/http-\/parser-\/js Directory Reference}
+\hypertarget{dir_54eac15b111e5d5bef60d9fd160dd600}{}\label{dir_54eac15b111e5d5bef60d9fd160dd600}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/http-\/parser-\/js Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/http-\/parser-\/js Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+!\mbox{[}Node\mbox{]}(\href{https://github.com/creationix/http-parser-js/workflows/Node/badge.svg}{\texttt{ https\+://github.\+com/creationix/http-\/parser-\/js/workflows/\+Node/badge.\+svg}}) \hypertarget{README.md_autotoc_md8857}{}\doxysubsection{\texorpdfstring{HTTP Parser}{HTTP Parser}}\label{README.md_autotoc_md8857}
+This library parses HTTP protocol for requests and responses. It was created to replace {\ttfamily http\+\_\+parser.\+c} since calling C++ functions from JS is really slow in V8. However, it is now primarily useful in having a more flexible/tolerant HTTP parser when dealing with legacy services that do not meet the strict HTTP parsing rules Node\textquotesingle{}s parser follows.
+
+This is packaged as a standalone npm module. To use in node, monkeypatch HTTPParser.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Monkey\ patch\ before\ you\ require\ http\ for\ the\ first\ time.}
+\DoxyCodeLine{process.binding('http\_parser').HTTPParser\ =\ require('http-\/parser-\/js').HTTPParser;}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ http\ =\ require('http');}
+\DoxyCodeLine{//\ ...}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md8858}{}\doxysubsubsection{\texorpdfstring{Testing}{Testing}}\label{README.md_autotoc_md8858}
+Simply run {\ttfamily npm test}. The tests are copied from node and mscedex/io.\+js, with some modifcations.\hypertarget{README.md_autotoc_md8859}{}\doxysubsubsection{\texorpdfstring{Status}{Status}}\label{README.md_autotoc_md8859}
+This should now be usable in any node application, it now supports (nearly) everything {\ttfamily http\+\_\+parser.\+c} does while still being tolerant with corrupted headers, and other kinds of malformed data.\hypertarget{README.md_autotoc_md8860}{}\doxysubsubsubsection{\texorpdfstring{Node versions}{Node versions}}\label{README.md_autotoc_md8860}
+{\ttfamily http-\/parser-\/js} should work via monkey-\/patching on Node v6-\/v11, and v13-\/14.
+
+Node v12.\+x renamed the internal http parser, and did not expose it for monkey-\/patching, so to be able to monkey-\/patch on Node v12, you must run {\ttfamily node -\/-\/http-\/parser=legacy file.\+js} to opt in to the old, monkey-\/patchable http\+\_\+parser binding.\hypertarget{README.md_autotoc_md8861}{}\doxysubsubsection{\texorpdfstring{Standalone usage}{Standalone usage}}\label{README.md_autotoc_md8861}
+While this module is intended to be used as a replacement for the internal Node.\+js parser, it can be used as a standalone parser. The \href{standalone-example.js}{\texttt{ {\ttfamily standalone-\/example.\+js}}} demonstrates how to use the somewhat awkward API (coming from compatibility with the Node.\+js internals) to parse HTTP from raw Buffers.\hypertarget{README.md_autotoc_md8862}{}\doxysubsubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md8862}
+MIT. See \doxysectlink{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2http-parser-js_2_l_i_c_e_n_s_e}{LICENSE.md}{0} 

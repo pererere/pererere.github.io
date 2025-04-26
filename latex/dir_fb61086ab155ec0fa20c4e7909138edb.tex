@@ -1,0 +1,22 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@vitejs/plugin-\/basic-\/ssl Directory Reference}
+\hypertarget{dir_fb61086ab155ec0fa20c4e7909138edb}{}\label{dir_fb61086ab155ec0fa20c4e7909138edb}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@vitejs/plugin-\/basic-\/ssl Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@vitejs/plugin-\/basic-\/ssl Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+A plugin to generate untrusted certificates which still allows to access the page after proceeding a wall with warning.
+
+In most scenarios, it is recommended to generate a secure trusted certificate instead and use it to configure \href{https://vitejs.dev/config/server-options.html\#server-https}{\texttt{ {\ttfamily server.\+https}}}\hypertarget{README.md_autotoc_md1988}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md1988}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ vite.config.js}
+\DoxyCodeLine{import\ basicSsl\ from\ '@vitejs/plugin-\/basic-\/ssl'}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ default\ \{}
+\DoxyCodeLine{\ \ plugins:\ [}
+\DoxyCodeLine{\ \ \ \ basicSsl()}
+\DoxyCodeLine{\ \ ]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1989}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md1989}
+MIT 

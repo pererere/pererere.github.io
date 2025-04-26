@@ -1,0 +1,36 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/openurl Directory Reference}
+\hypertarget{dir_41845a60108dbc14bfc2880178bf3009}{}\label{dir_41845a60108dbc14bfc2880178bf3009}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/openurl Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/openurl Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+openurl is a Node.\+js module for opening a URL via the operating system. This will usually trigger actions such as\+:
+
+
+\begin{DoxyItemize}
+\item http URLs\+: open the default browser
+\item mailto URLs\+: open the default email client
+\item file URLs\+: open a window showing the directory (on OS X)
+\end{DoxyItemize}
+
+Example interaction on the Node.\+js REPL\+: \begin{DoxyVerb}> require("openurl").open("http://rauschma.de")
+> require("openurl").open("mailto:john@example.com")
+\end{DoxyVerb}
+
+
+You can generate emails as follows\+: \begin{DoxyVerb}require("openurl").mailto(["john@example.com", "jane@example.com"],
+    { subject: "Hello!", body: "This is\nan automatically sent email!\n" });
+\end{DoxyVerb}
+
+
+Install via npm\+: \begin{DoxyVerb}npm install openurl
+\end{DoxyVerb}
+
+
+I’m not yet terribly familiar with implementing npm packages, so any feedback is welcome (especially experience reports on Windows and Linux, which I can’t test on).
+
+Related reading\+:
+
+
+\begin{DoxyItemize}
+\item \href{http://www.2ality.com/2011/12/nodejs-shell-scripting.html}{\texttt{ Write your shell scripts in Java\+Script, via Node.\+js}} 
+\end{DoxyItemize}

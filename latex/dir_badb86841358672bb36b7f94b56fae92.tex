@@ -1,0 +1,49 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@istanbuljs/load-\/nyc-\/config Directory Reference}
+\hypertarget{dir_badb86841358672bb36b7f94b56fae92}{}\label{dir_badb86841358672bb36b7f94b56fae92}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@istanbuljs/load-\/nyc-\/config Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@istanbuljs/load-\/nyc-\/config Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+The utility function which NYC uses to load configuration. This can be used by outside programs to calculate the configuration. Command-\/line arguments are not considered by this function.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{loadNycConfig\}\ =\ require('@istanbuljs/load-\/nyc-\/config');}
+\DoxyCodeLine{}
+\DoxyCodeLine{(async\ ()\ \{}
+\DoxyCodeLine{\ \ console.log(await\ loadNycConfig());}
+\DoxyCodeLine{\})();}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1017}{}\doxysubsection{\texorpdfstring{load\+Nyc\+Config(\mbox{[}options\mbox{]})}{load\+Nyc\+Config(\mbox{[}options\mbox{]})}}\label{README.md_autotoc_md1017}
+\hypertarget{README.md_autotoc_md1018}{}\doxysubsubsection{\texorpdfstring{options.\+cwd}{options.\+cwd}}\label{README.md_autotoc_md1018}
+Type\+: {\ttfamily string} Default\+: {\ttfamily cwd} from parent nyc process or {\ttfamily process.\+cwd()}\hypertarget{README.md_autotoc_md1019}{}\doxysubsubsection{\texorpdfstring{options.\+nycrc\+Path}{options.\+nycrc\+Path}}\label{README.md_autotoc_md1019}
+Type\+: {\ttfamily string} Default\+: {\ttfamily undefined}
+
+Name of the file containing nyc configuration. This can be a relative or absolute path. Relative paths can exist at {\ttfamily options.\+cwd} or any parent directory. If an nycrc is specified but cannot be found an exception is thrown.
+
+If no nycrc option is provided the default priority of config files are\+:
+
+
+\begin{DoxyItemize}
+\item .nycrc
+\item .nycrc.\+json
+\item .nycrc.\+yml
+\item .nycrc.\+yaml
+\item nyc.\+config.\+js
+\item nyc.\+config.\+cjs
+\item nyc.\+config.\+mjs
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1020}{}\doxysubsection{\texorpdfstring{Configuration merging}{Configuration merging}}\label{README.md_autotoc_md1020}
+Configuration is first loaded from {\ttfamily package.\+json} if found, this serves as the package defaults. These options can be overridden by an nycrc if found. Arrays are not merged, so if {\ttfamily package.\+json} sets {\ttfamily "{}require"{}\+: \mbox{[}"{}@babel/register"{}\mbox{]}} and {\ttfamily .nycrc} sets {\ttfamily "{}require"{}\+: \mbox{[}"{}esm"{}\mbox{]}} the effective require setting will only include {\ttfamily "{}esm"{}}.\hypertarget{README.md_autotoc_md1021}{}\doxysubsection{\texorpdfstring{is\+Loading}{is\+Loading}}\label{README.md_autotoc_md1021}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{isLoading\}\ =\ require('@istanbuljs/load-\/nyc-\/config');}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(isLoading());}
+
+\end{DoxyCode}
+
+
+In some cases source transformation hooks can get installed before the configuration is loaded. This allows hooks to ignore source loads that occur during configuration load.\hypertarget{README.md_autotoc_md1022}{}\doxysubsection{\texorpdfstring{{\ttfamily @istanbuljs/load-\/nyc-\/config} for enterprise}{{\ttfamily @istanbuljs/load-\/nyc-\/config} for enterprise}}\label{README.md_autotoc_md1022}
+Available as part of the Tidelift Subscription.
+
+The maintainers of {\ttfamily @istanbuljs/load-\/nyc-\/config} and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. \href{https://tidelift.com/subscription/pkg/npm-istanbuljs-load-nyc-config?utm_source=npm-istanbuljs-load-nyc-config&utm_medium=referral&utm_campaign=enterprise}{\texttt{ Learn more.}} 

@@ -1,0 +1,40 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/axios/lib/adapters Directory Reference}
+\hypertarget{dir_6190a9d27ead7b8997e068c63f37b186}{}\label{dir_6190a9d27ead7b8997e068c63f37b186}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/axios/lib/adapters Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/axios/lib/adapters Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+The modules under {\ttfamily adapters/} are modules that handle dispatching a request and settling a returned {\ttfamily Promise} once a response is received.\hypertarget{README.md_autotoc_md2687}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{README.md_autotoc_md2687}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ settle\ =\ require('./../core/settle');}
+\DoxyCodeLine{}
+\DoxyCodeLine{module.exports\ =\ function\ myAdapter(config)\ \{}
+\DoxyCodeLine{\ \ //\ At\ this\ point:}
+\DoxyCodeLine{\ \ //\ \ -\/\ config\ has\ been\ merged\ with\ defaults}
+\DoxyCodeLine{\ \ //\ \ -\/\ request\ transformers\ have\ already\ run}
+\DoxyCodeLine{\ \ //\ \ -\/\ request\ interceptors\ have\ already\ run}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ //\ Make\ the\ request\ using\ config\ provided}
+\DoxyCodeLine{\ \ //\ Upon\ response\ settle\ the\ Promise}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ return\ new\ Promise(function(resolve,\ reject)\ \{}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ \ \ var\ response\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ data:\ responseData,}
+\DoxyCodeLine{\ \ \ \ \ \ status:\ request.status,}
+\DoxyCodeLine{\ \ \ \ \ \ statusText:\ request.statusText,}
+\DoxyCodeLine{\ \ \ \ \ \ headers:\ responseHeaders,}
+\DoxyCodeLine{\ \ \ \ \ \ config:\ config,}
+\DoxyCodeLine{\ \ \ \ \ \ request:\ request}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ settle(resolve,\ reject,\ response);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ From\ here:}
+\DoxyCodeLine{\ \ \ \ //\ \ -\/\ response\ transformers\ will\ run}
+\DoxyCodeLine{\ \ \ \ //\ \ -\/\ response\ interceptors\ will\ run}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

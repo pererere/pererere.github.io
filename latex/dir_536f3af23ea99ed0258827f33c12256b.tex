@@ -1,0 +1,57 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@types/serve-\/index Directory Reference}
+\hypertarget{dir_536f3af23ea99ed0258827f33c12256b}{}\label{dir_536f3af23ea99ed0258827f33c12256b}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@types/serve-\/index Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@types/serve-\/index Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\begin{quote}
+{\ttfamily npm install -\/-\/save @types/serve-\/index} \end{quote}
+\hypertarget{README.md_autotoc_md1945}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{README.md_autotoc_md1945}
+This package contains type definitions for serve-\/index (\href{https://github.com/expressjs/serve-index}{\texttt{ https\+://github.\+com/expressjs/serve-\/index}}).\hypertarget{README.md_autotoc_md1946}{}\doxysubsection{\texorpdfstring{Details}{Details}}\label{README.md_autotoc_md1946}
+Files were exported from \href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/serve-index}{\texttt{ https\+://github.\+com/\+Definitely\+Typed/\+Definitely\+Typed/tree/master/types/serve-\/index}}. \hypertarget{README.md_autotoc_md1947}{}\doxysubsubsection{\texorpdfstring{\href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/serve-index/index.d.ts}{\texttt{ index.\+d.\+ts}}}{\href{https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/serve-index/index.d.ts}{\texttt{ index.\+d.\+ts}}}}\label{README.md_autotoc_md1947}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ Handler\ \}\ from\ "{}express"{};}
+\DoxyCodeLine{import\ \{\ Stats\ \}\ from\ "{}fs"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**\ Serves\ pages\ that\ contain\ directory\ listings\ for\ a\ given\ path.\ */}
+\DoxyCodeLine{declare\ function\ serveIndex(path:\ string,\ options?:\ serveIndex.Options):\ Handler;}
+\DoxyCodeLine{}
+\DoxyCodeLine{declare\ namespace\ serveIndex\ \{}
+\DoxyCodeLine{\ \ \ \ interface\ File\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ name:\ string;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ stat:\ Stats;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ interface\ Locals\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ directory:\ string;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ displayIcons:\ boolean;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ fileList:\ File[];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ name:\ string;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ stat:\ Stats;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ path:\ string;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ style:\ string;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ viewName:\ string;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ type\ TemplateCallback\ =\ (error:\ Error\ |\ null,\ htmlString?:\ string)\ =>\ void;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ interface\ Options\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ filter?:\ ((filename:\ string,\ index:\ number,\ files:\ File[],\ dir:\ string)\ =>\ boolean)\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ hidden?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ icons?:\ boolean\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ stylesheet?:\ string\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ template?:\ string\ |\ ((locals:\ Locals,\ callback:\ TemplateCallback)\ =>\ void)\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ view?:\ string\ |\ undefined;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ =\ serveIndex;}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md1948}{}\doxysubsubsubsection{\texorpdfstring{Additional Details}{Additional Details}}\label{README.md_autotoc_md1948}
+
+\begin{DoxyItemize}
+\item Last updated\+: Tue, 07 Nov 2023 15\+:11\+:36 GMT
+\item Dependencies\+: \href{https://npmjs.com/package/@types/express}{\texttt{ @types/express}}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md1949}{}\doxysubsection{\texorpdfstring{Credits}{Credits}}\label{README.md_autotoc_md1949}
+These definitions were written by \href{https://github.com/tkrotoff}{\texttt{ Tanguy Krotoff}}. 

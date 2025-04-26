@@ -1,0 +1,410 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/ua-\/parser-\/js Directory Reference}
+\hypertarget{dir_6c0d8a49fa3ca0b9b035ead62dc82803}{}\label{dir_6c0d8a49fa3ca0b9b035ead62dc82803}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/ua-\/parser-\/js Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/ua-\/parser-\/js Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+
+
+ 
+
+
+
+\href{https://travis-ci.org/faisalman/ua-parser-js}{\texttt{ }} \href{https://www.npmjs.com/package/ua-parser-js}{\texttt{ }} \href{https://www.npmjs.com/package/ua-parser-js}{\texttt{ }} \href{https://www.jsdelivr.com/package/npm/ua-parser-js}{\texttt{ }} \href{https://cdnjs.com/libraries/UAParser.js}{\texttt{ }} \hypertarget{readme.md_autotoc_md21186}{}\doxysubsection{\texorpdfstring{UAParser.\+js}{UAParser.\+js}}\label{readme.md_autotoc_md21186}
+Java\+Script library to detect Browser, Engine, OS, CPU, and Device type/model from User-\/\+Agent data with relatively small footprint (\texorpdfstring{$\sim$}{\string~}17\+KB minified, \texorpdfstring{$\sim$}{\string~}6\+KB gzipped) that can be used either in browser (client-\/side) or node.\+js (server-\/side).
+
+
+\begin{DoxyItemize}
+\item Author \+: Faisal Salman \texorpdfstring{$<$}{<}\href{mailto:f@faisalman.com}{\texttt{ f@faisalman.\+com}}\texorpdfstring{$>$}{>}
+\item Demo \+: \href{https://faisalman.github.io/ua-parser-js}{\texttt{ https\+://faisalman.\+github.\+io/ua-\/parser-\/js}}
+\item Source \+: \href{https://github.com/faisalman/ua-parser-js}{\texttt{ https\+://github.\+com/faisalman/ua-\/parser-\/js}}
+\item Documentation \+:
+\begin{DoxyItemize}
+\item v1 \+: \href{https://github.com/faisalman/ua-parser-js/tree/1.0.35\#documentation}{\texttt{ https\+://github.\+com/faisalman/ua-\/parser-\/js/tree/1.\+0.\+35\#documentation}}
+\item v2 \+: \href{https://faisalman.github.io/ua-parser-js-docs/v2}{\texttt{ https\+://faisalman.\+github.\+io/ua-\/parser-\/js-\/docs/v2}}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{readme.md_autotoc_md21187}{}\doxysubsubsubsection{\texorpdfstring{From Our Sponsors\+:}{From Our Sponsors\+:}}\label{readme.md_autotoc_md21187}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{0}{|X[-1]}|}
+\hline
+\end{longtabu}
+
+
+\href{https://opencollective.com/ua-parser-js}{\texttt{ ↗ Become a sponsor}}    
+
+\DoxyHorRuler{0}
+\hypertarget{readme.md_autotoc_md21189}{}\doxysubsection{\texorpdfstring{Documentation}{Documentation}}\label{readme.md_autotoc_md21189}
+\hypertarget{readme.md_autotoc_md21190}{}\doxysubsubsubsection{\texorpdfstring{UAParser(\mbox{[}user-\/agent\mbox{]}\mbox{[},extensions\mbox{]})}{UAParser(\mbox{[}user-\/agent\mbox{]}\mbox{[},extensions\mbox{]})}}\label{readme.md_autotoc_md21190}
+typeof {\ttfamily user-\/agent} "{}string"{}.
+
+typeof {\ttfamily extensions} "{}array"{}.
+
+In The Browser environment you dont need to pass the user-\/agent string to the function, you can just call the funtion and it should automatically get the string from the {\ttfamily window.\+navigator.\+user\+Agent}, but that is not the case in nodejs. The user-\/agent string must be passed in nodejs for the function to work. Usually you can find the user agent in\+: {\ttfamily request.\+headers\mbox{[}"{}user-\/agent"{}\mbox{]}}.\hypertarget{readme.md_autotoc_md21191}{}\doxysubsubsection{\texorpdfstring{Constructor}{Constructor}}\label{readme.md_autotoc_md21191}
+When you call {\ttfamily UAParser} with the {\ttfamily new} keyword {\ttfamily UAParser} will return a new instance with an empty result object, you have to call one of the available methods to get the information from the user-\/agent string. Like so\+:
+\begin{DoxyItemize}
+\item {\ttfamily new UAParser(\mbox{[}uastring\mbox{]}\mbox{[},extensions\mbox{]})} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{let\ parser\ =\ new\ UAParser("{}user-\/agent"{});\ //\ you\ need\ to\ pass\ the\ user-\/agent\ for\ nodejs}
+\DoxyCodeLine{console.log(parser);\ //\ \{\}}
+\DoxyCodeLine{let\ parserResults\ =\ parser.getResult();}
+\DoxyCodeLine{console.log(parserResults);}
+\DoxyCodeLine{/**\ \{}
+\DoxyCodeLine{\ \ "{}ua"{}:\ "{}"{},}
+\DoxyCodeLine{\ \ "{}browser"{}:\ \{\},}
+\DoxyCodeLine{\ \ "{}engine"{}:\ \{\},}
+\DoxyCodeLine{\ \ "{}os"{}:\ \{\},}
+\DoxyCodeLine{\ \ "{}device"{}:\ \{\},}
+\DoxyCodeLine{\ \ "{}cpu"{}:\ \{\}}
+\DoxyCodeLine{\}\ */}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+When you call UAParser without the {\ttfamily new} keyword, it will automatically call {\ttfamily get\+Result()} function and return the parsed results.
+\begin{DoxyItemize}
+\item {\ttfamily UAParser(\mbox{[}uastring\mbox{]}\mbox{[},extensions\mbox{]})}
+\begin{DoxyItemize}
+\item returns result object `\{ ua\+: '\textquotesingle{}, browser\+: \{\}, cpu\+: \{\}, device\+: \{\}, engine\+: \{\}, os\+: \{\} \}\`{}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md21192}{}\doxysubsubsection{\texorpdfstring{Methods}{Methods}}\label{readme.md_autotoc_md21192}
+\hypertarget{readme.md_autotoc_md21193}{}\doxysubsubsubsubsection{\texorpdfstring{Methods table}{Methods table}}\label{readme.md_autotoc_md21193}
+The methods are self explanatory, here\textquotesingle{}s a small overview on all the available methods\+:
+\begin{DoxyItemize}
+\item {\ttfamily get\+Result()} -\/ returns all function object calls, user-\/agent string, browser info, cpu, device, engine, os\+: `\{ ua\+: '\textquotesingle{}, browser\+: \{\}, cpu\+: \{\}, device\+: \{\}, engine\+: \{\}, os\+: \{\} \}\`{}.
+\begin{DoxyItemize}
+\item {\ttfamily get\+Browser()} -\/ returns the browser name and version.
+\item {\ttfamily get\+Device()} -\/ returns the device model, type, vendor.
+\item {\ttfamily get\+Engine()} -\/ returns the current browser engine name and version.
+\item {\ttfamily get\+OS()} -\/ returns the running operating system name and version.
+\item {\ttfamily get\+CPU()} -\/ returns CPU architectural design name.
+\item {\ttfamily get\+UA()} -\/ returns the user-\/agent string.
+\item {\ttfamily set\+UA(user-\/agent)} -\/ set a custom user-\/agent to be parsed.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily get\+Result()}
+\begin{DoxyItemize}
+\item returns `\{ ua\+: '\textquotesingle{}, browser\+: \{\}, cpu\+: \{\}, device\+: \{\}, engine\+: \{\}, os\+: \{\} \}\`{}
+\end{DoxyItemize}
+\item {\ttfamily get\+Browser()}
+\begin{DoxyItemize}
+\item returns `\{ name\+: '\textquotesingle{}, version\+: \textquotesingle{}\textquotesingle{} \}\`{}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Possible\ 'browser.name':}
+\DoxyCodeLine{2345Explorer,\ 360\ Browser,\ Alipay,\ Amaya,\ Android\ Browser,\ Arora,\ Avant,\ Avast,\ }
+\DoxyCodeLine{AVG,\ Baidu,\ Basilisk,\ Blazer,\ Bolt,\ Brave,\ Bowser,\ Camino,\ Chimera,}
+\DoxyCodeLine{Chrome\ Headless,\ Chrome\ WebView,\ Chrome,\ Chromium,\ Cobalt,\ Comodo\ Dragon,\ Dillo,}
+\DoxyCodeLine{Dolphin,\ Doris,\ DuckDuckGo,\ Edge,\ Electron,\ Epiphany,\ Facebook,\ Falkon,\ Fennec,\ }
+\DoxyCodeLine{Firebird,\ Firefox\ [Focus/Reality],\ Flock,\ Flow,\ GSA,\ GoBrowser,\ Heytap,\ }
+\DoxyCodeLine{Huawei\ Browser,\ iCab,\ ICE\ Browser,\ IE,\ IEMobile,\ IceApe,\ IceCat,\ IceDragon,\ }
+\DoxyCodeLine{Iceweasel,\ Instagram,\ Iridium,\ Iron,\ Jasmine,\ Kakao[Story/Talk],\ K-\/Meleon,\ }
+\DoxyCodeLine{Kindle,\ Klar,\ Klarna,\ Konqueror,\ LBBROWSER,\ Line,\ LinkedIn,\ Links,\ Lunascape,\ }
+\DoxyCodeLine{Lynx,\ MIUI\ Browser,\ Maemo,\ Maxthon,\ Midori,\ Minimo,\ Mobile\ Safari,\ Mosaic,\ }
+\DoxyCodeLine{Mozilla,\ NetFront,\ NetSurf,\ Netfront,\ Netscape,\ NokiaBrowser,\ Obigo,\ }
+\DoxyCodeLine{Oculus\ Browser,\ OmniWeb,\ Opera\ Coast,\ Opera\ [Mini/Mobi/Tablet],\ PaleMoon,\ }
+\DoxyCodeLine{PhantomJS,\ Phoenix,\ Polaris,\ Puffin,\ QQ,\ QQBrowser,\ QQBrowserLite,\ Quark,\ }
+\DoxyCodeLine{QupZilla,\ RockMelt,\ Safari,\ Sailfish\ Browser,\ Samsung\ Internet,\ SeaMonkey,\ Silk,\ }
+\DoxyCodeLine{Skyfire,\ Sleipnir,\ Slim,\ SlimBrowser,\ Smart\ Lenovo\ Browser,\ Snapchat,\ }
+\DoxyCodeLine{Sogou\ [Explorer/Mobile],\ Swiftfox,\ Tesla,\ TikTok,\ Tizen\ Browser,\ UCBrowser,\ }
+\DoxyCodeLine{UP.Browser,\ Viera,\ Vivaldi,\ Vivo\ Browser,\ Waterfox,\ WeChat,\ Weibo,\ Yandex,\ w3m,\ }
+\DoxyCodeLine{Whale\ Browser,\ ...}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ 'browser.version'\ determined\ dynamically}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily get\+Device()}
+\begin{DoxyItemize}
+\item returns `\{ model\+: '\textquotesingle{}, type\+: \textquotesingle{}\textquotesingle{}, vendor\+: \textquotesingle{}\textquotesingle{} \}\`{}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Possible\ 'device.type':}
+\DoxyCodeLine{console,\ mobile,\ tablet,\ smarttv,\ wearable,\ embedded}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\#\#\#\#\#\#\#}
+\DoxyCodeLine{\#\ NOTE:\ 'desktop'\ is\ not\ a\ possible\ device\ type.\ }
+\DoxyCodeLine{\#\ UAParser\ only\ reports\ info\ directly\ available\ from\ the\ UA\ string,\ which\ is\ not\ the\ case\ for\ 'desktop'\ device\ type.}
+\DoxyCodeLine{\#\ If\ you\ wish\ to\ detect\ desktop\ devices,\ you\ must\ handle\ the\ needed\ logic\ yourself.}
+\DoxyCodeLine{\#\ You\ can\ read\ more\ about\ it\ in\ this\ issue:\ https://github.com/faisalman/ua-\/parser-\/js/issues/182}
+\DoxyCodeLine{\#\#\#\#\#\#\#\#\#\#}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Possible\ 'device.vendor':}
+\DoxyCodeLine{Acer,\ Alcatel,\ Amazon,\ Apple,\ Archos,\ ASUS,\ AT\&T,\ BenQ,\ BlackBerry,\ Dell,}
+\DoxyCodeLine{Essential,\ Facebook,\ Fairphone,\ GeeksPhone,\ Google,\ HP,\ HTC,\ Huawei,\ Infinix,\ }
+\DoxyCodeLine{Jolla,\ Kobo,\ Lenovo,\ LG,\ Meizu,\ Microsoft,\ Motorola,\ Nexian,\ Nintendo,\ Nokia,\ }
+\DoxyCodeLine{Nvidia,\ OnePlus,\ OPPO,\ Ouya,\ Palm,\ Panasonic,\ Pebble,\ Polytron,\ Realme,\ RIM,\ }
+\DoxyCodeLine{Roku,\ Samsung,\ Sharp,\ Siemens,\ Sony[Ericsson],\ Sprint,\ Tecno,\ Tesla,\ Ulefone,\ }
+\DoxyCodeLine{Vivo,\ Vodafone,\ Xbox,\ Xiaomi,\ Zebra,\ ZTE,\ ...}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ 'device.model'\ determined\ dynamically}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily get\+Engine()}
+\begin{DoxyItemize}
+\item returns `\{ name\+: '\textquotesingle{}, version\+: \textquotesingle{}\textquotesingle{} \}\`{}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Possible\ 'engine.name'}
+\DoxyCodeLine{Amaya,\ Blink,\ EdgeHTML,\ Flow,\ Gecko,\ Goanna,\ iCab,\ KHTML,\ LibWeb,\ Links,\ Lynx,\ }
+\DoxyCodeLine{NetFront,\ NetSurf,\ Presto,\ Tasman,\ Trident,\ w3m,\ WebKit}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ 'engine.version'\ determined\ dynamically}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily get\+OS()}
+\begin{DoxyItemize}
+\item returns `\{ name\+: '\textquotesingle{}, version\+: \textquotesingle{}\textquotesingle{} \}\`{}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Possible\ 'os.name'}
+\DoxyCodeLine{AIX,\ Amiga\ OS,\ Android[-\/x86],\ Arch,\ Bada,\ BeOS,\ BlackBerry,\ CentOS,\ Chromium\ OS,}
+\DoxyCodeLine{Contiki,\ Fedora,\ Firefox\ OS,\ FreeBSD,\ Debian,\ Deepin,\ DragonFly,\ elementary\ OS,\ }
+\DoxyCodeLine{Fuchsia,\ Gentoo,\ GhostBSD,\ GNU,\ Haiku,\ HarmonyOS,\ HP-\/UX,\ Hurd,\ iOS,\ Joli,\ KaiOS,\ }
+\DoxyCodeLine{Linpus,\ Linspire,Linux,\ Mac\ OS,\ Maemo,\ Mageia,\ Mandriva,\ Manjaro,\ MeeGo,\ Minix,\ }
+\DoxyCodeLine{Mint,\ Morph\ OS,\ NetBSD,\ NetRange,\ NetTV,\ Nintendo,\ OpenBSD,\ OpenVMS,\ OS/2,\ Palm,\ }
+\DoxyCodeLine{PC-\/BSD,\ PCLinuxOS,\ Plan9,\ PlayStation,\ QNX,\ Raspbian,\ RedHat,\ RIM\ Tablet\ OS,\ }
+\DoxyCodeLine{RISC\ OS,\ Sabayon,\ Sailfish,\ SerenityOS,\ Series40,\ Slackware,\ Solaris,\ SUSE,\ }
+\DoxyCodeLine{Symbian,\ Tizen,\ Ubuntu,\ Unix,\ VectorLinux,\ Viera,\ watchOS,\ WebOS,\ }
+\DoxyCodeLine{Windows\ [Phone/Mobile],\ Zenwalk,\ ...}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ 'os.version'\ determined\ dynamically}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily get\+CPU()}
+\begin{DoxyItemize}
+\item returns `\{ architecture\+: '\textquotesingle{} \}\`{}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Possible\ 'cpu.architecture'}
+\DoxyCodeLine{68k,\ amd64,\ arm[64/hf],\ avr,\ ia[32/64],\ irix[64],\ mips[64],\ pa-\/risc,\ ppc,\ }
+\DoxyCodeLine{sparc[64]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily get\+UA()}
+\begin{DoxyItemize}
+\item returns UA string of current instance
+\end{DoxyItemize}
+\item {\ttfamily set\+UA(uastring)}
+\begin{DoxyItemize}
+\item set UA string to be parsed
+\item returns current instance
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md21195}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{readme.md_autotoc_md21195}
+\hypertarget{readme.md_autotoc_md21196}{}\doxysubsubsection{\texorpdfstring{Using HTML}{Using HTML}}\label{readme.md_autotoc_md21196}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<!doctype\ html>}
+\DoxyCodeLine{<html>}
+\DoxyCodeLine{<head>}
+\DoxyCodeLine{<script\ src="{}ua-\/parser.min.js"{}></script>}
+\DoxyCodeLine{<script>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ var\ parser\ =\ new\ UAParser();}
+\DoxyCodeLine{\ \ \ \ console.log(parser.getResult());}
+\DoxyCodeLine{\ \ \ \ /*}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ///\ This\ will\ print\ an\ object\ structured\ like\ this:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ua:\ "{}"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ browser:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name:\ "{}"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ version:\ "{}"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ major:\ "{}"{}\ //@deprecated}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ engine:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name:\ "{}"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ version:\ "{}"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ os:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name:\ "{}"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ version:\ "{}"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ device:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ model:\ "{}"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type:\ "{}"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vendor:\ "{}"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ cpu:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ architecture:\ "{}"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ */}
+\DoxyCodeLine{\ \ \ \ //\ Default\ result\ depends\ on\ current\ window.navigator.userAgent\ value}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ Now\ let's\ try\ a\ custom\ user-\/agent\ string\ as\ an\ example}
+\DoxyCodeLine{\ \ \ \ var\ uastring1\ =\ "{}Mozilla/5.0\ (X11;\ Linux\ x86\_64)\ AppleWebKit/535.2\ (KHTML,\ like\ Gecko)\ Ubuntu/11.10\ Chromium/15.0.874.106\ Chrome/15.0.874.106\ Safari/535.2"{};}
+\DoxyCodeLine{\ \ \ \ parser.setUA(uastring1);}
+\DoxyCodeLine{\ \ \ \ var\ result\ =\ parser.getResult();}
+\DoxyCodeLine{\ \ \ \ //\ You\ can\ also\ use\ UAParser\ constructor\ directly\ without\ having\ to\ create\ an\ instance:}
+\DoxyCodeLine{\ \ \ \ //\ var\ result\ =\ UAParser(uastring1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ console.log(result.browser);\ \ \ \ \ \ \ \ //\ \{name:\ "{}Chromium"{},\ version:\ "{}15.0.874.106"{}\}}
+\DoxyCodeLine{\ \ \ \ console.log(result.device);\ \ \ \ \ \ \ \ \ //\ \{model:\ undefined,\ type:\ undefined,\ vendor:\ undefined\}}
+\DoxyCodeLine{\ \ \ \ console.log(result.os);\ \ \ \ \ \ \ \ \ \ \ \ \ //\ \{name:\ "{}Ubuntu"{},\ version:\ "{}11.10"{}\}}
+\DoxyCodeLine{\ \ \ \ console.log(result.os.version);\ \ \ \ \ //\ "{}11.10"{}}
+\DoxyCodeLine{\ \ \ \ console.log(result.engine.name);\ \ \ \ //\ "{}WebKit"{}}
+\DoxyCodeLine{\ \ \ \ console.log(result.cpu.architecture);\ \ \ //\ "{}amd64"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ Do\ some\ other\ tests}
+\DoxyCodeLine{\ \ \ \ var\ uastring2\ =\ "{}Mozilla/5.0\ (compatible;\ Konqueror/4.1;\ OpenBSD)\ KHTML/4.1.4\ (like\ Gecko)"{};}
+\DoxyCodeLine{\ \ \ \ console.log(parser.setUA(uastring2).getBrowser().name);\ //\ "{}Konqueror"{}}
+\DoxyCodeLine{\ \ \ \ console.log(parser.getOS());\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ \{name:\ "{}OpenBSD"{},\ version:\ undefined\}}
+\DoxyCodeLine{\ \ \ \ console.log(parser.getEngine());\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ \{name:\ "{}KHTML"{},\ version:\ "{}4.1.4"{}\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ var\ uastring3\ =\ 'Mozilla/5.0\ (PlayBook;\ U;\ RIM\ Tablet\ OS\ 1.0.0;\ en-\/US)\ AppleWebKit/534.11\ (KHTML,\ like\ Gecko)\ Version/7.1.0.7\ Safari/534.11';}
+\DoxyCodeLine{\ \ \ \ console.log(parser.setUA(uastring3).getDevice().model);\ //\ "{}PlayBook"{}}
+\DoxyCodeLine{\ \ \ \ console.log(parser.getOS())\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ \{name:\ "{}RIM\ Tablet\ OS"{},\ version:\ "{}1.0.0"{}\}}
+\DoxyCodeLine{\ \ \ \ console.log(parser.getBrowser().name);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ "{}Safari"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{</script>}
+\DoxyCodeLine{</head>}
+\DoxyCodeLine{<body>}
+\DoxyCodeLine{</body>}
+\DoxyCodeLine{</html>}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md21197}{}\doxysubsubsection{\texorpdfstring{Using node.\+js}{Using node.\+js}}\label{readme.md_autotoc_md21197}
+Note\+: Device information is not available in the Node\+JS environment.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ ua-\/parser-\/js}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ http\ =\ require('http');}
+\DoxyCodeLine{var\ parser\ =\ require('ua-\/parser-\/js');}
+\DoxyCodeLine{}
+\DoxyCodeLine{http.createServer(function\ (req,\ res)\ \{}
+\DoxyCodeLine{\ \ \ \ //\ get\ user-\/agent\ header}
+\DoxyCodeLine{\ \ \ \ var\ ua\ =\ parser(req.headers['user-\/agent']);}
+\DoxyCodeLine{\ \ \ \ //\ write\ the\ result\ as\ response}
+\DoxyCodeLine{\ \ \ \ res.end(JSON.stringify(ua,\ null,\ '\ \ '));}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{.listen(1337,\ '127.0.0.1');}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('Server\ running\ at\ http://127.0.0.1:1337/');}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md21198}{}\doxysubsubsection{\texorpdfstring{Using Type\+Script}{Using Type\+Script}}\label{readme.md_autotoc_md21198}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ -\/-\/save\ @types/ua-\/parser-\/js}
+\DoxyCodeLine{\#\ Download\ TS\ type\ definition\ from\ DefinitelyTyped\ repository:}
+\DoxyCodeLine{\#\ https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/ua-\/parser-\/js}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md21199}{}\doxysubsubsection{\texorpdfstring{Using j\+Query/\+Zepto (\$.\+ua)}{Using j\+Query/\+Zepto (\$.\+ua)}}\label{readme.md_autotoc_md21199}
+Although written in vanilla js, this library will automatically detect if j\+Query/\+Zepto is present and create {\ttfamily \$.ua} object (with values based on its User-\/\+Agent) along with {\ttfamily window.\+UAParser} constructor. To get/set user-\/agent you can use\+: {\ttfamily \$.ua.\+get()} / {\ttfamily \$.ua.\+set(uastring)}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Say\ we\ are\ in\ a\ browser\ with\ default\ user-\/agent:\ 'Mozilla/5.0\ (Linux;\ U;\ Android\ 2.3.4;\ en-\/us;\ Sprint\ APA7373KT\ Build/GRJ22)\ AppleWebKit/533.1\ (KHTML,\ like\ Gecko)\ Version/4.0':}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Get\ the\ details}
+\DoxyCodeLine{console.log(\$.ua.device);\ \ \ \ \ \ \ \ \ \ \ //\ \{vendor:\ "{}HTC"{},\ model:\ "{}Evo\ Shift\ 4G"{},\ type:\ "{}mobile"{}\}}
+\DoxyCodeLine{console.log(\$.ua.os);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ \{name:\ "{}Android"{},\ version:\ "{}2.3.4"{}\}}
+\DoxyCodeLine{console.log(\$.ua.os.name);\ \ \ \ \ \ \ \ \ \ //\ "{}Android"{}}
+\DoxyCodeLine{console.log(\$.ua.get());\ \ \ \ \ \ \ \ \ \ \ \ //\ "{}Mozilla/5.0\ (Linux;\ U;\ Android\ 2.3.4;\ en-\/us;\ Sprint\ APA7373KT\ Build/GRJ22)\ AppleWebKit/533.1\ (KHTML,\ like\ Gecko)\ Version/4.0"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Now\ lets\ try\ to\ reset\ to\ another\ custom\ user-\/agent}
+\DoxyCodeLine{\$.ua.set('Mozilla/5.0\ (Linux;\ U;\ Android\ 3.0.1;\ en-\/us;\ Xoom\ Build/HWI69)\ AppleWebKit/534.13\ (KHTML,\ like\ Gecko)\ Version/4.0\ Safari/534.13');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Test\ again}
+\DoxyCodeLine{console.log(\$.ua.browser.name);\ \ \ \ \ //\ "{}Safari"{}}
+\DoxyCodeLine{console.log(\$.ua.engine.name);\ \ \ \ \ \ //\ "{}Webkit"{}}
+\DoxyCodeLine{console.log(\$.ua.device);\ \ \ \ \ \ \ \ \ \ \ //\ \{vendor:\ "{}Motorola"{},\ model:\ "{}Xoom"{},\ type:\ "{}tablet"{}\}}
+\DoxyCodeLine{console.log(parseInt(\$.ua.browser.version.split('.')[0],\ 10));\ \ //\ 4}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Add\ class\ to\ <body>\ tag}
+\DoxyCodeLine{//\ <body\ class="{}ua-\/browser-\/safari\ ua-\/devicetype-\/tablet"{}>}
+\DoxyCodeLine{\$('body').addClass('ua-\/browser-\/'\ +\ \$.ua.browser.name\ +\ '\ ua-\/devicetype-\/'\ +\ \$.ua.device.type);}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md21200}{}\doxysubsubsection{\texorpdfstring{Using Extension}{Using Extension}}\label{readme.md_autotoc_md21200}
+
+\begin{DoxyItemize}
+\item {\ttfamily UAParser(\mbox{[}uastring,\mbox{]} extensions)}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Example:}
+\DoxyCodeLine{var\ myOwnListOfBrowsers\ =\ [}
+\DoxyCodeLine{\ \ \ \ [/(mybrowser)\(\backslash\)/([\(\backslash\)w\(\backslash\).]+)/i],\ [UAParser.BROWSER.NAME,\ UAParser.BROWSER.VERSION]}
+\DoxyCodeLine{];}
+\DoxyCodeLine{var\ myParser\ =\ new\ UAParser(\{\ browser:\ myOwnListOfBrowsers\ \});}
+\DoxyCodeLine{var\ myUA\ =\ 'Mozilla/5.0\ MyBrowser/1.3';}
+\DoxyCodeLine{console.log(myParser.setUA(myUA).getBrowser());\ \ //\ \{name:\ "{}MyBrowser"{},\ version:\ "{}1.3"{}\}}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md21201}{}\doxysubsection{\texorpdfstring{Development}{Development}}\label{readme.md_autotoc_md21201}
+\hypertarget{readme.md_autotoc_md21202}{}\doxysubsubsection{\texorpdfstring{Backers \& Sponsors}{Backers \& Sponsors}}\label{readme.md_autotoc_md21202}
+\href{https://opencollective.com/ua-parser-js}{\texttt{ }} \href{https://opencollective.com/ua-parser-js}{\texttt{ }}
+
+\href{https://www.paypal.me/faisalman/}{\texttt{ }}\hypertarget{readme.md_autotoc_md21203}{}\doxysubsubsection{\texorpdfstring{Contributors}{Contributors}}\label{readme.md_autotoc_md21203}
+\href{https://github.com/faisalman/ua-parser-js/graphs/contributors}{\texttt{  }}
+
+Made with \href{https://contrib.rocks}{\texttt{ contributors-\/img}}.\hypertarget{readme.md_autotoc_md21204}{}\doxysubsubsection{\texorpdfstring{How To Contribute}{How To Contribute}}\label{readme.md_autotoc_md21204}
+
+\begin{DoxyItemize}
+\item Fork and clone this repository
+\item Make some changes as required
+\item Write unit test to showcase its functionality
+\item Run the test suites to make sure it\textquotesingle{}s not breaking anything {\ttfamily \$ npm test}
+\item Submit a pull request under {\ttfamily develop} branch
+\end{DoxyItemize}\hypertarget{readme.md_autotoc_md21205}{}\doxysubsection{\texorpdfstring{License}{License}}\label{readme.md_autotoc_md21205}
+MIT License
+
+Copyright (c) 2012-\/2021 Faisal Salman \texorpdfstring{$<$}{<}\href{mailto:f@faisalman.com}{\texttt{ f@faisalman.\+com}}\texorpdfstring{$>$}{>}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "{}\+Software"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "{}\+AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 

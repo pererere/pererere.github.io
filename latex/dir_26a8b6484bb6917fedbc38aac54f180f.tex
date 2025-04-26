@@ -1,0 +1,74 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/ansi-\/html-\/community Directory Reference}
+\hypertarget{dir_26a8b6484bb6917fedbc38aac54f180f}{}\label{dir_26a8b6484bb6917fedbc38aac54f180f}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/ansi-\/html-\/community Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/ansi-\/html-\/community Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+An elegant lib that converts the chalked (ANSI) text to HTML.\hypertarget{README.md_autotoc_md2475}{}\doxysubsection{\texorpdfstring{Coverage}{Coverage}}\label{README.md_autotoc_md2475}
+
+\begin{DoxyItemize}
+\item All styles of \href{https://github.com/sindresorhus/chalk}{\texttt{ chalk}} (100\%) and \href{https://github.com/Marak/colors.js}{\texttt{ colors}}.
+\item There are over {\bfseries{150}} randomized test cases under {\ttfamily test}.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md2476}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md2476}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ ansi-\/html-\/community}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2477}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md2477}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ ansiHTML\ =\ require('ansi-\/html-\/community');}
+\DoxyCodeLine{var\ str\ =\ ansiHTML('[ANSI\_TEXT]');}
+
+\end{DoxyCode}
+
+
+e.\+g.\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ chalk\ =\ require('chalk');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ str\ =\ chalk.bold.red('foo')\ +\ '\ bar';}
+\DoxyCodeLine{console.log('[ANSI]',\ str)}
+\DoxyCodeLine{console.log('[HTML]',\ ansiHTML(str));}
+
+\end{DoxyCode}
+
+
+See complete examples under {\ttfamily test} / {\ttfamily examples} directory.\hypertarget{README.md_autotoc_md2478}{}\doxysubsection{\texorpdfstring{Set Colors}{Set Colors}}\label{README.md_autotoc_md2478}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ansiHTML.setColors(\{}
+\DoxyCodeLine{\ \ reset:\ ['555',\ '666'],\ //\ FOREGROUND-\/COLOR\ or\ [FOREGROUND-\/COLOR]\ or\ [,\ BACKGROUND-\/COLOR]\ or\ [FOREGROUND-\/COLOR,\ BACKGROUND-\/COLOR]}
+\DoxyCodeLine{\ \ black:\ 'aaa',\ //\ String}
+\DoxyCodeLine{\ \ red:\ 'bbb',}
+\DoxyCodeLine{\ \ green:\ 'ccc',}
+\DoxyCodeLine{\ \ yellow:\ 'ddd',}
+\DoxyCodeLine{\ \ blue:\ 'eee',}
+\DoxyCodeLine{\ \ magenta:\ 'fff',}
+\DoxyCodeLine{\ \ cyan:\ '999',}
+\DoxyCodeLine{\ \ lightgrey:\ '888',}
+\DoxyCodeLine{\ \ darkgrey:\ '777'}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2479}{}\doxysubsection{\texorpdfstring{Reset}{Reset}}\label{README.md_autotoc_md2479}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ansiHTML.reset();}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2480}{}\doxysubsection{\texorpdfstring{Exposed Tags}{Exposed Tags}}\label{README.md_autotoc_md2480}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ openTags\ =\ ansiHTML.tags.open;}
+\DoxyCodeLine{var\ closeTags\ =\ ansiHTML.tags.close;}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md2481}{}\doxysubsection{\texorpdfstring{Test}{Test}}\label{README.md_autotoc_md2481}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ -\/l}
+\DoxyCodeLine{\$\ npm\ test}
+
+\end{DoxyCode}
+ 

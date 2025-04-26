@@ -1,0 +1,129 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/validate-\/npm-\/package-\/name Directory Reference}
+\hypertarget{dir_babf030dd9afea7c8f4ed273c0f277a2}{}\label{dir_babf030dd9afea7c8f4ed273c0f277a2}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/validate-\/npm-\/package-\/name Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/validate-\/npm-\/package-\/name Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+Give me a string and I\textquotesingle{}ll tell you if it\textquotesingle{}s a valid {\ttfamily npm} package name.
+
+This package exports a single synchronous function that takes a {\ttfamily string} as input and returns an object with two properties\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily valid\+For\+New\+Packages} \+:: {\ttfamily Boolean}
+\item {\ttfamily valid\+For\+Old\+Packages} \+:: {\ttfamily Boolean}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md21694}{}\doxysubsection{\texorpdfstring{Contents}{Contents}}\label{README.md_autotoc_md21694}
+
+\begin{DoxyItemize}
+\item Naming rules
+\item \doxylink{README.md_examples}{Examples}
+\begin{DoxyItemize}
+\item Valid Names
+\item Invalid Names
+\end{DoxyItemize}
+\item Legacy Names
+\item Tests
+\item \doxylink{README.md_license}{License}
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md21695}{}\doxysubsection{\texorpdfstring{Naming Rules}{Naming Rules}}\label{README.md_autotoc_md21695}
+Below is a list of rules that valid {\ttfamily npm} package name should conform to.
+
+
+\begin{DoxyItemize}
+\item package name length should be greater than zero
+\item all the characters in the package name must be lowercase i.\+e., no uppercase or mixed case names are allowed
+\item package name {\itshape can} consist of hyphens
+\item package name must {\itshape not} contain any non-\/url-\/safe characters (since name ends up being part of a URL)
+\item package name should not start with {\ttfamily .} or {\ttfamily \+\_\+}
+\item package name should {\itshape not} contain any spaces
+\item package name should {\itshape not} contain any of the following characters\+: `\texorpdfstring{$\sim$}{\string~})('!\texorpdfstring{$\ast$}{*}\`{}
+\item package name {\itshape cannot} be the same as a node.\+js/io.js core module nor a reserved/blacklisted name. For example, the following names are invalid\+:
+\begin{DoxyItemize}
+\item http
+\item stream
+\item node\+\_\+modules
+\item favicon.\+ico
+\end{DoxyItemize}
+\item package name length cannot exceed 214
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md21696}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{README.md_autotoc_md21696}
+\hypertarget{README.md_autotoc_md21697}{}\doxysubsubsection{\texorpdfstring{Valid Names}{Valid Names}}\label{README.md_autotoc_md21697}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ validate\ =\ require("{}validate-\/npm-\/package-\/name"{})}
+\DoxyCodeLine{}
+\DoxyCodeLine{validate("{}some-\/package"{})}
+\DoxyCodeLine{validate("{}example.com"{})}
+\DoxyCodeLine{validate("{}under\_score"{})}
+\DoxyCodeLine{validate("{}123numeric"{})}
+\DoxyCodeLine{validate("{}@npm/thingy"{})}
+\DoxyCodeLine{validate("{}@jane/foo.js"{})}
+
+\end{DoxyCode}
+
+
+All of the above names are valid, so you\textquotesingle{}ll get this object back\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ validForNewPackages:\ true,}
+\DoxyCodeLine{\ \ validForOldPackages:\ true}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21698}{}\doxysubsubsection{\texorpdfstring{Invalid Names}{Invalid Names}}\label{README.md_autotoc_md21698}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{validate("{}excited!"{})}
+\DoxyCodeLine{validate("{}\ leading-\/space:and:weirdchars"{})}
+
+\end{DoxyCode}
+
+
+That was never a valid package name, so you get this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ validForNewPackages:\ false,}
+\DoxyCodeLine{\ \ validForOldPackages:\ false,}
+\DoxyCodeLine{\ \ errors:\ [}
+\DoxyCodeLine{\ \ \ \ 'name\ cannot\ contain\ leading\ or\ trailing\ spaces',}
+\DoxyCodeLine{\ \ \ \ 'name\ can\ only\ contain\ URL-\/friendly\ characters'}
+\DoxyCodeLine{\ \ ]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21699}{}\doxysubsection{\texorpdfstring{Legacy Names}{Legacy Names}}\label{README.md_autotoc_md21699}
+In the old days of npm, package names were wild. They could have capital letters in them. They could be really long. They could be the name of an existing module in node core.
+
+If you give this function a package name that {\bfseries{used to be valid}}, you\textquotesingle{}ll see a change in the value of {\ttfamily valid\+For\+New\+Packages} property, and a warnings array will be present\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{validate("{}eLaBorAtE-\/paCkAgE-\/with-\/mixed-\/case-\/and-\/more-\/than-\/214-\/characters-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{})}
+
+\end{DoxyCode}
+
+
+returns\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ validForNewPackages:\ false,}
+\DoxyCodeLine{\ \ validForOldPackages:\ true,}
+\DoxyCodeLine{\ \ warnings:\ [}
+\DoxyCodeLine{\ \ \ \ "{}name\ can\ no\ longer\ contain\ capital\ letters"{},}
+\DoxyCodeLine{\ \ \ \ "{}name\ can\ no\ longer\ contain\ more\ than\ 214\ characters"{}}
+\DoxyCodeLine{\ \ ]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21700}{}\doxysubsection{\texorpdfstring{Tests}{Tests}}\label{README.md_autotoc_md21700}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install}
+\DoxyCodeLine{npm\ test}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md21701}{}\doxysubsection{\texorpdfstring{License}{License}}\label{README.md_autotoc_md21701}
+ISC 

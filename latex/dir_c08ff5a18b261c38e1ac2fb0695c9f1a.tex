@@ -1,0 +1,217 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/@colors/colors Directory Reference}
+\hypertarget{dir_c08ff5a18b261c38e1ac2fb0695c9f1a}{}\label{dir_c08ff5a18b261c38e1ac2fb0695c9f1a}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/"@colors/colors Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/"@colors/colors Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\href{https://github.com/DABH/colors.js/actions/workflows/ci.yml}{\texttt{ }} \href{https://www.npmjs.org/package/@colors/colors}{\texttt{ }}
+
+Please check out the roadmap for upcoming features and releases. Please open Issues to provide feedback.\hypertarget{README.md_autotoc_md476}{}\doxysubsection{\texorpdfstring{get color and style in your node.\+js console}{get color and style in your node.\+js console}}\label{README.md_autotoc_md476}
+\hypertarget{README.md_autotoc_md477}{}\doxysubsection{\texorpdfstring{Installation}{Installation}}\label{README.md_autotoc_md477}
+\begin{DoxyVerb}npm install @colors/colors
+\end{DoxyVerb}
+\hypertarget{README.md_autotoc_md478}{}\doxysubsection{\texorpdfstring{colors and styles!}{colors and styles!}}\label{README.md_autotoc_md478}
+\hypertarget{README.md_autotoc_md479}{}\doxysubsubsection{\texorpdfstring{text colors}{text colors}}\label{README.md_autotoc_md479}
+
+\begin{DoxyItemize}
+\item black
+\item red
+\item green
+\item yellow
+\item blue
+\item magenta
+\item cyan
+\item white
+\item gray
+\item grey
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md480}{}\doxysubsubsection{\texorpdfstring{bright text colors}{bright text colors}}\label{README.md_autotoc_md480}
+
+\begin{DoxyItemize}
+\item bright\+Red
+\item bright\+Green
+\item bright\+Yellow
+\item bright\+Blue
+\item bright\+Magenta
+\item bright\+Cyan
+\item bright\+White
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md481}{}\doxysubsubsection{\texorpdfstring{background colors}{background colors}}\label{README.md_autotoc_md481}
+
+\begin{DoxyItemize}
+\item bg\+Black
+\item bg\+Red
+\item bg\+Green
+\item bg\+Yellow
+\item bg\+Blue
+\item bg\+Magenta
+\item bg\+Cyan
+\item bg\+White
+\item bg\+Gray
+\item bg\+Grey
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md482}{}\doxysubsubsection{\texorpdfstring{bright background colors}{bright background colors}}\label{README.md_autotoc_md482}
+
+\begin{DoxyItemize}
+\item bg\+Bright\+Red
+\item bg\+Bright\+Green
+\item bg\+Bright\+Yellow
+\item bg\+Bright\+Blue
+\item bg\+Bright\+Magenta
+\item bg\+Bright\+Cyan
+\item bg\+Bright\+White
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md483}{}\doxysubsubsection{\texorpdfstring{styles}{styles}}\label{README.md_autotoc_md483}
+
+\begin{DoxyItemize}
+\item reset
+\item bold
+\item dim
+\item italic
+\item underline
+\item inverse
+\item hidden
+\item strikethrough
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md484}{}\doxysubsubsection{\texorpdfstring{extras}{extras}}\label{README.md_autotoc_md484}
+
+\begin{DoxyItemize}
+\item rainbow
+\item zebra
+\item america
+\item trap
+\item random
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md485}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md485}
+By popular demand, {\ttfamily @colors/colors} now ships with two types of usages!
+
+The super nifty way
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ colors\ =\ require('@colors/colors');}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('hello'.green);\ //\ outputs\ green\ text}
+\DoxyCodeLine{console.log('i\ like\ cake\ and\ pies'.underline.red);\ //\ outputs\ red\ underlined\ text}
+\DoxyCodeLine{console.log('inverse\ the\ color'.inverse);\ //\ inverses\ the\ color}
+\DoxyCodeLine{console.log('OMG\ Rainbows!'.rainbow);\ //\ rainbow}
+\DoxyCodeLine{console.log('Run\ the\ trap'.trap);\ //\ Drops\ the\ bass}
+
+\end{DoxyCode}
+
+
+or a slightly less nifty way which doesn\textquotesingle{}t extend {\ttfamily String.\+prototype}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ colors\ =\ require('@colors/colors/safe');}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(colors.green('hello'));\ //\ outputs\ green\ text}
+\DoxyCodeLine{console.log(colors.red.underline('i\ like\ cake\ and\ pies'));\ //\ outputs\ red\ underlined\ text}
+\DoxyCodeLine{console.log(colors.inverse('inverse\ the\ color'));\ //\ inverses\ the\ color}
+\DoxyCodeLine{console.log(colors.rainbow('OMG\ Rainbows!'));\ //\ rainbow}
+\DoxyCodeLine{console.log(colors.trap('Run\ the\ trap'));\ //\ Drops\ the\ bass}
+
+\end{DoxyCode}
+
+
+I prefer the first way. Some people seem to be afraid of extending {\ttfamily String.\+prototype} and prefer the second way.
+
+If you are writing good code you will never have an issue with the first approach. If you really don\textquotesingle{}t want to touch {\ttfamily String.\+prototype}, the second usage will not touch {\ttfamily String} native object.\hypertarget{README.md_autotoc_md486}{}\doxysubsection{\texorpdfstring{Enabling/\+Disabling Colors}{Enabling/\+Disabling Colors}}\label{README.md_autotoc_md486}
+The package will auto-\/detect whether your terminal can use colors and enable/disable accordingly. When colors are disabled, the color functions do nothing. You can override this with a command-\/line flag\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{node\ myapp.js\ -\/-\/no-\/color}
+\DoxyCodeLine{node\ myapp.js\ -\/-\/color=false}
+\DoxyCodeLine{}
+\DoxyCodeLine{node\ myapp.js\ -\/-\/color}
+\DoxyCodeLine{node\ myapp.js\ -\/-\/color=true}
+\DoxyCodeLine{node\ myapp.js\ -\/-\/color=always}
+\DoxyCodeLine{}
+\DoxyCodeLine{FORCE\_COLOR=1\ node\ myapp.js}
+
+\end{DoxyCode}
+
+
+Or in code\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ colors\ =\ require('@colors/colors');}
+\DoxyCodeLine{colors.enable();}
+\DoxyCodeLine{colors.disable();}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md487}{}\doxysubsection{\texorpdfstring{Console.\+log \href{http://nodejs.org/docs/latest/api/console.html\#console_console_log_data}{\texttt{ string substitution}}}{Console.\+log \href{http://nodejs.org/docs/latest/api/console.html\#console_console_log_data}{\texttt{ string substitution}}}}\label{README.md_autotoc_md487}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ name\ =\ 'Beowulf';}
+\DoxyCodeLine{console.log(colors.green('Hello\ \%s'),\ name);}
+\DoxyCodeLine{//\ outputs\ -\/>\ 'Hello\ Beowulf'}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md488}{}\doxysubsection{\texorpdfstring{Custom themes}{Custom themes}}\label{README.md_autotoc_md488}
+\hypertarget{README.md_autotoc_md489}{}\doxysubsubsection{\texorpdfstring{Using standard API}{Using standard API}}\label{README.md_autotoc_md489}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ colors\ =\ require('@colors/colors');}
+\DoxyCodeLine{}
+\DoxyCodeLine{colors.setTheme(\{}
+\DoxyCodeLine{\ \ silly:\ 'rainbow',}
+\DoxyCodeLine{\ \ input:\ 'grey',}
+\DoxyCodeLine{\ \ verbose:\ 'cyan',}
+\DoxyCodeLine{\ \ prompt:\ 'grey',}
+\DoxyCodeLine{\ \ info:\ 'green',}
+\DoxyCodeLine{\ \ data:\ 'grey',}
+\DoxyCodeLine{\ \ help:\ 'cyan',}
+\DoxyCodeLine{\ \ warn:\ 'yellow',}
+\DoxyCodeLine{\ \ debug:\ 'blue',}
+\DoxyCodeLine{\ \ error:\ 'red'}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ outputs\ red\ text}
+\DoxyCodeLine{console.log("{}this\ is\ an\ error"{}.error);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ outputs\ yellow\ text}
+\DoxyCodeLine{console.log("{}this\ is\ a\ warning"{}.warn);}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md490}{}\doxysubsubsection{\texorpdfstring{Using string safe API}{Using string safe API}}\label{README.md_autotoc_md490}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ colors\ =\ require('@colors/colors/safe');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ set\ single\ property}
+\DoxyCodeLine{var\ error\ =\ colors.red;}
+\DoxyCodeLine{error('this\ is\ red');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ set\ theme}
+\DoxyCodeLine{colors.setTheme(\{}
+\DoxyCodeLine{\ \ silly:\ 'rainbow',}
+\DoxyCodeLine{\ \ input:\ 'grey',}
+\DoxyCodeLine{\ \ verbose:\ 'cyan',}
+\DoxyCodeLine{\ \ prompt:\ 'grey',}
+\DoxyCodeLine{\ \ info:\ 'green',}
+\DoxyCodeLine{\ \ data:\ 'grey',}
+\DoxyCodeLine{\ \ help:\ 'cyan',}
+\DoxyCodeLine{\ \ warn:\ 'yellow',}
+\DoxyCodeLine{\ \ debug:\ 'blue',}
+\DoxyCodeLine{\ \ error:\ 'red'}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ outputs\ red\ text}
+\DoxyCodeLine{console.log(colors.error("{}this\ is\ an\ error"{}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ outputs\ yellow\ text}
+\DoxyCodeLine{console.log(colors.warn("{}this\ is\ a\ warning"{}));}
+
+\end{DoxyCode}
+\hypertarget{README.md_autotoc_md491}{}\doxysubsubsection{\texorpdfstring{Combining Colors}{Combining Colors}}\label{README.md_autotoc_md491}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ colors\ =\ require('@colors/colors');}
+\DoxyCodeLine{}
+\DoxyCodeLine{colors.setTheme(\{}
+\DoxyCodeLine{\ \ custom:\ ['red',\ 'underline']}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log('test'.custom);}
+
+\end{DoxyCode}
+
+
+{\itshape Protip\+: There is a secret undocumented style in {\ttfamily colors}. If you find the style you can summon him.} 

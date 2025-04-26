@@ -1,0 +1,23 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/node-\/forge/flash Directory Reference}
+\hypertarget{dir_6eb66ad06ebac59377a0927c3d0db133}{}\label{dir_6eb66ad06ebac59377a0927c3d0db133}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/node-\/forge/flash Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/node-\/forge/flash Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{README.md_autotoc_md14820}{}\doxysubsection{\texorpdfstring{Socket\+Pool.\+swf}{Socket\+Pool.\+swf}}\label{README.md_autotoc_md14820}
+Some special networking features can optionally use a Flash component. Building the output SWF file requires the \href{https://flex.apache.org/}{\texttt{ Flex SDK}}. A pre-\/built component is included\+: {\ttfamily swf/\+Socket\+Pool.\+swf}.
+
+Building the output SWF requires the {\ttfamily mxmlc} tool from the \href{https://flex.apache.org/}{\texttt{ Flex SDK}}. If that tools is already installed then look in the {\ttfamily package.\+json} file for the commands to rebuild it. If you need the SDK installed, there is a npm module that installs it\+: \begin{DoxyVerb}npm install
+\end{DoxyVerb}
+
+
+To build a regular component\+: \begin{DoxyVerb}npm run build
+\end{DoxyVerb}
+
+
+Additional debug support can be built in with the following\+: \begin{DoxyVerb}npm run build-debug
+\end{DoxyVerb}
+\hypertarget{README.md_autotoc_md14821}{}\doxysubsection{\texorpdfstring{Policy Server}{Policy Server}}\label{README.md_autotoc_md14821}
+Flash support requires the use of a Policy Server.\hypertarget{README.md_autotoc_md14822}{}\doxysubsubsection{\texorpdfstring{Apache Flash Socket Policy Module}{Apache Flash Socket Policy Module}}\label{README.md_autotoc_md14822}
+\href{./mod_fsp}{\texttt{ mod\+\_\+fsp}} provides an \href{http://httpd.apache.org/}{\texttt{ Apache}} module that can serve up a Flash Socket Policy. See {\ttfamily mod\+\_\+fsp/\+README} for more details. This module makes it easy to modify an \href{http://httpd.apache.org/}{\texttt{ Apache}} server to allow cross domain requests to be made to it.\hypertarget{README.md_autotoc_md14823}{}\doxysubsubsection{\texorpdfstring{Simple Python Policy Server}{Simple Python Policy Server}}\label{README.md_autotoc_md14823}
+{\ttfamily policyserver.\+py} provides a very simple test policy server.\hypertarget{README.md_autotoc_md14824}{}\doxysubsubsection{\texorpdfstring{Simple Node.\+js Policy Server}{Simple Node.\+js Policy Server}}\label{README.md_autotoc_md14824}
+{\ttfamily policyserver.\+js} provides a very simple test policy server. If a server is needed for production environments, please use another option such as perhaps \href{https://github.com/bichinger/nodejs_socket_policy_server}{\texttt{ nodejs\+\_\+socket\+\_\+policy\+\_\+server}}. 

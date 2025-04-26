@@ -1,0 +1,124 @@
+\doxysection{gyp.\+generator.\+msvs.\+MSBuild\+Rule Class Reference}
+\hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule}{}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule}\index{gyp.generator.msvs.MSBuildRule@{gyp.generator.msvs.MSBuildRule}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_acde2fceb450cfa33ebaeeac4c618f7f2}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_acde2fceb450cfa33ebaeeac4c618f7f2} 
+{\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, rule, spec)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a8ead7682b66c749509065f789c51b38c}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a8ead7682b66c749509065f789c51b38c} 
+{\bfseries display\+\_\+name} = rule\mbox{[}"{}rule\+\_\+name"{}\mbox{]}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a574537bdf60a9894d740b71d1c590579}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a574537bdf60a9894d740b71d1c590579} 
+{\bfseries rule\+\_\+name} = re.\+sub(r"{}\textbackslash{}\+W"{}, "{}\+\_\+"{}, self.\+display\+\_\+name)
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a131fbb109b3028357fb69ddee418719d}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a131fbb109b3028357fb69ddee418719d} 
+str {\bfseries target\+\_\+name} = "{}\+\_\+"{} + self.\+rule\+\_\+name
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a622716358586eb0dcf6442012f1f60d8}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a622716358586eb0dcf6442012f1f60d8} 
+str {\bfseries after\+\_\+targets} = self.\+rule\+\_\+name + "{}After\+Targets"{}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a0eac1d2ee50c1bc9a2ac53ff43819fe7}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a0eac1d2ee50c1bc9a2ac53ff43819fe7} 
+str {\bfseries before\+\_\+targets} = self.\+rule\+\_\+name + "{}Before\+Targets"{}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a00d27c1779c5fe031b1d350b738a616d}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a00d27c1779c5fe031b1d350b738a616d} 
+str {\bfseries depends\+\_\+on} = self.\+rule\+\_\+name + "{}Depends\+On"{}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a4a56525ef0ad2d21852d02d2cca9fe3e}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a4a56525ef0ad2d21852d02d2cca9fe3e} 
+str {\bfseries compute\+\_\+output} = "{}Compute\%s\+Output"{} \% self.\+rule\+\_\+name
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a7d4da251fb5c1b4f3e751b25ec937e0e}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a7d4da251fb5c1b4f3e751b25ec937e0e} 
+str {\bfseries dirs\+\_\+to\+\_\+make} = self.\+rule\+\_\+name + "{}Dirs\+To\+Make"{}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a927956b488e80806dd093fb6926ef011}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a927956b488e80806dd093fb6926ef011} 
+str {\bfseries inputs} = self.\+rule\+\_\+name + "{}\+\_\+inputs"{}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a1c698d3bc42a188ccce448299f6ec47a}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a1c698d3bc42a188ccce448299f6ec47a} 
+str {\bfseries tlog} = self.\+rule\+\_\+name + "{}\+\_\+tlog"{}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_ad281a2d3ef3b85db200570e320037ebf}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_ad281a2d3ef3b85db200570e320037ebf} 
+str {\bfseries extension} = rule\mbox{[}"{}extension"{}\mbox{]}
+\item 
+\mbox{\hyperlink{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a7eb9ed9d84dba860cac5491d6d77596d}{description}}
+\item 
+str \mbox{\hyperlink{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a6181b968dc035903ee1f0ab91fbbcef2}{additional\+\_\+dependencies}}
+\item 
+str \mbox{\hyperlink{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a4fc525859bb11162fe799fc13563507d}{outputs}}
+\item 
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a27d8a508410e106cb09589227c0d81d5}\label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a27d8a508410e106cb09589227c0d81d5} 
+{\bfseries command} = \mbox{\hyperlink{namespacegyp_1_1_m_s_v_s_settings_a46c372a61c82b0b8b9c57a5275126ecd}{MSVSSettings.\+Convert\+VCMacros\+To\+MSBuild}}(old\+\_\+command)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Used to store information used to generate an MSBuild rule.
+
+Attributes:
+rule_name: The rule name, sanitized to use in XML.
+target_name: The name of the target.
+after_targets: The name of the AfterTargets element.
+before_targets: The name of the BeforeTargets element.
+depends_on: The name of the DependsOn element.
+compute_output: The name of the ComputeOutput element.
+dirs_to_make: The name of the DirsToMake element.
+inputs: The name of the _inputs element.
+tlog: The name of the _tlog element.
+extension: The extension this rule applies to.
+description: The message displayed when this rule is invoked.
+additional_dependencies: A string listing additional dependencies.
+outputs: The outputs of this rule.
+command: The command used to run the rule.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a6181b968dc035903ee1f0ab91fbbcef2}\index{gyp.generator.msvs.MSBuildRule@{gyp.generator.msvs.MSBuildRule}!additional\_dependencies@{additional\_dependencies}}
+\index{additional\_dependencies@{additional\_dependencies}!gyp.generator.msvs.MSBuildRule@{gyp.generator.msvs.MSBuildRule}}
+\doxysubsubsection{\texorpdfstring{additional\_dependencies}{additional\_dependencies}}
+{\footnotesize\ttfamily \label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a6181b968dc035903ee1f0ab91fbbcef2} 
+str gyp.\+generator.\+msvs.\+MSBuild\+Rule.\+additional\+\_\+dependencies}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ \textcolor{stringliteral}{"{};"{}}.join(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MSVSSettings.ConvertVCMacrosToMSBuild(i)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ old\_additional\_dependencies}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a7eb9ed9d84dba860cac5491d6d77596d}\index{gyp.generator.msvs.MSBuildRule@{gyp.generator.msvs.MSBuildRule}!description@{description}}
+\index{description@{description}!gyp.generator.msvs.MSBuildRule@{gyp.generator.msvs.MSBuildRule}}
+\doxysubsubsection{\texorpdfstring{description}{description}}
+{\footnotesize\ttfamily \label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a7eb9ed9d84dba860cac5491d6d77596d} 
+gyp.\+generator.\+msvs.\+MSBuild\+Rule.\+description}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ MSVSSettings.ConvertVCMacrosToMSBuild(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ rule.get(\textcolor{stringliteral}{"{}message"{}},\ self.rule\_name)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a4fc525859bb11162fe799fc13563507d}\index{gyp.generator.msvs.MSBuildRule@{gyp.generator.msvs.MSBuildRule}!outputs@{outputs}}
+\index{outputs@{outputs}!gyp.generator.msvs.MSBuildRule@{gyp.generator.msvs.MSBuildRule}}
+\doxysubsubsection{\texorpdfstring{outputs}{outputs}}
+{\footnotesize\ttfamily \label{classgyp_1_1generator_1_1msvs_1_1_m_s_build_rule_a4fc525859bb11162fe799fc13563507d} 
+str gyp.\+generator.\+msvs.\+MSBuild\+Rule.\+outputs}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ \textcolor{stringliteral}{"{};"{}}.join(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ [MSVSSettings.ConvertVCMacrosToMSBuild(i)\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ old\_outputs]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/foodlink.\+client/node\+\_\+modules/node-\/gyp/gyp/pylib/gyp/generator/msvs.\+py\end{DoxyCompactItemize}

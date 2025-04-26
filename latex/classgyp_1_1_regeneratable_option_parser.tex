@@ -1,0 +1,50 @@
+\doxysection{gyp.\+Regeneratable\+Option\+Parser Class Reference}
+\hypertarget{classgyp_1_1_regeneratable_option_parser}{}\label{classgyp_1_1_regeneratable_option_parser}\index{gyp.RegeneratableOptionParser@{gyp.RegeneratableOptionParser}}
+Inheritance diagram for gyp.\+Regeneratable\+Option\+Parser\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgyp_1_1_regeneratable_option_parser}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1_regeneratable_option_parser_ab63ca3f4452d66ec20aea4ddc604194c}\label{classgyp_1_1_regeneratable_option_parser_ab63ca3f4452d66ec20aea4ddc604194c} 
+{\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, usage)
+\item 
+\mbox{\hyperlink{classgyp_1_1_regeneratable_option_parser_afd1d9e7d428ea7cb45fa7f180feeef67}{add\+\_\+argument}} (self, \texorpdfstring{$\ast$}{*}args, \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}kw)
+\item 
+\Hypertarget{classgyp_1_1_regeneratable_option_parser_a1b9261a7128f715ea80526f74133aa45}\label{classgyp_1_1_regeneratable_option_parser_a1b9261a7128f715ea80526f74133aa45} 
+{\bfseries parse\+\_\+args} (self, \texorpdfstring{$\ast$}{*}args)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgyp_1_1_regeneratable_option_parser_a86cdfb4c760d2190949c3a2700f74c8c}\label{classgyp_1_1_regeneratable_option_parser_a86cdfb4c760d2190949c3a2700f74c8c} 
+dict {\bfseries \+\_\+\+\_\+regeneratable\+\_\+options} = \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgyp_1_1_regeneratable_option_parser_afd1d9e7d428ea7cb45fa7f180feeef67}\index{gyp.RegeneratableOptionParser@{gyp.RegeneratableOptionParser}!add\_argument@{add\_argument}}
+\index{add\_argument@{add\_argument}!gyp.RegeneratableOptionParser@{gyp.RegeneratableOptionParser}}
+\doxysubsubsection{\texorpdfstring{add\_argument()}{add\_argument()}}
+{\footnotesize\ttfamily \label{classgyp_1_1_regeneratable_option_parser_afd1d9e7d428ea7cb45fa7f180feeef67} 
+gyp.\+Regeneratable\+Option\+Parser.\+add\+\_\+argument (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{\texorpdfstring{$\ast$}{*}}]{args}{, }\item[{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{kw}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Add an option to the parser.
+
+This accepts the same arguments as ArgumentParser.add_argument, plus the
+following:
+regenerate: can be set to False to prevent this option from being included
+          in regeneration.
+env_name: name of environment variable that additional values for this
+        option come from.
+type: adds type='path', to tell the regenerator that the values of
+    this option need to be made relative to options.depth
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+GIT/\+Food\+Link/foodlink.\+client/node\+\_\+modules/node-\/gyp/gyp/pylib/gyp/\+\_\+\+\_\+init\+\_\+\+\_\+.\+py\end{DoxyCompactItemize}

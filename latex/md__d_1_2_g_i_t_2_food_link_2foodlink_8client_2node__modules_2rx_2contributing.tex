@@ -1,0 +1,183 @@
+\chapter{Contributing to Rx\+JS}
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing}{}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing}\index{Contributing to RxJS@{Contributing to RxJS}}
+\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17872}%
+\Hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17872}%
+
+
+Want to contribute to the Reactive Extensions for Java\+Script (Rx\+JS)? There are many ways of helping whether contributing code, documentation, examples, podcasts, videos and presentations.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17873}{}\doxysection{\texorpdfstring{Get Involved!}{Get Involved!}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17873}
+In \href{https://github.com/Reactive-Extensions/RxJS/issues}{\texttt{ the issue tracker}}, bugs can only be assigned to people who have commit access. Also, we aspire to make as many bugs as possible "{}owned"{} by assigning them to a core Rx contributor. Therefore, just because a bug is assigned doesn\textquotesingle{}t mean it\textquotesingle{}s being actively worked on. We (the core contributors) are all busy, and welcome help from the community. If you see a bug you\textquotesingle{}d like to work on that\textquotesingle{}s assigned but appears to be dormant, communicate with the bug\textquotesingle{}s owner with an -\/reply in a comment on the issue page. If you see a bug you\textquotesingle{}d like to work on that\textquotesingle{}s unassigned, it\textquotesingle{}s fair game\+: comment to say you\textquotesingle{}d like to work on it so that we know it\textquotesingle{}s getting attention.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17874}{}\doxysection{\texorpdfstring{Pull Requests}{Pull Requests}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17874}
+To make a pull request, you will need a Git\+Hub account; if you\textquotesingle{}re unclear on this process, see Git\+Hub\textquotesingle{}s documentation on \href{https://help.github.com/articles/fork-a-repo/}{\texttt{ forking}} and \href{https://help.github.com/articles/using-pull-requests}{\texttt{ pull requests}}. Pull requests should be targeted at Rx\+JS\textquotesingle{}s master branch. Before pushing to your Github repo and issuing the pull request, please do two things\+:
+
+
+\begin{DoxyEnumerate}
+\item Rebase your local changes against the master branch. Resolve any conflicts that arise.
+\item Run the full Rx\+JS test suite by running {\ttfamily grunt} in the root of the repository.
+\end{DoxyEnumerate}
+
+Pull requests will be treated as "{}review requests"{}, and we will give feedback we expect to see corrected on style and substance before pulling. Changes contributed via pull request should focus on a single issue at a time, like any other. We will not look kindly on pull-\/requests that try to "{}sneak"{} unrelated changes in. Note for bug fixes, regression tests should be included, denoted by Issue Number so that we have full traceability. ~\newline
+\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17875}{}\doxysection{\texorpdfstring{What Are We Looking For?}{What Are We Looking For?}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17875}
+For documentation, we are looking for the following\+:
+\begin{DoxyItemize}
+\item API Documentation that is missing or out of date
+\item "{}\+How Do I?"{} examples
+\item Comparison to other libraries
+\item Comparison to Promises
+\item Introduction material
+\item Tutorials
+\end{DoxyItemize}
+
+For coding, we have strict standards that must be adhere to when working on Rx\+JS. In order for us to accept pull requests, they must abide by the following\+:
+\begin{DoxyItemize}
+\item Coding Standard
+\item Tests
+\item \doxylink{README.md_documentation}{Documentation}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17876}{}\doxysubsection{\texorpdfstring{Coding Standard}{Coding Standard}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17876}
+For Rx\+JS, we follow the \href{http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml}{\texttt{ Google Java\+Script Style Guide}} and adhere to it strictly in areas such as documentation using JSDoc. The only exception to extending native prototypes is to polyfill behavior which may not exist in all browsers yet, for example, many of the \href{http://blogs.msdn.com/b/ie/archive/2010/12/13/ecmascript-5-part-2-array-extras.aspx}{\texttt{ Array\#extras}} are implemented in compatibility builds. We also strictly follow \href{https://github.com/Reactive-Extensions/RxJS/tree/master/doc/designguidelines}{\texttt{ our design guidelines}} as well.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17877}{}\doxysubsubsection{\texorpdfstring{Supporting Multiple Platforms}{Supporting Multiple Platforms}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17877}
+Rx\+JS runs on a number of platforms and supports many styles of programming. Rx\+JS supports \href{https://github.com/umdjs/umd}{\texttt{ Universal Module Definition (UMD)}} which allows the library to work in a number of environments such as \href{https://github.com/amdjs/amdjs-api/wiki/AMD}{\texttt{ Asynchronous Module Definition (AMD)}}, \href{http://wiki.commonjs.org/wiki/CommonJS}{\texttt{ Common\+JS}}, \href{http://nodejs.org}{\texttt{ Node.\+js}}, \href{http://ringojs.org/}{\texttt{ Ringo\+JS}}, \href{https://github.com/280north/narwhal}{\texttt{ Narwhal}}, the browser and other environments such as \href{http://msdn.microsoft.com/en-us/library/9bbdkx3k.aspx}{\texttt{ Windows Script Host (WSH)}} and embedded devices such as \href{http://tessel.io}{\texttt{ Tessel}}.
+
+Rx\+JS is committed to using the latest Java\+Script standards as they start to arrive, for example, supporting generators, Maps, Sets, and Observable versions of new Array methods. We also are committed to supporting legacy code as well through compatibility builds, even supporting browsers back to IE6, Firefox 3, and older versions of Node.\+js. Should behavior not exist in those platforms, that behavior must be polyfilled, and made available in {\ttfamily \texorpdfstring{$\ast$}{*}.compat.\+js} files only. For example, we have {\ttfamily rx.\+lite.\+js} which supports modern browsers greater than or equal to IE9, and {\ttfamily rx.\+lite.\+compat.\+js} for older browsers before IE9 and modern Firefox builds. In special cases such as event handling is different, we must provide a mainstream version of the file as well as a compat file, the latter which is included in the compat file.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17878}{}\doxysubsubsection{\texorpdfstring{Implementing Custom Operators}{Implementing Custom Operators}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17878}
+We welcome custom operators to Rx\+JS if they make sense in the core Rx\+JS, as opposed to belonging in user land. There are a number of rules that must be adhered to when implementing a custom operator including\+:
+\begin{DoxyItemize}
+\item Prefer composition over implementing a totally new operator from scratch
+\item If the operator introduces any notion of concurrency, then a scheduler must introduced. Usage of concurrency primitives such as {\ttfamily set\+Timeout}, {\ttfamily set\+Interval}, etc are forbidden. This is to ensure easy testability. ~\newline
+
+\begin{DoxyItemize}
+\item The scheduler must be optional with the appropriate default picked
+\begin{DoxyItemize}
+\item {\ttfamily Rx.\+Scheduler.\+immediate} for any immediate blocking operations
+\item {\ttfamily Rx.\+Scheduler.\+current\+Thread} for any immediate blocking operators that require re-\/entrant behavior such as recursive scheduling.
+\item {\ttfamily Rx.\+Scheduler.\+timeout} for any operator that has a notion of time ~\newline
+
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+To make this concrete, let\textquotesingle{}s implement a custom operator such as an implementation of {\ttfamily \+\_\+.\+reject} from \href{http://underscorejs.org/}{\texttt{ Underscore.\+js}} / \href{http://lodash.com/}{\texttt{ Lo-\/\+Dash}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ The\ opposite\ of\ \_.filter\ this\ method\ returns\ the\ elements\ of\ a\ collection\ that\ the\ callback\ does\ **not**\ return\ truthy\ for.}
+\DoxyCodeLine{\ *\ @param\ \{Function\}\ [callback]\ The\ function\ called\ per\ iteration.}
+\DoxyCodeLine{\ *\ @param\ \{Any\}\ [thisArg]\ The\ this\ binding\ of\ callback.}
+\DoxyCodeLine{\ *\ @returns\ \{Observable\}\ An\ Observable\ sequence\ which\ contains\ items\ that\ the\ callback\ does\ not\ return\ truthy\ for.}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{Rx.Observable.prototype.reject\ =\ function\ (callback,\ thisArg)\ \{}
+\DoxyCodeLine{\ \ callback\ ||\ (callback\ =\ Rx.helpers.identity);}
+\DoxyCodeLine{\ \ var\ source\ =\ this;}
+\DoxyCodeLine{\ \ return\ new\ Rx.AnonymousObservable(function\ (observer)\ \{}
+\DoxyCodeLine{\ \ \ \ var\ i\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ return\ source.subscribe(}
+\DoxyCodeLine{\ \ \ \ \ \ function\ (x)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ noYield\ =\ true;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ try\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ noYield\ =\ callback.call(thisArg,\ x,\ i++,\ source);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ catch\ (e)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ observer.onError(e);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ return;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (!noYield)\ \{\ observer.onNext(x);\ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ observer.onError.bind(observer),}
+\DoxyCodeLine{\ \ \ \ \ \ observer.onCompleted.bind(observer)}
+\DoxyCodeLine{\ \ \ \ );}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+Of course, we could have implemented this using composition as well, such as using {\ttfamily Rx.\+Observable.\+prototype.\+filter}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ The\ opposite\ of\ \_.filter\ this\ method\ returns\ the\ elements\ of\ a\ collection\ that\ the\ callback\ does\ **not**\ return\ truthy\ for.}
+\DoxyCodeLine{\ *\ @param\ \{Function\}\ [callback]\ The\ function\ called\ per\ iteration.}
+\DoxyCodeLine{\ *\ @param\ \{Any\}\ [thisArg]\ The\ this\ binding\ of\ callback.}
+\DoxyCodeLine{\ *\ @returns\ \{Observable\}\ An\ Observable\ sequence\ which\ contains\ items\ that\ the\ callback\ does\ not\ return\ truthy\ for.}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{Rx.Observable.prototype.reject\ =\ function\ (callback,\ thisArg)\ \{}
+\DoxyCodeLine{\ \ callback\ ||\ (callback\ =\ Rx.helpers.identity);}
+\DoxyCodeLine{\ \ return\ this.filter(function\ (x,\ i,\ o)\ \{\ return\ !callback.call(thisArg,\ x,\ i\ o);\ \});}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+To show an operator that introduces a level of concurrency, let\textquotesingle{}s implement a custom operator such as an implementation of {\ttfamily \+\_\+.\+pairs} from \href{http://underscorejs.org/}{\texttt{ Underscore.\+js}} / \href{http://lodash.com/}{\texttt{ Lo-\/\+Dash}}. Note that since this requires recursion to implement properly, we\textquotesingle{}ll use the {\ttfamily Rx.\+Scheduler.\+current\+Thread} scheduler.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ keysFunction\ =\ Object.keys\ ||\ someKeysPolyfill;}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Creates\ an\ Observable\ with\ an\ of\ an\ object’s\ key-\/value\ pairs.}
+\DoxyCodeLine{\ *\ @param\ \{Object\}\ obj\ The\ object\ to\ inspect.}
+\DoxyCodeLine{\ *\ @returns\ \{Observable\}\ An\ Observable\ with\ an\ of\ an\ object’s\ key-\/value\ pairs.}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{Rx.Observable.pairs\ =\ function\ (obj,\ scheduler)\ \{}
+\DoxyCodeLine{\ \ scheduler\ ||\ (scheduler\ =\ Rx.Scheduler.currentThread);}
+\DoxyCodeLine{\ \ return\ new\ Rx.AnonymousObservable(function\ (observer)\ \{}
+\DoxyCodeLine{\ \ \ \ var\ keys\ =\ keysFunction(object),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ i\ =\ 0,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ len\ =\ keys.length;}
+\DoxyCodeLine{\ \ \ \ return\ scheduler.scheduleRecursive(function\ (self)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ if\ (i\ <\ len)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ var\ key\ =\ keys[i++],\ value\ =\ obj[key];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ observer.onNext([key,\ value]);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ self();}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ observer.onCompleted();}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+Note that all operators must have the documentation and must be split out into its own file. This allows us to be able to put it in different files, or make it available in custom builds.\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17879}{}\doxysubsection{\texorpdfstring{Tests}{Tests}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17879}
+When a new operator is written for Rx\+JS, in order to accepted, must be accompanied by tests. Rx\+JS currently uses \href{http://qunitjs.com/}{\texttt{ QUnit}} as a straight forward way to test our code. These tests are automatically executed by our \href{http://gruntjs.com/}{\texttt{ Grunt}} setup to concatenate files, minimize, create source maps, and finally run all the tests in the \href{https://github.com/Reactive-Extensions/RxJS/tree/master/tests}{\texttt{ tests folder}}. Each file that we produce, for example, {\ttfamily rx.\+js} has an accompanying test file such as {\ttfamily rx.\+html}, which includes tests for all operators included in that file. ~\newline
+
+
+Each operator under test must be in its own file to cover the following cases\+:
+\begin{DoxyItemize}
+\item Never
+\item Empty
+\item Single/\+Multiple Values
+\item Error in the sequence
+\item Never ending sequences
+\item Early disposal in sequences
+\end{DoxyItemize}
+
+If the operator has a callback, then it must cover the following cases\+:
+\begin{DoxyItemize}
+\item Success with all values in the callback
+\item Success with the context, if any allowed in the operator signature
+\item If an error is thrown
+\end{DoxyItemize}
+
+To get a good feeling on what kind of rigor is required for testing, check out the following examples\+:
+\begin{DoxyItemize}
+\item \href{https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/concatmap.js}{\texttt{ {\ttfamily concat\+Map}}}
+\item \href{https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/from.js}{\texttt{ {\ttfamily from}}}
+\end{DoxyItemize}\hypertarget{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17880}{}\doxysubsection{\texorpdfstring{Documentation}{Documentation}}\label{md__d_1_2_g_i_t_2_food_link_2foodlink_8client_2node__modules_2rx_2contributing_autotoc_md17880}
+Documentation is also a must, as all external operators and types must be documented and put in the \href{https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api}{\texttt{ API Folder}}. Each operator on an Observable must have its own file in the \href{https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators}{\texttt{ Operators Folder}}.
+
+For operators, they must be linked from the \href{https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md}{\texttt{ {\ttfamily Observable}}} API document. In addition, each operator must be listed in which file it belongs in the \href{https://github.com/Reactive-Extensions/RxJS/tree/master/doc/libraries}{\texttt{ Libraries Folder}}.
+
+The standard format of operators must be such as the \href{https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/of.md}{\texttt{ {\ttfamily of}}} operator which includes\+:
+\begin{DoxyItemize}
+\item File Location
+\item Method signature
+\item Method description
+\item List of Arguments
+\item Return type (if there is one)
+\item An example
+\item File Distribution(s)
+\item Nu\+Get Distribution
+\item NPM Distribution
+\item Unit Tests 
+\end{DoxyItemize}

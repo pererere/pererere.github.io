@@ -1,0 +1,95 @@
+\doxysection{D\+:/\+GIT/\+Food\+Link/foodlink.client/node\+\_\+modules/bs-\/recipes/recipes/gulp.browserify Directory Reference}
+\hypertarget{dir_7c926dec9118799777068312452e9f6d}{}\label{dir_7c926dec9118799777068312452e9f6d}\index{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/gulp.browserify Directory Reference@{D:/GIT/FoodLink/foodlink.client/node\_modules/bs-\/recipes/recipes/gulp.browserify Directory Reference}}
+
+
+\doxysubsection{Detailed Description}
+\#\+Browsersync -\/ Browserify, Babelify + Watchify + Sourcemaps Example\hypertarget{readme.md_autotoc_md3512}{}\doxysubsubsection{\texorpdfstring{Installation/\+Usage\+:}{Installation/\+Usage\+:}}\label{readme.md_autotoc_md3512}
+To try this example, follow these 4 simple steps.
+
+{\bfseries{Step 1}}\+: Clone this entire repo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ git\ clone\ https://github.com/Browsersync/recipes.git\ bs-\/recipes}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 2}}\+: Move into the directory containing this example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ cd\ bs-\/recipes/recipes/gulp.browserify}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 3}}\+: Install dependencies 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install}
+
+\end{DoxyCode}
+
+
+{\bfseries{Step 4}}\+: Run the example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ start}
+
+\end{DoxyCode}
+\hypertarget{readme.md_autotoc_md3513}{}\doxysubsubsubsection{\texorpdfstring{Additional Info\+:}{Additional Info\+:}}\label{readme.md_autotoc_md3513}
+This one is a beast. Write your React JSX code, in ES6, compiled by Browserify and auto-\/reload all devices when the compilation is complete.\hypertarget{readme.md_autotoc_md3514}{}\doxysubsubsubsection{\texorpdfstring{Preview of {\ttfamily gulpfile.\+js}\+:}{Preview of {\ttfamily gulpfile.\+js}\+:}}\label{readme.md_autotoc_md3514}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ gulp\ \ \ \ \ \ \ \ =\ require('gulp');}
+\DoxyCodeLine{var\ gutil\ \ \ \ \ \ \ =\ require('gulp-\/util');}
+\DoxyCodeLine{var\ source\ \ \ \ \ \ =\ require('vinyl-\/source-\/stream');}
+\DoxyCodeLine{var\ babelify\ \ \ \ =\ require('babelify');}
+\DoxyCodeLine{var\ watchify\ \ \ \ =\ require('watchify');}
+\DoxyCodeLine{var\ exorcist\ \ \ \ =\ require('exorcist');}
+\DoxyCodeLine{var\ browserify\ \ =\ require('browserify');}
+\DoxyCodeLine{var\ browserSync\ =\ require('browser-\/sync').create();}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Watchify\ args\ contains\ necessary\ cache\ options\ to\ achieve\ fast\ incremental\ bundles.}
+\DoxyCodeLine{//\ See\ watchify\ readme\ for\ details.\ Adding\ debug\ true\ for\ source-\/map\ generation.}
+\DoxyCodeLine{watchify.args.debug\ =\ true;}
+\DoxyCodeLine{//\ Input\ file.}
+\DoxyCodeLine{var\ bundler\ =\ watchify(browserify('./app/js/app.js',\ watchify.args));}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Babel\ transform}
+\DoxyCodeLine{bundler.transform(babelify.configure(\{}
+\DoxyCodeLine{\ \ \ \ sourceMapRelative:\ 'app/js'}
+\DoxyCodeLine{\}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ On\ updates\ recompile}
+\DoxyCodeLine{bundler.on('update',\ bundle);}
+\DoxyCodeLine{}
+\DoxyCodeLine{function\ bundle()\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ gutil.log('Compiling\ JS...');}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ return\ bundler.bundle()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .on('error',\ function\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ gutil.log(err.message);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ browserSync.notify("{}Browserify\ Error!"{});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ this.emit("{}end"{});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(exorcist('app/js/dist/bundle.js.map'))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(source('bundle.js'))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(gulp.dest('./app/js/dist'))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .pipe(browserSync.stream(\{once:\ true\}));}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ Gulp\ task\ alias}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('bundle',\ function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ return\ bundle();}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ First\ bundle,\ then\ serve\ from\ the\ ./app\ directory}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{gulp.task('default',\ ['bundle'],\ function\ ()\ \{}
+\DoxyCodeLine{\ \ \ \ browserSync.init(\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ server:\ "{}./app"{}}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+ 
